@@ -87,6 +87,20 @@ archive { 'C:/tools/chromedriver_win32.zip':
   cleanup      => true,
 }
 
+# The JetBrains redistributable version of MSBuild.
+# https://blog.jetbrains.com/dotnet/2018/04/13/introducing-jetbrains-redistributable-msbuild/
+file { 'C:/tools/msbuild':
+  ensure => 'directory'
+}
+-> archive { 'C:/tools/chromedriver_win32.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools/msbuild',
+  source       => 'http://jb.gg/msbuild',
+  creates      => 'C:/tools/msbuild/MSBuild/15.0/Bin/MSBuild.exe',
+  cleanup      => true,
+}
+
 file { 'C:/install':
   ensure => 'directory'
 }
