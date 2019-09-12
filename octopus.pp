@@ -30,6 +30,11 @@ package { 'microsoft-build-tools':
   provider => chocolatey
 }
 
+package { 'googlechrome':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 /*
 package { 'docker-desktop':
   ensure   => installed,
@@ -73,6 +78,19 @@ package { 'awscli':
 */
 
 # DOWNLOAD DEPENDENCIES
+
+file { 'C:/tools':
+  ensure => 'directory'
+}
+
+archive { 'C:/tools/chromedriver_win32.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools',
+  source       => 'chromedriver_win32.zip',
+  creates      => 'C:/tools/chromedriver.exe',
+  cleanup      => true,
+}
 
 file { 'C:/install':
   ensure => 'directory'

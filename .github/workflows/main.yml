@@ -7,5 +7,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Prepare Puppet
       run: powershell ./prepare.ps1
-    - name: Run a one-line script
-      run: "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply octopus.pp --disable_warnings=deprecations
+    - name: Execute puppet
+      run: '"C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply octopus.pp --disable_warnings=deprecations'
