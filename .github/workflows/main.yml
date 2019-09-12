@@ -9,3 +9,5 @@ jobs:
       run: powershell ./prepare.ps1
     - name: Execute puppet
       run: '"C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply octopus.pp --disable_warnings=deprecations'
+    - name: Display logs
+      run: echo C:\ProgramData\chocolatey\logs\chocolatey.log
