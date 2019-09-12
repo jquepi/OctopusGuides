@@ -87,7 +87,7 @@ archive { 'C:/tools/chromedriver_win32.zip':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/tools',
-  source       => 'chromedriver_win32.zip',
+  source       => 'https://chromedriver.storage.googleapis.com/78.0.3904.11/chromedriver_win32.zip',
   creates      => 'C:/tools/chromedriver.exe',
   cleanup      => true,
 }
