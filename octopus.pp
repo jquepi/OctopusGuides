@@ -134,9 +134,14 @@ file { 'C:/install/system.componentmodel.annotations.4.1.0':
 
 # CONFIGURE OCTOPUS
 
-package { 'sql-server-express':
-  ensure   => installed,
-  provider => chocolatey
+docker::image { 'microsoft/mssql-server-windows-express':
+  image_tag => '2017-latest'
+}
+-> docker::run { 'mssql':
+  image   => 'microsoft/mssql-server-windows-express',
+  env     => ['ACCEPT_EULA=Y', 'sa_password=Password01!'],
+  ports   => ['1433'],
+  expose   => ['1433'],
 }
 -> package { 'octopusdeploy':
   ensure   => installed,
