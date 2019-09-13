@@ -92,7 +92,7 @@ archive { 'C:/tools/chromedriver_win32.zip':
 file { 'C:/tools/msbuild':
   ensure => 'directory'
 }
--> archive { 'C:/tools/chromedriver_win32.zip':
+-> archive { 'C:/tools/msbuild.zip':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/tools/msbuild',
