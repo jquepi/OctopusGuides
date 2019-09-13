@@ -10,7 +10,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I dump the aliases
     And I set the default explicit wait time to "30" seconds
     And I open the shared browser "FirefoxNoImplicitWait"
-    And I set the window size to "1024" x "768"
+    And I maximize the window
     And I start recording the screen to the directory "C:\screenshots"
     When I open the URL "http://localhost:8080"
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box
