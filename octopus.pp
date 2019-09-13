@@ -60,6 +60,11 @@ package { 'kubernetes-cli':
   provider => chocolatey
 }
 
+package { 'awscli':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 /*
 package { 'nodejs':
   ensure   => installed,
@@ -77,11 +82,6 @@ package { 'docker-cli':
 }
 
 package { 'minikube':
-  ensure   => installed,
-  provider => chocolatey
-}
-
-package { 'awscli':
   ensure   => installed,
   provider => chocolatey
 }
