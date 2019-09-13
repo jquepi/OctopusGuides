@@ -50,11 +50,6 @@ package { 'dotnetcore-sdk':
   provider => chocolatey
 }
 
-package { 'nodejs':
-  ensure   => installed,
-  provider => chocolatey
-}
-
 package { 'kubernetes-helm':
   ensure   => installed,
   provider => chocolatey
@@ -66,6 +61,11 @@ package { 'kubernetes-cli':
 }
 
 /*
+package { 'nodejs':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 package { 'docker-desktop':
   ensure   => installed,
   provider => chocolatey
@@ -115,7 +115,7 @@ archive { 'C:/tools/geckodriver-v0.25.0-win64.zip':
 
 download_file { 'webdrivertraining-1.0-SNAPSHOT.jar':
   destination_directory  => 'C:/tools',
-  url => 'https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.2/webdrivertraining-1.0-SNAPSHOT.jar',
+  url => 'https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.3/webdrivertraining-1.0-SNAPSHOT.jar',
 }
 
 file { 'C:/install':

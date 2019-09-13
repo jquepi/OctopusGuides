@@ -10,3 +10,5 @@ jobs:
       run: powershell ./prepare.ps1
     - name: Execute puppet
       run: '"C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply octopus.pp --disable_warnings=deprecations'
+    - name: Run feature
+      run: java -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar features\jenkins-aspnet-git.feature
