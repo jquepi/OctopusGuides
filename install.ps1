@@ -4,6 +4,7 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
     & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" module install puppet/windows_env
     & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" module install puppet/download_file
     & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" module install puppet-archive --version 3.2.1
+    & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply octopus.pp --disable_warnings=deprecations
 } else {
     Write-Error "Could not find the Puppet agent executable. Make sure the script was run from an administrative Powershell session."
 }
