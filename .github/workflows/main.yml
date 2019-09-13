@@ -9,4 +9,9 @@ jobs:
     - name: Execute puppet
       run: powershell ./install.ps1
     - name: Run feature
-      run: java -Dwebdriver.gecko.driver=C:\tools\geckodriver.exe -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar features\jenkins-aspnet-git.feature
+      run: >
+        java
+        -Dwebdriver.gecko.driver=C:\tools\geckodriver.exe
+        -Dwebdriver.firefox.logfile=C:\firefox.log
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        features\jenkins-aspnet-git.feature
