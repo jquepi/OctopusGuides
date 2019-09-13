@@ -25,7 +25,7 @@ package { 'terraform':
   provider => chocolatey
 }
 
-package { 'jre8':
+package { 'jdk8':
   ensure   => installed,
   provider => chocolatey
 }
