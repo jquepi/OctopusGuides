@@ -1,4 +1,6 @@
 Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus instance
+
+  @login
   Scenario: Log into Jenkins
     Given I set the following aliases:
       | Username | #j_username |
@@ -14,6 +16,23 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Password" text box with the text "Password01!"
     And I click the "Sign In" button
     Then I verify the text from the "Profile Name" element matches the regex "jenkinsadmin"
+
+  @plugin-install
+  Scenario: Install plugins
+    Given I set the following aliases:
+      | Manage Jenkins | #tasks > div:nth-child(4) > a.task-link |
+      | Manage Plugins | #main-panel > div:nth-child(9) > a      |
+      | Available      | #main-panel > form > div.tabBarFrame > div.tabBar > div:nth-child(2) > a |
+      | Filter         | #filter-box                                                              |
+      | MSBuild Plugin | #plugins > tbody > tr:nth-child(6) > td:nth-child(1) > input[type=checkbox] |
+      | Install without restart | #yui-gen2-button                                                   |
+    And I click the "Manage Jenkins" link
+    And I click the "Manage Plugins" link
+    And I click the "Available" tab
+    And I populate the "Filter" text box with the text "MSBuild"
+    And I click the "MSBuild Plugin" checkbox
+    And I click the "Install without restart" button
+    And I wait "20" seconds
 
   Scenario: Shutdown
     And I close the browser
