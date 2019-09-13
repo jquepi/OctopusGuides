@@ -95,6 +95,15 @@ file { 'C:/tools':
   ensure => 'directory'
 }
 
+archive { 'C:/tools/ungoogled-chromium-77.0.3865.75-1_windows.7z':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools',
+  source       => 'https://github.com/macchrome/winchrome/releases/download/v77.0.3865.75-r681094-Win64/ungoogled-chromium-77.0.3865.75-1_windows.7z',
+  creates      => 'C:/tools/ungoogled-chromium-77.0.3865.75-1_windows/chrome.exe',
+  cleanup      => true,
+}
+
 archive { 'C:/tools/chromedriver_win32.zip':
   ensure       => present,
   extract      => true,
