@@ -9,7 +9,7 @@ jobs:
     - name: Prepare Puppet
       run: powershell ./prepare.ps1
     - name: Execute puppet
-      run: 'runas /profile /user:administrator "\"C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply octopus.pp --disable_warnings=deprecations\"'
+      run: '"C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply octopus.pp --disable_warnings=deprecations'
     - name: Display logs
       run: cat C:\ProgramData\chocolatey\logs\chocolatey.log
     - name: Display chrome logs
