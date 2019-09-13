@@ -26,13 +26,17 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Filter         | #filter-box                                                              |
       | MSBuild Plugin | #plugins > tbody > tr:nth-child(6) > td:nth-child(1) > input[type=checkbox] |
       | Install without restart | #yui-gen2-button                                                   |
+    And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link
+    And I save a screenshot to "C:\screenshots\manage-plugins.png"
     And I click the "Manage Plugins" link
     And I click the "Available" tab
     And I populate the "Filter" text box with the text "MSBuild"
     And I click the "MSBuild Plugin" checkbox
+    And I save a screenshot to "C:\screenshots\msbuild-plugin.png"
     And I click the "Install without restart" button
-    And I wait "20" seconds
+    And I wait "5" seconds
+    And I save a screenshot to "C:\screenshots\plugin-install.png"
 
   Scenario: Shutdown
     And I close the browser

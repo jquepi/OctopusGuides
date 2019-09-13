@@ -89,6 +89,10 @@ package { 'minikube':
 
 # DOWNLOAD DEPENDENCIES
 
+file { 'C:/screenshots':
+  ensure => 'directory'
+}
+
 windows_env { 'PATH=C:\tools': }
 
 file { 'C:/tools':
