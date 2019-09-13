@@ -10,7 +10,3 @@ jobs:
       run: powershell ./prepare.ps1
     - name: Execute puppet
       run: '"C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply octopus.pp --disable_warnings=deprecations'
-    - name: Display logs
-      run: cat C:\ProgramData\chocolatey\logs\chocolatey.log
-    - name: Display chrome logs
-      run: cat c:\GoogleChrome_msi_install.log
