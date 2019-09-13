@@ -10,7 +10,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I dump the aliases
     And I set the default explicit wait time to "30" seconds
     And I open the shared browser "FirefoxNoImplicitWait"
-    And I start recoding the screen to the directory "C:\screenshots"
+    And I set the window size to "1024" x "768"
+    And I start recording the screen to the directory "C:\screenshots"
     When I open the URL "http://localhost:8080"
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box
     And I populate the "Username" text box with the text "jenkinsadmin" waiting up to "300" seconds
@@ -29,6 +30,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Install without restart | #yui-gen2-button                                                   |
     And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link
+    And I scroll the "Manage Plugins" link into view
     And I save a screenshot to "C:\screenshots\manage-plugins.png"
     And I click the "Manage Plugins" link
     And I click the "Available" tab
@@ -36,9 +38,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "MSBuild Plugin" checkbox
     And I save a screenshot to "C:\screenshots\msbuild-plugin.png"
     And I click the "Install without restart" button
-    And I wait "5" seconds
+    And I wait for "5" seconds
     And I save a screenshot to "C:\screenshots\plugin-install.png"
 
   Scenario: Shutdown
     And I close the browser
-    And I stop recoding the screen
+    And I stop recording the screen
