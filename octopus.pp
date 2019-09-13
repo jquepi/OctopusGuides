@@ -25,18 +25,22 @@ package { 'terraform':
   provider => chocolatey
 }
 
-package { 'googlechrome':
+package { 'jre8':
   ensure   => installed,
   provider => chocolatey
 }
 
-/*
-package { 'docker-desktop':
+/*package { 'googlechrome':
+  ensure   => installed,
+  provider => chocolatey
+}*/
+
+package { 'firefox':
   ensure   => installed,
   provider => chocolatey
 }
 
-package { 'docker-cli':
+package { 'microsoft-build-tools':
   ensure   => installed,
   provider => chocolatey
 }
@@ -61,6 +65,17 @@ package { 'kubernetes-cli':
   provider => chocolatey
 }
 
+/*
+package { 'docker-desktop':
+  ensure   => installed,
+  provider => chocolatey
+}
+
+package { 'docker-cli':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 package { 'minikube':
   ensure   => installed,
   provider => chocolatey
@@ -74,6 +89,8 @@ package { 'awscli':
 
 # DOWNLOAD DEPENDENCIES
 
+windows_env { 'PATH=C:\tools': }
+
 file { 'C:/tools':
   ensure => 'directory'
 }
@@ -82,23 +99,23 @@ archive { 'C:/tools/chromedriver_win32.zip':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/tools',
-  source       => 'https://chromedriver.storage.googleapis.com/78.0.3904.11/chromedriver_win32.zip',
+  source       => 'https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_win32.zip',
   creates      => 'C:/tools/chromedriver.exe',
   cleanup      => true,
 }
 
-# The JetBrains redistributable version of MSBuild.
-# https://blog.jetbrains.com/dotnet/2018/04/13/introducing-jetbrains-redistributable-msbuild/
-file { 'C:/tools/msbuild':
-  ensure => 'directory'
-}
--> archive { 'C:/tools/msbuild.zip':
+archive { 'C:/tools/geckodriver-v0.25.0-win64.zip':
   ensure       => present,
   extract      => true,
-  extract_path => 'C:/tools/msbuild',
-  source       => 'http://jb.gg/msbuild',
-  creates      => 'C:/tools/msbuild/MSBuild/15.0/Bin/MSBuild.exe',
+  extract_path => 'C:/tools',
+  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-win64.zip',
+  creates      => 'C:/tools/geckodriver.exe',
   cleanup      => true,
+}
+
+download_file { 'webdrivertraining-1.0-SNAPSHOT.jar':
+  destination_directory  => 'C:/tools',
+  url => 'https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.2/webdrivertraining-1.0-SNAPSHOT.jar',
 }
 
 file { 'C:/install':
@@ -175,8 +192,8 @@ package { 'sql-server-express':
   provider => chocolatey
 }
 -> exec{'Create Octopus Shortcut':
-    provider => 'powershell',
-    command  => '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Octopus.lnk"); $short.TargetPath = "http://localhost"; $short.Save();'
+  provider => 'powershell',
+  command  => '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Octopus.lnk"); $short.TargetPath = "http://localhost"; $short.Save();'
 }
 -> file { 'C:/initialise_octopus.ps1':
   ensure  => 'file',
@@ -347,6 +364,7 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
 
     | EOT
 }
+/*
 -> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/c.simpletheme.groovy':
   ensure    => 'file',
   owner     => 'Administrators',
@@ -375,6 +393,7 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
 
     | EOT
 }
+*/
 -> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/d.secrets.groovy':
   ensure    => 'file',
   owner     => 'Administrators',
@@ -468,8 +487,6 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   command   => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
 }
 -> exec{'Create Jenkins Shortcut':
-    provider => 'powershell',
-    command  => '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Jenkins.lnk"); $short.TargetPath = "http://localhost:8080"; $short.Save();'
+  provider => 'powershell',
+  command  => '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Jenkins.lnk"); $short.TargetPath = "http://localhost:8080"; $short.Save();'
 }
-
-
