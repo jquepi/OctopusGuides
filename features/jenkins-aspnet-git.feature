@@ -5,6 +5,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Password | body > div > div > form > div:nth-child(2) > input |
       | Sign In  | body > div > div > form > div.submit.formRow > input |
       | Profile Name | #header > div.login > span > a.model-link.inside.inverse > b |
+    And I dump the aliases
+    And I set the default explicit wait time to "60" seconds
     And I open the shared browser "FirefoxNoImplicitWait"
     When I open the URL "http://localhost:8080"
     And I populate the "Username" text box with the text "jenkinsadmin"
