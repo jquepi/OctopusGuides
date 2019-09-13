@@ -20,7 +20,7 @@ jobs:
       run: |
         ls c:\screenshots
         "C:\Program Files\7-Zip\7z.exe" a c:\jenkins-apsnet-git-onprem.zip c:\screenshots
-        aws s3 cp c:\jenkins-apsnet-git-onprem.zip s3://octopus-guides-screenshots/jenkins-apsnet-git-onprem.zip
+        "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\jenkins-apsnet-git-onprem.zip s3://octopus-guides-screenshots/jenkins-apsnet-git-onprem.zip
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
