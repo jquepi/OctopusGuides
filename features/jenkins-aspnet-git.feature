@@ -30,7 +30,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Install without restart | #yui-gen2-button                                                   |
     And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link
-    And I scroll the "Manage Plugins" link into view
+    And I scroll the "Manage Plugins" link into view offset by "-100"
     And I save a screenshot to "C:\screenshots\manage-plugins.png"
     And I click the "Manage Plugins" link
     And I click the "Available" tab
