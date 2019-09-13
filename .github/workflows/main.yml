@@ -11,4 +11,4 @@ jobs:
     - name: Execute puppet
       run: '"C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply octopus.pp --disable_warnings=deprecations'
     - name: Run feature
-      run: java -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar features\jenkins-aspnet-git.feature
+      run: java -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar -Dwebdriver.gecko.driver=C:\tools\geckodriver.exe features\jenkins-aspnet-git.feature
