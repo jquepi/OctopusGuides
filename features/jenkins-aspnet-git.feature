@@ -10,6 +10,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I dump the aliases
     And I set the default explicit wait time to "30" seconds
     And I open the shared browser "FirefoxNoImplicitWait"
+    And I start recoding the screen to the directory "C:\screenshots"
     When I open the URL "http://localhost:8080"
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box
     And I populate the "Username" text box with the text "jenkinsadmin" waiting up to "300" seconds
@@ -40,3 +41,4 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   Scenario: Shutdown
     And I close the browser
+    And I stop recoding the screen
