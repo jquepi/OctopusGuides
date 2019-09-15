@@ -27,7 +27,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Available      | #main-panel > form > div.tabBarFrame > div.tabBar > div:nth-child(2) > a |
       | Filter         | #filter-box                                                              |
       | MSBuild Plugin | #plugins > tbody > tr:nth-child(6) > td:nth-child(1) > input[type=checkbox] |
-      | Install without restart | #yui-gen2-button
+      | Install without restart | #yui-gen2-button                                                   |
     And I highlight the "Manage Jenkins" text box
     And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link
