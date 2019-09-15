@@ -38,12 +38,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Manage Plugins" text box
     And I save a screenshot to "C:\screenshots\manage-plugins.png"
     And I click the "Manage Plugins" link
-    And I highlight inside the "Available" tab
     And I click the "Available" tab
-    And I highlight outside the "Filter" tab
     And I populate the "Filter" text box with the text "MSBuild"
-    And I highlight outside the "MSBuild Plugin Container" element
     And I click the "MSBuild Plugin" checkbox
+    And I highlight inside the "Available" tab
+    And I highlight outside the "Filter" tab
+    And I highlight inside the "MSBuild Plugin Container" element
     And I save a screenshot to "C:\screenshots\msbuild-plugin.png"
     And I highlight outside the "Install without restart" button
     And I click the "Install without restart" button
