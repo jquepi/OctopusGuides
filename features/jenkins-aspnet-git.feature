@@ -27,24 +27,25 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Available      | #main-panel > form > div.tabBarFrame > div.tabBar > div:nth-child(2) > a |
       | Filter         | #filter-box                                                              |
       | MSBuild Plugin | #plugins > tbody > tr:nth-child(6) > td:nth-child(1) > input[type=checkbox] |
+      | MSBuild Plugin Container | tr.plugin:nth-child(6) > td:nth-child(1)                          |
       | Install without restart | #yui-gen2-button                                                   |
-    And I highlight the "Manage Jenkins" text box
+    And I highlight outside the "Manage Jenkins" text box
     And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link
     And I scroll the "Manage Plugins" link into view offset by "-100"
     # Give the top toolbar a change to realign itself
     And I wait for "1" seconds
-    And I highlight the "Manage Plugins" text box
+    And I highlight outside the "Manage Plugins" text box
     And I save a screenshot to "C:\screenshots\manage-plugins.png"
     And I click the "Manage Plugins" link
-    And I highlight the "Available" tab
+    And I highlight inside the "Available" tab
     And I click the "Available" tab
-    And I highlight the "Filter" tab
+    And I highlight outside the "Filter" tab
     And I populate the "Filter" text box with the text "MSBuild"
-    And I highlight the "MSBuild Plugin" checkbox
+    And I highlight outside the "MSBuild Plugin Container" element
     And I click the "MSBuild Plugin" checkbox
     And I save a screenshot to "C:\screenshots\msbuild-plugin.png"
-    And I highlight the "Install without restart" button
+    And I highlight outside the "Install without restart" button
     And I click the "Install without restart" button
     And I wait for "5" seconds
     And I save a screenshot to "C:\screenshots\plugin-install.png"
