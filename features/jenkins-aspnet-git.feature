@@ -155,6 +155,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Git               | (//label[contains(.,'Git')])[2]                          |
       | Repository URL    | //input[contains(@name,'_.url')] |
       | Use secrets       | //input[@name='org-jenkinsci-plugins-credentialsbinding-impl-SecretBuildWrapper'] |
+      | Bindings Add      | //button[@suffix='bindings']                                                      |
+      | Secret text       | //a[contains(.,'Secret text')]                                                    |
+      | Variable          | //input[@name='_.variable']                                                       |
+      | Credentials       | //select[@class='setting-input  select  credentials-select']                      |
+      | Save              | //button[@type='button'][contains(.,'Save')]                                      |
 
     And I open the URL "http://localhost:8080/"
     And I highlight outside the "New Item" link
@@ -176,6 +181,29 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Repository URL" text box
     And I populate the "Repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
     And I save a screenshot to "C:\screenshots\git-settings.png"
+
+    And I scroll the "Use secrets" option into view offset by "-200"
+    And I highlight outside the "Use secrets" option
+    And I click the "Use secrets" option
+
+    And I highlight outside the "Bindings Add" link
+    And I save a screenshot to "C:\screenshots\binding-add.png"
+    And I click the "Bindings Add" option
+    And I remove the highlight from the "Bindings Add" option
+    And I remove the highlight from the "Use secrets" option
+
+    And I highlight outside the "Secret text" link
+    And I save a screenshot to "C:\screenshots\secret-text.png"
+    And I click the "Secret text" link
+
+    And I highlight outside the "Variable" text box
+    And I highlight outside the "Credentials" drop down list
+    And I populate the "Variable" text box with "OctopusAPIKey"
+    And I save a screenshot to "C:\screenshots\credentials-octopusapikey.png"
+
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\project-save.png"
+    And I click the "Save" button
 
   Scenario: Shutdown
     And I stop recording the screen
