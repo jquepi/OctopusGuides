@@ -145,6 +145,38 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\octopus-credentials.png"
     And I click the "OK" button
 
+  @configure-project
+  Scenario: Configure credentials
+    Given I set the following aliases:
+      | New Item          | //a[contains(.,'New Item')]                              |
+      | Project name      | //input[@name='name']                                    |
+      | Freestyle project | .hudson_model_FreeStyleProject                           |
+      | OK                | //button[@type='submit'][contains(.,'OK')]               |
+      | Git               | (//label[contains(.,'Git')])[2]                          |
+      | Repository URL    | //input[contains(@name,'_.url')] |
+      | Use secrets       | //input[@name='org-jenkinsci-plugins-credentialsbinding-impl-SecretBuildWrapper'] |
+
+    And I open the URL "http://localhost:8080/"
+    And I highlight outside the "New Item" link
+    And I save a screenshot to "C:\screenshots\new-item.png"
+    And I click the "New Item" link
+
+    And I highlight outside the "Freestyle project" link
+    And I highlight outside the "Project name" link
+    And I highlight outside the "OK" button
+    And I populate the "Project name" text box with "Random Quotes"
+    And I save a screenshot to "C:\screenshots\freestyle-project.png"
+    And I click the "Freestyle project" link
+    And I scroll the "OK" button into view
+    And I click the "OK" button
+
+    And I scroll the "Git" option into view offset by "-200"
+    And I highlight outside the "Git" option
+    And I click the "Git" option
+    And I highlight outside the "Repository URL" text box
+    And I populate the "Repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+    And I save a screenshot to "C:\screenshots\git-settings.png"
+
   Scenario: Shutdown
-    And I close the browser
     And I stop recording the screen
+    And I close the browser
