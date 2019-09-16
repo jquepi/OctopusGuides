@@ -59,7 +59,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Manage Jenkins            | #tasks > div:nth-child(4) > a.task-link                                                               |
       | Global Tool Configuration | div.manage-option:nth-child(7) > a:nth-child(1)                                                       |
-      | MSBuild Tool              | //button[@type='button'][contains(.,'Add MSBuild')]                                                   |
+      | MSBuild Tool              | //button[contains(.,'Add MSBuild')]                                                                   |
       | MSBuild Name              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkName')] |
       | MSBuild Path              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkHome')] |
       | Save                      | //button[contains(.,'Save')]                                                                          |
@@ -75,7 +75,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Global Tool Configuration" link
 
     And I scroll the "MSBuild Tool" button into view offset by "-100"
-    And I highlight outside the "MSBuild" button
+    And I highlight outside the "MSBuild Tool" button
     And I save a screenshot to "C:\screenshots\msbuild-global-tool.png"
     And I click the "MSBuild Tool" button
     And I remove the highlight from the "MSBuild Tool" button
