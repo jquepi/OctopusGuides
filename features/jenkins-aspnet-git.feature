@@ -51,6 +51,39 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I wait for "5" seconds
     And I highlight outside the "Back to top" link
     And I save a screenshot to "C:\screenshots\plugin-install.png"
+    And I click the "Back to top" link
+
+  @configure-tools
+  Scenario: Configure tools
+    Given I set the following aliases:
+      | Manage Jenkins | #tasks > div:nth-child(4) > a.task-link |
+      | Global Tool Configuration | div.manage-option:nth-child(7) > a:nth-child(1)      |
+      | MSBuild                   | #yui-gen10-button                                    |
+      | MSBuild Name              | #yui-gen16 > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(3) > input:nth-child(1) |
+      | MSBuild Path              | #yui-gen16 > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(3) > input:nth-child(1) |
+    And I open the URL "http://localhost:8080/"
+    And I highlight outside the "Manage Jenkins" link
+    And I save a screenshot to "C:\screenshots\manage-jenkins.png"
+    And I click the "Manage Jenkins" link
+
+    And I scroll the "Global Tool Configuration" link into view offset by "-100"
+      # Give the top toolbar a change to realign itself
+    And I wait for "1" seconds
+    And I highlight outside the "Global Tool Configuration" link
+    And I save a screenshot to "C:\screenshots\global-tool-configuration.png"
+    And I click the "Global Tool Configuration" link
+
+    And I scroll the "MSBuild" button into view offset by "-100"
+    And I highlight outside the "MSBuild" button
+    And I save a screenshot to "C:\screenshots\msbuild-global-tool.png"
+    And I click the "MSBuild" button
+    And I remove the highlight from the "MSBuild" button
+
+    And I highlight inside the "MSBuild Name" text box
+    And I populate the "MSBuild Name" text box with "MSBuild"
+    And I highlight inside the "MSBuild Path" text box
+    And I populate the "MSBuild Path" text box with the text "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
+    And I save a screenshot to "C:\screenshots\msbuild-settings.png"
 
   Scenario: Shutdown
     And I close the browser
