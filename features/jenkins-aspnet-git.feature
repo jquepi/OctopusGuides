@@ -237,6 +237,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "MSBuild Version" drop down list into view offset by "-200"
     And I highlight outside the "MSBuild Version" drop down list with an offset of "0"
     And I highlight outside the "MSBuild Build File" text box with an offset of "0"
+    And I highlight outside the "Command Line Arguments" text box with an offset of "0"
     And I select the option "MSBuild" from the "MSBuild Version" drop down list
     And I populate the "MSBuild Build File" text box with "RandomQuotes.sln"
     And I populate the "Command Line Arguments" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.0.$BUILD_NUMBER"
