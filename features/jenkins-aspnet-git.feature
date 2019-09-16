@@ -205,7 +205,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Variable" text box
     And I highlight outside the "Credentials" drop down list
-    And I populate the "Variable" text box with "ExternalOctopusAPIKey"
+    And I populate the "Variable" text box with "OctopusAPIKey"
     And I save a screenshot to "C:\screenshots\credentials-octopusapikey.png"
     And I remove the highlight from the "Variable" text box
     And I remove the highlight from the "Credentials" drop down list
