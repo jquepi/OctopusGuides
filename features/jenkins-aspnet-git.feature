@@ -56,12 +56,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-tools
   Scenario: Configure tools
     Given I set the following aliases:
-      | Manage Jenkins | #tasks > div:nth-child(4) > a.task-link |
-      | Global Tool Configuration | div.manage-option:nth-child(7) > a:nth-child(1)      |
-      | MSBuild                   | #yui-gen10-button                                    |
-      | MSBuild Name              | #yui-gen16 > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(3) > input:nth-child(1) |
-      | MSBuild Path              | #yui-gen16 > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(3) > input:nth-child(1) |
-      | Save                      | #yui-gen15-button                                                                                             |
+      | Manage Jenkins            | #tasks > div:nth-child(4) > a.task-link                                                               |
+      | Global Tool Configuration | div.manage-option:nth-child(7) > a:nth-child(1)                                                       |
+      | MSBuild                   | //button[@type='button'][contains(.,'Add MSBuild')]                                                   |
+      | MSBuild Name              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkName')] |
+      | MSBuild Path              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkHome')] |
+      | Save                      | //button[contains(.,'Save')]                                                                          |
     And I open the URL "http://localhost:8080/"
     And I highlight outside the "Manage Jenkins" link
     And I click the "Manage Jenkins" link
