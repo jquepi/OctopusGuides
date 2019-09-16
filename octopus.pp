@@ -47,7 +47,8 @@ package { 'firefox':
 
 package { 'microsoft-build-tools':
   ensure   => installed,
-  provider => chocolatey
+  provider => chocolatey,
+  install_options => ['-params', '--add Microsoft.VisualStudio.Workload.WebBuildTools']
 }
 
 package { 'dotnetcore-sdk':
