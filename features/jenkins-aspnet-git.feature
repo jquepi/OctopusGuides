@@ -275,7 +275,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Build Now" link
     And I remove the highlight from the "Build Now" link
 
-    And I sleep for "10" seconds
+    And I sleep for "30" seconds
 
     And I highlight outside the "Build One" link
     And I save a screenshot to "C:\screenshots\build-one.png"
