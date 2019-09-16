@@ -45,7 +45,7 @@ package { 'firefox':
   provider => chocolatey
 }
 
-package { 'microsoft-build-tools':
+package { 'visualstudio2017buildtools':
   ensure   => installed,
   provider => chocolatey,
   install_options => ['-params', '--add Microsoft.VisualStudio.Workload.WebBuildTools']
