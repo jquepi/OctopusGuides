@@ -22,7 +22,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @plugin-install
   Scenario: Install plugins
     Given I set the following aliases:
-      | Manage Jenkins           | #tasks > div:nth-child(4) > a.task-link                                     |
+      | Manage Jenkins            | //a[contains(.,'Manage Jenkins')]                                                                     |
       | Manage Plugins           | #main-panel > div:nth-child(9) > a                                          |
       | Available                | #main-panel > form > div.tabBarFrame > div.tabBar > div:nth-child(2) > a    |
       | Filter                   | #filter-box                                                                 |
@@ -57,7 +57,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-tools
   Scenario: Configure tools
     Given I set the following aliases:
-      | Manage Jenkins            | #tasks > div:nth-child(4) > a.task-link                                                               |
+      | Manage Jenkins            | //a[contains(.,'Manage Jenkins')]                                                                     |
       | Global Tool Configuration | div.manage-option:nth-child(7) > a:nth-child(1)                                                       |
       | MSBuild Tool              | //button[contains(.,'Add MSBuild')]                                                                   |
       | MSBuild Name              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkName')] |
@@ -91,7 +91,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
-      | Manage Jenkins          | #tasks > div:nth-child(4) > a.task-link                                |
+      | Manage Jenkins            | //a[contains(.,'Manage Jenkins')]                                                                     |
       | Configure Credentials   | div.manage-option:nth-child(6) > a:nth-child(1)                        |
       | Credentials             | //a[@href='/credentials'][contains(.,'Credentials')]                   |
       | System                  | //a[@href='/credentials/store/system'][contains(.,'System')]           |
@@ -235,8 +235,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I remove the highlight from the "Build a Visual Studio project or solution using MSBuild" option
 
     And I scroll the "MSBuild Version" drop down list into view offset by "-200"
-    And I highlight outside the "MSBuild Version" drop down list
-    And I highlight outside the "MSBuild Build File" text box
+    And I highlight outside the "MSBuild Version" drop down list with an offset of "0"
+    And I highlight outside the "MSBuild Build File" text box with an offset of "0"
     And I select the option "MSBuild" from the "MSBuild Version" drop down list
     And I populate the "MSBuild Build File" text box with "RandomQuotes.sln"
     And I populate the "Command Line Arguments" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.0.$BUILD_NUMBER"
