@@ -7,21 +7,24 @@ jobs:
     - uses: actions/checkout@v1
     - uses: actions/setup-dotnet@v1
     - name: Execute puppet
-      run: powershell ./install.ps1
+      shell: powershell
+      run: ./install.ps1
     - name: Run feature
+      shell: powershell
       run: >
         java
         -Dwebdriver.gecko.driver=C:\tools\geckodriver.exe
         -Dwebdriver.firefox.logfile=C:\firefox.log
         -DmoveCursorToElement=true
         -DmouseMoveVerticalOffset=74
-        -DCucumberAlias-ExternalOctopusAPIKey=(type C:\octopus_api.txt)
+        -DCucumberAlias-ExternalOctopusAPIKey=$(cat C:\octopus_api.txt)
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\jenkins-aspnet-git.feature
     - name: Convert video
       run: for %%a in (c:\screenshots\*.avi) do "C:\Program Files\VideoLAN\VLC\vlc.exe" -I dummy -vvv "%%a" --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=ts,dst=c:\screenshots\video.mp4} vlc://quit
     - name: Zip screenshots
+      shell: powershell
       run: |
         ls c:\screenshots
         "C:\Program Files\7-Zip\7z.exe" a c:\jenkins-apsnet-git-onprem.zip c:\screenshots

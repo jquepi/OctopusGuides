@@ -243,6 +243,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Command Line Arguments" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.0.$BUILD_NUMBER"
     And I save a screenshot to "C:\screenshots\msbuild-step.png"
     And I remove the highlight from the "MSBuild Version" drop down list
+    And I remove the highlight from the "MSBuild Build File" text box
     And I remove the highlight from the "Command Line Arguments" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
