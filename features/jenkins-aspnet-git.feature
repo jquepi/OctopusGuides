@@ -29,6 +29,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | MSBuild Plugin | #plugins > tbody > tr:nth-child(6) > td:nth-child(1) > input[type=checkbox] |
       | MSBuild Plugin Container | tr.plugin:nth-child(6) > td:nth-child(1)                          |
       | Install without restart | #yui-gen2-button                                                   |
+      | Back to top             | //a[contains(.,'Go back to the top page')]                         |
     And I highlight outside the "Manage Jenkins" text box
     And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link
@@ -44,10 +45,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight inside the "Available" tab
     And I highlight outside the "Filter" tab
     And I highlight inside the "MSBuild Plugin Container" element
-    And I save a screenshot to "C:\screenshots\msbuild-plugin.png"
     And I highlight outside the "Install without restart" button
+    And I save a screenshot to "C:\screenshots\msbuild-plugin.png"
     And I click the "Install without restart" button
     And I wait for "5" seconds
+    And I highlight outside the "Back to top" link
     And I save a screenshot to "C:\screenshots\plugin-install.png"
 
   Scenario: Shutdown
