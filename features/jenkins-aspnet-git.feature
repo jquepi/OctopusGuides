@@ -281,9 +281,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Build One" link
     And I save a screenshot to "C:\screenshots\build-one.png"
 
-  @populate-octopus
+  @configure-octopus-environments
   Scenario: Create octopus environments
     Then I run the feature "octopus-environments.feature"
+
+  @configure-octopus-project
+  Scenario: Create octopus environments
+    Then I run the feature "octopus-aspnet-project.feature"
 
   Scenario: Shutdown
     And I stop recording the screen

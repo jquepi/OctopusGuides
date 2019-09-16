@@ -6,7 +6,7 @@ Feature: Configure the Octopus environments
       | Password | //input[@name='password']     |
       | Sign In  | //span[contains(.,'SIGN IN')] |
     And I open the shared browser "FirefoxNoImplicitWait"
-    And I maximize the browser
+    And I maximize the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I populate the "Username" text box with "admin"
