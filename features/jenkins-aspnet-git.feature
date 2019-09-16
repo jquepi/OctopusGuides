@@ -96,11 +96,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Credentials           | //a[@href='/credentials'][contains(.,'Credentials')]                   |
       | System                | //a[@href='/credentials/store/system'][contains(.,'System')]           |
       | Global credentials    | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
+      | Global credentials cell | .sortable > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2)   |
       | Add Credentials       | //a[@href='newCredentials'][contains(.,'Add Credentials')]             |
       | Kind                  | //select[@class='setting-input dropdownList']                          |
       | Secret                | //input[@name='_.secret']                                              |
-      | ID                    | //input[@name='_.secret']                                              |
-      | Description           | (//input[@name='_.id'])[2]                                             |
+      | ID                    | (//input[@name='_.id'])[2]                                             |
+      | Description           | (//input[contains(@name,'_.description')])[2]                          |
+      | OK                    | //button[@type='button'][contains(.,'OK')]                             |
 
     And I open the URL "http://localhost:8080/"
     And I highlight outside the "Manage Jenkins" link
@@ -121,7 +123,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\credentials-system.png"
     And I click the "System" link
 
-    And I highlight outside the "Global credentials" link
+    And I highlight outside the "Global credentials cell" link
     And I save a screenshot to "C:\screenshots\global-credentials.png"
     And I click the "Global credentials" link
 
@@ -132,9 +134,16 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Kind" drop down list
     And I select the option "Secret text" from the "Kind" drop down list
 
-    And I highlight outside the "Secret" text box
-    And I highlight outside the "ID" text box
-    And I highlight outside the "Description" text box
+    And I highlight outside the "Secret" text box with an offset of "0"
+    And I highlight outside the "ID" text box with an offset of "0"
+    And I highlight outside the "Description" text box with an offset of "0"
+    And I highlight outside the "OK" button
+
+    And I populate the "Secret" text box with "OctopusAPIKeyAlias"
+    And I populate the "ID" text box with "OctopusAPIKey"
+    And I populate the "Description" text box with "The Octopus API Key"
+    And I save a screenshot to "C:\screenshots\octopus-credentials.png"
+    And I click the "OK" button
 
   Scenario: Shutdown
     And I close the browser
