@@ -15,6 +15,7 @@ jobs:
         -Dwebdriver.firefox.logfile=C:\firefox.log
         -DmoveCursorToElement=true
         -DmouseMoveVerticalOffset=74
+        -DCucumberAlias-ExternalOctopusAPIKey=(type C:\octopus_api.txt)
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\jenkins-aspnet-git.feature
