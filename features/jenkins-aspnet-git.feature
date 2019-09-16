@@ -21,7 +21,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @plugin-install
   Scenario: Install plugins
     Given I set the following aliases:
-      | Manage Jenkins            | //a[contains(.,'Manage Jenkins')]                                                                     |
+      | Manage Jenkins           | //a[contains(.,'Manage Jenkins')]                                           |
       | Manage Plugins           | #main-panel > div:nth-child(9) > a                                          |
       | Available                | #main-panel > form > div.tabBarFrame > div.tabBar > div:nth-child(2) > a    |
       | Filter                   | #filter-box                                                                 |
@@ -90,7 +90,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
-      | Manage Jenkins            | //a[contains(.,'Manage Jenkins')]                                                                     |
+      | Manage Jenkins          | //a[contains(.,'Manage Jenkins')]                                      |
       | Configure Credentials   | div.manage-option:nth-child(6) > a:nth-child(1)                        |
       | Credentials             | //a[@href='/credentials'][contains(.,'Credentials')]                   |
       | System                  | //a[@href='/credentials/store/system'][contains(.,'System')]           |
@@ -267,8 +267,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @build-now
   Scenario: Run build
     Given I set the following aliases:
-      | Build Now                                              | //a[contains(.,'Build Now')] |
-      | Build One                                              | /html/body/div[4]/div[1]/div[2]/div[2]/div[2]/table/tbody/tr[2]/td/div[1] |
+      | Build Now | //a[contains(.,'Build Now')]                                              |
+      | Build One | /html/body/div[4]/div[1]/div[2]/div[2]/div[2]/table/tbody/tr[2]/td/div[1] |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
     And I highlight outside the "Build Now" link
@@ -280,6 +280,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Build One" link
     And I save a screenshot to "C:\screenshots\build-one.png"
+
+  @populate-octopus
+  Scenario: Create octopus environments
+    Then I run the feature "C:\Users\Matthew\Octopus\OctopusGuides\features\octopus-environments.feature"
 
   Scenario: Shutdown
     And I stop recording the screen

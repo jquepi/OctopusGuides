@@ -35,3 +35,6 @@ Feature: Configure the Octopus environments
     And I click the "Add Environment" button
     And I populate the "New environment name" text box with "Prod"
     And I click the "Save" button
+
+  Scenario: Shutdown
+    And I close the browser
