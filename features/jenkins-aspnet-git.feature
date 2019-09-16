@@ -283,7 +283,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   @populate-octopus
   Scenario: Create octopus environments
-    Then I run the feature "C:\Users\Matthew\Octopus\OctopusGuides\features\octopus-environments.feature"
+    Then I run the feature "octopus-environments.feature"
 
   Scenario: Shutdown
     And I stop recording the screen
