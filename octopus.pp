@@ -46,9 +46,9 @@ package { 'firefox':
 }
 
 package { 'visualstudio2017buildtools':
-  ensure   => installed,
-  provider => chocolatey,
-  install_options => ['-params', '--add Microsoft.VisualStudio.Workload.WebBuildTools']
+  ensure          => installed,
+  provider        => chocolatey,
+  install_options => ['--package-parameters', '--add Microsoft.VisualStudio.Workload.WebBuildTools']
 }
 
 package { 'dotnetcore-sdk':
@@ -109,7 +109,9 @@ archive { 'C:/tools/ungoogled-chromium-77.0.3865.75-1_windows.7z':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/tools',
-  source       => 'https://github.com/macchrome/winchrome/releases/download/v77.0.3865.75-r681094-Win64/ungoogled-chromium-77.0.3865.75-1_windows.7z',
+  source       =>
+    'https://github.com/macchrome/winchrome/releases/download/v77.0.3865.75-r681094-Win64/ungoogled-chromium-77.0.3865.75-1_windows.7z'
+  ,
   creates      => 'C:/tools/ungoogled-chromium-77.0.3865.75-1_windows/chrome.exe',
   cleanup      => true,
 }
@@ -133,8 +135,9 @@ archive { 'C:/tools/geckodriver-v0.25.0-win64.zip':
 }
 
 download_file { 'webdrivertraining-1.0-SNAPSHOT.jar':
-  destination_directory  => 'C:/tools',
-  url => 'https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.3/webdrivertraining-1.0-SNAPSHOT.jar',
+  destination_directory => 'C:/tools',
+  url                   =>
+    'https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.3/webdrivertraining-1.0-SNAPSHOT.jar',
 }
 
 file { 'C:/install':
@@ -210,9 +213,10 @@ package { 'sql-server-express':
   ensure   => installed,
   provider => chocolatey
 }
--> exec{'Create Octopus Shortcut':
+-> exec { 'Create Octopus Shortcut':
   provider => 'powershell',
-  command  => '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Octopus.lnk"); $short.TargetPath = "http://localhost"; $short.Save();'
+  command  =>
+    '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Octopus.lnk"); $short.TargetPath = "http://localhost"; $short.Save();'
 }
 -> file { 'C:/initialise_octopus.ps1':
   ensure  => 'file',
@@ -290,11 +294,11 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   subscribe => Package['jenkins'],
 }
 -> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/a.security.groovy':
-  ensure    => 'file',
-  owner     => 'Administrators',
-  group     => 'Administrators',
-  mode      => '0644',
-  content   => @(EOT)
+  ensure  => 'file',
+  owner   => 'Administrators',
+  group   => 'Administrators',
+  mode    => '0644',
+  content => @(EOT)
     #!groovy
     import java.util.logging.Level
     import java.util.logging.Logger
@@ -321,11 +325,11 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
     | EOT
 }
 -> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/b.plugins.groovy':
-  ensure    => 'file',
-  owner     => 'Administrators',
-  group     => 'Administrators',
-  mode      => '0644',
-  content   => @(EOT)
+  ensure  => 'file',
+  owner   => 'Administrators',
+  group   => 'Administrators',
+  mode    => '0644',
+  content => @(EOT)
     #!groovy
     import hudson.model.UpdateSite
     import hudson.PluginWrapper
@@ -414,11 +418,11 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
 }
 */
 -> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/d.secrets.groovy':
-  ensure    => 'file',
-  owner     => 'Administrators',
-  group     => 'Administrators',
-  mode      => '0644',
-  content   => @(EOT)
+  ensure  => 'file',
+  owner   => 'Administrators',
+  group   => 'Administrators',
+  mode    => '0644',
+  content => @(EOT)
     #!groovy
     import jenkins.model.*
     import com.cloudbees.plugins.credentials.*
@@ -497,15 +501,16 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
     | EOT
 }
 -> file_line { 'installStateName':
-  path      => 'C:/Program Files (x86)/Jenkins/config.xml',
-  line      => '  <installStateName>RUNNING</installStateName>',
-  match     => '^\s*<installStateName>NEW</installStateName>',
-  replace   => true,
+  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
+  line    => '  <installStateName>RUNNING</installStateName>',
+  match   => '^\s*<installStateName>NEW</installStateName>',
+  replace => true,
 }
 -> exec { 'Restart Jenkins':
-  command   => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
+  command => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
 }
--> exec{'Create Jenkins Shortcut':
+-> exec { 'Create Jenkins Shortcut':
   provider => 'powershell',
-  command  => '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Jenkins.lnk"); $short.TargetPath = "http://localhost:8080"; $short.Save();'
+  command  =>
+    '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Jenkins.lnk"); $short.TargetPath = "http://localhost:8080"; $short.Save();'
 }
