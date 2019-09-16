@@ -245,6 +245,23 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\project-save.png"
     And I click the "Save" button
 
+  @build-now
+  Scenario: Run build
+    Given I set the following aliases:
+      | Build Now                                              | //a[contains(.,'Build Now')] |
+      | Build One                                              | /html/body/div[4]/div[1]/div[2]/div[2]/div[2]/table/tbody/tr[2]/td/div[1] |
+
+    And I open the URL "http://localhost:8080/job/Random%20Quotes/"
+    And I highlight outside the "Build Now" link
+    And I save a screenshot to "C:\screenshots\build-now.png"
+    And I click the "Build Now" link
+    And I remove the highlight from the "Build Now" link
+
+    And I sleep for "10" seconds
+
+    And I highlight outside the "Build One" link
+    And I save a screenshot to "C:\screenshots\build-one.png"
+
   Scenario: Shutdown
     And I stop recording the screen
     And I close the browser
