@@ -3,9 +3,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @login
   Scenario: Log into Jenkins
     Given I set the following aliases:
-      | Username | #j_username |
-      | Password | body > div > div > form > div:nth-child(2) > input |
-      | Sign In  | body > div > div > form > div.submit.formRow > input |
+      | Username     | #j_username                                                  |
+      | Password     | body > div > div > form > div:nth-child(2) > input           |
+      | Sign In      | body > div > div > form > div.submit.formRow > input         |
       | Profile Name | #header > div.login > span > a.model-link.inside.inverse > b |
     And I dump the aliases
     And I set the default explicit wait time to "30" seconds
@@ -22,14 +22,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @plugin-install
   Scenario: Install plugins
     Given I set the following aliases:
-      | Manage Jenkins | #tasks > div:nth-child(4) > a.task-link |
-      | Manage Plugins | #main-panel > div:nth-child(9) > a      |
-      | Available      | #main-panel > form > div.tabBarFrame > div.tabBar > div:nth-child(2) > a |
-      | Filter         | #filter-box                                                              |
-      | MSBuild Plugin | #plugins > tbody > tr:nth-child(6) > td:nth-child(1) > input[type=checkbox] |
-      | MSBuild Plugin Container | tr.plugin:nth-child(6) > td:nth-child(1)                          |
-      | Install without restart | #yui-gen2-button                                                   |
-      | Back to top             | //a[contains(.,'Go back to the top page')]                         |
+      | Manage Jenkins           | #tasks > div:nth-child(4) > a.task-link                                     |
+      | Manage Plugins           | #main-panel > div:nth-child(9) > a                                          |
+      | Available                | #main-panel > form > div.tabBarFrame > div.tabBar > div:nth-child(2) > a    |
+      | Filter                   | #filter-box                                                                 |
+      | MSBuild Plugin           | #plugins > tbody > tr:nth-child(6) > td:nth-child(1) > input[type=checkbox] |
+      | MSBuild Plugin Container | tr.plugin:nth-child(6) > td:nth-child(1)                                    |
+      | Install without restart  | #yui-gen2-button                                                            |
+      | Back to top              | //a[contains(.,'Go back to the top page')]                                  |
     And I highlight outside the "Manage Jenkins" text box
     And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link
@@ -91,18 +91,18 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
-      | Manage Jenkins        | #tasks > div:nth-child(4) > a.task-link                                |
-      | Configure Credentials | div.manage-option:nth-child(6) > a:nth-child(1)                        |
-      | Credentials           | //a[@href='/credentials'][contains(.,'Credentials')]                   |
-      | System                | //a[@href='/credentials/store/system'][contains(.,'System')]           |
-      | Global credentials    | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
-      | Global credentials cell | .sortable > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2)   |
-      | Add Credentials       | //a[@href='newCredentials'][contains(.,'Add Credentials')]             |
-      | Kind                  | //select[@class='setting-input dropdownList']                          |
-      | Secret                | //input[@name='_.secret']                                              |
-      | ID                    | (//input[@name='_.id'])[2]                                             |
-      | Description           | (//input[contains(@name,'_.description')])[2]                          |
-      | OK                    | //button[@type='button'][contains(.,'OK')]                             |
+      | Manage Jenkins          | #tasks > div:nth-child(4) > a.task-link                                |
+      | Configure Credentials   | div.manage-option:nth-child(6) > a:nth-child(1)                        |
+      | Credentials             | //a[@href='/credentials'][contains(.,'Credentials')]                   |
+      | System                  | //a[@href='/credentials/store/system'][contains(.,'System')]           |
+      | Global credentials      | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
+      | Global credentials cell | .sortable > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2)     |
+      | Add Credentials         | //a[@href='newCredentials'][contains(.,'Add Credentials')]             |
+      | Kind                    | //select[@class='setting-input dropdownList']                          |
+      | Secret                  | //input[@name='_.secret']                                              |
+      | ID                      | (//input[@name='_.id'])[2]                                             |
+      | Description             | (//input[contains(@name,'_.description')])[2]                          |
+      | OK                      | //button[@type='button'][contains(.,'OK')]                             |
 
     And I open the URL "http://localhost:8080/"
     And I highlight outside the "Manage Jenkins" link
@@ -148,18 +148,26 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project
   Scenario: Configure credentials
     Given I set the following aliases:
-      | New Item          | //a[contains(.,'New Item')]                              |
-      | Project name      | //input[@name='name']                                    |
-      | Freestyle project | .hudson_model_FreeStyleProject                           |
-      | OK                | //button[@type='submit'][contains(.,'OK')]               |
-      | Git               | (//label[contains(.,'Git')])[2]                          |
-      | Repository URL    | //input[contains(@name,'_.url')] |
-      | Use secrets       | //input[@name='org-jenkinsci-plugins-credentialsbinding-impl-SecretBuildWrapper'] |
-      | Bindings Add      | //button[@suffix='bindings']                                                      |
-      | Secret text       | //a[contains(.,'Secret text')]                                                    |
-      | Variable          | //input[@name='_.variable']                                                       |
-      | Credentials       | //select[@class='setting-input  select  credentials-select']                      |
-      | Save              | //button[@type='button'][contains(.,'Save')]                                      |
+      | New Item                                                | //a[contains(.,'New Item')]                                                       |
+      | Project name                                            | //input[@name='name']                                                             |
+      | Freestyle project                                       | .hudson_model_FreeStyleProject                                                    |
+      | OK                                                      | //button[@type='submit'][contains(.,'OK')]                                        |
+      | Git                                                     | (//label[contains(.,'Git')])[2]                                                   |
+      | Repository URL                                          | //input[contains(@name,'_.url')]                                                  |
+      | Use secrets                                             | //input[@name='org-jenkinsci-plugins-credentialsbinding-impl-SecretBuildWrapper'] |
+      | Bindings Add                                            | //button[@suffix='bindings']                                                      |
+      | Secret text                                             | //a[contains(.,'Secret text')]                                                    |
+      | Variable                                                | //input[@name='_.variable']                                                       |
+      | Credentials                                             | //select[@class='setting-input  select  credentials-select']                      |
+      | Add build step                                          | //button[@type='button'][contains(.,'Add build step')]                            |
+      | Execute Windows batch command                           | //a[contains(.,'Execute Windows batch command')]                                  |
+      | Command                                                 | //textarea[@name='command']                                                       |
+      | Save                                                    | //button[@type='button'][contains(.,'Save')]                                      |
+      | Build a Visual Studio project or solution using MSBuild | //a[contains(.,'Build a Visual Studio project or solution using MSBuild')]        |
+      | MSBuild Version                                         | //select[@name='msBuildBuilder.msBuildName']                                      |
+      | MSBuild Build File                                      | //input[@name='msBuildBuilder.msBuildFile']                                       |
+      | Command Line Arguments                                  | //textarea[@name='msBuildBuilder.cmdLineArgs']                                    |
+      | Command Two                                             | (//textarea[contains(@name,'command')])[2]                                        |
 
     And I open the URL "http://localhost:8080/"
     And I highlight outside the "New Item" link
@@ -189,17 +197,49 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Bindings Add" link
     And I save a screenshot to "C:\screenshots\binding-add.png"
     And I click the "Bindings Add" option
-    And I remove the highlight from the "Bindings Add" option
-    And I remove the highlight from the "Use secrets" option
-
     And I highlight outside the "Secret text" link
     And I save a screenshot to "C:\screenshots\secret-text.png"
+    And I remove the highlight from the "Bindings Add" option
+    And I remove the highlight from the "Use secrets" option
     And I click the "Secret text" link
 
     And I highlight outside the "Variable" text box
     And I highlight outside the "Credentials" drop down list
     And I populate the "Variable" text box with "OctopusAPIKey"
     And I save a screenshot to "C:\screenshots\credentials-octopusapikey.png"
+    And I remove the highlight from the "Variable" text box
+    And I remove the highlight from the "Credentials" drop down list
+
+    And I scroll the "Add build step" button into view offset by "-200"
+    And I highlight outside the "Add build step" button
+    And I click the "Add build step" button
+    And I highlight outside the "Execute Windows batch command" link
+    And I save a screenshot to "C:\screenshots\batch-command-1.png"
+    And I click the "Execute Windows batch command" link
+    And I remove the highlight from the "Add build step" option
+    And I remove the highlight from the "Execute Windows batch command" option
+
+    And I scroll the "Command" text box into view offset by "-200"
+    And I highlight outside the "Command" text box
+    And I populate the "Command" text box with "nuget restore"
+    And I save a screenshot to "C:\screenshots\nuget-restore.png"
+    And I remove the highlight from the "Command" text box
+
+    And I scroll the "Add build step" button into view offset by "-200"
+    And I highlight outside the "Add build step" button
+    And I click the "Add build step" button
+    And I highlight outside the "Build a Visual Studio project or solution using MSBuild" link
+    And I save a screenshot to "C:\screenshots\msbuild-step-add.png"
+    And I click the "Build a Visual Studio project or solution using MSBuild" link
+    And I remove the highlight from the "Add build step" option
+    And I remove the highlight from the "Build a Visual Studio project or solution using MSBuild" option
+
+    And I scroll the "MSBuild Version" drop down list into view offset by "-200"
+    And I highlight outside the "MSBuild Version" drop down list
+    And I highlight outside the "MSBuild Build File" text box
+    And I select the option "MSBuild" from the "MSBuild Version" drop down list
+    And I populate the "MSBuild Build File" text box with "RandomQuotes.sln"
+    And I save a screenshot to "C:\screenshots\msbuild-step.png"
 
     And I highlight outside the "Save" button
     And I save a screenshot to "C:\screenshots\project-save.png"
