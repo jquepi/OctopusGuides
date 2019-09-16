@@ -49,6 +49,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\msbuild-plugin.png"
     And I click the "Install without restart" button
     And I wait for "5" seconds
+
     And I highlight outside the "Back to top" link
     And I save a screenshot to "C:\screenshots\plugin-install.png"
     And I click the "Back to top" link
@@ -90,8 +91,16 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
-      | Manage Jenkins | #tasks > div:nth-child(4) > a.task-link |
-      | Configure Credentials | div.manage-option:nth-child(6) > a:nth-child(1) |
+      | Manage Jenkins        | #tasks > div:nth-child(4) > a.task-link                                |
+      | Configure Credentials | div.manage-option:nth-child(6) > a:nth-child(1)                        |
+      | Credentials           | //a[@href='/credentials'][contains(.,'Credentials')]                   |
+      | System                | //a[@href='/credentials/store/system'][contains(.,'System')]           |
+      | Global credentials    | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
+      | Add Credentials       | //a[@href='newCredentials'][contains(.,'Add Credentials')]             |
+      | Kind                  | //select[@class='setting-input dropdownList']                          |
+      | Secret                | //input[@name='_.secret']                                              |
+      | ID                    | //input[@name='_.secret']                                              |
+      | Description           | (//input[@name='_.id'])[2]                                             |
 
     And I open the URL "http://localhost:8080/"
     And I highlight outside the "Manage Jenkins" link
@@ -103,6 +112,29 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Configure Credentials" link
     And I save a screenshot to "C:\screenshots\configure-credentials.png"
     And I click the "Configure Credentials" link
+
+    And I highlight outside the "Credentials" link
+    And I save a screenshot to "C:\screenshots\credentials-parent.png"
+    And I click the "Credentials" link
+
+    And I highlight outside the "System" link
+    And I save a screenshot to "C:\screenshots\credentials-system.png"
+    And I click the "System" link
+
+    And I highlight outside the "Global credentials" link
+    And I save a screenshot to "C:\screenshots\global-credentials.png"
+    And I click the "Global credentials" link
+
+    And I highlight outside the "Add Credentials" link
+    And I save a screenshot to "C:\screenshots\add-credentials.png"
+    And I click the "Add Credentials" link
+
+    And I highlight outside the "Kind" drop down list
+    And I select the option "Secret text" from the "Kind" drop down list
+
+    And I highlight outside the "Secret" text box
+    And I highlight outside the "ID" text box
+    And I highlight outside the "Description" text box
 
   Scenario: Shutdown
     And I close the browser
