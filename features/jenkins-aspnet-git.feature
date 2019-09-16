@@ -239,7 +239,25 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "MSBuild Build File" text box
     And I select the option "MSBuild" from the "MSBuild Version" drop down list
     And I populate the "MSBuild Build File" text box with "RandomQuotes.sln"
+    And I populate the "Command Line Arguments" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.0.$BUILD_NUMBER"
     And I save a screenshot to "C:\screenshots\msbuild-step.png"
+    And I remove the highlight from the "MSBuild Version" drop down list
+    And I remove the highlight from the "Command Line Arguments" text box
+
+    And I scroll the "Add build step" button into view offset by "-200"
+    And I highlight outside the "Add build step" button
+    And I click the "Add build step" button
+    And I highlight outside the "Execute Windows batch command" link
+    And I save a screenshot to "C:\screenshots\batch-command-2.png"
+    And I click the "Execute Windows batch command" link
+    And I remove the highlight from the "Add build step" option
+    And I remove the highlight from the "Execute Windows batch command" option
+
+    And I scroll the "Command Two" text box into view offset by "-200"
+    And I highlight outside the "Command Two" text box
+    And I populate the "Command Two" text box with "Octo.exe push --server https://octopus --apiKey %OctopusAPIKey% --package RandomQuotes/obj/octopacked/RandomQuotes.1.0.0.%BUILD_NUMBER%.nupkg"
+    And I save a screenshot to "C:\screenshots\octo-push.png"
+    And I remove the highlight from the "Command Two" text box
 
     And I highlight outside the "Save" button
     And I save a screenshot to "C:\screenshots\project-save.png"
