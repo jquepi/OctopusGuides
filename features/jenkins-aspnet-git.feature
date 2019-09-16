@@ -61,9 +61,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | MSBuild                   | #yui-gen10-button                                    |
       | MSBuild Name              | #yui-gen16 > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(3) > input:nth-child(1) |
       | MSBuild Path              | #yui-gen16 > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(3) > input:nth-child(1) |
+      | Save                      | #yui-gen15-button                                                                                             |
     And I open the URL "http://localhost:8080/"
     And I highlight outside the "Manage Jenkins" link
-    And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link
 
     And I scroll the "Global Tool Configuration" link into view offset by "-100"
@@ -80,10 +80,29 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I remove the highlight from the "MSBuild" button
 
     And I highlight inside the "MSBuild Name" text box
-    And I populate the "MSBuild Name" text box with "MSBuild"
     And I highlight inside the "MSBuild Path" text box
+    And I highlight outside the "Save" button
+    And I populate the "MSBuild Name" text box with "MSBuild"
     And I populate the "MSBuild Path" text box with the text "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
     And I save a screenshot to "C:\screenshots\msbuild-settings.png"
+    And I click the "Save" button
+
+  @configure-credentials
+  Scenario: Configure credentials
+    Given I set the following aliases:
+      | Manage Jenkins | #tasks > div:nth-child(4) > a.task-link |
+      | Configure Credentials | div.manage-option:nth-child(6) > a:nth-child(1) |
+
+    And I open the URL "http://localhost:8080/"
+    And I highlight outside the "Manage Jenkins" link
+    And I click the "Manage Jenkins" link
+
+    And I scroll the "Configure Credentials" link into view offset by "-100"
+      # Give the top toolbar a change to realign itself
+    And I wait for "1" seconds
+    And I highlight outside the "Configure Credentials" link
+    And I save a screenshot to "C:\screenshots\configure-credentials.png"
+    And I click the "Configure Credentials" link
 
   Scenario: Shutdown
     And I close the browser
