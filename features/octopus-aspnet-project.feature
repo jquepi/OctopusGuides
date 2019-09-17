@@ -34,7 +34,7 @@ Feature: Configure an Octopus ASP.NET project
       | Define your deployment process  | //span[contains(.,'Define your deployment process')]                                            |
       | Add Step                        | //span[contains(.,'Add Step')]                                                                  |
       | Search                          | //input[@type='search']                                                                         |
-      | Deploy to IIS                   | (//div[contains(.,'Deploy to IIS')])[16]                                                        |
+      | Deploy to IIS                   | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                        |
       | Add                             | //span[contains(.,'Add')]                                                                       |
       | Step Name                       | //input[contains(@id, 'Stepname')]                                                              |
       | Runs on targets in roles        | //input[@title='Runs on targets in roles (type to add new)']                                    |
