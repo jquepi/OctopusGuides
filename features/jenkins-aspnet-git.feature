@@ -29,6 +29,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | MSBuild Plugin Container | tr.plugin:nth-child(6) > td:nth-child(1)                                    |
       | Install without restart  | #yui-gen2-button                                                            |
       | Back to top              | //a[contains(.,'Go back to the top page')]                                  |
+
+    And I dump the aliases
+
     And I highlight outside the "Manage Jenkins" text box
     And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link

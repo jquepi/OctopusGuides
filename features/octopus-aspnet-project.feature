@@ -28,23 +28,25 @@ Feature: Configure an Octopus ASP.NET project
   @define-project
   Scenario: Define project
     Given I set the following aliases:
-      | Define your deployment process | //span[contains(.,'Define your deployment process')]                                            |
-      | Add Step                       | //span[contains(.,'Add Step')]                                                                  |
-      | Search                         | //input[@type='search']                                                                         |
-      | Deploy to IIS                  | (//div[contains(.,'Deploy to IIS')])[16]                                                        |
-      | Add                            | //span[contains(.,'Add')]                                                                       |
-      | Step Name                      | //input[contains(@id, 'Stepname')]                                                              |
-      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                    |
-      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
-      | Package ID                     | //input[contains(@id, 'PackageID')]                                                             |
-      | Web site name                  | //input[contains(@id, 'Websitename')]                                                           |
-      | Application Pool name          | //input[contains(@id, 'ApplicationPoolname')]                                                   |
-      | Remove binding                 | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]   |
-      | HTML Body                      | /html/body                                                                                      |
-      | Add binding                    | (//span[contains(.,'Add')])[1]                                                                  |
-      | Port                           | //input[contains(@id, 'Port')]                                                                  |
-      | OK                             | //span[contains(.,'Ok')]                                                                        |
-      | Save                           | (//div[contains(.,'Save')])[20]                                                                 |
+      | Define your deployment process  | //span[contains(.,'Define your deployment process')]                                            |
+      | Add Step                        | //span[contains(.,'Add Step')]                                                                  |
+      | Search                          | //input[@type='search']                                                                         |
+      | Deploy to IIS                   | (//div[contains(.,'Deploy to IIS')])[16]                                                        |
+      | Add                             | //span[contains(.,'Add')]                                                                       |
+      | Step Name                       | //input[contains(@id, 'Stepname')]                                                              |
+      | Runs on targets in roles        | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | Web role                        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Package ID                      | //input[contains(@id, 'PackageID')]                                                             |
+      | Web site name                   | //input[contains(@id, 'Websitename')]                                                           |
+      | Enable Anonymous authentication | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                |
+      | Enable Windows authentication   | //input[@type='checkbox'][../div[contains(.,'Enable Windows authentication')]]                  |
+      | Application Pool name           | //input[contains(@id, 'ApplicationPoolname')]                                                   |
+      | Remove binding                  | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]   |
+      | HTML Body                       | /html/body                                                                                      |
+      | Add binding                     | (//span[contains(.,'Add')])[1]                                                                  |
+      | Port                            | //input[contains(@id, 'Port')]                                                                  |
+      | OK                              | //span[contains(.,'Ok')]                                                                        |
+      | Save                            | (//div[contains(.,'Save')])[20]                                                                 |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I click the "Define your deployment process" button
     And I click the "Add Step" button
@@ -77,6 +79,10 @@ Feature: Configure an Octopus ASP.NET project
     And I clear the "Port" text box
     And I populate the "Port" text box with "8081"
     And I click the "OK" button
+
+    And I scroll the "Enable Anonymous authentication" check box into view offset by "-300"
+    And I force click the "Enable Anonymous authentication" check box
+    And I force click the "Enable Windows authentication" check box
 
     And I click the "Save" button
 
