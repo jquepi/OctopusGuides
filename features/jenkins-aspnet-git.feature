@@ -21,7 +21,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @plugin-install
   Scenario: Install plugins
     Given I set the following aliases:
-      | Manage Jenkins           | //a[@href='/manage']                                                        |
+      | Manage Jenkins           | //a[contains(.,'Manage Jenkins')]                                                        |
       | Manage Plugins           | #main-panel > div:nth-child(9) > a                                          |
       | Available                | #main-panel > form > div.tabBarFrame > div.tabBar > div:nth-child(2) > a    |
       | Filter                   | #filter-box                                                                 |
@@ -56,7 +56,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-tools
   Scenario: Configure tools
     Given I set the following aliases:
-      | Manage Jenkins            | //a[@href='/manage']                                                                     |
+      | Manage Jenkins            | //a[contains(.,'Manage Jenkins')]                                                                     |
       | Global Tool Configuration | div.manage-option:nth-child(7) > a:nth-child(1)                                                       |
       | MSBuild Tool              | //button[contains(.,'Add MSBuild')]                                                                   |
       | MSBuild Name              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkName')] |
@@ -90,7 +90,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
-      | Manage Jenkins          | //a[@href='/manage']                                      |
+      | Manage Jenkins          | //a[contains(.,'Manage Jenkins')]                                      |
       | Configure Credentials   | div.manage-option:nth-child(6) > a:nth-child(1)                        |
       | Credentials             | //a[@href='/credentials'][contains(.,'Credentials')]                   |
       | System                  | //a[@href='/credentials/store/system'][contains(.,'System')]           |
