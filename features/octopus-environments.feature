@@ -15,11 +15,11 @@ Feature: Configure the Octopus environments
 
   Scenario: Add dev, test and prod
     Given I set the following aliases:
-      | Infrastructure       | //span[contains(.,'Infrastructure')]  |
-      | Environments         | (//a[contains(.,'Environments')])[1]  |
-      | Add Environment      | //span[contains(.,'Add Environment')] |
-      | New environment name | //input[contains(@id, 'Newenvironmentname')]   |
-      | Save                 | //span[contains(.,'Save')]            |
+      | Infrastructure       | //span[contains(.,'Infrastructure')]         |
+      | Environments         | (//a[contains(.,'Environments')])[1]         |
+      | Add Environment      | //span[contains(.,'Add Environment')]        |
+      | New environment name | //input[contains(@id, 'Newenvironmentname')] |
+      | Save                 | //span[contains(.,'Save')]                   |
     And I click the "Infrastructure" link
 
     And I click the "Environments" link
