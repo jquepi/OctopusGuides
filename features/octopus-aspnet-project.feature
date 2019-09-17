@@ -5,7 +5,6 @@ Feature: Configure an Octopus ASP.NET project
       | Username    | //input[@name='userName']            |
       | Password    | //input[@name='password']            |
       | Sign In     | //span[contains(.,'SIGN IN')]        |
-      | Hide wizard | //em[contains(@class,'fa fa-minus')] |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I maximize the window
     And I set the default explicit wait time to "30" seconds
@@ -16,6 +15,8 @@ Feature: Configure an Octopus ASP.NET project
 
   @hide-wizard
   Scenario: Hide wizard
+    Given I set the following aliases:
+      | Hide wizard | //em[contains(@class,'fa fa-minus')] |
     And I click the "Hide wizard" button
 
   @create-project

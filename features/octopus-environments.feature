@@ -37,5 +37,7 @@ Feature: Configure the Octopus environments
     And I populate the "New environment name" text box with "Prod"
     And I click the "Save" button
 
+    And I sleep for "1" second
+
   Scenario: Shutdown
     And I close the browser
