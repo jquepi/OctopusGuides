@@ -28,10 +28,14 @@ Feature: Configure an Octopus ASP.NET project
   @define-project
   Scenario: Define project
     Given I set the following aliases:
-      | Define your deployment process | //span[contains(.,'Define your deployment process')] |
-      | Add Step                       | //span[contains(.,'Add Step')]                       |
-      | Search                         | //input[@type='search']                              |
-      | Deploy to IIS                  | (//div[contains(.,'Deploy to IIS')])[16]             |
+      | Define your deployment process | //span[contains(.,'Define your deployment process')]                                            |
+      | Add Step                       | //span[contains(.,'Add Step')]                                                                  |
+      | Search                         | //input[@type='search']                                                                         |
+      | Deploy to IIS                  | (//div[contains(.,'Deploy to IIS')])[16]                                                        |
+      | Add                            | //span[contains(.,'Add')]                                                                       |
+      | Step Name                      | //input[contains(@id, 'Stepname')]                                                              |
+      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I click the "Define your deployment process" button
     And I click the "Add Step" button
@@ -39,8 +43,15 @@ Feature: Configure an Octopus ASP.NET project
     And I populate the "Search" text box with "iis"
     And I scroll the "Deploy to IIS" tile into view offset by "-300"
     And I mouse over the "Deploy to IIS" tile
+    And I click the "Add" button
 
-    And I wait for "5" seconds
+    And I populate the "Step Name" text box with "Deploy web app to IIS"
+
+    And I scroll the "Runs on targets in roles" text box into view offset by "-300"
+    And I click the "Runs on targets in roles" text box
+    And I click the "Web role" option
+
+    And I sleep for "5" seconds
 
   Scenario: Shutdown
     And I close the browser
