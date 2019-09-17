@@ -223,7 +223,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Command" text box into view offset by "-200"
     And I highlight outside the "Command" text box
-    And I populate the "Command" text box with "nuget restore"
+    And I populate the "Command" text box with "C:\ProgramData\chocolatey\bin\nuget.exe restore"
     And I save a screenshot to "C:\screenshots\nuget-restore.png"
     And I remove the highlight from the "Command" text box
 
