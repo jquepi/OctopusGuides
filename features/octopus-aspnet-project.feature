@@ -28,14 +28,18 @@ Feature: Configure an Octopus ASP.NET project
   @define-project
   Scenario: Define project
     Given I set the following aliases:
-      | Define your deployment process | //span[contains(.,'Define your deployment process')]                                            |
-      | Add Step                       | //span[contains(.,'Add Step')]                                                                  |
-      | Search                         | //input[@type='search']                                                                         |
-      | Deploy to IIS                  | (//div[contains(.,'Deploy to IIS')])[16]                                                        |
-      | Add                            | //span[contains(.,'Add')]                                                                       |
-      | Step Name                      | //input[contains(@id, 'Stepname')]                                                              |
-      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                    |
-      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Define your deployment process | //span[contains(.,'Define your deployment process')]                                                                                                                                            |
+      | Add Step                       | //span[contains(.,'Add Step')]                                                                                                                                                                  |
+      | Search                         | //input[@type='search']                                                                                                                                                                         |
+      | Deploy to IIS                  | (//div[contains(.,'Deploy to IIS')])[16]                                                                                                                                                        |
+      | Add                            | //span[contains(.,'Add')]                                                                                                                                                                       |
+      | Step Name                      | //input[contains(@id, 'Stepname')]                                                                                                                                                              |
+      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                                                                                                                    |
+      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span                                                                                                 |
+      | Package ID                     | //input[contains(@id, 'PackageID')]                                                                                                                                                             |
+      | Web site name                  | //input[contains(@id, 'Websitename')]                                                                                                                                                           |
+      | Remove binding                 | /html/body/div/div/main/div[2]/div/div/main/div/div[3]/div/div/div/div/div[2]/div[2]/div/div/div[4]/div[2]/div[2]/div[1]/div[2]/div[3]/div[2]/div/div/div/div[1]/div[2]/div/span/div/div/button |
+      | HTML Body                      | /html/body                                                                                                                                                                                      |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I click the "Define your deployment process" button
     And I click the "Add Step" button
@@ -50,6 +54,13 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll the "Runs on targets in roles" text box into view offset by "-300"
     And I click the "Runs on targets in roles" text box
     And I click the "Web role" option
+
+    And I scroll the "Package ID" text box into view offset by "-300"
+    And I populate the "Package ID" text box with "RandomQuotes"
+    And I click the "HTML Body" element
+
+    And I scroll the "Web site name" text box into view offset by "-300"
+    And I populate the "Web site name" text box with "RandomQuotes"
 
     And I sleep for "5" seconds
 
