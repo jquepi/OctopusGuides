@@ -141,7 +141,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Description" text box with an offset of "0"
     And I highlight outside the "OK" button
 
-    And I populate the "Secret" text box with "OctopusAPIKeyAlias"
+    And I populate the "Secret" text box with "ExternalOctopusAPIKey"
     And I populate the "ID" text box with "OctopusAPIKey"
     And I populate the "Description" text box with "The Octopus API Key"
     And I save a screenshot to "C:\screenshots\octopus-credentials.png"

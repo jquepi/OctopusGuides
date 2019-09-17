@@ -21,11 +21,4 @@ $UserObj = $repository.Users.GetCurrent()
 $ApiObj = $repository.Users.CreateApiKey($UserObj, "Puppet Install")
 
 #Save the API key so we can use it later
-Set-Content -Path c:\octopus_api_key.txt -Value $ApiObj.ApiKey
-
-#Create the standard environments
-& C:\ProgramData\chocolatey\bin\octo.exe create-environment --name=Dev --apiKey=$($ApiObj.ApiKey) --server=http://localhost --ignoreIfExists
-& C:\ProgramData\chocolatey\bin\octo.exe create-environment --name=Test --apiKey=$($ApiObj.ApiKey) --server=http://localhost --ignoreIfExists
-& C:\ProgramData\chocolatey\bin\octo.exe create-environment --name=Prod --apiKey=$($ApiObj.ApiKey) --server=http://localhost --ignoreIfExists
-
-Set-Content -Path C:\octopus_api.txt -Value $($ApiObj.ApiKey)
+Set-Content -Path c:\octopus_api.txt -Value $ApiObj.ApiKey
