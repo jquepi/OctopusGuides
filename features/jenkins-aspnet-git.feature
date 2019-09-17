@@ -287,6 +287,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Build One" link
     And I click the "Console Output" link
     And I scroll down "10000" px
+    And I save a screenshot to "C:\screenshots\build-logs.png"
 
     And I sleep for "15" seconds
 
@@ -298,7 +299,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Then I run the feature "octopus-environments.feature"
 
   @configure-octopus-project
-  Scenario: Create octopus environments
+  Scenario: Create octopus project
     Then I run the feature "octopus-aspnet-project.feature"
 
   Scenario: Stop recording
