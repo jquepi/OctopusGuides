@@ -270,9 +270,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @build-now
   Scenario: Run build
     Given I set the following aliases:
-      | Build Now      | //a[contains(.,'Build Now')]                                              |
-      | Build One      | /html/body/div[4]/div[1]/div[2]/div[2]/div[2]/table/tbody/tr[2]/td/div[1] |
-      | Console Output | //a[contains(.,'Console Output')]                                         |
+      | Build Now      | //a[contains(.,'Build Now')]      |
+      | Build One      | //a[contains(.,'#1')] |
+      | Console Output | //a[contains(.,'Console Output')] |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
     And I highlight outside the "Build Now" link
@@ -280,13 +280,15 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Build Now" link
     And I remove the highlight from the "Build Now" link
 
-    And I sleep for "30" seconds
+    And I sleep for "15" seconds
 
     And I highlight outside the "Build One" link
     And I save a screenshot to "C:\screenshots\build-one.png"
     And I click the "Build One" link
     And I click the "Console Output" link
     And I scroll down "10000" px
+
+    And I sleep for "15" seconds
 
   Scenario: Shutdown
     And I close the browser
