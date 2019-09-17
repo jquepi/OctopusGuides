@@ -55,6 +55,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Add Step" button
 
     And I populate the "Search" text box with "iis"
+    And I sleep for "2" seconds
     And I scroll the "Deploy to IIS" tile into view offset by "-300"
     And I mouse over the "Deploy to IIS" tile
     And I click the "Add" button
