@@ -259,7 +259,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Command Two" text box into view offset by "-200"
     And I highlight outside the "Command Two" text box
-    And I populate the "Command Two" text box with "Octo.exe push --server http://localhost --apiKey %OctopusAPIKey% --package RandomQuotes/obj/octopacked/RandomQuotes.1.0.0.%BUILD_NUMBER%.nupkg"
+    And I populate the "Command Two" text box with "Octo.exe push --server http://localhost --apiKey %OctopusAPIKey% --package ./RandomQuotes/obj/octopacked/RandomQuotes.1.0.0.%BUILD_NUMBER%.nupkg"
     And I save a screenshot to "C:\screenshots\octo-push.png"
     And I remove the highlight from the "Command Two" text box
 
