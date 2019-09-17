@@ -11,6 +11,11 @@ package { 'vlc':
   provider => chocolatey
 }
 
+package { 'NuGet.CommandLine':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 package { '7zip':
   ensure   => installed,
   provider => chocolatey
