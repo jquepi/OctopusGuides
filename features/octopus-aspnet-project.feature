@@ -68,6 +68,7 @@ Feature: Configure an Octopus ASP.NET project
 
     And I scroll the "Runs on targets in roles" text box into view offset by "-300"
     And I click the "Runs on targets in roles" text box
+    And I populate the "Runs on targets in roles" text box with "web"
     And I click the "Web role" option
 
     And I scroll the "Package ID" text box into view offset by "-300"
