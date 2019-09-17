@@ -279,7 +279,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\build-now.png"
     And I click the "Build Now" link
     And I remove the highlight from the "Build Now" link
-    And I highlight outside the "Build One" link
+    And I highlight inside the "Build One" link
     And I save a screenshot to "C:\screenshots\build-one.png"
     And I force click the "Build One" link
     And I click the "Console Output" link

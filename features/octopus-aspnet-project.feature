@@ -13,6 +13,9 @@ Feature: Configure an Octopus ASP.NET project
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
+
+  @hide-wizard
+  Scenario: Hide wizard
     And I click the "Hide wizard" button
 
   @create-project
