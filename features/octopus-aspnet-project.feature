@@ -24,6 +24,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Add project" button
     And I populate the "New project name" text box with "Random Quotes"
     And I click the "Save" button
+    And I sleep for "2" seconds
 
   @define-project
   Scenario: Define project
