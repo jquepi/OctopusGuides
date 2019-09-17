@@ -284,7 +284,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Build One" link
     And I save a screenshot to "C:\screenshots\build-one.png"
-    And I click the "Build One" link
+    And I force click the "Build One" link
     And I click the "Console Output" link
     And I scroll down "10000" px
     And I save a screenshot to "C:\screenshots\build-logs.png"
