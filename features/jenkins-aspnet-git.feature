@@ -270,8 +270,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @build-now
   Scenario: Run build
     Given I set the following aliases:
-      | Build Now | //a[contains(.,'Build Now')]                                              |
-      | Build One | /html/body/div[4]/div[1]/div[2]/div[2]/div[2]/table/tbody/tr[2]/td/div[1] |
+      | Build Now      | //a[contains(.,'Build Now')]                                              |
+      | Build One      | /html/body/div[4]/div[1]/div[2]/div[2]/div[2]/table/tbody/tr[2]/td/div[1] |
+      | Console Output | //a[contains(.,'Console Output')]                                         |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
     And I highlight outside the "Build Now" link
@@ -283,6 +284,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Build One" link
     And I save a screenshot to "C:\screenshots\build-one.png"
+    And I click the "Build One" link
+    And I click the "Console Output" link
+    And I scroll down "10000" px
+
+  Scenario: Shutdown
+    And I close the browser
 
   @configure-octopus-environments
   Scenario: Create octopus environments
@@ -292,6 +299,5 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Create octopus environments
     Then I run the feature "octopus-aspnet-project.feature"
 
-  Scenario: Shutdown
+  Scenario: Stop recording
     And I stop recording the screen
-    And I close the browser
