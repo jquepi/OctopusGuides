@@ -2,9 +2,10 @@ Feature: Configure an Octopus ASP.NET project
 
   Scenario: Login
     Given I set the following aliases:
-      | Username | //input[@name='userName']     |
-      | Password | //input[@name='password']     |
-      | Sign In  | //span[contains(.,'SIGN IN')] |
+      | Username    | //input[@name='userName']            |
+      | Password    | //input[@name='password']            |
+      | Sign In     | //span[contains(.,'SIGN IN')]        |
+      | Hide wizard | //em[contains(@class,'fa fa-minus')] |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I maximize the window
     And I set the default explicit wait time to "30" seconds
@@ -12,6 +13,7 @@ Feature: Configure an Octopus ASP.NET project
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
+    And I click the "Hide wizard" button
 
   @create-project
   Scenario: Create Project
