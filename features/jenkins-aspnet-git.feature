@@ -294,9 +294,5 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Create octopus environments
     Then I run the feature "octopus-environments.feature"
 
-  @configure-octopus-project
-  Scenario: Create octopus project
-    Then I run the feature "octopus-aspnet-project.feature"
-
   Scenario: Stop recording
     And I stop recording the screen

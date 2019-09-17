@@ -9,7 +9,7 @@ jobs:
     - name: Execute puppet
       shell: powershell
       run: ./install.ps1
-    - name: Run feature
+    - name: Create Jenkins Project
       shell: powershell
       run: >
         java
@@ -21,8 +21,26 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\jenkins-aspnet-git.feature
+    - name: Add tentacle
+      shell: powershell
+      run: & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply tentacle.pp --disable_warnings=deprecations
+    - name: Create Octopus Project
+      shell: powershell
+      run: >
+        java
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus-aspnet-project.feature
     - name: Convert video
-      run: for %%a in (c:\screenshots\*.avi) do "C:\Program Files\VideoLAN\VLC\vlc.exe" -I dummy -vvv "%%a" --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=ts,dst=c:\screenshots\video.mp4} vlc://quit
+      run: for %%a in (c:\screenshots\*.avi) do "C:\Program Files\VideoLAN\VLC\vlc.exe" -I dummy -vvv "%%a" --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=ts,dst="c:\screenshots\%%~na.mp4"} vlc://quit
+    - name: Merge video
+      shell: powershell
+      run: & "C:\Program Files\VideoLAN\VLC\vlc.exe" -I dummy -vvv $(gci C:\screenshots\*.mp4 | %{$list=""}{$list += "`"" + $_.Name + "`" "}{$list}) --sout "#gather:std{access=file,mux=ts,dst=c:\screenshots\video.mp4}" --no-sout-all --sout-keep vlc://quit
     - name: Zip screenshots
       shell: powershell
       run: |
