@@ -257,10 +257,6 @@ package { 'sql-server-express':
     Set-Content -Path C:\octopus_api.txt -Value $($ApiObj.ApiKey)
     | EOT
 }
--> exec { 'Populate Environments':
-  command  => '& C:/initialise_octopus.ps1',
-  provider => powershell,
-}
 
 package { 'octopusdeploy.tentacle':
   ensure   => installed,
