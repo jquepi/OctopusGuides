@@ -96,17 +96,16 @@ Feature: Configure an Octopus ASP.NET project
   @deploy-project
   Scenario: Deploy project
     Given I set the following aliases:
-      | Overview       | //span[contains(.,'Overview')]         |
-      | Create Release | //span[contains(.,'Create release')]   |
-      | Save           | //span[contains(.,'Save')]             |
-      | Deploy To Dev  | //span[contains(.,'Deploy to Dev...')] |
-      | Deploy         | (//span[contains(.,'Deploy')])[2]      |
-
+      | Create Release | //button[contains(.,'Create release')]   |
+      | Save           | //button[contains(.,'Save')]             |
+      | Deploy To Dev  | //button[contains(.,'Deploy to Dev...')] |
+      | Deploy         | //button[contains(.,'Deploy')]           |
+    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I click the "Create Release" button
     And I click the "Save" button
     And I click the "Deploy To Dev" button
     And I click the "Deploy" button
-
+    And I sleep for "30" seconds
 
   Scenario: Shutdown
     And I close the browser
