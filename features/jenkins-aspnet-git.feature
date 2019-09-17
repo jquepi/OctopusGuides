@@ -287,9 +287,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I force click the "Build One" link
     And I click the "Console Output" link
     And I scroll down "10000" px
+    And I sleep for "30" seconds
     And I save a screenshot to "C:\screenshots\build-logs.png"
-
-    And I sleep for "15" seconds
 
   Scenario: Shutdown
     And I close the browser
