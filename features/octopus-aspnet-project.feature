@@ -93,5 +93,20 @@ Feature: Configure an Octopus ASP.NET project
 
     And I click the "Save" button
 
+  @deploy-project
+  Scenario: Deploy project
+    Given I set the following aliases:
+      | Overview       | //span[contains(.,'Overview')]         |
+      | Create Release | //span[contains(.,'Create release')]   |
+      | Save           | //span[contains(.,'Save')]             |
+      | Deploy To Dev  | //span[contains(.,'Deploy to Dev...')] |
+      | Deploy         | (//span[contains(.,'Deploy')])[2]      |
+
+    And I click the "Create Release" button
+    And I click the "Save" button
+    And I click the "Deploy To Dev" button
+    And I click the "Deploy" button
+
+
   Scenario: Shutdown
     And I close the browser
