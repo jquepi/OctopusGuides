@@ -38,8 +38,13 @@ Feature: Configure an Octopus ASP.NET project
       | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
       | Package ID                     | //input[contains(@id, 'PackageID')]                                                             |
       | Web site name                  | //input[contains(@id, 'Websitename')]                                                           |
+      | Application Pool name          | //input[contains(@id, 'ApplicationPoolname')]                                                   |
       | Remove binding                 | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]   |
       | HTML Body                      | /html/body                                                                                      |
+      | Add binding                    | (//span[contains(.,'Add')])[1]                                                                  |
+      | Port                           | //input[contains(@id, 'Port')]                                                                  |
+      | OK                             | //span[contains(.,'Ok')]                                                                        |
+      | Save                           | (//div[contains(.,'Save')])[20]                                                                 |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I click the "Define your deployment process" button
     And I click the "Add Step" button
@@ -62,12 +67,18 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll the "Web site name" text box into view offset by "-300"
     And I populate the "Web site name" text box with "RandomQuotes"
 
-    And I sleep for "5" seconds
+    And I scroll the "Application Pool name" text box into view offset by "-300"
+    And I populate the "Application Pool name" text box with "RandomQuotes"
 
     And I scroll the "Remove binding" button into view offset by "-300"
     And I click the "Remove binding" button
 
-    And I sleep for "5" seconds
+    And I click the "Add binding" button
+    And I clear the "Port" text box
+    And I populate the "Port" text box with "8081"
+    And I click the "OK" button
+
+    And I click the "Save" button
 
   Scenario: Shutdown
     And I close the browser
