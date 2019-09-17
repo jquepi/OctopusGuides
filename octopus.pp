@@ -253,7 +253,7 @@ package { 'sql-server-express':
     $ApiObj = $repository.Users.CreateApiKey($UserObj, "Puppet Install")
 
     #Save the API key so we can use it later
-    Set-Content -Path c:\octopus_api_key.txt -Value $ApiObj.ApiKey
+    Set-Content -Path c:\octopus_api.txt -Value $ApiObj.ApiKey
     | EOT
 }
 -> exec { 'Populate Environments':
