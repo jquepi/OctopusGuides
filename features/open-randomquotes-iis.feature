@@ -15,5 +15,4 @@ Feature: Open Random Quotes
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "2000" milliseconds
     And I stop recording the screen
-    And I clear the transition
     And I close the browser
