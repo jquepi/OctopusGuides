@@ -90,6 +90,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\msbuild-settings.png"
     And I click the "Save" button
 
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
@@ -146,6 +148,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Description" text box with "The Octopus API Key"
     And I save a screenshot to "C:\screenshots\octopus-credentials.png"
     And I click the "OK" button
+
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   @configure-project
   Scenario: Configure credentials
@@ -288,6 +292,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\build-logs.png"
 
   Scenario: Shutdown
-    Then I fade the screen to "1" "1" "1" over "2000" milliseconds
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
     And I close the browser
