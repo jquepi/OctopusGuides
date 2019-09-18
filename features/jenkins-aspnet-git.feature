@@ -289,10 +289,4 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   Scenario: Shutdown
     And I close the browser
-
-  @configure-octopus-environments
-  Scenario: Create octopus environments
-    Then I run the feature "octopus-environments.feature"
-
-  Scenario: Stop recording
     And I stop recording the screen

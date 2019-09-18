@@ -9,7 +9,7 @@ jobs:
     - name: Execute puppet
       shell: powershell
       run: ./install.ps1
-    - name: Create Jenkins Project
+    - name: Create Jenkins Project and Octopus
       shell: powershell
       run: >
         java
@@ -21,6 +21,17 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\jenkins-aspnet-git.feature
+    - name: Create the Octopus Environments
+      shell: powershell
+      run: >
+        java
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus-environments.feature
     - name: Add tentacle
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply tentacle.pp --disable_warnings=deprecations'
