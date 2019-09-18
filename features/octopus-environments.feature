@@ -4,7 +4,7 @@ Feature: Configure the Octopus environments
     Given I set the following aliases:
       | Username | //input[@name='userName']     |
       | Password | //input[@name='password']     |
-      | Sign In  | //span[contains(.,'SIGN IN')] |
+      | Sign In  | //button[contains(.,'SIGN IN')] |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I maximize the window
     And I set the default explicit wait time to "30" seconds
@@ -18,9 +18,9 @@ Feature: Configure the Octopus environments
     Given I set the following aliases:
       | Infrastructure       | //span[contains(.,'Infrastructure')]         |
       | Environments         | (//a[contains(.,'Environments')])[1]         |
-      | Add Environment      | //span[contains(.,'Add Environment')]        |
+      | Add Environment      | //button[contains(.,'Add Environment')]      |
       | New environment name | //input[contains(@id, 'Newenvironmentname')] |
-      | Save                 | //span[contains(.,'Save')]                   |
+      | Save                 | //button[contains(.,'Save')]                 |
     And I click the "Infrastructure" link
 
     And I click the "Environments" link
