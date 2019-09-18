@@ -2,8 +2,8 @@ Feature: Configure an Octopus ASP.NET project
 
   Scenario: Login
     Given I set the following aliases:
-      | Username | //input[@name='userName']     |
-      | Password | //input[@name='password']     |
+      | Username | //input[@name='userName']       |
+      | Password | //input[@name='password']       |
       | Sign In  | //button[contains(.,'SIGN IN')] |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I maximize the window
@@ -36,8 +36,8 @@ Feature: Configure an Octopus ASP.NET project
   @define-project
   Scenario: Define project
     Given I set the following aliases:
-      | Define your deployment process  | //button[contains(.,'Define your deployment process')]                                                |
-      | Add Step                        | //button[contains(.,'Add Step')]                                                                      |
+      | Define your deployment process  | //button[contains(.,'Define your deployment process')]                                              |
+      | Add Step                        | //button[contains(.,'Add Step')]                                                                    |
       | Search                          | //input[@type='search']                                                                             |
       | Deploy to IIS                   | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                            |
       | Add                             | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
@@ -50,7 +50,7 @@ Feature: Configure an Octopus ASP.NET project
       | Enable Windows authentication   | //input[@type='checkbox'][../div[contains(.,'Enable Windows authentication')]]                      |
       | Application Pool name           | //input[contains(@id, 'ApplicationPoolname')]                                                       |
       | Remove binding                  | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]       |
-      | HTML Body                       | /html/body                                                                                          |
+      | HTML Body                       | //body                                                                                              |
       | Add binding                     | //button[contains(.,'Add')]                                                                         |
       | Port                            | //input[contains(@id, 'Port')]                                                                      |
       | OK                              | //button[contains(.,'Ok')]                                                                          |
@@ -95,6 +95,7 @@ Feature: Configure an Octopus ASP.NET project
     And I force click the "Enable Windows authentication" check box
 
     And I click the "Save" button
+    And I sleep for "2" seconds
 
   @deploy-project
   Scenario: Deploy project
