@@ -2,9 +2,9 @@ Feature: Configure an Octopus ASP.NET project
 
   Scenario: Login
     Given I set the following aliases:
-      | Username    | //input[@name='userName']            |
-      | Password    | //input[@name='password']            |
-      | Sign In     | //span[contains(.,'SIGN IN')]        |
+      | Username | //input[@name='userName']     |
+      | Password | //input[@name='password']     |
+      | Sign In  | //span[contains(.,'SIGN IN')] |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I maximize the window
     And I set the default explicit wait time to "30" seconds
@@ -51,10 +51,10 @@ Feature: Configure an Octopus ASP.NET project
       | Application Pool name           | //input[contains(@id, 'ApplicationPoolname')]                                                       |
       | Remove binding                  | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]       |
       | HTML Body                       | /html/body                                                                                          |
-      | Add binding                     | (//span[contains(.,'Add')])[1]                                                                      |
+      | Add binding                     | //button[contains(.,'Add')]                                                                         |
       | Port                            | //input[contains(@id, 'Port')]                                                                      |
-      | OK                              | //span[contains(.,'Ok')]                                                                            |
-      | Save                            | (//div[contains(.,'Save')])[20]                                                                     |
+      | OK                              | //button[contains(.,'Ok')]                                                                          |
+      | Save                            | //button[contains(.,'Save')]                                                                        |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I click the "Define your deployment process" button
     And I click the "Add Step" button
