@@ -288,5 +288,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\build-logs.png"
 
   Scenario: Shutdown
-    And I close the browser
+    Then I fade the screen to "1" "1" "1" over "2000" milliseconds
     And I stop recording the screen
+    And I close the browser

@@ -11,5 +11,9 @@ Feature: Open Random Quotes
     And I start recording the screen to the directory "C:\screenshots"
     And I click the "Refresh" button
     And I sleep for "2" seconds
+
+  Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "2000" milliseconds
     And I stop recording the screen
+    And I clear the transition
     And I close the browser

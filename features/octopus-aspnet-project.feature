@@ -112,5 +112,6 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "30" seconds
 
   Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "2000" milliseconds
     And I stop recording the screen
     And I close the browser
