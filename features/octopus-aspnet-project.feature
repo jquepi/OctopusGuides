@@ -85,7 +85,7 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll the "Remove binding" button into view offset by "-300"
     And I click the "Remove binding" button
 
-    And I click the "Add binding" button
+    And I force click the "Add binding" button
     And I clear the "Port" text box
     And I populate the "Port" text box with "8081"
     And I click the "OK" button
