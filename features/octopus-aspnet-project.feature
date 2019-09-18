@@ -51,7 +51,7 @@ Feature: Configure an Octopus ASP.NET project
       | Application Pool name           | //input[contains(@id, 'ApplicationPoolname')]                                                       |
       | Remove binding                  | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]       |
       | HTML Body                       | //body                                                                                              |
-      | Add binding                     | //div[contains(@class, 'actionsMenu')]//button[contains(.,'Add')]                                   |
+      | Add binding                     | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add')]  |
       | Port                            | //input[contains(@id, 'Port')]                                                                      |
       | OK                              | //button[contains(.,'Ok')]                                                                          |
       | Save                            | //button[contains(.,'Save')]                                                                        |
