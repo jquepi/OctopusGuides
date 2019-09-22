@@ -26,33 +26,39 @@ Feature: Configure the Octopus environments
     And I save a screenshot to "C:\screenshots\infrastructure.png"
     And I click the "Infrastructure" link
 
-    And I highlight outside the "Environments" link
+    And I highlight outside the "Environments" link offset of "2"
     And I save a screenshot to "C:\screenshots\environments-1.png"
     And I click the "Environments" link
+    And I highlight outside the "Add Environment" button
+    And I save a screenshot to "C:\screenshots\add-environment-1.png"
     And I click the "Add Environment" button
     And I populate the "New environment name" text box with "Dev"
-    And I highlight outside the "New environment name" text box
-    And I highlight outside the "Save" button
+    And I highlight outside the "New environment name" text box offset of "2"
+    And I highlight outside the "Save" button offset of "0"
     And I save a screenshot to "C:\screenshots\environment-dev.png"
     And I click the "Save" button
 
-    And I highlight outside the "Environments" link
+    And I highlight outside the "Environments" link offset of "2"
     And I save a screenshot to "C:\screenshots\environments-2.png"
     And I click the "Environments" link
+    And I highlight outside the "Add Environment" button
+    And I save a screenshot to "C:\screenshots\add-environment-2.png"
     And I click the "Add Environment" button
-    And I populate the "New environment name" text box with "Test"
+    And I populate the "New environment name" text box with "Test" offset of "2"
     And I highlight outside the "New environment name" text box
-    And I highlight outside the "Save" button
+    And I highlight outside the "Save" button offset of "0"
     And I save a screenshot to "C:\screenshots\environment-test.png"
     And I click the "Save" button
 
-    And I highlight outside the "Environments" link
+    And I highlight outside the "Environments" link offset of "2"
     And I save a screenshot to "C:\screenshots\environments-3.png"
     And I click the "Environments" link
+    And I highlight outside the "Add Environment" button
+    And I save a screenshot to "C:\screenshots\add-environment-3.png"
     And I click the "Add Environment" button
-    And I populate the "New environment name" text box with "Prod"
+    And I populate the "New environment name" text box with "Prod" offset of "2"
     And I highlight outside the "New environment name" text box
-    And I highlight outside the "Save" button
+    And I highlight outside the "Save" button offset of "0"
     And I save a screenshot to "C:\screenshots\environment-prod.png"
     And I click the "Save" button
 
