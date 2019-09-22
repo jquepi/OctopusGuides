@@ -22,7 +22,7 @@ Feature: Configure the Octopus environments
       | New environment name | //input[contains(@id, 'Newenvironmentname')] |
       | Save                 | //button[contains(.,'Save')]                 |
 
-    And I highlight outside the "Infrastructure" link
+    And I highlight outside the "Infrastructure" link link offset of "2"
     And I save a screenshot to "C:\screenshots\infrastructure.png"
     And I click the "Infrastructure" link
 
