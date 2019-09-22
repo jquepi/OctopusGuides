@@ -23,19 +23,34 @@ Feature: Configure the Octopus environments
       | Save                 | //button[contains(.,'Save')]                 |
     And I click the "Infrastructure" link
 
+    And I highlight outside the "Environments" link
+    And I save a screenshot to "C:\screenshots\environments-1.png"
     And I click the "Environments" link
     And I click the "Add Environment" button
     And I populate the "New environment name" text box with "Dev"
+    And I highlight outside the "New environment name" text box
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\environment-dev.png"
     And I click the "Save" button
 
+    And I highlight outside the "Environments" link
+    And I save a screenshot to "C:\screenshots\environments-2.png"
     And I click the "Environments" link
     And I click the "Add Environment" button
     And I populate the "New environment name" text box with "Test"
+    And I highlight outside the "New environment name" text box
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\environment-test.png"
     And I click the "Save" button
 
+    And I highlight outside the "Environments" link
+    And I save a screenshot to "C:\screenshots\environments-3.png"
     And I click the "Environments" link
     And I click the "Add Environment" button
     And I populate the "New environment name" text box with "Prod"
+    And I highlight outside the "New environment name" text box
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\environment-prod.png"
     And I click the "Save" button
 
     And I sleep for "1" second
