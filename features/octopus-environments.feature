@@ -21,6 +21,9 @@ Feature: Configure the Octopus environments
       | Add Environment      | //button[contains(.,'Add Environment')]      |
       | New environment name | //input[contains(@id, 'Newenvironmentname')] |
       | Save                 | //button[contains(.,'Save')]                 |
+
+    And I highlight outside the "Infrastructure" link
+    And I save a screenshot to "C:\screenshots\infrastructure.png"
     And I click the "Infrastructure" link
 
     And I highlight outside the "Environments" link
