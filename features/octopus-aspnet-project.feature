@@ -27,10 +27,23 @@ Feature: Configure an Octopus ASP.NET project
       | Add project      | (//div[contains(.,'Add Project')])[11]   |
       | New project name | //input[contains(@id, 'Newprojectname')] |
       | Save             | (//div[contains(.,'Save')])[9]           |
+    And I highlight outside the "Projects" link with an offset of "2"
+    And I save a screenshot to "C:\screenshots\octopus-projects.png"
     And I click the "Projects" link
+    And I remove the highlight from the "Projects" link
+
+    And I highlight outside the "Add project" link
+    And I save a screenshot to "C:\screenshots\octopus-add-project.png"
     And I click the "Add project" button
+    And I remove the highlight from the "Add project" link
+
+    And I highlight outside the "New project name" text box with an offset of "2"
+    And I highlight outside the "Save" button with an offset of "0"
+    And I save a screenshot to "C:\screenshots\octopus-new-project-name.png"
     And I populate the "New project name" text box with "Random Quotes"
     And I click the "Save" button
+    And I remove the highlight from the "New project name" text box
+    And I remove the highlight from the "Save" button
     And I sleep for "2" seconds
 
   @define-project
