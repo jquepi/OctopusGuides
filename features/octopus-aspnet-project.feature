@@ -165,6 +165,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Create Release" button
     And I save a screenshot to "C:\screenshots\octopus-create-release.png"
     And I click the "Create Release" button
+    And I remove the highlight from the "Create Release" button
 
     And I highlight outside the "Save" button
     And I save a screenshot to "C:\screenshots\octopus-save-release.png"
