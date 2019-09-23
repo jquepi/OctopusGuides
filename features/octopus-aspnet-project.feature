@@ -155,7 +155,7 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Enable Anonymous authentication container" element
     And I remove the highlight from the "Enable Windows authentication container" element
 
-    And I highlight outside the "Save" button  with an offset of "2"
+    And I highlight outside the "Save" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-step-save.png"
     And I click the "Save" button
     And I sleep for "2" seconds
