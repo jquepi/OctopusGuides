@@ -22,7 +22,7 @@ Feature: Create a Lifecycle in Octopus
       | Lifecycle name                  | //input[contains(@id,'Lifecyclename')]                  |
       | Lifecycle description           | //textarea[contains(@id,'Lifecycledescription')]        |
       | Lifecycle description container | //div[./textarea[contains(@id,'Lifecycledescription')]] |
-      | Add Phase                       | //button[@title='Add phase']                            |
+      | Add Phase                       | (//button[@title='Add phase'])[1]                       |
       | Phase name 1                    | (//input[../label[contains(.,'Phase name')]])[1]        |
       | Add Environment 1               | (//button[@title='Add Environment'])[1]                 |
       | Phase name 2                    | (//input[../label[contains(.,'Phase name')]])[2]        |
@@ -62,7 +62,7 @@ Feature: Create a Lifecycle in Octopus
 
     # Dev environment
     And I highlight outside the "Add Phase" button with an offset of "2"
-    And I scroll the "Add Phase" button into view offset by "-300"
+    And I scroll the "Add Phase" button into view
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\025-lifecycle-add-phase-1.png"
     And I click the "Add Phase" button
