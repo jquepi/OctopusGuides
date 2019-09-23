@@ -39,8 +39,8 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight outside the "New project name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
-    And I save a screenshot to "C:\screenshots\octopus-new-project-name.png"
     And I populate the "New project name" text box with "Random Quotes"
+    And I save a screenshot to "C:\screenshots\octopus-new-project-name.png"
     And I click the "Save" button
     And I sleep for "2" seconds
 
@@ -79,8 +79,8 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
-    And I save a screenshot to "C:\screenshots\octopus-add-step.png"
     And I populate the "Search" text box with "iis"
+    And I save a screenshot to "C:\screenshots\octopus-search-iis.png"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
@@ -91,8 +91,8 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Add" button
 
     And I highlight outside the "Step Name" text box
-    And I save a screenshot to "C:\screenshots\octopus-step-name.png"
     And I populate the "Step Name" text box with "Deploy web app to IIS"
+    And I save a screenshot to "C:\screenshots\octopus-step-name.png"
     And I remove the highlight from the "Step Name" text box
 
     And I scroll the "Runs on targets in roles" text box into view offset by "-300"
