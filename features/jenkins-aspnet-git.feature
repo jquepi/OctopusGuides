@@ -176,6 +176,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Command Two                                             | (//textarea[contains(@name,'command')])[2]                                        |
 
     And I open the URL "http://localhost:8080/"
+    And I clear the transition
     And I highlight outside the "New Item" link
     And I save a screenshot to "C:\screenshots\new-item.png"
     And I click the "New Item" link
@@ -279,18 +280,23 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Console Output | //a[contains(.,'Console Output')] |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
+    And I clear the transition
+
     And I highlight outside the "Build Now" link
     And I save a screenshot to "C:\screenshots\build-now.png"
     And I click the "Build Now" link
     And I remove the highlight from the "Build Now" link
+
     And I highlight inside the "Build One" link
     And I save a screenshot to "C:\screenshots\build-one.png"
     And I force click the "Build One" link
+
     And I highlight outside the "Console Output" link
     And I save a screenshot to "C:\screenshots\console.png"
     And I click the "Console Output" link
     And I scroll down "10000" px
     And I sleep for "20" seconds
+
     And I save a screenshot to "C:\screenshots\build-logs.png"
 
   Scenario: Shutdown
