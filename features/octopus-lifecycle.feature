@@ -121,7 +121,7 @@ Feature: Create a Lifecycle in Octopus
     And I remove the highlight from the "Add Phase" button
 
     And I scroll the "Phase name 3" text box into view offset by "-200"
-    And I populate the "Phase name 3" text box with "Dev"
+    And I populate the "Phase name 3" text box with "Prod"
     And I highlight outside the "Phase name 3" text box
     And I save a screenshot to "C:\screenshots\octopus\070-lifecycle-phase-name-3.png"
     And I remove the highlight from the "Phase name 3" text box
@@ -140,3 +140,8 @@ Feature: Create a Lifecycle in Octopus
     And I click the "OK" button
 
     And I click the "Save" button
+
+  Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
+    And I close the browser
