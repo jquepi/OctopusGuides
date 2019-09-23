@@ -57,6 +57,17 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\open-randomquotes-iis.feature
+    - name: Add a deployment step
+      shell: powershell
+      run: >
+        java
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\jenkins-create-deploy.feature
     - name: Convert video
       run: for %%a in (c:\screenshots\*.avi) do "C:\Program Files\VideoLAN\VLC\vlc.exe" -I dummy -vvv "%%a" --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=mp4,dst="c:\screenshots\%%~na.mp4"} vlc://quit
     - name: Merge video
