@@ -109,6 +109,12 @@ package { 'minikube':
 file { 'C:/screenshots':
   ensure => 'directory'
 }
+-> file { 'C:/screenshots/jenkins':
+  ensure => 'directory'
+}
+-> file { 'C:/screenshots/octopus':
+  ensure => 'directory'
+}
 
 windows_env { 'PATH=C:\tools': }
 
