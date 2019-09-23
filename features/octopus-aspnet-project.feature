@@ -38,7 +38,7 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Add project" link
 
     And I highlight outside the "New project name" text box with an offset of "2"
-    And I highlight outside the "Save" button with an offset of "0"
+    And I highlight outside the "Save" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-new-project-name.png"
     And I populate the "New project name" text box with "Random Quotes"
     And I click the "Save" button
@@ -47,25 +47,27 @@ Feature: Configure an Octopus ASP.NET project
   @define-project
   Scenario: Define project
     Given I set the following aliases:
-      | Define your deployment process  | //button[contains(.,'Define your deployment process')]                                              |
-      | Add Step                        | //button[contains(.,'Add Step')]                                                                    |
-      | Search                          | //input[@type='search']                                                                             |
-      | Deploy to IIS                   | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                            |
-      | Add                             | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
-      | Step Name                       | //input[contains(@id, 'Stepname')]                                                                  |
-      | Runs on targets in roles        | //input[@title='Runs on targets in roles (type to add new)']                                        |
-      | Web role                        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
-      | Package ID                      | //input[contains(@id, 'PackageID')]                                                                 |
-      | Web site name                   | //input[contains(@id, 'Websitename')]                                                               |
-      | Enable Anonymous authentication | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                    |
-      | Enable Windows authentication   | //input[@type='checkbox'][../div[contains(.,'Enable Windows authentication')]]                      |
-      | Application Pool name           | //input[contains(@id, 'ApplicationPoolname')]                                                       |
-      | Remove binding                  | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]       |
-      | HTML Body                       | //body                                                                                              |
-      | Add binding                     | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add')]  |
-      | Port                            | //input[contains(@id, 'Port')]                                                                      |
-      | OK                              | //button[contains(.,'Ok')]                                                                          |
-      | Save                            | //button[contains(.,'Save')]                                                                        |
+      | Define your deployment process            | //button[contains(.,'Define your deployment process')]                                              |
+      | Add Step                                  | //button[contains(.,'Add Step')]                                                                    |
+      | Search                                    | //input[@type='search']                                                                             |
+      | Deploy to IIS                             | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                            |
+      | Add                                       | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
+      | Step Name                                 | //input[contains(@id, 'Stepname')]                                                                  |
+      | Runs on targets in roles                  | //input[@title='Runs on targets in roles (type to add new)']                                        |
+      | Web role                                  | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
+      | Package ID                                | //input[contains(@id, 'PackageID')]                                                                 |
+      | Web site name                             | //input[contains(@id, 'Websitename')]                                                               |
+      | Enable Anonymous authentication           | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                    |
+      | Enable Anonymous authentication container | //div[./div/div/label[contains(.,'Enable Anonymous authentication')]]                                |
+      | Enable Windows authentication             | //input[@type='checkbox'][../div[contains(.,'Enable Windows authentication')]]                      |
+      | Enable Windows authentication container   | //div[./div/div/label[contains(.,'Enable Windows authentication')]]                                  |
+      | Application Pool name                     | //input[contains(@id, 'ApplicationPoolname')]                                                       |
+      | Remove binding                            | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]       |
+      | HTML Body                                 | //body                                                                                              |
+      | Add binding                               | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add')]  |
+      | Port                                      | //input[contains(@id, 'Port')]                                                                      |
+      | OK                                        | //button[contains(.,'Ok')]                                                                          |
+      | Save                                      | //button[contains(.,'Save')]                                                                        |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
 
     And I highlight outside the "Define your deployment process" button
@@ -76,14 +78,14 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus-add-step.png"
     And I click the "Add Step" button
 
-    And I highlight outside the "Search" text box
+    And I highlight outside the "Search" text box with an offset of "3"
     And I save a screenshot to "C:\screenshots\octopus-add-step.png"
     And I populate the "Search" text box with "iis"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
     And I scroll the "Deploy to IIS" tile into view offset by "-300"
-    And I highlight outside the "Deploy to IIS" tile with an offset of "0"
+    And I highlight outside the "Deploy to IIS" tile
     And I save a screenshot to "C:\screenshots\octopus-add-iis.png"
     And I mouse over the "Deploy to IIS" tile
     And I click the "Add" button
@@ -97,9 +99,8 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Runs on targets in roles" text box
     And I populate the "Runs on targets in roles" text box with "web"
     And I highlight outside the "Runs on targets in roles" text box
-    And I highlight outside the "Web role" option
-    And I click the "Web role" option
     And I save a screenshot to "C:\screenshots\octopus-step-role.png"
+    And I click the "Web role" option
     And I remove the highlight from the "Runs on targets in roles" text box
 
     And I scroll the "Package ID" text box into view offset by "-300"
@@ -132,20 +133,20 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Add binding" button
 
     And I highlight outside the "Port" text box
-    And I highlight outside the "OK" button with an offset of "1"
+    And I highlight outside the "OK" button with an offset of "2"
     And I clear the "Port" text box
     And I populate the "Port" text box with "8081"
     And I save a screenshot to "C:\screenshots\octopus-step-binding-port.png"
     And I click the "OK" button
 
     And I scroll the "Enable Anonymous authentication" check box into view offset by "-300"
-    And I highlight inside the "Enable Anonymous authentication" check box
-    And I highlight inside the "Enable Windows authentication" check box
+    And I highlight outside the "Enable Anonymous authentication container" element
+    And I highlight outside the "Enable Windows authentication container" element
     And I force click the "Enable Anonymous authentication" check box
     And I force click the "Enable Windows authentication" check box
     And I save a screenshot to "C:\screenshots\octopus-step-auth.png"
-    And I remove the highlight from the "Enable Anonymous authentication" check box
-    And I remove the highlight from the "Enable Windows authentication" check box
+    And I remove the highlight from the "Enable Anonymous authentication container" element
+    And I remove the highlight from the "Enable Windows authentication container" element
 
     And I highlight outside the "Save" button
     And I save a screenshot to "C:\screenshots\octopus-step-save.png"
