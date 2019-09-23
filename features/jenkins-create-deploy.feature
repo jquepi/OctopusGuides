@@ -26,14 +26,30 @@ Feature: Create and deploy a release from Jenkins
       | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
       | Save                          | //button[@type='button'][contains(.,'Save')]           |
 
+    And I highlight outside the "Random Quotes Project" link
+    And I save a screenshot to "C:\screenshots\random-quotes-link.png"
     And I click the "Random Quotes Project" link
+
+    And I highlight outside the "Random Quotes Project" link
+    And I save a screenshot to "C:\screenshots\create-release-configure.png"
     And I click the "Configure" link
+
     And I scroll the "Add build step" button into view offset by "-200"
     And I click the "Add build step" button
+    And I highlight outside the "Add build step" button
+    And I highlight outside the "Execute Windows batch command" option
+    And I save a screenshot to "C:\screenshots\create-release-command.png"
     And I click the "Execute Windows batch command" option
+    And I remove the highlight from the "Add build step" button
 
     And I scroll the "Command Three" text box into view offset by "-200"
     And I populate the "Command Three" text box with "Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project 'Random Quotes' --progress --deployto Dev"
+    And I highlight outside the "Command Three" text box
+    And I save a screenshot to "C:\screenshots\create-release-command-text.png"
+    And I remove the highlight from the "Command Three" text box
+
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\create-release-save.png"
     And I click the "Save" button
 
   @build-now
@@ -44,7 +60,6 @@ Feature: Create and deploy a release from Jenkins
       | Console Output | //a[contains(.,'Console Output')] |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
-    And I clear the transition
 
     And I highlight outside the "Build Now" link
     And I save a screenshot to "C:\screenshots\build-and-deploy-now.png"
