@@ -23,12 +23,12 @@ Feature: Configure the Octopus environments
       | New environment name | //input[contains(@id, 'Newenvironmentname')] |
       | Save                 | //button[contains(.,'Save')]                 |
 
-    And I highlight outside the "Infrastructure" link with an offset of "3"
+    And I highlight outside the "Infrastructure" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\infrastructure.png"
     And I remove the highlight from the "Infrastructure" link
     And I click the "Infrastructure" link
 
-    And I highlight outside the "Environments text" link with an offset of "5"
+    And I highlight outside the "Environments text" link with an offset of "2"
     And I save a screenshot to "C:\screenshots\environments-1.png"
     And I remove the highlight from the "Infrastructure" link
     And I click the "Environments" link
@@ -45,7 +45,7 @@ Feature: Configure the Octopus environments
     And I save a screenshot to "C:\screenshots\environment-dev.png"
     And I click the "Save" button
 
-    And I highlight inside the "Environments" link
+    And I highlight outside the "Environments text" link with an offset of "2"
     And I save a screenshot to "C:\screenshots\environments-2.png"
     And I click the "Environments" link
     And I highlight outside the "Add Environment" button
@@ -59,7 +59,7 @@ Feature: Configure the Octopus environments
     And I save a screenshot to "C:\screenshots\environment-test.png"
     And I click the "Save" button
 
-    And I highlight outside the "Environments" link with an offset of "2"
+    And I highlight outside the "Environments text" link with an offset of "2"
     And I save a screenshot to "C:\screenshots\environments-3.png"
     And I click the "Environments" link
     And I highlight outside the "Add Environment" button
