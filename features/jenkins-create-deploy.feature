@@ -38,14 +38,14 @@ Feature: Create and deploy a release from Jenkins
     And I click the "Add build step" button
     And I highlight outside the "Add build step" button
     And I highlight outside the "Execute Windows batch command" option
-    And I save a screenshot to "C:\screenshots\create-release-command.png"
+    And I save a screenshot to "C:\screenshots\create-release-build-step.png"
     And I click the "Execute Windows batch command" option
     And I remove the highlight from the "Add build step" button
 
     And I scroll the "Command Three" text box into view offset by "-200"
     And I populate the "Command Three" text box with "Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project 'Random Quotes' --progress --deployto Dev"
     And I highlight outside the "Command Three" text box
-    And I save a screenshot to "C:\screenshots\create-release-command-text.png"
+    And I save a screenshot to "C:\screenshots\create-release-command.png"
     And I remove the highlight from the "Command Three" text box
 
     And I highlight outside the "Save" button
