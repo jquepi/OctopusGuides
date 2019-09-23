@@ -31,6 +31,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus-projects.png"
     And I click the "Projects" link
     And I remove the highlight from the "Projects" link
+    And I sleep for "1" second
 
     And I highlight outside the "Add project" link with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-add-project.png"
@@ -69,10 +70,12 @@ Feature: Configure an Octopus ASP.NET project
       | OK                                        | //button[contains(.,'Ok')]                                                                          |
       | Save                                      | //button[contains(.,'Save')]                                                                        |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
+    And I sleep for "1" second
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-define-process.png"
     And I click the "Define your deployment process" button
+    And I sleep for "1" second
 
     And I highlight outside the "Add Step" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-add-step.png"
@@ -132,6 +135,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Remove binding" button
     And I save a screenshot to "C:\screenshots\octopus-step-remove-binding.png"
     And I click the "Remove binding" button
+    And I sleep for "1" second
 
     And I highlight outside the "Add binding" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-step-add-binding.png"
@@ -151,11 +155,13 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Enable Windows authentication container" element
     And I force click the "Enable Anonymous authentication" check box
     And I force click the "Enable Windows authentication" check box
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-step-auth.png"
     And I remove the highlight from the "Enable Anonymous authentication container" element
     And I remove the highlight from the "Enable Windows authentication container" element
 
     And I highlight outside the "Save" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-step-save.png"
     And I click the "Save" button
     And I sleep for "2" seconds
@@ -168,23 +174,25 @@ Feature: Configure an Octopus ASP.NET project
       | Deploy To Dev  | //button[contains(.,'Deploy to Dev...')] |
       | Deploy         | //button[@title='Deploy']                |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
+    And I sleep for "1" second
 
     And I highlight outside the "Create Release" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-create-release.png"
     And I click the "Create Release" button
     And I remove the highlight from the "Create Release" button
+    And I sleep for "1" second
 
     And I highlight outside the "Save" button
-    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-save-release.png"
     And I click the "Save" button
+    And I sleep for "1" second
 
     And I highlight outside the "Deploy To Dev" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-deploy-to-dev.png"
     And I click the "Deploy To Dev" button
+    And I sleep for "1" second
 
     And I highlight outside the "Deploy" button
-    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-deploy.png"
     And I click the "Deploy" button
     And I sleep for "20" seconds
