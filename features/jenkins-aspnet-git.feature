@@ -295,7 +295,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\console.png"
     And I click the "Console Output" link
     And I scroll down "10000" px
-    And I sleep for "20" seconds
+    And I sleep for "60" seconds
 
     And I save a screenshot to "C:\screenshots\build-logs.png"
 

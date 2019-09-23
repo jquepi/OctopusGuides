@@ -44,7 +44,7 @@ Feature: Configure the Octopus environments
     And I save a screenshot to "C:\screenshots\environment-dev.png"
     And I click the "Save" button
 
-    And I highlight outside the "Environments" link with an offset of "2"
+    And I highlight inside the "Environments" link
     And I save a screenshot to "C:\screenshots\environments-2.png"
     And I click the "Environments" link
     And I highlight outside the "Add Environment" button
