@@ -24,10 +24,12 @@ Feature: Configure the Octopus environments
 
     And I highlight outside the "Infrastructure" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\infrastructure.png"
+    And I remove the highlight from the "Infrastructure" link
     And I click the "Infrastructure" link
 
     And I inside outside the "Environments" link
     And I save a screenshot to "C:\screenshots\environments-1.png"
+    And I remove the highlight from the "Infrastructure" link
     And I click the "Environments" link
 
     And I highlight outside the "Add Environment" button
