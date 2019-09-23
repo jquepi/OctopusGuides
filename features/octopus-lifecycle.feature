@@ -16,26 +16,24 @@ Feature: Create a Lifecycle in Octopus
 
   Scenario: Add dev, test and prod
     Given I set the following aliases:
-      | Library               | //span[contains(.,'Library')]                 |
-      | Lifecycles            | //a[contains(.,'Lifecycles')]                 |
-      | Add Lifecycle         | //button[contains(.,'Add Lifecycle')]         |
-      | Lifecycle name        | //input[contains(@id,'Lifecyclename')]        |
-      | Lifecycle description | //input[contains(@id,'Lifecycledescription')] |
-      | Add Phase             | //button[@title='Add phase']                  |
-      | Phase name 1          | //input[@id='phaseName'][1]                   |
-      | Add Environment 1     | //button[@title='Add Environment'][1]         |
-      | Phase name 2          | //input[@id='phaseName'][2]                   |
-      | Add Environment 2     | //button[@title='Add Environment'][2]         |
-      | Phase name 3          | //input[@id='phaseName'][3]                   |
-      | Add Environment 3     | //button[@title='Add Environment'][3]         |
-      | Environment list      | //div[./div[text() = 'Environment']]//button  |
-      | Dev environment       | //div[./div/div[text() = 'Dev']]              |
-      | Test environment      | //div[./div/div[text() = 'Test']]             |
-      | Prod environment      | //div[./div/div[text() = 'Prod']]             |
-      | OK                    | //button[@title='Ok']                         |
-      | Save                  | //button[@title='Save']                       |
-
-
+      | Library               | //span[contains(.,'Library')]                    |
+      | Lifecycles            | //a[contains(.,'Lifecycles')]                    |
+      | Add Lifecycle         | //button[contains(.,'Add Lifecycle')]            |
+      | Lifecycle name        | //input[contains(@id,'Lifecyclename')]           |
+      | Lifecycle description | //textarea[contains(@id,'Lifecycledescription')] |
+      | Add Phase             | //button[@title='Add phase']                     |
+      | Phase name 1          | (//input[../label[contains(.,'Phase name')]])[1] |
+      | Add Environment 1     | (//button[@title='Add Environment'])[1]          |
+      | Phase name 2          | (//input[../label[contains(.,'Phase name')]])[2] |
+      | Add Environment 2     | (//button[@title='Add Environment'])[2]          |
+      | Phase name 3          | (//input[../label[contains(.,'Phase name')]])[3] |
+      | Add Environment 3     | (//button[@title='Add Environment'])[3]          |
+      | Environment list      | //div[./div[text() = 'Environment']]//button     |
+      | Dev environment       | //div[./div/div[text() = 'Dev']]                 |
+      | Test environment      | //div[./div/div[text() = 'Test']]                |
+      | Prod environment      | //div[./div/div[text() = 'Prod']]                |
+      | OK                    | //button[@title='Ok']                            |
+      | Save                  | //button[@title='Save']                          |
 
     And I click the "Library" link
     And I click the "Lifecycles" link
@@ -44,6 +42,7 @@ Feature: Create a Lifecycle in Octopus
     And I populate the "Lifecycle description" text box with "Progression from the Dev to the Prod environments"
 
     And I click the "Add Phase" button
+    And I scroll the "Phase name 1" text box into view offset by "-200"
     And I populate the "Phase name 1" text box with "Dev"
     And I click the "Add Environment 1" button
     And I click the "Environment list" button
@@ -51,6 +50,7 @@ Feature: Create a Lifecycle in Octopus
     And I click the "OK" button
 
     And I click the "Add Phase" button
+    And I scroll the "Phase name 2" text box into view offset by "-200"
     And I populate the "Phase name 2" text box with "Test"
     And I click the "Add Environment 2" button
     And I click the "Environment list" button
@@ -58,6 +58,7 @@ Feature: Create a Lifecycle in Octopus
     And I click the "OK" button
 
     And I click the "Add Phase" button
+    And I scroll the "Phase name 3" text box into view offset by "-200"
     And I populate the "Phase name 3" text box with "Prod"
     And I click the "Add Environment 3" button
     And I click the "Environment list" button
