@@ -27,7 +27,7 @@ Feature: Configure the Octopus environments
     And I remove the highlight from the "Infrastructure" link
     And I click the "Infrastructure" link
 
-    And I inside outside the "Environments" link
+    And I highlight inside the "Environments" link
     And I save a screenshot to "C:\screenshots\environments-1.png"
     And I remove the highlight from the "Infrastructure" link
     And I click the "Environments" link
