@@ -84,7 +84,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
-    And I scroll the "Deploy to IIS" tile into view offset by "-300"
+    And I scroll the "Deploy to IIS" tile into view offset by "-200"
     And I highlight outside the "Deploy to IIS" tile
     And I save a screenshot to "C:\screenshots\octopus-add-iis.png"
     And I mouse over the "Deploy to IIS" tile
