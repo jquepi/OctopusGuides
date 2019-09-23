@@ -108,8 +108,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Description             | (//input[contains(@name,'_.description')])[2]                          |
       | OK                      | //button[@type='button'][contains(.,'OK')]                             |
 
-    And I clear the transition
     And I open the URL "http://localhost:8080/"
+    And I clear the transition
     And I highlight outside the "Manage Jenkins" link
     And I click the "Manage Jenkins" link
 
