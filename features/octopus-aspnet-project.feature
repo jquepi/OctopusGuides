@@ -187,7 +187,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-deploy.png"
     And I click the "Deploy" button
-    And I sleep for "30" seconds
+    And I sleep for "20" seconds
 
     And I save a screenshot to "C:\screenshots\octopus-deployment.png"
 
