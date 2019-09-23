@@ -27,12 +27,12 @@ Feature: Configure an Octopus ASP.NET project
       | Add project      | (//div[contains(.,'Add Project')])[11]   |
       | New project name | //input[contains(@id, 'Newprojectname')] |
       | Save             | (//div[contains(.,'Save')])[9]           |
-    And I highlight outside the "Projects" link with an offset of "2"
+    And I highlight outside the "Projects" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\octopus-projects.png"
     And I click the "Projects" link
     And I remove the highlight from the "Projects" link
 
-    And I highlight outside the "Add project" link
+    And I highlight outside the "Add project" link with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-add-project.png"
     And I click the "Add project" button
     And I remove the highlight from the "Add project" link
@@ -42,8 +42,6 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus-new-project-name.png"
     And I populate the "New project name" text box with "Random Quotes"
     And I click the "Save" button
-    And I remove the highlight from the "New project name" text box
-    And I remove the highlight from the "Save" button
     And I sleep for "2" seconds
 
   @define-project
@@ -69,44 +67,88 @@ Feature: Configure an Octopus ASP.NET project
       | OK                              | //button[contains(.,'Ok')]                                                                          |
       | Save                            | //button[contains(.,'Save')]                                                                        |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
+
+    And I highlight outside the "Define your deployment process" button
+    And I save a screenshot to "C:\screenshots\octopus-define-process.png"
     And I click the "Define your deployment process" button
+
+    And I highlight outside the "Add Step" button
+    And I save a screenshot to "C:\screenshots\octopus-add-step.png"
     And I click the "Add Step" button
 
+    And I highlight outside the "Search" text box
+    And I save a screenshot to "C:\screenshots\octopus-add-step.png"
     And I populate the "Search" text box with "iis"
     And I sleep for "2" seconds
+    And I remove the highlight from the "Search" text box
+
     And I scroll the "Deploy to IIS" tile into view offset by "-300"
+    And I highlight outside the "Deploy to IIS" tile with an offset of "0"
+    And I save a screenshot to "C:\screenshots\octopus-add-iis.png"
     And I mouse over the "Deploy to IIS" tile
     And I click the "Add" button
 
+    And I highlight outside the "Step Name" text box
+    And I save a screenshot to "C:\screenshots\octopus-step-name.png"
     And I populate the "Step Name" text box with "Deploy web app to IIS"
+    And I remove the highlight from the "Step Name" text box
 
     And I scroll the "Runs on targets in roles" text box into view offset by "-300"
     And I click the "Runs on targets in roles" text box
     And I populate the "Runs on targets in roles" text box with "web"
+    And I highlight outside the "Runs on targets in roles" text box
+    And I highlight outside the "Web role" option
     And I click the "Web role" option
+    And I save a screenshot to "C:\screenshots\octopus-step-role.png"
+    And I remove the highlight from the "Runs on targets in roles" text box
 
     And I scroll the "Package ID" text box into view offset by "-300"
+    And I highlight outside the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
     And I click the "HTML Body" element
+    And I save a screenshot to "C:\screenshots\octopus-step-package.png"
+    And I remove the highlight from the "Package ID" text box
 
     And I scroll the "Web site name" text box into view offset by "-300"
+    And I highlight outside the "Web site name" text box
     And I populate the "Web site name" text box with "RandomQuotes"
+    And I save a screenshot to "C:\screenshots\octopus-step-website-name.png"
+    And I remove the highlight from the "Web site name" text box
 
     And I scroll the "Application Pool name" text box into view offset by "-300"
+    And I highlight outside the "Application Pool name" text box
     And I populate the "Application Pool name" text box with "RandomQuotes"
+    And I save a screenshot to "C:\screenshots\octopus-step-apppool-name.png"
+    And I remove the highlight from the "Application Pool name" text box
 
     And I scroll the "Remove binding" button into view offset by "-300"
+    And I highlight outside the "Remove binding" button
+    And I save a screenshot to "C:\screenshots\octopus-step-remove-binding.png"
     And I click the "Remove binding" button
 
+    And I highlight outside the "Add binding" button
+    And I save a screenshot to "C:\screenshots\octopus-step-add-binding.png"
     And I force click the "Add binding" button
+    And I remove the highlight from the "Add binding" button
+
+    And I highlight outside the "Port" text box
+    And I highlight outside the "OK" button with an offset of "1"
     And I clear the "Port" text box
     And I populate the "Port" text box with "8081"
+    And I save a screenshot to "C:\screenshots\octopus-step-binding-port.png"
     And I click the "OK" button
 
     And I scroll the "Enable Anonymous authentication" check box into view offset by "-300"
+    And I highlight inside the "Enable Anonymous authentication" check box
+    And I highlight inside the "Enable Windows authentication" check box
     And I force click the "Enable Anonymous authentication" check box
     And I force click the "Enable Windows authentication" check box
+    And I save a screenshot to "C:\screenshots\octopus-step-auth.png"
+    And I remove the highlight from the "Enable Anonymous authentication" check box
+    And I remove the highlight from the "Enable Windows authentication" check box
 
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\octopus-step-save.png"
     And I click the "Save" button
     And I sleep for "2" seconds
 
