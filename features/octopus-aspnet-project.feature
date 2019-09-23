@@ -70,11 +70,11 @@ Feature: Configure an Octopus ASP.NET project
       | Save                                      | //button[contains(.,'Save')]                                                                        |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
 
-    And I highlight outside the "Define your deployment process" button
+    And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-define-process.png"
     And I click the "Define your deployment process" button
 
-    And I highlight outside the "Add Step" button
+    And I highlight outside the "Add Step" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-add-step.png"
     And I click the "Add Step" button
 
@@ -133,7 +133,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus-step-remove-binding.png"
     And I click the "Remove binding" button
 
-    And I highlight outside the "Add binding" button
+    And I highlight outside the "Add binding" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-step-add-binding.png"
     And I force click the "Add binding" button
     And I remove the highlight from the "Add binding" button
@@ -155,7 +155,7 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Enable Anonymous authentication container" element
     And I remove the highlight from the "Enable Windows authentication container" element
 
-    And I highlight outside the "Save" button
+    And I highlight outside the "Save" button  with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-step-save.png"
     And I click the "Save" button
     And I sleep for "2" seconds
@@ -169,7 +169,7 @@ Feature: Configure an Octopus ASP.NET project
       | Deploy         | //button[contains(.,'Deploy')]           |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
 
-    And I highlight outside the "Create Release" button
+    And I highlight outside the "Create Release" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-create-release.png"
     And I click the "Create Release" button
     And I remove the highlight from the "Create Release" button
@@ -179,7 +179,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus-save-release.png"
     And I click the "Save" button
 
-    And I highlight outside the "Deploy To Dev" button
+    And I highlight outside the "Deploy To Dev" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus-deploy-to-dev.png"
     And I click the "Deploy To Dev" button
 

@@ -36,9 +36,11 @@ Feature: Configure the Octopus environments
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\add-environment-1.png"
     And I click the "Add Environment" button
+    And I remove the highlight from the "Add Environment" button
+
     And I populate the "New environment name" text box with "Dev"
     And I highlight outside the "New environment name" text box with an offset of "2"
-    And I highlight outside the "Save" button with an offset of "0"
+    And I highlight inside the "Save" button
     And I save a screenshot to "C:\screenshots\environment-dev.png"
     And I click the "Save" button
 
@@ -48,9 +50,11 @@ Feature: Configure the Octopus environments
     And I highlight outside the "Add Environment" button
     And I save a screenshot to "C:\screenshots\add-environment-2.png"
     And I click the "Add Environment" button
+    And I remove the highlight from the "Add Environment" button
+
     And I populate the "New environment name" text box with "Test"
     And I highlight outside the "New environment name" text box with an offset of "2"
-    And I highlight outside the "Save" button with an offset of "0"
+    And I highlight inside the "Save" button
     And I save a screenshot to "C:\screenshots\environment-test.png"
     And I click the "Save" button
 
@@ -60,9 +64,11 @@ Feature: Configure the Octopus environments
     And I highlight outside the "Add Environment" button
     And I save a screenshot to "C:\screenshots\add-environment-3.png"
     And I click the "Add Environment" button
+    And I remove the highlight from the "Add Environment" button
+
     And I populate the "New environment name" text box with "Prod"
     And I highlight outside the "New environment name" text box with an offset of "2"
-    And I highlight outside the "Save" button with an offset of "0"
+    And I highlight inside the "Save" button
     And I save a screenshot to "C:\screenshots\environment-prod.png"
     And I click the "Save" button
 
