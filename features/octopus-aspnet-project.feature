@@ -80,6 +80,7 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight outside the "Search" text box with an offset of "3"
     And I populate the "Search" text box with "iis"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-search-iis.png"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box

@@ -22,15 +22,16 @@ Feature: Configure the Octopus environments
       | New environment name | //input[contains(@id, 'Newenvironmentname')] |
       | Save                 | //button[contains(.,'Save')]                 |
 
-    And I highlight outside the "Infrastructure" link with an offset of "2"
+    And I highlight outside the "Infrastructure" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\infrastructure.png"
     And I click the "Infrastructure" link
 
-    And I highlight outside the "Environments" link with an offset of "2"
+    And I inside outside the "Environments" link
     And I save a screenshot to "C:\screenshots\environments-1.png"
     And I click the "Environments" link
 
     And I highlight outside the "Add Environment" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\add-environment-1.png"
     And I click the "Add Environment" button
     And I populate the "New environment name" text box with "Dev"
