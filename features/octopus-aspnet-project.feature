@@ -161,9 +161,21 @@ Feature: Configure an Octopus ASP.NET project
       | Deploy To Dev  | //button[contains(.,'Deploy to Dev...')] |
       | Deploy         | //button[contains(.,'Deploy')]           |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
+
+    And I highlight outside the "Create Release" button
+    And I save a screenshot to "C:\screenshots\octopus-create-release.png"
     And I click the "Create Release" button
+
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\octopus-save-release.png"
     And I click the "Save" button
+
+    And I highlight outside the "Deploy To Dev" button
+    And I save a screenshot to "C:\screenshots\octopus-deploy-to-dev.png"
     And I click the "Deploy To Dev" button
+
+    And I highlight outside the "Deploy" button
+    And I save a screenshot to "C:\screenshots\octopus-deploy.png"
     And I click the "Deploy" button
     And I sleep for "30" seconds
 
