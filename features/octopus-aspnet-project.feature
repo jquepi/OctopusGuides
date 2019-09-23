@@ -58,9 +58,9 @@ Feature: Configure an Octopus ASP.NET project
       | Package ID                                | //input[contains(@id, 'PackageID')]                                                                 |
       | Web site name                             | //input[contains(@id, 'Websitename')]                                                               |
       | Enable Anonymous authentication           | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                    |
-      | Enable Anonymous authentication container | //div[./div/div/label[contains(.,'Enable Anonymous authentication')]]                                |
+      | Enable Anonymous authentication container | //div[./div/div/label[contains(.,'Enable Anonymous authentication')]]                               |
       | Enable Windows authentication             | //input[@type='checkbox'][../div[contains(.,'Enable Windows authentication')]]                      |
-      | Enable Windows authentication container   | //div[./div/div/label[contains(.,'Enable Windows authentication')]]                                  |
+      | Enable Windows authentication container   | //div[./div/div/label[contains(.,'Enable Windows authentication')]]                                 |
       | Application Pool name                     | //input[contains(@id, 'ApplicationPoolname')]                                                       |
       | Remove binding                            | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]       |
       | HTML Body                                 | //body                                                                                              |
@@ -163,10 +163,10 @@ Feature: Configure an Octopus ASP.NET project
   @deploy-project
   Scenario: Deploy project
     Given I set the following aliases:
-      | Create Release | //button[contains(.,'Create release')]   |
-      | Save           | //button[contains(.,'Save')]             |
+      | Create Release | //button[@title='Create release']        |
+      | Save           | //button[@title='Save']                  |
       | Deploy To Dev  | //button[contains(.,'Deploy to Dev...')] |
-      | Deploy         | //button[contains(.,'Deploy')]           |
+      | Deploy         | //button[@title='Deploy']                |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
 
     And I highlight outside the "Create Release" button with an offset of "2"
