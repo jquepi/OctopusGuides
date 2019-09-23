@@ -19,18 +19,19 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Random Quotes Project         | //a[contains(.,'Random Quotes')]                       |
-      | Configure                     | //a[contains(.,'Configure')]                           |
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
-      | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
-      | Save                          | //button[@type='button'][contains(.,'Save')]           |
+      | Random Quotes Project         | //a[contains(.,'Random Quotes')]                                                                                               |
+      | Configure                     | //a[contains(.,'Configure')]                                                                                                   |
+      | Add build step                | //button[@type='button'][contains(.,'Add build step')]                                                                         |
+      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]                                                                               |
+      | Command Three                 | (//textarea[contains(@name,'command')])[3]                                                                                     |
+      | Save                          | //button[@type='button'][contains(.,'Save')]                                                                                   |
+      | Create Release Command        | Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project "Random Quotes" --progress --deployto Dev |
 
     And I highlight outside the "Random Quotes Project" link
     And I save a screenshot to "C:\screenshots\random-quotes-link.png"
     And I click the "Random Quotes Project" link
 
-    And I highlight outside the "Random Quotes Project" link
+    And I highlight outside the "Configure" link
     And I save a screenshot to "C:\screenshots\create-release-configure.png"
     And I click the "Configure" link
 
@@ -43,7 +44,7 @@ Feature: Create and deploy a release from Jenkins
     And I remove the highlight from the "Add build step" button
 
     And I scroll the "Command Three" text box into view offset by "-200"
-    And I populate the "Command Three" text box with "Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project 'Random Quotes' --progress --deployto Dev"
+    And I populate the "Command Three" text box with "Create Release Command"
     And I highlight outside the "Command Three" text box
     And I save a screenshot to "C:\screenshots\create-release-command.png"
     And I remove the highlight from the "Command Three" text box
@@ -56,7 +57,7 @@ Feature: Create and deploy a release from Jenkins
   Scenario: Run build
     Given I set the following aliases:
       | Build Now      | //a[contains(.,'Build Now')]      |
-      | Build One      | //a[contains(.,'#2')] |
+      | Build One      | //a[contains(.,'#2')]             |
       | Console Output | //a[contains(.,'Console Output')] |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
