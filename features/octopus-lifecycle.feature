@@ -38,25 +38,25 @@ Feature: Create a Lifecycle in Octopus
 
     And I sleep for "1" second
     And I highlight outside the "Library" link
-    And I save a screenshot to "C:\screenshots\octopus\005-lifecycle-library.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle005-lifecycle-library.png"
     And I click the "Library" link
     And I remove the highlight from the "Library" link
 
     And I highlight outside the "Lifecycles" link with an offset of "2"
-    And I save a screenshot to "C:\screenshots\octopus\010-lifecycle-lifecycles.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle010-lifecycle-lifecycles.png"
     And I click the "Lifecycles" link
     And I sleep for "1" second
 
     And I highlight outside the "Add Lifecycle" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\015-lifecycle-add-lifecycle.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle015-lifecycle-add-lifecycle.png"
     And I click the "Add Lifecycle" button
 
     And I populate the "Lifecycle name" text box with "Dev, Test and Prod"
     And I populate the "Lifecycle description" text box with "Progression from the Dev to the Prod environments"
     And I highlight outside the "Lifecycle name" text box with an offset of "2"
     And I highlight outside the "Lifecycle description container" element with an offset of "2"
-    And I save a screenshot to "C:\screenshots\octopus\020-lifecycle-name.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle020-lifecycle-name.png"
     And I remove the highlight from the "Lifecycle name" text box
     And I remove the highlight from the "Lifecycle description container" text box
 
@@ -64,19 +64,19 @@ Feature: Create a Lifecycle in Octopus
     And I highlight outside the "Add Phase" button with an offset of "2"
     And I scroll the "Add Phase" button into view
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\025-lifecycle-add-phase-1.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle025-lifecycle-add-phase-1.png"
     And I click the "Add Phase" button
     And I remove the highlight from the "Add Phase" button
 
     And I scroll the "Phase name 1" text box into view offset by "-200"
     And I populate the "Phase name 1" text box with "Dev"
     And I highlight outside the "Phase name 1" text box
-    And I save a screenshot to "C:\screenshots\octopus\030-lifecycle-phase-name-1.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle030-lifecycle-phase-name-1.png"
     And I remove the highlight from the "Phase name 1" text box
 
     And I highlight outside the "Add Environment 1" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\035-lifecycle-add-environment-1.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle035-lifecycle-add-environment-1.png"
     And I click the "Add Environment 1" button
     And I remove the highlight from the "Add Environment 1" button
 
@@ -84,25 +84,25 @@ Feature: Create a Lifecycle in Octopus
     And I highlight outside the "OK" button with an offset of "2"
     And I click the "Environment list" button
     And I click the "Dev environment" option
-    And I save a screenshot to "C:\screenshots\octopus\040-lifecycle-select-environment-1.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle040-lifecycle-select-environment-1.png"
     And I click the "OK" button
 
     # Test environment
     And I highlight outside the "Add Phase" button with an offset of "2"
     And I scroll the "Add Phase" button into view offset by "-300"
-    And I save a screenshot to "C:\screenshots\octopus\045-lifecycle-add-phase-2.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle045-lifecycle-add-phase-2.png"
     And I click the "Add Phase" button
     And I remove the highlight from the "Add Phase" button
 
     And I scroll the "Phase name 2" text box into view offset by "-200"
     And I populate the "Phase name 2" text box with "Test"
     And I highlight outside the "Phase name 2" text box
-    And I save a screenshot to "C:\screenshots\octopus\050-lifecycle-phase-name-2.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle050-lifecycle-phase-name-2.png"
     And I remove the highlight from the "Phase name 2" text box
 
     And I highlight outside the "Add Environment 2" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\055-lifecycle-add-environment-2.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle055-lifecycle-add-environment-2.png"
     And I click the "Add Environment 2" button
     And I remove the highlight from the "Add Environment 2" button
 
@@ -110,25 +110,25 @@ Feature: Create a Lifecycle in Octopus
     And I highlight outside the "OK" button with an offset of "2"
     And I click the "Environment list" button
     And I click the "Test environment" option
-    And I save a screenshot to "C:\screenshots\octopus\060-lifecycle-select-environment-2.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle060-lifecycle-select-environment-2.png"
     And I click the "OK" button
 
     # Prod environment
     And I highlight outside the "Add Phase" button with an offset of "2"
     And I scroll the "Add Phase" button into view offset by "-300"
-    And I save a screenshot to "C:\screenshots\octopus\065-lifecycle-add-phase-3.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle065-lifecycle-add-phase-3.png"
     And I click the "Add Phase" button
     And I remove the highlight from the "Add Phase" button
 
     And I scroll the "Phase name 3" text box into view offset by "-200"
     And I populate the "Phase name 3" text box with "Prod"
     And I highlight outside the "Phase name 3" text box
-    And I save a screenshot to "C:\screenshots\octopus\070-lifecycle-phase-name-3.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle070-lifecycle-phase-name-3.png"
     And I remove the highlight from the "Phase name 3" text box
 
     And I highlight outside the "Add Environment 3" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\075-lifecycle-add-environment-3.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle075-lifecycle-add-environment-3.png"
     And I click the "Add Environment 3" button
     And I remove the highlight from the "Add Environment 3" button
 
@@ -136,9 +136,11 @@ Feature: Create a Lifecycle in Octopus
     And I highlight outside the "OK" button with an offset of "2"
     And I click the "Environment list" button
     And I click the "Prod environment" option
-    And I save a screenshot to "C:\screenshots\octopus\080-lifecycle-select-environment-3.png"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle080-lifecycle-select-environment-3.png"
     And I click the "OK" button
 
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\lifecycle090-lifecycle-save.png"
     And I click the "Save" button
 
   Scenario: Shutdown
