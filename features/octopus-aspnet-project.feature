@@ -177,22 +177,24 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
 
     And I highlight outside the "Create Release" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-create-release.png"
     And I click the "Create Release" button
     And I remove the highlight from the "Create Release" button
-    And I sleep for "1" second
 
     And I highlight outside the "Save" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-save-release.png"
     And I click the "Save" button
     And I sleep for "1" second
 
     And I highlight outside the "Deploy To Dev" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-deploy-to-dev.png"
     And I click the "Deploy To Dev" button
-    And I sleep for "1" second
 
     And I highlight outside the "Deploy" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-deploy.png"
     And I click the "Deploy" button
     And I sleep for "20" seconds
