@@ -92,12 +92,14 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy web app to IIS"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-step-name.png"
     And I remove the highlight from the "Step Name" text box
 
     And I scroll the "Runs on targets in roles" text box into view offset by "-300"
     And I click the "Runs on targets in roles" text box
     And I populate the "Runs on targets in roles" text box with "web"
+    And I sleep for "1" second
     And I highlight outside the "Runs on targets in roles" text box
     And I save a screenshot to "C:\screenshots\octopus-step-role.png"
     And I click the "Web role" option
@@ -106,6 +108,7 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
+    And I sleep for "1" second
     And I click the "HTML Body" element
     And I save a screenshot to "C:\screenshots\octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
@@ -113,12 +116,14 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll the "Web site name" text box into view offset by "-300"
     And I highlight outside the "Web site name" text box
     And I populate the "Web site name" text box with "RandomQuotes"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-step-website-name.png"
     And I remove the highlight from the "Web site name" text box
 
     And I scroll the "Application Pool name" text box into view offset by "-300"
     And I highlight outside the "Application Pool name" text box
     And I populate the "Application Pool name" text box with "RandomQuotes"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-step-apppool-name.png"
     And I remove the highlight from the "Application Pool name" text box
 
@@ -136,6 +141,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "OK" button with an offset of "2"
     And I clear the "Port" text box
     And I populate the "Port" text box with "8081"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-step-binding-port.png"
     And I click the "OK" button
 
@@ -168,6 +174,7 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Create Release" button
 
     And I highlight outside the "Save" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-save-release.png"
     And I click the "Save" button
 
@@ -176,9 +183,12 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Deploy To Dev" button
 
     And I highlight outside the "Deploy" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-deploy.png"
     And I click the "Deploy" button
     And I sleep for "30" seconds
+
+    And I save a screenshot to "C:\screenshots\octopus-deployment.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
