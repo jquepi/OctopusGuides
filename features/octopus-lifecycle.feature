@@ -44,11 +44,11 @@ Feature: Create a Lifecycle in Octopus
     And I highlight outside the "Library" link
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\005-lifecycle-library.png"
     And I click the "Library" link
-    And I remove the highlight from the "Library" link
 
     And I highlight outside the "Lifecycles text" link with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\010-lifecycle-lifecycles.png"
     And I click the "Lifecycles" link
+    And I remove the highlight from the "Library" link
     And I sleep for "1" second
 
     And I highlight outside the "Add Lifecycle" button with an offset of "2"
