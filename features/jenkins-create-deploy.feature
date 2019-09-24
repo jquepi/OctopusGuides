@@ -48,10 +48,10 @@ Feature: Create and deploy a release from Jenkins
     And I scroll the "Command Three" text box into view offset by "-200"
     And I populate the "Command Three" text box with "Create Release Command"
     And I highlight outside the "Command Three" text box
+    And I highlight outside the "Save" button
     And I save a screenshot to "C:\screenshots\create-release-command.png"
     And I remove the highlight from the "Command Three" text box
 
-    And I highlight outside the "Save" button
     And I save a screenshot to "C:\screenshots\create-release-save.png"
     And I click the "Save" button
 
@@ -59,7 +59,7 @@ Feature: Create and deploy a release from Jenkins
   Scenario: Run build
     Given I set the following aliases:
       | Build Now      | //a[contains(.,'Build Now')]      |
-      | Build One      | //a[contains(.,'#2')]             |
+      | Build Two      | //a[contains(.,'#2')]             |
       | Console Output | //a[contains(.,'Console Output')] |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
@@ -67,11 +67,10 @@ Feature: Create and deploy a release from Jenkins
     And I highlight outside the "Build Now" link
     And I save a screenshot to "C:\screenshots\build-and-deploy-now.png"
     And I click the "Build Now" link
-    And I remove the highlight from the "Build Now" link
 
-    And I highlight inside the "Build One" link
+    And I highlight inside the "Build Two" link
     And I save a screenshot to "C:\screenshots\build-two.png"
-    And I force click the "Build One" link
+    And I force click the "Build Two" link
 
     And I highlight outside the "Console Output" link
     And I save a screenshot to "C:\screenshots\build-and-deploy-console.png"

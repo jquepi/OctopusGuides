@@ -31,7 +31,6 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Projects" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\octopus-projects.png"
     And I click the "Projects" link
-    And I remove the highlight from the "Projects" link
     And I sleep for "1" second
 
     And I highlight outside the "Add project" link with an offset of "1"
@@ -39,6 +38,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus-add-project.png"
     And I click the "Add project" button
     And I remove the highlight from the "Add project" link
+    And I remove the highlight from the "Projects" link
 
     And I highlight outside the "New project name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
@@ -159,6 +159,7 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll the "Enable Anonymous authentication" check box into view offset by "-300"
     And I highlight outside the "Enable Anonymous authentication container" element
     And I highlight outside the "Enable Windows authentication container" element
+    And I highlight outside the "Save" button with an offset of "2"
     And I force click the "Enable Anonymous authentication" check box
     And I force click the "Enable Windows authentication" check box
     And I sleep for "1" second
@@ -166,9 +167,6 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Enable Anonymous authentication container" element
     And I remove the highlight from the "Enable Windows authentication container" element
 
-    And I highlight outside the "Save" button with an offset of "2"
-    And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus-step-save.png"
     And I click the "Save" button
     And I sleep for "2" seconds
 
@@ -188,7 +186,6 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-create-release.png"
     And I click the "Create Release" button
-    And I remove the highlight from the "Create Release" button
 
     And I highlight outside the "Save" button
     And I sleep for "1" second
