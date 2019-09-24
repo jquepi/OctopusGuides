@@ -163,12 +163,9 @@ Feature: Create a Lifecycle in Octopus
       | Lifecycle list     | //button[../../../../div[text()='Lifecycle']]           |
       | Save               | //button[contains(.,'Save')]                            |
       | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]] |
-      | Create Release     | //button[contains(.,'Create release')]                  |
-      | Deploy To          | //button[contains(.,'Deploy to...')]                    |
-      | Test               | //span[./div/div/div[text()='Test']]                    |
-      | Deploy             | //button[contains(.,'Deploy')]                          |
 
     And I open the URL "http://localhost/app#/Spaces-1/library/lifecycles"
+    And I display a note with the text "Assign the custom lifecycle to the Octopus project" for "3" seconds
 
     And I sleep for "1" second
     And I highlight outside the "Projects" link
@@ -195,6 +192,18 @@ Feature: Create a Lifecycle in Octopus
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\105-random-quotes-select-lifecycle.png"
     And I click the "Save" button
     And I sleep for "2" seconds
+
+  @deploy-to-dev
+  Scenario: Deploy to the test environment
+    Given I set the following aliases:
+      | Create Release | //button[contains(.,'Create release')] |
+      | Deploy To      | //button[contains(.,'Deploy to...')]   |
+      | Test           | //span[./div/div/div[text()='Test']]   |
+      | Deploy         | //button[contains(.,'Deploy')]         |
+      | Save           | //button[contains(.,'Save')]           |
+
+    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/process"
+    And I display a note with the text "Deploy to the Test environment, skipping Dev" for "3" seconds
 
     And I click the "Create Release" button
     And I highlight outside the "Create Release" button
