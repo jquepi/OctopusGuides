@@ -34,6 +34,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
 
     And I highlight outside the "Add project" link with an offset of "1"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-add-project.png"
     And I click the "Add project" button
     And I remove the highlight from the "Add project" link
@@ -69,15 +70,18 @@ Feature: Configure an Octopus ASP.NET project
       | Port                                      | //input[contains(@id, 'Port')]                                                                      |
       | OK                                        | //button[contains(.,'Ok')]                                                                          |
       | Save                                      | //button[contains(.,'Save')]                                                                        |
+      | Overview                                  | //a[contains(.,'Overview')]                                                                         |
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-define-process.png"
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
     And I highlight outside the "Add Step" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-add-step.png"
     And I click the "Add Step" button
 
@@ -138,6 +142,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
 
     And I highlight outside the "Add binding" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-step-add-binding.png"
     And I force click the "Add binding" button
     And I remove the highlight from the "Add binding" button
@@ -165,6 +170,8 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus-step-save.png"
     And I click the "Save" button
     And I sleep for "2" seconds
+
+    And I click the "Overview" link
 
   @deploy-project
   Scenario: Deploy project

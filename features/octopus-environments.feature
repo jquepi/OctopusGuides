@@ -42,6 +42,7 @@ Feature: Configure the Octopus environments
     And I populate the "New environment name" text box with "Dev"
     And I highlight outside the "New environment name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\environment-dev.png"
     And I click the "Save" button
 
@@ -56,6 +57,7 @@ Feature: Configure the Octopus environments
     And I populate the "New environment name" text box with "Test"
     And I highlight outside the "New environment name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\environment-test.png"
     And I click the "Save" button
 
@@ -70,6 +72,7 @@ Feature: Configure the Octopus environments
     And I populate the "New environment name" text box with "Prod"
     And I highlight outside the "New environment name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\environment-prod.png"
     And I click the "Save" button
 
