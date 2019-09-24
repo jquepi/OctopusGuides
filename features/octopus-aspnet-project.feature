@@ -33,7 +33,7 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Projects" link
     And I sleep for "1" second
 
-    And I highlight outside the "Add project" link with an offset of "2"
+    And I highlight outside the "Add project" link with an offset of "1"
     And I save a screenshot to "C:\screenshots\octopus-add-project.png"
     And I click the "Add project" button
     And I remove the highlight from the "Add project" link
@@ -197,7 +197,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-deploy.png"
     And I click the "Deploy" button
-    And I sleep for "20" seconds
+    And I sleep for "23" seconds
 
     And I save a screenshot to "C:\screenshots\octopus-deployment.png"
 
