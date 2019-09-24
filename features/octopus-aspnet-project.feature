@@ -74,7 +74,7 @@ Feature: Configure an Octopus ASP.NET project
       | Process                                   | //a[contains(.,'Process')]                                                                          |
       | Overview                                  | //a[contains(.,'Overview')]                                                                         |
       | Variables                                 | //a[contains(.,'Variables')]                                                                        |
-      | Project Variables                         | //a[@href='#/Spaces-1/projects/random-quotes/variables']                                            |
+      | Project Variables                         | //a[@href='#/Spaces-1/projects/random-quotes/variables'][contains(.,'Project')]                     |
       | New variable name                         | //input[contains(@id,'Enternewvariable')]                                                           |
       | New variable value                        | //input[contains(@id,'Entervalue')]                                                                 |
       | Define scope                              | //div[@title='Define scope']                                                                        |
@@ -125,11 +125,12 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\project\octopus-variables-populated.png"
 
-    And I highlight inside the "Variables" link
+    And I highlight inside the "Overview" link
     And I click the "Overview" link
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-define-process.png"
+    And I remove the highlight from the "Overview" link
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
