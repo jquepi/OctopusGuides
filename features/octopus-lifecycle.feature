@@ -141,6 +141,7 @@ Feature: Create a Lifecycle in Octopus
     And I click the "OK" button
 
     And I highlight outside the "Save" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\090-lifecycle-save.png"
     And I click the "Save" button
 

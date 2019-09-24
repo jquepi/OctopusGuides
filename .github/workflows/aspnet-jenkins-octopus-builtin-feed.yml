@@ -1,4 +1,4 @@
-name: CI
+name: ASP.NET Jenkins Octopus Built-in Feed
 on: [push]
 jobs:
   build:
