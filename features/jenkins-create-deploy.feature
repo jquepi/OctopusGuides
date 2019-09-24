@@ -27,6 +27,8 @@ Feature: Create and deploy a release from Jenkins
       | Save                          | //button[@type='button'][contains(.,'Save')]                                                                                   |
       | Create Release Command        | Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project "Random Quotes" --progress --deployto Dev |
 
+    And I display a note with the text "Deploying an Octopus release from Jenkins" for "3" seconds
+
     And I highlight outside the "Random Quotes Project" link
     And I save a screenshot to "C:\screenshots\random-quotes-link.png"
     And I click the "Random Quotes Project" link

@@ -30,7 +30,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Install without restart  | #yui-gen2-button                                                            |
       | Back to top              | //a[contains(.,'Go back to the top page')]                                  |
 
-    And I dump the aliases
+    And I display a note with the text "Installing the Jenkins plugins" for "3" seconds
 
     And I highlight outside the "Manage Jenkins" text box
     And I save a screenshot to "C:\screenshots\manage-jenkins.png"
@@ -66,6 +66,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | MSBuild Path              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkHome')] |
       | Save                      | //button[contains(.,'Save')]                                                                          |
     And I open the URL "http://localhost:8080/"
+
+    And I display a note with the text "Configuring the MSBuild tool" for "3" seconds
+
     And I highlight outside the "Manage Jenkins" link
     And I click the "Manage Jenkins" link
 
@@ -110,6 +113,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I open the URL "http://localhost:8080/"
     And I clear the transition
+
+    And I display a note with the text "Adding the Octopus API key as a Jenkins secret" for "3" seconds
+
     And I highlight outside the "Manage Jenkins" link
     And I click the "Manage Jenkins" link
 
@@ -153,7 +159,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   @configure-project
-  Scenario: Configure credentials
+  Scenario: Create the project
     Given I set the following aliases:
       | New Item                                                | //a[contains(.,'New Item')]                                                       |
       | Project name                                            | //input[@name='name']                                                             |
@@ -178,6 +184,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I open the URL "http://localhost:8080/"
     And I clear the transition
+
+    And I display a note with the text "Creating the Jenkins project" for "3" seconds
+
     And I highlight outside the "New Item" link
     And I save a screenshot to "C:\screenshots\new-item.png"
     And I click the "New Item" link
