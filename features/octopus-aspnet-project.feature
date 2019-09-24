@@ -95,7 +95,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight inside the "Project Variables" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\octopus-variables.png"
-    And I click the "Project Variables" link
+    And I force click the "Project Variables" link
     And I remove the highlight from the "Variables" link
     And I remove the highlight from the "Project Variables" link
     And I sleep for "1" second
