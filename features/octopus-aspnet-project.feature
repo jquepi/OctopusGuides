@@ -204,7 +204,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Port" text box
     And I highlight outside the "OK" button with an offset of "2"
     And I clear the "Port" text box
-    And I populate the "Port" text box with "8081"
+    And I populate the "Port" text box with "#{IIS Port}"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-step-binding-port.png"
     And I click the "OK" button
