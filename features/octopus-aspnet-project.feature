@@ -83,9 +83,9 @@ Feature: Configure an Octopus ASP.NET project
       | Test environment                          | //div[./div/div[text() = 'Test']]                                                                   |
       | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                   |
       | Add Another Value                         | //button[.//span[text() = 'Add Another Value']]                                                     |
-      | Space next buttons                        | //div[.//button[.//span[text() = 'Add Another Value']]]                                             |
       | New variable value 2                      | (//input[contains(@id,'Entervalue')])[2]                                                            |
       | New variable value 3                      | (//input[contains(@id,'Entervalue')])[3]                                                            |
+      | Project Variables Title                   | //h2[contains(.,'Project Variables')]                                                               |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
@@ -105,21 +105,21 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Define scope" field
     And I click the "Select environments" field
     And I click the "Dev environment" option
-    And I click the "Space next buttons" element
+    And I click the "Project Variables Title" element
 
     And I click the "Add Another Value" button
     And I populate the "New variable value 2" text box with "8082"
     And I click the "Define scope" field
     And I click the "Select environments" field
     And I click the "Test environment" option
-    And I click the "Space next buttons" element
+    And I click the "Project Variables Title" element
 
     And I click the "Add Another Value" button
     And I populate the "New variable value 3" text box with "8083"
     And I click the "Define scope" field
     And I click the "Select environments" field
     And I click the "Prod environment" option
-    And I click the "Space next buttons" element
+    And I click the "Project Variables Title" element
 
     And I click the "Save" button
     And I sleep for "1" second
