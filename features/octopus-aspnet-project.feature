@@ -71,10 +71,62 @@ Feature: Configure an Octopus ASP.NET project
       | Port                                      | //input[contains(@id, 'Port')]                                                                      |
       | OK                                        | //button[contains(.,'Ok')]                                                                          |
       | Save                                      | //button[contains(.,'Save')]                                                                        |
+      | Process                                   | //a[contains(.,'Process')]                                                                          |
       | Overview                                  | //a[contains(.,'Overview')]                                                                         |
+      | Variables                                 | //a[contains(.,'Variables')]                                                                        |
+      | Project Variables                         | //a[@href='#/Spaces-1/projects/random-quotes/variables']                                            |
+      | New variable name                         | //input[contains(@id,'Enternewvariable')]                                                           |
+      | New variable value                        | //input[contains(@id,'Entervalue')]                                                                 |
+      | Define scope                              | //div[@title='Define scope']                                                                        |
+      | Select environments                       | //input[@title='Select environments']                                                               |
+      | Dev environment                           | //div[./div/div[text() = 'Dev']]                                                                    |
+      | Test environment                          | //div[./div/div[text() = 'Test']]                                                                   |
+      | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                   |
+      | Add Another Value                         | //button[.//span[text() = 'Add Another Value']]                                                     |
+      | Space next buttons                        | //div[.//button[.//span[text() = 'Add Another Value']]]                                             |
+      | New variable value 2                      | (//input[contains(@id,'Entervalue')])[2]                                                            |
+      | New variable value 3                      | (//input[contains(@id,'Entervalue')])[3]                                                            |
+
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
 
+    And I highlight inside the "Variables" link
+    And I click the "Variables" link
+    And I highlight inside the "Project Variables" link
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\octopus-variables.png"
+    And I click the "Project Variables" link
+    And I remove the highlight from the "Variables" link
+    And I remove the highlight from the "Project Variables" link
+    And I sleep for "1" second
+
+    And I populate the "New variable name" text box with "IIS Port"
+    And I populate the "New variable value" text box with "8081"
+    And I click the "Define scope" field
+    And I click the "Select environments" field
+    And I click the "Dev environment" option
+    And I click the "Space next buttons" element
+
+    And I click the "Add Another Value" button
+    And I populate the "New variable value 2" text box with "8082"
+    And I click the "Define scope" field
+    And I click the "Select environments" field
+    And I click the "Test environment" option
+    And I click the "Space next buttons" element
+
+    And I click the "Add Another Value" button
+    And I populate the "New variable value 3" text box with "8083"
+    And I click the "Define scope" field
+    And I click the "Select environments" field
+    And I click the "Prod environment" option
+    And I click the "Space next buttons" element
+
+    And I click the "Save" button
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\project\octopus-variables-populated.png"
+
+    And I highlight inside the "Variables" link
+    And I click the "Overview" link
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus-define-process.png"
