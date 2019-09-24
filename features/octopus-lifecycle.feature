@@ -167,11 +167,11 @@ Feature: Create a Lifecycle in Octopus
     And I open the URL "http://localhost/app#/Spaces-1/library/lifecycles"
     And I display a note with the text "Assign the custom lifecycle to the Octopus project" for "3" seconds
 
-    And I sleep for "1" second
     And I highlight outside the "Projects" link
     And I click the "Projects" link
+    And I sleep for "1" second
 
-    And I highlight outside the "Random Quotes" project tile
+    And I highlight inside the "Random Quotes" project tile
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\095-random-quotes-project.png"
     And I remove the highlight from the "Projects" link
     And I click the "Random Quotes" project tile
