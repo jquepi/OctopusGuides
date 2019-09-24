@@ -227,7 +227,9 @@ Feature: Create a Lifecycle in Octopus
     And I sleep for "10" seconds
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\125-random-quotes-deployed-test.png"
 
+  Scenario: Open the app
     And I open the URL "http://localhost:8082"
+    And I display a note with the text "Open the application in the Test environment (port 8082)" for "3" seconds
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\130-random-quotes-test-app.png"
 
   Scenario: Shutdown

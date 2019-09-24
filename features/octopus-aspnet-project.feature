@@ -7,6 +7,7 @@ Feature: Configure an Octopus ASP.NET project
       | Sign In  | //button[contains(.,'SIGN IN')] |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I maximize the window
+    #And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I start recording the screen to the directory "C:\screenshots"
@@ -74,7 +75,7 @@ Feature: Configure an Octopus ASP.NET project
       | Process                                   | //a[contains(.,'Process')]                                                                          |
       | Overview                                  | //a[contains(.,'Overview')]                                                                         |
       | Variables                                 | //a[contains(.,'Variables')]                                                                        |
-      | Project Variables                         | //a[@href='#/Spaces-1/projects/random-quotes/variables'][contains(.,'Project')]                     |
+      | Project Variables                         | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')]            |
       | New variable name                         | //input[contains(@id,'Enternewvariable')]                                                           |
       | New variable value                        | //input[contains(@id,'Entervalue')]                                                                 |
       | Define scope                              | //div[@title='Define scope']                                                                        |
@@ -98,27 +99,26 @@ Feature: Configure an Octopus ASP.NET project
     And I force click the "Project Variables" link
     And I remove the highlight from the "Variables" link
     And I remove the highlight from the "Project Variables" link
-    And I sleep for "1" second
 
     And I populate the "New variable name" text box with "IIS Port"
     And I populate the "New variable value" text box with "8081"
-    And I click the "Define scope" field
-    And I click the "Select environments" field
-    And I click the "Dev environment" option
+    And I force click the "Define scope" field
+    And I force click the "Select environments" field
+    And I force click the "Dev environment" option
     And I click the "Project Variables Title" element
 
     And I click the "Add Another Value" button
     And I populate the "New variable value 2" text box with "8082"
-    And I click the "Define scope" field
-    And I click the "Select environments" field
-    And I click the "Test environment" option
+    And I force click the "Define scope" field
+    And I force click the "Select environments" field
+    And I force click the "Test environment" option
     And I click the "Project Variables Title" element
 
     And I click the "Add Another Value" button
     And I populate the "New variable value 3" text box with "8083"
-    And I click the "Define scope" field
-    And I click the "Select environments" field
-    And I click the "Prod environment" option
+    And I force click the "Define scope" field
+    And I force click the "Select environments" field
+    And I force click the "Prod environment" option
     And I click the "Project Variables Title" element
 
     And I click the "Save" button
