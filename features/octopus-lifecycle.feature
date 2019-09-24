@@ -1,5 +1,6 @@
 Feature: Create a Lifecycle in Octopus
 
+  @login
   Scenario: Login
     Given I set the following aliases:
       | Username | //input[@name='userName']       |
@@ -15,6 +16,7 @@ Feature: Create a Lifecycle in Octopus
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
 
+  @define-lifecycle
   Scenario: Add dev, test and prod
     Given I set the following aliases:
       | Library                         | //span[contains(.,'Library')]                                  |
@@ -150,6 +152,74 @@ Feature: Create a Lifecycle in Octopus
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\090-lifecycle-save.png"
     And I click the "Save" button
+
+  @assign-lifecycle
+  Scenario: Assign the lifecycle
+    Given I set the following aliases:
+      | Projects           | //span[contains(.,'Projects')]                          |
+      | Random Quotes      | //a[@href='#/Spaces-1/projects/random-quotes']          |
+      | Process            | //a[contains(.,'Process')]                              |
+      | Change             | //button[contains(.,'CHANGE')]                          |
+      | Lifecycle list     | //button[../../../../div[text()='Lifecycle']]           |
+      | Save               | //button[contains(.,'Save')]                            |
+      | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]] |
+      | Create Release     | //button[contains(.,'Create release')]                  |
+      | Deploy To          | //button[contains(.,'Deploy to...')]                    |
+      | Test               | //span[./div/div/div[text()='Test']]                    |
+      | Deploy             | //button[contains(.,'Deploy')]                          |
+
+    And I open the URL "http://localhost/app#/Spaces-1/library/lifecycles"
+
+    And I sleep for "1" second
+    And I highlight outside the "Projects" link
+    And I click the "Projects" link
+
+    And I highlight outside the "Random Quotes" project tile
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\095-random-quotes-project.png"
+    And I remove the highlight from the "Projects" link
+    And I click the "Random Quotes" project tile
+
+    And I highlight inside the "Process" link
+    And I click the "Process" link
+    And I highlight outside the "Change" button
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\100-random-quotes-change-lifecycle.png"
+    And I remove the highlight from the "Process" button
+    And I remove the highlight from the "Change" button
+    And I click the "Change" button
+
+    And I highlight outside the "Lifecycle list" button
+    And I highlight outside the "Save" button with an offset of "2"
+    And I click the "Lifecycle list" button
+    And I click the "Dev, Test and Prod" option
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\105-random-quotes-select-lifecycle.png"
+    And I click the "Save" button
+    And I sleep for "2" seconds
+
+    And I click the "Create Release" button
+    And I highlight outside the "Create Release" button
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\110-random-quotes-create-release.png"
+    And I remove the highlight from the "Create Release" button
+    And I click the "Save" button
+
+    And I highlight outside the "Deploy To" button
+    And I click the "Deploy To" button
+    And I highlight inside the "Test" option
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\115-random-quotes-select-test.png"
+    And I click the "Test" option
+
+    And I highlight outside the "Deploy" button
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\120-random-quotes-deploy-test.png"
+    And I click the "Deploy" button
+
+    And I sleep for "10" seconds
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\125-random-quotes-deployed-test.png"
+
+    And I open the URL "http://localhost:8082"
+    And I save a screenshot to "C:\screenshots\octopus\lifecycle\130-random-quotes-test-app.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
