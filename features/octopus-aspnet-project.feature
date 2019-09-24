@@ -123,7 +123,7 @@ Feature: Configure an Octopus ASP.NET project
 
     And I click the "Save" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\project\octopus-variables-populated.png"
+    And I save a screenshot to "C:\screenshots\octopus\project\octopus-variables-populated.png"
 
     And I highlight inside the "Overview" link
     And I click the "Overview" link
