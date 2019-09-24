@@ -17,26 +17,28 @@ Feature: Create a Lifecycle in Octopus
 
   Scenario: Add dev, test and prod
     Given I set the following aliases:
-      | Library                         | //span[contains(.,'Library')]                           |
-      | Lifecycles                      | //a[contains(.,'Lifecycles')]                           |
-      | Lifecycles text                 | //a[./span[contains(.,'Lifecycles')]]                   |
-      | Add Lifecycle                   | //button[contains(.,'Add Lifecycle')]                   |
-      | Lifecycle name                  | //input[contains(@id,'Lifecyclename')]                  |
-      | Lifecycle description           | //textarea[contains(@id,'Lifecycledescription')]        |
-      | Lifecycle description container | //div[./textarea[contains(@id,'Lifecycledescription')]] |
-      | Add Phase                       | (//button[@title='Add phase'])[1]                       |
-      | Phase name 1                    | (//input[../label[contains(.,'Phase name')]])[1]        |
-      | Add Environment 1               | (//button[@title='Add Environment'])[1]                 |
-      | Phase name 2                    | (//input[../label[contains(.,'Phase name')]])[2]        |
-      | Add Environment 2               | (//button[@title='Add Environment'])[2]                 |
-      | Phase name 3                    | (//input[../label[contains(.,'Phase name')]])[3]        |
-      | Add Environment 3               | (//button[@title='Add Environment'])[3]                 |
-      | Environment list                | //div[./div[text() = 'Environment']]//button            |
-      | Dev environment                 | //div[./div/div[text() = 'Dev']]                        |
-      | Test environment                | //div[./div/div[text() = 'Test']]                       |
-      | Prod environment                | //div[./div/div[text() = 'Prod']]                       |
-      | OK                              | //button[@title='Ok']                                   |
-      | Save                            | //button[@title='Save']                                 |
+      | Library                         | //span[contains(.,'Library')]                                  |
+      | Lifecycles                      | //a[contains(.,'Lifecycles')]                                  |
+      | Lifecycles text                 | //a/span[text()='Lifecycles'] \| //a[contains(.,'Lifecycles')] |
+      | Add Lifecycle                   | //button[contains(.,'Add Lifecycle')]                          |
+      | Lifecycle name                  | //input[contains(@id,'Lifecyclename')]                         |
+      | Lifecycle description           | //textarea[contains(@id,'Lifecycledescription')]               |
+      | Lifecycle description container | //div[./textarea[contains(@id,'Lifecycledescription')]]        |
+      | Add Phase                       | (//button[@title='Add phase'])[1]                              |
+      | Phase name 1                    | (//input[../label[contains(.,'Phase name')]])[1]               |
+      | Add Environment 1               | (//button[@title='Add Environment'])[1]                        |
+      | Phase name 2                    | (//input[../label[contains(.,'Phase name')]])[2]               |
+      | Add Environment 2               | (//button[@title='Add Environment'])[2]                        |
+      | Phase name 3                    | (//input[../label[contains(.,'Phase name')]])[3]               |
+      | Add Environment 3               | (//button[@title='Add Environment'])[3]                        |
+      | Environment list                | //div[./div[text() = 'Environment']]//button                   |
+      | Dev environment                 | //div[./div/div[text() = 'Dev']]                               |
+      | Test environment                | //div[./div/div[text() = 'Test']]                              |
+      | Prod environment                | //div[./div/div[text() = 'Prod']]                              |
+      | OK                              | //button[@title='Ok']                                          |
+      | Save                            | //button[@title='Save']                                        |
+      | Optional phase                  | //input[..//label[text()='Optional phase']]                    |
+      | Required to progress            | //div[./h4[text()='Required to progress']]                     |
 
     And I sleep for "1" second
     And I highlight outside the "Library" link
@@ -72,9 +74,12 @@ Feature: Create a Lifecycle in Octopus
 
     And I scroll the "Phase name 1" text box into view offset by "-200"
     And I populate the "Phase name 1" text box with "Dev"
+    And I force click the "Optional phase" radio button
     And I highlight outside the "Phase name 1" text box
+    And I highlight outside the "Required to progress" element
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\030-lifecycle-phase-name-1.png"
     And I remove the highlight from the "Phase name 1" text box
+    And I remove the highlight from the "Required to progress" element
 
     And I highlight outside the "Add Environment 1" button with an offset of "2"
     And I sleep for "1" second
