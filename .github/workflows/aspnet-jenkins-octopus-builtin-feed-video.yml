@@ -1,4 +1,4 @@
-name: ASP.NET Jenkins Octopus Built-in Feed
+name: ASP.NET Jenkins Octopus Built-in Feed Video
 on: [push]
 jobs:
   build:
