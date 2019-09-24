@@ -81,6 +81,8 @@ Feature: Create and deploy a release from Jenkins
 
     And I save a screenshot to "C:\screenshots\build-and-deploy-logs.png"
 
+    And I display a note with the text "'Deploy Random Quotes release 0.0.2 to Dev: Success' means Octopus deployed the project" for "3" seconds
+
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
