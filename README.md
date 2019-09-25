@@ -4,4 +4,4 @@ Install in an administrative Powershell session with the command:
 
 `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mcasperson/OctopusGuides/master/install.ps1'))`
 
-Username for all services is `admin`, and the password is `Password01!`. 
+Username for all services is `admin`, and the password is `Password01!`.
