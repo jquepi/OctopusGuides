@@ -175,7 +175,7 @@ Feature: Create a Lifecycle in Octopus
     And I remove the highlight from the "Projects" link
     And I click the "Random Quotes" project tile
 
-    And I highlight inside the "Process text" link
+    And I highlight outsode the "Process text" link with an offset of "2"
     And I click the "Process" link
     And I highlight outside the "Change" button
     And I sleep for "1" second
