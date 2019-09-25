@@ -19,18 +19,23 @@ Feature: Add a manual intervention step
   @add-manual-intervention
   Scenario: Assign the lifecycle
     Given I set the following aliases:
-      | Projects               | //span[contains(.,'Projects')]                                                                                     |
-      | Random Quotes          | //a[@href='#/Spaces-1/projects/random-quotes']                                                                     |
-      | Process                | //a[contains(.,'Process')]                                                                                         |
-      | Process text           | //a/span[contains(.,'Process')] \| //a[contains(.,'Process')][not(*)]                                              |
-      | Add Step               | //button[contains(.,'Add Step')]                                                                                   |
-      | Search                 | //input[@type='search']                                                                                            |
-      | Manual Intervention    | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]                            |
-      | Add                    | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]//button[contains(.,'Add')] |
-      | Step Name              | //input[contains(@id, 'Stepname')]                                                                                 |
-      | Instructions           | //textarea[contains(@id, 'Instructions')]                                                                          |
-      | Instructions container | //div[./textarea[contains(@id, 'Instructions')]]                                                                   |
-      | Save                   | //button[contains(.,'Save')]                                                                                       |
+      | Projects                      | //span[contains(.,'Projects')]                                                                                     |
+      | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                                                     |
+      | Process                       | //a[contains(.,'Process')]                                                                                         |
+      | Process text                  | //a/span[contains(.,'Process')] \| //a[contains(.,'Process')][not(*)]                                              |
+      | Add Step                      | //button[contains(.,'Add Step')]                                                                                   |
+      | Search                        | //input[@type='search']                                                                                            |
+      | Manual Intervention           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]                            |
+      | Add                           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]//button[contains(.,'Add')] |
+      | Step Name                     | //input[contains(@id, 'Stepname')]                                                                                 |
+      | Instructions                  | //textarea[contains(@id, 'Instructions')]                                                                          |
+      | Instructions container        | //div[./textarea[contains(@id, 'Instructions')]]                                                                   |
+      | Environments                  | //span[contains(normalize-space(.),'This step will run for all applicable Lifecycle environments')]                |
+      | Save                          | //button[contains(.,'Save')]                                                                                       |
+      | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                                          |
+      | Select environments           | //input[@title='Select environments']                                                                              |
+      | Select environments container | //div[./div/div/div/div/div/input[@title='Select environments']]                                                                              |
+      | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'Dev')]//span                    |
 
     And I open the URL "http://localhost/app#"
 
@@ -72,10 +77,31 @@ Feature: Add a manual intervention step
 
     And I scroll the "Instructions" text box into view offset by "-300"
     And I highlight outside the "Instructions container" element
-    And I click the "Instructions" text box
     And I populate the "Instructions" text box with "Open the application at [http://localhost:#{IIS Port}](http://localhost:#{IIS Port}) and confirm it deployed successfully."
     And I save a screenshot to "C:\screenshots\intervention\030-octopus-step-instructions.png"
     And I remove the highlight from the "Instructions container" element
+
+    And I scroll the "Environments" section into view offset by "-300"
+    And I highlight outside the "Environments" element
+    And I click the "Environments" element
+    And I save a screenshot to "C:\screenshots\intervention\035-octopus-step-conditions.png"
+
+    And I scroll the "Skip specific environment" radio button into view offset by "-300"
+    And I highlight outside the "Skip specific environment" radio button
+    And I force click the "Skip specific environment" radio button
+    And I save a screenshot to "C:\screenshots\intervention\040-octopus-step-skip-envs.png"
+    And I remove the highlight from the "Skip specific environment" radio button
+
+    And I scroll the "Select environments" text box into view offset by "-300"
+    And I highlight outside the "Select environments container" element
+    And I populate the "Select environments" text box with "Dev"
+    And I click the "Dev Environment" option
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\intervention\045-octopus-step-skip-dev.png"
+    And I remove the highlight from the "Select environments container" element
+
+    #And I click the "Save" button
+    #And I sleep for "2" seconds
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
