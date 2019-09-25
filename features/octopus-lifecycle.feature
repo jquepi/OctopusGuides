@@ -219,7 +219,7 @@ Feature: Create a Lifecycle in Octopus
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\115-random-quotes-select-test.png"
     And I click the "Test" option
 
-    And I sleep for "1" second
+    And I sleep for "3" second
     And I highlight outside the "Deploy" button
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\120-random-quotes-deploy-test.png"
