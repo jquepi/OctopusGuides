@@ -154,13 +154,14 @@ Feature: Create a Lifecycle in Octopus
   @assign-lifecycle
   Scenario: Assign the lifecycle
     Given I set the following aliases:
-      | Projects           | //span[contains(.,'Projects')]                          |
-      | Random Quotes      | //a[@href='#/Spaces-1/projects/random-quotes']          |
-      | Process            | //a[contains(.,'Process')]                              |
-      | Change             | //button[contains(.,'CHANGE')]                          |
-      | Lifecycle list     | //button[../../../../div[text()='Lifecycle']]           |
-      | Save               | //button[contains(.,'Save')]                            |
-      | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]] |
+      | Projects           | //span[contains(.,'Projects')]                                        |
+      | Random Quotes      | //a[@href='#/Spaces-1/projects/random-quotes']                        |
+      | Process            | //a[contains(.,'Process')]                                            |
+      | Process text       | //a/span[contains(.,'Process')] \| //a[contains(.,'Process')][not(*)] |
+      | Change             | //button[contains(.,'CHANGE')]                                        |
+      | Lifecycle list     | //button[../../../../div[text()='Lifecycle']]                         |
+      | Save               | //button[contains(.,'Save')]                                          |
+      | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]]               |
 
     And I open the URL "http://localhost/app#/Spaces-1/library/lifecycles"
     And I display a note with the text "Assign the custom lifecycle to the Octopus project" for "3" seconds
@@ -174,12 +175,12 @@ Feature: Create a Lifecycle in Octopus
     And I remove the highlight from the "Projects" link
     And I click the "Random Quotes" project tile
 
-    And I highlight inside the "Process" link
+    And I highlight inside the "Process text" link
     And I click the "Process" link
     And I highlight outside the "Change" button
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\100-random-quotes-change-lifecycle.png"
-    And I remove the highlight from the "Process" button
+    And I remove the highlight from the "Process text" link
     And I remove the highlight from the "Change" button
     And I click the "Change" button
 
