@@ -98,7 +98,6 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\octopus-variables.png"
     And I force click the "Project Variables" link
     And I remove the highlight from the "Variables" link
-    And I remove the highlight from the "Project Variables" link
 
     And I populate the "New variable name" text box with "IIS Port"
     And I populate the "New variable value" text box with "8081"
