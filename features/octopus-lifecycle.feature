@@ -192,7 +192,7 @@ Feature: Create a Lifecycle in Octopus
     And I click the "Save" button
     And I sleep for "2" seconds
 
-  @deploy-to-dev
+  @deploy-to-test
   Scenario: Deploy to the test environment
     Given I set the following aliases:
       | Create Release | //button[contains(.,'Create release')] |
