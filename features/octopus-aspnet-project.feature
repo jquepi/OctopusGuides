@@ -123,7 +123,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Project Variables Title" element
 
     And I click the "Save" button
-    And I sleep for "1" second
+    And I sleep for "7" second
     And I scroll down "10000" px
     And I save a screenshot to "C:\screenshots\octopus\project\octopus-variables-populated.png"
 

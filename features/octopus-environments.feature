@@ -37,6 +37,7 @@ Feature: Configure the Octopus environments
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\add-environment-1.png"
     And I click the "Add Environment" button
+    And I remove the highlight from the "Environments text" link
     And I remove the highlight from the "Add Environment" button
     And I remove the highlight from the "Infrastructure" link
 
