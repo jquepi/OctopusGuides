@@ -53,7 +53,7 @@ Feature: Create a Lifecycle in Octopus
     And I highlight outside the "Add Lifecycle" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\015-lifecycle-add-lifecycle.png"
-    And I remove the highlight from the "Library" link
+    And I remove the highlight from the "Library text" link
     And I click the "Add Lifecycle" button
 
     And I populate the "Lifecycle name" text box with "Dev, Test and Prod"
