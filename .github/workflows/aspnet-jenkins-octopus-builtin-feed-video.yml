@@ -13,6 +13,7 @@ jobs:
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -27,6 +28,7 @@ jobs:
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -43,6 +45,7 @@ jobs:
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -56,6 +59,7 @@ jobs:
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -69,6 +73,7 @@ jobs:
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -82,6 +87,7 @@ jobs:
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
