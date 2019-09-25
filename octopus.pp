@@ -46,11 +46,6 @@ package { 'openjdk13':
   provider => chocolatey
 }
 
-/*package { 'googlechrome':
-  ensure   => installed,
-  provider => chocolatey
-}*/
-
 package { 'firefox':
   ensure   => installed,
   provider => chocolatey

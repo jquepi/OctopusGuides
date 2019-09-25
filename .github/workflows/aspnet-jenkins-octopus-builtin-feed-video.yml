@@ -12,7 +12,7 @@ jobs:
     - name: Create Jenkins Project and Octopus
       shell: powershell
       run: >
-        java
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -26,7 +26,7 @@ jobs:
     - name: Create the Octopus Environments
       shell: powershell
       run: >
-        java
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -42,7 +42,7 @@ jobs:
     - name: Create Octopus Project
       shell: powershell
       run: >
-        java
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -55,7 +55,7 @@ jobs:
     - name: Open Random Quotes
       shell: powershell
       run: >
-        java
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -68,7 +68,7 @@ jobs:
     - name: Add a deployment step
       shell: powershell
       run: >
-        java
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
@@ -81,7 +81,7 @@ jobs:
     - name: Add a lifecycle
       shell: powershell
       run: >
-        java
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
