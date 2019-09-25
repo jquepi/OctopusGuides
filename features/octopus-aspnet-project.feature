@@ -93,7 +93,7 @@ Feature: Configure an Octopus ASP.NET project
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
 
-    And I highlight inside the "Variables text" link
+    And I highlight outside the "Variables text" link with an offset of "2"
     And I click the "Variables" link
     And I highlight inside the "Project Variables" link
     And I sleep for "1" second
