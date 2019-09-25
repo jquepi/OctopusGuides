@@ -143,6 +143,7 @@ Feature: Add a manual intervention step
       | Notes container | //div[./textarea[contains(@id,'Notes')]] |
 
     And I highlight outside the "Assign to me" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\intervention\050-octopus-deploy-assign-intervention.png"
     And I click the "Assign to me" button
     And I sleep for "1" second
@@ -152,7 +153,7 @@ Feature: Add a manual intervention step
     And I populate the "Notes" text box with "Confirmed the application deployed successfully and runs correctly."
     And I save a screenshot to "C:\screenshots\octopus\intervention\055-octopus-deploy-intervention-notes.png"
     And I click the "Proceed" button
-    And I sleep for "5" second
+    And I sleep for "10" second
 
     And I save a screenshot to "C:\screenshots\octopus\intervention\060-octopus-deploy-success.png"
 
