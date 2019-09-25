@@ -224,7 +224,7 @@ Feature: Create a Lifecycle in Octopus
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\120-random-quotes-deploy-test.png"
     And I click the "Deploy" button
 
-    And I sleep for "23" seconds
+    And I sleep for "30" seconds
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\125-random-quotes-deployed-test.png"
 
   Scenario: Open the app
