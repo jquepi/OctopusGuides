@@ -167,6 +167,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | OK                                                      | //button[@type='submit'][contains(.,'OK')]                                        |
       | Git                                                     | (//label[contains(.,'Git')])[2]                                                   |
       | Repository URL                                          | //input[contains(@name,'_.url')]                                                  |
+      | Poll SCM                                                | //input[@name='hudson-triggers-SCMTrigger']                                       |
+      | Schedule                                                | //textarea[contains(@checkurl,'checkScmpoll_spec')]                               |
       | Use secrets                                             | //input[@name='org-jenkinsci-plugins-credentialsbinding-impl-SecretBuildWrapper'] |
       | Bindings Add                                            | //button[@suffix='bindings']                                                      |
       | Secret text                                             | //a[contains(.,'Secret text')]                                                    |
@@ -206,6 +208,15 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Repository URL" text box
     And I populate the "Repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
     And I save a screenshot to "C:\screenshots\git-settings.png"
+
+    And I scroll the "Poll SCM" option into view offset by "-200"
+    And I click the "Poll SCM" option
+    And I populate the "Schedule" textarea with "H/5 * * * *"
+    And I highlight outside the "Poll SCM" option
+    And I highlight outside the "Schedule" textarea
+    And I save a screenshot to "C:\screenshots\git-polling.png"
+    And I remove the highlight from the "Poll SCM" option
+    And I remove the highlight from the "Schedule" textarea
 
     And I scroll the "Use secrets" option into view offset by "-200"
     And I highlight outside the "Use secrets" option
