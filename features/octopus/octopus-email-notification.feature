@@ -175,6 +175,7 @@ Feature: Add a manual intervention step
     And I scroll the "Body" text box into view offset by "-300"
     And I highlight outside the "Body container" element with an offset of "5"
     And I populate the "Body" text box with "Random quotes was successfully deployed to #{Octopus.Environment.Name}"
+    And I highlight outside the "Save" button
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\055-octopus-step-body.png"
     And I remove the highlight from the "Body container" element
