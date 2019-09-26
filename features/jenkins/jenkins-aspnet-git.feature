@@ -32,7 +32,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I display a note with the text "Installing the Jenkins plugins" for "3" seconds
 
-    And I highlight outside the "Manage Jenkins" text box
+    And I highlight inside the "Manage Jenkins" text box
     And I save a screenshot to "C:\screenshots\manage-jenkins.png"
     And I click the "Manage Jenkins" link
     And I scroll the "Manage Plugins" link into view offset by "-100"
@@ -69,7 +69,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I display a note with the text "Configuring the MSBuild tool" for "3" seconds
 
-    And I highlight outside the "Manage Jenkins" link
+    And I highlight inside the "Manage Jenkins" link
     And I click the "Manage Jenkins" link
 
     And I scroll the "Global Tool Configuration" link into view offset by "-100"
@@ -116,7 +116,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I display a note with the text "Adding the Octopus API key as a Jenkins secret" for "3" seconds
 
-    And I highlight outside the "Manage Jenkins" link
+    And I highlight inside the "Manage Jenkins" link
     And I click the "Manage Jenkins" link
 
     And I scroll the "Configure Credentials" link into view offset by "-100"
@@ -126,11 +126,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\configure-credentials.png"
     And I click the "Configure Credentials" link
 
-    And I highlight outside the "Credentials" link
+    And I highlight inside the "Credentials" link
     And I save a screenshot to "C:\screenshots\credentials-parent.png"
     And I click the "Credentials" link
 
-    And I highlight outside the "System" link
+    And I highlight inside the "System" link
     And I save a screenshot to "C:\screenshots\credentials-system.png"
     And I click the "System" link
 
@@ -138,7 +138,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\global-credentials.png"
     And I click the "Global credentials" link
 
-    And I highlight outside the "Add Credentials" link
+    And I highlight inside the "Add Credentials" link
     And I save a screenshot to "C:\screenshots\add-credentials.png"
     And I click the "Add Credentials" link
 
@@ -189,7 +189,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I display a note with the text "Creating the Jenkins project" for "3" seconds
 
-    And I highlight outside the "New Item" link
+    And I highlight inside the "New Item" link
     And I save a screenshot to "C:\screenshots\new-item.png"
     And I click the "New Item" link
 
@@ -301,7 +301,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
     And I clear the transition
 
-    And I highlight outside the "Build Now" link
+    And I highlight inside the "Build Now" link
     And I save a screenshot to "C:\screenshots\build-now.png"
     And I click the "Build Now" link
 
@@ -309,7 +309,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\build-one.png"
     And I force click the "Build One" link
 
-    And I highlight outside the "Console Output" link
+    And I highlight inside the "Console Output" link
     And I save a screenshot to "C:\screenshots\console.png"
     And I click the "Console Output" link
     And I scroll down "10000" px
