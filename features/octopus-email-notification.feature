@@ -25,9 +25,11 @@ Feature: Add a manual intervention step
       | Configuration        | //span[contains(.,'Configuration')]                                                          |
       | SMTP                 | //span[contains(.,'SMTP')]                                                                   |
       | SMTP Host Section    | //span[contains(.,'No DNS hostname specified')]                                              |
+      | SMTP Port Section    | //span[contains(.,'25')]                                                                     |
       | From Address Section | //span[contains(.,'No from address specified')]                                              |
       | Credentials Section  | //span[contains(.,'Add authentication details if your SMTP server requires authentication')] |
       | SMTP Host            | //input[contains(@id,'SMTPhost')]                                                            |
+      | SMTP Port            | //input[contains(@id,'SMTPport')]                                                            |
       | From Address         | //input[contains(@id,'Fromaddress')]                                                         |
       | SMTP login           | //input[contains(@id,'SMTPlogin')]                                                           |
       | SMTP password        | //input[contains(@id,'SMTPpassword')]                                                        |
@@ -52,6 +54,9 @@ Feature: Add a manual intervention step
     And I click the "SMTP Host Section" element
     And I highlight outside the "SMTP Host" text box with an offset of "5"
     And I populate the "SMTP Host" text box with "smtp.gmail.com"
+    And I click the "SMTP Port Section" element
+    And I highlight outside the "SMTP Port" text box with an offset of "5"
+    And I populate the "SMTP Port" text box with "587"
     And I click the "From Address Section" element
     And I highlight outside the "From Address" text box with an offset of "5"
     And I populate the "From Address" text box with "info@example.org"
@@ -67,7 +72,7 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
-  @add-manual-intervention
+  @add-email-notification
   Scenario: Add the notification step
     Given I set the following aliases:
       | Projects          | //span[contains(.,'Projects')]                                                                      |
@@ -155,12 +160,12 @@ Feature: Add a manual intervention step
     Given I set the following aliases:
       | Create Release | //button[contains(.,'Create release')] |
       | Deploy To      | //button[contains(.,'Deploy to...')]   |
-      | Test           | //span[./div/div/div[text()='Test']]   |
+      | Dev            | //span[./div/div/div[text()='Dev']]    |
       | Deploy         | //button[contains(.,'Deploy')]         |
       | Save           | //button[contains(.,'Save')]           |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/process"
-    And I display a note with the text "Deploy to the Test environment" for "3" seconds
+    And I display a note with the text "Deploy to the Dev environment" for "3" seconds
 
     And I click the "Create Release" button
     And I highlight outside the "Create Release" button
@@ -171,40 +176,16 @@ Feature: Add a manual intervention step
 
     And I highlight outside the "Deploy To" button
     And I click the "Deploy To" button
-    And I highlight inside the "Test" option
+    And I highlight inside the "Dev" option
     And I sleep for "1" second
-    And I click the "Test" option
+    And I click the "Dev" option
 
     And I sleep for "3" second
     And I highlight outside the "Deploy" button
     And I sleep for "1" second
     And I click the "Deploy" button
 
-    And I sleep for "23" seconds
-
-  @approve-deployment
-  Scenario: Approve manual intervention
-    Given I set the following aliases:
-      | Assign to me    | //button[contains(.,'Assign to me')]     |
-      | Proceed         | //button[contains(.,'Proceed')]          |
-      | Notes           | //textarea[contains(@id,'Notes')]        |
-      | Notes container | //div[./textarea[contains(@id,'Notes')]] |
-
-    And I highlight outside the "Assign to me" button
-    And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\050-octopus-deploy-assign-intervention.png"
-    And I click the "Assign to me" button
-    And I sleep for "1" second
-
-    And I highlight outside the "Notes container" text box with an offset of "2"
-    And I highlight outside the "Proceed" button with an offset of "2"
-    And I populate the "Notes" text box with "Confirmed this deployment meets all the requirements."
-    And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\055-octopus-deploy-intervention-notes.png"
-    And I click the "Proceed" button
-    And I sleep for "10" second
-
-    And I save a screenshot to "C:\screenshots\octopus\email\060-octopus-deploy-success.png"
+    And I sleep for "30" seconds
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
