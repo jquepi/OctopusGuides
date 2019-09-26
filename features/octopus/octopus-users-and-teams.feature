@@ -157,10 +157,16 @@ Feature: Create Octopus Users and Teams
       | Production Deployer User       | //div[./div/div[text()='productiondeployer@example.org']] |
       | User roles                     | //button[contains(.,'User Roles')]                        |
       | Include User Role              | //button[contains(.,'Include User Role')]                 |
-      | Select user role               | (//div[../div[text()='Select a user role']])[2]          |
+      | Select user role               | (//div[../div[text()='Select a user role']])[2]           |
       | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]     |
       | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]           |
+      | Project viewer                 | //span[./div[contains(.,'Project viewer')]]               |
       | Apply                          | //button[contains(.,'Apply')]                             |
+      | Define Scope                   | //button[contains(.,'Define Scope')]                      |
+      | Select environments            | //input[@title='Select environments']                     |
+      | Dev environment                | //span[./div/div/div[text()='Dev']]                       |
+      | Test environment               | //span[./div/div/div[text()='Test']]                      |
+      | Prod environment               | //span[./div/div/div[text()='Prod']]                      |
 
     And I open the URL "http://localhost"
 
@@ -209,11 +215,34 @@ Feature: Create Octopus Users and Teams
     And I highlight the "Include User Role" button
     And I highlight outside the "User roles" tab
     And I save a screenshot to "C:\screenshots\octopus\permissions\100-octopus-user-roles.png"
+    And I remove the highlight from the "User roles" tab
+    And I remove the highlight from the "Include User Role" button
     And I click the "Include User Role" button
 
     And I click the "Select user role" drop down list
     And I click the "Deployment creator" option
     And I highlight outside the "Select user role container" element
-    And I highlight outside the "Apply" button with an offset of "2"
+    And I highlight outside the "Define Scope" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus\permissions\105-octopus-add-role.png"
+
+    And I click the "Define Scope" button
+    And I click the "Select environments" drop down list
+    And I click the "Dev environment" option
+    And I click the "Select environments" drop down list
+    And I click the "Test environment" option
+    And I save a screenshot to "C:\screenshots\octopus\permissions\110-octopus-role-scope.png"
     And I click the "Apply" button
+
+    And I highlight the "Include User Role" button
+    And I save a screenshot to "C:\screenshots\octopus\permissions\115-octopus-user-roles.png"
+    And I remove the highlight from the "Include User Role" button
+    And I click the "Include User Role" button
+
+    And I click the "Select user role" drop down list
+    And I click the "Project viewer" option
+    And I highlight outside the "Select user role container" element
+    And I highlight outside the "Apply" button with an offset of "2"
+    And I save a screenshot to "C:\screenshots\octopus\permissions\120-octopus-add-role.png"
+    And I click the "Apply" button
+
+    And I click the "Save" button
