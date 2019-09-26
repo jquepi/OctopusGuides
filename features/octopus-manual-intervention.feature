@@ -152,6 +152,7 @@ Feature: Add a manual intervention step
 
     And I highlight outside the "Notes container" text box with an offset of "2"
     And I highlight outside the "Proceed" button with an offset of "2"
+    And I scroll the "Notes" text box into view offset by "-200"
     And I populate the "Notes" text box with "Confirmed this deployment meets all the requirements."
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\intervention\055-octopus-deploy-intervention-notes.png"
