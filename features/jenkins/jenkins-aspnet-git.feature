@@ -268,7 +268,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Command Line Arguments" text box with an offset of "0"
     And I select the option "MSBuild" from the "MSBuild Version" drop down list
     And I populate the "MSBuild Build File" text box with "RandomQuotes.sln"
-    And I populate the "Command Line Arguments" text box with "/p:RunOctoPack=true /p:OctoPackEnforceAddingFiles=true /p:OctoPackPackageVersion=1.0.0.$BUILD_NUMBER"
+    And I populate the "Command Line Arguments" text box with "/p:RunOctoPack=true /p:OctoPackEnforceAddingFiles=true /p:OctoPackPackageVersion=1.0.$BUILD_NUMBER"
     And I save a screenshot to "C:\screenshots\msbuild-step.png"
     And I remove the highlight from the "MSBuild Version" drop down list
     And I remove the highlight from the "MSBuild Build File" text box
@@ -286,7 +286,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Command Two" text box into view offset by "-200"
     And I highlight outside the "Command Two" text box
     And I highlight outside the "Save" button
-    And I populate the "Command Two" text box with "Octo.exe push --server http://localhost --package .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
+    And I populate the "Command Two" text box with "Octo.exe push --server http://localhost --package .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
     And I save a screenshot to "C:\screenshots\octo-push.png"
 
     And I click the "Save" button
