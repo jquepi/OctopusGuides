@@ -55,32 +55,40 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
 
     And I highlight outside the "Save" button
+
+    And I scroll the "SMTP Host Section" element into view offset by "-200"
     And I click the "SMTP Host Section" element
     And I highlight outside the "SMTP Host" text box with an offset of "5"
     And I clear the "SMTP Host" text box
     And I populate the "SMTP Host" text box with "smtp.gmail.com"
 
+    And I scroll the "SMTP Port Section" element into view offset by "-200"
     And I click the "SMTP Port Section" element
     And I highlight outside the "SMTP Port" text box with an offset of "5"
     And I clear the "SMTP Port" text box
     And I populate the "SMTP Port" text box with "587"
 
+    And I scroll the "SMTP SSL Section" element into view offset by "-200"
     And I click the "SMTP SSL Section" element
     And I highlight outside the "Use SSL" checkbox with an offset of "5"
     And I force click the "Use SSL" checkbox
 
+    And I scroll the "From Address Section" element into view offset by "-200"
     And I click the "From Address Section" element
     And I highlight outside the "From Address" text box with an offset of "5"
     And I clear the "From Address" text box
     And I populate the "From Address" text box with "octopusguides@gmail.com"
 
+    And I scroll the "Credentials Section" element into view offset by "-200"
     And I click the "Credentials Section" element
     And I highlight outside the "SMTP login" text box with an offset of "5"
     And I highlight outside the "SMTP password" text box with an offset of "5"
+
     And I scroll the "SMTP login" text box into view offset by "-200"
     And I clear the "SMTP login" text box
     And I populate the "SMTP login" text box with "octopusguides@gmail.com"
 
+    And I scroll the "Credentials Section" element into view offset by "-200"
     And I clear the "SMTP password" text box
     And I populate the "SMTP password" text box with "SMTPPassword"
 
