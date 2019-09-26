@@ -33,7 +33,7 @@ Feature: Create and deploy a release from Jenkins
     And I save a screenshot to "C:\screenshots\random-quotes-link.png"
     And I click the "Random Quotes Project" link
 
-    And I highlight outside the "Configure" link
+    And I highlight inside the "Configure" link
     And I save a screenshot to "C:\screenshots\create-release-configure.png"
     And I click the "Configure" link
 
@@ -64,7 +64,7 @@ Feature: Create and deploy a release from Jenkins
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
 
-    And I highlight outside the "Build Now" link
+    And I highlight inside the "Build Now" link
     And I save a screenshot to "C:\screenshots\build-and-deploy-now.png"
     And I click the "Build Now" link
 
@@ -72,7 +72,7 @@ Feature: Create and deploy a release from Jenkins
     And I save a screenshot to "C:\screenshots\build-two.png"
     And I force click the "Build Two" link
 
-    And I highlight outside the "Console Output" link
+    And I highlight inside the "Console Output" link
     And I save a screenshot to "C:\screenshots\build-and-deploy-console.png"
     And I click the "Console Output" link
     And I scroll down "10000" px
