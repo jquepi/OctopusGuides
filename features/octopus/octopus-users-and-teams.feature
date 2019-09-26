@@ -89,6 +89,7 @@ Feature: Create Octopus Users and Teams
 
     And I click the "Save" button
     And I sleep for "2" seconds
+    And I save a screenshot to "C:\screenshots\octopus\permissions\037-octopus-user-overview.png"
 
     And I highlight inside the "More Two" link
     And I click the "More Two" link
@@ -135,6 +136,9 @@ Feature: Create Octopus Users and Teams
     And I save a screenshot to "C:\screenshots\octopus\permissions\065-octopus-password.png"
 
     And I click the "Save" button
+    And I sleep for "2" second
+    And I save a screenshot to "C:\screenshots\octopus\permissions\067-octopus-user-overview.png"
+
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   @add-internal-team
@@ -195,7 +199,7 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "New team description container" text box with an offset of "0"
     And I highlight outside the "Save" button with an offset of "2"
     And I populate the "New team name" text box with "Internal Deployers"
-    And I populate the "New team description" text box with "Grants access to perform a deployment to an internal environment"
+    And I populate the "New team description" text box with "Grants access to perform a deployment to the internal environments"
     And I save a screenshot to "C:\screenshots\octopus\permissions\085-octopus-new-team.png"
     And I click the "Save" button
 
@@ -246,6 +250,9 @@ Feature: Create Octopus Users and Teams
     And I click the "Apply" button
 
     And I click the "Save" button
+    And I sleep for "5" second
+    And I save a screenshot to "C:\screenshots\octopus\permissions\123-octopus-team-roles.png"
+
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   @add-production-team
@@ -354,6 +361,9 @@ Feature: Create Octopus Users and Teams
     And I click the "Apply" button
 
     And I click the "Save" button
+    And I sleep for "5" second
+    And I save a screenshot to "C:\screenshots\octopus\permissions\178-octopus-team-roles.png"
+
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   Scenario: Shutdown
