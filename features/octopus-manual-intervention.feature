@@ -31,7 +31,7 @@ Feature: Add a manual intervention step
       | Step Name                     | //input[contains(@id, 'Stepname')]                                                                                 |
       | Instructions                  | //textarea[contains(@id, 'Instructions')]                                                                          |
       | Instructions container        | //div[./textarea[contains(@id, 'Instructions')]]                                                                   |
-      | Environments                  | //span[contains(normalize-space(.),'This step will run for all applicable Lifecycle environments')]                |
+      | Environments                  | //span[contains(.,'Environments')]                                                                                 |
       | Save                          | //button[contains(.,'Save')]                                                                                       |
       | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                                          |
       | Select environments           | //input[@title='Select environments']                                                                              |
