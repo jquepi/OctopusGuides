@@ -226,6 +226,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "C:\screenshots\binding-add.png"
     And I click the "Bindings Add" option
     And I highlight outside the "Secret text" link
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\secret-text.png"
     And I remove the highlight from the "Bindings Add" option
     And I remove the highlight from the "Use secrets" option
