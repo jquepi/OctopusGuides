@@ -85,9 +85,10 @@ Feature: Add a manual intervention step
     And I populate the "SMTP password" text box with "SMTPPassword"
 
     And I click the "Save" button
+    And I remove the highlight from the "Save" button
+    And I sleep for "2" second
     And I save a screenshot to "C:\screenshots\octopus\email\015-octopus-smtp-populated.png"
 
-    And I sleep for "1" second
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   @add-email-notification
@@ -205,6 +206,7 @@ Feature: Add a manual intervention step
     And I click the "Deploy" button
 
     And I sleep for "30" seconds
+    And I save a screenshot to "C:\screenshots\octopus\email\060-octopus-deployed.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
