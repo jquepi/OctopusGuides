@@ -107,7 +107,7 @@ Feature: Add a manual intervention step
       | Process           | //a[contains(.,'Process')]                                                                          |
       | Process text      | //a/span[contains(.,'Process')] \| //a[contains(.,'Process')][not(*)]                               |
       | Add Step          | //button[contains(.,'Add Step')]                                                                    |
-      | Search            | //input[@type='search']                                                                             |
+      | Search            | //input[contains(@id, 'Filterbynamecategoryordescription')]                                         |
       | Send an Email     | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]                            |
       | Add               | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]//button[contains(.,'Add')] |
       | Step Name         | //input[contains(@id, 'Stepname')]                                                                  |

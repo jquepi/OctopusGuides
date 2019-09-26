@@ -53,7 +53,7 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Define your deployment process            | //button[contains(.,'Define your deployment process')]                                                                                                       |
       | Add Step                                  | //button[contains(.,'Add Step')]                                                                                                                             |
-      | Search                                    | //input[@type='search']                                                                                                                                      |
+      | Search                                    | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                                                                  |
       | Deploy to IIS                             | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                                                                                     |
       | Add                                       | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')]                                                          |
       | Step Name                                 | //input[contains(@id, 'Stepname')]                                                                                                                           |
