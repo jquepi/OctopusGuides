@@ -12,7 +12,6 @@ Feature: Create Octopus Users and Teams
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I start recording the screen to the directory "C:\screenshots"
-    And I display a note with the text "Add users and teams" for "3" seconds
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
@@ -33,6 +32,7 @@ Feature: Create Octopus Users and Teams
       | Save             | //button[contains(.,'Save')]             |
 
     And I open the URL "http://localhost"
+    And I display a note with the text "Create users for internal and production deployments" for "3" seconds
 
     And I highlight outside the "More" link
     And I click the "More" link
@@ -135,7 +135,7 @@ Feature: Create Octopus Users and Teams
     And I save a screenshot to "C:\screenshots\octopus\permissions\065-octopus-password.png"
 
     And I click the "Save" button
-    And I sleep for "2" seconds
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   @add-internal-team
   Scenario: Configure Teams
@@ -167,6 +167,8 @@ Feature: Create Octopus Users and Teams
       | Test environment               | //span[./div/div/div[text()='Test']]                      |
 
     And I open the URL "http://localhost"
+    And I clear the transition
+    And I display a note with the text "Create the internal deployment team" for "3" seconds
 
     And I highlight outside the "More" link
     And I click the "More" link
@@ -244,6 +246,7 @@ Feature: Create Octopus Users and Teams
     And I click the "Apply" button
 
     And I click the "Save" button
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   @add-production-team
   Scenario: Configure Teams
@@ -274,6 +277,8 @@ Feature: Create Octopus Users and Teams
       | Prod environment               | //span[./div/div/div[text()='Prod']]                      |
 
     And I open the URL "http://localhost"
+    And I clear the transition
+    And I display a note with the text "Create the production deployment team" for "3" seconds
 
     And I highlight outside the "More" link
     And I click the "More" link
@@ -349,3 +354,8 @@ Feature: Create Octopus Users and Teams
     And I click the "Apply" button
 
     And I click the "Save" button
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+
+  Scenario: Shutdown
+    And I stop recording the screen
+    And I close the browser
