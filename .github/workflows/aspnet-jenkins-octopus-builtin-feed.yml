@@ -60,7 +60,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\open-randomquotes-iis-dev.feature
+        features\octopus\open-randomquotes-iis-dev.feature
     - name: Add a deployment step
       shell: powershell
       run: >

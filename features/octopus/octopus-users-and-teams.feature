@@ -18,9 +18,9 @@ Feature: Create Octopus Users and Teams
     And I click the "Sign In" button
 
   @add-users
-  Scenario: Configure SMTP
+  Scenario: Configure Users
     Given I set the following aliases:
-      | More             | //span[contains(.,'More')]               |
+      | More             | //span[contains(.,'More')][1]            |
       | More Two         | (//span[contains(.,'More')])[2]          |
       | Configuration    | //span[contains(.,'Configuration')]      |
       | Users            | //span[contains(.,'Users')]              |
@@ -31,6 +31,8 @@ Feature: Create Octopus Users and Teams
       | Password         | //input[contains(@id,'Password')]        |
       | Confirm password | //input[contains(@id,'Confirmpassword')] |
       | Save             | //button[contains(.,'Save')]             |
+
+    And I open the URL "http://localhost"
 
     And I highlight outside the "More" link
     And I click the "More" link
@@ -134,3 +136,84 @@ Feature: Create Octopus Users and Teams
 
     And I click the "Save" button
     And I sleep for "2" seconds
+
+  @add-teams
+  Scenario: Configure Teams
+    Given I set the following aliases:
+      | More                           | //span[contains(.,'More')][1]                             |
+      | More Two                       | (//span[contains(.,'More')])[2]                           |
+      | Configuration                  | //span[contains(.,'Configuration')]                       |
+      | Teams                          | //span[contains(.,'Teams')]                               |
+      | Add Team                       | //button[contains(.,'Add Team')]                          |
+      | New team name                  | //input[contains(@id,'Newteamname')]                      |
+      | New team description           | //textarea[contains(@id,'Teamdescription')]               |
+      | New team description container | //div[./textarea[contains(@id,'Teamdescription')]]        |
+      | Save                           | //button[@title='Save']                                   |
+      | Add Member                     | //button[@title='Add Member']                             |
+      | Select users                   | //input[@title='Select users']                            |
+      | Select users container         | //div[./div/div/div/input[@title='Select users']]         |
+      | Add                            | //button[@title='Add']                                    |
+      | Internal Deployer User         | //div[./div/div[text()='internaldeployer@example.org']]   |
+      | Production Deployer User       | //div[./div/div[text()='productiondeployer@example.org']] |
+      | User roles                     | //button[contains(.,'User Roles')]                        |
+      | Include User Role              | //button[contains(.,'Include User Role')]                 |
+      | Select user role               | (//div[../div[text()='Select a user role']])[2]          |
+      | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]     |
+      | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]           |
+      | Apply                          | //button[contains(.,'Apply')]                             |
+
+    And I open the URL "http://localhost"
+
+    And I highlight outside the "More" link
+    And I click the "More" link
+    And I highlight inside the "Configuration" link
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\permissions\070-octopus-configuration.png"
+    And I click the "Configuration" link
+    And I remove the highlight from the "More" link
+    And I sleep for "1" second
+
+    And I highlight inside the "More Two" link
+    And I click the "More Two" link
+    And I highlight inside the "Teams" link
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\permissions\075-octopus-teams.png"
+    And I click the "Teams" link
+    And I sleep for "1" second
+
+    And I highlight outside the "Add Team" button
+    And I save a screenshot to "C:\screenshots\octopus\permissions\080-octopus-add-team.png"
+    And I click the "Add Team" button
+
+    And I highlight outside the "New team name" text box with an offset of "0"
+    And I highlight outside the "New team description container" text box with an offset of "0"
+    And I highlight outside the "Save" button with an offset of "2"
+    And I populate the "New team name" text box with "Internal Deployers"
+    And I populate the "New team description" text box with "Grants access to perform a deployment to an internal environment"
+    And I save a screenshot to "C:\screenshots\octopus\permissions\085-octopus-new-team.png"
+    And I click the "Save" button
+
+    And I highlight outside the "Add Member" button
+    And I save a screenshot to "C:\screenshots\octopus\permissions\090-octopus-add-member.png"
+    And I remove the highlight from the "Add Member" button
+    And I click the "Add Member" button
+
+    And I highlight outside the "Select users container" element with an offset of "5"
+    And I highlight outside the "Add" button with an offset of "2"
+    And I click the "Select users" drop down list
+    And I click the "Internal Deployer User" option
+    And I save a screenshot to "C:\screenshots\octopus\permissions\095-octopus-add-internal-user.png"
+    And I click the "Add" button
+
+    And I click the "User roles" tab
+    And I highlight the "Include User Role" button
+    And I highlight outside the "User roles" tab
+    And I save a screenshot to "C:\screenshots\octopus\permissions\100-octopus-user-roles.png"
+    And I click the "Include User Role" button
+
+    And I click the "Select user role" drop down list
+    And I click the "Deployment creator" option
+    And I highlight outside the "Select user role container" element
+    And I highlight outside the "Apply" button with an offset of "2"
+    And I save a screenshot to "C:\screenshots\octopus\permissions\105-octopus-add-role.png"
+    And I click the "Apply" button
