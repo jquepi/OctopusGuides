@@ -17,7 +17,7 @@ Feature: Add a manual intervention step
     And I click the "Sign In" button
 
   @add-manual-intervention
-  Scenario: Assign the lifecycle
+  Scenario: Add the intervention step
     Given I set the following aliases:
       | Projects                      | //span[contains(.,'Projects')]                                                                                     |
       | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                                                     |
@@ -77,7 +77,8 @@ Feature: Add a manual intervention step
 
     And I scroll the "Instructions" text box into view offset by "-300"
     And I highlight outside the "Instructions container" element
-    And I populate the "Instructions" text box with "Open the application at [http://localhost:#{IIS Port}](http://localhost:#{IIS Port}) and confirm it deployed successfully."
+    And I populate the "Instructions" text box with "Open the application at [http://localhost:#{IIS Port}](http://localhost:#{IIS Port}) and confirm it meets all the requirements."
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\intervention\030-octopus-step-instructions.png"
     And I remove the highlight from the "Instructions container" element
 
@@ -150,7 +151,8 @@ Feature: Add a manual intervention step
 
     And I highlight outside the "Notes container" text box with an offset of "2"
     And I highlight outside the "Proceed" button with an offset of "2"
-    And I populate the "Notes" text box with "Confirmed the application deployed successfully and runs correctly."
+    And I populate the "Notes" text box with "Confirmed this deployment meets all the requirements."
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\intervention\055-octopus-deploy-intervention-notes.png"
     And I click the "Proceed" button
     And I sleep for "10" second
