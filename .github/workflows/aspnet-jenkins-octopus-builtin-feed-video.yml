@@ -110,7 +110,7 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\open-randomquotes-iis-test.feature
+        features\octopus\open-randomquotes-iis-test.feature
     - name: Add manual intervention
       shell: powershell
       run: >
