@@ -23,7 +23,7 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\jenkins-aspnet-git.feature
+        features\jenkins\jenkins-aspnet-git.feature
     - name: Create the Octopus Environments
       shell: powershell
       run: >
@@ -37,7 +37,7 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\octopus-environments.feature
+        features\octopus\octopus-environments.feature
     - name: Add tentacle
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply tentacle.pp --disable_warnings=deprecations'
@@ -54,7 +54,7 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\octopus-aspnet-project.feature
+        features\octopus\octopus-aspnet-project.feature
     - name: Open Random Quotes
       shell: powershell
       run: >
@@ -82,7 +82,7 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\jenkins-create-deploy.feature
+        features\jenkins\jenkins-create-deploy.feature
     - name: Add a lifecycle
       shell: powershell
       run: >
@@ -96,7 +96,7 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\octopus-lifecycle.feature
+        features\octopus\octopus-lifecycle.feature
     - name: Open Random Quotes in the test environment
       shell: powershell
       run: >
@@ -124,7 +124,7 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\octopus-manual-intervention.feature
+        features\octopus\octopus-manual-intervention.feature
     - name: Add email notification
       shell: powershell
       run: >
@@ -139,7 +139,7 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\octopus-email-notification.feature
+        features\octopus\octopus-email-notification.feature
     - name: Convert video
       run: for %%a in (c:\screenshots\*.avi) do "C:\Program Files\VideoLAN\VLC\vlc.exe" -I dummy -vvv "%%a" --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=mp4,dst="c:\screenshots\%%~na.mp4"} vlc://quit
     - name: Merge video

@@ -94,7 +94,7 @@ Feature: Add a manual intervention step
     And I save a screenshot to "C:\screenshots\octopus\intervention\040-octopus-step-skip-envs.png"
     And I remove the highlight from the "Skip specific environment" radio button
 
-    And I scroll the "Select environments" text box into view offset by "-300"
+    And I scroll the "Select environments" text box into view offset by "-400"
     And I highlight outside the "Select environments container" element
     And I populate the "Select environments" text box with "Dev"
     And I click the "Dev Environment" option
@@ -157,7 +157,7 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\intervention\055-octopus-deploy-intervention-notes.png"
     And I click the "Proceed" button
-    And I sleep for "10" second
+    And I sleep for "20" second
 
     And I save a screenshot to "C:\screenshots\octopus\intervention\060-octopus-deploy-success.png"
 

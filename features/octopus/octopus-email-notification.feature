@@ -94,7 +94,7 @@ Feature: Add a manual intervention step
 
     And I click the "Save" button
     And I remove the highlight from the "Save" button
-    And I sleep for "2" second
+    And I sleep for "5" second
     And I save a screenshot to "C:\screenshots\octopus\email\015-octopus-smtp-populated.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
