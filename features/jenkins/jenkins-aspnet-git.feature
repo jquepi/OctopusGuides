@@ -308,7 +308,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight inside the "Build One" link
     And I save a screenshot to "C:\screenshots\build-one.png"
-    And I force click the "Build One" link
+    # Fake a click here to fix stale element errors in WebDriver
+    And I mouse over the "Build One" link
+    And I open the URL "http://localhost:8080/job/Random%20Quotes/1/"
 
     And I highlight inside the "Console Output" link
     And I save a screenshot to "C:\screenshots\console.png"
