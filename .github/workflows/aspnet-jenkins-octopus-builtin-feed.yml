@@ -18,6 +18,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -31,6 +32,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-environments.feature
@@ -46,6 +48,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-aspnet-project.feature
@@ -58,6 +61,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\open-randomquotes-iis-dev.feature
@@ -70,6 +74,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\jenkins\jenkins-create-deploy.feature
@@ -82,6 +87,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-lifecycle.feature
@@ -94,6 +100,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\open-randomquotes-iis-test.feature
@@ -106,6 +113,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-manual-intervention.feature
@@ -118,6 +126,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -131,6 +140,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-users-and-teams.feature
@@ -143,6 +153,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-view-internal-deployments.feature
@@ -155,6 +166,7 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-view-production-deployments.feature
