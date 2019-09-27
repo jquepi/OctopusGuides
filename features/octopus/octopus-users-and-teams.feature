@@ -75,6 +75,7 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "Email address" text box with an offset of "5"
     And I clear the "Email address" text box
     And I populate the "Email address" text box with "internaldeployer@example.org"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\030-octopus-email.png"
     And I remove the highlight from the "Email address" text box
 
@@ -124,6 +125,7 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "Email address" text box with an offset of "5"
     And I clear the "Email address" text box
     And I populate the "Email address" text box with "productiondeployer@example.org"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\060-octopus-email.png"
     And I remove the highlight from the "Email address" text box
 
@@ -234,6 +236,7 @@ Feature: Create Octopus Users and Teams
     And I click the "Deployment creator" option
     And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Define Scope" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\105-octopus-add-role.png"
 
     And I click the "Define Scope" button
@@ -353,6 +356,7 @@ Feature: Create Octopus Users and Teams
     And I click the "Deployment creator" option
     And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Define Scope" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\160-octopus-add-role.png"
 
     And I click the "Define Scope" button
@@ -371,8 +375,8 @@ Feature: Create Octopus Users and Teams
     And I click the "Project viewer" option
     And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Apply" button with an offset of "2"
-    And I save a screenshot to "C:\screenshots\octopus\permissions\175-octopus-add-role.png"
     And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\permissions\175-octopus-add-role.png"
     And I click the "Apply" button
 
     And I click the "Save" button
