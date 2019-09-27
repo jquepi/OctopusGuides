@@ -31,7 +31,6 @@ Feature: Create Octopus Users and Teams
       | Confirm password | //input[contains(@id,'Confirmpassword')] |
       | Save             | //button[contains(.,'Save')]             |
 
-    And I open the URL "http://localhost"
     And I display a note with the text "Create users for internal and production deployments" for "3" seconds
 
     And I highlight outside the "More" link

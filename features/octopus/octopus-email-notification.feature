@@ -12,7 +12,6 @@ Feature: Add a manual intervention step
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I start recording the screen to the directory "C:\screenshots"
-    And I display a note with the text "Configure email notifications" for "3" seconds
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
@@ -36,6 +35,8 @@ Feature: Add a manual intervention step
       | SMTP password        | //input[contains(@id,'SMTPpassword')]      |
       | Use SSL              | //input[../div[contains(.,'Use SSL/TLS')]] |
       | Save                 | //button[@title='Save']                    |
+
+    And I display a note with the text "Configure SMTP settings" for "3" seconds
 
     And I highlight outside the "More" link
     And I click the "More" link
@@ -121,6 +122,8 @@ Feature: Add a manual intervention step
 
     And I open the URL "http://localhost/app#"
     And I clear the transition
+
+    And I display a note with the text "Add an email notification step" for "3" seconds
 
     And I highlight outside the "Projects" link
     And I click the "Projects" link
