@@ -322,7 +322,7 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "New team description container" text box with an offset of "0"
     And I highlight outside the "Save" button with an offset of "2"
     And I populate the "New team name" text box with "Production Deployers"
-    And I populate the "New team description" text box with "Grants access to perform a deployment to an internal environment"
+    And I populate the "New team description" text box with "Grants access to perform a deployment to the production environment"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\140-octopus-new-team.png"
     And I click the "Save" button
