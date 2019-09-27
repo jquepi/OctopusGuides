@@ -185,7 +185,7 @@ Feature: Add a manual intervention step
         #{each step in Octopus.Step}
         StepName: #{step}
         Status: #{step.Status.Code}
-        #{/each}"
+        #{/each}
       """
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\055-octopus-step-body.png"
