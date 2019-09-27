@@ -118,6 +118,8 @@ Feature: Add a manual intervention step
       | Subject container | //div[./input[contains(@id, 'Subject')]]                                                            |
       | Body              | //textarea[contains(@id, 'Body')]                                                                   |
       | Body container    | //div[./textarea[contains(@id, 'Body')]]                                                            |
+      | Run Condition     | //span[contains(.,'Run Condition')]                                                                 |
+      | Always run        | //input[@value='Always']                                                                            |
       | Save              | //button[contains(.,'Save')]                                                                        |
 
     And I open the URL "http://localhost/app#"
@@ -170,18 +172,36 @@ Feature: Add a manual intervention step
 
     And I scroll the "Subject" text box into view offset by "-300"
     And I highlight outside the "Subject container" element with an offset of "5"
-    And I populate the "Subject" text box with "Random quotes deployment success"
+    And I populate the "Subject" text box with "Random quotes deployment status"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\050-octopus-step-subject.png"
     And I remove the highlight from the "Subject container" element
 
     And I scroll the "Body" text box into view offset by "-300"
     And I highlight outside the "Body container" element with an offset of "5"
-    And I populate the "Body" text box with "Random quotes was successfully deployed to #{Octopus.Environment.Name}"
+    And I populate the "Body" text box with:
+      """
+        Deployment to #{Octopus.Environment.Name}
+        #{each step in Octopus.Step}
+        StepName: #{step}
+        Status: #{step.Status.Code}
+        #{/each}"
+      """
     And I highlight outside the "Save" button
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\055-octopus-step-body.png"
     And I remove the highlight from the "Body container" element
+
+    And I scroll the "Run Condition" section into view offset by "-300"
+    And I highlight outside the "Run Condition" element
+    And I click the "Run Condition" element
+    And I save a screenshot to "C:\screenshots\octopus\email\057-octopus-step-conditions.png"
+
+    And I scroll the "Always run" radio button into view offset by "-300"
+    And I highlight outside the "Always run" radio button
+    And I force click the "Always run" radio button
+    And I save a screenshot to "C:\screenshots\octopus\email\058-octopus-step-always-run.png"
+    And I remove the highlight from the "Always run" radio button
 
     And I click the "Save" button
     And I sleep for "2" seconds
