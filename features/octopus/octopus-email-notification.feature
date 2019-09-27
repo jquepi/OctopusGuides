@@ -158,7 +158,7 @@ Feature: Add a manual intervention step
     And I click the "Add" button
 
     And I highlight outside the "Step Name" text box with an offset of "5"
-    And I populate the "Step Name" text box with "Success Notification"
+    And I populate the "Step Name" text box with "Random quotes deployment status"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\040-octopus-step-name.png"
     And I remove the highlight from the "Step Name" text box
@@ -187,7 +187,6 @@ Feature: Add a manual intervention step
         Status: #{step.Status.Code}
         #{/each}"
       """
-    And I highlight outside the "Save" button
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\055-octopus-step-body.png"
     And I remove the highlight from the "Body container" element
@@ -196,12 +195,14 @@ Feature: Add a manual intervention step
     And I highlight outside the "Run Condition" element
     And I click the "Run Condition" element
     And I save a screenshot to "C:\screenshots\octopus\email\057-octopus-step-conditions.png"
+    And I remove the highlight from the "Run Condition" element
 
     And I scroll the "Always run" radio button into view offset by "-300"
-    And I highlight outside the "Always run" radio button
+    And I highlight inside the "Always run" radio button
+    And I highlight outside the "Save" button
     And I force click the "Always run" radio button
+    And I sleep for "2" second
     And I save a screenshot to "C:\screenshots\octopus\email\058-octopus-step-always-run.png"
-    And I remove the highlight from the "Always run" radio button
 
     And I click the "Save" button
     And I sleep for "2" seconds
