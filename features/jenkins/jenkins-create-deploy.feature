@@ -70,7 +70,9 @@ Feature: Create and deploy a release from Jenkins
 
     And I highlight inside the "Build Two" link
     And I save a screenshot to "C:\screenshots\build-two.png"
-    And I force click the "Build Two" link
+    # Faking a click, because clicking this element fails a lot of the time
+    And I mouse over the "Build Two" link
+    And I open the URL "http://localhost:8080/job/Random%20Quotes/2/"
 
     And I highlight inside the "Console Output" link
     And I save a screenshot to "C:\screenshots\build-and-deploy-console.png"
