@@ -369,7 +369,7 @@ Feature: Create Octopus Users and Teams
 
     And I click the "Select user role" drop down list
     And I click the "Project viewer" option
-    And I highlight outside the "Select user role container" element  with an offset of "2"
+    And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Apply" button with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus\permissions\175-octopus-add-role.png"
     And I sleep for "1" second
