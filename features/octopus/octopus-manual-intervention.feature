@@ -39,6 +39,7 @@ Feature: Add a manual intervention step
       | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'Dev')]//span                    |
 
     And I open the URL "http://localhost/app#"
+    And I sleep for "1" second
 
     And I highlight outside the "Projects" link
     And I click the "Projects" link

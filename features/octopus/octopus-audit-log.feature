@@ -25,6 +25,7 @@ Feature: Create Octopus Users and Teams
       | Audit            | //span[contains(.,'Audit')]              |
 
     And I open the URL "http://localhost"
+    And I sleep for "1" second
 
     And I highlight outside the "More" link
     And I click the "More" link
