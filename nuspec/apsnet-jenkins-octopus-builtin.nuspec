@@ -13,7 +13,6 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="c:\screenshots\octopus\*.png" target="contentFiles/any/any/octopus" />
-    <file src="c:\screenshots\jenkins\*.png" target="contentFiles/any/any/jenkins" />
+    <file src="c:\screenshots\**.png" target="contentFiles/any/any" />
   </files>
 </package>
