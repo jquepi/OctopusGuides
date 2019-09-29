@@ -9,10 +9,10 @@
     <description>Octopus Guides Static Resources</description>
     <copyright>Copyright 2018</copyright>
     <contentFiles>
-        <files include="any/any/*.png" buildAction="content" flatten="false" copyToOutput="false"/>
+        <files include="any/any/**/*.png" buildAction="content" flatten="false" copyToOutput="false"/>
     </contentFiles>
   </metadata>
   <files>
-    <file src="c:\screenshots\**.png" target="contentFiles/any/any" />
+    <file src="c:\screenshots\**.png" target="contentFiles/any/any/wwwroot/images/guides" />
   </files>
 </package>
