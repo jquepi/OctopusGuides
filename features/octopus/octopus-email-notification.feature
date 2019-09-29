@@ -230,9 +230,6 @@ Feature: Add a manual intervention step
     And I click the "Save" button
     And I sleep for "2" seconds
 
-    And I click the "Save" button
-    And I sleep for "2" seconds
-
   @deploy-to-test
   Scenario: Deploy to the test environment
     Given I set the following aliases:

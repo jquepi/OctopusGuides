@@ -9,7 +9,7 @@
     <description>Octopus Guides Static Resources</description>
     <copyright>Copyright 2018</copyright>
     <contentFiles>
-        <files include="any/any/**/*.png" buildAction="content" flatten="false" copyToOutput="false"/>
+        <files include="any/any/**/*.png" buildAction="content" flatten="false" copyToOutput="true"/>
     </contentFiles>
   </metadata>
   <files>
