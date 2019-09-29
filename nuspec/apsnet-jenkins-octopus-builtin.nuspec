@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ASPNet-Jenkins-Octopus-Builtin-Resources</id>
+    <version>1.0.0</version>
+    <authors>Octopus Deploy</authors>
+    <owners>Octopus Deploy</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Octopus Guides Static Resources</description>
+    <copyright>Copyright 2018</copyright>
+    <contentFiles>
+        <files include="any/any/*.png" buildAction="content" flatten="false" copyToOutput="false"/>
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="c:\screenshots\octopus\*.png" target="contentFiles/any/any/octopus" />
+    <file src="c:\screenshots\jenkins\*.png" target="contentFiles/any/any/jenkins" />
+  </files>
+</package>
