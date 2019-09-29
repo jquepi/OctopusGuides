@@ -103,24 +103,29 @@ Feature: Add a manual intervention step
   @add-email-notification
   Scenario: Add the notification step
     Given I set the following aliases:
-      | Projects          | //span[contains(.,'Projects')]                                                                      |
-      | Random Quotes     | //a[@href='#/Spaces-1/projects/random-quotes']                                                      |
-      | Process           | //a[contains(.,'Process')]                                                                          |
-      | Process text      | //a/span[contains(.,'Process')] \| //a[contains(.,'Process')][not(*)]                               |
-      | Add Step          | //button[contains(.,'Add Step')]                                                                    |
-      | Search            | //input[contains(@id, 'Filterbynamecategoryordescription')]                                         |
-      | Send an Email     | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]                            |
-      | Add               | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]//button[contains(.,'Add')] |
-      | Step Name         | //input[contains(@id, 'Stepname')]                                                                  |
-      | To                | //input[contains(@id, 'Separatemultipleemailaddresseswithor')]                                      |
-      | To container      | //div[./input[contains(@id, 'Separatemultipleemailaddresseswithor')]]                               |
-      | Subject           | //input[contains(@id, 'Subject')]                                                                   |
-      | Subject container | //div[./input[contains(@id, 'Subject')]]                                                            |
-      | Body              | //textarea[contains(@id, 'Body')]                                                                   |
-      | Body container    | //div[./textarea[contains(@id, 'Body')]]                                                            |
-      | Run Condition     | //span[contains(.,'Run Condition')]                                                                 |
-      | Always run        | //input[@value='Always']                                                                            |
-      | Save              | //button[contains(.,'Save')]                                                                        |
+      | Projects                      | //span[contains(.,'Projects')]                                                                      |
+      | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                                      |
+      | Process                       | //a[contains(.,'Process')]                                                                          |
+      | Process text                  | //a/span[contains(.,'Process')] \| //a[contains(.,'Process')][not(*)]                               |
+      | Add Step                      | //button[contains(.,'Add Step')]                                                                    |
+      | Search                        | //input[contains(@id, 'Filterbynamecategoryordescription')]                                         |
+      | Send an Email                 | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]                            |
+      | Add                           | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]//button[contains(.,'Add')] |
+      | Step Name                     | //input[contains(@id, 'Stepname')]                                                                  |
+      | To                            | //input[contains(@id, 'Separatemultipleemailaddresseswithor')]                                      |
+      | To container                  | //div[./input[contains(@id, 'Separatemultipleemailaddresseswithor')]]                               |
+      | Subject                       | //input[contains(@id, 'Subject')]                                                                   |
+      | Subject container             | //div[./input[contains(@id, 'Subject')]]                                                            |
+      | Body                          | //textarea[contains(@id, 'Body')]                                                                   |
+      | Body container                | //div[./textarea[contains(@id, 'Body')]]                                                            |
+      | Run Condition                 | //span[contains(.,'Run Condition')]                                                                 |
+      | Always run                    | //input[@value='Always']                                                                            |
+      | Save                          | //button[contains(.,'Save')]                                                                        |
+      | Environments                  | //span[contains(.,'Environments')]                                                                  |
+      | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                           |
+      | Select environments           | //input[@title='Select environments']                                                               |
+      | Select environments container | //div[./div/div/div/div/div/input[@title='Select environments']]                                    |
+      | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'Dev')]//span     |
 
     And I open the URL "http://localhost/app#"
     And I clear the transition
@@ -204,6 +209,27 @@ Feature: Add a manual intervention step
     And I sleep for "2" second
     And I save a screenshot to "C:\screenshots\octopus\email\058-octopus-step-always-run.png"
 
+    And I scroll the "Environments" section into view offset by "-300"
+    And I highlight outside the "Environments" element
+    And I click the "Environments" element
+    And I save a screenshot to "C:\screenshots\octopus\email\059-octopus-step-conditions.png"
+
+    And I scroll the "Skip specific environment" radio button into view offset by "-300"
+    And I highlight outside the "Skip specific environment" radio button
+    And I force click the "Skip specific environment" radio button
+    And I save a screenshot to "C:\screenshots\octopus\email\059-octopus-step-skip-envs.png"
+    And I remove the highlight from the "Skip specific environment" radio button
+
+    And I scroll the "Select environments" text box into view offset by "-400"
+    And I highlight outside the "Select environments container" element
+    And I populate the "Select environments" text box with "Dev"
+    And I click the "Dev Environment" option
+    And I sleep for "1" second
+    And I highlight the "Save" button
+    And I save a screenshot to "C:\screenshots\octopus\email\059-octopus-step-skip-dev.png"
+    And I click the "Save" button
+    And I sleep for "2" seconds
+
     And I click the "Save" button
     And I sleep for "2" seconds
 
@@ -212,13 +238,12 @@ Feature: Add a manual intervention step
     Given I set the following aliases:
       | Create Release | //button[contains(.,'Create release')] |
       | Deploy To      | //button[contains(.,'Deploy to...')]   |
-      | Dev            | //span[./div/div/div[text()='Dev']]    |
+      | Test           | //span[./div/div/div[text()='Test']]   |
       | Deploy         | //button[contains(.,'Deploy')]         |
       | Save           | //button[contains(.,'Save')]           |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/process"
-    And I clear the transition
-    And I display a note with the text "Deploy to the Dev environment" for "3" seconds
+    And I display a note with the text "Deploy to the Test environment" for "3" seconds
 
     And I click the "Create Release" button
     And I highlight outside the "Create Release" button
@@ -229,16 +254,16 @@ Feature: Add a manual intervention step
 
     And I highlight outside the "Deploy To" button
     And I click the "Deploy To" button
-    And I highlight inside the "Dev" option
+    And I highlight inside the "Test" option
     And I sleep for "1" second
-    And I click the "Dev" option
+    And I click the "Test" option
 
     And I sleep for "3" second
     And I highlight outside the "Deploy" button
     And I sleep for "1" second
     And I click the "Deploy" button
 
-    And I sleep for "30" seconds
+    And I sleep for "23" seconds
     And I save a screenshot to "C:\screenshots\octopus\email\060-octopus-deployed.png"
 
   Scenario: Shutdown
