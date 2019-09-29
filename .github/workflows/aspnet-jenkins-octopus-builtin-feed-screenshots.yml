@@ -183,13 +183,11 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-audit-log.feature
-    - name: Create nupkg file
-      shell: powershell
-      run: nuget pack nuspec\apsnet-jenkins-octopus-builtin.nuspec -version "0.0.1-$(Get-Date -Format "yyyyMMddHHmm")"
     - name: Zip screenshots
       shell: powershell
       run: |
         ls c:\screenshots
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 sync c:\screenshots s3://octopus-guides-screenshots/public --acl public-read
         & "C:\Program Files\7-Zip\7z.exe" a c:\jenkins-apsnet-git-onprem.zip c:\screenshots
         & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\jenkins-apsnet-git-onprem.zip s3://octopus-guides-screenshots/jenkins-apsnet-git-onprem.zip
         & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp ASPNet-Jenkins-Octopus-Builtin-Resources.$(cat /home/runner/work/AWSSamExample/AWSSamExample/version.txt).nupkg s3://octopus-guides-screenshots/ASPNet-Jenkins-Octopus-Builtin-Resources.$(cat /home/runner/work/AWSSamExample/AWSSamExample/version.txt).nupkg
