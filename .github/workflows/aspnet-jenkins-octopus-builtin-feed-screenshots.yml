@@ -185,7 +185,7 @@ jobs:
         features\octopus\octopus-audit-log.feature
     - name: Create nupkg file
       shell: powershell
-      run: nuget pack nuspec\apsnet-jenkins-octopus-builtin.nuspec -version "0.0.$(Get-Date -Format "yyyyMMddHHmm")"
+      run: nuget pack nuspec\apsnet-jenkins-octopus-builtin.nuspec -version "0.0.1-$(Get-Date -Format "yyyyMMddHHmm")"
     - name: Zip screenshots
       shell: powershell
       run: |
