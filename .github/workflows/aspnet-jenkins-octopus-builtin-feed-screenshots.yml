@@ -190,7 +190,6 @@ jobs:
         & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 sync c:\screenshots s3://octopus-guides-screenshots/public --acl public-read
         & "C:\Program Files\7-Zip\7z.exe" a c:\jenkins-apsnet-git-onprem.zip c:\screenshots
         & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\jenkins-apsnet-git-onprem.zip s3://octopus-guides-screenshots/jenkins-apsnet-git-onprem.zip
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp ASPNet-Jenkins-Octopus-Builtin-Resources.$(cat /home/runner/work/AWSSamExample/AWSSamExample/version.txt).nupkg s3://octopus-guides-screenshots/ASPNet-Jenkins-Octopus-Builtin-Resources.$(cat /home/runner/work/AWSSamExample/AWSSamExample/version.txt).nupkg
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
