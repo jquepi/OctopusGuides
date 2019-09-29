@@ -1,14 +1,10 @@
-name: ASP.NET Jenkins Octopus Built-in Feed
+name: ASP.NET Jenkins Octopus Built-in Feed Screenshots
 on: [push]
 jobs:
   build:
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
-    - name: Get Git Version
-      container: docker://gittools/gitversion:5.0.2-beta1-27-linux-centos-7-netcoreapp2.2
-      with:
-        args: /github/workspace /nofetch /exec /bin/sh /execargs "-c \"echo $GitVersion_FullSemVer > /github/workspace/version.txt\""
     - uses: actions/setup-dotnet@v1
     - name: Execute puppet
       shell: powershell
@@ -189,7 +185,7 @@ jobs:
         features\octopus\octopus-audit-log.feature
     - name: Create nupkg file
       shell: powershell
-      run: nuget pack nuspec\apsnet-jenkins-octopus-builtin.nuspec -version $(cat /home/runner/work/AWSSamExample/AWSSamExample/version.txt)
+      run: nuget pack nuspec\apsnet-jenkins-octopus-builtin.nuspec -version "0.0.$($Date.ToString("yyyyMMddHHmm"))"
     - name: Zip screenshots
       shell: powershell
       run: |
