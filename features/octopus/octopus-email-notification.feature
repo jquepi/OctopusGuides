@@ -223,8 +223,8 @@ Feature: Add a manual intervention step
     And I highlight outside the "Select environments container" element
     And I populate the "Select environments" text box with "Dev"
     And I click the "Dev Environment" option
-    And I sleep for "1" second
     And I highlight the "Save" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\059-octopus-step-skip-dev.png"
     And I click the "Save" button
     And I sleep for "2" seconds
