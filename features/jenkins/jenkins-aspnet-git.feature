@@ -287,9 +287,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Command Two" text box into view offset by "-200"
     And I highlight outside the "Command Two" text box
-    And I highlight outside the "Save" button
     And I populate the "Command Two" text box with ".\packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe .\RandomQuotes.Tests\bin\Debug\RandomQuotes.Tests.dll"
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\128-nunit-test.png"
+    And I remove the highlight from the "Command Two" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
