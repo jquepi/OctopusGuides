@@ -244,6 +244,8 @@ Feature: Create Octopus Users and Teams
     And I click the "Dev environment" option
     And I click the "Select environments" drop down list
     And I click the "Test environment" option
+    And I highlight outside the "Apply" button with an offset of "2"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\110-octopus-role-scope.png"
     And I click the "Apply" button
 
