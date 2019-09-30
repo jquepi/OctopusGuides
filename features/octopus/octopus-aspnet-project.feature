@@ -91,6 +91,7 @@ Feature: Configure an Octopus ASP.NET project
       | New variable value 2                      | (//input[contains(@id,'Entervalue')])[2]                                                                                                                     |
       | New variable value 3                      | (//input[contains(@id,'Entervalue')])[3]                                                                                                                     |
       | Project Variables Title                   | //h2[contains(.,'Project Variables')]                                                                                                                        |
+      | Add to list                               | //button[@title='Add To List']                                                                                                                               |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
@@ -102,6 +103,11 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\020-octopus-variables.png"
     And I force click the "Project Variables" link
     And I remove the highlight from the "Variables text" link
+
+    And I populate the "New variable name" text box with "EnvironmentName"
+    And I populate the "New variable value" text box with "#{Octopus.Environment.Name}"
+    And I click the "Add to list" button
+    And I click the "Project Variables Title" element
 
     And I populate the "New variable name" text box with "IIS Port"
     And I populate the "New variable value" text box with "8081"
