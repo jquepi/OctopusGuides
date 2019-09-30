@@ -11,7 +11,6 @@ Feature: Add a manual intervention step
     #And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
-    And I start recording the screen to the directory "C:\screenshots"
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
@@ -36,6 +35,7 @@ Feature: Add a manual intervention step
       | Use SSL              | //input[../div[contains(.,'Use SSL/TLS')]] |
       | Save                 | //button[@title='Save']                    |
 
+    And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Configure SMTP settings" for "3" seconds
 
     And I highlight outside the "More" link
@@ -261,6 +261,27 @@ Feature: Add a manual intervention step
     And I click the "Deploy" button
 
     And I sleep for "23" seconds
+
+  @approve-deployment
+  Scenario: Approve manual intervention
+    Given I set the following aliases:
+      | Assign to me    | //button[contains(.,'Assign to me')]     |
+      | Proceed         | //button[contains(.,'Proceed')]          |
+      | Notes           | //textarea[contains(@id,'Notes')]        |
+      | Notes container | //div[./textarea[contains(@id,'Notes')]] |
+
+    And I highlight outside the "Assign to me" button
+    And I sleep for "1" second
+    And I click the "Assign to me" button
+    And I sleep for "1" second
+
+    And I highlight outside the "Notes container" text box with an offset of "2"
+    And I highlight outside the "Proceed" button with an offset of "2"
+    And I scroll the "Notes" text box into view offset by "-200"
+    And I populate the "Notes" text box with "Confirmed this deployment meets all the requirements."
+    And I sleep for "1" second
+    And I click the "Proceed" button
+    And I sleep for "20" second
     And I save a screenshot to "C:\screenshots\octopus\email\060-octopus-deployed.png"
 
   Scenario: Shutdown
