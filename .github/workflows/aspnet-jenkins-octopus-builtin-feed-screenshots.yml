@@ -19,7 +19,6 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-api-key.feature
