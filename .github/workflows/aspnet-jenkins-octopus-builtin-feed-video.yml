@@ -18,7 +18,6 @@ jobs:
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableVideoRecording=true"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
