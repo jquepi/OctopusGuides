@@ -8,7 +8,7 @@ jobs:
     - uses: actions/setup-dotnet@v1
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts utilities.pp,octopus.pp,iis.pp,jenkins.pp
+      run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,octopus.pp,iis.pp,jenkins.pp
     - name: Create Jenkins Project and Octopus
       shell: powershell
       run: >

@@ -1,8 +1,3 @@
-package { 'jenkins':
-  ensure   => installed,
-  provider => chocolatey
-}
-
 file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   ensure    => 'directory',
   subscribe => Package['jenkins'],
