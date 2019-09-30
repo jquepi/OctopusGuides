@@ -45,7 +45,7 @@ Feature: Generate an API key
     And I save a screenshot to "C:\screenshots\octopus\apikey\new-key.png"
     And I click the "Generate New" button
 
-    And I sleep for "1" second
+    And I sleep for "3" seconds
     And I save a screenshot to "C:\screenshots\octopus\apikey\api-key.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
