@@ -1,6 +1,5 @@
 file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   ensure    => 'directory',
-  subscribe => Package['jenkins'],
 }
 -> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/a.security.groovy':
   ensure  => 'file',
