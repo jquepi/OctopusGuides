@@ -15,11 +15,6 @@ package { '7zip':
   provider => chocolatey
 }
 
-package { 'jenkins':
-  ensure   => installed,
-  provider => chocolatey
-}
-
 package { 'git':
   ensure   => installed,
   provider => chocolatey
