@@ -280,7 +280,7 @@ Feature: Add a manual intervention step
     And I populate the "Notes" text box with "Confirmed this deployment meets all the requirements."
     And I sleep for "1" second
     And I click the "Proceed" button
-    And I sleep for "20" second
+    And I sleep for "10" second
     And I save a screenshot to "C:\screenshots\octopus\email\060-octopus-deployed.png"
 
   Scenario: Shutdown

@@ -11,7 +11,6 @@ Feature: Create Octopus Users and Teams
     #And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
-    And I start recording the screen to the directory "C:\screenshots"
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
@@ -31,6 +30,7 @@ Feature: Create Octopus Users and Teams
       | Confirm password | //input[contains(@id,'Confirmpassword')] |
       | Save             | //button[contains(.,'Save')]             |
 
+    And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create users for internal and production deployments" for "3" seconds
 
     And I highlight outside the "More" link

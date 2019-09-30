@@ -11,8 +11,6 @@ Feature: Add a manual intervention step
     #And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
-    And I start recording the screen to the directory "C:\screenshots"
-    And I display a note with the text "Add a manual sign off step to the deployment" for "3" seconds
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
@@ -38,8 +36,8 @@ Feature: Add a manual intervention step
       | Select environments container | //div[./div/div/div/div/div/input[@title='Select environments']]                                                   |
       | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'Dev')]//span                    |
 
-    And I open the URL "http://localhost/app#"
-    And I sleep for "1" second
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Add a manual sign off step to the deployment" for "3" seconds
 
     And I highlight outside the "Projects" link
     And I click the "Projects" link
@@ -158,7 +156,7 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\intervention\055-octopus-deploy-intervention-notes.png"
     And I click the "Proceed" button
-    And I sleep for "20" second
+    And I sleep for "10" second
 
     And I save a screenshot to "C:\screenshots\octopus\intervention\060-octopus-deploy-success.png"
 

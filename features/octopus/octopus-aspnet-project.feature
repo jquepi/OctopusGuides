@@ -10,8 +10,6 @@ Feature: Configure an Octopus ASP.NET project
     #And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
-    And I start recording the screen to the directory "C:\screenshots"
-    And I display a note with the text "Creating the IIS deployment project in Octopus" for "3" seconds
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
@@ -29,6 +27,10 @@ Feature: Configure an Octopus ASP.NET project
       | Add project      | (//div[contains(.,'Add Project')])[11]   |
       | New project name | //input[contains(@id, 'Newprojectname')] |
       | Save             | (//div[contains(.,'Save')])[9]           |
+
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Creating the IIS deployment project in Octopus" for "3" seconds
+
     And I highlight outside the "Projects" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\octopus\project\005-octopus-projects.png"
     And I click the "Projects" link
@@ -123,8 +125,8 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Project Variables Title" element
 
     And I click the "Save" button
-    And I sleep for "7" second
     And I scroll down "10000" px
+    And I sleep for "7" second
     And I save a screenshot to "C:\screenshots\octopus\project\025-octopus-variables-populated.png"
 
     And I highlight inside the "Overview text" link
