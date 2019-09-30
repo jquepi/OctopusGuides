@@ -54,7 +54,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Back to top" link
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\020-plugin-install.png"
-    And I click the "Back to top" link
+    # fake a click
+    And I open the URL "http://localhost:8080/"
 
   @configure-tools
   Scenario: Configure tools
