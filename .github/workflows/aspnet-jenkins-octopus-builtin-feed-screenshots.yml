@@ -22,7 +22,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-api-key.feature
-    - name: Create API key
+    - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
     - name: Create Jenkins Project and Octopus
