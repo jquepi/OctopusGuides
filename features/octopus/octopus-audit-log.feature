@@ -11,20 +11,20 @@ Feature: Create Octopus Users and Teams
     #And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
-    And I display a note with the text "View the audit log" for "3" seconds
-    And I start recording the screen to the directory "C:\screenshots"
+
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
 
-  @add-users
+  @view-audit
   Scenario: Configure Users
     Given I set the following aliases:
       | More             | //span[contains(.,'More')][1]            |
       | Configuration    | //span[contains(.,'Configuration')]      |
       | Audit            | //span[contains(.,'Audit')]              |
 
-    And I open the URL "http://localhost"
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "View the audit log" for "3" seconds
     And I sleep for "1" second
 
     And I highlight outside the "More" link
