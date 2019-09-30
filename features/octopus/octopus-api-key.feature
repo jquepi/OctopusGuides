@@ -15,12 +15,12 @@ Feature: Generate an API key
 
   Scenario: Generate an API Key
     Given I set the following aliases:
-      | User         | //a[@href='#'][./span[text()='admin']] |
-      | Profile      | //div[text()='Profile']                |
-      | My API Keys  | //a[contains(.,'My API Keys')]         |
-      | New API Key  | //button[contains(.,'New API Key')]    |
-      | Purpose      | //input[contains(@id,'Purpose')]       |
-      | Generate New | //button[contains(.,'Generate New')]   |
+      | User         | //a[@href='#'][./span[text()='admin']]                                   |
+      | Profile      | //div[text()='Profile']                                                  |
+      | My API Keys  | //a[contains(.,'My API Keys')][not(*)] \| //a/span[text()='My API Keys'] |
+      | New API Key  | //button[contains(.,'New API Key')]                                      |
+      | Purpose      | //input[contains(@id,'Purpose')]                                         |
+      | Generate New | //button[contains(.,'Generate New')]                                     |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating an API key" for "3" seconds
