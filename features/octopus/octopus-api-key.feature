@@ -9,8 +9,6 @@ Feature: Generate an API key
     And I maximize the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
-    And I start recording the screen to the directory "C:\screenshots"
-    And I display a note with the text "Creating an API key" for "3" seconds
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
@@ -23,6 +21,9 @@ Feature: Generate an API key
       | New API Key  | //button[contains(.,'New API Key')]    |
       | Purpose      | //input[contains(@id,'Purpose')]       |
       | Generate New | //button[contains(.,'Generate New')]   |
+
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Creating an API key" for "3" seconds
 
     And I click the "User" link
     And I highlight inside the "User" link
