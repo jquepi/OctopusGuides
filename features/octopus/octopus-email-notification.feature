@@ -204,7 +204,6 @@ Feature: Add a manual intervention step
 
     And I scroll the "Always run" radio button into view offset by "-300"
     And I highlight inside the "Always run" radio button
-    And I highlight outside the "Save" button
     And I force click the "Always run" radio button
     And I sleep for "2" second
     And I save a screenshot to "C:\screenshots\octopus\email\058-octopus-step-always-run.png"
