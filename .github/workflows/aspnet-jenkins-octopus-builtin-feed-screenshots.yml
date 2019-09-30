@@ -187,7 +187,7 @@ jobs:
       shell: powershell
       run: |
         ls c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 sync c:\screenshots s3://octopus-guides-screenshots/public --acl public-read
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 sync c:\screenshots s3://i.octopus.com/guides --acl public-read
         & "C:\Program Files\7-Zip\7z.exe" a c:\jenkins-apsnet-git-onprem.zip c:\screenshots
         & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\jenkins-apsnet-git-onprem.zip s3://octopus-guides-screenshots/jenkins-apsnet-git-onprem.zip
       env:
