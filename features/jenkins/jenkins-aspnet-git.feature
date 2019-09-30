@@ -183,6 +183,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | MSBuild Build File                                      | //input[@name='msBuildBuilder.msBuildFile']                                       |
       | Command Line Arguments                                  | //textarea[@name='msBuildBuilder.cmdLineArgs']                                    |
       | Command Two                                             | (//textarea[contains(@name,'command')])[2]                                        |
+      | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                        |
 
     And I open the URL "http://localhost:8080/"
     And I clear the transition
@@ -279,7 +280,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\130-batch-command-2.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\127-batch-command-2.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -287,7 +288,22 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Command Two" text box into view offset by "-200"
     And I highlight outside the "Command Two" text box
     And I highlight outside the "Save" button
-    And I populate the "Command Two" text box with "Octo.exe push --server http://localhost --package .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
+    And I populate the "Command Two" text box with ".\packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe .\RandomQuotes.Tests\bin\Debug\RandomQuotes.Tests.dll"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\128-nunit-test.png"
+
+    And I scroll the "Add build step" button into view offset by "-200"
+    And I highlight outside the "Add build step" button
+    And I click the "Add build step" button
+    And I highlight outside the "Execute Windows batch command" link
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\130-batch-command-3.png"
+    And I click the "Execute Windows batch command" link
+    And I remove the highlight from the "Add build step" option
+    And I remove the highlight from the "Execute Windows batch command" option
+
+    And I scroll the "Command Three" text box into view offset by "-200"
+    And I highlight outside the "Command Three" text box
+    And I highlight outside the "Save" button
+    And I populate the "Command Three" text box with "Octo.exe push --server http://localhost --package .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\135-octo-push.png"
 
     And I click the "Save" button
@@ -296,7 +312,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Run build
     Given I set the following aliases:
       | Build Now      | //a[contains(.,'Build Now')]      |
-      | Build One      | //a[contains(.,'#1')] |
+      | Build One      | //a[contains(.,'#1')]             |
       | Console Output | //a[contains(.,'Console Output')] |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"

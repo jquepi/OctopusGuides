@@ -23,7 +23,7 @@ Feature: Create and deploy a release from Jenkins
       | Configure                     | //a[contains(.,'Configure')]                                                                                                   |
       | Add build step                | //button[@type='button'][contains(.,'Add build step')]                                                                         |
       | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]                                                                               |
-      | Command Three                 | (//textarea[contains(@name,'command')])[3]                                                                                     |
+      | Command Four                 | (//textarea[contains(@name,'command')])[4]                                                                                     |
       | Save                          | //button[@type='button'][contains(.,'Save')]                                                                                   |
       | Create Release Command        | Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project "Random Quotes" --progress --deployto Dev |
 
@@ -45,12 +45,12 @@ Feature: Create and deploy a release from Jenkins
     And I click the "Execute Windows batch command" option
     And I remove the highlight from the "Add build step" button
 
-    And I scroll the "Command Three" text box into view offset by "-200"
-    And I populate the "Command Three" text box with "Create Release Command"
-    And I highlight outside the "Command Three" text box
+    And I scroll the "Command Four" text box into view offset by "-200"
+    And I populate the "Command Four" text box with "Create Release Command"
+    And I highlight outside the "Command Four" text box
     And I highlight outside the "Save" button
     And I save a screenshot to "c:\screenshots\jenkins\createrelease\020-create-release-command.png"
-    And I remove the highlight from the "Command Three" text box
+    And I remove the highlight from the "Command Four" text box
 
     And I save a screenshot to "c:\screenshots\jenkins\createrelease\025-create-release-save.png"
     And I click the "Save" button
