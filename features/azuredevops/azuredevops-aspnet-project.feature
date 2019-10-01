@@ -18,6 +18,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Description  | //textarea[contains(@id,'project-description-textfield')] |
 
     And I populate the "Project name" text box with "Random Quotes"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\010-create-project.png"
     And I sleep for "5" seconds
 
   Scenario: Shutdown
