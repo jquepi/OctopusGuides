@@ -31,6 +31,7 @@ Feature: Generate an API key
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\apikey\profile.png"
     And I click the "Profile" link
+    And I remove the highlight from the "User" link
 
     And I click the "My API Keys" link
     And I highlight inside the "My API Keys" link
@@ -38,6 +39,7 @@ Feature: Generate an API key
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\apikey\keys.png"
     And I click the "New API Key" button
+    And I remove the highlight from the "My API Keys" link
 
     And I highlight outside the "Purpose" text box
     And I highlight outside the "Generate New" button with an offset of "2"
