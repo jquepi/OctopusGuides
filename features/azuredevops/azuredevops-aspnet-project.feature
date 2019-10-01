@@ -2,11 +2,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   @login
   Scenario: Log into Azure Devops
-    Given I set the following aliases:
-      | Username     | #j_username                                                  |
-      | Password     | body > div > div > form > div:nth-child(2) > input           |
-      | Sign In      | body > div > div > form > div.submit.formRow > input         |
-      | Profile Name | #header > div.login > span > a.model-link.inside.inverse > b |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I set the default explicit wait time to "30" seconds
     And I maximize the window
@@ -29,23 +24,79 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @skip-new-features
   Scenario: Create project
     Given I set the following aliases:
-      | Close | //button[contains(@class,'bolt-teaching-pane-close-butto')]|
+      | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I click the "Close" button
+    And I sleep for "1" second
 
-  @configure-project
+  @create-project
   Scenario: Create project
     Given I set the following aliases:
-      | Pipelines | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
-      | Build     | //a[@name='Builds']                                                             |
+      | Pipelines          | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
+      | Build              | //a[@name='Builds']                                                             |
+      | New pipeline       | //button[contains(., 'New pipeline')]                                           |
+      | External Git       | //input[../div[contains(., 'External Git')]]                                    |
+      | Add connection     | //button[contains(.,'Add connection')]                                          |
+      | Connection name    | //input[@id='INPUT-FIELD-STRING0']                                              |
+      | Git repository URL | //input[@id='INPUT-FIELD-STRING1']                                              |
+      | OK                 | //button[contains(., 'OK')]                                                     |
+      | Continue           | //button[contains(.,'Continue')]                                                |
+      | ASP.NET            | //div[./div/button[contains(.,'Apply ASP.NET template')]]                       |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I mouse over the "Pipelines" menu item
-    And I click the "Build" link
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\020-build.png"
+    And I click the "Build" link
 
-    And I sleep for "5" seconds
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\030-new-pipeline.png"
+    And I click the "New pipeline" button
+
+    And I click the "External Git" option
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\040-external-git.png"
+    And I click the "Add connection" button
+
+    And I clear the "Connection name" text box
+    And I populate the "Connection name" text box with "Random Quotes GitHub"
+    And I clear the "Git repository URL" text box
+    And I populate the "Git repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\050-git-details.png"
+    And I click the "OK" button
+
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\060-continue.png"
+    And I click the "Continue" button
+
+    And I mouse over the "ASP.NET" option
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\070-aspnet.png"
+    And I click the "ASP.NET" button
+
+    And I sleep for "1" seconds
+
+  @configure-project
+  Scenario: Configure project
+    Given I set the following aliases:
+      | Agent pool         | //input[@aria-label='Agent pool']               |
+      | Default            | //button[@aria-label='Default]                  |
+      | Save and queue     | //button[@name='Save & queue']                  |
+      | Save and queue two | (//button[@name='Save & queue'])[2]             |
+      | Comment            | //textarea[@id='INPUT-FIELD-STRING32']          |
+      | Build link         | //a[contains(@class, 'ci-queued-build-link')]   |
+
+    And I click the "Agent pool" drop down list
+    And I click the "Default" option
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\080-default-agent-pool.png"
+
+    And I click the "Save and queue" button
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\090-save-and-queue.png"
+    And I click the "Save and queue two" button
+
+    And I populate the "Comment" text box with "Initial build"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\100-initial-build.png"
+    And I click the "Save and queue" button
+    And I sleep for "3" seconds"
+
+    And I click the "Build link" element
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\110-build-results.png"
 
   Scenario: Shutdown
     #Then I fade the screen to "1" "1" "1" over "3000" milliseconds
