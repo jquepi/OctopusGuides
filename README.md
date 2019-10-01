@@ -1,7 +1,6 @@
-This repository contains scripts for populating test Windows instances with an Octopus Deploy CI/CD workflow.
+This repository contains the scripts used to generate the Octopus guides.
 
-Install in an administrative Powershell session with the command:
+To write the scripts in IntelliJ, reference the JAR file created by the project at https://github.com/OctopusDeploy/WebDriverTraining. 
+IntelliJ can extract the Cucumber step definitions and use them to validate the feature files.
 
-`Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mcasperson/OctopusGuides/master/install.ps1'))`
-
-Username for all services is `admin`, and the password is `Password01!`.
+![](intellij.png)
