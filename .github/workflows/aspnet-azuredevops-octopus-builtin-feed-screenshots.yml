@@ -25,7 +25,7 @@ jobs:
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
-    - name: View audit logs
+    - name: Add project
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"

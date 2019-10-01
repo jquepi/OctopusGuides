@@ -10,7 +10,7 @@ Feature: Open Random Quotes
     And I open the URL "http://localhost:8081"
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Running the Random Quotes sample application" for "3" seconds
-    And I save a screenshot to "C:\screenshots\app\aspnet-random-quotes-test-app.png"
+    And I save a screenshot to "C:\screenshots\app\aspnet-random-quotes-dev-app.png"
     And I click the "Refresh" button
     And I sleep for "2" seconds
 
