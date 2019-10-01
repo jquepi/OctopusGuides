@@ -23,6 +23,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\010-create-project.png"
     And I click the "Create project" button
+    And I sleep for "40" seconds
 
   @configure-project
   Scenario: Create project
