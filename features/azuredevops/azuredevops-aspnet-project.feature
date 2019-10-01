@@ -10,6 +10,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I open the shared browser "FirefoxNoImplicitWait"
     And I set the default explicit wait time to "30" seconds
     And I maximize the window
+    #And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/"
 
   @create-project
@@ -28,8 +29,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project
   Scenario: Create project
     Given I set the following aliases:
-      | Pipelines | //div[./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
-      | Build     | //a[@name='Builds']                                           |
+      | Pipelines | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
+      | Build     | //a[@name='Builds']                                                             |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I mouse over the "Pipelines" menu item
