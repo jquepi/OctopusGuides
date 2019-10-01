@@ -1,13 +1,23 @@
+package { 'sql-server-express':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 download_file { 'azuredevopsexpress2019.exe':
   destination_directory => 'C:/tools',
   url                   =>
     'https://octopus-guides.s3.amazonaws.com/azuredevops/azuredevopsexpress2019.exe',
 }
--> exec { 'Install Azure Devops':
-  provider => 'powershell',
-  command => '& "C:\\tools\\azuredevopsexpress2019.exe" /silent '
+-> file { 'C:/install_azure.bat':
+  ensure  => 'file',
+  owner   => 'Administrators',
+  group   => 'Administrators',
+  mode    => '0644',
+  content => @(EOT)
+    "C:\tools\azuredevopsexpress2019.exe" /silent
+    "C:\Program Files\Azure DevOps Server 2019\Tools\TfsConfig" unattend /unattendfile:.\config\azuredevops.ini /continue
+    | EOT
 }
--> exec { 'Deploy Azure Devops':
-  provider => 'powershell',
-  command => '& "C:\\Program Files\\Azure DevOps Server 2019\\Tools\\TfsConfig" unattend /unattendfile:.\\config\\azuredevops.ini /continue'
+-> exec { 'Install Azure':
+  command => 'C:\\Windows\\system32\\cmd.exe /c C:\\install_azure.bat',
 }
