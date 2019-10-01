@@ -20,4 +20,5 @@ download_file { 'azuredevopsexpress2019.exe':
 }
 -> exec { 'Install Azure':
   command => 'C:\\Windows\\system32\\cmd.exe /c C:\\install_azure.bat',
+  timeout => 3600,
 }
