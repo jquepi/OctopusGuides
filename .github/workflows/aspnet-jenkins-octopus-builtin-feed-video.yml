@@ -218,13 +218,11 @@ jobs:
     - name: Merge video
       shell: powershell
       run: Start-Process -FilePath "C:\Program Files\VideoLAN\VLC\vlc.exe" -Wait -ArgumentList (@("-I", "dummy", "-vvv") + $(gci C:\screenshots\*.mp4 | ?{$_.Name -ne "video.mp4"} | %{"`"" + $_.FullName + "`""}) + @("--sout", "#gather:std{access=file,mux=mp4,dst=c:\screenshots\video.mp4}", "--no-sout-all", "--sout-keep", "vlc://quit"))
-    - name: Zip screenshots
+    - name: Upload video
       shell: powershell
       run: |
         ls c:\screenshots
         & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\video.mp4 s3://i.octopus.com/guides/aspnet-jenkins-octopus-builtin-feed.mp4 --acl public-read
-        & "C:\Program Files\7-Zip\7z.exe" a c:\jenkins-apsnet-git-onprem-video.zip c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\jenkins-apsnet-git-onprem-video.zip s3://octopus-guides-screenshots/jenkins-apsnet-git-onprem-video.zip
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
