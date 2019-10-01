@@ -93,7 +93,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Comment" text box with "Initial build"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\100-initial-build.png"
     And I click the "Save and queue" button
-    And I sleep for "3" seconds"
+    And I sleep for "3" seconds
 
     And I click the "Build link" element
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\110-build-results.png"
