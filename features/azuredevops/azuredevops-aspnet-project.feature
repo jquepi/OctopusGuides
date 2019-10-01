@@ -30,6 +30,33 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Close" button
     And I sleep for "1" second
 
+  @install-extensions
+  Scenario: Install Extensions
+    Given I set the following aliases:
+      | Admin settings        | //a[@href='/DefaultCollection/_settings/']                                    |
+      | Extensions            | //a[@href='/DefaultCollection/_settings/extensions']                          |
+      | Browse Marketplace    | //a[contains(.,'Browse Marketplace')]                                         |
+      | Search                | //input[@aria-label='Search Azure DevOps extensions']                         |
+      | Search button         | //span[@title='search']                                                       |
+      | Octopus tile          | //a[@href='/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks'] |
+      | Get it free           | //button[text()='Get it free']                                                |
+      | Install               | //button[contains(.,'Install')]                                               |
+      | Proceed to collection | //a[@href='/DefaultCollection/']                                              |
+
+    And I click the "Admin settings" button
+    And I click the "Extensions" button
+    And I mouse over the "Browse Marketplace" button
+    And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
+    And I populate the "Search" text box with "Octopus Deploy"
+    And I click the "Search button" element
+    And I mouse over the "Octopus tile" element
+    And I open the URL "https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
+    And I mouse over the "Get it free" button
+    And I open the URL "http://localhost:9090/_gallery/acquisition?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
+    And I click the "Install" button
+    And I click the "Proceed to collection" button
+    And I sleep for "1" second
+
   @create-project
   Scenario: Create project
     Given I set the following aliases:

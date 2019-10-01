@@ -1,3 +1,7 @@
+host { 'devops.example.org':
+  ip => '127.0.0.1',
+}
+
 package { 'sql-server-express':
   ensure   => installed,
   provider => chocolatey
