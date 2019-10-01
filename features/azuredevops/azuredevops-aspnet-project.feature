@@ -26,6 +26,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Create project" button
     And I sleep for "40" seconds
 
+  @skip-new-features
+  Scenario: Create project
+    Given I set the following aliases:
+      | Close | //button[contains(@class,'bolt-teaching-pane-close-butto')]|
+
+    And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
+    And I click the "Close" button
+
   @configure-project
   Scenario: Create project
     Given I set the following aliases:
@@ -34,7 +42,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I mouse over the "Pipelines" menu item
-    #And I click the "Build" link
+    And I click the "Build" link
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\020-build.png"
 
     And I sleep for "5" seconds
