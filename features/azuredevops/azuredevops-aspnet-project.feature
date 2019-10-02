@@ -28,18 +28,23 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
     And I mouse over the "Browse Marketplace" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/020-browse-marketplace.png"
+    # Open the marketplace URL directly to avoid it popping up in a new tab
     And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
     And I populate the "Search" text box with "Octopus Deploy"
     And I click the "Search button" element
     And I mouse over the "Octopus tile" element
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/030-octopus-extension-tile.png"
+    # Open the URL directly, but make it look like we clicked on the tile
     And I open the URL "https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
     And I mouse over the "Get it free" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/040-octopus-extension-getit.png"
+    # This is a workaround to the fact that we don't have a public url, so we don't click the button but instead
+    # open the internal URL that allows us to add the extension.
     And I open the URL "http://localhost:9090/_gallery/acquisition?itemName=octopusdeploy.octopus-deploy-build-release-tasks&installContext=eyJpdGVtTmFtZSI6Im9jdG9wdXNkZXBsb3kub2N0b3B1cy1kZXBsb3ktYnVpbGQtcmVsZWFzZS10YXNrcyIsIml0ZW1VcmwiOiJodHRwczovL21hcmtldHBsYWNlLnZpc3VhbHN0dWRpby5jb20vaXRlbXM%2FaXRlbU5hbWU9b2N0b3B1c2RlcGxveS5vY3RvcHVzLWRlcGxveS1idWlsZC1yZWxlYXNlLXRhc2tzIiwiY29sbGVjdGlvbklkIjoiOGFmMWNhYzktYjU1Yi00ODY5LWE0ZGItY2UxODEwZTQ1NmY5In0%3D"
-    And I sleep for "1" seconds
+    And I sleep for "5" seconds
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/050-octopus-extension-install.png"
     And I click the "Install" button
+    And I sleep for "5" seconds
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/060-octopus-extension-continue.png"
     And I click the "Proceed to collection" button
     And I sleep for "1" second
