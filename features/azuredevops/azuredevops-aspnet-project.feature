@@ -32,6 +32,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I open the URL "https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
     And I mouse over the "Get it free" button
     And I open the URL "http://localhost:9090/_gallery/acquisition?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
+    And I sleep for "5" seconds
     And I click the "Install" button
     And I click the "Proceed to collection" button
     And I sleep for "1" second
