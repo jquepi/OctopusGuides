@@ -25,23 +25,18 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Admin settings" button
     And I sleep for "20" seconds
 
-  @skip-new-features
-  Scenario: Create project
+  @install-extensions
+  Scenario: Install extensions
     Given I set the following aliases:
       | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
 
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug0.png"
-    And I click the "Close" button
-    And I sleep for "1" second
-
-  @install-extensions
-  Scenario: Install extensions
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug1.png"
     And I mouse over the "Extensions" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug2.png"
     And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug3.png"
     And I mouse over the "Browse Marketplace" button
+    And I click the "Close" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/020-browse-marketplace.png"
     # Open the marketplace URL directly to avoid it popping up in a new tab
     And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
