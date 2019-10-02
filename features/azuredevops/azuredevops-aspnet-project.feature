@@ -8,28 +8,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     #And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/"
 
-  @create-project
-  Scenario: Create project
-    Given I set the following aliases:
-      | Project name   | //input[contains(@id,'project-name-textfield')]           |
-      | Description    | //textarea[contains(@id,'project-description-textfield')] |
-      | Create project | //button[contains(.,'Create project')]                    |
-
-    And I populate the "Project name" text box with "Random Quotes"
-    And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
-    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\010-create-project.png"
-    And I click the "Create project" button
-    And I sleep for "20" seconds
-
-  @skip-new-features
-  Scenario: Create project
-    Given I set the following aliases:
-      | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
-
-    And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
-    And I click the "Close" button
-    And I sleep for "1" second
-
   @install-extensions
   Scenario: Install Extensions
     Given I set the following aliases:
@@ -55,6 +33,28 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I open the URL "http://localhost:9090/_gallery/acquisition?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
     And I click the "Install" button
     And I click the "Proceed to collection" button
+    And I sleep for "1" second
+
+  @create-project
+  Scenario: Create project
+    Given I set the following aliases:
+      | Project name   | //input[contains(@id,'project-name-textfield')]           |
+      | Description    | //textarea[contains(@id,'project-description-textfield')] |
+      | Create project | //button[contains(.,'Create project')]                    |
+
+    And I populate the "Project name" text box with "Random Quotes"
+    And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\010-create-project.png"
+    And I click the "Create project" button
+    And I sleep for "20" seconds
+
+  @skip-new-features
+  Scenario: Create project
+    Given I set the following aliases:
+      | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
+
+    And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
+    And I click the "Close" button
     And I sleep for "1" second
 
   @create-project
