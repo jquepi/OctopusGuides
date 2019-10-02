@@ -22,6 +22,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Proceed to collection | //a[@href='/DefaultCollection/']                                              |
 
     And I click the "Admin settings" button
+    And I sleep for "2" seconds
     And I click the "Extensions" button
     And I mouse over the "Browse Marketplace" button
     And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
