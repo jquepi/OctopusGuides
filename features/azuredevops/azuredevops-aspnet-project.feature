@@ -40,6 +40,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/020-browse-marketplace.png"
     # Open the marketplace URL directly to avoid it popping up in a new tab
     And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
+    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug4.png"
     And I populate the "Search" text box with "Octopus Deploy"
     And I click the "Search button" element
     And I mouse over the "Octopus tile" element
