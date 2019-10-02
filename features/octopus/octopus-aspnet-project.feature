@@ -106,29 +106,30 @@ Feature: Configure an Octopus ASP.NET project
 
     And I populate the "New variable name" text box with "EnvironmentName"
     And I populate the "New variable value" text box with "#{Octopus.Environment.Name}"
+    And I sleep for "1" second
     And I click the "Add to list" button
-    And I click the "Project Variables Title" element
+    And I force click the "Project Variables Title" element
 
     And I populate the "New variable name" text box with "IIS Port"
     And I populate the "New variable value" text box with "8081"
     And I force click the "Define scope" field
     And I force click the "Select environments" field
     And I force click the "Dev environment" option
-    And I click the "Project Variables Title" element
+    And I force click the "Project Variables Title" element
 
     And I click the "Add Another Value" button
     And I populate the "New variable value 2" text box with "8082"
     And I force click the "Define scope" field
     And I force click the "Select environments" field
     And I force click the "Test environment" option
-    And I click the "Project Variables Title" element
+    And I force click the "Project Variables Title" element
 
     And I click the "Add Another Value" button
     And I populate the "New variable value 3" text box with "8083"
     And I force click the "Define scope" field
     And I force click the "Select environments" field
     And I force click the "Prod environment" option
-    And I click the "Project Variables Title" element
+    And I force click the "Project Variables Title" element
 
     And I click the "Save" button
     And I scroll down "10000" px
