@@ -21,19 +21,25 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Install               | //button[contains(.,'Install')]                                               |
       | Proceed to collection | //a[@href='/DefaultCollection/']                                              |
 
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\010-admin-settings.png"
     And I click the "Admin settings" button
     And I sleep for "2" seconds
     And I click the "Extensions" button
     And I mouse over the "Browse Marketplace" button
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\020-browse-marketplace.png"
     And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
     And I populate the "Search" text box with "Octopus Deploy"
     And I click the "Search button" element
     And I mouse over the "Octopus tile" element
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\030-octopus-extension-tile.png"
     And I open the URL "https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
     And I mouse over the "Get it free" button
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\040-octopus-extension-getit.png"
     And I open the URL "http://localhost:9090/_gallery/acquisition?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
     And I sleep for "5" seconds
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\050-octopus-extension-install.png"
     And I click the "Install" button
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\060-octopus-extension-continue.png"
     And I click the "Proceed to collection" button
     And I sleep for "1" second
 
@@ -94,6 +100,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\050-git-details.png"
     And I click the "OK" button
 
+    And I sleep for "1" second
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\060-continue.png"
     And I click the "Continue" button
 
@@ -138,37 +145,43 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\080-default-agent-pool.png"
 
     And I click the "Build solution" row
-    And I scroll the "MSBuild Arguments" text box into view offset by "200"
+    And I scroll the "MSBuild Arguments" text box into view offset by "-200"
     And I clear the "MSBuild Arguments" text box
     And I populate the "MSBuild Arguments" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.$(Build.BuildId) /p:OctoPackEnforceAddingFiles=true"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\090-msbuild-arguments.png"
 
     And I click the "Test Assemblies" row
-    And I scroll the "Specific location" option into view offset by "200"
+    And I scroll the "Specific location" option into view offset by "-200"
     And I force click the "Specific location" option
     And I populate the "Path to vstest.console.exe" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\100-vstest-location.png"
 
     And I click the "Publish artifact" row
     And I click the "Add task" button
     And I populate the "Search" text box with "Octopus Push"
     And I mouse over the "Push package title" element
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\110-octopus-push.png"
     And I click the "Push package" button
     And I click the "Push Packages to Octopus" row
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\120-octopus-connection.png"
     And I click the "New" button
     And I populate the "Connection name" text box with "Octopus"
     And I populate the "Server URL" text box with "http://localhost"
     And I populate the "API Key" text box with "ExternalOctopusAPIKey"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\130-octopus-details.png"
     And I click the "OK" button
 
     And I click the "Space" drop down list
     And I click the "Default Space" option
     And I populate the "Package" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(Build.BuildId).nupkg"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\140-space-and-package.png"
 
     And I click the "Save and queue" button
-    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\090-save-and-queue.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\150-save-and-queue.png"
     And I click the "Save and queue two" button
 
     And I populate the "Comment" text box with "Initial build"
-    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\100-initial-build.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\160-initial-build.png"
     And I click the "Save and queue three" button
     And I sleep for "3" seconds
 
