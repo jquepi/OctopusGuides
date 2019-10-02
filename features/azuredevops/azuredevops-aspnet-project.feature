@@ -25,13 +25,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Admin settings" button
     And I sleep for "2" seconds
 
-  @skip-new-features
-  Scenario: Create project
-    Given I set the following aliases:
-      | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
+  #@skip-new-features
+  #Scenario: Create project
+  #  Given I set the following aliases:
+  #    | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
 
-    And I click the "Close" button
-    And I sleep for "1" second
+  #  And I click the "Close" button
+  #  And I sleep for "1" second
 
   @install-extensions
   Scenario: Install extensions
