@@ -8,7 +8,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     #And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/"
 
-  @install-extensions
+  @admin-settings
   Scenario: Install Extensions
     Given I set the following aliases:
       | Admin settings        | //a[@href='/DefaultCollection/_settings/']                                    |
@@ -24,6 +24,18 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/010-admin-settings.png"
     And I click the "Admin settings" button
     And I sleep for "2" seconds
+
+  @skip-new-features
+  Scenario: Create project
+    Given I set the following aliases:
+      | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
+
+    And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
+    And I click the "Close" button
+    And I sleep for "1" second
+
+  @install-extensions
+  Scenario: Install extensions
     And I mouse over the "Extensions" button
     And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
     And I mouse over the "Browse Marketplace" button
@@ -61,15 +73,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/010-create-project.png"
     And I click the "Create project" button
     And I sleep for "20" seconds
-
-  @skip-new-features
-  Scenario: Create project
-    Given I set the following aliases:
-      | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
-
-    And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
-    And I click the "Close" button
-    And I sleep for "1" second
 
   @create-project
   Scenario: Create project
