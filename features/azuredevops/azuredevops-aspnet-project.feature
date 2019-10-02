@@ -104,17 +104,47 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project
   Scenario: Configure project
     Given I set the following aliases:
-      | Agent pool           | //button[../input[@aria-label='Agent pool']]                       |
-      | Default              | //button[@aria-label='Default']                                    |
-      | Save and queue       | //button[@name='Save & queue']                                     |
-      | Save and queue two   | (//button[@name='Save & queue'])[2]                                |
-      | Save and queue three | //button[@aria-label='Save & queue']                               |
-      | Comment              | //textarea[../../../../../../../../div//label[contains(.,'Save')]] |
-      | Build link           | //a[contains(@class, 'ci-queued-build-link')]                      |
+      | Agent pool               | //button[../input[@aria-label='Agent pool']]                                               |
+      | Default                  | //button[@aria-label='Default']                                                            |
+      | Save and queue           | //button[@name='Save & queue']                                                             |
+      | Save and queue two       | (//button[@name='Save & queue'])[2]                                                        |
+      | Save and queue three     | //button[@aria-label='Save & queue']                                                       |
+      | Comment                  | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                         |
+      | Build link               | //a[contains(@class, 'ci-queued-build-link')]                                              |
+      | Publish artifact         | //div[@data-list-index='5'][contains(.,'Publish Artifact')]/div/div/div/div                |
+      | Add task                 | //button[@aria-label='Add a task to Agent job 1']                                          |
+      | Search                   | (//input[@aria-label='Search'])[2]                                                         |
+      | Push package title       | //div[text()='Push Package(s) to Octopus']                                                 |
+      | Push package             | //div[./div/div/div[text()='Push Package(s) to Octopus']]/button                           |
+      | Push Packages to Octopus | //div[@data-list-index='6'][contains(.,'Push Packages to Octopus')]/div/div/div/div        |
+      | New                      | //div[./span[text()='Add Octopus Deploy Server']]                                          |
+      | Connection name          | //input[@id='connectionName']                                                              |
+      | Server URL               | //input[@id='url']                                                                         |
+      | API Key                  | //input[@id='apitoken']                                                                    |
+      | OK                       | //button[@id='ok']                                                                         |
+      | Space                    | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]] |
+      | Default Space            | //li[text()='Default']                                                                     |
+      | Package                  | //textarea[../../../../../../div/label[contains(.,'Package')]]                             |
 
     And I click the "Agent pool" drop down list
     And I click the "Default" option
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\080-default-agent-pool.png"
+
+    And I click the "Publish artifact" row
+    And I click the "Add task" button
+    And I populate the "Search" text box with "Octopus Push"
+    And I mouse over the "Push package title" element
+    And I click the "Push package" button
+    And I click the "Push Packages to Octopus" row
+    And I click the "New" button
+    And I populate the "Connection name" text box with "Octopus"
+    And I populate the "Server URL" text box with "http://localhost"
+    And I populate the "API Key" text box with "ExternalOctopusAPIKey"
+    And I click the "OK" button
+
+    And I click the "Space" drop down list
+    And I click the "Default Space" option
+    And I populate the "Package" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(BuildID).nupkg"
 
     And I click the "Save and queue" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\090-save-and-queue.png"
