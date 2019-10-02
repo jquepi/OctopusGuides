@@ -112,9 +112,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Comment                    | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                         |
       | Build link                 | //a[contains(@class, 'ci-queued-build-link')]                                              |
       | Publish artifact           | //div[@data-list-index='5'][contains(.,'Publish Artifact')]/div/div/div/div                |
-      | Test Assemblies            | //div[@data-list-index='5'][contains(.,'Test Assemblies')]/div/div/div/div                 |
-      | Specific location          | //input[../label[text()='Specific location']]                                              |
+      | Test Assemblies            | //div[@data-list-index='3'][contains(.,'Test Assemblies')]/div/div/div/div                 |
+      | Build solution             | //div[@data-list-index='2'][contains(.,'Build solution')]/div/div/div/div                  |
+      | Specific location          | //input[../label/span[text()='Specific location']]                                         |
       | Path to vstest.console.exe | //textarea[./../../../../../../../../div/label[text()='Path to vstest.console.exe']]       |
+      | MSBuild Arguments          | //textarea[./../../../../../../../../div/label[text()='MSBuild Arguments']]                |
       | Add task                   | //button[@aria-label='Add a task to Agent job 1']                                          |
       | Search                     | (//input[@aria-label='Search'])[2]                                                         |
       | Push package title         | //div[text()='Push Package(s) to Octopus']                                                 |
@@ -133,9 +135,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Default" option
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\080-default-agent-pool.png"
 
+    And I click the "Build solution" row
+    And I scroll the "MSBuild Arguments" text box into view offset by "200"
+    And I clear the "MSBuild Arguments" text box
+    And I populate the "MSBuild Arguments" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.$(Build.BuildId) /p:OctoPackEnforceAddingFiles=true"
+
     And I click the "Test Assemblies" row
     And I scroll the "Specific location" option into view offset by "200"
-    And I click the "Specific location" option
+    And I force click the "Specific location" option
     And I populate the "Path to vstest.console.exe" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
 
     And I click the "Publish artifact" row
@@ -152,7 +159,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I click the "Space" drop down list
     And I click the "Default Space" option
-    And I populate the "Package" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(BuildID).nupkg"
+    And I populate the "Package" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(Build.BuildId).nupkg"
 
     And I click the "Save and queue" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\090-save-and-queue.png"
