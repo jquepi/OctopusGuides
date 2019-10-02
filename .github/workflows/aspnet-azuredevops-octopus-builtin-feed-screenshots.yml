@@ -39,6 +39,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
+        "-DnoProxyList=microsoft.com"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\azuredevops\azuredevops-aspnet-project.feature
