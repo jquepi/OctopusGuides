@@ -30,7 +30,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
 
-    And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I click the "Close" button
     And I sleep for "1" second
 
