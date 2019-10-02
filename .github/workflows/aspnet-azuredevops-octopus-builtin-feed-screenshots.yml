@@ -37,7 +37,7 @@ jobs:
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        features\azuredevops\azuredevops-aspnet-project.feature
+        features\azuredevops\test.feature
     - name: Upload screenshots
       shell: powershell
       run: |
