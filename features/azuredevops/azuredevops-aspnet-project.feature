@@ -80,7 +80,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/010-create-project.png"
     And I click the "Create project" button
-    And I sleep for "20" seconds
+    And I sleep for "40" seconds
 
   @create-project
   Scenario: Create project
@@ -99,6 +99,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | ASP.NET                | //button[./div/span[text()='Apply ASP.NET template']]                           |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
+    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/debug1.png"
     And I mouse over the "Pipelines" menu item
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/020-build.png"
     And I click the "Build" link
