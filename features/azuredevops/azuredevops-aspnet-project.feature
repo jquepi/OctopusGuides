@@ -21,7 +21,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Install extensions
     Given I set the following aliases:
       | Extensions | //a[@href='/DefaultCollection/_settings/extensions']         |
-      | Close      | //button[contains(@class,'bolt-teaching-pane-close-button')] |
 
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug1.png"
     And I mouse over the "Extensions" button
@@ -31,6 +30,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   @skip-new-features @install-extensions
   Scenario: Close new features popup
+    Given I set the following aliases:
+      | Close      | //button[contains(@class,'bolt-teaching-pane-close-button')] |
     And I click the "Close" button
 
   @install-extensions
