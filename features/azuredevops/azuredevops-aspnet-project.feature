@@ -277,6 +277,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I sleep for "20" seconds
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/170-build-results.png"
 
+  Scenario: View agents
+    Given I open the URL "http://localhost:9090/DefaultCollection/_settings/agentpools?poolId=1&_a=agents"
+    And I sleep for "10" seconds
+    Then I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/build-agents.png"
+
   Scenario: Shutdown
     #Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
