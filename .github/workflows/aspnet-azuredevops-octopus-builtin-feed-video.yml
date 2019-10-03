@@ -43,6 +43,7 @@ jobs:
         "-DdisableScreenshots=true"
         "-DnoProxyList=microsoft.com"
         "-DdumpAliasesOnFailure=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\azuredevops\azuredevops-aspnet-project.feature
