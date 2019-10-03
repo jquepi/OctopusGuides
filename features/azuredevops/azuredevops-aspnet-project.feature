@@ -186,6 +186,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Space Refresh              | //button[./div/span[text()='Refresh Space']]                                               |
       | Default Space              | //li[text()='Default']                                                                     |
       | Package                    | //textarea[../../../../../../div/label[contains(.,'Package')]]                             |
+      | Post job Checkout          | //div[text()='Post-job: Checkout']                                                         |
 
     And I highlight inside the "Agent pool" drop down list
     And I click the "Agent pool" drop down list
@@ -277,7 +278,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Build link" element
 
     And I sleep for "120" seconds
-    And I scroll down "10000" px
+    And I scroll the "Post job Checkout" item into view
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/170-build-results.png"
 
   Scenario: View agents
