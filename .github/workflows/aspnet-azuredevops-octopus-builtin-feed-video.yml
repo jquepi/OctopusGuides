@@ -78,6 +78,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdumpAliasesOnFailure=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-aspnet-project.feature
