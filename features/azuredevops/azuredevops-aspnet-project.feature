@@ -14,7 +14,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Admin settings | //a[@href='/DefaultCollection/_settings/'] |
 
     And I sleep for "3" seconds
-    And I highlight outside the "Admin settings" button
+    And I highlight outside the "Admin settings" button with an offset of "2"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/010-admin-settings.png"
     And I click the "Admin settings" button
     And I sleep for "20" seconds
@@ -118,8 +118,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/debug1.png"
     And I mouse over the "Pipelines" menu item
-    And I highlight outside the "Pipelines" menu item with an offset of "0"
-    And I highlight outside the "Build" link with an offset of "0"
+    And I highlight inside the "Pipelines" menu item
+    And I highlight inside the "Build" link
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/020-build.png"
     And I click the "Build" link
 
@@ -133,6 +133,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/040-external-git.png"
     And I click the "Add connection" button
     And I remove the highlight from the "External Git Container" element
+    And I remove the highlight from the "Add connection" button
 
     And I highlight outside the "Connection name" text box
     And I highlight outside the "Git repository URL" text box
@@ -149,7 +150,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/060-continue.png"
     And I click the "Continue" button
 
-    And I highlight outside the "ASP.NET Row" element with an offset of "0"
+    And I highlight inside the "ASP.NET Row" element
     And I mouse over the "ASP.NET Row" element
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/070-aspnet.png"
     And I click the "ASP.NET" button
@@ -187,7 +188,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Default Space              | //li[text()='Default']                                                                     |
       | Package                    | //textarea[../../../../../../div/label[contains(.,'Package')]]                             |
 
-    And I highlight outside the "Agent pool" drop down list with an offset of "0"
+    And I highlight inside the "Agent pool" drop down list
     And I click the "Agent pool" drop down list
     And I click the "Default" option
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/080-default-agent-pool.png"
@@ -199,6 +200,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I clear the "MSBuild Arguments" text box
     And I populate the "MSBuild Arguments" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.$(Build.BuildId) /p:OctoPackEnforceAddingFiles=true"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/090-msbuild-arguments.png"
+    And I remove the highlight from the "Build solution" row
 
     And I highlight inside the "Test Assemblies" row
     And I click the "Test Assemblies" row
@@ -208,8 +210,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight inside the "Path to vstest.console.exe" text box
     And I populate the "Path to vstest.console.exe" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/100-vstest-location.png"
+    And I remove the highlight from the "Test Assemblies" row
 
-    And I highlight outside the "Add task" button
+    And I highlight inside the "Add task" button
     And I click the "Publish artifact" row
     And I click the "Add task" button
 
@@ -219,6 +222,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Push package title" element with an offset of "5"
     And I mouse over the "Push package title" element
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/110-octopus-push.png"
+    And I remove the highlight from the "Add task" button
 
     And I click the "Push package" button
     And I click the "Push Packages to Octopus" row
@@ -227,10 +231,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "New" button with an offset of "2"
     And I click the "New" button
 
-    And I highlight outside the "Connection name" text box
-    And I highlight outside the "Server URL" text box
-    And I highlight outside the "API Key" text box
-    And I highlight outside the "OK" button  with an offset of "5"
+    And I highlight outside the "Connection name" text box with an offset of "2"
+    And I highlight outside the "Server URL" text box with an offset of "2"
+    And I highlight outside the "API Key" text box with an offset of "2"
+    And I highlight outside the "OK" button with an offset of "0"
     And I populate the "Connection name" text box with "Octopus"
     And I populate the "Server URL" text box with "http://localhost"
     And I populate the "API Key" text box with "ExternalOctopusAPIKey"
@@ -241,7 +245,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Space Refresh" button
     And I sleep for "2" seconds
 
-    And I highlight outside the "Space" drop down list
+    And I highlight outside the "Space" drop down list with an offset of "2"
     And I click the "Space" drop down list
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/debug2.png"
     And I click the "Default Space" option
@@ -254,12 +258,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
-    And I highlight outside the "Save and queue two" button
+    And I highlight inside the "Save and queue two" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/150-save-and-queue.png"
     And I click the "Save and queue two" button
+    And I remove the highlight from the "Save and queue" button
 
-    And I highlight outside the "Comment" text box with an offset of "2"
-    And I highlight outside the "Save and queue three" button
+    And I highlight outside the "Comment" text box with an offset of "0"
+    And I highlight outside the "Save and queue three" button with an offset of "2"
     And I populate the "Comment" text box with "Initial build"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/160-initial-build.png"
     And I click the "Save and queue three" button
