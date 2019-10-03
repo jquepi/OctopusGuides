@@ -273,7 +273,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/165-build-link.png"
     And I click the "Build link" element
 
-    And I sleep for "20" seconds
+    And I sleep for "60" seconds
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/170-build-results.png"
 
   Scenario: View agents
