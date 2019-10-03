@@ -21,7 +21,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @install-extensions
   Scenario: Install extensions
     Given I set the following aliases:
-      | Extensions | //a[@href='/DefaultCollection/_settings/extensions']         |
+      | Extensions | //a[@href='/DefaultCollection/_settings/extensions'] |
 
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug1.png"
     And I mouse over the "Extensions" button
@@ -32,7 +32,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @skip-new-features @install-extensions
   Scenario: Close new features popup
     Given I set the following aliases:
-      | Close      | //button[contains(@class,'bolt-teaching-pane-close-button')] |
+      | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
     And I click the "Close" button
 
   @install-extensions
@@ -156,6 +156,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | API Key                    | //input[@id='apitoken']                                                                    |
       | OK                         | //button[@id='ok']                                                                         |
       | Space                      | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]] |
+      | Space Refresh              | //button[./div/span[text()='Refresh Space']]                                               |
       | Default Space              | //li[text()='Default']                                                                     |
       | Package                    | //textarea[../../../../../../div/label[contains(.,'Package')]]                             |
 
@@ -190,6 +191,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/130-octopus-details.png"
     And I click the "OK" button
 
+    And I click the "Space Refresh" button
+    And I sleep for "2" seconds
     And I click the "Space" drop down list
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/debug2.png"
     And I click the "Default Space" option
