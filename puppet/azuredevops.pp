@@ -45,6 +45,7 @@ file { 'C:/tools/vsts-agent-win-x86-2.144.2':
   content => @(EOT)
     C:\tools\vsts-agent-win-x86-2.144.2\config.cmd --unattended --url http://localhost:9090 --auth integrated --pool default --agent myAgent
     start "C:\tools\vsts-agent-win-x86-2.144.2\run.cmd" -PassThru
+    exit 0
     | EOT
 }
 -> exec { 'Configure agent':
