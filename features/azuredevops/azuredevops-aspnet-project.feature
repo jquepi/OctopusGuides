@@ -191,6 +191,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "OK" button
 
     And I click the "Space" drop down list
+    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/debug2.png"
     And I click the "Default Space" option
     And I populate the "Package" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(Build.BuildId).nupkg"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/140-space-and-package.png"
