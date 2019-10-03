@@ -25,8 +25,7 @@ package { 'sql-server-express':
   command => 'C:\\Windows\\system32\\cmd.exe /c C:\\install_azure.bat',
   timeout => 3600,
 }
-
-file { 'C:/tools/vsts-agent-win-x86-2.144.2':
+-> file { 'C:/tools/vsts-agent-win-x86-2.144.2':
   ensure => 'directory'
 }
 -> archive { 'C:/tools/vsts-agent-win-x86-2.144.2.zip':
