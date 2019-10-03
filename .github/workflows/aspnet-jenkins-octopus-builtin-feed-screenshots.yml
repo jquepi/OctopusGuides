@@ -1,5 +1,6 @@
 name: ASP.NET Jenkins Octopus Built-in Feed Screenshots
-on: [push]
+#on: [push]
+on: []
 jobs:
   build:
     runs-on: windows-2019
