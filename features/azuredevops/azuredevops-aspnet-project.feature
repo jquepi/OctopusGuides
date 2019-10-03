@@ -14,7 +14,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Admin settings | //a[@href='/DefaultCollection/_settings/'] |
 
     And I sleep for "3" seconds
-    And I highlight outside the "Admin settings" button with an offset of "2"
+    And I highlight inside the "Admin settings" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/010-admin-settings.png"
     And I click the "Admin settings" button
     And I sleep for "20" seconds
@@ -25,11 +25,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Extensions | //a[@href='/DefaultCollection/_settings/extensions'] |
 
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug1.png"
-    And I highlight outside the "Extensions" button with an offset of "0"
+    And I highlight inside the "Extensions" button
     And I mouse over the "Extensions" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug2.png"
+    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/015-extensions.png"
     And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug3.png"
 
   @skip-new-features @install-extensions
   Scenario: Close new features popup
@@ -48,18 +47,17 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Install               | //button[contains(.,'Install')]                                               |
       | Proceed to collection | //a[@href='/DefaultCollection/']                                              |
 
-    And I highlight outside the "Browse Marketplace" button
+    And I highlight outside the "Browse Marketplace" button with an offset of "0"
     And I mouse over the "Browse Marketplace" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/020-browse-marketplace.png"
     # Open the marketplace URL directly to avoid it popping up in a new tab
     And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug4.png"
 
     And I highlight outside the "Search" text box
     And I populate the "Search" text box with "Octopus Deploy"
     And I click the "Search button" element
 
-    And I highlight outside the "Octopus tile" element with an offset of "0"
+    And I highlight inside the "Octopus tile" element
     And I mouse over the "Octopus tile" element
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/030-octopus-extension-tile.png"
     # Open the URL directly, but make it look like we clicked on the tile
@@ -142,6 +140,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Connection name" text box with "Random Quotes GitHub"
     And I clear the "Git repository URL" text box
     And I populate the "Git repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+    And I sleep for "1" second
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/050-git-details.png"
     And I click the "OK" button
 

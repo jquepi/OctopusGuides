@@ -6,8 +6,7 @@ package { 'sql-server-express':
   ensure   => installed,
   provider => chocolatey
 }
-
-download_file { 'azuredevopsexpress2019.exe':
+-> download_file { 'azuredevopsexpress2019.exe':
   destination_directory => 'C:/tools',
   url                   =>
     'https://octopus-guides.s3.amazonaws.com/azuredevops/azuredevopsexpress2019.exe',
@@ -30,8 +29,7 @@ download_file { 'azuredevopsexpress2019.exe':
 file { 'C:/tools/vsts-agent-win-x86-2.144.2':
   ensure => 'directory'
 }
-
-archive { 'C:/tools/vsts-agent-win-x86-2.144.2.zip':
+-> archive { 'C:/tools/vsts-agent-win-x86-2.144.2.zip':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/tools/vsts-agent-win-x86-2.144.2',
@@ -39,8 +37,7 @@ archive { 'C:/tools/vsts-agent-win-x86-2.144.2.zip':
   creates      => 'C:/tools/vsts-agent-win-x86-2.144.2/run.cmd',
   cleanup      => true,
 }
-
-file { 'C:/install_azure_agent.ps1':
+-> file { 'C:/install_azure_agent.ps1':
   ensure  => 'file',
   owner   => 'Administrators',
   group   => 'Administrators',
