@@ -24,6 +24,8 @@ Feature: Create and deploy a release
       | Octopus Deploy Server    | //div[@aria-label='Expand'][../../../../../../../../../../div/div/label[contains(.,'Octopus Deploy Server')]] |
       | Octopus Deploy Space     | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]                    |
       | Octopus Deploy Project   | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]]                  |
+      | Space Refresh            | //button[./div/span[text()='Refresh Space']]                                                                  |
+      | Project Refresh          | //button[./div/span[text()='Refresh Project']]                                                                |
       | Octopus Server           | //li[text()='Octopus']                                                                                        |
       | Default Space            | //li[text()='Default']                                                                                        |
       | Random Quotes Project    | //li[text()='Random Quotes']                                                                                  |
@@ -55,9 +57,13 @@ Feature: Create and deploy a release
     And I click the "Octopus Deploy Server" drop down list
     And I click the "Octopus Server" option
 
+    And I click the "Space Refresh" button
+    And I sleep for "2" seconds
     And I click the "Octopus Deploy Space" drop down list
     And I click the "Default Space" option
 
+    And I click the "Project Refresh" button
+    And I sleep for "2" seconds
     And I click the "Octopus Deploy Project" drop down list
     And I click the "Random Quotes Project" option
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/050-populated.png"
