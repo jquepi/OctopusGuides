@@ -226,15 +226,15 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I click the "Push package" button
     And I click the "Push Packages to Octopus" row
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/120-octopus-connection.png"
-
     And I highlight outside the "New" button with an offset of "2"
+    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/120-octopus-connection.png"
     And I click the "New" button
+    And I remove the highlight from the "New" button
 
     And I highlight outside the "Connection name" text box with an offset of "2"
     And I highlight outside the "Server URL" text box with an offset of "2"
     And I highlight outside the "API Key" text box with an offset of "2"
-    And I highlight outside the "OK" button with an offset of "0"
+    And I highlight inside the "OK" button
     And I populate the "Connection name" text box with "Octopus"
     And I populate the "Server URL" text box with "http://localhost"
     And I populate the "API Key" text box with "ExternalOctopusAPIKey"
