@@ -35,50 +35,77 @@ Feature: Create and deploy a release
       | Comment                  | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                                            |
       | Build link               | //a[contains(@class, 'ci-queued-build-link')]                                                                 |
 
+    And I highlight outside the "Random Quotes" tile
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/010-project-tile.png"
     And I click the "Random Quotes" tile
 
     And I mouse over the "Pipelines" menu item
+    And I highlight inside the "Pipelines" menu item
+    And I highlight inside the "Build" link
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/020-build.png"
     And I click the "Build" menu item
 
+    And I highlight outside the "Edit" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/030-edit.png"
     And I click the "Edit" button
 
     And I click the "Push Packages to Octopus" job tile
+
+    And I highlight inside the "Add task" button
     And I click the "Add task" button
+    And I highlight outside the "Search" text box
     And I populate the "Search" text box with "Octopus Release"
     And I sleep for "2" seconds
+
     And I mouse over the "Create release tile" element
+    And I highlight outside the "Create release tile" element with an offset of "5"
+
     And I click the "Create release" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/040-create-release-job.png"
     And I click the "Create Octopus Release" job tile
+    And I remove the highlight from the "Add task" button
 
+    And I highlight outside the "Octopus Deploy Server" drop down list
     And I click the "Octopus Deploy Server" drop down list
     And I click the "Octopus Server" option
 
+    And I highlight outside the "Octopus Deploy Space" drop down list
     And I click the "Space Refresh" button
     And I sleep for "2" seconds
     And I click the "Octopus Deploy Space" drop down list
     And I click the "Default Space" option
 
+    And I highlight outside the "Octopus Deploy Project" drop down list
     And I click the "Project Refresh" button
     And I sleep for "2" seconds
     And I click the "Octopus Deploy Project" drop down list
     And I click the "Random Quotes Project" option
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/050-populated.png"
 
+    And I remove the highlight from the "Octopus Deploy Project" drop down list
+    And I remove the highlight from the "Octopus Deploy Space" drop down list
+    And I remove the highlight from the "Octopus Deploy Server" drop down list
+
+    And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
+    And I highlight inside the "Save and queue two" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/060-save-and-queue.png"
     And I click the "Save and queue two" button
+    And I remove the highlight from the "Save and queue" button
 
+    And I highlight outside the "Comment" text box with an offset of "0"
+    And I highlight outside the "Save and queue three" button with an offset of "2"
+    And I scroll the "Comment" text box with
     And I populate the "Comment" text box with "Build and deploy"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/070-initial-build.png"
+    And I scroll the "Save and queue three" button into view
+    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/075-initial-build-save-and-continue.png"
     And I click the "Save and queue three" button
     And I sleep for "3" seconds
 
+    And I highlight outside the "Build link" element
     And I click the "Build link" element
-    And I sleep for "20" seconds
+    And I sleep for "60" seconds
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/080-build-results.png"
 
   Scenario: Shutdown
