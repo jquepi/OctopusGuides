@@ -95,7 +95,7 @@ Feature: Create and deploy a release
 
     And I highlight outside the "Comment" text box with an offset of "0"
     And I highlight outside the "Save and queue three" button with an offset of "2"
-    And I scroll the "Comment" text box with
+    And I scroll the "Comment" text box into view
     And I populate the "Comment" text box with "Build and deploy"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/070-initial-build.png"
     And I scroll the "Save and queue three" button into view
