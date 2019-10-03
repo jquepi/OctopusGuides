@@ -5,7 +5,7 @@ Feature: Create and deploy a release
     And I open the shared browser "FirefoxNoImplicitWaitNoProxy"
     And I set the default explicit wait time to "30" seconds
     And I maximize the window
-    #And I set the window size to "1024" x "768"
+    And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/DefaultCollection"
 
   @add-step
@@ -72,7 +72,7 @@ Feature: Create and deploy a release
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/060-save-and-queue.png"
     And I click the "Save and queue two" button
 
-    And I populate the "Comment" text box with "Initial build"
+    And I populate the "Comment" text box with "Build and deploy"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/070-initial-build.png"
     And I click the "Save and queue three" button
     And I sleep for "3" seconds

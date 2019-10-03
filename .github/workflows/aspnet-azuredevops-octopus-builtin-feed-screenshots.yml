@@ -19,6 +19,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
+        "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-api-key.feature
@@ -48,6 +49,51 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create the Octopus Environments
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-environments.feature
+    - name: Add tentacle
+      shell: powershell
+      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\tentacle.pp --disable_warnings=deprecations'
+    - name: Create Octopus Project
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-aspnet-project.feature
+    - name: Add a deployment step
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\azuredevops\azuredevops-create-deploy.feature
     - name: Upload screenshots
       shell: powershell
       run: |
