@@ -13,6 +13,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Admin settings | //a[@href='/DefaultCollection/_settings/'] |
 
+    And I sleep for "3" seconds
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/010-admin-settings.png"
     And I click the "Admin settings" button
     And I sleep for "20" seconds
