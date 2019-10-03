@@ -24,6 +24,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-api-key.feature
@@ -52,6 +53,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\azuredevops\azuredevops-aspnet-project.feature
@@ -74,6 +76,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-environments.feature
@@ -100,6 +103,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-aspnet-project.feature
@@ -122,6 +126,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\open-randomquotes-iis-dev.feature
@@ -144,6 +149,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\azuredevops\azuredevops-create-deploy.feature
@@ -166,6 +172,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-lifecycle.feature
@@ -188,6 +195,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\open-randomquotes-iis-test.feature
@@ -210,6 +218,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-manual-intervention.feature
@@ -233,6 +242,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-email-notification.feature
@@ -255,6 +265,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-users-and-teams.feature
@@ -277,6 +288,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-view-internal-deployments.feature
@@ -299,6 +311,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-view-production-deployments.feature
@@ -321,6 +334,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=${{ GITHUB_SHA }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-audit-log.feature
