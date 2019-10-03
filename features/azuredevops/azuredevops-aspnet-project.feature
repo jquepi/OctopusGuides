@@ -11,15 +11,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @admin-settings
   Scenario: Install Extensions
     Given I set the following aliases:
-      | Admin settings        | //a[@href='/DefaultCollection/_settings/']                                    |
-      | Extensions            | //a[@href='/DefaultCollection/_settings/extensions']                          |
-      | Browse Marketplace    | //a[contains(.,'Browse Marketplace')]                                         |
-      | Search                | //input[@aria-label='Search Azure DevOps extensions']                         |
-      | Search button         | //span[@title='search']                                                       |
-      | Octopus tile          | //a[@href='/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks'] |
-      | Get it free           | //button[text()='Get it free']                                                |
-      | Install               | //button[contains(.,'Install')]                                               |
-      | Proceed to collection | //a[@href='/DefaultCollection/']                                              |
+      | Admin settings | //a[@href='/DefaultCollection/_settings/'] |
 
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/010-admin-settings.png"
     And I click the "Admin settings" button
@@ -28,14 +20,30 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @install-extensions
   Scenario: Install extensions
     Given I set the following aliases:
-      | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
+      | Extensions | //a[@href='/DefaultCollection/_settings/extensions']         |
+      | Close      | //button[contains(@class,'bolt-teaching-pane-close-button')] |
 
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug1.png"
     And I mouse over the "Extensions" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug2.png"
     And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug3.png"
+
+  @skip-new-features @install-extensions
+  Scenario: Close new features popup
     And I click the "Close" button
+
+  @install-extensions
+  Scenario: Continue adding extensions
+    Given I set the following aliases:
+      | Browse Marketplace    | //a[contains(.,'Browse Marketplace')]                                         |
+      | Search                | //input[@aria-label='Search Azure DevOps extensions']                         |
+      | Search button         | //span[@title='search']                                                       |
+      | Octopus tile          | //a[@href='/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks'] |
+      | Get it free           | //button[text()='Get it free']                                                |
+      | Install               | //button[contains(.,'Install')]                                               |
+      | Proceed to collection | //a[@href='/DefaultCollection/']                                              |
+
     And I mouse over the "Browse Marketplace" button
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/020-browse-marketplace.png"
     # Open the marketplace URL directly to avoid it popping up in a new tab
