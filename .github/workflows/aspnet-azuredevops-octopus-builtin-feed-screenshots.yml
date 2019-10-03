@@ -30,7 +30,7 @@ jobs:
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
-    - name: Add project
+    - name: Add Azure Devops Project
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
@@ -82,7 +82,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DdisableScreenshots=true"
+        "-DdisableScreenshots=false"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-aspnet-project.feature
