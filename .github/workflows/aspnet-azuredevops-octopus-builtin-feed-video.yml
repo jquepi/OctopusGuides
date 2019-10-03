@@ -20,6 +20,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-api-key.feature
@@ -44,6 +48,10 @@ jobs:
         "-DnoProxyList=microsoft.com"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\azuredevops\azuredevops-aspnet-project.feature
@@ -62,6 +70,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-environments.feature
@@ -80,6 +92,10 @@ jobs:
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
         "-DdumpAliasesOnFailure=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-aspnet-project.feature
@@ -94,6 +110,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\open-randomquotes-iis-dev.feature
@@ -108,6 +128,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\azuredevops\azuredevops-create-deploy.feature
@@ -122,6 +146,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-lifecycle.feature
@@ -136,6 +164,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\open-randomquotes-iis-test.feature
@@ -150,6 +182,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-manual-intervention.feature
@@ -165,6 +201,10 @@ jobs:
         "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-email-notification.feature
@@ -179,6 +219,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-users-and-teams.feature
@@ -193,6 +237,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-view-internal-deployments.feature
@@ -207,6 +255,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-view-production-deployments.feature
@@ -221,6 +273,10 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-audit-log.feature
