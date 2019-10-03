@@ -45,7 +45,7 @@ Feature: Create and deploy a release
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/020-build.png"
     And I click the "Build" menu item
 
-    And I highlight outside the "Edit" button
+    And I highlight outside the "Edit" button with an offset of "2"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/030-edit.png"
     And I click the "Edit" button
 
@@ -65,17 +65,17 @@ Feature: Create and deploy a release
     And I click the "Create Octopus Release" job tile
     And I remove the highlight from the "Add task" button
 
-    And I highlight outside the "Octopus Deploy Server" drop down list
+    And I highlight outside the "Octopus Deploy Server" drop down list with an offset of "2"
     And I click the "Octopus Deploy Server" drop down list
     And I click the "Octopus Server" option
 
-    And I highlight outside the "Octopus Deploy Space" drop down list
+    And I highlight outside the "Octopus Deploy Space" drop down list with an offset of "2"
     And I click the "Space Refresh" button
     And I sleep for "2" seconds
     And I click the "Octopus Deploy Space" drop down list
     And I click the "Default Space" option
 
-    And I highlight outside the "Octopus Deploy Project" drop down list
+    And I highlight outside the "Octopus Deploy Project" drop down list with an offset of "2"
     And I click the "Project Refresh" button
     And I sleep for "2" seconds
     And I click the "Octopus Deploy Project" drop down list
