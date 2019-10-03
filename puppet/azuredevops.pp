@@ -46,8 +46,8 @@ file { 'C:/install_azure_agent.ps1':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    "C:/tools/vsts-agent-win-x86-2.144.2\config.cmd" --unattended --url http://localhost:9090 --auth integrated --pool default --agent myAgent
-    start C:/tools/vsts-agent-win-x86-2.144.2\run.cmd
+    C:\tools\vsts-agent-win-x86-2.144.2\config.cmd --unattended --url http://localhost:9090 --auth integrated --pool default --agent myAgent
+    start C:\tools\vsts-agent-win-x86-2.144.2\run.cmd
     | EOT
 }
 -> exec { 'Configure agent':
