@@ -207,7 +207,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Specific location" option into view offset by "-200"
     And I force click the "Specific location" option
     And I highlight inside the "Path to vstest.console.exe" text box
-    And I populate the "Path to vstest.console.exe" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
+    And I populate the "Path to vstest.console.exe" text box with "RandomQuotes-aspmvc4\packages\Microsoft.TestPlatform.16.3.0\tools\net451\Common7\IDE\Extensions\TestPlatform\vstest.console.exe"
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/100-vstest-location.png"
     And I remove the highlight from the "Test Assemblies" row
 
