@@ -163,10 +163,6 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    # We need the memory, and the last deployment from the CI server is now done
-    - name: Shutdown Azure Devops
-      shell: powershell
-      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\azuredevops-stop.pp --disable_warnings=deprecations'
     - name: Add a lifecycle
       shell: powershell
       run: >
