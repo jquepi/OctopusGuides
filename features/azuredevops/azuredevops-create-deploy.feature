@@ -109,6 +109,6 @@ Feature: Create and deploy a release
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/createrelease/080-build-results.png"
 
   Scenario: Shutdown
-    #Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
     And I close the browser

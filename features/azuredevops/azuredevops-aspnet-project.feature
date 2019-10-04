@@ -287,6 +287,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Then I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/build-agents.png"
 
   Scenario: Shutdown
-    #Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
     And I close the browser
