@@ -35,6 +35,7 @@ Feature: Create and deploy a release
       | Save and queue three     | //button[@aria-label='Save & queue']                                                                          |
       | Comment                  | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                                            |
       | Build link               | //a[contains(@class, 'ci-queued-build-link')]                                                                 |
+      | Post job Checkout        | //div[text()='Post-job: Checkout']                                                                            |
 
     And I highlight outside the "Random Quotes" tile
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\010-project-tile.png"
@@ -46,7 +47,7 @@ Feature: Create and deploy a release
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\020-build.png"
     And I click the "Build" menu item
 
-    And I highlight outside the "Edit" button with an offset of "2"
+    And I highlight outside the "Edit" button with an offset of "0"
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\030-edit.png"
     And I click the "Edit" button
 
@@ -107,6 +108,7 @@ Feature: Create and deploy a release
     And I highlight outside the "Build link" element
     And I click the "Build link" element
     And I sleep for "60" seconds
+    And I scroll the "Post job Checkout" item into view
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\080-build-results.png"
 
   Scenario: Shutdown
