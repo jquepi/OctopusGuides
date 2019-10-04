@@ -15,7 +15,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I sleep for "3" seconds
     And I highlight inside the "Admin settings" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/010-admin-settings.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\010-admin-settings.png"
     And I click the "Admin settings" button
     And I sleep for "20" seconds
 
@@ -24,10 +24,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Extensions | //a[@href='/DefaultCollection/_settings/extensions'] |
 
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/debug1.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\debug1.png"
     And I highlight inside the "Extensions" button
     And I mouse over the "Extensions" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/015-extensions.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\015-extensions.png"
     And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
 
   @skip-new-features @install-extensions
@@ -49,7 +49,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Browse Marketplace" button with an offset of "0"
     And I mouse over the "Browse Marketplace" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/020-browse-marketplace.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\020-browse-marketplace.png"
     # Open the marketplace URL directly to avoid it popping up in a new tab
     And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
 
@@ -59,25 +59,25 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Octopus tile" element with an offset of "0"
     And I mouse over the "Octopus tile" element
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/030-octopus-extension-tile.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\030-octopus-extension-tile.png"
     # Open the URL directly, but make it look like we clicked on the tile
     And I open the URL "https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
 
     And I highlight outside the "Get it free" button
     And I mouse over the "Get it free" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/040-octopus-extension-getit.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\040-octopus-extension-getit.png"
     # This is a workaround to the fact that we don't have a public url, so we don't click the button but instead
     # open the internal URL that allows us to add the extension.
     And I open the URL "http://localhost:9090/_gallery/acquisition?itemName=octopusdeploy.octopus-deploy-build-release-tasks&installContext=eyJpdGVtTmFtZSI6Im9jdG9wdXNkZXBsb3kub2N0b3B1cy1kZXBsb3ktYnVpbGQtcmVsZWFzZS10YXNrcyIsIml0ZW1VcmwiOiJodHRwczovL21hcmtldHBsYWNlLnZpc3VhbHN0dWRpby5jb20vaXRlbXM%2FaXRlbU5hbWU9b2N0b3B1c2RlcGxveS5vY3RvcHVzLWRlcGxveS1idWlsZC1yZWxlYXNlLXRhc2tzIiwiY29sbGVjdGlvbklkIjoiOGFmMWNhYzktYjU1Yi00ODY5LWE0ZGItY2UxODEwZTQ1NmY5In0%3D"
     And I sleep for "10" seconds
 
     And I highlight outside the "Install" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/050-octopus-extension-install.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\050-octopus-extension-install.png"
     And I click the "Install" button
     And I sleep for "5" seconds
 
     And I highlight outside the "Proceed to collection" button with an offset of "5"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/060-octopus-extension-continue.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\060-octopus-extension-continue.png"
     And I click the "Proceed to collection" button
     And I sleep for "1" second
 
@@ -93,7 +93,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Create project" button
     And I populate the "Project name" text box with "Random Quotes"
     And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/010-create-project.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\010-create-project.png"
     And I click the "Create project" button
     And I sleep for "40" seconds
 
@@ -114,21 +114,21 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | ASP.NET                | //button[./div/span[text()='Apply ASP.NET template']]                           |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/debug1.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\debug1.png"
     And I mouse over the "Pipelines" menu item
     And I highlight inside the "Pipelines" menu item
     And I highlight inside the "Build" link
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/020-build.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\020-build.png"
     And I click the "Build" link
 
     And I highlight outside the "New pipeline" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/030-new-pipeline.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\030-new-pipeline.png"
     And I click the "New pipeline" button
 
     And I highlight outside the "External Git Container" element
     And I click the "External Git Container" element
     And I highlight outside the "Add connection" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/040-external-git.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\040-external-git.png"
     And I click the "Add connection" button
     And I remove the highlight from the "External Git Container" element
     And I remove the highlight from the "Add connection" button
@@ -141,17 +141,17 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I clear the "Git repository URL" text box
     And I populate the "Git repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
     And I sleep for "1" second
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/050-git-details.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\050-git-details.png"
     And I click the "OK" button
 
     And I sleep for "3" second
     And I highlight outside the "Continue" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/060-continue.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\060-continue.png"
     And I click the "Continue" button
 
     And I highlight inside the "ASP.NET Row" element
     And I mouse over the "ASP.NET Row" element
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/070-aspnet.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\070-aspnet.png"
     And I click the "ASP.NET" button
 
     And I sleep for "1" seconds
@@ -191,7 +191,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight inside the "Agent pool" drop down list
     And I click the "Agent pool" drop down list
     And I click the "Default" option
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/080-default-agent-pool.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\080-default-agent-pool.png"
 
     And I highlight inside the "Build solution" row
     And I click the "Build solution" row
@@ -199,7 +199,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "MSBuild Arguments" text box into view offset by "-200"
     And I clear the "MSBuild Arguments" text box
     And I populate the "MSBuild Arguments" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.$(Build.BuildId) /p:OctoPackEnforceAddingFiles=true"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/090-msbuild-arguments.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\090-msbuild-arguments.png"
     And I remove the highlight from the "Build solution" row
 
     And I highlight inside the "Test Assemblies" row
@@ -209,7 +209,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I force click the "Specific location" option
     And I highlight inside the "Path to vstest.console.exe" text box
     And I populate the "Path to vstest.console.exe" text box with "$(Build.Repository.LocalPath)\packages\Microsoft.TestPlatform.16.3.0\tools\net451\Common7\IDE\Extensions\TestPlatform\vstest.console.exe"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/100-vstest-location.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\100-vstest-location.png"
     And I remove the highlight from the "Test Assemblies" row
 
     And I highlight inside the "Add task" button
@@ -221,13 +221,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Push package title" element with an offset of "5"
     And I mouse over the "Push package title" element
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/110-octopus-push.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\110-octopus-push.png"
     And I remove the highlight from the "Add task" button
 
     And I click the "Push package" button
     And I click the "Push Packages to Octopus" row
     And I highlight outside the "New" button with an offset of "2"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/120-octopus-connection.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\120-octopus-connection.png"
     And I click the "New" button
     And I remove the highlight from the "New" button
 
@@ -238,7 +238,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Connection name" text box with "Octopus"
     And I populate the "Server URL" text box with "http://localhost"
     And I populate the "API Key" text box with "ExternalOctopusAPIKey"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/130-octopus-details.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\130-octopus-details.png"
     And I click the "OK" button
     And I remove the highlight from the "New" button
 
@@ -247,19 +247,19 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Space" drop down list with an offset of "2"
     And I click the "Space" drop down list
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/debug2.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\debug2.png"
     And I click the "Default Space" option
 
     And I highlight outside the "Package" text box
     And I populate the "Package" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(Build.BuildId).nupkg"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/140-space-and-package.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\140-space-and-package.png"
     And I remove the highlight from the "Space" drop down list
     And I remove the highlight from the "Package" text box
 
     And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
     And I highlight inside the "Save and queue two" button
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/150-save-and-queue.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\150-save-and-queue.png"
     And I click the "Save and queue two" button
     And I remove the highlight from the "Save and queue" button
 
@@ -267,24 +267,24 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Save and queue three" button with an offset of "2"
     And I scroll the "Comment" text box into view
     And I populate the "Comment" text box with "Initial build"
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/160-initial-build.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\160-initial-build.png"
     And I scroll the "Save and queue three" button into view
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/163-save-and-queue.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\163-save-and-queue.png"
     And I click the "Save and queue three" button
     And I sleep for "3" seconds
 
     And I highlight outside the "Build link" element
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/165-build-link.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\165-build-link.png"
     And I click the "Build link" element
 
     And I sleep for "120" seconds
     And I scroll the "Post job Checkout" item into view
-    And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/170-build-results.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\170-build-results.png"
 
   Scenario: View agents
     Given I open the URL "http://localhost:9090/DefaultCollection/_settings/agentpools?poolId=1&_a=agents"
     And I sleep for "10" seconds
-    Then I save a screenshot to "s3://i.octopus.com/guides/azuredevops/initialproject/build-agents.png"
+    Then I save a screenshot to "c:\screenshots\azuredevops\initialproject\build-agents.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
