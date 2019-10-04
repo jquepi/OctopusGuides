@@ -1,0 +1,29 @@
+name: ASP.NET Azure Devops Octopus Built-in Feed Screenshots
+on: [push]
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v1
+    - name: Create API key
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
+        "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\test\test.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
