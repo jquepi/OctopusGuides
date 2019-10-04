@@ -5,6 +5,9 @@ jobs:
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
+    - name: download webdriver
+      shell: powershell
+      run: (New-Object System.Net.WebClient).DownloadFile("https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.5/webdrivertraining-1.0-SNAPSHOT.jar", "C:\tools\webdrivertraining-1.0-SNAPSHOT.jar")
     - name: Create API key
       shell: powershell
       run: >
@@ -20,6 +23,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=TestFeature"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\test\test.feature
