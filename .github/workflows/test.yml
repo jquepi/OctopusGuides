@@ -8,7 +8,7 @@ jobs:
     - name: download webdriver
       shell: powershell
       run: (New-Object System.Net.WebClient).DownloadFile("https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.5/webdrivertraining-1.0-SNAPSHOT.jar", "C:\tools\webdrivertraining-1.0-SNAPSHOT.jar")
-    - name: Create API key
+    - name: Open Google
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
