@@ -57,7 +57,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Search" text box with "Octopus Deploy"
     And I click the "Search button" element
 
-    And I highlight inside the "Octopus tile" element
+    And I highlight outside the "Octopus tile" element with an offset of "0"
     And I mouse over the "Octopus tile" element
     And I save a screenshot to "s3://i.octopus.com/guides/azuredevops/extensions/030-octopus-extension-tile.png"
     # Open the URL directly, but make it look like we clicked on the tile
