@@ -1,4 +1,4 @@
-name: ASP.NET Azure Devops Octopus Built-in Feed Screenshots
+name: Test Workflow
 on: [push]
 jobs:
   build:
