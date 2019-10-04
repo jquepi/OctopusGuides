@@ -5,18 +5,18 @@ jobs:
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
-    - name: Setup java
+    - name: Setup Java
       uses: actions/setup-java@v1
       with:
         java-version: 13
         architecture: x64
-    - name: download webdriver
+    - name: Download WebDriver
       shell: powershell
       run: (New-Object System.Net.WebClient).DownloadFile("https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.5/webdrivertraining-1.0-SNAPSHOT.jar", "C:\tools\webdrivertraining-1.0-SNAPSHOT.jar")
     - name: Open Google
       shell: powershell
       run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        java
         "--enable-preview"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-Dwebdriver.firefox.logfile=C:\firefox.log"
