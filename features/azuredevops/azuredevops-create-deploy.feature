@@ -7,6 +7,7 @@ Feature: Create and deploy a release
     And I maximize the window
     And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/DefaultCollection"
+    And I start recording the screen to the directory "C:\screenshots"
 
   @add-step
   Scenario: Add deploy step
