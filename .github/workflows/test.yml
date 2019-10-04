@@ -13,6 +13,12 @@ jobs:
     - name: Download WebDriver
       shell: powershell
       run: (New-Object System.Net.WebClient).DownloadFile("https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.5/webdrivertraining-1.0-SNAPSHOT.jar", "C:\tools\webdrivertraining-1.0-SNAPSHOT.jar")
+    - name: Download Geckdriver
+      shell: powershell
+      run: (New-Object System.Net.WebClient).DownloadFile("https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-win64.zip", "C:\tools\geckodriver-v0.25.0-win64.zip")
+    - name: Expand Geckdriver
+      shell: powershell
+      run: Expand-Archive -Path C:\tools\geckodriver-v0.25.0-win64.zip -DestinationPath C:\tools
     - name: Open Google
       shell: powershell
       run: >
