@@ -166,9 +166,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Save and queue three       | //button[@aria-label='Save & queue']                                                       |
       | Comment                    | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                         |
       | Build link                 | //a[contains(@class, 'ci-queued-build-link')]                                              |
-      | Publish artifact           | //div[@data-list-index='5'][contains(.,'Publish Artifact')]/div/div/div/div                |
-      | Test Assemblies            | //div[@data-list-index='3'][contains(.,'Test Assemblies')]/div/div/div/div                 |
-      | Build solution             | //div[@data-list-index='2'][contains(.,'Build solution')]/div/div/div/div                  |
+      | Publish artifact           | //div[@data-list-index='5']/div/div/div/div[./div/div/div/div[text()='Publish Artifact']]  |
+      | Test Assemblies            | //div[@data-list-index='3']/div/div/div/div[./div/div/div/div[text()='Test Assemblies']]   |
+      | Build solution             | //div[@data-list-index='2']/div/div/div/div[./div/div/div/div[text()='Build solution']]    |
       | Specific location          | //input[../label/span[text()='Specific location']]                                         |
       | Path to vstest.console.exe | //textarea[./../../../../../../../../div/label[text()='Path to vstest.console.exe']]       |
       | MSBuild Arguments          | //textarea[./../../../../../../../../div/label[text()='MSBuild Arguments']]                |
