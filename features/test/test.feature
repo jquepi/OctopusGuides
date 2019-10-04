@@ -9,4 +9,4 @@ Feature: Test feature
     And I set the default explicit wait time to "30" seconds
     And I maximize the window
     When I open the URL "https://google.com"
-    And I sleep for "1" second
+    And I sleep for "10" second
