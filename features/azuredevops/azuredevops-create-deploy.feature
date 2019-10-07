@@ -49,7 +49,7 @@ Feature: Create and deploy a release
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\020-build.png"
     And I click the "Build" menu item
 
-    And I highlight outside the "Edit" button with an offset of "0"
+    And I highlight inside the "Edit" button
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\030-edit.png"
     And I click the "Edit" button
 
