@@ -1,7 +1,4 @@
-file { 'C:/tools/teamcity':
-  ensure => 'directory',
-}
--> archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
+archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
   ensure          => present,
   extract         => true,
   extract_path    => 'C:/tools',

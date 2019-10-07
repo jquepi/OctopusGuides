@@ -14,10 +14,8 @@ Feature: Set up Team City
     And I open the shared browser "FirefoxNoImplicitWaitNoProxy"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8111"
-    And I click the "Proceed" button
-    And I sleep for "2" seconds
-    And I click the "Proceed" button
-    And I sleep for "120" seconds
+    And I click the "Proceed" button waiting up to "500" seconds
+    And I click the "Proceed" button waiting up to "500" seconds
     And I click the "Accept" check box
     And I click the "Continue" button
 
