@@ -24,22 +24,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Install extensions
     Given I set the following aliases:
       | Extensions | //a[@href='/DefaultCollection/_settings/extensions'] |
-
-    And I save a screenshot to "c:\screenshots\azuredevops\extensions\debug1.png"
-    And I highlight inside the "Extensions" button
-    And I mouse over the "Extensions" button
-    And I save a screenshot to "c:\screenshots\azuredevops\extensions\015-extensions.png"
-    And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
-
-  @skip-new-features @install-extensions
-  Scenario: Close new features popup
-    Given I set the following aliases:
       | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
-    And I click the "Close" button
-
-  @install-extensions
-  Scenario: Continue adding extensions
-    Given I set the following aliases:
       | Browse Marketplace    | //a[contains(.,'Browse Marketplace')]                                         |
       | Search                | //input[@aria-label='Search Azure DevOps extensions']                         |
       | Search button         | //span[@title='search']                                                       |
@@ -47,6 +32,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Get it free           | //button[text()='Get it free']                                                |
       | Install               | //button[contains(.,'Install')]                                               |
       | Proceed to collection | //a[@href='/DefaultCollection/']                                              |
+
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\debug1.png"
+    And I highlight inside the "Extensions" button
+    And I mouse over the "Extensions" button
+    And I save a screenshot to "c:\screenshots\azuredevops\extensions\015-extensions.png"
+    And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
+
+    And I click the "Close" button if it exists
 
     And I highlight outside the "Browse Marketplace" button with an offset of "0"
     And I mouse over the "Browse Marketplace" button
