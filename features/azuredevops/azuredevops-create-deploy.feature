@@ -67,6 +67,7 @@ Feature: Create and deploy a release
 
     And I click the "Create release" button
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\040-create-release-job.png"
+    And I sleep for "1" second
 
     And I scroll the "Create Octopus Release" job tile into view
     And I click the "Create Octopus Release" job tile
