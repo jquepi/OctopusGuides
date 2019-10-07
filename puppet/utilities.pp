@@ -1,5 +1,10 @@
 include chocolatey
 
+package { 'gnuwin32-coreutils.install':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 package { 'vlc':
   ensure   => installed,
   provider => chocolatey
