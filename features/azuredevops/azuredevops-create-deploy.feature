@@ -1,7 +1,7 @@
 Feature: Create and deploy a release
 
   @login
-  Scenario: Log into Azure Devops
+  Scenario: Log into Azure DevOps
     And I open the shared browser "FirefoxNoImplicitWaitNoProxy"
     And I set the default explicit wait time to "30" seconds
     And I maximize the window
@@ -37,7 +37,7 @@ Feature: Create and deploy a release
       | Build link               | //a[contains(@class, 'ci-queued-build-link')]                                                                 |
       | Post job Checkout        | //div[text()='Post-job: Checkout']                                                                            |
 
-    And I display a note with the text "Deploying an Octopus release from Azure Devops" for "3" seconds
+    And I display a note with the text "Deploying an Octopus release from Azure DevOps" for "3" seconds
 
     And I highlight outside the "Random Quotes" tile
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\010-project-tile.png"

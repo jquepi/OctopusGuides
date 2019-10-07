@@ -1,7 +1,7 @@
 Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus instance
 
   @login
-  Scenario: Log into Azure Devops
+  Scenario: Log into Azure DevOps
     And I open the shared browser "FirefoxNoImplicitWaitNoProxy"
     And I set the default explicit wait time to "30" seconds
     And I maximize the window
@@ -14,7 +14,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Admin settings | //a[@href='/DefaultCollection/_settings/'] |
 
-    And I display a note with the text "Installing the Azure Devops extensions" for "3" seconds
+    And I display a note with the text "Installing the Azure DevOps extensions" for "3" seconds
     And I highlight inside the "Admin settings" button
     And I save a screenshot to "c:\screenshots\azuredevops\extensions\010-admin-settings.png"
     And I click the "Admin settings" button
@@ -89,7 +89,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Description    | //textarea[contains(@id,'project-description-textfield')] |
       | Create project | //button[contains(.,'Create project')]                    |
 
-    And I display a note with the text "Create the Azure Devops project" for "3" seconds
+    And I display a note with the text "Create the Azure DevOps project" for "3" seconds
 
     And I highlight outside the "Project name" text box
     And I highlight outside the "Description" text box

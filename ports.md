@@ -8,4 +8,4 @@ These are the ports used by the various apps deployed by Puppet and Octopus.
 | 8081 | ISS Dev      |
 | 8082 | ISS Test     |
 | 8083 | ISS Prod     |
-| 9090 | Azure Devops |
+| 9090 | Azure DevOps |
