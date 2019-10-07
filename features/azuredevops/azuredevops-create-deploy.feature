@@ -5,7 +5,7 @@ Feature: Create and deploy a release
     And I open the shared browser "FirefoxNoImplicitWaitNoProxy"
     And I set the default explicit wait time to "30" seconds
     And I maximize the window
-    And I set the window size to "1024" x "768"
+    #And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/DefaultCollection"
     And I start recording the screen to the directory "C:\screenshots"
 
@@ -37,6 +37,8 @@ Feature: Create and deploy a release
       | Build link               | //a[contains(@class, 'ci-queued-build-link')]                                                                 |
       | Post job Checkout        | //div[text()='Post-job: Checkout']                                                                            |
 
+    And I display a note with the text "Deploying an Octopus release from Azure Devops" for "3" seconds
+
     And I highlight outside the "Random Quotes" tile
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\010-project-tile.png"
     And I click the "Random Quotes" tile
@@ -51,6 +53,7 @@ Feature: Create and deploy a release
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\030-edit.png"
     And I click the "Edit" button
 
+    And I scroll the "Push Packages to Octopus" job tile into view
     And I click the "Push Packages to Octopus" job tile
 
     And I highlight inside the "Add task" button
@@ -64,6 +67,8 @@ Feature: Create and deploy a release
 
     And I click the "Create release" button
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\040-create-release-job.png"
+
+    And I scroll the "Create Octopus Release" job tile into view
     And I click the "Create Octopus Release" job tile
     And I remove the highlight from the "Add task" button
 
@@ -97,7 +102,7 @@ Feature: Create and deploy a release
 
     And I highlight outside the "Comment" text box with an offset of "0"
     And I highlight outside the "Save and queue three" button with an offset of "2"
-    And I scroll the "Comment" text box into view
+    And I scroll the "Comment" text box into view offset by "100"
     And I populate the "Comment" text box with "Build and deploy"
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\070-initial-build.png"
     And I scroll the "Save and queue three" button into view

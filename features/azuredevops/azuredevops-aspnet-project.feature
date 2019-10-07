@@ -14,11 +14,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Admin settings | //a[@href='/DefaultCollection/_settings/'] |
 
-    And I sleep for "3" seconds
+    And I display a note with the text "Installing the Azure Devops extensions" for "3" seconds
     And I highlight inside the "Admin settings" button
     And I save a screenshot to "c:\screenshots\azuredevops\extensions\010-admin-settings.png"
     And I click the "Admin settings" button
-    And I sleep for "20" seconds
+    And I sleep for "3" seconds
 
   @install-extensions
   Scenario: Install extensions
@@ -88,6 +88,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Project name   | //input[contains(@id,'project-name-textfield')]           |
       | Description    | //textarea[contains(@id,'project-description-textfield')] |
       | Create project | //button[contains(.,'Create project')]                    |
+
+    And I display a note with the text "Create the Azure Devops project" for "3" seconds
 
     And I highlight outside the "Project name" text box
     And I highlight outside the "Description" text box
@@ -266,7 +268,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Comment" text box with an offset of "0"
     And I highlight outside the "Save and queue three" button with an offset of "2"
-    And I scroll the "Comment" text box into view
+    And I scroll the "Comment" text box into view offset by "100"
     And I populate the "Comment" text box with "Initial build"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\160-initial-build.png"
     And I scroll the "Save and queue three" button into view
@@ -281,6 +283,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I sleep for "120" seconds
     And I scroll the "Post job Checkout" item into view
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\170-build-results.png"
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
 
   Scenario: View agents
     Given I open the URL "http://localhost:9090/DefaultCollection/_settings/agentpools?poolId=1&_a=agents"
@@ -288,6 +292,5 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Then I save a screenshot to "c:\screenshots\azuredevops\initialproject\build-agents.png"
 
   Scenario: Shutdown
-    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
     And I close the browser
