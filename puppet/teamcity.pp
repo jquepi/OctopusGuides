@@ -11,5 +11,5 @@ file { 'C:/tools/teamcity':
   extract_command => 'tar xfz %s'
 }
 -> exec { 'Run TeamCity':
-  command => 'C:\tools\teamcity\runAll.bat start',
+  command => 'C:\tools\teamcity\bin\runAll.bat start',
 }
