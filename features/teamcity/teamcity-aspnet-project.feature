@@ -59,9 +59,17 @@ Feature: Create ASP.NET project
     And I scroll the "NuGet Installer" option into view
     And I click the "NuGet Installer" option
     And I populate the "Step name" text box with "NuGet Restore"
+
+    And I scroll the "NuGet.exe" drop down into view
     And I select the option value "custom" from the "NuGet.exe" drop down list
+
+    And I scroll the "NuGet.exe path" text box into view
     And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
+
+    And I scroll the "Path to solution file" text box into view
     And I populate the "Path to solution file" text box with "RandomQuotes.sln"
+
+    And I scroll the "Save" button into view
     And I click the "Save" button
 
     And I click the "Add build step" button
@@ -69,6 +77,8 @@ Feature: Create ASP.NET project
     And I scroll the "Visual Studio (sln)" option into view
     And I click the "Visual Studio (sln)" option
     And I populate the "Step name" text box with "Build Project"
+
+    And I scroll the "Solution file path" text box into view
     And I populate the "Solution file path" text box with "RandomQuotes.sln"
 
     And I click the "Visual Studio" drop down list
@@ -87,8 +97,14 @@ Feature: Create ASP.NET project
     And I click the "Runner type" drop down list
     And I click the "NUnit" option
     And I populate the "Step name" text box with "Run Tests"
+
+    And I scroll the "NUnit Console" drop down list into view
     And I select the option value "custom" from the "NUnit Console" drop down list
+
+    And I scroll the "NUnit Console Path" text box list into view
     And I populate the "NUnit Console Path" text box with "packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe"
+
+    And I scroll the "Run tests from" text box list into view
     And I populate the "Run tests from" text box with "RandomQuotes.Tests\bin\Debug\RandomQuotes.Tests.dll"
 
     And I scroll the "Save" button into view
