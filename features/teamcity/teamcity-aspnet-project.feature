@@ -105,9 +105,7 @@ Feature: Create ASP.NET project
 
     And I click the "Build Configuration Home" link
     And I click the "Run" button
-    And I sleep for "2" seconds
-    And I refresh the page
-    And I sleep for "10" seconds
+    And I sleep for "30" seconds
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
