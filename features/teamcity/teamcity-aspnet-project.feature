@@ -33,12 +33,16 @@ Feature: Create ASP.NET project
       | Solution file path           | //input[@id='build-file-path']                    |
       | Visual Studio                | //input[@id='-ufd-teamcity-ui-vs.version']        |
       | Microsoft Visual Studio 2017 | //li[@data-title='Microsoft Visual Studio 2017']  |
+      | Run OctoPack                 | //input[@id='octopus_run_octopack']               |
+      | OctoPack package version     | //input[@id='octopus_octopack_package_version']   |
       | NUnit                        | //li[@data-title='NUnit']                         |
       | NUnit Console                | //select[@id='toolPathSelectorNUnit.Console']     |
       | NUnit Console Path           | //input[@id='toolCustomPathNUnit.Console']        |
       | Run tests from               | //textarea[@id='nunit_include']                   |
-
-
+      | OctopusDeploy: Push Packages | //li[@data-title='OctopusDeploy: Push Packages']  |
+      | Octopus URL                  | //input[@id='octopus_host']                       |
+      | Octopus API key              | //input[@id='secure:octopus_apikey']              |
+      | Package paths                | //textarea[@id='octopus_packagepaths']            |
 
     And I click the "Create project" button
     And I populate the "Repository URL" text box with the text "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
@@ -66,6 +70,9 @@ Feature: Create ASP.NET project
     And I click the "Visual Studio" drop down list
     And I click the "Microsoft Visual Studio 2017" option
 
+    And I click the "Run OctoPack" check box
+    And I populate the "OctoPack package version" text box with "1.0.%build.counter%"
+
     And I click the "Save" button
 
     And I click the "Add build step" button
@@ -77,6 +84,25 @@ Feature: Create ASP.NET project
     And I populate the "Run tests from" text box with "RandomQuotes.Tests\bin\Debug\RandomQuotes.Tests.dll"
 
     And I click the "Save" button
+
+    And I click the "Add build step" button
+    And I click the "Runner type" drop down list
+    And I click the "OctopusDeploy: Push Packages" option
+    And I populate the "Step name" text box with "Push to Octopus"
+    And I populate the "Octopus URL" text box with "http://localhost"
+    And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
+    And I populate the "Package paths" text box with "**/*.1.0.%build.counter%.nupkg"
+
+    And I click the "Save" button
+
+  Scenario: Run a build
+    Given I set the following aliases:
+      | Run                      | //button[contains(.,'Run')]                                |
+      | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
+
+    And I click the "Build Configuration Home" link
+    And I click the "Run" button
+    And I sleep for "10" seconds
 
   Scenario: Shutdown
     And I stop recording the screen
