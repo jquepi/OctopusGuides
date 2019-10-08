@@ -64,10 +64,10 @@ Feature: Create ASP.NET project
     And I scroll the "NuGet.exe" drop down into view
     And I select the option value "custom" from the "NuGet.exe" drop down list
 
-    And I scroll the "NuGet.exe path" text box into view
+    And I scroll the "NuGet.exe path" text box into view offset by "-200"
     And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
 
-    And I scroll the "Path to solution file" text box into view
+    And I scroll the "Path to solution file" text box into view offset by "-200"
     And I populate the "Path to solution file" text box with "RandomQuotes.sln"
 
     And I scroll the "Save" button into view
@@ -81,16 +81,16 @@ Feature: Create ASP.NET project
     And I click the "Visual Studio (sln)" option
     And I populate the "Step name" text box with "Build Project"
 
-    And I scroll the "Solution file path" text box into view
+    And I scroll the "Solution file path" text box into view offset by "-200"
     And I populate the "Solution file path" text box with "RandomQuotes.sln"
 
     And I click the "Visual Studio" drop down list
     And I click the "Microsoft Visual Studio 2017" option
 
-    And I scroll the "Run OctoPack" check box into view
+    And I scroll the "Run OctoPack" check box into view offset by "-200"
     And I click the "Run OctoPack" check box
 
-    And I scroll the "OctoPack package version" text box into view
+    And I scroll the "OctoPack package version" text box into view offset by "-200"
     And I populate the "OctoPack package version" text box with "1.0.%build.counter%"
 
     And I scroll the "Save" button into view
@@ -103,7 +103,7 @@ Feature: Create ASP.NET project
     And I click the "NUnit" option
     And I populate the "Step name" text box with "Run Tests"
 
-    And I scroll the "NUnit Console" drop down list into view
+    And I scroll the "NUnit Console" drop down list into view offset by "-200"
     And I select the option value "custom" from the "NUnit Console" drop down list
 
     And I scroll the "NUnit Console Path" text box list into view
@@ -121,16 +121,16 @@ Feature: Create ASP.NET project
     And I scroll the "OctopusDeploy: Push Packages" option into view
     And I click the "OctopusDeploy: Push Packages" option
 
-    And I scroll the "Step name" text box into view
+    And I scroll the "Step name" text box into view offset by "-200"
     And I populate the "Step name" text box with "Push to Octopus"
 
-    And I scroll the "Octopus URL" text box into view
+    And I scroll the "Octopus URL" text box into view offset by "-200"
     And I populate the "Octopus URL" text box with "http://localhost"
 
-    And I scroll the "Octopus API key" text box into view
+    And I scroll the "Octopus API key" text box into view offset by "-200"
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
 
-    And I scroll the "Package paths" text box into view
+    And I scroll the "Package paths" text box into view offset by "-200"
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
 
     And I scroll the "Save" button into view
@@ -143,7 +143,7 @@ Feature: Create ASP.NET project
 
     And I click the "Build Configuration Home" link
     And I click the "Run" button
-    And I sleep for "30" seconds
+    And I sleep for "45" seconds
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
