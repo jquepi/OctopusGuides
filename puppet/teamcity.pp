@@ -34,6 +34,6 @@ archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
 }
 -> exec { 'Start TeamCity':
   command  => '& C:/start_teamcity.ps1',
-  creates => ' c:/TeamCityStarted.txt',
+  creates => 'C:/TeamCityStarted.txt',
   provider => powershell,
 }
