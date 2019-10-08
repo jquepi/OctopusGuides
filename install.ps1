@@ -10,7 +10,7 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
     foreach($script in $scripts) {
         # Chocolatey installs are brittle, so we add a retry
         for ($retry = 0; $retry -lt 2; ++$retry) {
-            & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply "puppet\$script" --disable_warnings = deprecations
+            & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply "puppet\$script" "--disable_warnings=deprecations"
             if ($LASTEXITCODE -eq 0) {
                 break
             }
