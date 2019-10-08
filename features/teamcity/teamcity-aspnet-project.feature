@@ -74,9 +74,13 @@ Feature: Create ASP.NET project
     And I click the "Visual Studio" drop down list
     And I click the "Microsoft Visual Studio 2017" option
 
+    And I scroll the "Run OctoPack" check box into view
     And I click the "Run OctoPack" check box
+
+    And I scroll the "OctoPack package version" text box into view
     And I populate the "OctoPack package version" text box with "1.0.%build.counter%"
 
+    And I scroll the "Save" button into view
     And I click the "Save" button
 
     And I click the "Add build step" button
@@ -87,16 +91,26 @@ Feature: Create ASP.NET project
     And I populate the "NUnit Console Path" text box with "packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe"
     And I populate the "Run tests from" text box with "RandomQuotes.Tests\bin\Debug\RandomQuotes.Tests.dll"
 
+    And I scroll the "Save" button into view
     And I click the "Save" button
 
     And I click the "Add build step" button
     And I click the "Runner type" drop down list
     And I click the "OctopusDeploy: Push Packages" option
+
+    And I scroll the "Step name" text box into view
     And I populate the "Step name" text box with "Push to Octopus"
+
+    And I scroll the "Octopus URL" text box into view
     And I populate the "Octopus URL" text box with "http://localhost"
+
+    And I scroll the "Octopus API key" text box into view
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
+
+    And I scroll the "Package paths" text box into view
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
 
+    And I scroll the "Save" button into view
     And I click the "Save" button
 
   Scenario: Run a build
