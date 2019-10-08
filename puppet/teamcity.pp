@@ -11,8 +11,7 @@ file { 'C:/ProgramData/JetBrains':
   destination_directory => 'C:/ProgramData/JetBrains/TeamCity/plugins',
   url                   => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
 }
-
-archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
+-> archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
   ensure          => present,
   extract         => true,
   extract_path    => 'C:/tools',

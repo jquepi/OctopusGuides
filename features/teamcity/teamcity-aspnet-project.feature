@@ -98,6 +98,8 @@ Feature: Create ASP.NET project
 
     And I click the "Add build step" button
     And I click the "Runner type" drop down list
+
+    And I scroll the "NUnit" option into view
     And I click the "NUnit" option
     And I populate the "Step name" text box with "Run Tests"
 
