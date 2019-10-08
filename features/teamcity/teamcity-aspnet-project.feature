@@ -6,7 +6,7 @@ Feature: Create ASP.NET project
       | Password | //input[@id='password']      |
       | Log in   | //input[@name='submitLogin'] |
 
-    And I open the shared browser "FirefoxNoImplicitWaitNoProxy"
+    And I open the shared browser "FirefoxNoImplicitWait"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8111"
     And I populate the "Username" text box with "admin"
