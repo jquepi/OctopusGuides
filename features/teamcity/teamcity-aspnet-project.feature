@@ -67,7 +67,7 @@ Feature: Create ASP.NET project
     And I click the "Add build step" button
     And I click the "Runner type" drop down list
     And I scroll the "Visual Studio (sln)" option into view
-    And I click the "Visual Studio (sln)" option
+    And I force click the "Visual Studio (sln)" option
     And I populate the "Step name" text box with "Build Project"
     And I populate the "Solution file path" text box with "RandomQuotes.sln"
 
