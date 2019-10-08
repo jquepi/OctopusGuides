@@ -32,6 +32,6 @@ file { 'C:/initialise_octopus.ps1':
 }
 -> exec { 'Create API Key':
   command  => '& C:/initialise_octopus.ps1',
-  creates  => 'c:/octopus_api.txt',
+  creates  => 'C:/octopus_api.txt',
   provider => powershell,
 }
