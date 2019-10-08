@@ -29,10 +29,10 @@ Feature: Set up Team City
 
   Scenario: Login
     Given I set the following aliases:
-      | Username | //input[@id='username']      |
-      | Password | //input[@id='password']      |
-      | Log in   | //input[@name='submitLogin'] |
-      | Title    | //h1                         |
+      | Username | //input[@id='username']          |
+      | Password | //input[@id='password']          |
+      | Log in   | //input[@name='submitLogin']     |
+      | Title    | //span[contains(@class,'contentWrapper')] |
 
     And I open the browser "FirefoxNoImplicitWait"
     And I set the default explicit wait time to "30" seconds
