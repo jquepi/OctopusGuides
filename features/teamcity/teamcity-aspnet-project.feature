@@ -44,6 +44,7 @@ Feature: Create ASP.NET project
       | Octopus API key              | //input[@id='secure:octopus_apikey']              |
       | Package paths                | //textarea[@id='octopus_packagepaths']            |
       | Got it                       | //button[contains(.,'Got it')]                    |
+      | Build One                    | //a[contains(.,'#1')]                             |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
@@ -143,7 +144,8 @@ Feature: Create ASP.NET project
 
     And I click the "Build Configuration Home" link
     And I click the "Run" button
-    And I sleep for "45" seconds
+    And I click the "Build One" link
+    And I sleep for "60" seconds
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
