@@ -1,0 +1,83 @@
+Feature: Create ASP.NET project
+
+  Scenario: Login
+    Given I set the following aliases:
+      | Username | //input[@id='username']      |
+      | Password | //input[@id='password']      |
+      | Log in   | //input[@name='submitLogin'] |
+
+    And I open the shared browser "FirefoxNoImplicitWaitNoProxy"
+    And I set the default explicit wait time to "30" seconds
+    And I open the URL "http://localhost:8111"
+    And I populate the "Username" text box with "admin"
+    And I populate the "Password" text box with "Password01!"
+    And I click the "Log in" button
+
+  Scenario: Create Project
+    Given I set the following aliases:
+      | Create project               | //a[contains(.,'Create project')]                 |
+      | Repository URL               | //input[@id='url']                                |
+      | Proceed                      | //input[@name='createProjectFromUrl']             |
+      | Project name                 | //input[@id='projectName']                        |
+      | Proceed Two                  | //input[@name='createProject']                    |
+      | Configure manually           | //a[text()='configure build steps manually']      |
+      | Runner type                  | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']    |
+      | NuGet Installer              | //li[@data-title='NuGet Installer']               |
+      | Visual Studio (sln)          | //li[@data-title='Visual Studio (sln)']           |
+      | Step name                    | //input[@id='buildStepName']                      |
+      | NuGet.exe                    | //select[@id='toolPathSelectorNuGet.CommandLine'] |
+      | NuGet.exe path               | //input[@id='toolCustomPathNuGet.CommandLine']    |
+      | Path to solution file        | //input[@id='sln.path']                           |
+      | Add build step               | //a[contains(.,'Add build step')]                 |
+      | Save                         | //input[@value='Save']                            |
+      | Solution file path           | //input[@id='build-file-path']                    |
+      | Visual Studio                | //input[@id='-ufd-teamcity-ui-vs.version']        |
+      | Microsoft Visual Studio 2017 | //li[@data-title='Microsoft Visual Studio 2017']  |
+      | NUnit                        | //li[@data-title='NUnit']                         |
+      | NUnit Console                | //select[@id='toolPathSelectorNUnit.Console']     |
+      | NUnit Console Path           | //input[@id='toolCustomPathNUnit.Console']        |
+      | Run tests from               | //textarea[@id='nunit_include']                   |
+
+
+
+    And I click the "Create project" button
+    And I populate the "Repository URL" text box with the text "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+    And I click the "Proceed" button
+    And I clear the "Project name" text box
+    And I populate the "Project name" text box with "Random Quotes"
+    And I click the "Proceed Two" button
+    And I click the "Configure manually" link
+
+    And I click the "Runner type" drop down list
+    And I scroll the "NuGet Installer" option into view
+    And I click the "NuGet Installer" option
+    And I populate the "Step name" text box with "NuGet Restore"
+    And I select the option value "custom" from the "NuGet.exe" drop down list
+    And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
+    And I populate the "Path to solution file" text box with "RandomQuotes.sln"
+    And I click the "Save" button
+
+    And I click the "Add build step" button
+    And I click the "Runner type" drop down list
+    And I click the "Visual Studio (sln)" option
+    And I populate the "Step name" text box with "Build Project"
+    And I populate the "Solution file path" text box with "RandomQuotes.sln"
+
+    And I click the "Visual Studio" drop down list
+    And I click the "Microsoft Visual Studio 2017" option
+
+    And I click the "Save" button
+
+    And I click the "Add build step" button
+    And I click the "Runner type" drop down list
+    And I click the "NUnit" option
+    And I populate the "Step name" text box with "Run Tests"
+    And I select the option value "custom" from the "NUnit Console" drop down list
+    And I populate the "NUnit Console Path" text box with "packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe"
+    And I populate the "Run tests from" text box with "RandomQuotes.Tests\bin\Debug\RandomQuotes.Tests.dll"
+
+    And I click the "Save" button
+
+  Scenario: Shutdown
+    And I stop recording the screen
+    And I close the browser

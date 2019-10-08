@@ -21,3 +21,7 @@ archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
   command  => '& C:/start_teamcity.ps1',
   provider => powershell,
 }
+-> download_file { 'Octopus.TeamCity.zip':
+  destination_directory => 'C:/ProgramData/JetBrains/TeamCity/plugins',
+  url                   => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
+}
