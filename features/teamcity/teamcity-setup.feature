@@ -28,12 +28,3 @@ Feature: Set up Team City
     When I click the "Create Account" button
     And I sleep for "5" seconds
     Then I verify the text from the "Title" element matches the regex "My Settings & Tools"
-
-  Scenario: Enable plugin
-    Given I set the following aliases:
-      | Enable uploaded plugins | //a[@id='loadAllPlugins'] |
-      | Enable                  | //input[@value='Enable']  |
-
-    And I open the URL "http://localhost:8111/admin/admin.html?item=plugins"
-    And I click the "Enable uploaded plugins" button
-    And I click the "Enable" button

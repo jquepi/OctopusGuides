@@ -1,3 +1,17 @@
+file { 'C:/ProgramData/JetBrains':
+  ensure => 'directory'
+}
+-> file { 'C:/ProgramData/JetBrains/TeamCity':
+  ensure => 'directory'
+}
+-> file { 'C:/ProgramData/JetBrains/TeamCity/plugins':
+  ensure => 'directory'
+}
+-> download_file { 'Octopus.TeamCity.zip':
+  destination_directory => 'C:/ProgramData/JetBrains/TeamCity/plugins',
+  url                   => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
+}
+
 archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
   ensure          => present,
   extract         => true,
@@ -20,8 +34,4 @@ archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
 -> exec { 'Start TeamCity':
   command  => '& C:/start_teamcity.ps1',
   provider => powershell,
-}
--> download_file { 'Octopus.TeamCity.zip':
-  destination_directory => 'C:/ProgramData/JetBrains/TeamCity/plugins',
-  url                   => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
 }
