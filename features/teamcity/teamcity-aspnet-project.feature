@@ -43,6 +43,7 @@ Feature: Create ASP.NET project
       | Octopus URL                  | //input[@id='octopus_host']                       |
       | Octopus API key              | //input[@id='secure:octopus_apikey']              |
       | Package paths                | //textarea[@id='octopus_packagepaths']            |
+      | Got it                       | //button[contains(.,'Got it')]                    |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
@@ -71,6 +72,8 @@ Feature: Create ASP.NET project
 
     And I scroll the "Save" button into view
     And I click the "Save" button
+
+    And I click the "Got it" button waiting up to "5" seconds if it exists
 
     And I click the "Add build step" button
     And I click the "Runner type" drop down list
