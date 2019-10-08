@@ -44,6 +44,9 @@ Feature: Create ASP.NET project
       | Octopus API key              | //input[@id='secure:octopus_apikey']              |
       | Package paths                | //textarea[@id='octopus_packagepaths']            |
 
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Create the TeamCity project" for "3" seconds
+
     And I click the "Create project" button
     And I populate the "Repository URL" text box with the text "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
     And I click the "Proceed" button
@@ -91,7 +94,7 @@ Feature: Create ASP.NET project
     And I populate the "Step name" text box with "Push to Octopus"
     And I populate the "Octopus URL" text box with "http://localhost"
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
-    And I populate the "Package paths" text box with "**/*.1.0.%build.counter%.nupkg"
+    And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
 
     And I click the "Save" button
 
@@ -102,7 +105,11 @@ Feature: Create ASP.NET project
 
     And I click the "Build Configuration Home" link
     And I click the "Run" button
+    And I sleep for "2" seconds
+    And I refresh the page
     And I sleep for "10" seconds
+
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   Scenario: Shutdown
     And I stop recording the screen
