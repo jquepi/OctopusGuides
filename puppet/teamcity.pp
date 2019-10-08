@@ -7,6 +7,17 @@ archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
   cleanup         => true,
   extract_command => 'tar xfz %s'
 }
--> exec { 'Run TeamCity':
-  command => 'C:\\Windows\\system32\\cmd.exe /c "C:\\tools\\TeamCity\\bin\\runAll.bat start"',
+-> file { 'C:/start_teamcity.ps1':
+  ensure  => 'file',
+  owner   => 'Administrators',
+  group   => 'Administrators',
+  mode    => '0644',
+  content => @(EOT)
+    start "C:\tools\TeamCity\bin\runAll.bat" -ArgumentList "start" -PassThru
+    exit 0
+    | EOT
+}
+-> exec { 'Start TeamCity':
+  command  => '& C:/start_teamcity.ps1',
+  provider => powershell,
 }

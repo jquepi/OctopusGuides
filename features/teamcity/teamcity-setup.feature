@@ -14,8 +14,10 @@ Feature: Set up Team City
     And I open the shared browser "FirefoxNoImplicitWaitNoProxy"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8111"
-    And I click the "Proceed" button waiting up to "500" seconds
-    And I click the "Proceed" button waiting up to "500" seconds
+    And I click the "Proceed" button
+    And I click the "Proceed" button
+
+    And I scroll the "Accept" check box into view waiting up to "500" seconds
     And I click the "Accept" check box
     And I click the "Continue" button
 
@@ -24,4 +26,5 @@ Feature: Set up Team City
     And I populate the "Password Two" text box with "Password01!"
 
     When I click the "Create Account" button
+    And I sleep for "2" seconds
     Then I verify the text from the "Title" element matches the regex "My Settings & Tools"
