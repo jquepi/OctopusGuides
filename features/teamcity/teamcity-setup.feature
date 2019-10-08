@@ -41,4 +41,4 @@ Feature: Set up Team City
     And I populate the "Password" text box with "Password01!"
     And I click the "Log in" button
     And I sleep for "2" seconds
-    Then I verify the text from the "Title" element matches the regex "My Settings & Tools"
+    Then I verify the text from the "Title" element matches the regex "Getting started with TeamCity"
