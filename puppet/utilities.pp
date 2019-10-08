@@ -112,8 +112,7 @@ archive { 'C:/tools/geckodriver-v0.25.0-win64.zip':
 
 download_file { 'webdrivertraining-1.0-SNAPSHOT.jar':
   destination_directory => 'C:/tools',
-  url                   =>
-    'https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.5/webdrivertraining-1.0-SNAPSHOT.jar',
+  url                   => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining-1.0-SNAPSHOT.jar',
 }
 
 file { 'C:/install':
