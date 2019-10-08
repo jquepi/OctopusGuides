@@ -9,7 +9,6 @@ Feature: Set up Team City
       | Password One   | //input[@id='password1']              |
       | Password Two   | //input[@id='retypedPassword']        |
       | Create Account | //input[@value='Create Account']      |
-      | Title          | //h1                                  |
 
     And I open the browser "FirefoxNoImplicitWait"
     And I set the default explicit wait time to "30" seconds
@@ -33,6 +32,7 @@ Feature: Set up Team City
       | Username | //input[@id='username']      |
       | Password | //input[@id='password']      |
       | Log in   | //input[@name='submitLogin'] |
+      | Title    | //h1                         |
 
     And I open the browser "FirefoxNoImplicitWait"
     And I set the default explicit wait time to "30" seconds
