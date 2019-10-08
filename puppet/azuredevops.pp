@@ -11,19 +11,22 @@ package { 'sql-server-express':
   url                   =>
     'https://octopus-guides.s3.amazonaws.com/azuredevops/azuredevopsexpress2019.exe',
 }
--> file { 'C:/install_azure.bat':
+-> file { 'C:/install_azure.ps1':
   ensure  => 'file',
   owner   => 'Administrators',
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    "C:\tools\azuredevopsexpress2019.exe" /silent
-    "C:\Program Files\Azure DevOps Server 2019\Tools\TfsConfig" unattend /unattendfile:.\config\azuredevops.ini /continue
+    & "C:\tools\azuredevopsexpress2019.exe" /silent
+    & "C:\Program Files\Azure DevOps Server 2019\Tools\TfsConfig.exe" unattend /unattendfile:.\config\azuredevops.ini /continue
+    New-Item -ItemType file c:\AzureDevOpsStarted.txt
     | EOT
 }
 -> exec { 'Install Azure':
-  command => 'C:\\Windows\\system32\\cmd.exe /c C:\\install_azure.bat',
-  timeout => 3600,
+  command  => '& C:/install_azure.ps',
+  creates  => 'c:/AzureDevOpsStarted.txt',
+  timeout  => 3600,
+  provider => powershell,
 }
 -> file { 'C:/tools/vsts-agent-win-x86-2.144.2':
   ensure => 'directory'
@@ -44,10 +47,12 @@ package { 'sql-server-express':
   content => @(EOT)
     C:\tools\vsts-agent-win-x86-2.144.2\config.cmd --unattended --url http://localhost:9090 --auth integrated --pool default --agent myAgent
     start "C:\tools\vsts-agent-win-x86-2.144.2\run.cmd" -PassThru
+    New-Item -ItemType file c:\AzureAgentStarted.txt
     exit 0
     | EOT
 }
 -> exec { 'Configure agent':
   command  => '& C:/install_azure_agent.ps1',
+  creates  => 'c:/AzureAgentStarted.txt',
   provider => powershell,
 }

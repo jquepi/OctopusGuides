@@ -28,10 +28,12 @@ archive { 'C:/tools/TeamCity-2019.1.3.tar.gz':
   mode    => '0644',
   content => @(EOT)
     start "C:\tools\TeamCity\bin\runAll.bat" -ArgumentList "start" -PassThru
+    New-Item -ItemType file c:\TeamCityStarted.txt
     exit 0
     | EOT
 }
 -> exec { 'Start TeamCity':
   command  => '& C:/start_teamcity.ps1',
+  creates => ' c:/TeamCityStarted.txt',
   provider => powershell,
 }
