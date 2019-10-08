@@ -1,0 +1,79 @@
+name: ASP.NET TeamCity Octopus Built-in Feed Screenshots
+on: [push]
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-dotnet@v1
+    - name: Execute puppet
+      shell: powershell
+      run: ./install.ps1 -Scripts utilities.pp,teamcity.pp,octopus.pp,iis.pp
+    - name: Create API key for tests
+      shell: powershell
+      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
+    - name: Initial Team City Configuration
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=false"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=false"
+        "-DdisableScreenshots=false"
+        "-DdisableVideoRecording=true"
+        "-DnoProxyList=microsoft.com"
+        "-DdumpAliasesOnFailure=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
+        "-Djava.util.logging.config.file=logging.properties"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\teamcity\teamcity-setup.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Add Project
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=false"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=false"
+        "-DdisableScreenshots=false"
+        "-DdisableVideoRecording=true"
+        "-DdumpAliasesOnFailure=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
+        "-Djava.util.logging.config.file=logging.properties"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\teamcity\teamcity-aspnet-project.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Upload screenshots
+      shell: powershell
+      run: |
+        ls c:\screenshots
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 sync c:\screenshots s3://i.octopus.com/guides --acl public-read
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
