@@ -26,7 +26,7 @@ Feature: Set up Team City
     And I populate the "Password Two" text box with "Password01!"
 
     And I click the "Create Account" button
-    And I sleep for "2" seconds
+    And I sleep for "30" seconds
 
   Scenario: Login
     Given I set the following aliases:
