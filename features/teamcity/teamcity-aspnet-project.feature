@@ -117,6 +117,8 @@ Feature: Create ASP.NET project
 
     And I click the "Add build step" button
     And I click the "Runner type" drop down list
+
+    And I scroll the "OctopusDeploy: Push Packages" option into view
     And I click the "OctopusDeploy: Push Packages" option
 
     And I scroll the "Step name" text box into view
