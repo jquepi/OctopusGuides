@@ -34,9 +34,20 @@ Feature: Create and deploy a release
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Deploying an Octopus release from TeamCity" for "3" seconds
 
+    And I highlight outside the "Build" link
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\001-create-release.png"
     And I click the "Build" link
+
+    And I highlight outside the "Edit Configuration Settings" link
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\002-create-release.png"
     And I click the "Edit Configuration Settings" link
+
+    And I highlight outside the "Build Steps" link
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\003-create-release.png"
     And I click the "Build Steps" link
+
+    And I highlight outside the "Add build step" button
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\004-create-release.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
