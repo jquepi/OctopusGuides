@@ -131,7 +131,7 @@ jobs:
          "-Djava.util.logging.config.file=logging.properties"
          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
          --monochrome
-        features\teamcity\teamcity-create-deploy.feature
+         features\teamcity\teamcity-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
