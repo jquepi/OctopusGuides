@@ -1,7 +1,2 @@
-<atlassian-plugin name="Hello World" key="example.plugin.helloworld" plugins-version="2">
-    <plugin-info>
-        <description>A dictionary module type test</description>
-        <vendor name="Atlassian Software Systems" url="http://www.atlassian.com"/>
-        <version>1.0</version>
-    </plugin-info>
+<atlassian-plugin>
 </atlassian-plugin>

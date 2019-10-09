@@ -17,7 +17,8 @@ file { 'C:/bamboo':
     cp config/pom.xml c:\bamboo
     cp config/atlassian-plugin.xml C:\bamboo\target\classes
     cd c:\bamboo
-    $env:JAVA_HOME="C:\Program Files\Java\jdk1.8.0_221"
+    $path = Get-ChildItem "C:\Program Files\Java\" | ?{$_.Name -like "jdk1.8.0_*"} | Sort -Descending | Select -First 1 | Select -ExpandProperty FullName
+    $env:JAVA_HOME=$path
     start "C:\Applications\Atlassian\atlassian-plugin-sdk-8.0.16\bin\atlas-run.bat" -PassThru
     New-Item -ItemType file c:\BambooStarted.txt
     exit 0
