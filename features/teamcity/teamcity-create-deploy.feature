@@ -31,6 +31,9 @@ Feature: Create and deploy a release
       | Octopus Environments          | //input[@id='octopus_deployto']                        |
       | Save                         | //input[@value='Save']                                 |
 
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Deploying an Octopus release from TeamCity" for "3" seconds
+
     And I click the "Build" link
     And I click the "Edit Configuration Settings" link
     And I click the "Build Steps" link
@@ -71,3 +74,33 @@ Feature: Create and deploy a release
     And I highlight outside the "Save" button
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\070-create-release.png"
     And I click the "Save" button
+
+  @run-build
+  Scenario: Run a build
+    Given I set the following aliases:
+      | Run                      | //button[contains(.,'Run')]                                |
+      | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
+      | Build Two                | //a[contains(.,'#2')]                                      |
+
+    And I highlight outside the "Build Configuration Home" link
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\080-build-config-home.png"
+    And I click the "Build Configuration Home" link
+
+    And I highlight outside the "Run" button
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\090-run.png"
+    And I click the "Run" button
+    And I sleep for "10" seconds
+    And I refresh the page
+
+    And I highlight outside the "Build Two" link
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\100-build-one.png"
+    And I click the "Build Two" link
+    And I sleep for "60" seconds
+
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\110-build-one-results.png"
+
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+
+  Scenario: Shutdown
+    And I stop recording the screen
+    And I close the browser
