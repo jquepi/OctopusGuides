@@ -29,7 +29,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         "-Djava.util.logging.config.file=logging.properties"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -57,7 +57,7 @@ jobs:
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         "-Djava.util.logging.config.file=logging.properties"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -83,7 +83,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -111,7 +111,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -136,7 +136,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -162,7 +162,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -187,7 +187,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -212,7 +212,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -237,7 +237,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -263,7 +263,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -288,7 +288,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -313,7 +313,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -338,7 +338,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
@@ -363,7 +363,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
