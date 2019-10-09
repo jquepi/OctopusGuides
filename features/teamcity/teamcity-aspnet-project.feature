@@ -236,7 +236,7 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\180-build-one.png"
     And I click the "Build One" link
     And I click the "Build log" link
-    And I sleep for "60" seconds
+    And I sleep for "120" seconds
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\190-build-one-results.png"
 
