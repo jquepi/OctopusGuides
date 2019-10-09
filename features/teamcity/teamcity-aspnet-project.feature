@@ -71,10 +71,10 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\040-configure-manually.png"
     And I click the "Configure manually" link
 
-    And I highlight outside the "Runner type container" drop down list
     And I click the "Runner type" drop down list
     And I scroll the "NuGet Installer" option into view
     And I click the "NuGet Installer" option
+    And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "NuGet Restore"
@@ -102,11 +102,11 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\060-add-build-step.png"
     And I click the "Add build step" button
 
-    And I highlight outside the "Runner type container" drop down list
     And I click the "Runner type" drop down list
 
     And I scroll the "Visual Studio (sln)" option into view
     And I click the "Visual Studio (sln)" option
+    And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "Build Project"
@@ -140,11 +140,11 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\090-add-build-step.png"
     And I click the "Add build step" button
 
-    And I highlight outside the "Runner type container" drop down list
     And I click the "Runner type" drop down list
 
     And I scroll the "NUnit" option into view
     And I click the "NUnit" option
+    And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "Run Tests"
@@ -174,11 +174,11 @@ Feature: Create ASP.NET project
     And I click the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-add-build-step.png"
 
-    And I highlight outside the "Runner type container" drop down list
     And I click the "Runner type" drop down list
 
     And I scroll the "OctopusDeploy: Push Packages" option into view
     And I click the "OctopusDeploy: Push Packages" option
+    And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
     And I scroll the "Step name" text box into view offset by "-200"
