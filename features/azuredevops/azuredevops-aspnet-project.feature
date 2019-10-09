@@ -217,13 +217,17 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Push package title" element with an offset of "5"
     And I mouse over the "Push package title" element
+    And I zoom the browser out
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\110-octopus-push.png"
+    And I zoom the browser in
     And I remove the highlight from the "Add task" button
 
     And I click the "Push package" button
     And I click the "Push Packages to Octopus" row
     And I highlight outside the "New" button with an offset of "2"
+    And I zoom the browser out
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\120-octopus-connection.png"
+    And I zoom the browser in
     And I click the "New" button
     And I remove the highlight from the "New" button
 

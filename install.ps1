@@ -7,6 +7,8 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
     & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" module install puppet/windowsfeature
     & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" module install puppet-archive --version 3.2.1
 
+    $ErrorActionPreference = "Continue"
+
     foreach($script in $scripts) {
         # Chocolatey installs are brittle, so we add a retry
         for ($retry = 0; $retry -lt 2; ++$retry) {
