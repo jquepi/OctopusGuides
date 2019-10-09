@@ -86,11 +86,11 @@ Feature: Create ASP.NET project
     And I select the option value "custom" from the "NuGet.exe" drop down list
 
     And I highlight outside the "NuGet.exe path" text box with an offset of "5"
-    And I scroll the "NuGet.exe path" text box into view offset by "-200"
+    And I scroll the "NuGet.exe path" text box into view offset by "-300"
     And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
 
     And I highlight outside the "Path to solution file" text box
-    And I scroll the "Path to solution file" text box into view offset by "-200"
+    And I scroll the "Path to solution file" text box into view offset by "-300"
     And I populate the "Path to solution file" text box with "RandomQuotes.sln"
 
     And I highlight outside the "Save" button
@@ -114,7 +114,7 @@ Feature: Create ASP.NET project
     And I populate the "Step name" text box with "Build Project"
 
     And I highlight outside the "Solution file path" text box
-    And I scroll the "Solution file path" text box into view offset by "-200"
+    And I scroll the "Solution file path" text box into view offset by "-300"
     And I populate the "Solution file path" text box with "RandomQuotes.sln"
 
     And I highlight outside the "Visual Studio" drop down list
@@ -124,11 +124,11 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\070-build-options.png"
 
     And I highlight outside the "Run OctoPack" check box
-    And I scroll the "Run OctoPack" check box into view offset by "-200"
+    And I scroll the "Run OctoPack" check box into view offset by "-300"
     And I click the "Run OctoPack" check box
 
     And I highlight outside the "OctoPack package version" text box
-    And I scroll the "OctoPack package version" text box into view offset by "-200"
+    And I scroll the "OctoPack package version" text box into view offset by "-300"
     And I populate the "OctoPack package version" text box with "1.0.%build.counter%"
 
     And I highlight outside the "Save" button
@@ -152,11 +152,11 @@ Feature: Create ASP.NET project
     And I populate the "Step name" text box with "Run Tests"
 
     And I highlight outside the "NUnit Console" drop down
-    And I scroll the "NUnit Console" drop down list into view offset by "-200"
+    And I scroll the "NUnit Console" drop down list into view offset by "-300"
     And I select the option value "custom" from the "NUnit Console" drop down list
 
     And I highlight outside the "NUnit Console Path" text box
-    And I scroll the "NUnit Console Path" text box list into view
+    And I scroll the "NUnit Console Path" text box list into view offset by "-300"
     And I populate the "NUnit Console Path" text box with "packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe"
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\100-nunit-settings.png"
@@ -173,8 +173,8 @@ Feature: Create ASP.NET project
     And I click the "Save" button
 
     And I highlight outside the "Add build step" button
-    And I click the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-add-build-step.png"
+    And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
 
@@ -183,23 +183,23 @@ Feature: Create ASP.NET project
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
-    And I scroll the "Step name" text box into view offset by "-200"
+    And I scroll the "Step name" text box into view offset by "-300"
     And I populate the "Step name" text box with "Push to Octopus"
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\130-push-top-octo.png"
 
     And I highlight outside the "Octopus URL" text box
-    And I scroll the "Octopus URL" text box into view offset by "-200"
+    And I scroll the "Octopus URL" text box into view offset by "-300"
     And I populate the "Octopus URL" text box with "http://localhost"
 
     And I highlight outside the "Octopus API key" text box
-    And I scroll the "Octopus API key" text box into view offset by "-200"
+    And I scroll the "Octopus API key" text box into view offset by "-300"
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\140-push-top-octo.png"
 
     And I highlight outside the "Package paths" text box
-    And I scroll the "Package paths" text box into view offset by "-200"
+    And I scroll the "Package paths" text box into view offset by "-300"
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
 
     And I highlight outside the "Save" button
