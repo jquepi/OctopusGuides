@@ -78,6 +78,7 @@ Feature: Create ASP.NET project
     And I click the "Runner type" drop down list
     And I scroll the "NuGet Installer" option into view offset by "-200"
     And I click the "NuGet Installer" option
+    And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
@@ -110,6 +111,7 @@ Feature: Create ASP.NET project
 
     And I scroll the "Visual Studio (sln)" option into view
     And I click the "Visual Studio (sln)" option
+    And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
@@ -119,9 +121,10 @@ Feature: Create ASP.NET project
     And I scroll the "Solution file path" text box into view offset by "-300"
     And I populate the "Solution file path" text box with "RandomQuotes.sln"
 
-    And I highlight outside the "Visual Studio" drop down list
     And I click the "Visual Studio" drop down list
     And I click the "Microsoft Visual Studio 2017" option
+    And I sleep for "1" second
+    And I highlight outside the "Visual Studio" drop down list
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\070-build-options.png"
 
@@ -154,6 +157,7 @@ Feature: Create ASP.NET project
 
     And I scroll the "NUnit" option into view offset by "-200"
     And I click the "NUnit" option
+    And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
@@ -193,6 +197,7 @@ Feature: Create ASP.NET project
 
     And I scroll the "OctopusDeploy: Push Packages" option into view
     And I click the "OctopusDeploy: Push Packages" option
+    And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
