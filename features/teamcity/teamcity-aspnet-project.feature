@@ -236,6 +236,8 @@ Feature: Create ASP.NET project
     And I click the "Build One" link
     And I sleep for "60" seconds
 
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\190-build-one-results.png"
+
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
   Scenario: Shutdown
