@@ -76,7 +76,7 @@ Feature: Create ASP.NET project
     And I click the "Configure manually" link
 
     And I click the "Runner type" drop down list
-    And I scroll the "NuGet Installer" option into view
+    And I scroll the "NuGet Installer" option into view offset by "-200"
     And I click the "NuGet Installer" option
     And I highlight outside the "Runner type container" drop down list
 
@@ -152,7 +152,7 @@ Feature: Create ASP.NET project
 
     And I click the "Runner type" drop down list
 
-    And I scroll the "NUnit" option into view
+    And I scroll the "NUnit" option into view offset by "-200"
     And I click the "NUnit" option
     And I highlight outside the "Runner type container" drop down list
 
@@ -244,7 +244,8 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\180-build-one.png"
     And I click the "Build One" link
     And I click the "Build log" link
-    And I sleep for "120" seconds
+    And I scroll down "10000" px
+    And I sleep for "100" seconds
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\190-build-one-results.png"
 

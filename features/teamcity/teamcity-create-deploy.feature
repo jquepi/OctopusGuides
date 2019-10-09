@@ -108,7 +108,8 @@ Feature: Create and deploy a release
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\100-build-one.png"
     And I click the "Build Two" link
     And I click the "Build log" link
-    And I sleep for "120" seconds
+    And I scroll down "10000" px
+    And I sleep for "30" seconds
 
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\110-build-one-results.png"
 
