@@ -35,6 +35,7 @@ jobs:
         "-Djava.util.logging.config.file=logging.properties"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
+        --plugin progress
         features\teamcity\teamcity-setup.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -63,6 +64,7 @@ jobs:
         "-Djava.util.logging.config.file=logging.properties"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
+        --plugin progress
         features\teamcity\teamcity-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -81,6 +83,7 @@ jobs:
         "-DdisableScreenshots=true"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-environments.feature
       env:
@@ -102,6 +105,7 @@ jobs:
         "-DdisableVideoRecording=true"
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-aspnet-project.feature
       env:
@@ -131,6 +135,7 @@ jobs:
          "-Djava.util.logging.config.file=logging.properties"
          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
          --monochrome
+         --plugin progress
          features\teamcity\teamcity-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
