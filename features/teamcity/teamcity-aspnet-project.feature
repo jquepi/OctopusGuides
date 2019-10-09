@@ -136,7 +136,7 @@ Feature: Create ASP.NET project
 
     And I click the "Save" button
 
-    And I highlight outside the "Run OctoPack" check box
+    And I highlight outside the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\090-add-build-step.png"
     And I click the "Add build step" button
 
