@@ -15,35 +15,36 @@ Feature: Create ASP.NET project
 
   Scenario: Create Project
     Given I set the following aliases:
-      | Create project               | //a[contains(.,'Create project')]                 |
-      | Repository URL               | //input[@id='url']                                |
-      | Proceed                      | //input[@name='createProjectFromUrl']             |
-      | Project name                 | //input[@id='projectName']                        |
-      | Proceed Two                  | //input[@name='createProject']                    |
-      | Configure manually           | //a[text()='configure build steps manually']      |
-      | Runner type                  | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']    |
-      | NuGet Installer              | //li[@data-title='NuGet Installer']               |
-      | Visual Studio (sln)          | //li[@data-title='Visual Studio (sln)']           |
-      | Step name                    | //input[@id='buildStepName']                      |
-      | NuGet.exe                    | //select[@id='toolPathSelectorNuGet.CommandLine'] |
-      | NuGet.exe path               | //input[@id='toolCustomPathNuGet.CommandLine']    |
-      | Path to solution file        | //input[@id='sln.path']                           |
-      | Add build step               | //a[contains(.,'Add build step')]                 |
-      | Save                         | //input[@value='Save']                            |
-      | Solution file path           | //input[@id='build-file-path']                    |
-      | Visual Studio                | //input[@id='-ufd-teamcity-ui-vs.version']        |
-      | Microsoft Visual Studio 2017 | //li[@data-title='Microsoft Visual Studio 2017']  |
-      | Run OctoPack                 | //input[@id='octopus_run_octopack']               |
-      | OctoPack package version     | //input[@id='octopus_octopack_package_version']   |
-      | NUnit                        | //li[@data-title='NUnit']                         |
-      | NUnit Console                | //select[@id='toolPathSelectorNUnit.Console']     |
-      | NUnit Console Path           | //input[@id='toolCustomPathNUnit.Console']        |
-      | Run tests from               | //textarea[@id='nunit_include']                   |
-      | OctopusDeploy: Push Packages | //li[@data-title='OctopusDeploy: Push Packages']  |
-      | Octopus URL                  | //input[@id='octopus_host']                       |
-      | Octopus API key              | //input[@id='secure:octopus_apikey']              |
-      | Package paths                | //textarea[@id='octopus_packagepaths']            |
-      | Got it                       | //button[contains(.,'Got it')]                    |
+      | Create project               | //a[contains(.,'Create project')]                      |
+      | Repository URL               | //input[@id='url']                                     |
+      | Proceed                      | //input[@name='createProjectFromUrl']                  |
+      | Project name                 | //input[@id='projectName']                             |
+      | Proceed Two                  | //input[@name='createProject']                         |
+      | Configure manually           | //a[text()='configure build steps manually']           |
+      | Runner type                  | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
+      | Runner type container        | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']] |
+      | NuGet Installer              | //li[@data-title='NuGet Installer']                    |
+      | Visual Studio (sln)          | //li[@data-title='Visual Studio (sln)']                |
+      | Step name                    | //input[@id='buildStepName']                           |
+      | NuGet.exe                    | //select[@id='toolPathSelectorNuGet.CommandLine']      |
+      | NuGet.exe path               | //input[@id='toolCustomPathNuGet.CommandLine']         |
+      | Path to solution file        | //input[@id='sln.path']                                |
+      | Add build step               | //a[contains(.,'Add build step')]                      |
+      | Save                         | //input[@value='Save']                                 |
+      | Solution file path           | //input[@id='build-file-path']                         |
+      | Visual Studio                | //input[@id='-ufd-teamcity-ui-vs.version']             |
+      | Microsoft Visual Studio 2017 | //li[@data-title='Microsoft Visual Studio 2017']       |
+      | Run OctoPack                 | //input[@id='octopus_run_octopack']                    |
+      | OctoPack package version     | //input[@id='octopus_octopack_package_version']        |
+      | NUnit                        | //li[@data-title='NUnit']                              |
+      | NUnit Console                | //select[@id='toolPathSelectorNUnit.Console']          |
+      | NUnit Console Path           | //input[@id='toolCustomPathNUnit.Console']             |
+      | Run tests from               | //textarea[@id='nunit_include']                        |
+      | OctopusDeploy: Push Packages | //li[@data-title='OctopusDeploy: Push Packages']       |
+      | Octopus URL                  | //input[@id='octopus_host']                            |
+      | Octopus API key              | //input[@id='secure:octopus_apikey']                   |
+      | Package paths                | //textarea[@id='octopus_packagepaths']                 |
+      | Got it                       | //button[contains(.,'Got it')]                         |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
@@ -70,7 +71,7 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\040-configure-manually.png"
     And I click the "Configure manually" link
 
-    And I highlight outside the "Runner type" drop down list
+    And I highlight outside the "Runner type container" drop down list
     And I click the "Runner type" drop down list
     And I scroll the "NuGet Installer" option into view
     And I click the "NuGet Installer" option
@@ -78,11 +79,11 @@ Feature: Create ASP.NET project
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "NuGet Restore"
 
-    And I highlight outside the "NuGet.exe" drop down
+    And I highlight outside the "NuGet.exe" drop down with an offset of "5"
     And I scroll the "NuGet.exe" drop down into view
     And I select the option value "custom" from the "NuGet.exe" drop down list
 
-    And I highlight outside the "NuGet.exe path" text box
+    And I highlight outside the "NuGet.exe path" text box with an offset of "5"
     And I scroll the "NuGet.exe path" text box into view offset by "-200"
     And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
 
@@ -101,7 +102,7 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\060-add-build-step.png"
     And I click the "Add build step" button
 
-    And I highlight outside the "Runner type" drop down list
+    And I highlight outside the "Runner type container" drop down list
     And I click the "Runner type" drop down list
 
     And I scroll the "Visual Studio (sln)" option into view
@@ -139,7 +140,7 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\090-add-build-step.png"
     And I click the "Add build step" button
 
-    And I highlight outside the "Runner type" drop down list
+    And I highlight outside the "Runner type container" drop down list
     And I click the "Runner type" drop down list
 
     And I scroll the "NUnit" option into view
@@ -173,7 +174,7 @@ Feature: Create ASP.NET project
     And I click the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-add-build-step.png"
 
-    And I highlight outside the "Runner type" drop down list
+    And I highlight outside the "Runner type container" drop down list
     And I click the "Runner type" drop down list
 
     And I scroll the "OctopusDeploy: Push Packages" option into view
