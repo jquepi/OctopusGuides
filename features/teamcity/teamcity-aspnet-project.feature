@@ -1,5 +1,6 @@
 Feature: Create ASP.NET project
 
+  @login
   Scenario: Login
     Given I set the following aliases:
       | Username | //input[@id='username']      |
@@ -13,6 +14,7 @@ Feature: Create ASP.NET project
     And I populate the "Password" text box with "Password01!"
     And I click the "Log in" button
 
+  @create-project
   Scenario: Create Project
     Given I set the following aliases:
       | Create project               | //a[contains(.,'Create project')]                      |
@@ -207,6 +209,7 @@ Feature: Create ASP.NET project
 
     And I click the "Save" button
 
+  @run-build
   Scenario: Run a build
     Given I set the following aliases:
       | Run                      | //button[contains(.,'Run')]                                |
@@ -220,6 +223,8 @@ Feature: Create ASP.NET project
     And I highlight outside the "Run" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\170-run.png"
     And I click the "Run" button
+    And I sleep for "10" seconds
+    And I refresh the page
 
     And I highlight outside the "Build One" link
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\180-build-one.png"
