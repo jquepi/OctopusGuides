@@ -92,7 +92,7 @@ Feature: Create and deploy a release
       | Run                      | //button[contains(.,'Run')]                                |
       | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
       | Build Two                | //a[contains(.,'#2')]                                      |
-      | Build log                | //a[contains().,'Build Log']                               |
+      | Build log                | //a[contains(.,'Build Log')]                               |
 
     And I highlight outside the "Build Configuration Home" link
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\080-build-config-home.png"
