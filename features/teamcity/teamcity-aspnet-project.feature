@@ -47,6 +47,8 @@ Feature: Create ASP.NET project
       | Octopus API key              | //input[@id='secure:octopus_apikey']                   |
       | Package paths                | //textarea[@id='octopus_packagepaths']                 |
       | Got it                       | //button[contains(.,'Got it')]                         |
+      | Show advanced options        | //a[text()='Show advanced options']                    |
+      | Command line parameters      | //textarea[@id='runnerArgs']                           |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
@@ -130,6 +132,9 @@ Feature: Create ASP.NET project
     And I highlight outside the "OctoPack package version" text box
     And I scroll the "OctoPack package version" text box into view offset by "-300"
     And I populate the "OctoPack package version" text box with "1.0.%build.counter%"
+
+    And I click the "Show advanced options" link
+    And I populate the "Command line parameters" text box with "/p:OctoPackEnforceAddingFiles=true"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
