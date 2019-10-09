@@ -116,27 +116,27 @@ jobs:
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-         "--enable-preview"
-         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-         "-Dwebdriver.firefox.logfile=C:\firefox.log"
-         "-DmoveCursorToElement=false"
-         "-DmouseMoveVerticalOffset=74"
-         "-DdisableHighlights=false"
-         "-DdisableScreenshots=false"
-         "-DdisableVideoRecording=true"
-         "-DdumpAliasesOnFailure=true"
-         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
-         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-         "-DslackStepHandlerEnabled=true"
-         "-DscreenshotS3Enabled=true"
-         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
-         "-DretryCount=1"
-         "-Djava.util.logging.config.file=logging.properties"
-         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-         --plugin progress
-         --monochrome
-         features\teamcity\teamcity-create-deploy.feature
+        "--enable-preview"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-Dwebdriver.firefox.logfile=C:\firefox.log"
+        "-DmoveCursorToElement=false"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=false"
+        "-DdisableScreenshots=false"
+        "-DdisableVideoRecording=true"
+        "-DdumpAliasesOnFailure=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DretryCount=1"
+        "-Djava.util.logging.config.file=logging.properties"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\teamcity\teamcity-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
