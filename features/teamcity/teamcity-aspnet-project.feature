@@ -44,7 +44,6 @@ Feature: Create ASP.NET project
       | Octopus API key              | //input[@id='secure:octopus_apikey']              |
       | Package paths                | //textarea[@id='octopus_packagepaths']            |
       | Got it                       | //button[contains(.,'Got it')]                    |
-      | Build One                    | //a[contains(.,'#1')]                             |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
@@ -61,6 +60,7 @@ Feature: Create ASP.NET project
 
     And I highlight outside the "Project name" text box
     And I highlight outside the "Proceed Two" button
+    And I mouse over the "Project name" text box
     And I clear the "Project name" text box
     And I populate the "Project name" text box with "Random Quotes"
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\030-project-name.png"
@@ -210,6 +210,7 @@ Feature: Create ASP.NET project
     Given I set the following aliases:
       | Run                      | //button[contains(.,'Run')]                                |
       | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
+      | Build One                | //a[contains(.,'#1')]                                      |
 
     And I highlight outside the "Build Configuration Home" link
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\160-build-config-home.png"
