@@ -35,6 +35,11 @@ package { 'terraform':
   provider => chocolatey
 }
 
+package { 'jdk8':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 package { 'openjdk13':
   ensure   => installed,
   provider => chocolatey
