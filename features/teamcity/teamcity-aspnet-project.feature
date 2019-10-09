@@ -161,6 +161,11 @@ Feature: Create ASP.NET project
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\100-nunit-settings.png"
 
+    And I remove the highlight from the "Runner type" drop down list
+    And I remove the highlight from the "Step name" text box
+    And I remove the highlight from the "NUnit Console Path" text box
+    And I remove the highlight from the "NUnit Console" drop down
+
     And I highlight outside the "Run tests from" text box
     And I scroll the "Run tests from" text box list into view
     And I populate the "Run tests from" text box with "RandomQuotes.Tests\bin\Debug\RandomQuotes.Tests.dll"
