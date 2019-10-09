@@ -29,7 +29,7 @@ Feature: Create and deploy a release
       | Octopus API key               | //input[@id='secure:octopus_apikey']                   |
       | Octopus Project               | //input[@id='octopus_project_name']                    |
       | Octopus Environments          | //input[@id='octopus_deployto']                        |
-      | Save                         | //input[@value='Save']                                 |
+      | Save                          | //input[@value='Save']                                 |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Deploying an Octopus release from TeamCity" for "3" seconds
@@ -92,6 +92,7 @@ Feature: Create and deploy a release
       | Run                      | //button[contains(.,'Run')]                                |
       | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
       | Build Two                | //a[contains(.,'#2')]                                      |
+      | Build log                | //a[contains().,'Build Log']                               |
 
     And I highlight outside the "Build Configuration Home" link
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\080-build-config-home.png"
@@ -106,6 +107,7 @@ Feature: Create and deploy a release
     And I highlight outside the "Build Two" link
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\100-build-one.png"
     And I click the "Build Two" link
+    And I click the "Build log" link
     And I sleep for "60" seconds
 
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\110-build-one-results.png"
