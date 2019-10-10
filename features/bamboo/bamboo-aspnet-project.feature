@@ -120,7 +120,7 @@ Feature: Configure Bamboo
       | Add task                     | //a[@id='addTask']                                                                             |
       | Search                       | //h2[contains(.,'Task types')]//input                                                          |
       | MSBuild Tile                 | //a[@title='MSBuild']                                                                          |
-      | Script                       | //a[@title='Script']                                                                           |
+      | Script Tile                  | //a[@title='Script']                                                                           |
       | Task description             | //input[@id='createTask_userDescription']                                                      |
       | Solution                     | //input[@id='solution']                                                                        |
       | Options                      | //input[@id='options']                                                                         |
@@ -158,11 +158,11 @@ Feature: Configure Bamboo
     And I scroll the "Add task" button into view
     And I click the "Add task" button
     And I populate the "Search" box with "Script"
-    And I click the "Script" tile
+    And I click the "Script Tile" element
 
     And I populate the "Task description" text box with "NuGet Restore"
     And I select the option "Windows PowerShell" from the "Interpreter" drop down list
-    And I populate the "Script body" text box with "C:\ProgramData\chocolatey\bin\nuget restore"
+    And I populate the "Script body" text box with "C:\ProgramData\chocolatey\bin\nuget.exe restore"
     And I scroll the "Save" button into view
     And I click the "Save" button
 
