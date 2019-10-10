@@ -2,7 +2,7 @@ Feature: Configure Bamboo
 
   Scenario: Login
     Given I set the following aliases:
-      | Log in     | //a[text()='Log in']                 |
+      | Log in     | (//a[text()='Log in'])[1]            |
       | Username   | //input[@id='loginForm_os_username'] |
       | Password   | //input[@id='loginForm_os_password'] |
       | Log in Two | // input[@id='loginForm_save']       |
@@ -16,6 +16,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\login\010-login.png"
     And I click the "Log in Two" button
 
+  @extensions
   Scenario: Configure Git
     Given I set the following aliases:
       | Close dialog               | //span[@class='aui-icon icon-close']                       |
@@ -46,15 +47,16 @@ Feature: Configure Bamboo
     And I click the "Git" link
     And I click the "Edit" link
 
+    And I clear the "Path" text box
     And I populate the "Path" text box with "C:\Program Files\Git\cmd\git.exe"
     And I save a screenshot to "c:\screenshots\bamboo\updategit\040-path.png"
     And I click the "Update" button
 
     And I scroll the "Find new apps" link into view offset by "-300"
-    And I click the "find new apps" link
+    And I click the "Find new apps" link
     And I populate the "Search the Marketplace" text box with "Octopus"
     And I press the enter key from the "Search the Marketplace" text box
-    And I sleep for "1" second
+    And I sleep for "5" seconds
     And I click the "Install" button
     And I click the "Accept & install" button
     Then I verify the "Installed and ready to go!" title is present
@@ -74,6 +76,9 @@ Feature: Configure Bamboo
       | Connection successful        | //p[text()='Connection successful']                                                            |
       | Configure plan               | //input[@id='createPlan_save']                                                                 |
       | Add task                     | //a[@id='addTask']                                                                             |
+      | Search                       | //h2[contains(.,'Task types')]//input                                                          |
+      | MSBuild                      | //a[@title='MSBuild']                                                                          |
+      | Task description             | //input[@id='createTask_userDescription']                                                      |
 
     And I click the "My Bamboo" link
     And I click the "Create your first build plan" button
@@ -83,8 +88,12 @@ Feature: Configure Bamboo
     And I click the "Git" option
     And I populate the "Display name" text box with "Random Quotes GitHub"
     And I populate the "Repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+    And I scroll the "Test connection" button into view
     And I click the "Test connection" button
     Then I verify the "Connection successful" message is present
+    And I scroll the "Configure plan" button into view
     And I click the "Configure plan" button
 
     And I click the "Add task" button
+    And I populate the "Search" box with "MSBuild"
+    And I click the "MSBuild" tile
