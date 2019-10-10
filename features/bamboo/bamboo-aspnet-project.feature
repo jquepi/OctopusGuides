@@ -155,6 +155,7 @@ Feature: Configure Bamboo
     And I scroll the "Configure plan" button into view
     And I click the "Configure plan" button
 
+    And I scroll the "Add task" button into view
     And I click the "Add task" button
     And I populate the "Search" box with "Script"
     And I click the "Script" tile
@@ -165,6 +166,7 @@ Feature: Configure Bamboo
     And I scroll the "Save" button into view
     And I click the "Save" button
 
+    And I scroll the "Add task" button into view
     And I click the "Add task" button
     And I populate the "Search" box with "MSBuild"
     And I click the "MSBuild Tile" element
