@@ -166,7 +166,11 @@ Feature: Configure Bamboo
 
     And I populate the "Task description" text box with "NuGet Restore"
     And I select the option "Windows PowerShell" from the "Interpreter" drop down list
-    And I populate the "Script body" text box with "C:\ProgramData\chocolatey\bin\nuget.exe restore"
+    And I populate the "Script body" text box with:
+      """
+      $ErrorActionPreference="SilentlyContinue"
+      C:\ProgramData\chocolatey\bin\nuget.exe restore
+      """
     And I scroll the "Save" button into view
     And I click the "Save" button
 
