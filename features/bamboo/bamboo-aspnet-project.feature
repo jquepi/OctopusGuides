@@ -51,6 +51,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\updategit\040-path.png"
     And I click the "Update" button
 
+    And I click the "Server capabilities" link
     And I select the option "Executable" from the "Capability type" drop down list
     And I select the option "MSBuild" from the "Type" drop down list
     And I populate the "Executable label" text box with "MSBuild 2017"

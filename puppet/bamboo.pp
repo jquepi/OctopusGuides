@@ -3,9 +3,6 @@ download_file { 'sdk-installer-8.0.16.exe':
   url                   =>
     'https://octopus-guides.s3.amazonaws.com/bamboo/sdk-installer-8.0.16.exe',
 }
-file { 'C:/bamboo':
-  ensure => 'directory'
-}
 -> file { 'C:/start_bamboo.ps1':
   ensure  => 'file',
   owner   => 'Administrators',
