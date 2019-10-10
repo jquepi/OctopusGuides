@@ -106,29 +106,33 @@ Feature: Configure Bamboo
 
   Scenario: Add project
     Given I set the following aliases:
-      | My Bamboo                    | //a[@id='myBamboo']                                                                            |
-      | Create your first build plan | //a[@id='create-a-plan']                                                                       |
-      | Project name                 | //input[@id='projectName']                                                                     |
-      | Plan name                    | //input[@id='chainName']                                                                       |
-      | Repository host              | //a[@id='repository-other']                                                                    |
-      | Git                          | //a[@href='#com.atlassian.bamboo.plugins.atlassian-bamboo-plugin-git:gitv2']                   |
-      | Display name                 | //input[@id='createPlan_repositoryName']                                                       |
-      | Repository URL               | //input[@id='createPlan_repository_git_repositoryUrl']                                         |
-      | Test connection              | //button[@id='test-connection-com-atlassian-bamboo-plugins-atlassian-bamboo-plugin-git-gitv2'] |
-      | Connection successful        | //p[text()='Connection successful']                                                            |
-      | Configure plan               | //input[@id='createPlan_save']                                                                 |
-      | Add task                     | //a[@id='addTask']                                                                             |
-      | Search                       | //h2[contains(.,'Task types')]//input                                                          |
-      | MSBuild Tile                 | //a[@title='MSBuild']                                                                          |
-      | Script Tile                  | //a[@title='Script']                                                                           |
-      | Task description             | //input[@id='createTask_userDescription']                                                      |
-      | Solution                     | //input[@id='solution']                                                                        |
-      | Options                      | //input[@id='options']                                                                         |
-      | Save                         | //input[@id='createTask_save']                                                                 |
-      | Create                       | //input[@id='createPlan']                                                                      |
-      | Build one                    | //a[@href='/bamboo/browse/RQ-WEB-1']                                                           |
-      | Interpreter                  | //select[@id='interpreter']                                                                    |
-      | Script body                  | //div[@id='scriptBody']/textarea                                                               |
+      | My Bamboo                          | //a[@id='myBamboo']                                                                            |
+      | Create your first build plan       | //a[@id='create-a-plan']                                                                       |
+      | Project name                       | //input[@id='projectName']                                                                     |
+      | Plan name                          | //input[@id='chainName']                                                                       |
+      | Repository host                    | //a[@id='repository-other']                                                                    |
+      | Git                                | //a[@href='#com.atlassian.bamboo.plugins.atlassian-bamboo-plugin-git:gitv2']                   |
+      | Display name                       | //input[@id='createPlan_repositoryName']                                                       |
+      | Repository URL                     | //input[@id='createPlan_repository_git_repositoryUrl']                                         |
+      | Test connection                    | //button[@id='test-connection-com-atlassian-bamboo-plugins-atlassian-bamboo-plugin-git-gitv2'] |
+      | Connection successful              | //p[text()='Connection successful']                                                            |
+      | Configure plan                     | //input[@id='createPlan_save']                                                                 |
+      | Add task                           | //a[@id='addTask']                                                                             |
+      | Search                             | //h2[contains(.,'Task types')]//input                                                          |
+      | MSBuild Tile                       | //a[@title='MSBuild']                                                                          |
+      | Script Tile                        | //a[@title='Script']                                                                           |
+      | Octopus Deploy: Push Packages Tile | //a[@title='Octopus Deploy: Push Packages']                                                    |
+      | Task description                   | //input[@id='createTask_userDescription']                                                      |
+      | Solution                           | //input[@id='solution']                                                                        |
+      | Options                            | //input[@id='options']                                                                         |
+      | Save                               | //input[@id='createTask_save']                                                                 |
+      | Create                             | //input[@id='createPlan']                                                                      |
+      | Build one                          | //a[@href='/bamboo/browse/RQ-WEB-1']                                                           |
+      | Interpreter                        | //select[@id='interpreter']                                                                    |
+      | Script body                        | //div[@id='scriptBody']/textarea                                                               |
+      | Server URL                         | //input[@id='serverUrl']                                                                       |
+      | API key                            | //input[@id='apiKey']                                                                          |
+      | Package paths                      | //textarea[@id='pushPattern']                                                                  |
 
     And I click the "My Bamboo" link
     And I click the "Create your first build plan" button
@@ -175,6 +179,18 @@ Feature: Configure Bamboo
     And I clear the "Solution" text box
     And I populate the "Solution" text box with "RandomQuotes.sln"
     And I populate the "Options" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.${bamboo.buildNumber} /p:OctoPackEnforceAddingFiles=true"
+    And I click the "Save" button
+
+    And I scroll the "Add task" button into view
+    And I click the "Add task" button
+    And I populate the "Search" box with "Octopus"
+    And I click the "Octopus Deploy: Push Packages Tile" element
+
+    And I populate the "Task description" text box with "Push to Octopus"
+    And I clear the "Server URL" text box
+    And I populate the "Server URL" text box with "http://localhost"
+    And I populate the "API Key" text box with "ExternalOctopusAPIKey"
+    And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
     And I click the "Save" button
 
     And I click the "Create" button
