@@ -19,19 +19,19 @@ Feature: Configure Bamboo
   @extensions
   Scenario: Configure Git
     Given I set the following aliases:
-      | Close dialog               | //span[@class='aui-icon icon-close']                       |
-      | Administration             | //span[contains(.,'Administration')]                       |
-      | Overview                   | //a[contains(.,'Overview')]                                |
-      | Server capabilities        | //a[contains(.,'Server capabilities')]                     |
-      | Git                        | //a[contains(.,'Git')]                                     |
-      | Edit                       | //a[contains(.,'Edit')]                                    |
-      | Path                       | //input[@id='updateSharedCapability_capabilityValue']      |
-      | Update                     | //input[@id='updateSharedCapability_save']                 |
-      | Capability type            | //select[@id='addCapability_capabilityType']               |
-      | Type                       | //select[@id='executableTypeSelect']                       |
-      | Executable label           | //input[@id='addCapability_builderLabel']                  |
-      | Executable path            | //input[@id='addCapability_builderPath']                   |
-      | Add                        | //input[@id='addCapability_save']                          |
+      | Close dialog        | //span[@class='aui-icon icon-close']                  |
+      | Administration      | //span[contains(.,'Administration')]                  |
+      | Overview            | //a[contains(.,'Overview')]                           |
+      | Server capabilities | //a[contains(.,'Server capabilities')]                |
+      | Git                 | //a[contains(.,'Git')]                                |
+      | Edit                | //a[contains(.,'Edit')]                               |
+      | Path                | //input[@id='updateSharedCapability_capabilityValue'] |
+      | Update              | //input[@id='updateSharedCapability_save']            |
+      | Capability type     | //select[@id='addCapability_capabilityType']          |
+      | Type                | //select[@id='executableTypeSelect']                  |
+      | Executable label    | //input[@id='addCapability_builderLabel']             |
+      | Executable path     | //input[@id='addCapability_builderPath']              |
+      | Add                 | //input[@id='addCapability_save']                     |
 
     And I click the "Close dialog" button waiting up to "10" seconds if it exists
 
@@ -99,7 +99,15 @@ Feature: Configure Bamboo
       | Add task                     | //a[@id='addTask']                                                                             |
       | Search                       | //h2[contains(.,'Task types')]//input                                                          |
       | MSBuild                      | //a[@title='MSBuild']                                                                          |
+      | Script                       | //a[@title='Script']                                                                           |
       | Task description             | //input[@id='createTask_userDescription']                                                      |
+      | Solution                     | //input[@id='solution']                                                                        |
+      | Options                      | //input[@id='options']                                                                         |
+      | Save                         | //input[@id='createTask_save']                                                                 |
+      | Create                       | //input[@id='createPlan']                                                                      |
+      | Build one                    | //a[@href='/bamboo/browse/RQ-WEB-1']                                                           |
+      | Interpreter                  | //select[@id='interpreter']                                                                    |
+      | Script body                  | //div[@id='scriptBody']/textarea                                                               |
 
     And I click the "My Bamboo" link
     And I click the "Create your first build plan" button
@@ -116,5 +124,24 @@ Feature: Configure Bamboo
     And I click the "Configure plan" button
 
     And I click the "Add task" button
+    And I populate the "Search" box with "Script"
+    And I click the "Script" tile
+
+    And I populate the "Task description" text box with "NuGet Restore"
+    And I select the option "Windows PowerShell" from the "Interpreter" drop down list
+    And I populate the "Script body" text box with "C:\ProgramData\chocolatey\bin\nuget restore"
+    And I scroll the "Save" button into view
+    And I click the "Save" button
+
+    And I click the "Add task" button
     And I populate the "Search" box with "MSBuild"
     And I click the "MSBuild" tile
+
+    And I populate the "Task description" text box with "Build"
+    And I clear the "Solution" text box
+    And I populate the "Solution" text box with "RandomQuotes.sln"
+    And I populate the "Options" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.${bamboo.buildNumber} /p:OctoPackEnforceAddingFiles=true"
+    And I click the "Save" button
+
+    And I click the "Create" button
+    And I click the "Build one" link
