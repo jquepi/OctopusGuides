@@ -89,7 +89,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>cd ..</groupId>
+                <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>bamboo-maven-plugin</artifactId>
                 <version>${amps.version}</version>
                 <extensions>true</extensions>

@@ -16,7 +16,37 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\login\010-login.png"
     And I click the "Log in Two" button
 
-  @extensions
+  @add-plugins
+  Scenario: Add plugins
+    Given I set the following aliases:
+      | Close dialog               | //span[@class='aui-icon icon-close']                       |
+      | Administration             | //span[contains(.,'Administration')]                       |
+      | Overview                   | //a[contains(.,'Overview')]                                |
+      | Find new apps              | //a[contains(.,'Find new apps')]                           |
+      | Search the Marketplace     | //input[@id='upm-install-search-box']                      |
+      | Install                    | //a[contains(.,'Install')]                                 |
+      | Accept & install           | //button[normalize-space(text())='Accept & install']       |
+      | Installed and ready to go! | //h2[normalize-space(text())='Installed and ready to go!'] |
+      | Close                      | //button[text()='Close']                                   |
+
+    And I click the "Close dialog" button waiting up to "5" seconds if it exists
+
+    And I click the "Administration" button
+    And I save a screenshot to "c:\screenshots\bamboo\updategit\010-administration.png"
+    And I click the "Overview" link
+
+    And I scroll the "Find new apps" link into view offset by "-300"
+    And I click the "Find new apps" link
+    And I populate the "Search the Marketplace" text box with "Octopus"
+    And I sleep for "1" second
+    And I press the enter key from the "Search the Marketplace" text box
+    And I sleep for "5" seconds
+    And I click the "Install" button
+    And I click the "Accept & install" button
+    Then I verify the "Installed and ready to go!" title is present
+    And I click the "Close" button
+
+  @executables
   Scenario: Configure Git
     Given I set the following aliases:
       | Close dialog        | //span[@class='aui-icon icon-close']                  |
@@ -33,7 +63,7 @@ Feature: Configure Bamboo
       | Executable path     | //input[@id='addCapability_builderPath']              |
       | Add                 | //input[@id='addCapability_save']                     |
 
-    And I click the "Close dialog" button waiting up to "10" seconds if it exists
+    And I click the "Close dialog" button waiting up to "5" seconds if it exists
 
     And I click the "Administration" button
     And I save a screenshot to "c:\screenshots\bamboo\updategit\010-administration.png"
@@ -56,33 +86,15 @@ Feature: Configure Bamboo
     And I select the option "MSBuild" from the "Type" drop down list
     And I populate the "Executable label" text box with "MSBuild 2017"
     And I populate the "Executable path" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\msbuild.exe"
+    And I scroll the "Add" button into view
     And I click the "Add" button
 
     And I select the option "Executable" from the "Capability type" drop down list
     And I select the option "Octopus CLI" from the "Type" drop down list
     And I populate the "Executable label" text box with "Octopus CLI"
     And I populate the "Executable path" text box with "C:\ProgramData\chocolatey\bin\Octo.exe"
+    And I scroll the "Add" button into view
     And I click the "Add" button
-
-  @add-plugins
-  Scenario: Add plugins
-    Given I set the following aliases:
-      | Find new apps              | //a[contains(.,'Find new apps')]                           |
-      | Search the Marketplace     | //input[@id='upm-install-search-box']                      |
-      | Install                    | //a[contains(.,'Install')]                                 |
-      | Accept & install           | //button[normalize-space(text())='Accept & install']       |
-      | Installed and ready to go! | //h2[normalize-space(text())='Installed and ready to go!'] |
-      | Close                      | //button[text()='Close']                                   |
-
-    And I scroll the "Find new apps" link into view offset by "-300"
-    And I click the "Find new apps" link
-    And I populate the "Search the Marketplace" text box with "Octopus"
-    And I press the enter key from the "Search the Marketplace" text box
-    And I sleep for "5" seconds
-    And I click the "Install" button
-    And I click the "Accept & install" button
-    Then I verify the "Installed and ready to go!" title is present
-    And I click the "Close" button
 
   Scenario: Add project
     Given I set the following aliases:
