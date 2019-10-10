@@ -32,18 +32,22 @@ Feature: Configure Bamboo
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
 
     And I click the "Administration" button
-    And I save a screenshot to "c:\screenshots\bamboo\updategit\010-administration.png"
+    And I save a screenshot to "c:\screenshots\bamboo\addins\010-administration.png"
     And I click the "Overview" link
 
     And I scroll the "Find new apps" link into view offset by "-300"
+    And I save a screenshot to "c:\screenshots\bamboo\addins\020-find-apps.png"
     And I click the "Find new apps" link
     And I populate the "Search the Marketplace" text box with "Octopus"
     And I sleep for "1" second
     And I press the enter key from the "Search the Marketplace" text box
     And I sleep for "5" seconds
+    And I save a screenshot to "c:\screenshots\bamboo\addins\030-octopus-addin.png"
     And I click the "Install" button
+    And I save a screenshot to "c:\screenshots\bamboo\addins\040-accept.png"
     And I click the "Accept & install" button
     Then I verify the "Installed and ready to go!" title is present
+    And I save a screenshot to "c:\screenshots\bamboo\addins\050-installed.png"
     And I click the "Close" button
 
   @executables
@@ -66,20 +70,20 @@ Feature: Configure Bamboo
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
 
     And I click the "Administration" button
-    And I save a screenshot to "c:\screenshots\bamboo\updategit\010-administration.png"
+    And I save a screenshot to "c:\screenshots\bamboo\executables\010-administration.png"
     And I click the "Overview" link
 
-    And I save a screenshot to "c:\screenshots\bamboo\updategit\020-server-capabilities.png"
+    And I save a screenshot to "c:\screenshots\bamboo\executables\020-server-capabilities.png"
     And I click the "Server capabilities" link
 
-    And I save a screenshot to "c:\screenshots\bamboo\updategit\030-git.png"
+    And I save a screenshot to "c:\screenshots\bamboo\executables\030-git.png"
     And I scroll the "Git" link into view offset by "-300"
     And I click the "Git" link
     And I click the "Edit" link
 
     And I clear the "Path" text box
     And I populate the "Path" text box with "C:\Program Files\Git\cmd\git.exe"
-    And I save a screenshot to "c:\screenshots\bamboo\updategit\040-path.png"
+    And I save a screenshot to "c:\screenshots\bamboo\executables\040-path.png"
     And I click the "Update" button
 
     And I click the "Server capabilities" link
@@ -130,13 +134,24 @@ Feature: Configure Bamboo
     And I click the "Create your first build plan" button
     And I populate the "Project name" text box with "Random Quotes"
     And I populate the "Plan name" text box with "Website"
+
+    And I scroll the "Repository host" drop down list into view offset by "-300"
     And I click the "Repository host" drop down list
+
+    And I scroll the "Git" option into view offset by "-300"
     And I click the "Git" option
+
+    And I scroll the "Display name" text box into view offset by "-300"
     And I populate the "Display name" text box with "Random Quotes GitHub"
+
+    And I scroll the "Repository URL" text box into view offset by "-300"
     And I populate the "Repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+
+    And I scroll the "Test connection" button into view offset by "-300"
     And I scroll the "Test connection" button into view
     And I click the "Test connection" button
     Then I verify the "Connection successful" message is present
+
     And I scroll the "Configure plan" button into view
     And I click the "Configure plan" button
 
