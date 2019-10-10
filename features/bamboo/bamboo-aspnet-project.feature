@@ -73,6 +73,7 @@ Feature: Configure Bamboo
     And I click the "Server capabilities" link
 
     And I save a screenshot to "c:\screenshots\bamboo\updategit\030-git.png"
+    And I scroll the "Git" link into view offset by "-300"
     And I click the "Git" link
     And I click the "Edit" link
 
@@ -114,7 +115,7 @@ Feature: Configure Bamboo
       | Configure plan               | //input[@id='createPlan_save']                                                                 |
       | Add task                     | //a[@id='addTask']                                                                             |
       | Search                       | //h2[contains(.,'Task types')]//input                                                          |
-      | MSBuild Tile                      | //a[@title='MSBuild']                                                                          |
+      | MSBuild Tile                 | //a[@title='MSBuild']                                                                          |
       | Script                       | //a[@title='Script']                                                                           |
       | Task description             | //input[@id='createTask_userDescription']                                                      |
       | Solution                     | //input[@id='solution']                                                                        |
