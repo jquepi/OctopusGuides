@@ -12,7 +12,8 @@ file { 'C:/bamboo':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    c:\tools\sdk-installer-8.0.16.exe -q -overwrite
+    c:\tools\sdk-installer-8.0.16.exe -q -overwrite -c
+    Sleep 60
     New-Item -ItemType Directory -Path C:\bamboo\target\classes -Force
     cp config/pom.xml c:\bamboo
     cp config/atlassian-plugin.xml C:\bamboo\target\classes

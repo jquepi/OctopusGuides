@@ -27,12 +27,11 @@ Feature: Configure Bamboo
       | Edit                       | //a[contains(.,'Edit')]                                    |
       | Path                       | //input[@id='updateSharedCapability_capabilityValue']      |
       | Update                     | //input[@id='updateSharedCapability_save']                 |
-      | Find new apps              | //a[contains(.,'Find new apps')]                           |
-      | Search the Marketplace     | //input[@id='upm-install-search-box']                      |
-      | Install                    | //a[contains(.,'Install')]                                 |
-      | Accept & install           | //button[normalize-space(text())='Accept & install']       |
-      | Installed and ready to go! | //h2[normalize-space(text())='Installed and ready to go!'] |
-      | Close                      | //button[text()='Close']                                   |
+      | Capability type            | //select[@id='addCapability_capabilityType']               |
+      | Type                       | //select[@id='executableTypeSelect']                       |
+      | Executable label           | //input[@id='addCapability_builderLabel']                  |
+      | Executable path            | //input[@id='addCapability_builderPath']                   |
+      | Add                        | //input[@id='addCapability_save']                          |
 
     And I click the "Close dialog" button waiting up to "10" seconds if it exists
 
@@ -51,6 +50,28 @@ Feature: Configure Bamboo
     And I populate the "Path" text box with "C:\Program Files\Git\cmd\git.exe"
     And I save a screenshot to "c:\screenshots\bamboo\updategit\040-path.png"
     And I click the "Update" button
+
+    And I select the option "Executable" from the "Capability type" drop down list
+    And I select the option "MSBuild" from the "Type" drop down list
+    And I populate the "Executable label" text box with "MSBuild 2017"
+    And I populate the "Executable path" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\msbuild.exe"
+    And I click the "Add" button
+
+    And I select the option "Executable" from the "Capability type" drop down list
+    And I select the option "Octopus CLI" from the "Type" drop down list
+    And I populate the "Executable label" text box with "Octopus CLI"
+    And I populate the "Executable path" text box with "C:\ProgramData\chocolatey\bin\Octo.exe"
+    And I click the "Add" button
+
+  @add-plugins
+  Scenario: Add plugins
+    Given I set the following aliases:
+      | Find new apps              | //a[contains(.,'Find new apps')]                           |
+      | Search the Marketplace     | //input[@id='upm-install-search-box']                      |
+      | Install                    | //a[contains(.,'Install')]                                 |
+      | Accept & install           | //button[normalize-space(text())='Accept & install']       |
+      | Installed and ready to go! | //h2[normalize-space(text())='Installed and ready to go!'] |
+      | Close                      | //button[text()='Close']                                   |
 
     And I scroll the "Find new apps" link into view offset by "-300"
     And I click the "Find new apps" link
