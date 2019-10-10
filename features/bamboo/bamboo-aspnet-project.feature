@@ -82,18 +82,21 @@ Feature: Configure Bamboo
     And I click the "Update" button
 
     And I click the "Server capabilities" link
+
+    And I scroll the "Capability type" drop down list into view offset by "-300"
     And I select the option "Executable" from the "Capability type" drop down list
     And I select the option "MSBuild" from the "Type" drop down list
     And I populate the "Executable label" text box with "MSBuild 2017"
     And I populate the "Executable path" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\msbuild.exe"
-    And I scroll the "Add" button into view
+    And I scroll the "Add" button into view offset by "-300"
     And I click the "Add" button
 
+    And I scroll the "Capability type" drop down list into view offset by "-300"
     And I select the option "Executable" from the "Capability type" drop down list
     And I select the option "Octopus CLI" from the "Type" drop down list
     And I populate the "Executable label" text box with "Octopus CLI"
     And I populate the "Executable path" text box with "C:\ProgramData\chocolatey\bin\Octo.exe"
-    And I scroll the "Add" button into view
+    And I scroll the "Add" button into view offset by "-300"
     And I click the "Add" button
 
   Scenario: Add project
@@ -111,7 +114,7 @@ Feature: Configure Bamboo
       | Configure plan               | //input[@id='createPlan_save']                                                                 |
       | Add task                     | //a[@id='addTask']                                                                             |
       | Search                       | //h2[contains(.,'Task types')]//input                                                          |
-      | MSBuild                      | //a[@title='MSBuild']                                                                          |
+      | MSBuild Tile                      | //a[@title='MSBuild']                                                                          |
       | Script                       | //a[@title='Script']                                                                           |
       | Task description             | //input[@id='createTask_userDescription']                                                      |
       | Solution                     | //input[@id='solution']                                                                        |
@@ -148,7 +151,7 @@ Feature: Configure Bamboo
 
     And I click the "Add task" button
     And I populate the "Search" box with "MSBuild"
-    And I click the "MSBuild" tile
+    And I click the "MSBuild Tile" element
 
     And I populate the "Task description" text box with "Build"
     And I clear the "Solution" text box
