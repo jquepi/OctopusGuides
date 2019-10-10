@@ -182,6 +182,7 @@ Feature: Configure Bamboo
     And I clear the "Solution" text box
     And I populate the "Solution" text box with "RandomQuotes.sln"
     And I populate the "Options" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.${bamboo.buildNumber} /p:OctoPackEnforceAddingFiles=true"
+    And I scroll the "Save" button into view
     And I click the "Save" button
 
     And I scroll the "Add task" button into view
@@ -194,6 +195,7 @@ Feature: Configure Bamboo
     And I populate the "Server URL" text box with "http://localhost"
     And I populate the "API Key" text box with "ExternalOctopusAPIKey"
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
+    And I scroll the "Save" button into view
     And I click the "Save" button
 
     And I click the "Create" button
