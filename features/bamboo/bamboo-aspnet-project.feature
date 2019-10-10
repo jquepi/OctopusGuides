@@ -119,9 +119,9 @@ Feature: Configure Bamboo
       | Configure plan                     | //input[@id='createPlan_save']                                                                 |
       | Add task                           | //a[@id='addTask']                                                                             |
       | Search                             | //h2[contains(.,'Task types')]//input                                                          |
-      | MSBuild Tile                       | //a[@title='MSBuild']                                                                          |
-      | Script Tile                        | //a[@title='Script']                                                                           |
-      | Octopus Deploy: Push Packages Tile | //a[@title='Octopus Deploy: Push Packages']                                                    |
+      | MSBuild Tile                       | //li[.//h3[normalize-space(text())='MSBuild']]                                                 |
+      | Script Tile                        | //li[.//h3[normalize-space(text())='Script']]                                                  |
+      | Octopus Deploy: Push Packages Tile | //li[.//h3[normalize-space(text())='Octopus Deploy: Push Packages']]                           |
       | Task description                   | //input[@id='createTask_userDescription']                                                      |
       | Solution                           | //input[@id='solution']                                                                        |
       | Options                            | //input[@id='options']                                                                         |
