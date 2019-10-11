@@ -39,7 +39,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\addins\020-find-apps.png"
     And I click the "Find new apps" link
     And I populate the "Search the Marketplace" text box with "Octopus"
-    And I sleep for "1" second
+    And I sleep for "2" second
     And I press the enter key from the "Search the Marketplace" text box
     And I sleep for "5" seconds
     And I save a screenshot to "c:\screenshots\bamboo\addins\030-octopus-addin.png"
@@ -126,7 +126,7 @@ Feature: Configure Bamboo
       | Solution                           | //input[@id='solution']                                                                        |
       | Options                            | //input[@id='options']                                                                         |
       | Save                               | //input[@id='createTask_save']                                                                 |
-      | Create                             | //input[@id='createPlan']                                                                      |
+      | Create                             | //button[@id='createPlan']                                                                     |
       | Build one                          | //a[@href='/bamboo/browse/RQ-WEB-1']                                                           |
       | Interpreter                        | //select[@id='interpreter']                                                                    |
       | Script body                        | //div[@id='scriptBody']/textarea                                                               |
