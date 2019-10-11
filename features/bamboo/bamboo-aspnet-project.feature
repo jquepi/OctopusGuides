@@ -31,6 +31,7 @@ Feature: Configure Bamboo
 
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
 
+    And I scroll the "Administration" button into view
     And I click the "Administration" button
     And I save a screenshot to "c:\screenshots\bamboo\addins\010-administration.png"
     And I click the "Overview" link
@@ -70,6 +71,7 @@ Feature: Configure Bamboo
 
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
 
+    And I scroll the "Administration" button into view
     And I click the "Administration" button
     And I save a screenshot to "c:\screenshots\bamboo\executables\010-administration.png"
     And I click the "Overview" link
