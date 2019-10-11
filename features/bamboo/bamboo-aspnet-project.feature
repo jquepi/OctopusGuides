@@ -218,10 +218,14 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\170-search.png"
     And I click the "Octopus Deploy: Push Packages Tile" element
 
+    And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "Push to Octopus"
+    And I scroll the "Server URL" text box into view offset by "-300"
     And I clear the "Server URL" text box
     And I populate the "Server URL" text box with "http://localhost"
+    And I scroll the "API key" text box into view offset by "-300"
     And I populate the "API key" text box with "ExternalOctopusAPIKey"
+    And I scroll the "Package paths" text box into view offset by "-300"
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\175-octo-push.png"
     And I scroll the "Save" button into view
