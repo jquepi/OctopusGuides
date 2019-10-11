@@ -10,6 +10,11 @@ package { 'vlc':
   provider => chocolatey
 }
 
+package { 'ffmpeg':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 package { 'NuGet.CommandLine':
   ensure   => installed,
   provider => chocolatey
