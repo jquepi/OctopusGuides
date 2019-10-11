@@ -44,6 +44,7 @@ Feature: Configure Bamboo
     And I sleep for "5" seconds
     And I save a screenshot to "c:\screenshots\bamboo\addins\030-octopus-addin.png"
     And I click the "Install" button
+    And I sleep for "5" seconds
     And I save a screenshot to "c:\screenshots\bamboo\addins\040-accept.png"
     And I click the "Accept & install" button
     Then I verify the "Installed and ready to go!" title is present
@@ -76,8 +77,8 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\executables\020-server-capabilities.png"
     And I click the "Server capabilities" link
 
-    And I save a screenshot to "c:\screenshots\bamboo\executables\030-git.png"
     And I scroll the "Git" link into view offset by "-300"
+    And I save a screenshot to "c:\screenshots\bamboo\executables\030-git.png"
     And I click the "Git" link
     And I click the "Edit" link
 
@@ -94,6 +95,7 @@ Feature: Configure Bamboo
     And I populate the "Executable label" text box with "MSBuild 2017"
     And I populate the "Executable path" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\msbuild.exe"
     And I scroll the "Add" button into view offset by "-300"
+    And I save a screenshot to "c:\screenshots\bamboo\executables\050-msbuild.png"
     And I click the "Add" button
 
     And I scroll the "Capability type" drop down list into view offset by "-300"
@@ -102,6 +104,7 @@ Feature: Configure Bamboo
     And I populate the "Executable label" text box with "Octopus CLI"
     And I populate the "Executable path" text box with "C:\ProgramData\chocolatey\bin\Octo.exe"
     And I scroll the "Add" button into view offset by "-300"
+    And I save a screenshot to "c:\screenshots\bamboo\executables\060-octo.png"
     And I click the "Add" button
 
   Scenario: Add project
