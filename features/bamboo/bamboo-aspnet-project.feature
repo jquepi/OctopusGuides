@@ -184,13 +184,19 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\110-search.png"
     And I click the "Script Tile" element
 
+    And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "NuGet Restore"
+
+    And I scroll the "Interpreter" drop down list into view offset by "-300"
     And I select the option "Windows PowerShell" from the "Interpreter" drop down list
+
+    And I scroll the "Script body" text area into view offset by "-300"
     And I run the following JavaScript:
       """
       ace.edit(scriptBody).setValue("$ErrorActionPreference=\"SilentlyContinue\"\nC:\\ProgramData\\chocolatey\\bin\\nuget.exe restore")
       """
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\115-nuget-restore.png"
+
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\120-nuget-restore.png"
     And I click the "Save" button
@@ -203,11 +209,17 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\140-search.png"
     And I click the "MSBuild Tile" element
 
+    And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "Build"
+
+    And I scroll the "Solution" text box into view offset by "-300"
     And I clear the "Solution" text box
     And I populate the "Solution" text box with "RandomQuotes.sln"
+
+    And I scroll the "Options" text box into view offset by "-300"
     And I populate the "Options" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.${bamboo.buildNumber} /p:OctoPackEnforceAddingFiles=true"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\145-msbuild.png"
+
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\150-msbuild.png"
     And I click the "Save" button
