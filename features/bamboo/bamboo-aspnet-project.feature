@@ -256,3 +256,8 @@ Feature: Configure Bamboo
 
     And I sleep for "60" seconds
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\210-build-results.png"
+
+  Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
+    And I close the browser
