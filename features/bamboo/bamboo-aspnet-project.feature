@@ -193,7 +193,7 @@ Feature: Configure Bamboo
     And I populate the "Task description" text box with "Push to Octopus"
     And I clear the "Server URL" text box
     And I populate the "Server URL" text box with "http://localhost"
-    And I populate the "API Key" text box with "ExternalOctopusAPIKey"
+    And I populate the "API key" text box with "ExternalOctopusAPIKey"
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
     And I scroll the "Save" button into view
     And I click the "Save" button
