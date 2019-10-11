@@ -30,6 +30,7 @@ Feature: Configure Bamboo
       | Close                      | //button[text()='Close']                                   |
 
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I scroll the "Administration" button into view
     And I click the "Administration" button
