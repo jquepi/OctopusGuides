@@ -188,6 +188,7 @@ Feature: Configure Bamboo
       """
       ace.edit(scriptBody).setValue("$ErrorActionPreference=\"SilentlyContinue\"\nC:\\ProgramData\\chocolatey\\bin\\nuget.exe restore")
       """
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\115-nuget-restore.png"
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\120-nuget-restore.png"
     And I click the "Save" button
@@ -204,6 +205,7 @@ Feature: Configure Bamboo
     And I clear the "Solution" text box
     And I populate the "Solution" text box with "RandomQuotes.sln"
     And I populate the "Options" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.${bamboo.buildNumber} /p:OctoPackEnforceAddingFiles=true"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\145-msbuild.png"
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\150-msbuild.png"
     And I click the "Save" button
@@ -221,6 +223,7 @@ Feature: Configure Bamboo
     And I populate the "Server URL" text box with "http://localhost"
     And I populate the "API key" text box with "ExternalOctopusAPIKey"
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\175-octo-push.png"
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\180-octo-push.png"
     And I click the "Save" button
