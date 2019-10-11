@@ -137,34 +137,49 @@ Feature: Configure Bamboo
       | API key                            | //input[@id='apiKey']                                                                          |
       | Package paths                      | //textarea[@id='pushPattern']                                                                  |
 
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\010-mybamboo.png"
     And I click the "My Bamboo" link
+
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\020-create-build-plan.png"
     And I click the "Create your first build plan" button
+
     And I populate the "Project name" text box with "Random Quotes"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\030-project-name.png"
+
     And I populate the "Plan name" text box with "Website"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\040-plan-name.png"
 
     And I scroll the "Repository host" drop down list into view offset by "-300"
     And I click the "Repository host" drop down list
 
     And I scroll the "Git" option into view offset by "-300"
     And I click the "Git" option
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\050-git.png"
 
     And I scroll the "Display name" text box into view offset by "-300"
     And I populate the "Display name" text box with "Random Quotes GitHub"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\060-display-name.png"
 
     And I scroll the "Repository URL" text box into view offset by "-300"
     And I populate the "Repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\070-repo-url.png"
 
     And I scroll the "Test connection" button into view offset by "-300"
     And I scroll the "Test connection" button into view
     And I click the "Test connection" button
     Then I verify the "Connection successful" message is present
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\080-test-connection.png"
 
     And I scroll the "Configure plan" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\090-configure-plan.png"
     And I click the "Configure plan" button
 
     And I scroll the "Add task" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\100-add-task.png"
     And I click the "Add task" button
+
     And I populate the "Search" box with "Script"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\110-search.png"
     And I click the "Script Tile" element
 
     And I populate the "Task description" text box with "NuGet Restore"
@@ -174,11 +189,15 @@ Feature: Configure Bamboo
       ace.edit(scriptBody).setValue("$ErrorActionPreference=\"SilentlyContinue\"\nC:\\ProgramData\\chocolatey\\bin\\nuget.exe restore")
       """
     And I scroll the "Save" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\120-nuget-restore.png"
     And I click the "Save" button
 
     And I scroll the "Add task" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\130-add-task.png"
     And I click the "Add task" button
+
     And I populate the "Search" box with "MSBuild"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\140-search.png"
     And I click the "MSBuild Tile" element
 
     And I populate the "Task description" text box with "Build"
@@ -186,11 +205,15 @@ Feature: Configure Bamboo
     And I populate the "Solution" text box with "RandomQuotes.sln"
     And I populate the "Options" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.${bamboo.buildNumber} /p:OctoPackEnforceAddingFiles=true"
     And I scroll the "Save" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\150-msbuild.png"
     And I click the "Save" button
 
     And I scroll the "Add task" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\160-add-task.png"
     And I click the "Add task" button
+
     And I populate the "Search" box with "Octopus"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\170-search.png"
     And I click the "Octopus Deploy: Push Packages Tile" element
 
     And I populate the "Task description" text box with "Push to Octopus"
@@ -199,7 +222,11 @@ Feature: Configure Bamboo
     And I populate the "API key" text box with "ExternalOctopusAPIKey"
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
     And I scroll the "Save" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\180-octo-push.png"
     And I click the "Save" button
 
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\190-create.png"
     And I click the "Create" button
+
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\200-build-one.png"
     And I click the "Build one" link
