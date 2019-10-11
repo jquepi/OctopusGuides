@@ -230,6 +230,7 @@ Feature: Configure Bamboo
 
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\190-create.png"
     And I click the "Create" button
+    And I sleep for "5" seconds
 
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\200-build-one.png"
     And I click the "Build one" link
