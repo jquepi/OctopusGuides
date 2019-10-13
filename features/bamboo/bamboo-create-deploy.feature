@@ -29,45 +29,58 @@ Feature: Create deployment
       | Run                                 | //button[@aria-controls='runMenuParent']                              |
       | Run plan                            | //a[@id='manualBuild_RQ-WEB']                                         |
 
+    And I highlight the "Configure plan" link
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\010-configure-plan.png"
     And I click the "Configure plan" link
 
+    And I highlight the "Default job" link
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\020-default-job.png"
     And I click the "Default job" link
 
+    And I highlight the "Add task" button
     And I scroll the "Add task" button into view
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\030-add-task.png"
     And I click the "Add task" button
 
+    And I highlight the "Search" box
     And I populate the "Search" box with "Octopus"
+    And I highlight the "Octopus Deploy: Create Release Tile" element
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\040-search.png"
     And I click the "Octopus Deploy: Create Release Tile" element
 
+    And I highlight the "Task description" text box
     And I populate the "Task description" text box with "Create deployment"
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\050-description.png"
 
+    And I highlight the "Server URL" text box
     And I scroll the "Server URL" text box into view offset by "-300"
     And I clear the "Server URL" text box
     And I populate the "Server URL" text box with "http://localhost"
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\060-server-url.png"
 
+    And I highlight the "API key" text box
     And I scroll the "API key" text box into view offset by "-300"
     And I populate the "API key" text box with "ExternalOctopusAPIKey"
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\070-api-key.png"
 
+    And I highlight the "Project" text box
     And I scroll the "Project" text box into view offset by "-300"
     And I populate the "Project" text box with "Random Quotes"
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\080-project.png"
 
+    And I highlight the "Environment" text box
     And I scroll the "Environment" text box into view offset by "-300"
     And I populate the "Environment" text box with "Dev"
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\090-environment.png"
 
+    And I highlight the "Save" button
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\100-octo-push.png"
     And I click the "Save" button
 
+    And I highlight the "Run" button
     And I click the "Run" button
+    And I highlight the "Run plan" link
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\110-run.png"
     And I click the "Run plan" link
 
