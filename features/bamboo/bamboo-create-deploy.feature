@@ -1,0 +1,77 @@
+Feature: Create deployment
+
+  Scenario: Login
+    Given I set the following aliases:
+      | Log in     | (//a[text()='Log in'])[1]            |
+      | Username   | //input[@id='loginForm_os_username'] |
+      | Password   | //input[@id='loginForm_os_password'] |
+      | Log in Two | // input[@id='loginForm_save']       |
+
+    And I open the shared browser "FirefoxNoImplicitWait"
+    And I set the default explicit wait time to "30" seconds
+    And I open the URL "http://localhost:6990/bamboo"
+    And I click the "Log in" button
+    And I populate the "Username" text box with "admin"
+    And I populate the "Password" text box with "admin"
+    And I click the "Log in Two" button
+
+  Scenario: Add create deployment step
+    Given I set the following aliases:
+      | Configure plan                      | //a[@id='editBuild:RQ-WEB']                                           |
+      | Default job                         | //a[@id='viewJob_RQ-WEB-JOB1']                                        |
+      | Add task                            | //a[@id='addTask']                                                    |
+      | Octopus Deploy: Create Release Tile | //li[.//h3[normalize-space(text())='Octopus Deploy: Create Release']] |
+      | Task description                    | //input[@id='createTask_userDescription']                             |
+      | Server URL                          | //input[@id='serverUrl']                                              |
+      | API key                             | //input[@id='apiKey']                                                 |
+      | Project                             | //input[@id='projectName']                                            |
+      | Environment                         | //input[@id='environmentName']                                        |
+      | Run                                 | //button[@aria-controls='runMenuParent']                              |
+      | Run plan                            | //a[@id='manualBuild_RQ-WEB']                                         |
+
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\010-configure-plan.png"
+    And I click the "Configure plan" link
+
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\020-default-job.png"
+    And I click the "Default job" link
+
+    And I scroll the "Add task" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\030-add-task.png"
+    And I click the "Add task" button
+
+    And I populate the "Search" box with "Octopus"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\040-search.png"
+    And I click the "Octopus Deploy: Create Release Tile" element
+
+    And I populate the "Task description" text box with "Create deployment"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\050-description.png"
+
+    And I scroll the "Server URL" text box into view offset by "-300"
+    And I clear the "Server URL" text box
+    And I populate the "Server URL" text box with "http://localhost"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\060-server-url.png"
+
+    And I scroll the "API key" text box into view offset by "-300"
+    And I populate the "API key" text box with "ExternalOctopusAPIKey"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\070-api-key.png"
+
+    And I scroll the "Project" text box into view offset by "-300"
+    And I populate the "Project" text box with "Random Quotes"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\080-project.png"
+
+    And I scroll the "Environment" text box into view offset by "-300"
+    And I populate the "Environment" text box with "Dev"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\090-environment.png"
+
+    And I scroll the "Save" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\100-octo-push.png"
+    And I click the "Save" button
+
+    And I click the "Run" button
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\110-run.png"
+    And I click the "Run plan" link
+
+    And I scroll down "10000" px
+
+    And I sleep for "60" seconds
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\120-build-results.png"
