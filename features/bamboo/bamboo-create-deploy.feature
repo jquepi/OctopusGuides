@@ -28,6 +28,7 @@ Feature: Create deployment
       | Environment                         | //input[@id='environmentName']                                        |
       | Run                                 | //button[@aria-controls='runMenuParent']                              |
       | Run plan                            | //a[@id='manualBuild_RQ-WEB']                                         |
+      | Search                              | //h2[contains(.,'Task types')]//input                                 |
 
     And I highlight the "Configure plan" link
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\010-configure-plan.png"
