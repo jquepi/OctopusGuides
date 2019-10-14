@@ -1,4 +1,4 @@
-name: ASP.NET Bamboo Octopus Built-in Feed Screenshots
+name: ASP.NET Bamboo Octopus Artifactory Feed Screenshots
 on: [push]
 jobs:
   build:
