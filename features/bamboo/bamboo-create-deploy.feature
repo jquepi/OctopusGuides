@@ -85,6 +85,7 @@ Feature: Create deployment
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\100-octo-push.png"
     And I click the "Save" button
 
+    And I scroll the "Run" button into view
     And I highlight the "Run" button with an offset of "5"
     And I click the "Run" button
     And I highlight the "Run plan" link with an offset of "5"
