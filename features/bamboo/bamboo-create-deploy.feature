@@ -31,6 +31,8 @@ Feature: Create deployment
       | Search                              | //h2[contains(.,'Task types')]//input                                 |
       | Save                                | //input[@id='createTask_save']                                        |
 
+    And I display a note with the text "Creating a deploying a release in Octopus" for "3" seconds
+
     And I highlight the "Configure plan" link
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\010-configure-plan.png"
     And I click the "Configure plan" link
@@ -65,6 +67,8 @@ Feature: Create deployment
     And I scroll the "API key" text box into view offset by "-300"
     And I populate the "API key" text box with "ExternalOctopusAPIKey"
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\070-api-key.png"
+    And I remove the highlight from the "Server URL" text box
+    And I remove the highlight from the "API key" text box
 
     And I highlight the "Project" text box
     And I scroll the "Project" text box into view offset by "-300"

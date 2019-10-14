@@ -32,6 +32,8 @@ Feature: Configure Bamboo
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
     And I start recording the screen to the directory "C:\screenshots"
 
+    And I display a note with the text "Installing the Bamboo add ons" for "3" seconds
+
     And I scroll the "Administration" button into view
     And I click the "Administration" button
     And I highlight inside the "Administration" button
@@ -83,6 +85,8 @@ Feature: Configure Bamboo
       | Add                 | //input[@id='addCapability_save']                     |
 
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
+
+    And I display a note with the text "Configuring the executables" for "3" seconds
 
     And I scroll the "Administration" button into view
     And I click the "Administration" button
@@ -174,6 +178,8 @@ Feature: Configure Bamboo
       | Server URL                         | //input[@id='serverUrl']                                                                       |
       | API key                            | //input[@id='apiKey']                                                                          |
       | Package paths                      | //textarea[@id='pushPattern']                                                                  |
+
+    And I display a note with the text "Creating the build project" for "3" seconds
 
     And I highlight outside the "My Bamboo" link
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\010-mybamboo.png"
