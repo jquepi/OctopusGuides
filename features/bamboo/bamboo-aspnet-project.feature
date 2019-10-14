@@ -325,7 +325,7 @@ Feature: Configure Bamboo
     And I highlight outside the "Save" button
 
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\175-octo-push.png"
-    And I remove the highlighting from the "Package paths" text box
+    And I remove the highlight from the "Package paths" text box
 
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\180-octo-push.png"
