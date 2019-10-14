@@ -34,33 +34,33 @@ Feature: Add Artifactory NuGet feed
 
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\020-external-feeds.png"
     And I click the "External Feeds" link
-    And I highlight outside the "External Feeds text" link with an offset of "2"
-    And I highlight outside the "Add Feed" button with an offset of "2"
+    And I highlight outside the "External Feeds text" link with an offset of "1"
+    And I highlight outside the "Add Feed" button with an offset of "1"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\030-add-feed.png"
     And I remove the highlight from the "Library" link
     And I click the "Add Feed" button
 
     And I scroll the "Feed name" text box into view offset by "-200"
-    And I highlight outside the "Feed name" text box with an offset of "2"
+    And I highlight outside the "Feed name" text box with an offset of "1"
     And I populate the "Feed name" text box with "Artifactory"
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\040-external-feed.png"
 
     And I scroll the "Feed url" text box into view offset by "-200"
-    And I highlight outside the "Feed url" text box with an offset of "2"
+    And I highlight outside the "Feed url" text box with an offset of "1"
     And I populate the "Feed url" text box with "http://localhost:8041/artifactory/api/nuget/NuGet"
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\050-external-feed.png"
 
     And I scroll the "Feed username" text box into view offset by "-200"
-    And I highlight outside the "Feed username" text box with an offset of "2"
+    And I highlight outside the "Feed username" text box with an offset of "1"
     And I populate the "Feed username" text box with "admin"
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\060-external-feed.png"
 
     And I scroll the "Feed password" text box into view offset by "-200"
-    And I highlight outside the "Feed password" text box with an offset of "2"
+    And I highlight outside the "Feed password" text box with an offset of "1"
     And I populate the "Feed password" text box with "password"
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\070-external-feed.png"
 
-    And I highlight outside the "Save" button with an offset of "2"
+    And I highlight outside the "Save" button with an offset of "1"
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\080-external-feed.png"
     And I click the "Save" button
