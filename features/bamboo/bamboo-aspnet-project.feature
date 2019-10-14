@@ -164,8 +164,8 @@ Feature: Configure Bamboo
       | Configure plan               | //input[@id='createPlan_save']                                                                 |
       | Add task                     | //a[@id='addTask']                                                                             |
       | Search                       | //h2[contains(.,'Task types')]//input                                                          |
-      | MSBuild Tile                 | //li[.//h3[normalize-space(text())='MSBuild']]                                                 |
-      | Script Tile                  | //li[.//h3[normalize-space(text())='Script']]                                                  |
+      | MSBuild Tile                 | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='MSBuild']]         |
+      | Script Tile                  | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']]          |
       | Task description             | //input[@id='createTask_userDescription']                                                      |
       | Solution                     | //input[@id='solution']                                                                        |
       | Options                      | //input[@id='options']                                                                         |
@@ -175,7 +175,7 @@ Feature: Configure Bamboo
 
     And I display a note with the text "Creating the build project" for "3" seconds
 
-    And I highlight outside the "My Bamboo" link
+    And I highlight inside the "My Bamboo" link
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\010-mybamboo.png"
     And I click the "My Bamboo" link
 
@@ -290,17 +290,17 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\150-msbuild.png"
     And I click the "Save" button
 
-  @octo-push-step
+  @octo-built-in-feed
   Scenario: Add Octopus Push
     Given I set the following aliases:
-      | Add task                           | //a[@id='addTask']                                                   |
-      | Octopus Deploy: Push Packages Tile | //li[.//h3[normalize-space(text())='Octopus Deploy: Push Packages']] |
-      | Search                             | //h2[contains(.,'Task types')]//input                                |
-      | Task description                   | //input[@id='createTask_userDescription']                            |
-      | Server URL                         | //input[@id='serverUrl']                                             |
-      | API key                            | //input[@id='apiKey']                                                |
-      | Package paths                      | //textarea[@id='pushPattern']                                        |
-      | Save                               | //input[@id='createTask_save']                                       |
+      | Add task                           | //a[@id='addTask']                                                                                           |
+      | Octopus Deploy: Push Packages Tile | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Octopus Deploy: Push Packages']] |
+      | Search                             | //h2[contains(.,'Task types')]//input                                                                        |
+      | Task description                   | //input[@id='createTask_userDescription']                                                                    |
+      | Server URL                         | //input[@id='serverUrl']                                                                                     |
+      | API key                            | //input[@id='apiKey']                                                                                        |
+      | Package paths                      | //textarea[@id='pushPattern']                                                                                |
+      | Save                               | //input[@id='createTask_save']                                                                               |
 
     And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
@@ -340,14 +340,13 @@ Feature: Configure Bamboo
   @artifactory
   Scenario: Add Octopus Push
     Given I set the following aliases:
-      | Add task                           | //a[@id='addTask']                                                   |
-      | Script Tile                  | //li[.//h3[normalize-space(text())='Script']]                                                  |
-      | Search                             | //h2[contains(.,'Task types')]//input                                |
-      | Task description                   | //input[@id='createTask_userDescription']                            |
-      | Server URL                         | //input[@id='serverUrl']                                             |
-      | API key                            | //input[@id='apiKey']                                                |
-      | Package paths                      | //textarea[@id='pushPattern']                                        |
-      | Save                               | //input[@id='createTask_save']                                       |
+      | Add task         | //a[@id='addTask']                                                                    |
+      | Script Tile      | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']] |
+      | Search           | //h2[contains(.,'Task types')]//input                                                 |
+      | Task description | //input[@id='createTask_userDescription']                                             |
+      | Interpreter      | //select[@id='interpreter']                                                           |
+      | Script body      | //div[@id='scriptBody']/textarea                                                      |
+      | Save             | //input[@id='createTask_save']                                                        |
 
     And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
@@ -363,7 +362,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Task description" text box
     And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "NuGet Restore"
+    And I populate the "Task description" text box with "NuGet Push"
 
     And I highlight outside the "Interpreter" text box
     And I scroll the "Interpreter" drop down list into view offset by "-300"
