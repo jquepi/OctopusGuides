@@ -24,7 +24,7 @@ archive { 'C:/install/jfrog-artifactory-oss-6.13.1.zip':
     | EOT
 }
 -> exec { 'Install Artifactory':
-  command  => '& C:/install_artifactory.ps',
+  command  => '& C:/install_artifactory.ps1',
   creates  => 'c:/ArtifactoryStarted.txt',
   timeout  => 3600,
   provider => powershell,
