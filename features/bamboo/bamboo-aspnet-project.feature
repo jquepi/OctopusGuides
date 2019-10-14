@@ -182,11 +182,11 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\020-create-build-plan.png"
     And I click the "Create your first build plan" button
 
-    And I highlight outside the "Project name" text box
+    And I highlight outside the "Project name" text box with an offset of "5"
     And I populate the "Project name" text box with "Random Quotes"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\030-project-name.png"
 
-    And I highlight outside the "Plan name" text box
+    And I highlight outside the "Plan name" text box with an offset of "5"
     And I populate the "Plan name" text box with "Website"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\040-plan-name.png"
 
@@ -195,16 +195,16 @@ Feature: Configure Bamboo
     And I click the "Repository host" drop down list
 
     And I scroll the "Git" option into view offset by "-300"
-    And I highlight outside the "Git" option
+    And I highlight outside the "Git" option with an offset of "5"
     And I click the "Git" option
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\050-git.png"
 
-    And I highlight outside the "Display name" text box
+    And I highlight outside the "Display name" text box with an offset of "5"
     And I scroll the "Display name" text box into view offset by "-300"
     And I populate the "Display name" text box with "Random Quotes GitHub"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\060-display-name.png"
 
-    And I highlight outside the "Repository URL" text box
+    And I highlight outside the "Repository URL" text box with an offset of "5"
     And I scroll the "Repository URL" text box into view offset by "-300"
     And I populate the "Repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\070-repo-url.png"
@@ -221,14 +221,15 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\090-configure-plan.png"
     And I click the "Configure plan" button
 
-    And I highlight outside the "Add task" button
+    And I highlight outside the "Add task" button with an offset of "5"
     And I scroll the "Add task" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\100-add-task.png"
     And I click the "Add task" button
+    And I remove the highlight from the "Add task" button
 
     And I highlight outside the "Search" box
     And I populate the "Search" box with "Script"
-    And I highlight outside the "Script Tile" element
+    And I highlight outside the "Script Tile" element with an offset of "0"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\110-search.png"
     And I click the "Script Tile" element
 
@@ -240,7 +241,7 @@ Feature: Configure Bamboo
     And I scroll the "Interpreter" drop down list into view offset by "-300"
     And I select the option "Windows PowerShell" from the "Interpreter" drop down list
 
-    And I highlight outside the "Script body" text box
+    And I highlight inside the "Script body" text box
     And I scroll the "Script body" text area into view offset by "-300"
     And I run the following JavaScript:
       """
@@ -253,27 +254,28 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\120-nuget-restore.png"
     And I click the "Save" button
 
-    And I highlight outside the "Add task" button
+    And I highlight outside the "Add task" button with an offset of "5"
     And I scroll the "Add task" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\130-add-task.png"
     And I click the "Add task" button
+    And I remove the highlight from the "Add task" button
 
     And I highlight outside the "Search" box
     And I populate the "Search" box with "MSBuild"
-    And I highlight outside the "MSBuild Tile" element
+    And I highlight inside the "MSBuild Tile" element
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\140-search.png"
     And I click the "MSBuild Tile" element
 
-    And I highlight outside the "Task description" text box
+    And I highlight outside the "Task description" text box with an offset of "5"
     And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "Build"
 
-    And I highlight outside the "Solution" text box
+    And I highlight outside the "Solution" text box with an offset of "5"
     And I scroll the "Solution" text box into view offset by "-300"
     And I clear the "Solution" text box
     And I populate the "Solution" text box with "RandomQuotes.sln"
 
-    And I highlight outside the "Options" text box
+    And I highlight outside the "Options" text box with an offset of "5"
     And I scroll the "Options" text box into view offset by "-300"
     And I populate the "Options" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.${bamboo.buildNumber} /p:OctoPackEnforceAddingFiles=true"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\145-msbuild.png"
@@ -283,14 +285,15 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\150-msbuild.png"
     And I click the "Save" button
 
-    And I highlight outside the "Add task" button
+    And I highlight outside the "Add task" button with an offset of "5"
     And I scroll the "Add task" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\160-add-task.png"
     And I click the "Add task" button
+    And I remove the highlight from the "Add task" button
 
     And I highlight outside the "Search" box
     And I populate the "Search" box with "Octopus"
-    And I highlight outside the "Octopus Deploy: Push Packages Tile" element
+    And I highlight inside the "Octopus Deploy: Push Packages Tile" element
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\170-search.png"
     And I click the "Octopus Deploy: Push Packages Tile" element
 
@@ -304,10 +307,10 @@ Feature: Configure Bamboo
     And I scroll the "Package paths" text box into view offset by "-300"
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
 
-    And I highlight outside the "Task description" text box
-    And I highlight outside the "Server URL" text box
-    And I highlight outside the "API key" text box
-    And I highlight outside the "Package paths" text box
+    And I highlight outside the "Task description" text box with an offset of "5"
+    And I highlight outside the "Server URL" text box with an offset of "5"
+    And I highlight outside the "API key" text box with an offset of "5"
+    And I highlight outside the "Package paths" text box with an offset of "5"
     And I highlight outside the "Save" button
 
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\175-octo-push.png"
