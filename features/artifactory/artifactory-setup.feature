@@ -16,6 +16,8 @@ Feature: Setup Artifactory
       | Repository Key | //input[@id='repoKey-new']                              |
       | Save & Finish  | //button[@id='repository-save-button']                  |
 
+    And I open the shared browser "FirefoxNoImplicitWait"
+    And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8040"
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "password"
