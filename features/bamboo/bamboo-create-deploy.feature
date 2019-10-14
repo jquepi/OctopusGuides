@@ -33,7 +33,7 @@ Feature: Create deployment
 
     And I display a note with the text "Creating a deploying a release in Octopus" for "3" seconds
 
-    And I highlight the "Configure plan" link
+    And I highlight inside the "Configure plan" link
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\010-configure-plan.png"
     And I click the "Configure plan" link
 
@@ -41,7 +41,7 @@ Feature: Create deployment
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\020-default-job.png"
     And I click the "Default job" link
 
-    And I highlight the "Add task" button with an offset of "5"
+    And I highlight the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\030-add-task.png"
     And I click the "Add task" button
