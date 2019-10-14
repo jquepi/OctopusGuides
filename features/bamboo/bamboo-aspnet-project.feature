@@ -315,7 +315,7 @@ Feature: Configure Bamboo
     And I click the "Octopus Deploy: Push Packages Tile" element
 
     And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "Push to Octopus"
+    And I populate the "Task description" text box with "Push to Artifactory"
     And I scroll the "Server URL" text box into view offset by "-300"
     And I clear the "Server URL" text box
     And I populate the "Server URL" text box with "http://localhost"
@@ -335,6 +335,51 @@ Feature: Configure Bamboo
 
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\180-octo-push.png"
+    And I click the "Save" button
+
+  @artifactory
+  Scenario: Add Octopus Push
+    Given I set the following aliases:
+      | Add task                           | //a[@id='addTask']                                                   |
+      | Script Tile                  | //li[.//h3[normalize-space(text())='Script']]                                                  |
+      | Search                             | //h2[contains(.,'Task types')]//input                                |
+      | Task description                   | //input[@id='createTask_userDescription']                            |
+      | Server URL                         | //input[@id='serverUrl']                                             |
+      | API key                            | //input[@id='apiKey']                                                |
+      | Package paths                      | //textarea[@id='pushPattern']                                        |
+      | Save                               | //input[@id='createTask_save']                                       |
+
+    And I highlight outside the "Add task" button with an offset of "2"
+    And I scroll the "Add task" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\160-add-task-nuget-push.png"
+    And I click the "Add task" button
+    And I remove the highlight from the "Add task" button
+
+    And I highlight outside the "Search" box
+    And I populate the "Search" box with "Script"
+    And I highlight inside the "Script Tile" element
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\170-search-nuget-push.png"
+    And I click the "Script Tile" element
+
+    And I highlight outside the "Task description" text box
+    And I scroll the "Task description" text box into view offset by "-300"
+    And I populate the "Task description" text box with "NuGet Restore"
+
+    And I highlight outside the "Interpreter" text box
+    And I scroll the "Interpreter" drop down list into view offset by "-300"
+    And I select the option "Windows PowerShell" from the "Interpreter" drop down list
+
+    And I highlight inside the "Script body" text box
+    And I scroll the "Script body" text area into view offset by "-300"
+    And I run the following JavaScript:
+      """
+      ace.edit(scriptBody).setValue("$ErrorActionPreference=\"SilentlyContinue\"\nC:\\ProgramData\\chocolatey\\bin\\nuget.exe push -Source Artifactory RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg")
+      """
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\180-nuget-push.png"
+
+    And I highlight outside the "Save" button
+    And I scroll the "Save" button into view
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\190-nuget-push.png"
     And I click the "Save" button
 
   Scenario: Create plan

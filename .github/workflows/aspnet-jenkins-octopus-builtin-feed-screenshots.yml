@@ -69,6 +69,7 @@ jobs:
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
+        --tags "not @artifactory"
         features\octopus\octopus-aspnet-project.feature
     - name: Open Random Quotes
       shell: powershell

@@ -61,20 +61,7 @@ Feature: Configure an Octopus ASP.NET project
       | Step Name                                 | //input[contains(@id, 'Stepname')]                                                                                                                           |
       | Runs on targets in roles                  | //input[@title='Runs on targets in roles (type to add new)']                                                                                                 |
       | Web role                                  | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span                                                              |
-      | Package ID                                | //input[contains(@id, 'PackageID')]                                                                                                                          |
-      | Web site name                             | //input[contains(@id, 'Websitename')]                                                                                                                        |
-      | Enable Anonymous authentication           | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                                                                             |
-      | Enable Anonymous authentication container | //div[./div/div/label[contains(.,'Enable Anonymous authentication')]]                                                                                        |
-      | Enable Windows authentication             | //input[@type='checkbox'][../div[contains(.,'Enable Windows authentication')]]                                                                               |
-      | Enable Windows authentication container   | //div[./div/div/label[contains(.,'Enable Windows authentication')]]                                                                                          |
-      | Application Pool name                     | //input[contains(@id, 'ApplicationPoolname')]                                                                                                                |
-      | Remove binding                            | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]                                                                |
-      | HTML Body                                 | //body                                                                                                                                                       |
-      | Add binding                               | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add')]                                                           |
-      | Port                                      | //input[contains(@id, 'Port')]                                                                                                                               |
-      | OK                                        | //button[contains(.,'Ok')]                                                                                                                                   |
       | Save                                      | //button[contains(.,'Save')]                                                                                                                                 |
-      | Process                                   | //a[contains(.,'Process')]                                                                                                                                   |
       | Overview                                  | //a[contains(.,'Overview')]                                                                                                                                  |
       | Overview text                             | //a/span[contains(.,'Overview')] \| //a[contains(.,'Overview')][not(*)]                                                                                      |
       | Variables                                 | //a[contains(.,'Variables')]                                                                                                                                 |
@@ -177,6 +164,55 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\055-octopus-step-role.png"
     And I click the "Web role" option
     And I remove the highlight from the "Runs on targets in roles" text box
+
+  @artifactory @define-project
+  Scenario: Select artifactory feed
+    Given I set the following aliases:
+      | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
+      | Artifactory  | //div[./div/div[text()='Artifactory']]           |
+
+    And I scroll the "Package feed" drop down list into view offset by "-300"
+    And I highlight outside the "Package feed" drop down list
+    And I click the "Package feed" drop down list
+    And I sleep for "1" second
+    And I click the "Artifactory" option
+    And I save a screenshot to "C:\screenshots\octopus\project\056-octopus-step-feed.png"
+    And I remove the highlight from the "Package feed" text box
+
+  @define-project
+  Scenario: Continue to define project
+    Given I set the following aliases:
+      | Package ID                                | //input[contains(@id, 'PackageID')]                                                                                                                          |
+      | Web site name                             | //input[contains(@id, 'Websitename')]                                                                                                                        |
+      | Enable Anonymous authentication           | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                                                                             |
+      | Enable Anonymous authentication container | //div[./div/div/label[contains(.,'Enable Anonymous authentication')]]                                                                                        |
+      | Enable Windows authentication             | //input[@type='checkbox'][../div[contains(.,'Enable Windows authentication')]]                                                                               |
+      | Enable Windows authentication container   | //div[./div/div/label[contains(.,'Enable Windows authentication')]]                                                                                          |
+      | Application Pool name                     | //input[contains(@id, 'ApplicationPoolname')]                                                                                                                |
+      | Remove binding                            | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]                                                                |
+      | HTML Body                                 | //body                                                                                                                                                       |
+      | Add binding                               | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add')]                                                           |
+      | Port                                      | //input[contains(@id, 'Port')]                                                                                                                               |
+      | OK                                        | //button[contains(.,'Ok')]                                                                                                                                   |
+      | Save                                      | //button[contains(.,'Save')]                                                                                                                                 |
+      | Process                                   | //a[contains(.,'Process')]                                                                                                                                   |
+      | Overview                                  | //a[contains(.,'Overview')]                                                                                                                                  |
+      | Overview text                             | //a/span[contains(.,'Overview')] \| //a[contains(.,'Overview')][not(*)]                                                                                      |
+      | Variables                                 | //a[contains(.,'Variables')]                                                                                                                                 |
+      | Variables text                            | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
+      | Project Variables                         | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
+      | New variable name                         | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
+      | New variable value                        | //input[contains(@id,'Entervalue')]                                                                                                                          |
+      | Define scope                              | //div[@title='Define scope']                                                                                                                                 |
+      | Select environments                       | //input[@title='Select environments']                                                                                                                        |
+      | Dev environment                           | //div[./div/div[text() = 'Dev']]                                                                                                                             |
+      | Test environment                          | //div[./div/div[text() = 'Test']]                                                                                                                            |
+      | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                                                                            |
+      | Add Another Value                         | //button[.//span[text() = 'Add Another Value']]                                                                                                              |
+      | New variable value 2                      | (//input[contains(@id,'Entervalue')])[2]                                                                                                                     |
+      | New variable value 3                      | (//input[contains(@id,'Entervalue')])[3]                                                                                                                     |
+      | Project Variables Title                   | //h2[contains(.,'Project Variables')]                                                                                                                        |
+      | Add to list                               | //button[@title='Add To List']                                                                                                                               |
 
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box

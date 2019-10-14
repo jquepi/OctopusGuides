@@ -63,6 +63,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --plugin progress
+        --tags "not @octo-push-step"
         features\bamboo\bamboo-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

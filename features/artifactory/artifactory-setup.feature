@@ -19,7 +19,7 @@ Feature: Setup Artifactory
     And I open the shared browser "FirefoxNoImplicitWait"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8040"
-    And I populate the "Username" text box with "admin"
+    And I populate the "Username" text box with "admin" waiting up to "300" seconds
     And I populate the "Password" text box with "password"
     And I click the "Login" button
     And I click the "Close Wizard" element waiting up to "10" seconds if it exists
@@ -35,7 +35,7 @@ Feature: Setup Artifactory
     And I clear the "License Key" text box
     And I populate the "License Key" text box with "ExternalArtifactoryKey"
     And I click the "Save" button
-    And I sleep for "5" seconds
+    And I sleep for "30" seconds
 
   Scenario: Add NuGet repo
     Given I set the following aliases:
