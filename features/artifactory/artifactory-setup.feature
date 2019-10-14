@@ -30,6 +30,7 @@ Feature: Setup Artifactory
       | License     | //a[@href='#/admin/configuration/artifactory_licenses'] |
       | License Key | //textarea[@name='dndtext']                             |
       | Save        | //button[normalize-space(text())='Save']                |
+
     And I click the "Admin" icon
     And I click the "License" link
     And I clear the "License Key" text box
@@ -45,6 +46,10 @@ Feature: Setup Artifactory
       | NuGet Icon     | //li[@id='repository-select-package-type-nuget'] |
       | Repository Key | //input[@id='repoKey-new']                       |
       | Save & Finish  | //button[@id='repository-save-button']           |
+
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Creating the NuGet repository in Artifactory" for "3" seconds
+
     And I click the "Admin" link
     And I click the "Local" link
     And I click the "New" button
