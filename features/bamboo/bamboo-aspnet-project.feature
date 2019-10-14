@@ -323,7 +323,7 @@ Feature: Configure Bamboo
     And I click the "Create" button
     And I sleep for "5" seconds
 
-    And I highlight outside the "Build one" link
+    And I highlight outside the "Build one" link with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\200-build-one.png"
     And I click the "Build one" link
     And I scroll down "10000" px
