@@ -1,4 +1,7 @@
-package { 'docker-for-windows':
+windowsfeature { 'Hyper-V':
+  ensure => present,
+}
+-> package { 'docker-for-windows':
   ensure   => installed,
   provider => chocolatey
 }
