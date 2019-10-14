@@ -34,18 +34,18 @@ Feature: Configure Bamboo
 
     And I scroll the "Administration" button into view
     And I click the "Administration" button
-    And I highlight outside the "Administration" button
+    And I highlight inside the "Administration" button
     And I highlight outside the "Overview" link
     And I save a screenshot to "c:\screenshots\bamboo\addins\010-administration.png"
     And I click the "Overview" link
 
     And I scroll the "Find new apps" link into view offset by "-300"
-    And I highlight outside the "Find new apps" link
+    And I highlight outside the "Find new apps" link with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\addins\020-find-apps.png"
     And I click the "Find new apps" link
 
     And I populate the "Search the Marketplace" text box with "Octopus"
-    And I highlight outside the "Search the Marketplace" text box
+    And I highlight outside the "Search the Marketplace" text box with an offset of "5"
     And I sleep for "2" second
     And I press the enter key from the "Search the Marketplace" text box
     And I sleep for "5" seconds
@@ -53,9 +53,10 @@ Feature: Configure Bamboo
     And I highlight outside the "Install" button
     And I save a screenshot to "c:\screenshots\bamboo\addins\030-octopus-addin.png"
     And I click the "Install" button
+    And I remove the highlight from the "Search the Marketplace" text box
     And I sleep for "5" seconds
 
-    And I highlight outside the "Accept & install" button
+    And I highlight outside the "Accept & install" button with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\addins\040-accept.png"
     And I click the "Accept & install" button
 
@@ -85,12 +86,12 @@ Feature: Configure Bamboo
 
     And I scroll the "Administration" button into view
     And I click the "Administration" button
-    And I highlight outside the "Administration" button
+    And I highlight inside the "Administration" button
     And I highlight outside the "Overview" link
     And I save a screenshot to "c:\screenshots\bamboo\executables\010-administration.png"
     And I click the "Overview" link
 
-    And I highlight outside the "Server capabilities" link
+    And I highlight outside the "Server capabilities" link with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\executables\020-server-capabilities.png"
     And I click the "Server capabilities" link
 
@@ -99,14 +100,14 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\executables\030-git.png"
     And I click the "Git" link
 
-    And I highlight outside the "Edit" link
+    And I highlight outside the "Edit" link with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\executables\035-edit.png"
     And I click the "Edit" link
 
     And I clear the "Path" text box
     And I populate the "Path" text box with "C:\Program Files\Git\cmd\git.exe"
-    And I highlight outside the "Path" text box
-    And I highlight outside the "Update" button
+    And I highlight outside the "Path" text box with an offset of "5"
+    And I highlight outside the "Update" button with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\executables\040-path.png"
     And I click the "Update" button
 
@@ -119,11 +120,11 @@ Feature: Configure Bamboo
     And I populate the "Executable path" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\msbuild.exe"
     And I scroll the "Add" button into view offset by "-300"
 
-    And I highlight outside the "Capability type" drop down list
-    And I highlight outside the "Type" drop down list
-    And I highlight outside the "Executable label" text box
-    And I highlight outside the "Executable path" text box
-    And I highlight outside the "Add" button
+    And I highlight outside the "Capability type" drop down list with an offset of "5"
+    And I highlight outside the "Type" drop down list with an offset of "5"
+    And I highlight outside the "Executable label" text box with an offset of "5"
+    And I highlight outside the "Executable path" text box with an offset of "5"
+    And I highlight outside the "Add" button with an offset of "5"
 
     And I save a screenshot to "c:\screenshots\bamboo\executables\050-msbuild.png"
     And I click the "Add" button
@@ -135,11 +136,11 @@ Feature: Configure Bamboo
     And I populate the "Executable path" text box with "C:\ProgramData\chocolatey\bin\Octo.exe"
     And I scroll the "Add" button into view offset by "-300"
 
-    And I highlight outside the "Capability type" drop down list
-    And I highlight outside the "Type" drop down list
-    And I highlight outside the "Executable label" text box
-    And I highlight outside the "Executable path" text box
-    And I highlight outside the "Add" button
+    And I highlight outside the "Capability type" drop down list with an offset of "5"
+    And I highlight outside the "Type" drop down list with an offset of "5"
+    And I highlight outside the "Executable label" text box with an offset of "5"
+    And I highlight outside the "Executable path" text box with an offset of "5"
+    And I highlight outside the "Add" button with an offset of "5"
 
     And I save a screenshot to "c:\screenshots\bamboo\executables\060-octo.png"
     And I click the "Add" button

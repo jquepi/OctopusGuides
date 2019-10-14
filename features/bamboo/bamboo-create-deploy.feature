@@ -39,14 +39,15 @@ Feature: Create deployment
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\020-default-job.png"
     And I click the "Default job" link
 
-    And I highlight the "Add task" button
+    And I highlight the "Add task" button with an offset of "5"
     And I scroll the "Add task" button into view
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\030-add-task.png"
     And I click the "Add task" button
+    And I remove the highlight from the "Add task" button
 
     And I highlight the "Search" box
     And I populate the "Search" box with "Octopus"
-    And I highlight the "Octopus Deploy: Create Release Tile" element
+    And I highlight inside the "Octopus Deploy: Create Release Tile" element
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\040-search.png"
     And I click the "Octopus Deploy: Create Release Tile" element
 
@@ -80,9 +81,9 @@ Feature: Create deployment
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\100-octo-push.png"
     And I click the "Save" button
 
-    And I highlight the "Run" button
+    And I highlight the "Run" button with an offset of "5"
     And I click the "Run" button
-    And I highlight the "Run plan" link
+    And I highlight the "Run plan" link with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\110-run.png"
     And I click the "Run plan" link
 
