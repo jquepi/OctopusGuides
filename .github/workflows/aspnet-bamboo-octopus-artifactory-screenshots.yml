@@ -78,7 +78,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DdisableScreenshots=false"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
