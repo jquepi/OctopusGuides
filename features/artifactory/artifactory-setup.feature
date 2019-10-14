@@ -50,4 +50,5 @@ Feature: Setup Artifactory
     And I click the "New" button
     And I click the "NuGet Icon" element
     And I populate the "Repository Key" text box with "NuGet"
+    And I sleep for "5" seconds
     And I click the "Save & Finish" button
