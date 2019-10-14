@@ -110,8 +110,8 @@ Feature: Configure Bamboo
 
     And I clear the "Path" text box
     And I populate the "Path" text box with "C:\Program Files\Git\cmd\git.exe"
-    And I highlight outside the "Path" text box with an offset of "5"
-    And I highlight outside the "Update" button with an offset of "5"
+    And I highlight outside the "Path" text box with an offset of "2"
+    And I highlight outside the "Update" button with an offset of "2"
     And I save a screenshot to "c:\screenshots\bamboo\executables\040-path.png"
     And I click the "Update" button
 
@@ -124,9 +124,9 @@ Feature: Configure Bamboo
     And I populate the "Executable path" text box with "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\msbuild.exe"
     And I scroll the "Add" button into view offset by "-300"
 
-    And I highlight outside the "Capability type" drop down list with an offset of "5"
-    And I highlight outside the "Type" drop down list with an offset of "5"
-    And I highlight outside the "Executable label" text box with an offset of "5"
+    And I highlight outside the "Capability type" drop down list with an offset of "2"
+    And I highlight outside the "Type" drop down list with an offset of "2"
+    And I highlight outside the "Executable label" text box with an offset of "2"
     And I highlight outside the "Executable path" text box with an offset of "5"
     And I highlight outside the "Add" button with an offset of "5"
 
@@ -140,9 +140,9 @@ Feature: Configure Bamboo
     And I populate the "Executable path" text box with "C:\ProgramData\chocolatey\bin\Octo.exe"
     And I scroll the "Add" button into view offset by "-300"
 
-    And I highlight outside the "Capability type" drop down list with an offset of "5"
-    And I highlight outside the "Type" drop down list with an offset of "5"
-    And I highlight outside the "Executable label" text box with an offset of "5"
+    And I highlight outside the "Capability type" drop down list with an offset of "2"
+    And I highlight outside the "Type" drop down list with an offset of "2"
+    And I highlight outside the "Executable label" text box with an offset of "2"
     And I highlight outside the "Executable path" text box with an offset of "5"
     And I highlight outside the "Add" button with an offset of "5"
 
@@ -202,11 +202,11 @@ Feature: Configure Bamboo
     And I click the "Repository host" drop down list
 
     And I scroll the "Git" option into view offset by "-300"
-    And I highlight outside the "Git" option with an offset of "5"
+    And I highlight outside the "Git" option with an offset of "0"
     And I click the "Git" option
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\050-git.png"
 
-    And I highlight outside the "Display name" text box with an offset of "5"
+    And I highlight outside the "Display name" text box with an offset of "0"
     And I scroll the "Display name" text box into view offset by "-300"
     And I populate the "Display name" text box with "Random Quotes GitHub"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\060-display-name.png"
@@ -215,6 +215,8 @@ Feature: Configure Bamboo
     And I scroll the "Repository URL" text box into view offset by "-300"
     And I populate the "Repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\070-repo-url.png"
+    And I remove the highlight from the "Display name" text box
+    And I remove the highlight from the "Repository URL" text box
 
     And I highlight outside the "Test connection" button
     And I scroll the "Test connection" button into view offset by "-300"
@@ -228,7 +230,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\090-configure-plan.png"
     And I click the "Configure plan" button
 
-    And I highlight outside the "Add task" button with an offset of "5"
+    And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\100-add-task.png"
     And I click the "Add task" button
@@ -236,7 +238,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Search" box
     And I populate the "Search" box with "Script"
-    And I highlight outside the "Script Tile" element with an offset of "0"
+    And I highlight inside the "Script Tile" element
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\110-search.png"
     And I click the "Script Tile" element
 
@@ -261,7 +263,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\120-nuget-restore.png"
     And I click the "Save" button
 
-    And I highlight outside the "Add task" button with an offset of "5"
+    And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\130-add-task.png"
     And I click the "Add task" button
@@ -286,13 +288,15 @@ Feature: Configure Bamboo
     And I scroll the "Options" text box into view offset by "-300"
     And I populate the "Options" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.${bamboo.buildNumber} /p:OctoPackEnforceAddingFiles=true"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\145-msbuild.png"
+    And I remove the highlight from the "Solution" text box
+    And I remove the highlight from the "Options" text box
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\150-msbuild.png"
     And I click the "Save" button
 
-    And I highlight outside the "Add task" button with an offset of "5"
+    And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\160-add-task.png"
     And I click the "Add task" button
@@ -311,7 +315,7 @@ Feature: Configure Bamboo
     And I populate the "Server URL" text box with "http://localhost"
     And I scroll the "API key" text box into view offset by "-300"
     And I populate the "API key" text box with "ExternalOctopusAPIKey"
-    And I scroll the "Package paths" text box into view offset by "-300"
+    And I scroll the "Package paths" text box into view offset by "-200"
     And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
 
     And I highlight outside the "Task description" text box with an offset of "5"
@@ -321,6 +325,8 @@ Feature: Configure Bamboo
     And I highlight outside the "Save" button
 
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\175-octo-push.png"
+    And I remove the highlighting from the "Package paths" text box
+
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\180-octo-push.png"
     And I click the "Save" button

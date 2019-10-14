@@ -4,5 +4,5 @@ package { 'docker-for-windows':
 }
 -> exec { 'Switch to Linux containers':
   provider => 'powershell',
-  command  => '& $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchDaemon'
+  command  => '& $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchLinuxEngine'
 }
