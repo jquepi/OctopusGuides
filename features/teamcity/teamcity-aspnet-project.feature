@@ -198,6 +198,7 @@ Feature: Create ASP.NET project
       | NuGet.exe path        | //input[@id='toolCustomPathNuGet.CommandLine']         |
       | Packages              | //textarea[@id='nuget.publish.files']                  |
       | API key               | //input[@id='secure:nuget.api.key']                    |
+      | Package source        | //input[@id='nuget.publish.source']                    |
 
     And I highlight outside the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-artifactory-add-build-step.png"
@@ -222,8 +223,14 @@ Feature: Create ASP.NET project
     And I scroll the "NuGet.exe path" text box into view offset by "-300"
     And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
 
+    And I highlight outside the "Packages" text box with an offset of "5"
     And I populate the "Packages" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
+
+    And I highlight outside the "API key" text box with an offset of "5"
     And I populate the "API key" text box with "username:password"
+
+    And I highlight outside the "Package source" text box with an offset of "5"
+    And I populate the "Package source" text box with "Artifactory"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
