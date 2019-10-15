@@ -74,6 +74,7 @@ Feature: Setup Artifactory
     And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\050-nuget-repo.png"
     And I click the "Save & Finish" button
 
-  Scenario: Open URL
-    And I sleep for "5" seconds
-    And I open the URL "http://admin:password@localhost:8041/artifactory/api/nuget/NuGet"
+  Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
+    And I close the browser
