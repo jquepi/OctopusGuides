@@ -47,6 +47,7 @@ Feature: Setup Artifactory
       | Repository Key | //input[@id='repoKey-new']                       |
       | Save & Finish  | //button[@id='repository-save-button']           |
 
+    And I open the URL "http://localhost:8040/artifactory/webapp/#/home"
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating the NuGet repository in Artifactory" for "3" seconds
 
