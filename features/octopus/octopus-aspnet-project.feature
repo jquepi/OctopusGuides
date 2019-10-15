@@ -53,32 +53,32 @@ Feature: Configure an Octopus ASP.NET project
   @define-project
   Scenario: Define project
     Given I set the following aliases:
-      | Define your deployment process            | //button[contains(.,'Define your deployment process')]                                                                                                       |
-      | Add Step                                  | //button[contains(.,'Add Step')]                                                                                                                             |
-      | Search                                    | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                                                                  |
-      | Deploy to IIS                             | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                                                                                     |
-      | Add                                       | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')]                                                          |
-      | Step Name                                 | //input[contains(@id, 'Stepname')]                                                                                                                           |
-      | Runs on targets in roles                  | //input[@title='Runs on targets in roles (type to add new)']                                                                                                 |
-      | Web role                                  | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span                                                              |
-      | Save                                      | //button[contains(.,'Save')]                                                                                                                                 |
-      | Overview                                  | //a[contains(.,'Overview')]                                                                                                                                  |
-      | Overview text                             | //a/span[contains(.,'Overview')] \| //a[contains(.,'Overview')][not(*)]                                                                                      |
-      | Variables                                 | //a[contains(.,'Variables')]                                                                                                                                 |
-      | Variables text                            | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
-      | Project Variables                         | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
-      | New variable name                         | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
-      | New variable value                        | //input[contains(@id,'Entervalue')]                                                                                                                          |
-      | Define scope                              | //div[@title='Define scope']                                                                                                                                 |
-      | Select environments                       | //input[@title='Select environments']                                                                                                                        |
-      | Dev environment                           | //div[./div/div[text() = 'Dev']]                                                                                                                             |
-      | Test environment                          | //div[./div/div[text() = 'Test']]                                                                                                                            |
-      | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                                                                            |
-      | Add Another Value                         | //button[.//span[text() = 'Add Another Value']]                                                                                                              |
-      | New variable value 2                      | (//input[contains(@id,'Entervalue')])[2]                                                                                                                     |
-      | New variable value 3                      | (//input[contains(@id,'Entervalue')])[3]                                                                                                                     |
-      | Project Variables Title                   | //h2[contains(.,'Project Variables')]                                                                                                                        |
-      | Add to list                               | //button[@title='Add To List']                                                                                                                               |
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                                                                       |
+      | Add Step                       | //button[contains(.,'Add Step')]                                                                                                                             |
+      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                                                                  |
+      | Deploy to IIS                  | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                                                                                     |
+      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')]                                                          |
+      | Step Name                      | //input[contains(@id, 'Stepname')]                                                                                                                           |
+      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                                                                                 |
+      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span                                                              |
+      | Save                           | //button[contains(.,'Save')]                                                                                                                                 |
+      | Deployments                    | //a[contains(.,'Deployments')]                                                                                                                               |
+      | Overview                       | //a[contains(.,'Overview')]                                                                                                                                  |
+      | Variables                      | //a[contains(.,'Variables')]                                                                                                                                 |
+      | Variables text                 | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
+      | Project Variables              | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
+      | New variable name              | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
+      | New variable value             | //input[contains(@id,'Entervalue')]                                                                                                                          |
+      | Define scope                   | //div[@title='Define scope']                                                                                                                                 |
+      | Select environments            | //input[@title='Select environments']                                                                                                                        |
+      | Dev environment                | //div[./div/div[text() = 'Dev']]                                                                                                                             |
+      | Test environment               | //div[./div/div[text() = 'Test']]                                                                                                                            |
+      | Prod environment               | //div[./div/div[text() = 'Prod']]                                                                                                                            |
+      | Add Another Value              | //button[.//span[text() = 'Add Another Value']]                                                                                                              |
+      | New variable value 2           | (//input[contains(@id,'Entervalue')])[2]                                                                                                                     |
+      | New variable value 3           | (//input[contains(@id,'Entervalue')])[3]                                                                                                                     |
+      | Project Variables Title        | //h2[contains(.,'Project Variables')]                                                                                                                        |
+      | Add to list                    | //button[@title='Add To List']                                                                                                                               |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
@@ -123,12 +123,14 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "7" second
     And I save a screenshot to "C:\screenshots\octopus\project\025-octopus-variables-populated.png"
 
-    And I highlight inside the "Overview text" link
+    And I highlight inside the "Deployments" link
+    And I click the "Deployments" link
+    And I highlight inside the "Overview" link
     And I click the "Overview" link
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\030-octopus-define-process.png"
-    And I remove the highlight from the "Overview text" link
+    And I remove the highlight from the "Deployments" link
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
@@ -196,8 +198,6 @@ Feature: Configure an Octopus ASP.NET project
       | OK                                        | //button[contains(.,'Ok')]                                                                                                                                   |
       | Save                                      | //button[contains(.,'Save')]                                                                                                                                 |
       | Process                                   | //a[contains(.,'Process')]                                                                                                                                   |
-      | Overview                                  | //a[contains(.,'Overview')]                                                                                                                                  |
-      | Overview text                             | //a/span[contains(.,'Overview')] \| //a[contains(.,'Overview')][not(*)]                                                                                      |
       | Variables                                 | //a[contains(.,'Variables')]                                                                                                                                 |
       | Variables text                            | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
       | Project Variables                         | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
@@ -270,8 +270,6 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Save" button
     And I sleep for "2" seconds
 
-    And I click the "Overview" link
-
   @deploy-project
   Scenario: Deploy project
     Given I set the following aliases:
@@ -279,6 +277,7 @@ Feature: Configure an Octopus ASP.NET project
       | Save           | //button[@title='Save']                  |
       | Deploy To Dev  | //button[contains(.,'Deploy to Dev...')] |
       | Deploy         | //button[@title='Deploy']                |
+
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
 
