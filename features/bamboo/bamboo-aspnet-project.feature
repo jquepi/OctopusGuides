@@ -398,7 +398,7 @@ Feature: Configure Bamboo
     And I sleep for "10" seconds
     And I scroll down "10000" px
 
-    And I sleep for "50" seconds
+    And I sleep for "120" seconds
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\210-build-results.png"
 
   Scenario: Shutdown
