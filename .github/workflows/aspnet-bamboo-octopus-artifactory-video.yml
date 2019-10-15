@@ -1,7 +1,5 @@
 name: ASP.NET Bamboo Octopus Artifactory Feed Video
-on:
-  schedule:
-    - cron:  '0 2 * * *'
+on: [push]
 jobs:
   build:
     runs-on: windows-2019
