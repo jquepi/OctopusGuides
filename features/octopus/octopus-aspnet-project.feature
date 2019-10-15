@@ -127,11 +127,12 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Deployments" link
     And I highlight inside the "Overview" link
     And I click the "Overview" link
+
+    And I refresh the page
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\030-octopus-define-process.png"
-    And I remove the highlight from the "Deployments" link
-    And I scroll the "Define your deployment process" button into view
+
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
