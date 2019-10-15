@@ -9,7 +9,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     When I open the URL "http://localhost:9090/"
     And I start recording the screen to the directory "C:\screenshots"
 
-  @admin-settings
+  @install-extensions
   Scenario: Install Extensions
     Given I set the following aliases:
       | Admin settings | //a[@href='/DefaultCollection/_settings/'] |
@@ -23,8 +23,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @install-extensions
   Scenario: Install extensions
     Given I set the following aliases:
-      | Extensions | //a[@href='/DefaultCollection/_settings/extensions'] |
-      | Close | //button[contains(@class,'bolt-teaching-pane-close-button')] |
+      | Extensions            | //a[@href='/DefaultCollection/_settings/extensions']                          |
+      | Close                 | //button[contains(@class,'bolt-teaching-pane-close-button')]                  |
       | Browse Marketplace    | //a[contains(.,'Browse Marketplace')]                                         |
       | Search                | //input[@aria-label='Search Azure DevOps extensions']                         |
       | Search button         | //span[@title='search']                                                       |
@@ -155,34 +155,16 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project
   Scenario: Configure project
     Given I set the following aliases:
-      | Agent pool                 | //button[../input[@aria-label='Agent pool']]                                               |
-      | Default                    | //button[@aria-label='Default']                                                            |
-      | Save and queue             | //button[@name='Save & queue']                                                             |
-      | Save and queue two         | (//button[@name='Save & queue'])[2]                                                        |
-      | Save and queue three       | //button[@aria-label='Save & queue']                                                       |
-      | Comment                    | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                         |
-      | Build link                 | //a[contains(@class, 'ci-queued-build-link')]                                              |
-      | Publish artifact           | //div[@data-list-index='5']/div/div/div/div[./div/div/div/div[text()='Publish Artifact']]  |
-      | Test Assemblies            | //div[@data-list-index='3']/div/div/div/div[./div/div/div/div[text()='Test Assemblies']]   |
-      | Build solution             | //div[@data-list-index='2']/div/div/div/div[./div/div/div/div[text()='Build solution']]    |
-      | Specific location          | //input[../label/span[text()='Specific location']]                                         |
-      | Path to vstest.console.exe | //textarea[./../../../../../../../../div/label[text()='Path to vstest.console.exe']]       |
-      | MSBuild Arguments          | //textarea[./../../../../../../../../div/label[text()='MSBuild Arguments']]                |
-      | Add task                   | //button[@aria-label='Add a task to Agent job 1']                                          |
-      | Search                     | (//input[@aria-label='Search'])[2]                                                         |
-      | Push package title         | //div[text()='Push Package(s) to Octopus']                                                 |
-      | Push package               | //div[./div/div/div[text()='Push Package(s) to Octopus']]/button                           |
-      | Push Packages to Octopus   | //div[@data-list-index='6'][contains(.,'Push Packages to Octopus')]/div/div/div/div        |
-      | New                        | //div[./span[text()='Add Octopus Deploy Server']]                                          |
-      | Connection name            | //input[@id='connectionName']                                                              |
-      | Server URL                 | //input[@id='url']                                                                         |
-      | API Key                    | //input[@id='apitoken']                                                                    |
-      | OK                         | //button[@id='ok']                                                                         |
-      | Space                      | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]] |
-      | Space Refresh              | //button[./div/span[text()='Refresh Space']]                                               |
-      | Default Space              | //li[text()='Default']                                                                     |
-      | Package                    | //textarea[../../../../../../div/label[contains(.,'Package')]]                             |
-      | Post job Checkout          | //div[text()='Post-job: Checkout']                                                         |
+      | Agent pool                 | //button[../input[@aria-label='Agent pool']]                                              |
+      | Default                    | //button[@aria-label='Default']                                                           |
+      | Publish artifact           | //div[@data-list-index='5']/div/div/div/div[./div/div/div/div[text()='Publish Artifact']] |
+      | Test Assemblies            | //div[@data-list-index='3']/div/div/div/div[./div/div/div/div[text()='Test Assemblies']]  |
+      | Build solution             | //div[@data-list-index='2']/div/div/div/div[./div/div/div/div[text()='Build solution']]   |
+      | Specific location          | //input[../label/span[text()='Specific location']]                                        |
+      | Path to vstest.console.exe | //textarea[./../../../../../../../../div/label[text()='Path to vstest.console.exe']]      |
+      | MSBuild Arguments          | //textarea[./../../../../../../../../div/label[text()='MSBuild Arguments']]               |
+      | Add task                   | //button[@aria-label='Add a task to Agent job 1']                                         |
+      | Search                     | (//input[@aria-label='Search'])[2]                                                        |
 
     And I highlight inside the "Agent pool" drop down list
     And I click the "Agent pool" drop down list
@@ -207,6 +189,25 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Path to vstest.console.exe" text box with "$(Build.Repository.LocalPath)\packages\Microsoft.TestPlatform.16.3.0\tools\net451\Common7\IDE\Extensions\TestPlatform\vstest.console.exe"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\100-vstest-location.png"
     And I remove the highlight from the "Test Assemblies" row
+
+  @configure-project @octo-built-in-feed
+  Scenario: Push to Octopus
+    Given I set the following aliases:
+      | Add task                 | //button[@aria-label='Add a task to Agent job 1']                                          |
+      | Publish artifact         | //div[@data-list-index='5']/div/div/div/div[./div/div/div/div[text()='Publish Artifact']]  |
+      | Search                   | (//input[@aria-label='Search'])[2]                                                         |
+      | Push package title       | //div[text()='Push Package(s) to Octopus']                                                 |
+      | Push package             | //div[./div/div/div[text()='Push Package(s) to Octopus']]/button                           |
+      | Push Packages to Octopus | //div[@data-list-index='6'][contains(.,'Push Packages to Octopus')]/div/div/div/div        |
+      | New                      | //div[./span[text()='Add Octopus Deploy Server']]                                          |
+      | Connection name          | //input[@id='connectionName']                                                              |
+      | Server URL               | //input[@id='url']                                                                         |
+      | API Key                  | //input[@id='apitoken']                                                                    |
+      | OK                       | //button[@id='ok']                                                                         |
+      | Space                    | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]] |
+      | Space Refresh            | //button[./div/span[text()='Refresh Space']]                                               |
+      | Default Space            | //li[text()='Default']                                                                     |
+      | Package                  | //textarea[../../../../../../div/label[contains(.,'Package')]]                             |
 
     And I highlight inside the "Add task" button
     And I click the "Publish artifact" row
@@ -242,6 +243,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "OK" button
     And I remove the highlight from the "New" button
 
+    And I sleep for "1" second
     And I click the "Space Refresh" button
     And I sleep for "2" seconds
 
@@ -255,6 +257,16 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\140-space-and-package.png"
     And I remove the highlight from the "Space" drop down list
     And I remove the highlight from the "Package" text box
+
+  @configure-project
+  Scenario: Execute build
+    Given I set the following aliases:
+      | Save and queue       | //button[@name='Save & queue']                                     |
+      | Save and queue two   | (//button[@name='Save & queue'])[2]                                |
+      | Save and queue three | //button[@aria-label='Save & queue']                               |
+      | Comment              | //textarea[../../../../../../../../div//label[contains(.,'Save')]] |
+      | Build link           | //a[contains(@class, 'ci-queued-build-link')]                      |
+      | Post job Checkout    | //div[text()='Post-job: Checkout']                                 |
 
     And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
