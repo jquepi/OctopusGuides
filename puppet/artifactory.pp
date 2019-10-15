@@ -13,7 +13,7 @@ package { 'NuGet.CommandLine':
 -> file_line { 'installStateName':
   path    => 'C:/install/artifactory-pro-6.13.1/tomcat/conf/server.xml',
   line    => '        <Connector port="8041" sendReasonPhrase="true" relaxedPathChars=\'[]\' relaxedQueryChars=\'[]\' maxThreads="200"/>',
-  match   => '^\s*<Connector port="8081" sendReasonPhrase="true" relaxedPathChars=\'\\[\\]\' relaxedQueryChars=\'\\[\\]\' maxThreads="200"/>',
+  match   => '^\s*<Connector port="8081" sendReasonPhrase="true" relaxedPathChars=\'\[\]\' relaxedQueryChars=\'\[\]\' maxThreads="200"/>',
   replace => true,
 }
 -> file { 'C:/install_artifactory.ps1':
