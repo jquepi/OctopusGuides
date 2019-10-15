@@ -179,13 +179,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Add build step                                          | //button[@type='button'][contains(.,'Add build step')]                            |
       | Execute Windows batch command                           | //a[contains(.,'Execute Windows batch command')]                                  |
       | Command                                                 | //textarea[@name='command']                                                       |
-      | Save                                                    | //button[@type='button'][contains(.,'Save')]                                      |
       | Build a Visual Studio project or solution using MSBuild | //a[contains(.,'Build a Visual Studio project or solution using MSBuild')]        |
       | MSBuild Version                                         | //select[@name='msBuildBuilder.msBuildName']                                      |
       | MSBuild Build File                                      | //input[@name='msBuildBuilder.msBuildFile']                                       |
       | Command Line Arguments                                  | //textarea[@name='msBuildBuilder.cmdLineArgs']                                    |
       | Command Two                                             | (//textarea[contains(@name,'command')])[2]                                        |
-      | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                        |
 
     And I open the URL "http://localhost:8080/"
     And I clear the transition
@@ -292,6 +290,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Command Two" text box with ".\packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe .\RandomQuotes.Tests\bin\Debug\RandomQuotes.Tests.dll"
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\128-nunit-test.png"
     And I remove the highlight from the "Command Two" text box
+
+  @octo-built-in-feed @configure-project
+  Scenario: Add Octopus Push Step
+    Given I set the following aliases:
+      | Add build step                                          | //button[@type='button'][contains(.,'Add build step')]                            |
+      | Execute Windows batch command                           | //a[contains(.,'Execute Windows batch command')]                                  |
+      | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                        |
+      | Save                                                    | //button[@type='button'][contains(.,'Save')]                                      |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
