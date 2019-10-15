@@ -42,10 +42,6 @@ Feature: Create ASP.NET project
       | NUnit Console                | //select[@id='toolPathSelectorNUnit.Console']          |
       | NUnit Console Path           | //input[@id='toolCustomPathNUnit.Console']             |
       | Run tests from               | //textarea[@id='nunit_include']                        |
-      | OctopusDeploy: Push Packages | //li[@data-title='OctopusDeploy: Push Packages']       |
-      | Octopus URL                  | //input[@id='octopus_host']                            |
-      | Octopus API key              | //input[@id='secure:octopus_apikey']                   |
-      | Package paths                | //textarea[@id='octopus_packagepaths']                 |
       | Got it                       | //button[contains(.,'Got it')]                         |
       | Show advanced options        | //a[text()='Show advanced options']                    |
       | Command line parameters      | //textarea[@id='runnerArgs']                           |
@@ -188,6 +184,66 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\110-nunit-files.png"
 
     And I click the "Save" button
+
+  @create-project @artifactory
+  Scenario: Add artifactory push step
+    Given I set the following aliases:
+      | Add build step        | //a[contains(.,'Add build step')]                      |
+      | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
+      | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']] |
+      | NuGet Publish         | //li[@data-title='NuGet Publish']                      |
+      | Step name             | //input[@id='buildStepName']                           |
+      | Save                  | //input[@value='Save']                                 |
+      | NuGet.exe             | //select[@id='toolPathSelectorNuGet.CommandLine']      |
+      | NuGet.exe path        | //input[@id='toolCustomPathNuGet.CommandLine']         |
+      | Packages              | //textarea[@id='nuget.publish.files']                  |
+      | API Key               | //input[@id='secure:nuget.api.key']                    |
+
+    And I highlight outside the "Add build step" button
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-artifactory-add-build-step.png"
+    And I click the "Add build step" button
+
+    And I click the "Runner type" drop down list
+
+    And I scroll the "NuGet Publish" option into view
+    And I click the "NuGet Publish" option
+    And I sleep for "1" second
+    And I highlight outside the "Runner type container" drop down list
+
+    And I highlight outside the "Step name" text box
+    And I scroll the "Step name" text box into view offset by "-300"
+    And I populate the "Step name" text box with "Push to Artifactory"
+
+    And I highlight outside the "NuGet.exe" drop down with an offset of "5"
+    And I scroll the "NuGet.exe" drop down into view
+    And I select the option value "custom" from the "NuGet.exe" drop down list
+
+    And I highlight outside the "NuGet.exe path" text box with an offset of "5"
+    And I scroll the "NuGet.exe path" text box into view offset by "-300"
+    And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
+
+    And I populate the "Packages" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
+    And I populate the "API key" text box with "username:password"
+
+    And I highlight outside the "Save" button
+    And I scroll the "Save" button into view
+
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\130-artifactory-save.png"
+
+    And I click the "Save" button
+
+  @create-project @octo-built-in-feed
+  Scenario: Add octopus push step
+    Given I set the following aliases:
+      | Add build step               | //a[contains(.,'Add build step')]                      |
+      | Runner type                  | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
+      | Runner type container        | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']] |
+      | OctopusDeploy: Push Packages | //li[@data-title='OctopusDeploy: Push Packages']       |
+      | Octopus URL                  | //input[@id='octopus_host']                            |
+      | Octopus API key              | //input[@id='secure:octopus_apikey']                   |
+      | Package paths                | //textarea[@id='octopus_packagepaths']                 |
+      | Save                         | //input[@value='Save']                                 |
+      | Step name                    | //input[@id='buildStepName']                           |
 
     And I highlight outside the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-add-build-step.png"

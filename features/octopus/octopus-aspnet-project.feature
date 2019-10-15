@@ -189,6 +189,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
     And I sleep for "2" second
+    And I press the escape key from the "Package ID" text box
     And I click the "HTML Body" element
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package-artifactory.png"
     And I remove the highlight from the "Package ID" text box
@@ -203,6 +204,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
     And I sleep for "2" second
+    And I press the escape key from the "Package ID" text box
     And I click the "HTML Body" element
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
