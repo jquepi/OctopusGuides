@@ -159,11 +159,11 @@ Feature: Create ASP.NET project
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "Run Tests"
 
-    And I highlight outside the "NUnit Console" drop down
+    And I highlight outside the "NUnit Console" drop down with an offset of "5"
     And I scroll the "NUnit Console" drop down list into view offset by "-300"
     And I select the option value "custom" from the "NUnit Console" drop down list
 
-    And I highlight outside the "NUnit Console Path" text box
+    And I highlight outside the "NUnit Console Path" text box with an offset of "5"
     And I scroll the "NUnit Console Path" text box list into view offset by "-300"
     And I populate the "NUnit Console Path" text box with "packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe"
 
@@ -197,7 +197,7 @@ Feature: Create ASP.NET project
       | NuGet.exe             | //select[@id='toolPathSelectorNuGet.CommandLine']      |
       | NuGet.exe path        | //input[@id='toolCustomPathNuGet.CommandLine']         |
       | Packages              | //textarea[@id='nuget.publish.files']                  |
-      | API Key               | //input[@id='secure:nuget.api.key']                    |
+      | API key               | //input[@id='secure:nuget.api.key']                    |
 
     And I highlight outside the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-artifactory-add-build-step.png"
