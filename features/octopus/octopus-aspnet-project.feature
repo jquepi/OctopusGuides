@@ -239,14 +239,6 @@ Feature: Configure an Octopus ASP.NET project
       | Project Variables Title                   | //h2[contains(.,'Project Variables')]                                                                                                                        |
       | Add to list                               | //button[@title='Add To List']                                                                                                                               |
 
-    And I scroll the "Package ID" text box into view offset by "-300"
-    And I highlight outside the "Package ID" text box
-    And I populate the "Package ID" text box with "RandomQuotes"
-    And I sleep for "1" second
-    And I click the "HTML Body" element
-    And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package.png"
-    And I remove the highlight from the "Package ID" text box
-
     And I scroll the "Web site name" text box into view offset by "-300"
     And I highlight outside the "Web site name" text box
     And I populate the "Web site name" text box with "RandomQuotes"
