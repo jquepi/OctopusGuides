@@ -226,9 +226,6 @@ Feature: Create ASP.NET project
     And I highlight outside the "Packages" text box with an offset of "5"
     And I populate the "Packages" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
 
-    And I highlight outside the "API key" text box with an offset of "5"
-    And I populate the "API key" text box with "username:password"
-
     And I highlight outside the "Package source" text box with an offset of "5"
     And I populate the "Package source" text box with "Artifactory"
 

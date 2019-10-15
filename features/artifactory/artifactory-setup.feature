@@ -59,6 +59,8 @@ Feature: Setup Artifactory
     And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\020-nuget-repo.png"
     And I click the "Local" link
 
+    And I remove the highlight from the "Admin" link
+
     And I highlight outside the "New" button
     And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\030-nuget-repo.png"
     And I click the "New" button
@@ -67,7 +69,7 @@ Feature: Setup Artifactory
     And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\040-nuget-repo.png"
     And I click the "NuGet Icon" element
 
-    And I highlight outside the "Repository Key" text box
+    And I highlight outside the "Repository Key" text box with an offset of "5"
     And I highlight outside the "Save & Finish" button
     And I populate the "Repository Key" text box with "NuGet"
     And I sleep for "5" seconds
