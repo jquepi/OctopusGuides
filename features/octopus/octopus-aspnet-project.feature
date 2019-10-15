@@ -174,6 +174,8 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
       | Artifactory  | //div[./div/div[text()='Artifactory']]           |
+      | HTML Body    | //body                                           |
+      | Package ID   | //input[contains(@id, 'PackageID')]              |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
     And I highlight outside the "Package feed" drop down list
@@ -183,10 +185,32 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\056-octopus-step-feed.png"
     And I remove the highlight from the "Package feed" text box
 
+    And I scroll the "Package ID" text box into view offset by "-300"
+    And I highlight outside the "Package ID" text box
+    And I populate the "Package ID" text box with "RandomQuotes"
+    And I sleep for "1" second
+    And I click the "HTML Body" element
+    And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package-artifactory.png"
+    And I remove the highlight from the "Package ID" text box
+
+  @octo-built-in-feed @define-project
+  Scenario: Select built in feed
+    Given I set the following aliases:
+      | HTML Body    | //body                                           |
+      | Package ID   | //input[contains(@id, 'PackageID')]              |
+
+    And I scroll the "Package ID" text box into view offset by "-300"
+    And I highlight outside the "Package ID" text box
+    And I populate the "Package ID" text box with "RandomQuotes"
+    And I sleep for "1" second
+    And I click the "HTML Body" element
+    And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package.png"
+    And I remove the highlight from the "Package ID" text box
+
   @define-project
   Scenario: Continue to define project
     Given I set the following aliases:
-      | Package ID                                | //input[contains(@id, 'PackageID')]                                                                                                                          |
+
       | Web site name                             | //input[contains(@id, 'Websitename')]                                                                                                                        |
       | Enable Anonymous authentication           | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                                                                             |
       | Enable Anonymous authentication container | //div[./div/div/label[contains(.,'Enable Anonymous authentication')]]                                                                                        |
@@ -194,7 +218,6 @@ Feature: Configure an Octopus ASP.NET project
       | Enable Windows authentication container   | //div[./div/div/label[contains(.,'Enable Windows authentication')]]                                                                                          |
       | Application Pool name                     | //input[contains(@id, 'ApplicationPoolname')]                                                                                                                |
       | Remove binding                            | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]                                                                |
-      | HTML Body                                 | //body                                                                                                                                                       |
       | Add binding                               | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add')]                                                           |
       | Port                                      | //input[contains(@id, 'Port')]                                                                                                                               |
       | OK                                        | //button[contains(.,'Ok')]                                                                                                                                   |
