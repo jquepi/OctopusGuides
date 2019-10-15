@@ -58,3 +58,7 @@ Feature: Setup Artifactory
     And I populate the "Repository Key" text box with "NuGet"
     And I sleep for "5" seconds
     And I click the "Save & Finish" button
+
+  Scenario: Open URL
+    And I sleep for "5" seconds
+    And I open the URL "http://admin:password@localhost:8041/artifactory/api/nuget/NuGet"
