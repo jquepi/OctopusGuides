@@ -7,7 +7,7 @@ Feature: Configure an Octopus ASP.NET project
       | Sign In  | //button[contains(.,'SIGN IN')] |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I maximize the window
-    #And I set the window size to "1024" x "768"
+    And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I populate the "Username" text box with "admin"
@@ -131,6 +131,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\030-octopus-define-process.png"
     And I remove the highlight from the "Deployments" link
+    And I scroll the "Define your deployment process" button into view
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
