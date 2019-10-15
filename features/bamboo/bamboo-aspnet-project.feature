@@ -171,7 +171,7 @@ Feature: Configure Bamboo
       | Options                      | //input[@id='options']                                                                         |
       | Save                         | //input[@id='createTask_save']                                                                 |
       | Interpreter                  | //select[@id='interpreter']                                                                    |
-      | Script body                  | //div[@id='scriptBody']/textarea                                                               |
+      | Script body                  | //div[@id='scriptBody']                                                                        |
 
     And I display a note with the text "Creating the build project" for "3" seconds
 
@@ -345,7 +345,7 @@ Feature: Configure Bamboo
       | Search           | //h2[contains(.,'Task types')]//input                                                 |
       | Task description | //input[@id='createTask_userDescription']                                             |
       | Interpreter      | //select[@id='interpreter']                                                           |
-      | Script body      | //div[@id='scriptBody']/textarea                                                      |
+      | Script body      | //div[@id='scriptBody']                                                               |
       | Save             | //input[@id='createTask_save']                                                        |
 
     And I highlight outside the "Add task" button with an offset of "2"

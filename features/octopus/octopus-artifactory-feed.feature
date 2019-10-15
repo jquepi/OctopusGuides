@@ -64,3 +64,6 @@ Feature: Add Artifactory NuGet feed
     And I highlight outside the "Save" button with an offset of "1"
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\080-external-feed.png"
     And I click the "Save" button
+
+    And I sleep for "2" seconds
+    And I save a screenshot to "C:\screenshots\octopus\externalfeeds\090-external-feed.png"
