@@ -132,8 +132,8 @@ Feature: Create ASP.NET project
     And I scroll the "OctoPack package version" text box into view offset by "-300"
     And I populate the "OctoPack package version" text box with "1.0.%build.counter%"
 
-    And I highlight outside the "Show advanced options" link
-    And I click the "Show advanced options" link
+    And I highlight outside the "Show advanced options" link waiting up to "1" second if it exists
+    And I click the "Show advanced options" link waiting up to "1" second if it exists
 
     And I highlight outside the "Command line parameters" text box
     And I populate the "Command line parameters" text box with "/p:OctoPackEnforceAddingFiles=true"
