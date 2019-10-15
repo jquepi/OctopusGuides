@@ -404,6 +404,12 @@ Feature: Configure Bamboo
     And I open the URL "http://localhost:6990/bamboo/download/RQ-WEB-JOB1/build_logs/RQ-WEB-JOB1-1.log"
     And I scroll down "100000" px
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\220-build-results.png"
+    And I scroll up "600" px
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\230-build-results.png"
+    And I scroll up "600" px
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\240-build-results.png"
+    And I scroll up "600" px
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\250-build-results.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
