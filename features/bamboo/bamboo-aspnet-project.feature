@@ -393,10 +393,10 @@ Feature: Configure Bamboo
     And I highlight outside the "Build one" link with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\200-build-one.png"
     And I click the "Build one" link
-    And I sleep for "5" seconds
+    And I sleep for "10" seconds
     And I scroll down "10000" px
 
-    And I sleep for "55" seconds
+    And I sleep for "50" seconds
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\210-build-results.png"
 
   Scenario: Shutdown
