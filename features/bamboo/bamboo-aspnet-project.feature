@@ -372,7 +372,7 @@ Feature: Configure Bamboo
     And I scroll the "Script body" text area into view offset by "-300"
     And I run the following JavaScript:
       """
-      ace.edit(scriptBody).setValue("C:\\ProgramData\\chocolatey\\bin\\nuget.exe push -Source Artifactory RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg")
+      ace.edit(scriptBody).setValue("C:\\ProgramData\\chocolatey\\bin\\nuget.exe push -Source Artifactory RandomQuotes\\obj\\octopacked\\RandomQuotes.1.0.${bamboo.buildNumber}.nupkg")
       """
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\180-nuget-push.png"
 
