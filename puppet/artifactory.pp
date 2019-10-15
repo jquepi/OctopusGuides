@@ -1,4 +1,8 @@
-archive { 'C:/install/jfrog-artifactory-oss-6.13.1.zip':
+package { 'NuGet.CommandLine':
+  ensure   => installed,
+  provider => chocolatey
+}
+-> archive { 'C:/install/jfrog-artifactory-oss-6.13.1.zip':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/install',
