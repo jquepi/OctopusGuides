@@ -63,7 +63,7 @@ Feature: Configure an Octopus ASP.NET project
       | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span                                                              |
       | Save                           | //button[contains(.,'Save')]                                                                                                                                 |
       | Deployments                    | //a[contains(.,'Deployments')]                                                                                                                               |
-      | Overview                       | //a[contains(.,'Overview')]                                                                                                                                  |
+      | Overview                       | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview']                                                                                           |
       | Variables                      | //a[contains(.,'Variables')]                                                                                                                                 |
       | Variables text                 | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
       | Project Variables              | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
