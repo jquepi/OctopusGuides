@@ -383,8 +383,9 @@ Feature: Configure Bamboo
 
   Scenario: Create plan
     Given I set the following aliases:
-      | Create    | //button[@id='createPlan']           |
-      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1'] |
+      | Create    | //button[@id='createPlan']               |
+      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
+      | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
     And I highlight outside the "Create" button
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\190-create.png"
     And I click the "Create" button
@@ -393,6 +394,7 @@ Feature: Configure Bamboo
     And I highlight outside the "Build one" link with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\200-build-one.png"
     And I click the "Build one" link
+    And I click the "Logs" link
     And I sleep for "10" seconds
     And I scroll down "10000" px
 
