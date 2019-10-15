@@ -19,7 +19,7 @@ archive { 'C:/install/jfrog-artifactory-oss-6.13.1.zip':
   mode    => '0644',
   content => @(EOT)
     start "C:\install\artifactory-pro-6.13.1\bin\artifactory.bat" -PassThru
-    nuget sources add -Name Artifactory -Source http://localhost:8041/artifactory/api/nuget/NuGet -Username admin -Password password
+    C:\ProgramData\chocolatey\bin\nuget.exe sources add -Name Artifactory -Source http://localhost:8041/artifactory/api/nuget/NuGet -Username admin -Password password
     New-Item -ItemType file c:\ArtifactoryStarted.txt
     | EOT
 }
