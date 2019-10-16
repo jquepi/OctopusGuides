@@ -166,16 +166,6 @@ Feature: Configure Bamboo
       | Test connection              | //button[@id='test-connection-com-atlassian-bamboo-plugins-atlassian-bamboo-plugin-git-gitv2'] |
       | Connection successful        | //p[text()='Connection successful']                                                            |
       | Configure plan               | //input[@id='createPlan_save']                                                                 |
-      | Add task                     | //a[@id='addTask']                                                                             |
-      | Search                       | //h2[contains(.,'Task types')]//input                                                          |
-      | MSBuild Tile                 | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='MSBuild']]         |
-      | Script Tile                  | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']]          |
-      | Task description             | //input[@id='createTask_userDescription']                                                      |
-      | Solution                     | //input[@id='solution']                                                                        |
-      | Options                      | //input[@id='options']                                                                         |
-      | Save                         | //input[@id='createTask_save']                                                                 |
-      | Interpreter                  | //select[@id='interpreter']                                                                    |
-      | Script body                  | //div[@id='scriptBody']                                                                        |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating the build project" for "3" seconds
@@ -228,6 +218,23 @@ Feature: Configure Bamboo
     And I scroll the "Configure plan" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\090-configure-plan.png"
     And I click the "Configure plan" button
+
+    And I stop recording the screen
+
+  Scenario: Add tasks
+    Given I set the following aliases:
+      | Add task                     | //a[@id='addTask']                                                                             |
+      | Search                       | //h2[contains(.,'Task types')]//input                                                          |
+      | Script Tile                  | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']]          |
+      | MSBuild Tile                 | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='MSBuild']]         |
+      | Task description             | //input[@id='createTask_userDescription']                                                      |
+      | Solution                     | //input[@id='solution']                                                                        |
+      | Options                      | //input[@id='options']                                                                         |
+      | Save                         | //input[@id='createTask_save']                                                                 |
+      | Interpreter                  | //select[@id='interpreter']                                                                    |
+      | Script body                  | //div[@id='scriptBody']                                                                        |
+
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
