@@ -192,7 +192,7 @@ Feature: Create a Lifecycle in Octopus
     And I click the "Dev, Test and Prod" option
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\105-random-quotes-select-lifecycle.png"
     And I click the "Save" button
-    And I sleep for "2" seconds
+    And I sleep for "5" seconds
 
   @deploy-to-test
   Scenario: Deploy to the test environment
