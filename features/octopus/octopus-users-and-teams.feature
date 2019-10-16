@@ -95,8 +95,8 @@ Feature: Create Octopus Users and Teams
     And I sleep for "2" seconds
     And I save a screenshot to "C:\screenshots\octopus\permissions\037-octopus-user-overview.png"
 
-    And I highlight inside the "More Two" link
-    And I click the "More Two" link
+    And I highlight inside the "More Two" link if it exists
+    And I click the "More Two" link if it exists
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\040-octopus-users.png"
@@ -152,7 +152,7 @@ Feature: Create Octopus Users and Teams
       | More                           | //span[contains(.,'More')][1]                           |
       | More Two                       | (//span[contains(.,'More')])[2]                         |
       | Configuration                  | //span[contains(.,'Configuration')]                     |
-      | Teams                          | //span[contains(.,'Teams')]                             |
+      | Teams                          | //span[contains(.,'Teams')] \| //a[contains(.,'Teams')] |
       | Add Team                       | //button[contains(.,'Add Team')]                        |
       | New team name                  | //input[contains(@id,'Newteamname')]                    |
       | New team description           | //textarea[contains(@id,'Teamdescription')]             |
@@ -179,8 +179,8 @@ Feature: Create Octopus Users and Teams
     And I clear the transition
     And I display a note with the text "Create the internal deployment team" for "3" seconds
 
-    And I highlight outside the "More" link
-    And I click the "More" link
+    And I highlight outside the "More" link if it exists
+    And I click the "More" link if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\070-octopus-configuration.png"
@@ -188,8 +188,8 @@ Feature: Create Octopus Users and Teams
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
-    And I highlight inside the "More Two" link
-    And I click the "More Two" link
+    And I highlight inside the "More Two" link if it exists
+    And I click the "More Two" link if it exists
     And I highlight inside the "Teams" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\075-octopus-teams.png"
@@ -275,7 +275,7 @@ Feature: Create Octopus Users and Teams
       | More                           | //span[contains(.,'More')][1]                             |
       | More Two                       | (//span[contains(.,'More')])[2]                           |
       | Configuration                  | //span[contains(.,'Configuration')]                       |
-      | Teams                          | //span[contains(.,'Teams')]                               |
+      | Teams                          | //span[contains(.,'Teams')] \| //a[contains(.,'Teams')]   |
       | Add Team                       | //button[contains(.,'Add Team')]                          |
       | New team name                  | //input[contains(@id,'Newteamname')]                      |
       | New team description           | //textarea[contains(@id,'Teamdescription')]               |
@@ -301,8 +301,8 @@ Feature: Create Octopus Users and Teams
     And I clear the transition
     And I display a note with the text "Create the production deployment team" for "3" seconds
 
-    And I highlight outside the "More" link
-    And I click the "More" link
+    And I highlight outside the "More" link if it exists
+    And I click the "More" link if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\125-octopus-configuration.png"
@@ -310,8 +310,8 @@ Feature: Create Octopus Users and Teams
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
-    And I highlight inside the "More Two" link
-    And I click the "More Two" link
+    And I highlight inside the "More Two" link if it exists
+    And I click the "More Two" link if it exists
     And I highlight inside the "Teams" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\130-octopus-teams.png"
