@@ -47,6 +47,7 @@ Feature: Create Octopus Users and Teams
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\010-octopus-users.png"
+    And I scroll the "Users" link into view
     And I click the "Users" link
     And I sleep for "1" second
 
