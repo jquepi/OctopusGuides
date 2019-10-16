@@ -32,9 +32,10 @@ Feature: Add Artifactory NuGet feed
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\010-library.png"
     And I click the "Library" link
 
+    And I highlight outside the "External Feeds text" link with an offset of "1"
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\020-external-feeds.png"
     And I click the "External Feeds" link
-    And I highlight outside the "External Feeds text" link with an offset of "1"
+
     And I highlight outside the "Add Feed" button with an offset of "1"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\030-add-feed.png"
@@ -52,12 +53,12 @@ Feature: Add Artifactory NuGet feed
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\050-external-feed.png"
 
     And I scroll the "Feed username" text box into view offset by "-200"
-    And I highlight outside the "Feed username" text box with an offset of "1"
+    And I highlight outside the "Feed username" text box with an offset of "0"
     And I populate the "Feed username" text box with "admin"
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\060-external-feed.png"
 
     And I scroll the "Feed password" text box into view offset by "-200"
-    And I highlight outside the "Feed password" text box with an offset of "1"
+    And I highlight outside the "Feed password" text box with an offset of "0"
     And I populate the "Feed password" text box with "password"
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\070-external-feed.png"
 

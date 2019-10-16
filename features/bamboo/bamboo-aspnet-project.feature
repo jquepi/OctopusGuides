@@ -326,9 +326,10 @@ Feature: Configure Bamboo
     And I scroll the "Script body" text area into view offset by "-300"
     And I run the following JavaScript:
       """
-      ace.edit(scriptBody).setValue(".\\packages\\NUnit.ConsoleRunner.3.10.0\\tools\\nunit3-console.exe .\\RandomQuotes.Tests\\bin\\Debug\\RandomQuotes.Tests.dll")
+      ace.edit(scriptBody).setValue(".\\packages\\NUnit.ConsoleRunner.3.10.0\\tools\\nunit3-console.exe `\n.\\RandomQuotes.Tests\\bin\\Debug\\RandomQuotes.Tests.dll")
       """
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\153-run-tests.png"
+    And I remove the highlight from the "Script body" text box
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
