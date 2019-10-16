@@ -5,6 +5,11 @@ package { 'gnuwin32-coreutils.install':
   provider => chocolatey
 }
 
+package { 'sysinternals':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 package { 'vlc':
   ensure   => installed,
   provider => chocolatey

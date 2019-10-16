@@ -32,6 +32,7 @@ package { 'NuGet.CommandLine':
   content => @(EOT)
     start "C:\install\artifactory-pro-6.13.1\bin\artifactory.bat" -PassThru
     C:\ProgramData\chocolatey\bin\nuget.exe sources add -Name Artifactory -Source http://localhost:8041/artifactory/api/nuget/NuGet -Username admin -Password password
+    C:\ProgramData\chocolatey\bin\psexec.exe -s C:\ProgramData\chocolatey\bin\nuget.exe sources add -Name Artifactory -Source http://localhost:8041/artifactory/api/nuget/NuGet -Username admin -Password password
     New-Item -ItemType file c:\ArtifactoryStarted.txt
     | EOT
 }
