@@ -156,8 +156,8 @@ Feature: Create a Lifecycle in Octopus
     Given I set the following aliases:
       | Projects           | //span[contains(.,'Projects')]                                        |
       | Random Quotes      | //a[@href='#/Spaces-1/projects/random-quotes']                        |
-      | Process            | //a[contains(.,'Process')]                                            |
-      | Process text       | //a/span[contains(.,'Process')] \| //a[contains(.,'Process')][not(*)] |
+      | Deployments        | //a[contains(.,'Deployments')]                                        |
+      | Process           | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']    |
       | Change             | //button[contains(.,'CHANGE')]                                        |
       | Lifecycle list     | //button[../../../../div[text()='Lifecycle']]                         |
       | Save               | //button[contains(.,'Save')]                                          |
@@ -175,6 +175,8 @@ Feature: Create a Lifecycle in Octopus
     And I remove the highlight from the "Projects" link
     And I click the "Random Quotes" project tile
 
+    And I highlight inside the "Deployments" link
+    And I click the "Deployments" link
     And I highlight outside the "Process text" link with an offset of "2"
     And I click the "Process" link
     And I highlight outside the "Change" button
