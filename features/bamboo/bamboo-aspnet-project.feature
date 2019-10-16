@@ -66,6 +66,7 @@ Feature: Configure Bamboo
     Then I verify the "Installed and ready to go!" title is present
     And I save a screenshot to "c:\screenshots\bamboo\addins\050-installed.png"
     And I click the "Close" button
+    And I stop recording the screen
 
   @executables
   Scenario: Configure Git
@@ -86,6 +87,7 @@ Feature: Configure Bamboo
 
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
 
+    And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Configuring the executables" for "3" seconds
 
     And I scroll the "Administration" button into view
@@ -149,6 +151,8 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\executables\060-octo.png"
     And I click the "Add" button
 
+    And I stop recording the screen
+
   Scenario: Add project
     Given I set the following aliases:
       | My Bamboo                    | //a[@id='myBamboo']                                                                            |
@@ -173,6 +177,7 @@ Feature: Configure Bamboo
       | Interpreter                  | //select[@id='interpreter']                                                                    |
       | Script body                  | //div[@id='scriptBody']                                                                        |
 
+    And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating the build project" for "3" seconds
 
     And I highlight inside the "My Bamboo" link
@@ -413,12 +418,15 @@ Feature: Configure Bamboo
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\190-nuget-push.png"
     And I click the "Save" button
+    And I stop recording the screen
 
   Scenario: Create plan
     Given I set the following aliases:
       | Create    | //button[@id='createPlan']               |
       | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
       | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
+    And I start recording the screen to the directory "C:\screenshots"
+
     And I highlight outside the "Create" button
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\190-create.png"
     And I click the "Create" button
