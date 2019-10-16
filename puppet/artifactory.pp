@@ -10,10 +10,16 @@ package { 'NuGet.CommandLine':
   creates      => 'C:/install/artifactory-pro-6.13.1/README.txt',
   cleanup      => true,
 }
--> file_line { 'installStateName':
+-> file_line { 'Artifactory Port Settings':
   path    => 'C:/install/artifactory-pro-6.13.1/tomcat/conf/server.xml',
   line    => '        <Connector port="8041" sendReasonPhrase="true" relaxedPathChars=\'[]\' relaxedQueryChars=\'[]\' maxThreads="200"/>',
   match   => '^\s*<Connector port="8081" sendReasonPhrase="true" relaxedPathChars=\'\[\]\' relaxedQueryChars=\'\[\]\' maxThreads="200"/>',
+  replace => true,
+}
+-> file_line { 'Artifactory Memory Settings':
+  path    => 'C:/install/artifactory-pro-6.13.1/bin/artifactory.bat',
+  line    => 'set JAVA_OPTIONS=-server -Xms512m -Xmx1g -Xss256k -XX:+UseG1GC',
+  match   => 'set JAVA_OPTIONS=-server -Xms512m -Xmx4g -Xss256k -XX:+UseG1GC',
   replace => true,
 }
 -> file { 'C:/install_artifactory.ps1':
