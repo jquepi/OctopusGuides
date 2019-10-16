@@ -18,23 +18,23 @@ Feature: Create Octopus Users and Teams
   @add-users
   Scenario: Configure Users
     Given I set the following aliases:
-      | More             | //span[contains(.,'More')][1]            |
-      | More Two         | (//span[contains(.,'More')])[2]          |
-      | Configuration    | //span[contains(.,'Configuration')]      |
-      | Users            | //span[contains(.,'Users')]              |
-      | Add user         | //button[contains(.,'Add user')]         |
-      | Username         | //input[contains(@id,'Username')]        |
-      | Display name     | //input[contains(@id,'Displayname')]     |
-      | Email address    | //input[contains(@id,'Emailaddress')]    |
-      | Password         | //input[contains(@id,'Password')]        |
-      | Confirm password | //input[contains(@id,'Confirmpassword')] |
-      | Save             | //button[contains(.,'Save')]             |
+      | More             | //span[contains(.,'More')][1]                          |
+      | More Two         | (//span[contains(.,'More')])[2]                        |
+      | Configuration    | //span[contains(.,'Configuration')]                    |
+      | Users            | //span[contains(.,'Users')] \| //[contains(.,'Users')] |
+      | Add user         | //button[contains(.,'Add user')]                       |
+      | Username         | //input[contains(@id,'Username')]                      |
+      | Display name     | //input[contains(@id,'Displayname')]                   |
+      | Email address    | //input[contains(@id,'Emailaddress')]                  |
+      | Password         | //input[contains(@id,'Password')]                      |
+      | Confirm password | //input[contains(@id,'Confirmpassword')]               |
+      | Save             | //button[contains(.,'Save')]                           |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create users for internal and production deployments" for "3" seconds
 
-    And I highlight outside the "More" link
-    And I click the "More" link
+    And I highlight outside the "More" link if it exists
+    And I click the "More" link if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\005-octopus-configuration.png"
@@ -42,8 +42,8 @@ Feature: Create Octopus Users and Teams
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
-    And I highlight inside the "More Two" link
-    And I click the "More Two" link
+    And I highlight inside the "More Two" link if it exists
+    And I click the "More Two" link if it exists
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\010-octopus-users.png"
@@ -149,31 +149,31 @@ Feature: Create Octopus Users and Teams
   @add-internal-team
   Scenario: Configure Teams
     Given I set the following aliases:
-      | More                           | //span[contains(.,'More')][1]                             |
-      | More Two                       | (//span[contains(.,'More')])[2]                           |
-      | Configuration                  | //span[contains(.,'Configuration')]                       |
-      | Teams                          | //span[contains(.,'Teams')]                               |
-      | Add Team                       | //button[contains(.,'Add Team')]                          |
-      | New team name                  | //input[contains(@id,'Newteamname')]                      |
-      | New team description           | //textarea[contains(@id,'Teamdescription')]               |
-      | New team description container | //div[./textarea[contains(@id,'Teamdescription')]]        |
-      | Save                           | //button[@title='Save']                                   |
-      | Add Member                     | //button[@title='Add Member']                             |
-      | Select users                   | //input[@title='Select users']                            |
-      | Select users container         | //div[./div/div/div/input[@title='Select users']]         |
-      | Add                            | //button[@title='Add']                                    |
-      | Internal Deployer User         | //div[./div/div[text()='internaldeployer@example.org']]   |
-      | User roles                     | //button[contains(.,'User Roles')]                        |
-      | Include User Role              | //button[contains(.,'Include User Role')]                 |
-      | Select user role               | (//div[../div[text()='Select a user role']])[2]           |
-      | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]     |
-      | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]           |
-      | Project viewer                 | //span[./div[contains(.,'Project viewer')]]               |
-      | Apply                          | //button[contains(.,'Apply')]                             |
-      | Define Scope                   | //button[contains(.,'Define Scope')]                      |
-      | Select environments            | //input[@title='Select environments']                     |
-      | Dev environment                | //span[./div/div/div[text()='Dev']]                       |
-      | Test environment               | //span[./div/div/div[text()='Test']]                      |
+      | More                           | //span[contains(.,'More')][1]                           |
+      | More Two                       | (//span[contains(.,'More')])[2]                         |
+      | Configuration                  | //span[contains(.,'Configuration')]                     |
+      | Teams                          | //span[contains(.,'Teams')]                             |
+      | Add Team                       | //button[contains(.,'Add Team')]                        |
+      | New team name                  | //input[contains(@id,'Newteamname')]                    |
+      | New team description           | //textarea[contains(@id,'Teamdescription')]             |
+      | New team description container | //div[./textarea[contains(@id,'Teamdescription')]]      |
+      | Save                           | //button[@title='Save']                                 |
+      | Add Member                     | //button[@title='Add Member']                           |
+      | Select users                   | //input[@title='Select users']                          |
+      | Select users container         | //div[./div/div/div/input[@title='Select users']]       |
+      | Add                            | //button[@title='Add']                                  |
+      | Internal Deployer User         | //div[./div/div[text()='internaldeployer@example.org']] |
+      | User roles                     | //button[contains(.,'User Roles')]                      |
+      | Include User Role              | //button[contains(.,'Include User Role')]               |
+      | Select user role               | (//div[../div[text()='Select a user role']])[2]         |
+      | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]   |
+      | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]         |
+      | Project viewer                 | //span[./div[contains(.,'Project viewer')]]             |
+      | Apply                          | //button[contains(.,'Apply')]                           |
+      | Define Scope                   | //button[contains(.,'Define Scope')]                    |
+      | Select environments            | //input[@title='Select environments']                   |
+      | Dev environment                | //span[./div/div/div[text()='Dev']]                     |
+      | Test environment               | //span[./div/div/div[text()='Test']]                    |
 
     And I open the URL "http://localhost"
     And I clear the transition
