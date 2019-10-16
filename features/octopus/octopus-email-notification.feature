@@ -18,22 +18,22 @@ Feature: Add a manual intervention step
   @configure-smtp
   Scenario: Configure SMTP
     Given I set the following aliases:
-      | More                 | //span[contains(.,'More')]                 |
-      | More Two             | (//span[contains(.,'More')])[2]            |
-      | Configuration        | //span[contains(.,'Configuration')]        |
-      | SMTP                 | //span[contains(.,'SMTP')]                 |
-      | SMTP Host Section    | //span[contains(.,'SMTP Host')]            |
-      | SMTP Port Section    | //span[contains(.,'SMTP Port')]            |
-      | SMTP SSL Section     | //span[contains(.,'Use SSL/TLS')]          |
-      | From Address Section | //span[contains(.,'From Address')]         |
-      | Credentials Section  | //span[contains(.,'Credentials')]          |
-      | SMTP Host            | //input[contains(@id,'SMTPhost')]          |
-      | SMTP Port            | //input[contains(@id,'SMTPport')]          |
-      | From Address         | //input[contains(@id,'Fromaddress')]       |
-      | SMTP login           | //input[contains(@id,'SMTPlogin')]         |
-      | SMTP password        | //input[contains(@id,'SMTPpassword')]      |
-      | Use SSL              | //input[../div[contains(.,'Use SSL/TLS')]] |
-      | Save                 | //button[@title='Save']                    |
+      | More                 | //span[contains(.,'More')]                            |
+      | More Two             | (//span[contains(.,'More')])[2]                       |
+      | Configuration        | //span[contains(.,'Configuration')]                   |
+      | SMTP                 | //span[contains(.,'SMTP')] \| //a[contains(.,'SMTP')] |
+      | SMTP Host Section    | //span[contains(.,'SMTP Host')]                       |
+      | SMTP Port Section    | //span[contains(.,'SMTP Port')]                       |
+      | SMTP SSL Section     | //span[contains(.,'Use SSL/TLS')]                     |
+      | From Address Section | //span[contains(.,'From Address')]                    |
+      | Credentials Section  | //span[contains(.,'Credentials')]                     |
+      | SMTP Host            | //input[contains(@id,'SMTPhost')]                     |
+      | SMTP Port            | //input[contains(@id,'SMTPport')]                     |
+      | From Address         | //input[contains(@id,'Fromaddress')]                  |
+      | SMTP login           | //input[contains(@id,'SMTPlogin')]                    |
+      | SMTP password        | //input[contains(@id,'SMTPpassword')]                 |
+      | Use SSL              | //input[../div[contains(.,'Use SSL/TLS')]]            |
+      | Save                 | //button[@title='Save']                               |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Configure SMTP settings" for "3" seconds
