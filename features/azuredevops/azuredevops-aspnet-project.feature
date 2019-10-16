@@ -190,6 +190,59 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\100-vstest-location.png"
     And I remove the highlight from the "Test Assemblies" row
 
+  @configure-project @artifactory
+  Scenario: Push to Octopus
+    Given I set the following aliases:
+      | Add task                                                     | //button[@aria-label='Add a task to Agent job 1']                                                              |
+      | Publish artifact                                             | //div[@data-list-index='5']/div/div/div/div[./div/div/div/div[text()='Publish Artifact']]                      |
+      | Search                                                       | (//input[@aria-label='Search'])[2]                                                                             |
+      | NuGet title                                                  | //div[@class='info-name'][text()='NuGet']                                                                      |
+      | NuGet Task                                                   | //div[./div/div/div[text()='NuGet']]/button                                                                    |
+      | NuGet restore                                                | //div[@data-list-index='6'][contains(.,'NuGet restore')]/div/div/div/div                                       |
+      | Display name                                                 | //input[../../../../../../div/label[normalize-space(text())='Display name']]                                   |
+      | Command                                                      | //input[../../../../../../../../../div/label[normalize-space(text())='Command']]                               |
+      | Push command                                                 | //div[contains(@class,'combo-drop-popup')]//*[normalize-space(text())='push']                                  |
+      | Path to NuGet package(s) to publish                          | //textarea[../../../../../../../../div/label[normalize-space(text())='Path to NuGet package(s) to publish']]   |
+      | External NuGet server (including other accounts/collections) | //input[../label/span[normalize-space(text())='External NuGet server (including other accounts/collections)']] |
+      | New                                                          | //div[./span[text()='Add NuGet server']]                                                                       |
+      | Basic Authentication                                         | //input[@value='UsernamePassword']                                                                             |
+      | Connection name                                              | //input[@id='connectionName']                                                                                  |
+      | Feed URL                                                     | //input[@id='url']                                                                                             |
+      | Username                                                     | //input[@id='username']                                                                                        |
+      | Password                                                     | //input[@id='password']                                                                                        |
+      | OK                                                           | //button[@id='ok']                                                                                             |
+
+    And I highlight inside the "Add task" button
+    And I click the "Publish artifact" row
+    And I click the "Add task" button
+
+    And I highlight outside the "Search" text box
+    And I populate the "Search" text box with "Nuget"
+
+    And I highlight outside the "NuGet title" element with an offset of "5"
+    And I mouse over the "NuGet title" element
+    And I zoom the browser out
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\110-nuget-push.png"
+    And I zoom the browser in
+    And I remove the highlight from the "Add task" button
+
+    And I click the "NuGet Task" button
+    And I click the "NuGet restore" row
+    And I clear the "Display name" text box
+    And I populate the "Display name" text box with "Nuget push"
+    And I click the "Command" drop down list
+    And I click the "Push command" option
+    And I clear the "Path to NuGet package(s) to publish" text box
+    And I populate the "Path to NuGet package(s) to publish" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(Build.BuildId).nupkg"
+    And I force click the "External NuGet server (including other accounts/collections)" radio button
+    And I click the "New" button
+    And I click the "Basic Authentication" radio button
+    And I populate the "Connection name" text box with "Artifactory"
+    And I populate the "Feed URL" text box with "http://localhost:8041/artifactory/api/nuget/NuGet"
+    And I populate the "Username" text box with "admin"
+    And I populate the "Password" text box with "password"
+    And I click the "OK" button
+
   @configure-project @octo-built-in-feed
   Scenario: Push to Octopus
     Given I set the following aliases:

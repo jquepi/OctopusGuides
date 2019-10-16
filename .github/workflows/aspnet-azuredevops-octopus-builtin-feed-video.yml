@@ -169,6 +169,7 @@ jobs:
         "-DretryCount=2"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
+        --tags "not @artifactory"
         features\azuredevops\azuredevops-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

@@ -115,6 +115,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
+        --tags "not @artifactory"
         features\bamboo\bamboo-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

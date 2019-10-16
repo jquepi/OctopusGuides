@@ -102,6 +102,7 @@ jobs:
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
+        --tags "not @artifactory"
         features\jenkins\jenkins-create-deploy.feature
     - name: Add a lifecycle
       shell: powershell
