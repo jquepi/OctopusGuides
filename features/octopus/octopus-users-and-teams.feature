@@ -148,31 +148,31 @@ Feature: Create Octopus Users and Teams
   @add-internal-team
   Scenario: Configure Teams
     Given I set the following aliases:
-      | More                           | (//span[contains(.,'More')])[1]                         |
-      | More Two                       | (//span[contains(.,'More')])[2]                         |
-      | Configuration                  | //span[contains(.,'Configuration')]                     |
-      | Teams                          | //span[contains(.,'Teams')] \| //a[contains(.,'Teams')] |
-      | Add Team                       | //button[contains(.,'Add Team')]                        |
-      | New team name                  | //input[contains(@id,'Newteamname')]                    |
-      | New team description           | //textarea[contains(@id,'Teamdescription')]             |
-      | New team description container | //div[./textarea[contains(@id,'Teamdescription')]]      |
-      | Save                           | //button[@title='Save']                                 |
-      | Add Member                     | //button[@title='Add Member']                           |
-      | Select users                   | //input[@title='Select users']                          |
-      | Select users container         | //div[./div/div/div/input[@title='Select users']]       |
-      | Add                            | //button[@title='Add']                                  |
-      | Internal Deployer User         | //div[./div/div[text()='internaldeployer@example.org']] |
-      | User roles                     | //button[contains(.,'User Roles')]                      |
-      | Include User Role              | //button[contains(.,'Include User Role')]               |
-      | Select user role               | (//div[../div[text()='Select a user role']])[2]         |
-      | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]   |
-      | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]         |
-      | Project viewer                 | //span[./div[contains(.,'Project viewer')]]             |
-      | Apply                          | //button[contains(.,'Apply')]                           |
-      | Define Scope                   | //button[contains(.,'Define Scope')]                    |
-      | Select environments            | //input[@title='Select environments']                   |
-      | Dev environment                | //span[./div/div/div[text()='Dev']]                     |
-      | Test environment               | //span[./div/div/div[text()='Test']]                    |
+      | More                           | (//span[contains(.,'More')])[1]                                 |
+      | More Two                       | (//span[contains(.,'More')])[2]                                 |
+      | Configuration                  | //span[contains(.,'Configuration')]                             |
+      | Teams                          | //span[contains(.,'Teams')] \| //a[contains(.,'Teams')][not(*)] |
+      | Add Team                       | //button[contains(.,'Add Team')]                                |
+      | New team name                  | //input[contains(@id,'Newteamname')]                            |
+      | New team description           | //textarea[contains(@id,'Teamdescription')]                     |
+      | New team description container | //div[./textarea[contains(@id,'Teamdescription')]]              |
+      | Save                           | //button[@title='Save']                                         |
+      | Add Member                     | //button[@title='Add Member']                                   |
+      | Select users                   | //input[@title='Select users']                                  |
+      | Select users container         | //div[./div/div/div/input[@title='Select users']]               |
+      | Add                            | //button[@title='Add']                                          |
+      | Internal Deployer User         | //div[./div/div[text()='internaldeployer@example.org']]         |
+      | User roles                     | //button[contains(.,'User Roles')]                              |
+      | Include User Role              | //button[contains(.,'Include User Role')]                       |
+      | Select user role               | (//div[../div[text()='Select a user role']])[2]                 |
+      | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]           |
+      | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]                 |
+      | Project viewer                 | //span[./div[contains(.,'Project viewer')]]                     |
+      | Apply                          | //button[contains(.,'Apply')]                                   |
+      | Define Scope                   | //button[contains(.,'Define Scope')]                            |
+      | Select environments            | //input[@title='Select environments']                           |
+      | Dev environment                | //span[./div/div/div[text()='Dev']]                             |
+      | Test environment               | //span[./div/div/div[text()='Test']]                            |
 
     And I open the URL "http://localhost"
     And I clear the transition
@@ -271,30 +271,30 @@ Feature: Create Octopus Users and Teams
   @add-production-team
   Scenario: Configure Teams
     Given I set the following aliases:
-      | More                           | //span[contains(.,'More')][1]                             |
-      | More Two                       | (//span[contains(.,'More')])[2]                           |
-      | Configuration                  | //span[contains(.,'Configuration')]                       |
-      | Teams                          | //span[contains(.,'Teams')] \| //a[contains(.,'Teams')]   |
-      | Add Team                       | //button[contains(.,'Add Team')]                          |
-      | New team name                  | //input[contains(@id,'Newteamname')]                      |
-      | New team description           | //textarea[contains(@id,'Teamdescription')]               |
-      | New team description container | //div[./textarea[contains(@id,'Teamdescription')]]        |
-      | Save                           | //button[@title='Save']                                   |
-      | Add Member                     | //button[@title='Add Member']                             |
-      | Select users                   | //input[@title='Select users']                            |
-      | Select users container         | //div[./div/div/div/input[@title='Select users']]         |
-      | Add                            | //button[@title='Add']                                    |
-      | Production Deployer User       | //div[./div/div[text()='productiondeployer@example.org']] |
-      | User roles                     | //button[contains(.,'User Roles')]                        |
-      | Include User Role              | //button[contains(.,'Include User Role')]                 |
-      | Select user role               | (//div[../div[text()='Select a user role']])[2]           |
-      | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]     |
-      | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]           |
-      | Project viewer                 | //span[./div[contains(.,'Project viewer')]]               |
-      | Apply                          | //button[contains(.,'Apply')]                             |
-      | Define Scope                   | //button[contains(.,'Define Scope')]                      |
-      | Select environments            | //input[@title='Select environments']                     |
-      | Prod environment               | //span[./div/div/div[text()='Prod']]                      |
+      | More                           | //span[contains(.,'More')][1]                                   |
+      | More Two                       | (//span[contains(.,'More')])[2]                                 |
+      | Configuration                  | //span[contains(.,'Configuration')]                             |
+      | Teams                          | //span[contains(.,'Teams')] \| //a[contains(.,'Teams')][not(*)] |
+      | Add Team                       | //button[contains(.,'Add Team')]                                |
+      | New team name                  | //input[contains(@id,'Newteamname')]                            |
+      | New team description           | //textarea[contains(@id,'Teamdescription')]                     |
+      | New team description container | //div[./textarea[contains(@id,'Teamdescription')]]              |
+      | Save                           | //button[@title='Save']                                         |
+      | Add Member                     | //button[@title='Add Member']                                   |
+      | Select users                   | //input[@title='Select users']                                  |
+      | Select users container         | //div[./div/div/div/input[@title='Select users']]               |
+      | Add                            | //button[@title='Add']                                          |
+      | Production Deployer User       | //div[./div/div[text()='productiondeployer@example.org']]       |
+      | User roles                     | //button[contains(.,'User Roles')]                              |
+      | Include User Role              | //button[contains(.,'Include User Role')]                       |
+      | Select user role               | (//div[../div[text()='Select a user role']])[2]                 |
+      | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]           |
+      | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]                 |
+      | Project viewer                 | //span[./div[contains(.,'Project viewer')]]                     |
+      | Apply                          | //button[contains(.,'Apply')]                                   |
+      | Define Scope                   | //button[contains(.,'Define Scope')]                            |
+      | Select environments            | //input[@title='Select environments']                           |
+      | Prod environment               | //span[./div/div/div[text()='Prod']]                            |
 
     And I open the URL "http://localhost"
     And I clear the transition
