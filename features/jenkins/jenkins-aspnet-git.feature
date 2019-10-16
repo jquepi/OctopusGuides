@@ -291,6 +291,31 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\128-nunit-test.png"
     And I remove the highlight from the "Command Two" text box
 
+  @artifactory @configure-project
+  Scenario: Add Artifactory Push Step
+    Given I set the following aliases:
+      | Add build step                                          | //button[@type='button'][contains(.,'Add build step')]                            |
+      | Execute Windows batch command                           | //a[contains(.,'Execute Windows batch command')]                                  |
+      | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                        |
+      | Save                                                    | //button[@type='button'][contains(.,'Save')]                                      |
+
+    And I scroll the "Add build step" button into view offset by "-200"
+    And I highlight outside the "Add build step" button
+    And I click the "Add build step" button
+    And I highlight outside the "Execute Windows batch command" link
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\130-artifactory-batch-command-1.png"
+    And I click the "Execute Windows batch command" link
+    And I remove the highlight from the "Add build step" option
+    And I remove the highlight from the "Execute Windows batch command" option
+
+    And I scroll the "Command Three" text box into view offset by "-200"
+    And I highlight outside the "Command Three" text box
+    And I populate the "Command Three" text box with "C:\ProgramData\chocolatey\bin\nuget.exe push -Source Artifactory .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.%BUILD_NUMBER%.nupkg"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\135-nuget-push.png"
+    And I remove the highlight from the "Command Three" text box
+
+    And I click the "Save" button
+
   @octo-built-in-feed @configure-project
   Scenario: Add Octopus Push Step
     Given I set the following aliases:

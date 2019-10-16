@@ -10,12 +10,14 @@ package { 'NuGet.CommandLine':
   creates      => 'C:/install/artifactory-pro-6.13.1/README.txt',
   cleanup      => true,
 }
+# Change the repo port to 8041 to avoid a conflict with the IIS ports that have been used to deploy apps
 -> file_line { 'Artifactory Port Settings':
   path    => 'C:/install/artifactory-pro-6.13.1/tomcat/conf/server.xml',
   line    => '        <Connector port="8041" sendReasonPhrase="true" relaxedPathChars=\'[]\' relaxedQueryChars=\'[]\' maxThreads="200"/>',
   match   => '^\s*<Connector port="8081" sendReasonPhrase="true" relaxedPathChars=\'\[\]\' relaxedQueryChars=\'\[\]\' maxThreads="200"/>',
   replace => true,
 }
+# Reduce the memory that Artifactory can consume
 -> file_line { 'Artifactory Memory Settings':
   path    => 'C:/install/artifactory-pro-6.13.1/bin/artifactory.bat',
   line    => 'set JAVA_OPTIONS=-server -Xms512m -Xmx1g -Xss256k -XX:+UseG1GC',
