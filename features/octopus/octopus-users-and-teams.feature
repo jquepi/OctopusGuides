@@ -18,17 +18,17 @@ Feature: Create Octopus Users and Teams
   @add-users
   Scenario: Configure Users
     Given I set the following aliases:
-      | More             | //span[contains(.,'More')][1]                                   |
-      | More Two         | (//span[contains(.,'More')])[2]                                 |
-      | Configuration    | //span[contains(.,'Configuration')]                             |
-      | Users            | //span[contains(.,'Users')] \| //a[contains(.,'Users')][not(*)] |
-      | Add user         | //button[contains(.,'Add user')]                                |
-      | Username         | //input[contains(@id,'Username')]                               |
-      | Display name     | //input[contains(@id,'Displayname')]                            |
-      | Email address    | //input[contains(@id,'Emailaddress')]                           |
-      | Password         | //input[contains(@id,'Password')]                               |
-      | Confirm password | //input[contains(@id,'Confirmpassword')]                        |
-      | Save             | //button[contains(.,'Save')]                                    |
+      | More             | (//span[contains(.,'More')])[1]                                           |
+      | More Two         | (//span[contains(.,'More')])[2]                                           |
+      | Configuration    | //span[contains(.,'Configuration')]                                       |
+      | Users            | //span[./div/div/div[text()='Users']] \| //a[contains(.,'Users')][not(*)] |
+      | Add user         | //button[contains(.,'Add user')]                                          |
+      | Username         | //input[contains(@id,'Username')]                                         |
+      | Display name     | //input[contains(@id,'Displayname')]                                      |
+      | Email address    | //input[contains(@id,'Emailaddress')]                                     |
+      | Password         | //input[contains(@id,'Password')]                                         |
+      | Confirm password | //input[contains(@id,'Confirmpassword')]                                  |
+      | Save             | //button[contains(.,'Save')]                                              |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create users for internal and production deployments" for "3" seconds
@@ -47,8 +47,7 @@ Feature: Create Octopus Users and Teams
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\010-octopus-users.png"
-    And I scroll the "Users" link into view
-    And I click the "Users" link
+    And I force click the "Users" link
     And I sleep for "1" second
 
     And I highlight outside the "Add user" button
@@ -101,7 +100,7 @@ Feature: Create Octopus Users and Teams
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\040-octopus-users.png"
-    And I click the "Users" link
+    And I force click the "Users" link
     And I sleep for "1" second
 
     And I highlight outside the "Add user" button
