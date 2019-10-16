@@ -2,6 +2,10 @@ package { 'NuGet.CommandLine':
   ensure   => installed,
   provider => chocolatey
 }
+-> package { 'sysinternals':
+  ensure   => installed,
+  provider => chocolatey
+}
 -> archive { 'C:/install/jfrog-artifactory-oss-6.13.1.zip':
   ensure       => present,
   extract      => true,
