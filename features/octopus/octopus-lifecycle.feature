@@ -154,14 +154,14 @@ Feature: Create a Lifecycle in Octopus
   @assign-lifecycle
   Scenario: Assign the lifecycle
     Given I set the following aliases:
-      | Projects           | //span[contains(.,'Projects')]                                        |
-      | Random Quotes      | //a[@href='#/Spaces-1/projects/random-quotes']                        |
-      | Deployments        | //a[contains(.,'Deployments')]                                        |
-      | Process           | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']    |
-      | Change             | //button[contains(.,'CHANGE')]                                        |
-      | Lifecycle list     | //button[../../../../div[text()='Lifecycle']]                         |
-      | Save               | //button[contains(.,'Save')]                                          |
-      | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]]               |
+      | Projects           | //span[contains(.,'Projects')]                                   |
+      | Random Quotes      | //a[@href='#/Spaces-1/projects/random-quotes']                   |
+      | Deployments        | //a[contains(.,'Deployments')]                                   |
+      | Process            | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process'] |
+      | Change             | //button[contains(.,'CHANGE')]                                   |
+      | Lifecycle list     | //button[../../../../div[text()='Lifecycle']]                    |
+      | Save               | //button[contains(.,'Save')]                                     |
+      | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]]          |
 
     And I open the URL "http://localhost/app#/Spaces-1/library/lifecycles"
     And I display a note with the text "Assign the custom lifecycle to the Octopus project" for "3" seconds
@@ -177,7 +177,7 @@ Feature: Create a Lifecycle in Octopus
 
     And I highlight inside the "Deployments" link
     And I click the "Deployments" link
-    And I highlight inside the "Process" link with an offset of "2"
+    And I highlight inside the "Process" link
     And I click the "Process" link
     And I highlight outside the "Change" button
     And I sleep for "1" second

@@ -20,8 +20,8 @@ Feature: Add a manual intervention step
     Given I set the following aliases:
       | Projects                      | //span[contains(.,'Projects')]                                                                                     |
       | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                                                     |
-      | Process                       | //a[contains(.,'Process')]                                                                                         |
-      | Process text                  | //a/span[contains(.,'Process')] \| //a[contains(.,'Process')][not(*)]                                              |
+      | Deployments                   | //a[contains(.,'Deployments')]                                                                      |
+      | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                    |
       | Add Step                      | //button[contains(.,'Add Step')]                                                                                   |
       | Search                        | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                        |
       | Manual Intervention           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]                            |
@@ -48,7 +48,9 @@ Feature: Add a manual intervention step
     And I remove the highlight from the "Projects" link
     And I click the "Random Quotes" project tile
 
-    And I highlight outside the "Process text" link with an offset of "2"
+    And I highlight inside the "Deployments" link
+    And I click the "Deployments" link
+    And I highlight inside the "Process" link
     And I click the "Process" link
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
