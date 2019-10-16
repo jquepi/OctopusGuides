@@ -18,17 +18,17 @@ Feature: Create Octopus Users and Teams
   @add-users
   Scenario: Configure Users
     Given I set the following aliases:
-      | More             | //span[contains(.,'More')][1]                                  |
-      | More Two         | (//span[contains(.,'More')])[2]                                |
-      | Configuration    | //span[contains(.,'Configuration')]                            |
-      | Users            | //span[contains(.,'Users')] \| //a[contains(.,'Users')][not(*) |
-      | Add user         | //button[contains(.,'Add user')]                               |
-      | Username         | //input[contains(@id,'Username')]                              |
-      | Display name     | //input[contains(@id,'Displayname')]                           |
-      | Email address    | //input[contains(@id,'Emailaddress')]                          |
-      | Password         | //input[contains(@id,'Password')]                              |
-      | Confirm password | //input[contains(@id,'Confirmpassword')]                       |
-      | Save             | //button[contains(.,'Save')]                                   |
+      | More             | //span[contains(.,'More')][1]                                   |
+      | More Two         | (//span[contains(.,'More')])[2]                                 |
+      | Configuration    | //span[contains(.,'Configuration')]                             |
+      | Users            | //span[contains(.,'Users')] \| //a[contains(.,'Users')][not(*)] |
+      | Add user         | //button[contains(.,'Add user')]                                |
+      | Username         | //input[contains(@id,'Username')]                               |
+      | Display name     | //input[contains(@id,'Displayname')]                            |
+      | Email address    | //input[contains(@id,'Emailaddress')]                           |
+      | Password         | //input[contains(@id,'Password')]                               |
+      | Confirm password | //input[contains(@id,'Confirmpassword')]                        |
+      | Save             | //button[contains(.,'Save')]                                    |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create users for internal and production deployments" for "3" seconds
