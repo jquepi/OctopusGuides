@@ -107,7 +107,6 @@ Feature: Add a manual intervention step
       | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                                      |
       | Deployments                   | //a[contains(.,'Deployments')]                                                                      |
       | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                    |
-      | Process text                  | //a/span[contains(.,'Process')] \| //a[contains(.,'Process')][not(*)]                               |
       | Add Step                      | //button[contains(.,'Add Step')]                                                                    |
       | Search                        | //input[contains(@id, 'Filterbynamecategoryordescription')]                                         |
       | Send an Email                 | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]                            |
@@ -149,7 +148,7 @@ Feature: Add a manual intervention step
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\025-add-step.png"
-    And I remove the highlight from the "Process text" link
+    And I remove the highlight from the "Deployments" link
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
