@@ -95,8 +95,7 @@ Feature: Create Octopus Users and Teams
     And I sleep for "2" seconds
     And I save a screenshot to "C:\screenshots\octopus\permissions\037-octopus-user-overview.png"
 
-    And I highlight inside the "More Two" link if it exists
-    And I click the "More Two" link if it exists
+    # Click the Users link in the breadcrumb
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\permissions\040-octopus-users.png"
@@ -149,7 +148,7 @@ Feature: Create Octopus Users and Teams
   @add-internal-team
   Scenario: Configure Teams
     Given I set the following aliases:
-      | More                           | //span[contains(.,'More')][1]                           |
+      | More                           | (//span[contains(.,'More')])[1]                         |
       | More Two                       | (//span[contains(.,'More')])[2]                         |
       | Configuration                  | //span[contains(.,'Configuration')]                     |
       | Teams                          | //span[contains(.,'Teams')] \| //a[contains(.,'Teams')] |
