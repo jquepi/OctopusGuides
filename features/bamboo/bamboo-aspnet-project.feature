@@ -445,19 +445,8 @@ Feature: Configure Bamboo
     And I click the "Logs" link
     And I sleep for "10" seconds
     And I scroll down "10000" px
-
-    And I sleep for "120" seconds
+    And I sleep for "50" seconds
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\210-build-results.png"
-
-    And I open the URL "http://localhost:6990/bamboo/download/RQ-WEB-JOB1/build_logs/RQ-WEB-JOB1-1.log"
-    And I scroll down "100000" px
-    And I save a screenshot to "c:\screenshots\bamboo\initialproject\220-build-results.png"
-    And I scroll up "600" px
-    And I save a screenshot to "c:\screenshots\bamboo\initialproject\230-build-results.png"
-    And I scroll up "600" px
-    And I save a screenshot to "c:\screenshots\bamboo\initialproject\240-build-results.png"
-    And I scroll up "600" px
-    And I save a screenshot to "c:\screenshots\bamboo\initialproject\250-build-results.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

@@ -67,3 +67,9 @@ Feature: Add Artifactory NuGet feed
 
     And I sleep for "2" seconds
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\090-external-feed.png"
+
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+
+  Scenario: Shutdown
+    And I stop recording the screen
+    And I close the browser
