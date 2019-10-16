@@ -38,8 +38,8 @@ Feature: Add a manual intervention step
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Configure SMTP settings" for "3" seconds
 
-    And I highlight outside the "More" link
-    And I click the "More" link
+    And I highlight outside the "More" link if it exists
+    And I click the "More" link if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\005-octopus-configuration.png"
@@ -47,8 +47,8 @@ Feature: Add a manual intervention step
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
-    And I highlight inside the "More Two" link
-    And I click the "More Two" link
+    And I highlight inside the "More Two" link if it exists
+    And I click the "More Two" link if it exists
     And I highlight inside the "SMTP" link
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\email\010-octopus-smtp.png"
