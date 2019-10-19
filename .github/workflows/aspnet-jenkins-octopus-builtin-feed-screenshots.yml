@@ -100,6 +100,12 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --tags "not @artifactory"
