@@ -31,7 +31,8 @@ file { 'C:/initialise_octopus.ps1':
     | EOT
 }
 -> exec { 'Create API Key':
-  command  => '& C:/initialise_octopus.ps1',
-  creates  => 'C:/octopus_api.txt',
-  provider => powershell,
+  command   => '& C:/initialise_octopus.ps1',
+  creates   => 'C:/octopus_api.txt',
+  provider  => powershell,
+  logoutput => true
 }

@@ -17,8 +17,12 @@ package { 'NuGet.CommandLine':
 # Change the repo port to 8041 to avoid a conflict with the IIS ports that have been used to deploy apps
 -> file_line { 'Artifactory Port Settings':
   path    => 'C:/install/artifactory-pro-6.13.1/tomcat/conf/server.xml',
-  line    => '        <Connector port="8041" sendReasonPhrase="true" relaxedPathChars=\'[]\' relaxedQueryChars=\'[]\' maxThreads="200"/>',
-  match   => '^\s*<Connector port="8081" sendReasonPhrase="true" relaxedPathChars=\'\[\]\' relaxedQueryChars=\'\[\]\' maxThreads="200"/>',
+  line    =>
+    '        <Connector port="8041" sendReasonPhrase="true" relaxedPathChars=\'[]\' relaxedQueryChars=\'[]\' maxThreads="200"/>'
+  ,
+  match   =>
+    '^\s*<Connector port="8081" sendReasonPhrase="true" relaxedPathChars=\'\[\]\' relaxedQueryChars=\'\[\]\' maxThreads="200"/>'
+  ,
   replace => true,
 }
 # Reduce the memory that Artifactory can consume
@@ -43,8 +47,9 @@ package { 'NuGet.CommandLine':
     | EOT
 }
 -> exec { 'Install Artifactory':
-  command  => '& C:/install_artifactory.ps1',
-  creates  => 'c:/ArtifactoryStarted.txt',
-  timeout  => 3600,
-  provider => powershell,
+  command   => '& C:/install_artifactory.ps1',
+  creates   => 'c:/ArtifactoryStarted.txt',
+  timeout   => 3600,
+  provider  => powershell,
+  logoutput => true
 }

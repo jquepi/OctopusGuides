@@ -1,5 +1,5 @@
 file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
-  ensure    => 'directory',
+  ensure => 'directory',
 }
 -> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/a.security.groovy':
   ensure  => 'file',
@@ -102,10 +102,13 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   replace => true,
 }
 -> exec { 'Restart Jenkins':
-  command => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
+  command   => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
+  logoutput => true
 }
 -> exec { 'Create Jenkins Shortcut':
-  provider => 'powershell',
-  command  =>
+  provider  => 'powershell',
+  command   =>
     '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Jenkins.lnk"); $short.TargetPath = "http://localhost:8080"; $short.Save();'
+  ,
+  logoutput => true
 }

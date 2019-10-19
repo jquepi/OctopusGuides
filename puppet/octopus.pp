@@ -62,15 +62,18 @@ package { 'sql-server-express':
     | EOT
 }
 -> exec { 'Install Octopus':
-  command => 'C:\\Windows\\system32\\cmd.exe /c C:\\install_octopus.bat',
-  creates => 'C:/OctopusDeployInstalled.txt',
+  command   => 'C:\\Windows\\system32\\cmd.exe /c C:\\install_octopus.bat',
+  creates   => 'C:/OctopusDeployInstalled.txt',
+  logoutput => true
 }
 -> package { 'octopustools':
   ensure   => installed,
   provider => chocolatey
 }
 -> exec { 'Create Octopus Shortcut':
-  provider => 'powershell',
-  command  =>
+  provider  => 'powershell',
+  command   =>
     '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Octopus.lnk"); $short.TargetPath = "http://localhost"; $short.Save();'
+  ,
+  logoutput => true
 }

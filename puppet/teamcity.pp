@@ -32,7 +32,8 @@ file { 'C:/ProgramData/JetBrains':
     | EOT
 }
 -> exec { 'Start TeamCity':
-  command  => '& C:/start_teamcity.ps1',
-  creates => 'C:/TeamCityStarted.txt',
-  provider => powershell,
+  command   => '& C:/start_teamcity.ps1',
+  creates   => 'C:/TeamCityStarted.txt',
+  provider  => powershell,
+  logoutput => true
 }

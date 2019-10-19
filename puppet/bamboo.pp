@@ -27,7 +27,8 @@ download_file { 'sdk-installer-8.0.16.exe':
     | EOT
 }
 -> exec { 'Start Bamboo':
-  command  => '& C:/start_bamboo.ps1',
-  creates => 'C:/BambooStarted.txt',
-  provider => powershell,
+  command   => '& C:/start_bamboo.ps1',
+  creates   => 'C:/BambooStarted.txt',
+  provider  => powershell,
+  logoutput => true
 }

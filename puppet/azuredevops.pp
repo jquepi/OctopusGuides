@@ -23,10 +23,11 @@ package { 'sql-server-express':
     | EOT
 }
 -> exec { 'Install Azure':
-  command  => '& C:/install_azure.ps',
-  creates  => 'c:/AzureDevOpsStarted.txt',
-  timeout  => 3600,
-  provider => powershell,
+  command   => '& C:/install_azure.ps',
+  creates   => 'c:/AzureDevOpsStarted.txt',
+  timeout   => 3600,
+  provider  => powershell,
+  logoutput => true
 }
 -> file { 'C:/tools/vsts-agent-win-x86-2.144.2':
   ensure => 'directory'
@@ -54,7 +55,8 @@ package { 'sql-server-express':
     | EOT
 }
 -> exec { 'Configure agent':
-  command  => '& C:/install_azure_agent.ps1',
-  creates  => 'c:/AzureAgentStarted.txt',
-  provider => powershell,
+  command   => '& C:/install_azure_agent.ps1',
+  creates   => 'c:/AzureAgentStarted.txt',
+  provider  => powershell,
+  logoutput => true
 }

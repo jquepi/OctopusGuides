@@ -19,6 +19,7 @@ package { 'octopusdeploy.tentacle':
     | EOT
 }
 -> exec { 'Install Tentacle':
-  command => 'C:\\Windows\\system32\\cmd.exe /c C:\\install_tentacle.bat',
-  creates => 'C:/OctopusTentacleInstalled.txt',
+  command   => 'C:\\Windows\\system32\\cmd.exe /c C:\\install_tentacle.bat',
+  creates   => 'C:/OctopusTentacleInstalled.txt',
+  logoutput => true
 }
