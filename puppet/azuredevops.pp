@@ -45,7 +45,9 @@ package { 'sql-server-express':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
+    Write-Host "Configuring Azure DevOps agent"
     C:\tools\vsts-agent-win-x86-2.144.2\config.cmd --unattended --url http://localhost:9090 --auth integrated --pool default --agent myAgent
+    Write-Host "Starting Azure DevOps agent"
     start "C:\tools\vsts-agent-win-x86-2.144.2\run.cmd" -PassThru
     New-Item -ItemType file c:\AzureAgentStarted.txt
     exit 0
