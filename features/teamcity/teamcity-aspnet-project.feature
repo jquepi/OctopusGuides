@@ -224,9 +224,11 @@ Feature: Create ASP.NET project
     And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
 
     And I highlight outside the "Packages" text box with an offset of "5"
+    And I scroll the "Package" text box into view offset by "-300"
     And I populate the "Packages" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
 
     And I highlight outside the "Package source" text box with an offset of "5"
+    And I scroll the "Package source" text box into view offset by "-300"
     And I populate the "Package source" text box with "Artifactory"
 
     And I highlight outside the "Save" button
