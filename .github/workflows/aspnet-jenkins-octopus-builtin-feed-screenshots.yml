@@ -1,8 +1,7 @@
 name: ASP.NET Jenkins Octopus Built-in Feed Screenshots
-on: [push]
-#on:
-#  schedule:
-#    - cron:  '0 3 * * *'
+on:
+  schedule:
+    - cron:  '0 3 * * *'
 jobs:
   build:
     runs-on: windows-2019
@@ -43,6 +42,7 @@ jobs:
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
+        --tags "not @artifactory"
         features\jenkins\jenkins-aspnet-git.feature
     - name: Create the Octopus Environments
       shell: powershell

@@ -44,6 +44,7 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
+        --tags "not @artifactory"
         features\jenkins\jenkins-aspnet-git.feature
     - name: Create the Octopus Environments
       shell: powershell
