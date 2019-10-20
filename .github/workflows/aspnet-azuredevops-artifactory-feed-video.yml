@@ -89,6 +89,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --tags "not @octo-built-in-feed"
