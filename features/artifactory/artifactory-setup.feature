@@ -22,6 +22,7 @@ Feature: Setup Artifactory
     And I populate the "Username" text box with "admin" waiting up to "300" seconds
     And I populate the "Password" text box with "password"
     And I click the "Login" button
+    And I sleep for "30" seconds
     And I click the "Close Wizard" element waiting up to "10" seconds if it exists
 
   Scenario: Add license
