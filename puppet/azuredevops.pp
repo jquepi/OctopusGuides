@@ -23,7 +23,7 @@ package { 'sql-server-express':
     | EOT
 }
 -> exec { 'Install Azure':
-  command   => '& C:/install_azure.ps',
+  command   => '& C:/install_azure.ps1',
   creates   => 'c:/AzureDevOpsStarted.txt',
   timeout   => 3600,
   provider  => powershell,
