@@ -17,8 +17,8 @@ package { 'sql-server-express':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    & "C:\tools\azuredevopsexpress2019.exe" /silent
-    & "C:\Program Files\Azure DevOps Server 2019\Tools\TfsConfig.exe" unattend /unattendfile:.\config\azuredevops.ini /continue
+    Start-Process "C:\tools\azuredevopsexpress2019.exe" -ArgumentList @("/silent") -NoNewWindow -Wait
+    Start-Process "C:\Program Files\Azure DevOps Server 2019\Tools\TfsConfig.exe" -ArgumentList @("unattend", "/unattendfile:.\config\azuredevops.ini", "/continue") -NoNewWindow -Wait
     New-Item -ItemType file c:\AzureDevOpsStarted.txt
     | EOT
 }
