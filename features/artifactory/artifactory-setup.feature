@@ -41,6 +41,7 @@ Feature: Setup Artifactory
 
   Scenario: Add NuGet repo
     Given I set the following aliases:
+      | License Key    | //textarea[@name='dndtext']                      |
       | Admin          | //i[@class='icon icon-admin-new']                |
       | Local          | //a[@href='#/admin/repositories/local']          |
       | New            | //a[@id='repositories-new']                      |
@@ -49,6 +50,7 @@ Feature: Setup Artifactory
       | Save & Finish  | //button[@id='repository-save-button']           |
 
     And I open the URL "http://localhost:8040/artifactory/webapp/#/home"
+    And I verify the "License Key" text box is not present waiting up to "60" seconds
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating the NuGet repository in Artifactory" for "3" seconds
 
