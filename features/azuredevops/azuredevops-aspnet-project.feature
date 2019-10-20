@@ -235,6 +235,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I clear the "Path to NuGet package(s) to publish" text box
     And I populate the "Path to NuGet package(s) to publish" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(Build.BuildId).nupkg"
     And I force click the "External NuGet server (including other accounts/collections)" radio button
+    And I scroll the "New" button into view offset by "-300"
     And I click the "New" button
     And I click the "Basic Authentication" radio button
     And I populate the "Connection name" text box with "Artifactory"
