@@ -208,6 +208,7 @@ Feature: Create ASP.NET project
     And I click the "Runner type" drop down list
 
     And I scroll the "NuGet Publish" option into view
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\130-nuget-publish.png"
     And I click the "NuGet Publish" option
     And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
@@ -215,6 +216,8 @@ Feature: Create ASP.NET project
     And I highlight outside the "Step name" text box
     And I scroll the "Step name" text box into view offset by "-300"
     And I populate the "Step name" text box with "Push to Artifactory"
+
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\140-nuget-publish.png"
 
     And I highlight outside the "NuGet.exe" drop down with an offset of "5"
     And I scroll the "NuGet.exe" drop down into view
@@ -224,9 +227,13 @@ Feature: Create ASP.NET project
     And I scroll the "NuGet.exe path" text box into view offset by "-300"
     And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
 
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\150-nuget-publish.png"
+
     And I highlight outside the "Packages" text box with an offset of "5"
     And I scroll the "Packages" text box into view offset by "-300"
     And I populate the "Packages" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
+
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\160-nuget-publish.png"
 
     And I highlight outside the "Show advanced options" link if it exists waiting up to "1" second
     And I click the "Show advanced options" link if it exists waiting up to "1" second
@@ -238,7 +245,7 @@ Feature: Create ASP.NET project
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\130-artifactory-save.png"
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\170-artifactory-save.png"
 
     And I click the "Save" button
 

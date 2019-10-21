@@ -205,11 +205,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Path to NuGet package(s) to publish                          | //textarea[../../../../../../../../div/label[normalize-space(text())='Path to NuGet package(s) to publish']]   |
       | External NuGet server (including other accounts/collections) | //input[../label/span[normalize-space(text())='External NuGet server (including other accounts/collections)']] |
       | New                                                          | //div[./span[text()='Add NuGet server']]                                                                       |
-      | Basic Authentication                                         | //input[@value='UsernamePassword']                                                                             |
+      | ApiKey Option                                                | //input[@value='None']                                                                                         |
       | Connection name                                              | //input[@id='connectionName']                                                                                  |
       | Feed URL                                                     | //input[@id='url']                                                                                             |
-      | Username                                                     | //input[@id='username']                                                                                        |
-      | Password                                                     | //input[@id='password']                                                                                        |
+      | ApiKey                                                       | //input[@id='nugetkey']                                                                                        |
       | OK                                                           | //button[@id='ok']                                                                                             |
 
     And I highlight inside the "Add task" button
@@ -237,11 +236,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I force click the "External NuGet server (including other accounts/collections)" radio button
     And I scroll the "New" button into view offset by "-300"
     And I click the "New" button
-    And I click the "Basic Authentication" radio button
     And I populate the "Connection name" text box with "Artifactory"
     And I populate the "Feed URL" text box with "http://localhost:8041/artifactory/api/nuget/NuGet"
-    And I populate the "Username" text box with "admin"
-    And I populate the "Password" text box with "password"
+    And I populate the "ApiKey" text box with "admin:password"
     And I click the "OK" button
 
   @configure-project @octo-built-in-feed
