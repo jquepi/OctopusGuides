@@ -31,6 +31,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -57,6 +58,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-api-key.feature
@@ -118,6 +120,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -144,6 +147,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-environments.feature
@@ -173,6 +177,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --tags "not @octo-built-in-feed"
@@ -199,6 +204,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\open-randomquotes-iis-dev.feature
@@ -252,6 +258,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-lifecycle.feature
@@ -277,6 +284,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\open-randomquotes-iis-test.feature
@@ -302,6 +310,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-manual-intervention.feature
@@ -328,6 +337,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-email-notification.feature
@@ -353,6 +363,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-users-and-teams.feature
@@ -378,6 +389,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-view-internal-deployments.feature
@@ -403,6 +415,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-view-production-deployments.feature
@@ -428,6 +441,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
+        "-DscreenRecordingMaxTime=30"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-audit-log.feature
