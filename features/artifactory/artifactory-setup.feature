@@ -15,10 +15,12 @@ Feature: Setup Artifactory
       | NuGet          | //li[@id='repository-select-package-type-nuget']        |
       | Repository Key | //input[@id='repoKey-new']                              |
       | Save & Finish  | //button[@id='repository-save-button']                  |
+      | Spinner        | //div[contains(@class,'spinner')]                       |
 
     And I open the shared browser "FirefoxNoImplicitWait"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8040"
+    And I verify the "Spinner" overlay is not present waiting up to "60" seconds
     And I populate the "Username" text box with "admin" waiting up to "300" seconds
     And I populate the "Password" text box with "password"
     And I click the "Login" button
