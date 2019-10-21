@@ -57,20 +57,6 @@ Feature: Create and deploy a release
       | Create release tile      | //div[@class='info-name'][text()='Create Octopus Release']                                                    |
       | Create release           | //div[./div/div/div[text()='Create Octopus Release']]/button                                                  |
       | Create Octopus Release   | //div[@data-list-index='7'][contains(.,'Create Octopus Release')]/div/div/div/div                             |
-      | Octopus Deploy Server    | //div[@aria-label='Expand'][../../../../../../../../../../div/div/label[contains(.,'Octopus Deploy Server')]] |
-      | Octopus Deploy Space     | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]                    |
-      | Octopus Deploy Project   | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]]                  |
-      | Space Refresh            | //button[./div/span[text()='Refresh Space']]                                                                  |
-      | Project Refresh          | //button[./div/span[text()='Refresh Project']]                                                                |
-      | Octopus Server           | //li[text()='Octopus']                                                                                        |
-      | Default Space            | //li[text()='Default']                                                                                        |
-      | Random Quotes Project    | //li[text()='Random Quotes']                                                                                  |
-      | Save and queue           | //button[@name='Save & queue']                                                                                |
-      | Save and queue two       | (//button[@name='Save & queue'])[2]                                                                           |
-      | Save and queue three     | //button[@aria-label='Save & queue']                                                                          |
-      | Comment                  | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                                            |
-      | Build link               | //a[contains(@class, 'ci-queued-build-link')]                                                                 |
-      | Post job Checkout        | //div[text()='Post-job: Checkout']                                                                            |
 
     And I highlight inside the "Add task" button
     And I click the "Add task" button
@@ -89,9 +75,58 @@ Feature: Create and deploy a release
     And I click the "Create Octopus Release" job tile
     And I remove the highlight from the "Add task" button
 
+  @add-step @octo-built-in-feed
+  Scenario: Select existing Octopus server
+    Given I set the following aliases:
+      | Octopus Deploy Server    | //div[@aria-label='Expand'][../../../../../../../../../../div/div/label[contains(.,'Octopus Deploy Server')]] |
+      | Octopus Server           | //li[text()='Octopus']                                                                                        |
+
     And I highlight outside the "Octopus Deploy Server" drop down list with an offset of "2"
     And I click the "Octopus Deploy Server" drop down list
     And I click the "Octopus Server" option
+
+  @add-step @artifactory
+  Scenario: Add new Octopus server
+    Given I set the following aliases:
+      | New                      | //div[./span[text()='Add Octopus Deploy Server']]                                          |
+      | Connection name          | //input[@id='connectionName']                                                              |
+      | Server URL               | //input[@id='url']                                                                         |
+      | API Key                  | //input[@id='apitoken']                                                                    |
+      | OK                       | //button[@id='ok']                                                                         |
+
+    And I highlight outside the "New" button with an offset of "2"
+    And I zoom the browser out
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\045-octopus-connection.png"
+    And I zoom the browser in
+    And I click the "New" button
+    And I remove the highlight from the "New" button
+
+    And I highlight outside the "Connection name" text box with an offset of "2"
+    And I highlight outside the "Server URL" text box with an offset of "2"
+    And I highlight outside the "API Key" text box with an offset of "2"
+    And I highlight inside the "OK" button
+    And I populate the "Connection name" text box with "Octopus"
+    And I populate the "Server URL" text box with "http://localhost"
+    And I populate the "API Key" text box with "ExternalOctopusAPIKey"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\046-octopus-details.png"
+    And I click the "OK" button
+    And I remove the highlight from the "New" button
+
+  @add-step
+  Scenario: Continue adding step
+    Given I set the following aliases:
+      | Space Refresh            | //button[./div/span[text()='Refresh Space']]                                                                  |
+      | Project Refresh          | //button[./div/span[text()='Refresh Project']]                                                                |
+      | Default Space            | //li[text()='Default']                                                                                        |
+      | Random Quotes Project    | //li[text()='Random Quotes']                                                                                  |
+      | Save and queue           | //button[@name='Save & queue']                                                                                |
+      | Save and queue two       | (//button[@name='Save & queue'])[2]                                                                           |
+      | Save and queue three     | //button[@aria-label='Save & queue']                                                                          |
+      | Comment                  | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                                            |
+      | Build link               | //a[contains(@class, 'ci-queued-build-link')]                                                                 |
+      | Post job Checkout        | //div[text()='Post-job: Checkout']                                                                            |
+      | Octopus Deploy Space     | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]                    |
+      | Octopus Deploy Project   | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]]                  |
 
     And I highlight outside the "Octopus Deploy Space" drop down list with an offset of "2"
     And I click the "Space Refresh" button

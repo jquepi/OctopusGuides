@@ -219,7 +219,7 @@ Feature: Create ASP.NET project
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\140-nuget-publish.png"
 
-    And I remove the highlight from the "Runner type" drop down list
+    And I remove the highlight from the "Runner type container" drop down list
     And I remove the highlight from the "Step name" text box
 
     And I highlight outside the "NuGet.exe" drop down with an offset of "5"
