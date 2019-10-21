@@ -219,6 +219,9 @@ Feature: Create ASP.NET project
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\140-nuget-publish.png"
 
+    And I remove the highlight from the "Runner type" drop down list
+    And I remove the highlight from the "Step name" text box
+
     And I highlight outside the "NuGet.exe" drop down with an offset of "5"
     And I scroll the "NuGet.exe" drop down into view
     And I select the option value "custom" from the "NuGet.exe" drop down list
@@ -229,11 +232,16 @@ Feature: Create ASP.NET project
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\150-nuget-publish.png"
 
+    And I remove the highlight from the "NuGet.exe" drop down
+    And I remove the highlight from the "NuGet.exe path" text box
+
     And I highlight outside the "Packages" text box with an offset of "5"
     And I scroll the "Packages" text box into view offset by "-300"
     And I populate the "Packages" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\160-nuget-publish.png"
+
+    And I remove the highlight from the "Packages" text box
 
     And I highlight outside the "Show advanced options" link if it exists waiting up to "1" second
     And I click the "Show advanced options" link if it exists waiting up to "1" second
@@ -325,10 +333,15 @@ Feature: Create ASP.NET project
     And I scroll down "10000" px
     And I sleep for "100" seconds
 
+  @octo-built-in-feed
+  Scenario: Get screenshot
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\190-build-one-results.png"
 
-    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+  @artifactory
+  Scenario: Get screenshot
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\190-build-one-artifactory-results.png"
 
   Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
     And I close the browser
