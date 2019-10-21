@@ -199,6 +199,7 @@ Feature: Create ASP.NET project
       | Packages              | //textarea[@id='nuget.publish.files']                  |
       | API key               | //input[@id='secure:nuget.api.key']                    |
       | Package source        | //input[@id='nuget.publish.source']                    |
+      | Show advanced options | //a[text()='Show advanced options']                    |
 
     And I highlight outside the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-artifactory-add-build-step.png"
@@ -226,6 +227,9 @@ Feature: Create ASP.NET project
     And I highlight outside the "Packages" text box with an offset of "5"
     And I scroll the "Packages" text box into view offset by "-300"
     And I populate the "Packages" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
+
+    And I highlight outside the "Show advanced options" link if it exists waiting up to "1" second
+    And I click the "Show advanced options" link if it exists waiting up to "1" second
 
     And I highlight outside the "Package source" text box with an offset of "5"
     And I scroll the "Package source" text box into view offset by "-300"
