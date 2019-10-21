@@ -48,6 +48,7 @@ Feature: Setup Artifactory
       | NuGet Icon     | //li[@id='repository-select-package-type-nuget'] |
       | Repository Key | //input[@id='repoKey-new']                       |
       | Save & Finish  | //button[@id='repository-save-button']           |
+      | Spinner        | //div[contains(@class,'spinner')]                |
 
     And I open the URL "http://localhost:8040/artifactory/webapp/#/home"
     And I verify the "License Key" text box is not present waiting up to "60" seconds
@@ -63,6 +64,8 @@ Feature: Setup Artifactory
     And I click the "Local" link
 
     And I remove the highlight from the "Admin" link
+
+    And I verify the "Spinner" overlay is not present waiting up to "60" seconds
 
     And I highlight outside the "New" button
     And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\030-nuget-repo.png"
