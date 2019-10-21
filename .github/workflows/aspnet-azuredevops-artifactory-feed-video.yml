@@ -227,7 +227,7 @@ jobs:
         "-DdisableBrowserZoom=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
+        "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
