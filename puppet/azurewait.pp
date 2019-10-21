@@ -1,5 +1,6 @@
 exec { 'Wait For Azure Devops':
-  command   => 'for ($x = 0; $x -lt 30; ++$x) {if ((Test-NetConnection -Port 9090).TcpTestSucceeded) {exit 0;}; Write-Host "Sleeping...";} exit 1;',
+  command   => 'for ($x = 0; $x -lt 15; ++$x) {if ((Test-NetConnection -ComputerName localhost -Port 9090).TcpTestSucceeded) {exit 0;}; Write-Host "Sleeping...";} Write-Host "Failed to access server"; exit 1;',
   provider  => powershell,
-  logoutput => true
+  logoutput => true,
+  timeout   => 600,
 }
