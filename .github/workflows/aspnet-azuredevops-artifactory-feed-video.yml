@@ -225,6 +225,7 @@ jobs:
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
         "-DdisableBrowserZoom=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
