@@ -16,7 +16,42 @@ Feature: Create and deploy a release
       | Pipelines                | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']]                               |
       | Build                    | //a[@name='Builds']                                                                                           |
       | Edit                     | //a[contains(.,'Edit')]                                                                                       |
+
+    And I display a note with the text "Deploying an Octopus release from Azure DevOps" for "3" seconds
+
+    And I highlight outside the "Random Quotes" tile
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\010-project-tile.png"
+    And I click the "Random Quotes" tile
+
+    And I mouse over the "Pipelines" menu item
+    And I highlight inside the "Pipelines" menu item
+    And I highlight inside the "Build" link
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\020-build.png"
+    And I click the "Build" menu item
+
+    And I highlight inside the "Edit" button
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\030-edit.png"
+    And I click the "Edit" button
+
+  @add-step @octo-built-in-feed
+  Scenario: Click last step
+    Given I set the following aliases:
       | Push Packages to Octopus | //div[./div/div/div/div[text()='Push Package(s) to Octopus']]                                                 |
+
+    And I scroll the "Push Packages to Octopus" job tile into view
+    And I click the "Push Packages to Octopus" job tile
+
+  @add-step @artifactory
+  Scenario: Click last step
+    Given I set the following aliases:
+      | Nuget push | //div[./div/div/div/div[text()='Nuget push']]                                                 |
+
+    And I scroll the "Nuget push" job tile into view
+    And I click the "Nuget push" job tile
+
+  @add-step
+  Scenario: Continue Adding deploy step
+    Given I set the following aliases:
       | Add task                 | //button[@aria-label='Add a task to Agent job 1']                                                             |
       | Search                   | (//input[@aria-label='Search'])[2]                                                                            |
       | Create release tile      | //div[@class='info-name'][text()='Create Octopus Release']                                                    |
@@ -36,25 +71,6 @@ Feature: Create and deploy a release
       | Comment                  | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                                            |
       | Build link               | //a[contains(@class, 'ci-queued-build-link')]                                                                 |
       | Post job Checkout        | //div[text()='Post-job: Checkout']                                                                            |
-
-    And I display a note with the text "Deploying an Octopus release from Azure DevOps" for "3" seconds
-
-    And I highlight outside the "Random Quotes" tile
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\010-project-tile.png"
-    And I click the "Random Quotes" tile
-
-    And I mouse over the "Pipelines" menu item
-    And I highlight inside the "Pipelines" menu item
-    And I highlight inside the "Build" link
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\020-build.png"
-    And I click the "Build" menu item
-
-    And I highlight inside the "Edit" button
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\030-edit.png"
-    And I click the "Edit" button
-
-    And I scroll the "Push Packages to Octopus" job tile into view
-    And I click the "Push Packages to Octopus" job tile
 
     And I highlight inside the "Add task" button
     And I click the "Add task" button
