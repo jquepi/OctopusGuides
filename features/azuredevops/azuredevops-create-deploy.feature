@@ -110,6 +110,7 @@ Feature: Create and deploy a release
     And I populate the "API Key" text box with "ExternalOctopusAPIKey"
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\046-octopus-details.png"
     And I click the "OK" button
+    And I sleep for "1" second
     And I remove the highlight from the "New" button
 
   @add-step
