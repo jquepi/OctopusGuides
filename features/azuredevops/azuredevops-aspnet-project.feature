@@ -198,8 +198,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\100-vstest-location.png"
     And I remove the highlight from the "Test Assemblies" row
 
+    And I stop recording the screen
+
   @configure-project @artifactory
-  Scenario: Push to Octopus
+  Scenario: Push to Artifactory
     Given I set the following aliases:
       | Add task                                                     | //button[@aria-label='Add a task to Agent job 1']                                                              |
       | Publish artifact                                             | //div[@data-list-index='5']/div/div/div/div[./div/div/div/div[text()='Publish Artifact']]                      |
@@ -218,6 +220,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Feed URL                                                     | //input[@id='url']                                                                                             |
       | ApiKey                                                       | //input[@id='nugetkey']                                                                                        |
       | OK                                                           | //button[@id='ok']                                                                                             |
+
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight inside the "Add task" button
     And I click the "Publish artifact" row
@@ -275,6 +279,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "OK" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\140-nuget-push.png"
 
+    And I stop recording the screen
+
   @configure-project @octo-built-in-feed
   Scenario: Push to Octopus
     Given I set the following aliases:
@@ -293,6 +299,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Space Refresh            | //button[./div/span[text()='Refresh Space']]                                               |
       | Default Space            | //li[text()='Default']                                                                     |
       | Package                  | //textarea[../../../../../../div/label[contains(.,'Package')]]                             |
+
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight inside the "Add task" button
     And I click the "Publish artifact" row
@@ -343,6 +351,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I remove the highlight from the "Space" drop down list
     And I remove the highlight from the "Package" text box
 
+    And I stop recording the screen
+
   @configure-project
   Scenario: Execute build
     Given I set the following aliases:
@@ -352,6 +362,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Comment              | //textarea[../../../../../../../../div//label[contains(.,'Save')]] |
       | Build link           | //a[contains(@class, 'ci-queued-build-link')]                      |
       | Post job Checkout    | //div[text()='Post-job: Checkout']                                 |
+
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
