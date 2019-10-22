@@ -227,25 +227,40 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I click the "NuGet Task" button
     And I click the "NuGet restore" row
+
+    And I highlight outside the "Display name" text box list with an offset of "2"
     And I clear the "Display name" text box
     And I populate the "Display name" text box with "Nuget push"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\115-nuget-push.png"
+    And I remove the highlight from the "Display name" text box
 
+    And I highlight outside the "Command" drop down list with an offset of "2"
     And I click the "Command" drop down list
     And I click the "Push command" option
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\120-nuget-push.png"
+    And I remove the highlight from the "Command" drop down list
 
+    And I highlight outside the "Path to NuGet package(s) to publish" text box with an offset of "2"
     And I clear the "Path to NuGet package(s) to publish" text box
     And I populate the "Path to NuGet package(s) to publish" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(Build.BuildId).nupkg"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\125-nuget-push.png"
+    And I remove the highlight from the "Path to NuGet package(s) to publish" text box
 
+    And I highlight outside the "External NuGet server (including other accounts/collections)" radio button with an offset of "2"
     And I force click the "External NuGet server (including other accounts/collections)" radio button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\130-nuget-push.png"
 
+    And I highlight outside the "New" button with an offset of "2"
     And I scroll the "New" button into view offset by "-300"
     And I click the "New" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\135-nuget-push.png"
+    And I remove the highlight from the "New" button
+    And I remove the highlight from the "External NuGet server (including other accounts/collections)" radio button
 
+    And I highlight outside the "Connection name" text box with an offset of "2"
+    And I highlight outside the "Feed URL" text box with an offset of "2"
+    And I highlight outside the "ApiKey" text box with an offset of "2"
+    And I highlight outside the "OK" button with an offset of "2"
     And I populate the "Connection name" text box with "Artifactory"
     And I populate the "Feed URL" text box with "http://localhost:8041/artifactory/api/nuget/NuGet"
     And I populate the "ApiKey" text box with "admin:password"
