@@ -346,7 +346,7 @@ Feature: Create ASP.NET project
 
     And I sleep for "70" seconds
     And I start recording the screen to the directory "C:\screenshots"
-    And I sleep for "20 seconds"
+    And I sleep for "20" seconds
 
   @octo-built-in-feed
   Scenario: Get screenshot
