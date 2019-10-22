@@ -1,0 +1,13 @@
+name: ASP.NET Jenkins Octopus Built-in Feed Azure WebSites Screenshots
+on: [push]
+#on:
+#  schedule:
+#    - cron:  '0 3 * * *'
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+      - uses: actions/checkout@v1
+      - uses: Azure/github-actions/login@master
+        env:
+          AZURE_SUBSCRIPTION: "Developer Playground Subscription"
