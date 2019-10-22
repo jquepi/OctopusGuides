@@ -340,6 +340,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\135-octo-push.png"
 
     And I click the "Save" button
+    And I stop recording the screen
 
   @build-now
   Scenario: Run build
@@ -350,6 +351,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
     And I clear the transition
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight inside the "Build Now" link
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\140-build-now.png"

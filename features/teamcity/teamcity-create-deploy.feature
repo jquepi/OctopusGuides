@@ -86,6 +86,8 @@ Feature: Create and deploy a release
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\070-create-release.png"
     And I click the "Save" button
 
+    And I stop recording the screen
+
   @run-build
   Scenario: Run a build
     Given I set the following aliases:
@@ -94,6 +96,7 @@ Feature: Create and deploy a release
       | Build Two                | //a[contains(.,'#2')]                                      |
       | Build log                | //a[contains(.,'Build Log')]                               |
 
+    And I start recording the screen to the directory "C:\screenshots"
     And I highlight outside the "Build Configuration Home" link
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\080-build-config-home.png"
     And I click the "Build Configuration Home" link

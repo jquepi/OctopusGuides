@@ -322,6 +322,9 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "3" second
     And I save a screenshot to "C:\screenshots\octopus\project\110-octopus-deploy.png"
     And I click the "Deploy" button
+
+    And I stop recording the screen
+    And I start recording the screen to the directory "C:\screenshots"
     And I sleep for "23" seconds
 
     And I save a screenshot to "C:\screenshots\octopus\project\115-octopus-deployment.png"

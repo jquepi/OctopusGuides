@@ -185,6 +185,8 @@ Feature: Create ASP.NET project
 
     And I click the "Save" button
 
+    And I stop recording the screen
+
   @create-project @artifactory
   Scenario: Add artifactory push step
     Given I set the following aliases:
@@ -200,6 +202,8 @@ Feature: Create ASP.NET project
       | API key               | //input[@id='secure:nuget.api.key']                    |
       | Package source        | //input[@id='nuget.publish.source']                    |
       | Show advanced options | //a[text()='Show advanced options']                    |
+
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-artifactory-add-build-step.png"
@@ -256,6 +260,7 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\170-artifactory-save.png"
 
     And I click the "Save" button
+    And I stop recording the screen
 
   @create-project @octo-built-in-feed
   Scenario: Add octopus push step
@@ -269,6 +274,8 @@ Feature: Create ASP.NET project
       | Package paths                | //textarea[@id='octopus_packagepaths']                 |
       | Save                         | //input[@value='Save']                                 |
       | Step name                    | //input[@id='buildStepName']                           |
+
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\120-add-build-step.png"
@@ -307,6 +314,7 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\150-push-top-octo.png"
 
     And I click the "Save" button
+    And I stop recording the screen
 
   @run-build
   Scenario: Run a build
@@ -315,6 +323,8 @@ Feature: Create ASP.NET project
       | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
       | Build One                | //a[contains(.,'#1')]                                      |
       | Build log                | //a[contains(.,'Build Log')]                               |
+
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Build Configuration Home" link
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\160-build-config-home.png"
@@ -331,7 +341,12 @@ Feature: Create ASP.NET project
     And I click the "Build One" link
     And I click the "Build log" link
     And I scroll down "10000" px
-    And I sleep for "100" seconds
+    And I sleep for "10" seconds
+    And I stop recording the screen
+
+    And I sleep for "70" seconds
+    And I start recording the screen to the directory "C:\screenshots"
+    And I sleep for "20 seconds"
 
   @octo-built-in-feed
   Scenario: Get screenshot

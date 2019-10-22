@@ -55,6 +55,8 @@ Feature: Create and deploy a release from Jenkins
     And I save a screenshot to "c:\screenshots\jenkins\createrelease\025-create-release-save.png"
     And I click the "Save" button
 
+    And I stop recording the screen
+
   @build-now
   Scenario: Run build
     Given I set the following aliases:
@@ -63,6 +65,7 @@ Feature: Create and deploy a release from Jenkins
       | Console Output | //a[contains(.,'Console Output')] |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight inside the "Build Now" link
     And I save a screenshot to "c:\screenshots\jenkins\createrelease\030-build-and-deploy-now.png"

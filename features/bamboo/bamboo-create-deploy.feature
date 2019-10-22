@@ -94,5 +94,7 @@ Feature: Create deployment
 
     And I scroll down "10000" px
 
+    And I stop recording the screen
+    And I start recording the screen to the directory "C:\screenshots"
     And I sleep for "60" seconds
     And I save a screenshot to "c:\screenshots\bamboo\createrelease\120-build-results.png"
