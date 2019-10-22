@@ -28,7 +28,7 @@ package { 'NuGet.CommandLine':
 # Reduce the memory that Artifactory can consume
 -> file_line { 'Artifactory Memory Settings':
   path    => 'C:/install/artifactory-pro-6.13.1/bin/artifactory.bat',
-  line    => 'set JAVA_OPTIONS=-server -Xms512m -Xmx768m -Xss256k -XX:+UseG1GC',
+  line    => 'set JAVA_OPTIONS=-server -Xms512m -Xmx512m -Xss256k -XX:+UseG1GC',
   match   => 'set JAVA_OPTIONS=-server -Xms512m -Xmx4g -Xss256k -XX:\+UseG1GC',
   replace => true,
 }
