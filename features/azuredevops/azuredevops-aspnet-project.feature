@@ -74,6 +74,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\azuredevops\extensions\060-octopus-extension-continue.png"
     And I click the "Proceed to collection" button
     And I sleep for "1" second
+    And I stop recording the screen
 
   @create-project
   Scenario: Create project
@@ -82,6 +83,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Description    | //textarea[contains(@id,'project-description-textfield')] |
       | Create project | //button[contains(.,'Create project')]                    |
 
+    And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the Azure DevOps project" for "3" seconds
 
     And I highlight outside the "Project name" text box
@@ -91,6 +93,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\010-create-project.png"
     And I click the "Create project" button
+    And I sleep for "5" seconds
+    And I stop recording the screen
     And I sleep for "40" seconds
 
   @create-project
@@ -110,6 +114,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | ASP.NET                | //button[./div/span[text()='Apply ASP.NET template']]                           |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
+    And I start recording the screen to the directory "C:\screenshots"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\debug1.png"
     And I mouse over the "Pipelines" menu item
     And I highlight inside the "Pipelines" menu item
@@ -151,6 +156,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "ASP.NET" button
 
     And I sleep for "1" seconds
+    And I stop recording the screen
 
   @configure-project
   Scenario: Configure project
@@ -165,6 +171,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | MSBuild Arguments          | //textarea[./../../../../../../../../div/label[text()='MSBuild Arguments']]               |
       | Add task                   | //button[@aria-label='Add a task to Agent job 1']                                         |
       | Search                     | (//input[@aria-label='Search'])[2]                                                        |
+
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight inside the "Agent pool" drop down list
     And I click the "Agent pool" drop down list
@@ -366,7 +374,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\165-build-link.png"
     And I click the "Build link" element
 
+    And I sleep for "20" seconds
+    And I stop recording the screen
     And I sleep for "120" seconds
+
+    And I start recording the screen to the directory "C:\screenshots"
     And I scroll the "Post job Checkout" item into view
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\170-build-results.png"
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
