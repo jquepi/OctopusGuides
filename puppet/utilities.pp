@@ -56,7 +56,7 @@ package { 'openjdk13':
 }
 
 package { 'firefox':
-  ensure   => installed,
+  ensure   => "69.0.3",
   provider => chocolatey
 }
 
