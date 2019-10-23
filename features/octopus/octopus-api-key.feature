@@ -18,7 +18,7 @@ Feature: Generate an API key
       | User         | //a[@href='#'][./span[text()='admin']]                                   |
       | Profile      | //div[text()='Profile']                                                  |
       | My API Keys  | //a[contains(.,'My API Keys')][not(*)] \| //a/span[text()='My API Keys'] |
-      | New API Key  | //button[contains(.,'New API Key')]                                      |
+      | New API Key  | (//button[contains(.,'New API Key')])[1]                                 |
       | Purpose      | //input[contains(@id,'Purpose')]                                         |
       | Generate New | //button[contains(.,'Generate New')]                                     |
 

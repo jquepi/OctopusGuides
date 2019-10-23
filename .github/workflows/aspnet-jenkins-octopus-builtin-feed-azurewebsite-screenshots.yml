@@ -20,7 +20,7 @@ jobs:
           }
           $plans = & az appservice plan list --resource-group jenkinsaspnetbuiltinfeed | ConvertFrom-Json
           if ($plans.Count -eq 0) {
-            az appservice plan create --name jenkinsaspnetbuiltinfeed --resource-group jenkinsaspnetbuiltinfeed --number-of-workers 1 --sku B1
+            az appservice plan create --name jenkinsaspnetbuiltinfeed --resource-group jenkinsaspnetbuiltinfeed --number-of-workers 1 --sku F1
           }
           $apps = az webapp list --resource-group jenkinsaspnetbuiltinfeed | ConvertFrom-Json
           if ($apps.Count -eq 0) {
