@@ -14,23 +14,25 @@ jobs:
       - name: Create Web App
         shell: powershell
         run: |
-          $exists = & az group exists --name jenkinsaspnetbuiltinfeed
+          $name = "jenkinsaspnetbuiltinfeeddev"
+          $exists = & az group exists --name $name
           if ($exists -eq "false") {
-            az group create --location australiaeast --name jenkinsaspnetbuiltinfeed --tags Lifetime=Permanent OwnerContact=@matthew.casperson
+            az group create --location australiaeast --name $name --tags Lifetime=Permanent OwnerContact=@matthew.casperson
           }
-          $plans = & az appservice plan list --resource-group jenkinsaspnetbuiltinfeed | ConvertFrom-Json
+          $plans = & az appservice plan list --resource-group $name | ConvertFrom-Json
           if ($plans.Count -eq 0) {
-            az appservice plan create --name jenkinsaspnetbuiltinfeed --resource-group jenkinsaspnetbuiltinfeed --number-of-workers 1 --sku F1
+            az appservice plan create --name $name --resource-group $name --number-of-workers 1 --sku F1
           }
-          $apps = az webapp list --resource-group jenkinsaspnetbuiltinfeed | ConvertFrom-Json
+          $apps = az webapp list --resource-group $name | ConvertFrom-Json
           if ($apps.Count -eq 0) {
-            az --% webapp create -g jenkinsaspnetbuiltinfeed -p jenkinsaspnetbuiltinfeed -n jenkinsaspnetbuiltinfeed --runtime "aspnet|V4.7"
-            az webapp log config -g jenkinsaspnetbuiltinfeed -n jenkinsaspnetbuiltinfeed --application-logging true --detailed-error-messages true --web-server-logging filesystem
+            az --% webapp create -g $name -p $name -n $name --runtime "aspnet|V4.7"
+            az webapp log config -g $name -n $name --application-logging true --detailed-error-messages true --web-server-logging filesystem
           }
 #      - name: Delete resource group
 #        shell: powershell
 #        run: |
-#          $exists = & az group exists --name jenkinsaspnetbuiltinfeed
+#          $name = "jenkinsaspnetbuiltinfeeddev"
+#          $exists = & az group exists --name $name
 #          if ($exists -eq "true") {
-#            az group delete --name jenkinsaspnetbuiltinfeed --yes
+#            az group delete --name $name --yes
 #          }
