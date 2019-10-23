@@ -1,8 +1,8 @@
 name: ASP.NET Bamboo Octopus Built-in Feed Screenshots
-on: [push]
-#on:
-#  schedule:
-#    - cron:  '0 16 * * *'
+#on: [push]
+on:
+  schedule:
+    - cron:  '0 16 * * *'
 jobs:
   build:
     runs-on: windows-2019

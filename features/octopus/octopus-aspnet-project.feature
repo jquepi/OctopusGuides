@@ -51,16 +51,8 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "2" seconds
 
   @define-project
-  Scenario: Define project
+  Scenario: Define project variables
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                                                                       |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                                                                             |
-      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                                                                  |
-      | Deploy to IIS                  | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                                                                                     |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')]                                                          |
-      | Step Name                      | //input[contains(@id, 'Stepname')]                                                                                                                           |
-      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                                                                                 |
-      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span                                                              |
       | Save                           | //button[contains(.,'Save')]                                                                                                                                 |
       | Deployments                    | //a[contains(.,'Deployments')]                                                                                                                               |
       | Overview                       | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview']                                                                                           |
@@ -128,6 +120,18 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight inside the "Overview" link
     And I click the "Overview" link
     And I remove the highlight from the "Deployments" link
+
+  @define-project @iis
+  Scenario: Define IIS project
+    Given I set the following aliases:
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                                                                       |
+      | Add Step                       | //button[contains(.,'Add Step')]                                                                                                                             |
+      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                                                                  |
+      | Deploy to IIS                  | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                                                                                     |
+      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')]                                                          |
+      | Step Name                      | //input[contains(@id, 'Stepname')]                                                                                                                           |
+      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                                                                                 |
+      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span                                                              |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
@@ -207,10 +211,9 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
 
-  @define-project
+  @define-project @iis
   Scenario: Continue to define project
     Given I set the following aliases:
-
       | Web site name                             | //input[contains(@id, 'Websitename')]                                                                                                                        |
       | Enable Anonymous authentication           | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                                                                             |
       | Enable Anonymous authentication container | //div[./div/div/label[contains(.,'Enable Anonymous authentication')]]                                                                                        |

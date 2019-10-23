@@ -25,11 +25,12 @@ jobs:
           $apps = az webapp list --resource-group jenkinsaspnetbuiltinfeed | ConvertFrom-Json
           if ($apps.Count -eq 0) {
             az --% webapp create -g jenkinsaspnetbuiltinfeed -p jenkinsaspnetbuiltinfeed -n jenkinsaspnetbuiltinfeed --runtime "aspnet|V4.7"
+            az webapp log config -g jenkinsaspnetbuiltinfeed -n jenkinsaspnetbuiltinfeed --application-logging true --detailed-error-messages true --web-server-logging filesystem
           }
-      - name: Delete resource group
-        shell: powershell
-        run: |
-          $exists = & az group exists --name jenkinsaspnetbuiltinfeed
-          if ($exists -eq "true") {
-            az group delete --name jenkinsaspnetbuiltinfeed --yes
-          }
+#      - name: Delete resource group
+#        shell: powershell
+#        run: |
+#          $exists = & az group exists --name jenkinsaspnetbuiltinfeed
+#          if ($exists -eq "true") {
+#            az group delete --name jenkinsaspnetbuiltinfeed --yes
+#          }
