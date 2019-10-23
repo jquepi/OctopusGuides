@@ -31,5 +31,5 @@ jobs:
         run: |
           $exists = & az group exists --name jenkinsaspnetbuiltinfeed
           if ($exists -eq "true") {
-            az group delete --name jenkinsaspnetbuiltinfeed
+            az group delete --name jenkinsaspnetbuiltinfeed --yes
           }
