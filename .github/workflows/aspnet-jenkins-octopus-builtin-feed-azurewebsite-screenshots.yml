@@ -24,9 +24,5 @@ jobs:
           }
           $apps = az webapp list --resource-group jenkinsaspnetbuiltinfeed | ConvertFrom-Json
           if ($apps.Count -eq 0) {
-            az webapp create `
-              -g jenkinsaspnetbuiltinfeed `
-              -p jenkinsaspnetbuiltinfeed `
-              -n jenkinsaspnetbuiltinfeed `
-              --runtime "aspnet|V4.7"
+            az --% webapp create -g jenkinsaspnetbuiltinfeed -p jenkinsaspnetbuiltinfeed -n jenkinsaspnetbuiltinfeed --runtime "aspnet|V4.7"
           }
