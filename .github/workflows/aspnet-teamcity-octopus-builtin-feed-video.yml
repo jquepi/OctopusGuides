@@ -1,7 +1,7 @@
 name: ASP.NET TeamCity Octopus Built-in Feed Video
 on:
   schedule:
-    - cron:  '0 4 * * *'
+    - cron:  '0 18 * * *'
 jobs:
   build:
     runs-on: windows-2019
