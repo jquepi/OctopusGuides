@@ -28,6 +28,9 @@ jobs:
             az webapp create -g $name -p $name -n $name --% --runtime "aspnet|V4.7"
             az webapp log config -g $name -n $name --application-logging true --detailed-error-messages true --web-server-logging filesystem
           }
+      - name: Execute puppet
+        shell: powershell
+        run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,octopus.pp,iis.pp,jenkins.pp,jenkinswait.pp
       - name: Create API key
         shell: powershell
         run: >
