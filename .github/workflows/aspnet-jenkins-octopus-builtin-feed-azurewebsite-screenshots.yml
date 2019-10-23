@@ -14,7 +14,7 @@ jobs:
       - name: Create Resource Group
         shell: powershell
         run: |
-          $exists = & az group exists jenkinsaspnetbuiltinfeed
+          $exists = & az group exists --name jenkinsaspnetbuiltinfeed
           if ($exists -eq "false") {
             az group create --location australiaeast --name jenkinsaspnetbuiltinfeed --tags Lifetime=Permanent OwnerContact=@matthew.casperson
           }
