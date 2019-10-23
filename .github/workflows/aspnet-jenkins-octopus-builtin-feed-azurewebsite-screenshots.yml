@@ -30,7 +30,7 @@ jobs:
           }
       - name: Execute puppet
         shell: powershell
-        run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,octopus.pp,iis.pp,jenkins.pp,jenkinswait.pp
+        run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,octopus.pp,jenkins.pp,jenkinswait.pp
       - name: Create API key
         shell: powershell
         run: >
@@ -51,6 +51,25 @@ jobs:
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --monochrome
           features\octopus\octopus-api-key.feature
+      - name: Create API key for tests
+        shell: powershell
+        run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
+      - name: Create Jenkins Project and Octopus
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          --tags "not @guidespecific or @octo-built-in-feed or @iis"
+          features\jenkins\jenkins-aspnet-git.feature
       - name: Create the Octopus Environments
         shell: powershell
         run: >
@@ -115,6 +134,182 @@ jobs:
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --monochrome
           features\octopus\octopus-create-azure-webapp-target.feature
+      - name: Create Octopus Project
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          --tags "not @guidespecific or @octo-built-in-feed or @azure-web-app"
+          features\octopus\octopus-aspnet-project.feature
+      - name: Open Random Quotes
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeeddev.azurewebsites.net/"
+          "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\open-randomquotes-azurewebapp.feature
+      - name: Add a deployment step
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+          "-DslackStepHandlerEnabled=true"
+          "-DscreenshotS3Enabled=true"
+          "-DscreenshotS3Bucket=octopus-guides-screenshots"
+          "-DstepHandlerMessage=$env:GITHUB_SHA"
+          "-DretryCount=1"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          --tags "not @guidespecific or @octo-built-in-feed or @azure-web-app"
+          features\jenkins\jenkins-create-deploy.feature
+      - name: Add a lifecycle
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-lifecycle.feature
+      - name: Open Random Quotes in the test environment
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedtest.azurewebsites.net/"
+          "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\open-randomquotes-azurewebapp.feature
+      - name: Add manual intervention
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-manual-intervention.feature
+      - name: Add email notification
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-email-notification.feature
+      - name: Add users and team
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-users-and-teams.feature
+      - name: View internal deployer dashboard
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-view-internal-deployments.feature
+      - name: View production deployer dashboard
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-view-production-deployments.feature
+      - name: View audit logs
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.firefox.logfile=C:\firefox.log"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-audit-log.feature
+      - name: Upload screenshots
+        shell: powershell
+        run: |
+          ls c:\screenshots
+          & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 sync c:\screenshots s3://i.octopus.com/guides --acl public-read
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 #      - name: Delete resource group
 #        shell: powershell
 #        run: |
