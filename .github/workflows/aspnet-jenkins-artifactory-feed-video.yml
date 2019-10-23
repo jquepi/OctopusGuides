@@ -84,7 +84,7 @@ jobs:
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @octo-built-in-feed"
+        --tags "not @guidespecific or @artifactory or @iis"
         features\jenkins\jenkins-aspnet-git.feature
     - name: Create the Octopus External Feed
       shell: powershell
@@ -158,7 +158,7 @@ jobs:
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @octo-built-in-feed"
+        --tags "not @guidespecific or @artifactory or @iis"
         features\octopus\octopus-aspnet-project.feature
     - name: Open Random Quotes
       shell: powershell
@@ -201,7 +201,7 @@ jobs:
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @octo-built-in-feed"
+        --tags "not @guidespecific or @artifactory or @iis"
         features\jenkins\jenkins-create-deploy.feature
     - name: Add a lifecycle
       shell: powershell

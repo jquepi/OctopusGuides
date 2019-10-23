@@ -1,5 +1,6 @@
 Feature: Configure an Octopus ASP.NET project
 
+  @login
   Scenario: Login
     Given I set the following aliases:
       | Username | //input[@name='userName']       |
@@ -53,24 +54,24 @@ Feature: Configure an Octopus ASP.NET project
   @define-project
   Scenario: Define project variables
     Given I set the following aliases:
-      | Save                           | //button[contains(.,'Save')]                                                                                                                                 |
-      | Deployments                    | //a[contains(.,'Deployments')]                                                                                                                               |
-      | Overview                       | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview']                                                                                           |
-      | Variables                      | //a[contains(.,'Variables')]                                                                                                                                 |
-      | Variables text                 | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
-      | Project Variables              | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
-      | New variable name              | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
-      | New variable value             | //input[contains(@id,'Entervalue')]                                                                                                                          |
-      | Define scope                   | //div[@title='Define scope']                                                                                                                                 |
-      | Select environments            | //input[@title='Select environments']                                                                                                                        |
-      | Dev environment                | //div[./div/div[text() = 'Dev']]                                                                                                                             |
-      | Test environment               | //div[./div/div[text() = 'Test']]                                                                                                                            |
-      | Prod environment               | //div[./div/div[text() = 'Prod']]                                                                                                                            |
-      | Add Another Value              | //button[.//span[text() = 'Add Another Value']]                                                                                                              |
-      | New variable value 2           | (//input[contains(@id,'Entervalue')])[2]                                                                                                                     |
-      | New variable value 3           | (//input[contains(@id,'Entervalue')])[3]                                                                                                                     |
-      | Project Variables Title        | //h2[contains(.,'Project Variables')]                                                                                                                        |
-      | Add to list                    | //button[@title='Add To List']                                                                                                                               |
+      | Save                    | //button[contains(.,'Save')]                                                                                                                                 |
+      | Deployments             | //a[contains(.,'Deployments')]                                                                                                                               |
+      | Overview                | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview']                                                                                           |
+      | Variables               | //a[contains(.,'Variables')]                                                                                                                                 |
+      | Variables text          | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
+      | Project Variables       | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
+      | New variable name       | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
+      | New variable value      | //input[contains(@id,'Entervalue')]                                                                                                                          |
+      | Define scope            | //div[@title='Define scope']                                                                                                                                 |
+      | Select environments     | //input[@title='Select environments']                                                                                                                        |
+      | Dev environment         | //div[./div/div[text() = 'Dev']]                                                                                                                             |
+      | Test environment        | //div[./div/div[text() = 'Test']]                                                                                                                            |
+      | Prod environment        | //div[./div/div[text() = 'Prod']]                                                                                                                            |
+      | Add Another Value       | //button[.//span[text() = 'Add Another Value']]                                                                                                              |
+      | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]                                                                                                                     |
+      | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]                                                                                                                     |
+      | Project Variables Title | //h2[contains(.,'Project Variables')]                                                                                                                        |
+      | Add to list             | //button[@title='Add To List']                                                                                                                               |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
@@ -121,17 +122,69 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Overview" link
     And I remove the highlight from the "Deployments" link
 
-  @define-project @iis
+  @define-project @guidespecific @azure-web-app
   Scenario: Define IIS project
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                                                                       |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                                                                             |
-      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                                                                  |
-      | Deploy to IIS                  | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                                                                                     |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')]                                                          |
-      | Step Name                      | //input[contains(@id, 'Stepname')]                                                                                                                           |
-      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                                                                                 |
-      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span                                                              |
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                        |
+      | Add Step                       | //button[contains(.,'Add Step')]                                                                              |
+      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                   |
+      | Deploy an Azure Web App        | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]                            |
+      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]//button[contains(.,'Add')] |
+      | Step Name                      | //input[contains(@id, 'Stepname')]                                                                            |
+      | On behalf of                   | //input[@title='On behalf of target roles (type to add new)']                                                 |
+      | Azure role                     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'azurewebapp')]//span       |
+
+    And I highlight outside the "Define your deployment process" button with an offset of "2"
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\030-octopus-define-process.png"
+
+    And I click the "Define your deployment process" button
+    And I sleep for "1" second
+
+    And I highlight outside the "Add Step" button with an offset of "2"
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\035-octopus-azure-add-step.png"
+    And I click the "Add Step" button
+
+    And I highlight outside the "Search" text box with an offset of "3"
+    And I populate the "Search" text box with "Azure Web App"
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\040-octopus-azure-search-webapp.png"
+    And I sleep for "2" seconds
+    And I remove the highlight from the "Search" text box
+
+    And I scroll the "Deploy an Azure Web App" tile into view offset by "-200"
+    And I highlight outside the "Deploy an Azure Web App" tile
+    And I save a screenshot to "C:\screenshots\octopus\project\045-octopus-azure-add-azure-webapp.png"
+    And I mouse over the "Deploy an Azure Web App" tile
+    And I click the "Add" button
+
+    And I highlight outside the "Step Name" text box
+    And I populate the "Step Name" text box with "Deploy web app to Azure"
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\050-octopus-azure-step-name.png"
+    And I remove the highlight from the "Step Name" text box
+
+    And I scroll the "On behalf of" text box into view offset by "-300"
+    And I click the "On behalf of" text box
+    And I populate the "On behalf of" text box with "azurewebapp"
+    And I sleep for "1" second
+    And I highlight outside the "On behalf of" text box
+    And I save a screenshot to "C:\screenshots\octopus\project\055-octopus-azure-step-role.png"
+    And I click the "Azure role" option
+    And I remove the highlight from the "On behalf of" text box
+
+  @define-project @guidespecific @iis
+  Scenario: Define IIS project
+    Given I set the following aliases:
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                              |
+      | Add Step                       | //button[contains(.,'Add Step')]                                                                    |
+      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                         |
+      | Deploy to IIS                  | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                            |
+      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
+      | Step Name                      | //input[contains(@id, 'Stepname')]                                                                  |
+      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                        |
+      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
@@ -173,7 +226,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Web role" option
     And I remove the highlight from the "Runs on targets in roles" text box
 
-  @artifactory @define-project
+  @define-project @guidespecific @artifactory
   Scenario: Select artifactory feed
     Given I set the following aliases:
       | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
@@ -197,11 +250,11 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package-artifactory.png"
     And I remove the highlight from the "Package ID" text box
 
-  @octo-built-in-feed @define-project
+  @define-project @guidespecific @octo-built-in-feed
   Scenario: Select built in feed
     Given I set the following aliases:
-      | HTML Body    | //body                                           |
-      | Package ID   | //input[contains(@id, 'PackageID')]              |
+      | HTML Body  | //body                              |
+      | Package ID | //input[contains(@id, 'PackageID')] |
 
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box
@@ -211,7 +264,15 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
 
-  @define-project @iis
+  @define-project @guidespecific @azure-web-app
+  Scenario: Continue to define project
+    Given I set the following aliases:
+      | Save | //button[contains(.,'Save')] |
+
+    And I click the "Save" button
+    And I sleep for "2" seconds
+
+  @define-project @guidespecific @iis
   Scenario: Continue to define project
     Given I set the following aliases:
       | Web site name                             | //input[contains(@id, 'Websitename')]                                                                                                                        |
