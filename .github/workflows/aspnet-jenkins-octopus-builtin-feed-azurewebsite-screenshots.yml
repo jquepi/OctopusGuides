@@ -9,5 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: azure/actions/login@v1
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Create Resource Group
+        shell: powershell
+        run: |
+          $exists = & az group exists jenkinsaspnetbuiltinfeed
+          if ($exists -eq "false") {
+            az group create --location australiaeast --name jenkinsaspnetbuiltinfeed --tags Lifetime=Permanent OwnerContact=@matthew.casperson
+          }
