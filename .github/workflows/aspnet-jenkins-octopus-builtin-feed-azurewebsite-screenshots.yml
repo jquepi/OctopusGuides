@@ -25,7 +25,7 @@ jobs:
           }
           $apps = az webapp list --resource-group $name | ConvertFrom-Json
           if ($apps.Count -eq 0) {
-            az --% webapp create -g $name -p $name -n $name --runtime "aspnet|V4.7"
+            az webapp create -g $name -p $name -n $name --% --runtime "aspnet|V4.7"
             az webapp log config -g $name -n $name --application-logging true --detailed-error-messages true --web-server-logging filesystem
           }
 #      - name: Delete resource group
