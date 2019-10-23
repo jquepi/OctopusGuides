@@ -123,13 +123,16 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Deployments" link
 
   @define-project @guidespecific @azure-web-app
-  Scenario: Define IIS project
+  Scenario: Define azure web app project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                        |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                              |
       | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                   |
       | Deploy an Azure Web App        | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]//button[contains(.,'Add')] |
+      | Configure features             | (//button[contains(.,'Configure features')])[1]                                                               |
+      | Configuration Variables        | //input[..//label[text()='Configuration Variables']]                                                           |
+      | OK                             | //button[contains(.,'Ok')]                                                                                     |
       | Step Name                      | //input[contains(@id, 'Stepname')]                                                                            |
       | On behalf of                   | //input[@title='On behalf of target roles (type to add new)']                                                 |
       | Azure role                     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'azurewebapp')]//span       |
@@ -158,6 +161,10 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\045-octopus-azure-add-azure-webapp.png"
     And I mouse over the "Deploy an Azure Web App" tile
     And I click the "Add" button
+
+    And I click the "Configure features" button
+    And I force click the "Configuration Variables" option
+    And I click the "OK" button
 
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy web app to Azure"
