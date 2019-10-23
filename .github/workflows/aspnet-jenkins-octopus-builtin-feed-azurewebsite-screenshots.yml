@@ -18,3 +18,20 @@ jobs:
           if ($exists -eq "false") {
             az group create --location australiaeast --name jenkinsaspnetbuiltinfeed --tags Lifetime=Permanent OwnerContact=@matthew.casperson
           }
+          $plans = & az appservice plan list --resource-group jenkinsaspnetbuiltinfeed | ConvertFrom-Json
+          if ($plans.Count -eq 0) {
+            az appservice plan create `
+              --name jenkinsaspnetbuiltinfeed `
+              --resource-group jenkinsaspnetbuiltinfeed `
+              --number-of-workers 1 `
+              --hyper-v `
+              --sku F1
+          }
+          $apps = az webapp list --resource-group jenkinsaspnetbuiltinfeed | ConvertFrom-Json
+          if ($apps.Count -eq 0) {
+            az webapp create `
+              -g jenkinsaspnetbuiltinfeed `
+              -p jenkinsaspnetbuiltinfeed `
+              -n jenkinsaspnetbuiltinfeed `
+              --runtime "aspnet|V4.7"
+          }
