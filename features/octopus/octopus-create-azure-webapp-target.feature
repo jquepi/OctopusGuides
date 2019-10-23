@@ -62,7 +62,7 @@ Feature: Create Azure Web App Target
 
     And I populate the "Display Name" text box with "Azure web app - Dev"
     And I populate the "Environments" text box with "Dev"
-    And I click the "Dev environment" option
+    And I click the "ExternalEnvironment" option
 
     And I scroll the "Target Roles" text box into view offset by "-200"
     And I populate the "Target Roles" text box with "azurewebapp"
@@ -75,7 +75,7 @@ Feature: Create Azure Web App Target
 
     And I scroll the "Azure Web App List" drop down list into view offset by "-200"
     And I click the "Azure Web App List" drop down list
-    And I click the "Azure Web App Option" option
+    And I click the "ExternalAzureWebAppOption" option
 
     And I click the "Save" button
 
