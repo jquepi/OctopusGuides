@@ -11,7 +11,7 @@ jobs:
       - uses: azure/actions/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Create Resource Group
+      - name: Create Web App
         shell: powershell
         run: |
           $exists = & az group exists --name jenkinsaspnetbuiltinfeed
@@ -24,7 +24,6 @@ jobs:
               --name jenkinsaspnetbuiltinfeed `
               --resource-group jenkinsaspnetbuiltinfeed `
               --number-of-workers 1 `
-              --hyper-v `
               --sku F1
           }
           $apps = az webapp list --resource-group jenkinsaspnetbuiltinfeed | ConvertFrom-Json
