@@ -21,23 +21,23 @@ Feature: Create Azure Web App Target
       | Infrastructure          | //span[contains(.,'Infrastructure')]                                                                    |
       | Deployment Targets      | (//a[contains(.,'Deployment Targets')])[1]                                                              |
       | Deployment Targets text | (//a/span[contains(.,'Deployment Targets')])[1]                                                         |
-      | Add Deployment Target   | //button[contains(.,'Add Deployment Target')]                                                           |
+      | Add Deployment Target   | //button[contains(.,'Add deployment target')]                                                           |
       | Azure                   | //button[contains(.,'Azure')]                                                                           |
       | Azure Web App           | //div[contains(@class, 'EndpointCard_card') and contains(.,'Azure Web App')]                            |
       | Add                     | //div[contains(@class, 'EndpointCard_card') and contains(.,'Azure Web App')]//button[contains(.,'Add')] |
       | Save                    | //button[contains(.,'Save')]                                                                            |
       | Display Name            | //input[contains(@id,'Displayname')]                                                                    |
       | Environments            | //input[@title='Select environments']                                                                   |
+      | Dev environment         | //span[./div/div/div[text()='Dev']]                                                                     |
       | Target Roles            | //input[@title='Roles (type to add new)']                                                               |
       | Azure web app role      | //span[./div/div/div[contains(.,'azurewebapp')]]                                                        |
       | Account                 | //div[../../div[text()='Select account']]                                                               |
       | Azure account           | //span[./div/div/div[text()='Azure']]                                                                   |
-      | Azure Web App           | //div[../../div[text()='Web app']]                                                                      |
+      | Azure Web App List      | //div[../../div[text()='Web app']]                                                                      |
       | Azure Web App Option    | //span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeeddev')]]                                        |
-      | Save                    | //input[@title='Save']                                                                                  |
 
     And I start recording the screen to the directory "C:\screenshots"
-    And I display a note with the text "Creating the Octopus environments" for "3" seconds
+    And I display a note with the text "Creating Azure Deployment Targets" for "3" seconds
 
     And I highlight outside the "Infrastructure" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\octopus\azuretarget\005-infrastructure.png"
@@ -54,20 +54,28 @@ Feature: Create Azure Web App Target
 
     And I click the "Azure" button
 
-    And I scroll the "Deploy an Azure Web App" tile into view offset by "-200"
-    And I highlight outside the "Deploy an Azure Web App" tile
+    And I scroll the "Azure Web App" tile into view offset by "-200"
+    And I highlight outside the "Azure Web App" tile
     And I save a screenshot to "C:\screenshots\octopus\project\045-octopus-azure-add-azure-webapp.png"
-    And I mouse over the "Deploy an Azure Web App" tile
+    And I mouse over the "Azure Web App" tile
     And I click the "Add" button
 
     And I populate the "Display Name" text box with "Azure web app - Dev"
+    And I populate the "Environments" text box with "Dev"
+    And I click the "Dev environment" option
+
+    And I scroll the "Target Roles" text box into view offset by "-200"
     And I populate the "Target Roles" text box with "azurewebapp"
     And I click the "Azure web app role" option
 
+    And I scroll the "Account" drop down list into view offset by "-200"
     And I click the "Account" drop down list
     And I click the "Azure account" option
+    And I sleep for "5" seconds
 
-    And I click the "Azure Web App" drop down list
+    And I scroll the "Azure Web App List" drop down list into view offset by "-200"
+    And I click the "Azure Web App List" drop down list
     And I click the "Azure Web App Option" option
 
     And I click the "Save" button
+    And I sleep for "10" seconds
