@@ -80,6 +80,8 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
@@ -108,6 +110,8 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
@@ -137,6 +141,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
@@ -170,6 +175,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
@@ -201,8 +207,8 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -218,6 +224,8 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedviddev.azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -237,8 +245,8 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -253,8 +261,8 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -269,6 +277,8 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedvidtest.azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -288,8 +298,8 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -304,8 +314,8 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
-        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -319,8 +329,8 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -334,8 +344,8 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -349,8 +359,8 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -364,8 +374,8 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableHighlights=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
