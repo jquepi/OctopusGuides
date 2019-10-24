@@ -200,25 +200,25 @@ jobs:
         --monochrome
         --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
         features\octopus\octopus-aspnet-project.feature
-      - name: Open Random Quotes
-        shell: powershell
-        run: >
-          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-          "--enable-preview"
-          "-Xmx2g"
-          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-          "-DmoveCursorToElement=true"
-          "-DmouseMoveVerticalOffset=74"
-          "-DdisableVideoRecording=true"
-          "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedviddev.azurewebsites.net/"
-          "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
-          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-          --monochrome
-          features\octopus\open-randomquotes-azurewebapp.feature
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Open Random Quotes
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
+        "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedviddev.azurewebsites.net/"
+        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\open-randomquotes-azurewebapp.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Add a deployment step
       shell: powershell
       run: >
@@ -248,25 +248,25 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         features\octopus\octopus-lifecycle.feature
-      - name: Open Random Quotes
-        shell: powershell
-        run: >
-          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-          "--enable-preview"
-          "-Xmx2g"
-          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-          "-DmoveCursorToElement=true"
-          "-DmouseMoveVerticalOffset=74"
-          "-DdisableVideoRecording=true"
-          "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedvidtest.azurewebsites.net/"
-          "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
-          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-          --monochrome
-          features\octopus\open-randomquotes-azurewebapp.feature
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Open Random Quotes
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
+        "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedvidtest.azurewebsites.net/"
+        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\open-randomquotes-azurewebapp.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Add manual intervention
       shell: powershell
       run: >
