@@ -13,7 +13,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     #And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:8080"
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box
-    And I populate the "Username" text box with the text "jenkinsadmin" waiting up to "600" seconds
+    And I verify the "Username" text box is present waiting up to "300" seconds if it exists
+    And I refresh the page
+    And I populate the "Username" text box with the text "jenkinsadmin"
     And I populate the "Password" text box with the text "Password01!"
     And I click the "Sign In" button
     Then I verify the text from the "Profile Name" element matches the regex "jenkinsadmin"
