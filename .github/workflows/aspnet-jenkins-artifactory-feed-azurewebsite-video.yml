@@ -1,8 +1,8 @@
 name: ASP.NET Jenkins Artifactory Feed Azure Website Video
-#on: [push]
-on:
-  schedule:
-    - cron:  '0 23 * * *'
+on: [push]
+#on:
+#  schedule:
+#    - cron:  '0 23 * * *'
 jobs:
   build:
     runs-on: windows-2019
@@ -151,6 +151,8 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
@@ -179,6 +181,8 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
@@ -207,6 +211,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
@@ -240,6 +245,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
@@ -295,6 +301,8 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
         "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetartifactoryfeedviddev.azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -358,6 +366,8 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
         "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetartifactoryfeedvidtest.azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
