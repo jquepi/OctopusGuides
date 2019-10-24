@@ -21,6 +21,16 @@ Feature: Configure an Octopus ASP.NET project
       | Hide wizard | //em[contains(@class,'fa fa-minus')] |
     And I click the "Hide wizard" button
 
+  @create-project @destinationspecific @iis
+  Scenario: Display annotation
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Creating the IIS deployment project in Octopus" for "3" seconds
+
+  @create-project @destinationspecific @azure-web-app
+  Scenario: Display annotation
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Creating the Azure Web App deployment project in Octopus" for "3" seconds
+
   @create-project
   Scenario: Create Project
     Given I set the following aliases:
@@ -28,9 +38,6 @@ Feature: Configure an Octopus ASP.NET project
       | Add project      | (//div[contains(.,'Add Project')])[11]   |
       | New project name | //input[contains(@id, 'Newprojectname')] |
       | Save             | (//div[contains(.,'Save')])[9]           |
-
-    And I start recording the screen to the directory "C:\screenshots"
-    And I display a note with the text "Creating the IIS deployment project in Octopus" for "3" seconds
 
     And I highlight outside the "Projects" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\octopus\project\005-octopus-projects.png"
