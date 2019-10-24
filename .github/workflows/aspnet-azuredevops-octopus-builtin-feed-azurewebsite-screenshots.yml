@@ -207,30 +207,6 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    - name: Add tentacle
-      shell: powershell
-      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\tentacle.pp --disable_warnings=deprecations'
-    - name: Create Octopus Project
-      shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableVideoRecording=true"
-        "-DdisableScreenshots=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        --tags "not @destinationspecific or @azure-web-app"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
-        features\octopus\octopus-aspnet-project.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Add a deployment step
       shell: powershell
       run: >

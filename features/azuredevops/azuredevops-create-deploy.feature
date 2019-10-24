@@ -33,7 +33,7 @@ Feature: Create and deploy a release
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\030-edit.png"
     And I click the "Edit" button
 
-  @add-step @octo-built-in-feed
+  @add-step @repositoryspecific @octo-built-in-feed
   Scenario: Click last step
     Given I set the following aliases:
       | Push Packages to Octopus | //div[./div/div/div/div[text()='Push Package(s) to Octopus']]                                                 |
@@ -41,7 +41,7 @@ Feature: Create and deploy a release
     And I scroll the "Push Packages to Octopus" job tile into view
     And I click the "Push Packages to Octopus" job tile
 
-  @add-step @artifactory
+  @add-step @repositoryspecific @artifactory
   Scenario: Click last step
     Given I set the following aliases:
       | Nuget push | //div[./div/div/div/div[text()='Nuget push']]                                                 |
