@@ -315,6 +315,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I remove the highlight from the "Command Three" text box
 
     And I click the "Save" button
+    And I stop recording the screen
 
   @configure-project @destinationspecific @octo-built-in-feed
   Scenario: Add Octopus Push Step
@@ -369,7 +370,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll down "10000" px
     And I sleep for "30" seconds
 
+  @destinationspecific @iis
+  Scenario: Get log screenshot
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\155-build-logs.png"
+
+  @destinationspecific @azure-web-app
+  Scenario: Get log screenshot
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\155-build-logs-azure.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
