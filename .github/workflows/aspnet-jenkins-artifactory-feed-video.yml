@@ -83,7 +83,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "not @destinationspecific or @artifactory or @iis"
+        --tags "(not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory)"
         features\jenkins\jenkins-aspnet-git.feature
     - name: Create the Octopus External Feed
       shell: powershell
@@ -156,7 +156,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "not @destinationspecific or @artifactory or @iis"
+        --tags "(not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory)"
         features\octopus\octopus-aspnet-project.feature
     - name: Open Random Quotes
       shell: powershell
@@ -199,7 +199,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "not @destinationspecific or @artifactory or @iis"
+        --tags "(not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory)"
         features\jenkins\jenkins-create-deploy.feature
     - name: Add a lifecycle
       shell: powershell
