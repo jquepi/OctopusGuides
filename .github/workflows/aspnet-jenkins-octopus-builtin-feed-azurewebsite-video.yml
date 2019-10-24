@@ -1,8 +1,8 @@
 name: ASP.NET Jenkins Octopus Built-in Feed Azure Websites Video
-#on: [push]
-on:
-  schedule:
-    - cron:  '30 17 * * *'
+on: [push]
+#on:
+#  schedule:
+#    - cron:  '30 17 * * *'
 jobs:
   build:
     runs-on: windows-2019
@@ -371,7 +371,8 @@ jobs:
         --monochrome
         features\octopus\octopus-audit-log.feature
     - name: Convert video
-      run: for %%a in (c:\screenshots\*.avi) do "C:\Program Files\VideoLAN\VLC\vlc.exe" -I dummy -vvv "%%a" --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=mp4,dst="c:\screenshots\%%~na.mp4"} vlc://quit
+      shell: powershell
+      run: gci c:\screenshots\*.avi | % {& "C:\Program Files\VideoLAN\VLC\vlc.exe" -I dummy -vvv $_.FullName "--sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=mp4,dst=`"c:\screenshots\$($_.BaseName).mp4`"}" vlc://quit}
     - name: Merge video
       shell: powershell
       run: Start-Process -FilePath "C:\Program Files\VideoLAN\VLC\vlc.exe" -Wait -ArgumentList (@("-I", "dummy", "-vvv") + $(gci C:\screenshots\*.mp4 | ?{$_.Name -ne "video.mp4"} | %{"`"" + $_.FullName + "`""}) + @("--sout", "#gather:std{access=file,mux=mp4,dst=c:\screenshots\video.mp4}", "--no-sout-all", "--sout-keep", "vlc://quit"))
