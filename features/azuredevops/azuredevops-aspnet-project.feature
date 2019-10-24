@@ -200,7 +200,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I stop recording the screen
 
-  @configure-project @destinationspecific @artifactory
+  @configure-project @repositoryspecific @artifactory
   Scenario: Push to Artifactory
     Given I set the following aliases:
       | Add task                                                     | //button[@aria-label='Add a task to Agent job 1']                                                              |
@@ -281,7 +281,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I stop recording the screen
 
-  @configure-project @destinationspecific @octo-built-in-feed
+  @configure-project @repositoryspecific @octo-built-in-feed
   Scenario: Push to Octopus
     Given I set the following aliases:
       | Add task                 | //button[@aria-label='Add a task to Agent job 1']                                          |

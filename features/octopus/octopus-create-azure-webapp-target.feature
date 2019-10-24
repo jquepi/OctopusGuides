@@ -67,6 +67,7 @@ Feature: Create Azure Web App Target
     And I scroll the "Environments" text box into view offset by "-200"
     And I populate the "Environments" text box with "ExternalEnvironmentName"
     And I click the "ExternalEnvironment" option
+    And I save a screenshot to "C:\screenshots\octopus\azuretarget\055-target.png"
 
     And I highlight outside the "Target Roles" text box
     And I scroll the "Target Roles" text box into view offset by "-200"

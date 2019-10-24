@@ -75,7 +75,7 @@ Feature: Create and deploy a release
     And I click the "Create Octopus Release" job tile
     And I remove the highlight from the "Add task" button
 
-  @add-step @octo-built-in-feed
+  @add-step @repositoryspecific @octo-built-in-feed
   Scenario: Select existing Octopus server
     Given I set the following aliases:
       | Octopus Deploy Server    | //div[@aria-label='Expand'][../../../../../../../../../../div/div/label[contains(.,'Octopus Deploy Server')]] |
@@ -85,7 +85,7 @@ Feature: Create and deploy a release
     And I click the "Octopus Deploy Server" drop down list
     And I click the "Octopus Server" option
 
-  @add-step @artifactory
+  @add-step @repositoryspecific @artifactory
   Scenario: Add new Octopus server
     Given I set the following aliases:
       | New                      | //div[./span[text()='Add Octopus Deploy Server']]                                          |
