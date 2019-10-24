@@ -83,8 +83,15 @@ Feature: Create and deploy a release from Jenkins
     And I scroll down "10000" px
     And I sleep for "30" seconds
 
+  @destinationspecific @iis
+  Scenario: Get log screenshot
     And I save a screenshot to "c:\screenshots\jenkins\createrelease\045-build-and-deploy-logs.png"
 
+  @destinationspecific @azure-web-app
+  Scenario: Get log screenshot
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\045-build-and-deploy-logs-azure.png"
+
+  Scenario: display message
     And I display a note with the text "'Deploy Random Quotes release 0.0.2 to Dev: Success' means Octopus deployed the project" for "3" seconds
 
   Scenario: Shutdown
