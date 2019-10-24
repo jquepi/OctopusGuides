@@ -37,11 +37,12 @@ Feature: Create Azure Account
     And I highlight outside the "Infrastructure" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\010-infrastructure.png"
     And I click the "Infrastructure" link
+    And I remove the highlight from the "Infrastructure" link
     And I sleep for "1" second
 
     And I force click the "More" link waiting up to "5" seconds if it exists
     And I highlight outside the "More" link with an offset of "5"
-    And I highlight inside the "Accounts" link with an
+    And I highlight inside the "Accounts" link
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\020-accounts.png"
     And I click the "Accounts" link
 
@@ -50,30 +51,35 @@ Feature: Create Azure Account
     And I click the "Add Account" button
 
     And I highlight inside the "Azure Subscription" link
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\040-accounts.png"
     And I click the "Azure Subscription" option
 
     And I highlight outside the "Account name" link
     And I populate the "Account name" text box with "Azure"
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\045-accounts.png"
+    And I remove the highlight from the "Account name" link
 
     And I highlight outside the "Subscription ID" link
     And I scroll the "Subscription ID" text box into view offset by "-300"
     And I populate the "Subscription ID" text box with "ExternalAzureSubscriptionID"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\050-accounts.png"
+    And I remove the highlight from the "Subscription ID" link
 
     And I highlight outside the "Tenant ID" link
     And I scroll the "Tenant ID" text box into view offset by "-200"
     And I populate the "Tenant ID" text box with "ExternalAzureTenantID"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\060-accounts.png"
+    And I remove the highlight from the "Tenant ID" link
 
     And I highlight outside the "Application ID" link
     And I scroll the "Application ID" text box into view offset by "-300"
     And I populate the "Application ID" text box with "ExternalApplicationTenantID"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\070-accounts.png"
+    And I remove the highlight from the "Application ID" link
 
     And I highlight outside the "Application Password" link
     And I scroll the "Application Password" text box into view offset by "-300"

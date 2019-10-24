@@ -134,7 +134,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app
   Scenario: Define iis ports
     Given I set the following aliases:
-      | Save                    | //button[contains(.,'Save')]                    |
+      | Save | //button[contains(.,'Save')] |
 
     And I click the "Save" button
     And I scroll down "10000" px
@@ -156,17 +156,18 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app
   Scenario: Define azure web app project
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                        |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                              |
-      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                   |
-      | Deploy an Azure Web App        | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]                            |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]//button[contains(.,'Add')] |
-      | Configure features             | (//button[contains(.,'Configure features')])[1]                                                               |
-      | Configuration Variables        | //input[..//label[text()='Configuration Variables']]                                                          |
-      | OK                             | //button[contains(.,'Ok')]                                                                                    |
-      | Step Name                      | //input[contains(@id, 'Stepname')]                                                                            |
-      | On behalf of                   | //input[@title='On behalf of target roles (type to add new)']                                                 |
-      | Azure role                     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'azurewebapp')]//span       |
+      | Define your deployment process    | //button[contains(.,'Define your deployment process')]                                                        |
+      | Add Step                          | //button[contains(.,'Add Step')]                                                                              |
+      | Search                            | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                   |
+      | Deploy an Azure Web App           | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]                            |
+      | Add                               | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]//button[contains(.,'Add')] |
+      | Configure features                | (//button[contains(.,'Configure features')])[1]                                                               |
+      | Configuration Variables           | //input[..//label[text()='Configuration Variables']]                                                          |
+      | Configuration Variables Container | //div[./input[..//label[text()='Configuration Variables']]]                                                   |
+      | OK                                | //button[contains(.,'Ok')]                                                                                    |
+      | Step Name                         | //input[contains(@id, 'Stepname')]                                                                            |
+      | On behalf of                      | //input[@title='On behalf of target roles (type to add new)']                                                 |
+      | Azure role                        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'azurewebapp')]//span       |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
@@ -198,9 +199,10 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
-    And I highlight outside the "Configuration Variables" option
+    And I highlight inside the "Configuration Variables Container" option
     And I highlight outside the "OK" button
     And I force click the "Configuration Variables" option
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\047-octopus-azure-enable-conf-vars.png"
     And I click the "OK" button
 

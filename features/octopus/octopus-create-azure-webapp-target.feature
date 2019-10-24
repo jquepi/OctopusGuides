@@ -30,6 +30,7 @@ Feature: Create Azure Web App Target
       | Environments            | //input[@title='Select environments']                                                                   |
       | Dev environment         | //span[./div/div/div[text()='Dev']]                                                                     |
       | Target Roles            | //input[@title='Roles (type to add new)']                                                               |
+      | Target Roles Container  | //div[./div/div/div/input[@title='Roles (type to add new)']]                                            |
       | Azure web app role      | //span[./div/div/div[contains(.,'azurewebapp')]]                                                        |
       | Account                 | //div[../../div[text()='Select account']]                                                               |
       | Azure account           | //span[./div/div/div[text()='Azure']]                                                                   |
@@ -56,8 +57,8 @@ Feature: Create Azure Web App Target
 
     And I scroll the "Azure Web App" tile into view offset by "-200"
     And I highlight outside the "Azure Web App" tile
-    And I save a screenshot to "C:\screenshots\octopus\azuretarget\040-target.png"
     And I mouse over the "Azure Web App" tile
+    And I save a screenshot to "C:\screenshots\octopus\azuretarget\040-target.png"
     And I click the "Add" button
 
     And I highlight outside the "Display Name" text box
@@ -70,7 +71,7 @@ Feature: Create Azure Web App Target
     And I click the "ExternalEnvironment" option
     And I save a screenshot to "C:\screenshots\octopus\azuretarget\055-target.png"
 
-    And I highlight outside the "Target Roles" text box
+    And I highlight outside the "Target Roles Container" element
     And I scroll the "Target Roles" text box into view offset by "-200"
     And I populate the "Target Roles" text box with "azurewebapp"
     And I click the "Azure web app role" option
