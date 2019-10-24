@@ -25,8 +25,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Install plugins
     Given I set the following aliases:
       | Manage Jenkins           | //a[@class='task-link' and contains(.,'Manage Jenkins')]                    |
-      | Manage Plugins           | #main-panel > div:nth-child(9) > a                                          |
-      | Available                | #main-panel > form > div.tabBarFrame > div.tabBar > div:nth-child(2) > a    |
+      | Manage Plugins           | //a[@href='pluginManager']                                                  |
+      | Available                | //a[contains(@href,'available')]                                            |
       | Filter                   | #filter-box                                                                 |
       | MSBuild Plugin           | #plugins > tbody > tr:nth-child(6) > td:nth-child(1) > input[type=checkbox] |
       | MSBuild Plugin Container | tr.plugin:nth-child(6) > td:nth-child(1)                                    |
