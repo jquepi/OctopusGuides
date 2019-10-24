@@ -1,8 +1,8 @@
 name: ASP.NET Jenkins Octopus Built-in Feed Azure Websites Video
-on: [push]
-#on:
-#  schedule:
-#    - cron:  '30 17 * * *'
+#on: [push]
+on:
+  schedule:
+    - cron:  '30 17 * * *'
 jobs:
   build:
     runs-on: windows-2019
@@ -270,7 +270,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
         "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedvidtest.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
+        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
