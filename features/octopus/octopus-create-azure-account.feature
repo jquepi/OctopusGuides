@@ -50,33 +50,38 @@ Feature: Create Azure Account
     And I click the "Add Account" button
 
     And I highlight inside the "Azure Subscription" link
-    And I click the "Azure Subscription" option
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\040-accounts.png"
+    And I click the "Azure Subscription" option
 
     And I highlight outside the "Account name" link
     And I populate the "Account name" text box with "Azure"
+    And I save a screenshot to "C:\screenshots\octopus\azureaccount\045-accounts.png"
 
     And I highlight outside the "Subscription ID" link
-    And I scroll the "Subscription ID" text box into view offset by "-200"
+    And I scroll the "Subscription ID" text box into view offset by "-300"
     And I populate the "Subscription ID" text box with "ExternalAzureSubscriptionID"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\050-accounts.png"
 
     And I highlight outside the "Tenant ID" link
     And I scroll the "Tenant ID" text box into view offset by "-200"
     And I populate the "Tenant ID" text box with "ExternalAzureTenantID"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\060-accounts.png"
 
     And I highlight outside the "Application ID" link
-    And I scroll the "Application ID" text box into view offset by "-200"
+    And I scroll the "Application ID" text box into view offset by "-300"
     And I populate the "Application ID" text box with "ExternalApplicationTenantID"
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\070-accounts.png"
 
     And I highlight outside the "Application Password" link
-    And I scroll the "Application Password" text box into view offset by "-200"
+    And I scroll the "Application Password" text box into view offset by "-300"
     And I populate the "Application Password" text box with "ExternalApplicationPassword"
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\080-accounts.png"
 
     And I highlight outside the "Save" link
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\090-accounts.png"
     And I click the "Save" button
 

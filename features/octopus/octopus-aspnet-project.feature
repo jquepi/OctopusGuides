@@ -119,17 +119,26 @@ Feature: Configure an Octopus ASP.NET project
     And I force click the "Prod environment" option
     And I force click the "Project Variables Title" element
 
-  @define-project
-  Scenario: Save the variables
-    Given I set the following aliases:
-      | Save        | //button[contains(.,'Save')]                                       |
-      | Overview    | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview'] |
-      | Deployments | //a[contains(.,'Deployments')]                                     |
-
     And I click the "Save" button
     And I scroll down "10000" px
     And I sleep for "7" second
     And I save a screenshot to "C:\screenshots\octopus\project\025-octopus-variables-populated.png"
+
+  @define-project @guidespecific @azure-web-app
+  Scenario: Define iis ports
+    Given I set the following aliases:
+      | Save                    | //button[contains(.,'Save')]                    |
+
+    And I click the "Save" button
+    And I scroll down "10000" px
+    And I sleep for "7" second
+    And I save a screenshot to "C:\screenshots\octopus\project\025-octopus-variables-azure-populated.png"
+
+  @define-project
+  Scenario: Save the variables
+    Given I set the following aliases:
+      | Overview    | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview'] |
+      | Deployments | //a[contains(.,'Deployments')]                                     |
 
     And I highlight inside the "Deployments" link
     And I click the "Deployments" link
@@ -173,17 +182,18 @@ Feature: Configure an Octopus ASP.NET project
 
     And I scroll the "Deploy an Azure Web App" tile into view offset by "-200"
     And I highlight outside the "Deploy an Azure Web App" tile
-    And I save a screenshot to "C:\screenshots\octopus\project\045-octopus-azure-add-azure-webapp.png"
     And I mouse over the "Deploy an Azure Web App" tile
+    And I save a screenshot to "C:\screenshots\octopus\project\045-octopus-azure-add-azure-webapp.png"
     And I click the "Add" button
 
     And I highlight outside the "Configure features" button
+    And I save a screenshot to "C:\screenshots\octopus\project\046-octopus-azure-enable-conf-features.png"
     And I click the "Configure features" button
 
     And I highlight outside the "Configuration Variables" option
     And I highlight outside the "OK" button
     And I force click the "Configuration Variables" option
-    And I save a screenshot to "C:\screenshots\octopus\project\046-octopus-azure-enable-conf-vars.png"
+    And I save a screenshot to "C:\screenshots\octopus\project\047-octopus-azure-enable-conf-vars.png"
     And I click the "OK" button
 
     And I highlight outside the "Step Name" text box
@@ -253,8 +263,8 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Web role" option
     And I remove the highlight from the "Runs on targets in roles" text box
 
-  @define-project @guidespecific @artifactory
-  Scenario: Select artifactory feed
+  @define-project @guidespecific @artifactory @iis
+  Scenario: Select artifactory feed for the iis deployment
     Given I set the following aliases:
       | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
       | Artifactory  | //div[./div/div[text()='Artifactory']]           |
@@ -277,8 +287,8 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package-artifactory.png"
     And I remove the highlight from the "Package ID" text box
 
-  @define-project @guidespecific @octo-built-in-feed
-  Scenario: Select built in feed
+  @define-project @guidespecific @octo-built-in-feed @iis
+  Scenario: Select built in feed for the iis deployment
     Given I set the following aliases:
       | HTML Body  | //body                              |
       | Package ID | //input[contains(@id, 'PackageID')] |
@@ -289,6 +299,44 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "2" second
     And I press the escape key from the "Package ID" text box
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package.png"
+    And I remove the highlight from the "Package ID" text box
+
+  @define-project @guidespecific @artifactory @azure-web-app
+  Scenario: Select artifactory feed for the azure web app deployment
+    Given I set the following aliases:
+      | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
+      | Artifactory  | //div[./div/div[text()='Artifactory']]           |
+      | HTML Body    | //body                                           |
+      | Package ID   | //input[contains(@id, 'PackageID')]              |
+
+    And I scroll the "Package feed" drop down list into view offset by "-300"
+    And I highlight outside the "Package feed" drop down list
+    And I click the "Package feed" drop down list
+    And I sleep for "1" second
+    And I click the "Artifactory" option
+    And I save a screenshot to "C:\screenshots\octopus\project\056-octopus-step-feed-azure.png"
+    And I remove the highlight from the "Package feed" text box
+
+    And I scroll the "Package ID" text box into view offset by "-300"
+    And I highlight outside the "Package ID" text box
+    And I populate the "Package ID" text box with "RandomQuotes"
+    And I sleep for "2" second
+    And I press the escape key from the "Package ID" text box
+    And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package-artifactory-azure.png"
+    And I remove the highlight from the "Package ID" text box
+
+  @define-project @guidespecific @octo-built-in-feed @azure-web-app
+  Scenario: Select built in feed for the azure web app deployment
+    Given I set the following aliases:
+      | HTML Body  | //body                              |
+      | Package ID | //input[contains(@id, 'PackageID')] |
+
+    And I scroll the "Package ID" text box into view offset by "-300"
+    And I highlight outside the "Package ID" text box
+    And I populate the "Package ID" text box with "RandomQuotes"
+    And I sleep for "2" second
+    And I press the escape key from the "Package ID" text box
+    And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package-azure.png"
     And I remove the highlight from the "Package ID" text box
 
   @define-project @guidespecific @azure-web-app
