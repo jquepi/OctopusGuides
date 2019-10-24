@@ -7,7 +7,7 @@ if ($exists -eq "false") {
 
 $plans = & az appservice plan list --resource-group $name | ConvertFrom-Json
 if ($plans.Count -eq 0) {
-    az appservice plan create --name $name --resource-group $name --number-of-workers 1 --sku F1
+    az appservice plan create --name $name --resource-group $name --number-of-workers 1 --sku B1
 }
 
 $apps = az webapp list --resource-group $name | ConvertFrom-Json
