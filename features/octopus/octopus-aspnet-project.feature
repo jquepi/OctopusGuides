@@ -59,17 +59,9 @@ Feature: Configure an Octopus ASP.NET project
       | Overview                | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview']                                                                                           |
       | Variables               | //a[contains(.,'Variables')]                                                                                                                                 |
       | Variables text          | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
-      | Project Variables       | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
       | New variable name       | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
       | New variable value      | //input[contains(@id,'Entervalue')]                                                                                                                          |
-      | Define scope            | //div[@title='Define scope']                                                                                                                                 |
-      | Select environments     | //input[@title='Select environments']                                                                                                                        |
-      | Dev environment         | //div[./div/div[text() = 'Dev']]                                                                                                                             |
-      | Test environment        | //div[./div/div[text() = 'Test']]                                                                                                                            |
-      | Prod environment        | //div[./div/div[text() = 'Prod']]                                                                                                                            |
-      | Add Another Value       | //button[.//span[text() = 'Add Another Value']]                                                                                                              |
-      | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]                                                                                                                     |
-      | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]                                                                                                                     |
+      | Project Variables       | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
       | Project Variables Title | //h2[contains(.,'Project Variables')]                                                                                                                        |
       | Add to list             | //button[@title='Add To List']                                                                                                                               |
 
@@ -89,6 +81,22 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
     And I click the "Add to list" button
     And I force click the "Project Variables Title" element
+
+  @define-project @guidespecific @iis
+  Scenario: Define iis ports
+    Given I set the following aliases:
+      | Define scope            | //div[@title='Define scope']                    |
+      | Select environments     | //input[@title='Select environments']           |
+      | Dev environment         | //div[./div/div[text() = 'Dev']]                |
+      | Test environment        | //div[./div/div[text() = 'Test']]               |
+      | Prod environment        | //div[./div/div[text() = 'Prod']]               |
+      | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
+      | Project Variables Title | //h2[contains(.,'Project Variables')]           |
+      | New variable name       | //input[contains(@id,'Enternewvariable')]       |
+      | New variable value      | //input[contains(@id,'Entervalue')]             |
+      | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]        |
+      | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]        |
+      | Save                    | //button[contains(.,'Save')]                    |
 
     And I populate the "New variable name" text box with "IIS Port"
     And I populate the "New variable value" text box with "8081"
@@ -111,6 +119,13 @@ Feature: Configure an Octopus ASP.NET project
     And I force click the "Prod environment" option
     And I force click the "Project Variables Title" element
 
+  @define-project
+  Scenario: Save the variables
+    Given I set the following aliases:
+      | Save        | //button[contains(.,'Save')]                                       |
+      | Overview    | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview'] |
+      | Deployments | //a[contains(.,'Deployments')]                                     |
+
     And I click the "Save" button
     And I scroll down "10000" px
     And I sleep for "7" second
@@ -131,8 +146,8 @@ Feature: Configure an Octopus ASP.NET project
       | Deploy an Azure Web App        | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]//button[contains(.,'Add')] |
       | Configure features             | (//button[contains(.,'Configure features')])[1]                                                               |
-      | Configuration Variables        | //input[..//label[text()='Configuration Variables']]                                                           |
-      | OK                             | //button[contains(.,'Ok')]                                                                                     |
+      | Configuration Variables        | //input[..//label[text()='Configuration Variables']]                                                          |
+      | OK                             | //button[contains(.,'Ok')]                                                                                    |
       | Step Name                      | //input[contains(@id, 'Stepname')]                                                                            |
       | On behalf of                   | //input[@title='On behalf of target roles (type to add new)']                                                 |
       | Azure role                     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'azurewebapp')]//span       |

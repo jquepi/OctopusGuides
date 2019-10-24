@@ -68,7 +68,7 @@ Feature: Create Azure Web App Target
     And I populate the "Environments" text box with "ExternalEnvironmentName"
     And I click the "ExternalEnvironment" option
 
-    And I highlight outside the "Target Role" text box
+    And I highlight outside the "Target Roles" text box
     And I scroll the "Target Roles" text box into view offset by "-200"
     And I populate the "Target Roles" text box with "azurewebapp"
     And I click the "Azure web app role" option
