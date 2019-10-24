@@ -41,6 +41,7 @@ Feature: Create Azure Web App Target
     And I highlight outside the "Infrastructure" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\octopus\azuretarget\010-target.png"
     And I click the "Infrastructure" link
+    And I remove the highlight from the "Infrastructure" link
 
     And I highlight outside the "Deployment Targets text" link with an offset of "2"
     And I save a screenshot to "C:\screenshots\octopus\azuretarget\020-target.png"
