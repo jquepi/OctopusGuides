@@ -44,7 +44,8 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @guidespecific or @octo-built-in-feed or @iis"
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @octo-built-in-feed"
         features\jenkins\jenkins-aspnet-git.feature
     - name: Create the Octopus Environments
       shell: powershell
@@ -78,7 +79,8 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @guidespecific or @octo-built-in-feed or @iis"
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @octo-built-in-feed"
         features\octopus\octopus-aspnet-project.feature
     - name: Open Random Quotes
       shell: powershell
@@ -109,7 +111,8 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @guidespecific or @octo-built-in-feed or @iis"
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @octo-built-in-feed"
         features\jenkins\jenkins-create-deploy.feature
     - name: Add a lifecycle
       shell: powershell

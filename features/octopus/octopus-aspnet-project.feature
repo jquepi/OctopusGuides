@@ -82,7 +82,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Add to list" button
     And I force click the "Project Variables Title" element
 
-  @define-project @guidespecific @iis
+  @define-project @destinationspecific @iis
   Scenario: Define iis ports
     Given I set the following aliases:
       | Define scope            | //div[@title='Define scope']                    |
@@ -124,7 +124,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "7" second
     And I save a screenshot to "C:\screenshots\octopus\project\025-octopus-variables-populated.png"
 
-  @define-project @guidespecific @azure-web-app
+  @define-project @destinationspecific @azure-web-app
   Scenario: Define iis ports
     Given I set the following aliases:
       | Save                    | //button[contains(.,'Save')]                    |
@@ -146,7 +146,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Overview" link
     And I remove the highlight from the "Deployments" link
 
-  @define-project @guidespecific @azure-web-app
+  @define-project @destinationspecific @azure-web-app
   Scenario: Define azure web app project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                        |
@@ -189,6 +189,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Configure features" button
     And I save a screenshot to "C:\screenshots\octopus\project\046-octopus-azure-enable-conf-features.png"
     And I click the "Configure features" button
+    And I remove the highlight from the "Configure features" button
 
     And I highlight outside the "Configuration Variables" option
     And I highlight outside the "OK" button
@@ -211,7 +212,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Azure role" option
     And I remove the highlight from the "On behalf of" text box
 
-  @define-project @guidespecific @iis
+  @define-project @destinationspecific @iis
   Scenario: Define IIS project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                              |
@@ -263,7 +264,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Web role" option
     And I remove the highlight from the "Runs on targets in roles" text box
 
-  @define-project @guidespecific @artifactory @iis
+  @define-project @destinationspecific @iis @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the iis deployment
     Given I set the following aliases:
       | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
@@ -287,7 +288,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package-artifactory.png"
     And I remove the highlight from the "Package ID" text box
 
-  @define-project @guidespecific @octo-built-in-feed @iis
+  @define-project @destinationspecific @iis @repositoryspecific @octo-built-in-feed
   Scenario: Select built in feed for the iis deployment
     Given I set the following aliases:
       | HTML Body  | //body                              |
@@ -301,7 +302,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
 
-  @define-project @guidespecific @artifactory @azure-web-app
+  @define-project @destinationspecific @azure-web-app @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the azure web app deployment
     Given I set the following aliases:
       | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
@@ -325,7 +326,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package-artifactory-azure.png"
     And I remove the highlight from the "Package ID" text box
 
-  @define-project @guidespecific @octo-built-in-feed @azure-web-app
+  @define-project @destinationspecific @azure-web-app @repositoryspecific @octo-built-in-feed
   Scenario: Select built in feed for the azure web app deployment
     Given I set the following aliases:
       | HTML Body  | //body                              |
@@ -339,7 +340,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\060-octopus-step-package-azure.png"
     And I remove the highlight from the "Package ID" text box
 
-  @define-project @guidespecific @azure-web-app
+  @define-project @destinationspecific @azure-web-app
   Scenario: Continue to define project
     Given I set the following aliases:
       | Save | //button[contains(.,'Save')] |
@@ -347,7 +348,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Save" button
     And I sleep for "2" seconds
 
-  @define-project @guidespecific @iis
+  @define-project @destinationspecific @iis
   Scenario: Continue to define project
     Given I set the following aliases:
       | Web site name                             | //input[contains(@id, 'Websitename')]                                                                                                                        |

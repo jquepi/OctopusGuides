@@ -78,7 +78,8 @@ jobs:
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @octo-built-in-feed"
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @artifactory"
         features\azuredevops\azuredevops-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -148,7 +149,8 @@ jobs:
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @octo-built-in-feed"
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @artifactory"
         features\octopus\octopus-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -174,7 +176,8 @@ jobs:
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @octo-built-in-feed"
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @artifactory"
         features\azuredevops\azuredevops-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

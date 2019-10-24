@@ -71,7 +71,8 @@ jobs:
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @guidespecific or @artifactory or @iis"
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @artifactory"
         features\jenkins\jenkins-aspnet-git.feature
     - name: Create the Octopus External Feed
       shell: powershell
@@ -130,7 +131,8 @@ jobs:
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @guidespecific or @artifactory or @iis"
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @artifactory"
         features\octopus\octopus-aspnet-project.feature
     - name: Open Random Quotes
       shell: powershell
@@ -165,7 +167,8 @@ jobs:
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
-        --tags "not @guidespecific or @artifactory or @iis"
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @artifactory"
         features\jenkins\jenkins-create-deploy.feature
     - name: Add a lifecycle
       shell: powershell

@@ -291,7 +291,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\128-nunit-test.png"
     And I remove the highlight from the "Command Two" text box
 
-  @configure-project @guidespecific @artifactory
+  @configure-project @destinationspecific @artifactory
   Scenario: Add Artifactory Push Step
     Given I set the following aliases:
       | Add build step                                          | //button[@type='button'][contains(.,'Add build step')]                            |
@@ -316,7 +316,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I click the "Save" button
 
-  @configure-project @guidespecific @octo-built-in-feed
+  @configure-project @destinationspecific @octo-built-in-feed
   Scenario: Add Octopus Push Step
     Given I set the following aliases:
       | Add build step                                          | //button[@type='button'][contains(.,'Add build step')]                            |
