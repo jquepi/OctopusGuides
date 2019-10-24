@@ -291,13 +291,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\128-nunit-test.png"
     And I remove the highlight from the "Command Two" text box
 
-  @configure-project @destinationspecific @artifactory
+  @configure-project @repositoryspecific @artifactory
   Scenario: Add Artifactory Push Step
     Given I set the following aliases:
-      | Add build step                                          | //button[@type='button'][contains(.,'Add build step')]                            |
-      | Execute Windows batch command                           | //a[contains(.,'Execute Windows batch command')]                                  |
-      | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                        |
-      | Save                                                    | //button[@type='button'][contains(.,'Save')]                                      |
+      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
+      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
+      | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
+      | Save                          | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -317,13 +317,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Save" button
     And I stop recording the screen
 
-  @configure-project @destinationspecific @octo-built-in-feed
+  @configure-project @repositoryspecific @octo-built-in-feed
   Scenario: Add Octopus Push Step
     Given I set the following aliases:
-      | Add build step                                          | //button[@type='button'][contains(.,'Add build step')]                            |
-      | Execute Windows batch command                           | //a[contains(.,'Execute Windows batch command')]                                  |
-      | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                        |
-      | Save                                                    | //button[@type='button'][contains(.,'Save')]                                      |
+      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
+      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
+      | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
+      | Save                          | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
