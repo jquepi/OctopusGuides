@@ -24,14 +24,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @plugin-install
   Scenario: Install plugins
     Given I set the following aliases:
-      | Manage Jenkins           | //a[@class='task-link' and contains(.,'Manage Jenkins')]                    |
-      | Manage Plugins           | //a[@href='pluginManager']                                                  |
-      | Available                | //a[contains(@href,'available')]                                            |
-      | Filter                   | #filter-box                                                                 |
-      | MSBuild Plugin           | #plugins > tbody > tr:nth-child(6) > td:nth-child(1) > input[type=checkbox] |
-      | MSBuild Plugin Container | tr.plugin:nth-child(6) > td:nth-child(1)                                    |
-      | Install without restart  | #yui-gen2-button                                                            |
-      | Back to top              | //a[contains(.,'Go back to the top page')]                                  |
+      | Manage Jenkins           | //a[@class='task-link' and contains(.,'Manage Jenkins')] |
+      | Manage Plugins           | //a[@href='pluginManager']                               |
+      | Available                | //a[contains(@href,'available')]                         |
+      | Filter                   | #filter-box                                              |
+      | MSBuild Plugin           | //input[@name='plugin.msbuild.default']                  |
+      | MSBuild Plugin Container | //td[./input[@name='plugin.msbuild.default']]            |
+      | Install without restart  | //button[text()='Install without restart']               |
+      | Back to top              | //a[contains(.,'Go back to the top page')]               |
 
     And I display a note with the text "Installing the Jenkins plugins" for "3" seconds
 
@@ -64,7 +64,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Configure tools
     Given I set the following aliases:
       | Manage Jenkins            | //a[@class='task-link' and contains(.,'Manage Jenkins')]                                              |
-      | Global Tool Configuration | div.manage-option:nth-child(7) > a:nth-child(1)                                                       |
+      | Global Tool Configuration | //a[@href='configureTools']                                                                           |
       | MSBuild Tool              | //button[contains(.,'Add MSBuild')]                                                                   |
       | MSBuild Name              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkName')] |
       | MSBuild Path              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkHome')] |
@@ -103,7 +103,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Configure credentials
     Given I set the following aliases:
       | Manage Jenkins          | //a[@class='task-link' and contains(.,'Manage Jenkins')]               |
-      | Configure Credentials   | div.manage-option:nth-child(6) > a:nth-child(1)                        |
+      | Configure Credentials   | //a[@href='configureCredentials']                                      |
       | Credentials             | //a[@href='/credentials'][contains(.,'Credentials')]                   |
       | System                  | //a[@href='/credentials/store/system'][contains(.,'System')]           |
       | Global credentials      | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
