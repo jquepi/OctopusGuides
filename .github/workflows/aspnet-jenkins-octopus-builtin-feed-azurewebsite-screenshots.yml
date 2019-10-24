@@ -137,6 +137,7 @@ jobs:
           "-DscreenshotS3Bucket=octopus-guides-screenshots"
           "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
           "-DCucumberAlias-ExternalEnvironmentName=Dev"
+          "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
           "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
           "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeeddev')]]"
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -168,6 +169,7 @@ jobs:
           "-DCucumberAlias-ExternalAzureTenantID=${{ secrets.ExternalAzureTenantID }}"
           "-DCucumberAlias-ExternalAzureSubscriptionID=${{ secrets.ExternalAzureSubscriptionID }}"
           "-DCucumberAlias-ExternalEnvironmentName=Test"
+          "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
           "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
           "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeedtest')]]"
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar

@@ -60,7 +60,7 @@ Feature: Create Azure Web App Target
     And I mouse over the "Azure Web App" tile
     And I click the "Add" button
 
-    And I populate the "Display Name" text box with "Azure web app - Dev"
+    And I populate the "Display Name" text box with "ExternalTargetName"
     And I populate the "Environments" text box with "ExternalEnvironmentName"
     And I click the "ExternalEnvironment" option
 
