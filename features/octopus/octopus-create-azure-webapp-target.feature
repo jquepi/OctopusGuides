@@ -37,7 +37,7 @@ Feature: Create Azure Web App Target
       | Azure Web App Option    | //span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeeddev')]]                                        |
 
     And I start recording the screen to the directory "C:\screenshots"
-    And I display a note with the text "Creating Azure Deployment Targets" for "3" seconds
+    And I display a note with the text "Creating Azure deployment targets" for "3" seconds
 
     And I highlight outside the "Infrastructure" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\octopus\azuretarget\005-infrastructure.png"
@@ -61,7 +61,7 @@ Feature: Create Azure Web App Target
     And I click the "Add" button
 
     And I populate the "Display Name" text box with "Azure web app - Dev"
-    And I populate the "Environments" text box with "Dev"
+    And I populate the "Environments" text box with "ExternalEnvironmentName"
     And I click the "ExternalEnvironment" option
 
     And I scroll the "Target Roles" text box into view offset by "-200"

@@ -29,10 +29,10 @@ Feature: Create Azure Account
       | Tenant ID            | //input[contains(@id,'ActiveDirectoryTenantID')]     |
       | Application ID       | //input[contains(@id,'ActiveDirectoryAppicationID')] |
       | Application Password | //input[contains(@id,'ActiveDirectoryPasswordKey')]  |
-      | Save                 | //button[contains(.,'Save')]                         |
+      | Save                 | (//button[contains(.,'Save')])[2]                    |
 
     And I start recording the screen to the directory "C:\screenshots"
-    And I display a note with the text "Creating Azure Account" for "3" seconds
+    And I display a note with the text "Creating Azure account" for "3" seconds
 
     And I highlight outside the "Infrastructure" link with an offset of "5"
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\005-infrastructure.png"
