@@ -56,6 +56,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-api-key.feature
     - name: Create API key for tests
@@ -80,6 +81,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @artifactory or @iis"
         features\jenkins\jenkins-aspnet-git.feature
@@ -128,6 +130,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-environments.feature
     - name: Add tentacle
@@ -151,6 +154,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @artifactory or @iis"
         features\octopus\octopus-aspnet-project.feature
@@ -172,6 +176,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\open-randomquotes-iis-dev.feature
     - name: Add a deployment step
@@ -192,6 +197,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @artifactory or @iis"
         features\jenkins\jenkins-create-deploy.feature
@@ -213,6 +219,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-lifecycle.feature
     - name: Open Random Quotes in the test environment
@@ -233,6 +240,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\open-randomquotes-iis-test.feature
     - name: Add manual intervention
@@ -253,6 +261,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-manual-intervention.feature
     - name: Add email notification
@@ -274,6 +283,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-email-notification.feature
     - name: Add users and team
@@ -294,6 +304,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-users-and-teams.feature
     - name: View internal deployer dashboard
@@ -314,6 +325,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-view-internal-deployments.feature
     - name: View production deployer dashboard
@@ -334,6 +346,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-view-production-deployments.feature
     - name: View audit logs
@@ -354,6 +367,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-audit-log.feature
     - name: Convert video

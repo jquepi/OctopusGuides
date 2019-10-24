@@ -195,12 +195,13 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Add" button
 
     And I highlight outside the "Configure features" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\046-octopus-azure-enable-conf-features.png"
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
     And I highlight inside the "Configuration Variables Container" option
-    And I highlight outside the "OK" button
+    And I highlight outside the "OK" button with an offset of "2"
     And I force click the "Configuration Variables" option
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\047-octopus-azure-enable-conf-vars.png"

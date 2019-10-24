@@ -22,6 +22,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-api-key.feature
     - name: Create API key for tests
@@ -39,6 +40,7 @@ jobs:
         "-DdisableVideoRecording=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @iis"
         --tags "not @repositoryspecific or @octo-built-in-feed"
@@ -54,6 +56,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-environments.feature
     - name: Add tentacle
@@ -70,6 +73,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @iis"
         --tags "not @repositoryspecific or @octo-built-in-feed"
@@ -85,6 +89,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\open-randomquotes-iis-dev.feature
     - name: Add a deployment step
@@ -104,6 +109,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @iis"
         --tags "not @repositoryspecific or @octo-built-in-feed"
@@ -119,6 +125,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-lifecycle.feature
     - name: Open Random Quotes in the test environment
@@ -132,6 +139,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\open-randomquotes-iis-test.feature
     - name: Add manual intervention
@@ -145,6 +153,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-manual-intervention.feature
     - name: Add email notification
@@ -159,6 +168,7 @@ jobs:
         "-DdisableVideoRecording=true"
         "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-email-notification.feature
     - name: Add users and team
@@ -172,6 +182,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-users-and-teams.feature
     - name: View internal deployer dashboard
@@ -185,6 +196,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-view-internal-deployments.feature
     - name: View production deployer dashboard
@@ -198,6 +210,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-view-production-deployments.feature
     - name: View audit logs
@@ -211,6 +224,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-audit-log.feature
     - name: Upload screenshots

@@ -29,6 +29,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-api-key.feature
       env:

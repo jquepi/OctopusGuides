@@ -24,6 +24,7 @@ jobs:
         "-DdisableVideoRecording=true"
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-api-key.feature
       env:
@@ -47,6 +48,7 @@ jobs:
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @iis"
         --tags "not @repositoryspecific or @octo-built-in-feed"
@@ -68,6 +70,7 @@ jobs:
         "-DdisableScreenshots=true"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-environments.feature
       env:
@@ -89,6 +92,7 @@ jobs:
         "-DdisableVideoRecording=true"
         "-DdisableScreenshots=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @iis"
         --tags "not @repositoryspecific or @octo-built-in-feed"
@@ -108,6 +112,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @iis"
         --tags "not @repositoryspecific or @octo-built-in-feed"

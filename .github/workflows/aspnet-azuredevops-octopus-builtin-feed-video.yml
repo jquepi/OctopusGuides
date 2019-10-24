@@ -30,6 +30,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-api-key.feature
       env:
@@ -61,6 +62,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @iis"
         --tags "not @repositoryspecific or @octo-built-in-feed"
@@ -87,6 +89,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-environments.feature
       env:
@@ -115,6 +118,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @iis"
         --tags "not @repositoryspecific or @octo-built-in-feed"
@@ -141,6 +145,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\open-randomquotes-iis-dev.feature
       env:
@@ -166,6 +171,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         --tags "not @destinationspecific or @iis"
         --tags "not @repositoryspecific or @octo-built-in-feed"
@@ -192,6 +198,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-lifecycle.feature
       env:
@@ -216,6 +223,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\open-randomquotes-iis-test.feature
       env:
@@ -240,6 +248,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-manual-intervention.feature
       env:
@@ -265,6 +274,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-email-notification.feature
       env:
@@ -289,6 +299,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-users-and-teams.feature
       env:
@@ -313,6 +324,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-view-internal-deployments.feature
       env:
@@ -337,6 +349,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-view-production-deployments.feature
       env:
@@ -361,6 +374,7 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
         --monochrome
         features\octopus\octopus-audit-log.feature
       env:
