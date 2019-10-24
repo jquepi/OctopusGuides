@@ -1,0 +1,366 @@
+name: ASP.NET Jenkins Octopus Built-in Feed Azure Websites Video
+on:
+  schedule:
+    - cron:  '30 17 * * *'
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v1
+    - uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Create Web App
+      shell: powershell
+      run: |
+        ./create-azure-web-app "jenkinsaspnetbuiltinfeedviddev"
+        ./create-azure-web-app "jenkinsaspnetbuiltinfeedvidtest"
+        ./create-azure-web-app "jenkinsaspnetbuiltinfeedvidprod"
+    - name: Execute puppet
+      shell: powershell
+      run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
+    - name: Create API key
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-api-key.feature
+    - name: Create API key for tests
+      shell: powershell
+      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
+    - name: Create Jenkins Project and Octopus
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        features\jenkins\jenkins-aspnet-git.feature
+    - name: Create the Octopus Environments
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-environments.feature
+      - name: Create the Octopus Azure Account
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+          "-DslackStepHandlerEnabled=true"
+          "-DscreenshotS3Enabled=true"
+          "-DscreenshotS3Bucket=octopus-guides-screenshots"
+          "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+          "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+          "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
+          "-DCucumberAlias-ExternalApplicationTenantID=${{ secrets.ExternalApplicationTenantID }}"
+          "-DCucumberAlias-ExternalAzureTenantID=${{ secrets.ExternalAzureTenantID }}"
+          "-DCucumberAlias-ExternalAzureSubscriptionID=${{ secrets.ExternalAzureSubscriptionID }}"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-create-azure-account.feature
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      - name: Create Dev Azure target
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+          "-DslackStepHandlerEnabled=true"
+          "-DscreenshotS3Enabled=true"
+          "-DscreenshotS3Bucket=octopus-guides-screenshots"
+          "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+          "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+          "-DCucumberAlias-ExternalEnvironmentName=Dev"
+          "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
+          "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
+          "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeedviddev')]]"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-create-azure-webapp-target.feature
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      - name: Create Test Azure target
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          "-DdisableScreenshots=true"
+          "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+          "-DslackStepHandlerEnabled=true"
+          "-DscreenshotS3Enabled=true"
+          "-DscreenshotS3Bucket=octopus-guides-screenshots"
+          "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+          "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+          "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
+          "-DCucumberAlias-ExternalApplicationTenantID=${{ secrets.ExternalApplicationTenantID }}"
+          "-DCucumberAlias-ExternalAzureTenantID=${{ secrets.ExternalAzureTenantID }}"
+          "-DCucumberAlias-ExternalAzureSubscriptionID=${{ secrets.ExternalAzureSubscriptionID }}"
+          "-DCucumberAlias-ExternalEnvironmentName=Test"
+          "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
+          "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
+          "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeedvidtest')]]"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-create-azure-webapp-target.feature
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      - name: Create Prod Azure target
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-DmoveCursorToElement=true"
+          "-DmouseMoveVerticalOffset=74"
+          "-DdisableVideoRecording=true"
+          "-DdisableScreenshots=true"
+          "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+          "-DslackStepHandlerEnabled=true"
+          "-DscreenshotS3Enabled=true"
+          "-DscreenshotS3Bucket=octopus-guides-screenshots"
+          "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+          "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+          "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
+          "-DCucumberAlias-ExternalApplicationTenantID=${{ secrets.ExternalApplicationTenantID }}"
+          "-DCucumberAlias-ExternalAzureTenantID=${{ secrets.ExternalAzureTenantID }}"
+          "-DCucumberAlias-ExternalAzureSubscriptionID=${{ secrets.ExternalAzureSubscriptionID }}"
+          "-DCucumberAlias-ExternalEnvironmentName=Prod"
+          "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
+          "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
+          "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeedvidprod')]]"
+          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+          --monochrome
+          features\octopus\octopus-create-azure-webapp-target.feature
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create Octopus Project
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        features\octopus\octopus-aspnet-project.feature
+    - name: Open Random Quotes
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\open-randomquotes-iis-dev.feature
+    - name: Add a deployment step
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        features\jenkins\jenkins-create-deploy.feature
+    - name: Add a lifecycle
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-lifecycle.feature
+    - name: Open Random Quotes in the test environment
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\open-randomquotes-iis-test.feature
+    - name: Add manual intervention
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-manual-intervention.feature
+    - name: Add email notification
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-email-notification.feature
+    - name: Add users and team
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-users-and-teams.feature
+    - name: View internal deployer dashboard
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-view-internal-deployments.feature
+    - name: View production deployer dashboard
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-view-production-deployments.feature
+    - name: View audit logs
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        features\octopus\octopus-audit-log.feature
+    - name: Convert video
+      run: for %%a in (c:\screenshots\*.avi) do "C:\Program Files\VideoLAN\VLC\vlc.exe" -I dummy -vvv "%%a" --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=mp4,dst="c:\screenshots\%%~na.mp4"} vlc://quit
+    - name: Merge video
+      shell: powershell
+      run: Start-Process -FilePath "C:\Program Files\VideoLAN\VLC\vlc.exe" -Wait -ArgumentList (@("-I", "dummy", "-vvv") + $(gci C:\screenshots\*.mp4 | ?{$_.Name -ne "video.mp4"} | %{"`"" + $_.FullName + "`""}) + @("--sout", "#gather:std{access=file,mux=mp4,dst=c:\screenshots\video.mp4}", "--no-sout-all", "--sout-keep", "vlc://quit"))
+    - name: Speed up video
+      shell: powershell
+      run: Start-Process -FilePath "C:\ProgramData\chocolatey\bin\ffmpeg.exe" -Wait -ArgumentList (@("-i", "c:\screenshots\video.mp4", "-filter:v", "setpts=0.5*PTS", "c:\screenshots\fast.mp4"))
+    - name: Upload video
+      shell: powershell
+      run: |
+        ls c:\screenshots
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnet-jenkins-octopus-builtin-feed-azure.mp4 --acl public-read
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+#      - name: Delete resource groups
+#        shell: powershell
+#        run: |
+#          ./delete-resource-group.ps1 "jenkinsaspnetbuiltinfeedviddev"
+#          ./delete-resource-group.ps1 "jenkinsaspnetbuiltinfeedvidtest"
+#          ./delete-resource-group.ps1 "jenkinsaspnetbuiltinfeedvidprod"
