@@ -1,8 +1,8 @@
 name: ASP.NET Jenkins Octopus Built-in Feed Azure WebSites Screenshots
-on: [push]
-#on:
-#  schedule:
-#    - cron:  '0 17 * * *'
+#on: [push]
+on:
+  schedule:
+    - cron:  '0 17 * * *'
 jobs:
   build:
     runs-on: windows-2019
@@ -157,6 +157,7 @@ jobs:
           "-DmoveCursorToElement=true"
           "-DmouseMoveVerticalOffset=74"
           "-DdisableVideoRecording=true"
+          "-DdisableScreenshots=true"
           "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
           "-DslackStepHandlerEnabled=true"
           "-DscreenshotS3Enabled=true"

@@ -162,8 +162,13 @@ Feature: Configure an Octopus ASP.NET project
     And I mouse over the "Deploy an Azure Web App" tile
     And I click the "Add" button
 
+    And I highlight outside the "Configure features" button
     And I click the "Configure features" button
+
+    And I highlight outside the "Configuration Variables" option
+    And I highlight outside the "OK" button
     And I force click the "Configuration Variables" option
+    And I save a screenshot to "C:\screenshots\octopus\project\046-octopus-azure-enable-conf-vars.png"
     And I click the "OK" button
 
     And I highlight outside the "Step Name" text box
