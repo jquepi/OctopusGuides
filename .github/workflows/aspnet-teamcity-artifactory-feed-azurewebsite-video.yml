@@ -1,8 +1,8 @@
-name: ASP.NET Azure DevOps Octopus Built-in Feed Azure Websites Video
+name: ASP.NET TeamCity Artifactory Feed Azure Website Video
 #on: [push]
 on:
   schedule:
-    - cron:  '0 20 * * *'
+    - cron:  '0 1 * * *'
 jobs:
   build:
     runs-on: windows-2019
@@ -14,12 +14,38 @@ jobs:
     - name: Create Web App
       shell: powershell
       run: |
-        ./create-azure-web-app "azuredevopsaspnetbuiltinfeedviddev"
-        ./create-azure-web-app "azuredevopsaspnetbuiltinfeedvidtest"
-        ./create-azure-web-app "azuredevopsaspnetbuiltinfeedvidprod"
+        ./create-azure-web-app "teamcityaspnetbuiltinfeedviddev"
+        ./create-azure-web-app "teamcityaspnetbuiltinfeedvidtest"
+        ./create-azure-web-app "teamcityaspnetbuiltinfeedvidprod"
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts azuredevops.pp,utilities.pp,octopus.pp,iis.pp,sleep.pp,sleep.pp,azurewait.pp
+      run: ./install.ps1 -Scripts utilities.pp,artifactory.pp,teamcity.pp,octopus.pp,iis.pp,sleep.pp,teamcitywait.pp
+    - name: Configure Artifactory
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\artifactory\artifactory-setup.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Create API key
       shell: powershell
       run: >
@@ -38,7 +64,6 @@ jobs:
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
         --monochrome
         features\octopus\octopus-api-key.feature
       env:
@@ -48,7 +73,7 @@ jobs:
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
-    - name: Add project
+    - name: Initial Team City Configuration
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
@@ -59,22 +84,75 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
-        "-DdisableBrowserZoom=true"
         "-DnoProxyList=microsoft.com"
+        "-DdumpAliasesOnFailure=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DretryCount=1"
+        "-Djava.util.logging.config.file=logging.properties"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        --plugin progress
+        features\teamcity\teamcity-setup.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Add Project
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DdumpAliasesOnFailure=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        --plugin progress
+        --tags "not @destinationspecific or @azure-web-app"
+        --tags "not @repositoryspecific or @artifactory"
+        features\teamcity\teamcity-aspnet-project.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create the Octopus External Feed
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "not @destinationspecific or @azure-web-app"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
-        features\azuredevops\azuredevops-aspnet-project.feature
+        features\octopus\octopus-artifactory-feed.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -94,7 +172,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
@@ -151,7 +229,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Dev"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetbuiltinfeedviddev')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'teamcityaspnetbuiltinfeedviddev')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -184,7 +262,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Test"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetbuiltinfeedvidtest')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'teamcityaspnetbuiltinfeedvidtest')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -217,11 +295,39 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Prod"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetbuiltinfeedvidprod')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'teamcityaspnetbuiltinfeedvidprod')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-create-azure-webapp-target.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create Octopus Project
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DdumpAliasesOnFailure=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --monochrome
+        --plugin progress
+        --tags "not @destinationspecific or @azure-web-app"
+        --tags "not @repositoryspecific or @artifactory"
+        features\octopus\octopus-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -236,7 +342,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
-        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetbuiltinfeedviddev.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://teamcityaspnetbuiltinfeedviddev.azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
@@ -255,21 +361,21 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
-        "-DdisableBrowserZoom=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
         --monochrome
+        --plugin progress
         --tags "not @destinationspecific or @azure-web-app"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
-        features\azuredevops\azuredevops-create-deploy.feature
+        --tags "not @repositoryspecific or @artifactory"
+        features\teamcity\teamcity-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -289,11 +395,11 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
         --monochrome
+        --plugin progress
         features\octopus\octopus-lifecycle.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -309,7 +415,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=false"
-        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetbuiltinfeedvidtest.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://teamcityaspnetbuiltinfeedvidtest.azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
@@ -334,11 +440,11 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
         --monochrome
+        --plugin progress
         features\octopus\octopus-manual-intervention.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -360,11 +466,11 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
         --monochrome
+        --plugin progress
         features\octopus\octopus-email-notification.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -385,11 +491,11 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
         --monochrome
+        --plugin progress
         features\octopus\octopus-users-and-teams.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -410,11 +516,11 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
         --monochrome
+        --plugin progress
         features\octopus\octopus-view-internal-deployments.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -435,7 +541,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
@@ -460,7 +566,7 @@ jobs:
         "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
@@ -483,7 +589,7 @@ jobs:
       shell: powershell
       run: |
         ls c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnet-azuredevops-octopus-builtin-feed-azure.mp4 --acl public-read
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnet-teamcity-artifactory-feed-azure.mp4 --acl public-read
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -491,6 +597,6 @@ jobs:
 #      - name: Delete resource groups
 #        shell: powershell
 #        run: |
-#          ./delete-resource-group.ps1 "azuredevopsaspnetbuiltinfeedviddev"
-#          ./delete-resource-group.ps1 "azuredevopsaspnetbuiltinfeedvidtest"
-#          ./delete-resource-group.ps1 "azuredevopsaspnetbuiltinfeedvidprod"
+#          ./delete-resource-group.ps1 "teamcityaspnetbuiltinfeedviddev"
+#          ./delete-resource-group.ps1 "teamcityaspnetbuiltinfeedvidtest"
+#          ./delete-resource-group.ps1 "teamcityaspnetbuiltinfeedvidprod"

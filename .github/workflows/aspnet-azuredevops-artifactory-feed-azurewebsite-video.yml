@@ -1,8 +1,8 @@
-name: ASP.NET Azure DevOps Octopus Built-in Feed Azure Websites Video
+name: ASP.NET Azure DevOps Artifactory Feed Azure Website Video
 #on: [push]
 on:
   schedule:
-    - cron:  '0 20 * * *'
+    - cron:  '0 19 * * *'
 jobs:
   build:
     runs-on: windows-2019
@@ -14,12 +14,38 @@ jobs:
     - name: Create Web App
       shell: powershell
       run: |
-        ./create-azure-web-app "azuredevopsaspnetbuiltinfeedviddev"
-        ./create-azure-web-app "azuredevopsaspnetbuiltinfeedvidtest"
-        ./create-azure-web-app "azuredevopsaspnetbuiltinfeedvidprod"
+        ./create-azure-web-app "azuredevopsaspnetartifactoryfeedviddev"
+        ./create-azure-web-app "azuredeopsaspnetartifactoryfeedvidtest"
+        ./create-azure-web-app "azuredevopsaspnetartifactoryfeedvidprod"
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts azuredevops.pp,utilities.pp,octopus.pp,iis.pp,sleep.pp,sleep.pp,azurewait.pp
+      run: ./install.ps1 -Scripts azuredevops.pp,artifactory.pp,utilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp
+    - name: Configure Artifactory
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\artifactory\artifactory-setup.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Create API key
       shell: powershell
       run: >
@@ -64,7 +90,7 @@ jobs:
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
+        "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
@@ -73,8 +99,35 @@ jobs:
         --plugin progress
         --monochrome
         --tags "not @destinationspecific or @azure-web-app"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
+        --tags "not @repositoryspecific or @artifactory"
         features\azuredevops\azuredevops-aspnet-project.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create the Octopus External Feed
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DdumpAliasesOnFailure=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\octopus\octopus-artifactory-feed.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -151,7 +204,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Dev"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetbuiltinfeedviddev')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetartifactoryfeedviddev')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -184,7 +237,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Test"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetbuiltinfeedvidtest')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredeopsaspnetartifactoryfeedvidtest')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -217,11 +270,39 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Prod"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetbuiltinfeedvidprod')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetartifactoryfeedvidprod')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-create-azure-webapp-target.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create Octopus Project
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DdumpAliasesOnFailure=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        --tags "not @destinationspecific or @azure-web-app"
+        --tags "not @repositoryspecific or @artifactory"
+        features\octopus\octopus-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -235,13 +316,18 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableVideoRecording=false"
-        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetbuiltinfeedviddev.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        features\octopus\open-randomquotes-azurewebapp.feature
+        features\octopus\open-randomquotes-iis-dev.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -258,8 +344,9 @@ jobs:
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
         "-DdisableBrowserZoom=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
+        "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
@@ -268,7 +355,7 @@ jobs:
         --plugin progress
         --monochrome
         --tags "not @destinationspecific or @azure-web-app"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
+        --tags "not @repositoryspecific or @artifactory"
         features\azuredevops\azuredevops-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -299,7 +386,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    - name: Open Random Quotes
+    - name: Open Random Quotes in the test environment
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
@@ -308,13 +395,18 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableVideoRecording=false"
-        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetbuiltinfeedvidtest.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        features\octopus\open-randomquotes-azurewebapp.feature
+        features\octopus\open-randomquotes-iis-test.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -483,7 +575,7 @@ jobs:
       shell: powershell
       run: |
         ls c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnet-azuredevops-octopus-builtin-feed-azure.mp4 --acl public-read
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnet-azuredevops-artifactory-feed-azure.mp4 --acl public-read
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -491,6 +583,6 @@ jobs:
 #      - name: Delete resource groups
 #        shell: powershell
 #        run: |
-#          ./delete-resource-group.ps1 "azuredevopsaspnetbuiltinfeedviddev"
-#          ./delete-resource-group.ps1 "azuredevopsaspnetbuiltinfeedvidtest"
-#          ./delete-resource-group.ps1 "azuredevopsaspnetbuiltinfeedvidprod"
+#          ./delete-resource-group.ps1 "azuredevopsaspnetartifactoryfeedviddev"
+#          ./delete-resource-group.ps1 "azuredeopsaspnetartifactoryfeedvidtest"
+#          ./delete-resource-group.ps1 "azuredevopsaspnetartifactoryfeedvidprod"
