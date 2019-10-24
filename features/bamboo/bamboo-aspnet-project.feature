@@ -336,7 +336,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\154-run-tests.png"
     And I click the "Save" button
 
-  @octo-built-in-feed
+  @destinationspecific @octo-built-in-feed
   Scenario: Add Octopus Push
     Given I set the following aliases:
       | Add task                           | //a[@id='addTask']                                                                                           |
@@ -383,7 +383,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\180-octo-push.png"
     And I click the "Save" button
 
-  @artifactory
+  @destinationspecific @artifactory
   Scenario: Add Octopus Push
     Given I set the following aliases:
       | Add task         | //a[@id='addTask']                                                                    |

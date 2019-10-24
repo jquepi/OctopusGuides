@@ -187,7 +187,7 @@ Feature: Create ASP.NET project
 
     And I stop recording the screen
 
-  @create-project @artifactory
+  @create-project @destinationspecific @artifactory
   Scenario: Add artifactory push step
     Given I set the following aliases:
       | Add build step        | //a[contains(.,'Add build step')]                      |
@@ -262,7 +262,7 @@ Feature: Create ASP.NET project
     And I click the "Save" button
     And I stop recording the screen
 
-  @create-project @octo-built-in-feed
+  @create-project @destinationspecific @octo-built-in-feed
   Scenario: Add octopus push step
     Given I set the following aliases:
       | Add build step               | //a[contains(.,'Add build step')]                      |

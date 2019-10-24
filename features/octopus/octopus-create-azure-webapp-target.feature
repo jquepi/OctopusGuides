@@ -34,7 +34,6 @@ Feature: Create Azure Web App Target
       | Account                 | //div[../../div[text()='Select account']]                                                               |
       | Azure account           | //span[./div/div/div[text()='Azure']]                                                                   |
       | Azure Web App List      | //div[../../div[text()='Web app']]                                                                      |
-      | Azure Web App Option    | //span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeeddev')]]                                        |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating Azure deployment targets" for "3" seconds
