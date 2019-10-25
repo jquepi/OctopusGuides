@@ -1,6 +1,6 @@
 name: ASP.NET Azure DevOps Artifactory Feed Azure Website Video
-#on: [push]
 on:
+  #push:
   schedule:
     - cron:  '0 19 * * *'
 jobs:
@@ -316,18 +316,13 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
+        "-DdisableVideoRecording=false"
+        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetartifactoryfeedviddev.azurewebsites.net/"
+        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        features\octopus\open-randomquotes-iis-dev.feature
+        features\octopus\open-randomquotes-azurewebapp.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -386,7 +381,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    - name: Open Random Quotes in the test environment
+    - name: Open Random Quotes
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
@@ -395,18 +390,13 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
+        "-DdisableVideoRecording=false"
+        "-DCucumberAlias-ExternalUrl=https://azuredeopsaspnetartifactoryfeedvidtest.azurewebsites.net/"
+        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        features\octopus\open-randomquotes-iis-test.feature
+        features\octopus\open-randomquotes-azurewebapp.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
