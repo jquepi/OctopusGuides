@@ -248,7 +248,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --plugin progress
-        --tags "not @destinationspecific or @azure-web-ap"
+        --tags "not @destinationspecific or @azure-web-app"
         --tags "not @repositoryspecific or @octo-built-in-feed"
         features\octopus\octopus-aspnet-project.feature
       env:
