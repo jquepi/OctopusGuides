@@ -1,6 +1,5 @@
 name: ASP.NET Bamboo Octopus Artifactory Feed Azure Website Video
-#on: [push]
-on:
+on: [push, schedule]
   schedule:
     - cron:  '0 21 * * *'
 jobs:
