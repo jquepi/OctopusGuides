@@ -11,7 +11,7 @@ Feature: Open Random Quotes
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Running the Random Quotes sample application" for "3" seconds
     And I save a screenshot to "Screenshot"
-    And I click the "Refresh" button
+    And I click the "Refresh" button waiting up to "300" seconds
     And I sleep for "2" seconds
 
   Scenario: Shutdown
