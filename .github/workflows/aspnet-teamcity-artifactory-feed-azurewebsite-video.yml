@@ -1,6 +1,6 @@
 name: ASP.NET TeamCity Artifactory Feed Azure Website Video
 on:
-  push:
+  #push:
   schedule:
     - cron:  '0 1 * * *'
 jobs:
