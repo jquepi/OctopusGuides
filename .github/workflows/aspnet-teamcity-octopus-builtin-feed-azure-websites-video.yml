@@ -1,6 +1,6 @@
 name: ASP.NET TeamCity Octopus Built-in Feed Azure Websites Video
 on:
-  push:
+  #push:
   schedule:
     - cron:  '0 2 * * *'
 jobs:
@@ -508,7 +508,7 @@ jobs:
       run: Start-Process -FilePath "C:\Program Files\VideoLAN\VLC\vlc.exe" -Wait -ArgumentList (@("-I", "dummy", "-vvv") + $(gci C:\screenshots\*.mp4 | ?{$_.Name -ne "video.mp4"} | %{"`"" + $_.FullName + "`""}) + @("--sout", "#gather:std{access=file,mux=mp4,dst=c:\screenshots\video.mp4}", "--no-sout-all", "--sout-keep", "vlc://quit"))
     - name: Speed up video
       shell: powershell
-      run: Start-Process -FilePath "C:\ProgramData\chocolatey\bin\ffmpeg.exe" -Wait -ArgumentList (@("-i", "c:\screenshots\video.mp4", "-filter:v", "setpts=0.5*PTS", "c:\screenshots\fast.mp4"))
+      run: Start-Process -FilePath "C:\ProgramData\chocolatey\bin\ffmpeg.exe" -Wait -ArgumentList (@("-i", "c:\screenshots\video.mp4", "-filter:v", "setpts=0.75*PTS", "c:\screenshots\fast.mp4"))
     - name: Upload video
       shell: powershell
       run: |
