@@ -186,6 +186,8 @@ Feature: Configure Bamboo
     And I highlight outside the "Plan name" text box with an offset of "5"
     And I populate the "Plan name" text box with "Website"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\040-plan-name.png"
+    And I remove the highlight from the "Project name" text box
+    And I remove the highlight from the "Plan name" text box
 
     And I highlight outside the "Repository host" drop down list
     And I scroll the "Repository host" drop down list into view offset by "-300"
@@ -205,6 +207,7 @@ Feature: Configure Bamboo
     And I scroll the "Repository URL" text box into view offset by "-300"
     And I populate the "Repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\070-repo-url.png"
+    And I remove the highlight from the "Git" option
     And I remove the highlight from the "Display name" text box
     And I remove the highlight from the "Repository URL" text box
 
@@ -263,7 +266,9 @@ Feature: Configure Bamboo
       """
       ace.edit(scriptBody).setValue("$ErrorActionPreference=\"SilentlyContinue\"\nC:\\ProgramData\\chocolatey\\bin\\nuget.exe restore")
       """
+    And I sleep for "1" second
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\115-nuget-restore.png"
+    And I remove the highlight from the "Script body" text box
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
@@ -329,6 +334,7 @@ Feature: Configure Bamboo
       """
       ace.edit(scriptBody).setValue(".\\packages\\NUnit.ConsoleRunner.3.10.0\\tools\\nunit3-console.exe `\n.\\RandomQuotes.Tests\\bin\\Debug\\RandomQuotes.Tests.dll")
       """
+    And I sleep for "1" second
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\153-run-tests.png"
     And I remove the highlight from the "Script body" text box
 
@@ -361,6 +367,10 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\170-search.png"
     And I click the "Octopus Deploy: Push Packages Tile" element
 
+    And I highlight outside the "Task description" text box with an offset of "5"
+    And I highlight outside the "Server URL" text box with an offset of "5"
+    And I highlight outside the "API key" text box with an offset of "5"
+
     And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "Push to Artifactory"
     And I scroll the "Server URL" text box into view offset by "-300"
@@ -368,15 +378,12 @@ Feature: Configure Bamboo
     And I populate the "Server URL" text box with "http://localhost"
     And I scroll the "API key" text box into view offset by "-300"
     And I populate the "API key" text box with "ExternalOctopusAPIKey"
-    And I scroll the "Package paths" text box into view offset by "-200"
-    And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\173-octo-push.png"
 
-    And I highlight outside the "Task description" text box with an offset of "5"
-    And I highlight outside the "Server URL" text box with an offset of "5"
-    And I highlight outside the "API key" text box with an offset of "5"
     And I highlight outside the "Package paths" text box with an offset of "5"
     And I highlight outside the "Save" button
-
+    And I scroll the "Package paths" text box into view offset by "-200"
+    And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\175-octo-push.png"
     And I remove the highlight from the "Package paths" text box
 

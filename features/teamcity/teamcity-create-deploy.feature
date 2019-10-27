@@ -80,6 +80,7 @@ Feature: Create and deploy a release
     And I highlight outside the "Octopus Environments" text box
     And I populate the "Octopus Environments" text box with "Dev"
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\060-create-release.png"
+    And I remove the highlight from the "Octopus Environments" text box
 
     And I scroll the "Save" button into view
     And I highlight outside the "Save" button
