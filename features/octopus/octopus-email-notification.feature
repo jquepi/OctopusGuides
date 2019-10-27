@@ -164,6 +164,7 @@ Feature: Add a manual intervention step
     And I mouse over the "Send an Email" tile
     And I click the "Add" button
 
+    And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box with an offset of "5"
     And I populate the "Step Name" text box with "Random quotes deployment status"
     And I sleep for "1" second

@@ -377,10 +377,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Save and queue three" button with an offset of "2"
     And I scroll the "Comment" text box into view offset by "100"
     And I populate the "Comment" text box with "Initial build"
+    And I zoom the browser out
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\160-initial-build.png"
     And I scroll the "Save and queue three" button into view
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\163-save-and-queue.png"
     And I click the "Save and queue three" button
+    And I zoom the browser in
     And I sleep for "3" seconds
 
     And I highlight outside the "Build link" element
