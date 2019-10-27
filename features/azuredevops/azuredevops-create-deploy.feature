@@ -131,13 +131,13 @@ Feature: Create and deploy a release
 
     And I highlight outside the "Octopus Deploy Space" drop down list with an offset of "2"
     And I click the "Space Refresh" button
-    And I sleep for "2" seconds
+    And I sleep for "5" seconds
     And I click the "Octopus Deploy Space" drop down list
     And I click the "Default Space" option
 
     And I highlight outside the "Octopus Deploy Project" drop down list with an offset of "2"
     And I click the "Project Refresh" button
-    And I sleep for "2" seconds
+    And I sleep for "5" seconds
     And I click the "Octopus Deploy Project" drop down list
     And I click the "Random Quotes Project" option
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\050-populated.png"
