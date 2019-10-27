@@ -308,6 +308,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Search" text box
     And I populate the "Search" text box with "Octopus Push"
+    And I sleep for "2" seconds
 
     And I highlight outside the "Push package title" element with an offset of "5"
     And I mouse over the "Push package title" element
