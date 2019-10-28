@@ -83,7 +83,12 @@ Feature: Create Azure Web App Target
     And I click the "Account" drop down list
     And I click the "Azure account" option
     And I save a screenshot to "C:\screenshots\octopus\azuretarget\070-target.png"
-    And I sleep for "15" seconds
+
+    # Pause the recording to remove some dead time in the video
+    And I sleep for "1" second
+    And I stop recording the screen
+    And I sleep for "14" seconds
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Azure Web App List" text box
     And I scroll the "Azure Web App List" drop down list into view offset by "-200"
