@@ -110,7 +110,6 @@ jobs:
           "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
           "-DmoveCursorToElement=true"
           "-DmouseMoveVerticalOffset=74"
-          "-DdisableHighlights=true"
           "-DdisableScreenshots=true"
           "-DdumpAliasesOnFailure=true"
           "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
