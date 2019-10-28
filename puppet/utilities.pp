@@ -67,9 +67,8 @@ package { 'visualstudio2017buildtools':
 }
 
 package { 'dotnetcore-sdk':
-  ensure   => installed,
+  ensure   => '2.2.402',
   provider => chocolatey,
-  version => '2.2.402'
 }
 
 package { 'kubernetes-helm':
