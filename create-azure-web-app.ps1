@@ -1,4 +1,7 @@
-param([String] $name)
+param(
+    [String] $name,
+    [String] $runtime = "aspnet|V4.7"
+)
 
 $exists = & az group exists --name $name
 if ($exists -eq "false") {
@@ -21,7 +24,7 @@ else {
 $apps = az webapp list --resource-group $name | ConvertFrom-Json
 if ($apps.Count -eq 0) {
     Write-Host "Webapp $name does not exist. Creating..."
-    az webapp create -g $name -p $name -n $name --% --runtime "aspnet|V4.7"
+    az webapp create -g $name -p $name -n $name --runtime $runtime
     az webapp log config -g $name -n $name --application-logging true --detailed-error-messages true --web-server-logging filesystem
 } else {
     Write-Host "Webapp $name already exists."
