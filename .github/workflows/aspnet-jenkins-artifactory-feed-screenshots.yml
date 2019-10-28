@@ -1,6 +1,6 @@
 name: ASP.NET Jenkins Artifactory Feed Screenshots
-#on: [push]
 on:
+  #push:
   schedule:
     - cron:  '0 17 * * *'
 jobs:
