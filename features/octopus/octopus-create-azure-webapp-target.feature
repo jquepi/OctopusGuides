@@ -28,6 +28,7 @@ Feature: Create Azure Web App Target
       | Save                    | //button[contains(.,'Save')]                                                                            |
       | Display Name            | //input[contains(@id,'Displayname')]                                                                    |
       | Environments            | //input[@title='Select environments']                                                                   |
+      | Environments Container  | //div[./div/div/div/input[@title='Select environments']]                                        |
       | Dev environment         | //span[./div/div/div[text()='Dev']]                                                                     |
       | Target Roles            | //input[@title='Roles (type to add new)']                                                               |
       | Target Roles Container  | //div[./div/div/div/input[@title='Roles (type to add new)']]                                            |
@@ -65,7 +66,7 @@ Feature: Create Azure Web App Target
     And I populate the "Display Name" text box with "ExternalTargetName"
     And I save a screenshot to "C:\screenshots\octopus\azuretarget\050-target.png"
 
-    And I highlight outside the "Environments" text box
+    And I highlight inside the "Environments Container" element
     And I scroll the "Environments" text box into view offset by "-200"
     And I populate the "Environments" text box with "ExternalEnvironmentName"
     And I click the "ExternalEnvironment" option
