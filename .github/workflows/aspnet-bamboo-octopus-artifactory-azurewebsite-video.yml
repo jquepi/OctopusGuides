@@ -168,6 +168,7 @@ jobs:
         "-DdisableVideoRecording=false"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DdisableBrowserZoom=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"

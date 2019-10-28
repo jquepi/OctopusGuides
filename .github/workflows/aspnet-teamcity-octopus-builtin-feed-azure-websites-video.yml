@@ -115,6 +115,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
+        "-DdisableBrowserZoom=true"
         "-DdisableVideoRecording=false"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"

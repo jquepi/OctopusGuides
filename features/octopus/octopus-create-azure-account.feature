@@ -43,7 +43,9 @@ Feature: Create Azure Account
     And I force click the "More" link waiting up to "5" seconds if it exists
     And I highlight outside the "More" link with an offset of "5"
     And I highlight inside the "Accounts" link
+    And I zoom the browser out
     And I save a screenshot to "C:\screenshots\octopus\azureaccount\020-accounts.png"
+    And I zoom the browser in
     And I click the "Accounts" link
 
     And I highlight inside the "Add Account" link with an offset of "5"
