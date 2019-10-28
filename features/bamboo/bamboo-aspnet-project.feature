@@ -428,6 +428,7 @@ Feature: Configure Bamboo
       """
       ace.edit(scriptBody).setValue("C:\\ProgramData\\chocolatey\\bin\\nuget.exe push `\n-Source Artifactory `\nRandomQuotes\\obj\\octopacked\\RandomQuotes.1.0.${bamboo.buildNumber}.nupkg")
       """
+    And I sleep for "1" second
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\180-nuget-push.png"
 
     And I highlight outside the "Save" button
