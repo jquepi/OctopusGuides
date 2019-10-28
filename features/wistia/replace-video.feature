@@ -14,3 +14,6 @@ Feature: Replace Video
     And I click the "overwrite" option
     And I populate the "(//input[@type='file'])[2]" file selector with a keystroke delay of "0" with "c:\screenshots\fast.mp4"
     And I sleep for "120" seconds
+
+  Scenario: Shutdown
+    And I close the browser
