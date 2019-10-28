@@ -14,9 +14,9 @@ jobs:
     - name: Create Web App
       shell: powershell
       run: |
-        ./create-azure-web-app "bambooaspnetbuiltinfeedviddev"
-        ./create-azure-web-app "bambooaspnetbuiltinfeedvidtest"
-        ./create-azure-web-app "bambooaspnetbuiltinfeedvidprod"
+        ./create-azure-web-app "bambooaspnetartifactoryfeedviddev"
+        ./create-azure-web-app "bambooaspnetartifactoryfeedvidtest"
+        ./create-azure-web-app "bambooaspnetartifactoryfeedvidprod"
     - name: Execute puppet
       shell: powershell
       run: ./install.ps1 -Scripts utilities.pp,artifactory.pp,bamboo.pp,octopus.pp,iis.pp,sleep.pp,bamboowait.pp
@@ -208,7 +208,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Dev"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'bambooaspnetbuiltinfeedviddev')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'bambooaspnetartifactoryfeedviddev')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -242,7 +242,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Test"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'bambooaspnetbuiltinfeedvidtest')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'bambooaspnetartifactoryfeedvidtest')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -276,7 +276,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Prod"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'bambooaspnetbuiltinfeedvidprod')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'bambooaspnetartifactoryfeedvidprod')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -325,7 +325,7 @@ jobs:
         "-DdisableVideoRecording=false"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
-        "-DCucumberAlias-ExternalUrl=https://bambooaspnetbuiltinfeedviddev.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://bambooaspnetartifactoryfeedviddev.azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
@@ -398,7 +398,7 @@ jobs:
         "-DdisableVideoRecording=false"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
-        "-DCucumberAlias-ExternalUrl=https://bambooaspnetbuiltinfeedvidtest.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://bambooaspnetartifactoryfeedvidtest.azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
@@ -425,6 +425,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
+        "-DCucumberAlias-ApplicationURL=[http://localhost:#{IIS Port}](http://localhost:#{IIS Port})"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --plugin progress
@@ -580,6 +581,6 @@ jobs:
     - name: Delete resource groups
       shell: powershell
       run: |
-        ./delete-resource-group.ps1 "bambooaspnetbuiltinfeedviddev"
-        ./delete-resource-group.ps1 "bambooaspnetbuiltinfeedvidtest"
-        ./delete-resource-group.ps1 "bambooaspnetbuiltinfeedvidprod"
+        ./delete-resource-group.ps1 "bambooaspnetartifactoryfeedviddev"
+        ./delete-resource-group.ps1 "bambooaspnetartifactoryfeedvidtest"
+        ./delete-resource-group.ps1 "bambooaspnetartifactoryfeedvidprod"

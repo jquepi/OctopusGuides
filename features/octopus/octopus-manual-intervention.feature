@@ -79,7 +79,7 @@ Feature: Add a manual intervention step
 
     And I scroll the "Instructions" text box into view offset by "-300"
     And I highlight outside the "Instructions container" element
-    And I populate the "Instructions" text box with "Open the application at [http://localhost:#{IIS Port}](http://localhost:#{IIS Port}) and confirm it meets all the requirements."
+    And I populate the "Instructions" text box with "Open the application at #{ApplicationURL} and confirm it meets all the requirements."
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\intervention\030-octopus-step-instructions.png"
     And I remove the highlight from the "Instructions container" element

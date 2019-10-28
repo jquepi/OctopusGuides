@@ -301,6 +301,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableScreenshots=true"
         "-DdisableHighlights=true"
+        "-DCucumberAlias-ApplicationURL=[http://localhost:#{IIS Port}](http://localhost:#{IIS Port})"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
