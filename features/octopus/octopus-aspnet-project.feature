@@ -356,6 +356,7 @@ Feature: Configure an Octopus ASP.NET project
       | Save | //button[contains(.,'Save')] |
 
     And I highlight outside the "Save" button
+    And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\061-octopus-step-package-artifactory-azure-save.png"
 
     And I click the "Save" button
