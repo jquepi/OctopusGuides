@@ -355,6 +355,9 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Save | //button[contains(.,'Save')] |
 
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\octopus\project\061-octopus-step-package-artifactory-azure-save.png"
+
     And I click the "Save" button
     And I sleep for "2" seconds
 
