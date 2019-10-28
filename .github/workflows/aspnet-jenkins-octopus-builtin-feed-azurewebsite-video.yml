@@ -54,6 +54,7 @@ jobs:
         --plugin progress
         --monochrome
         --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        --tags "not @applicationspecific or @aspnet"
         features\jenkins\jenkins-aspnet-git.feature
     - name: Create the Octopus Environments
       shell: powershell
@@ -214,6 +215,7 @@ jobs:
         --plugin progress
         --monochrome
         --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        --tags "not @applicationspecific or @aspnet"
         features\octopus\octopus-aspnet-project.feature
     - name: Open Random Quotes
       shell: powershell
@@ -252,6 +254,7 @@ jobs:
         --plugin progress
         --monochrome
         --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        --tags "not @applicationspecific or @aspnet"
         features\jenkins\jenkins-create-deploy.feature
     - name: Add a lifecycle
       shell: powershell

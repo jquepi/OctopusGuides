@@ -21,7 +21,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Then I verify the text from the "Profile Name" element matches the regex "jenkinsadmin"
     And I start recording the screen to the directory "C:\screenshots"
 
-  @plugin-install
+  @plugin-install @applicationspecific @aspnet
   Scenario: Install plugins
     Given I set the following aliases:
       | Manage Jenkins           | //a[@class='task-link' and contains(.,'Manage Jenkins')] |
@@ -60,7 +60,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     # fake a click
     And I open the URL "http://localhost:8080/"
 
-  @configure-tools
+  @configure-tools @applicationspecific @aspnet
   Scenario: Configure tools
     Given I set the following aliases:
       | Manage Jenkins            | //a[@class='task-link' and contains(.,'Manage Jenkins')]                                              |
