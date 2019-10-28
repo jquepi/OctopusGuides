@@ -162,7 +162,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
-  @configure-project
+  @configure-project @applicationspecific @aspnet
   Scenario: Create the project
     Given I set the following aliases:
       | New Item                                                | //a[contains(.,'New Item')]                                                       |
@@ -293,7 +293,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\128-nunit-test.png"
     And I remove the highlight from the "Command Two" text box
 
-  @configure-project @repositoryspecific @artifactory
+  @configure-project @repositoryspecific @artifactory @applicationspecific @aspnet
   Scenario: Add Artifactory Push Step
     Given I set the following aliases:
       | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
@@ -319,7 +319,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Save" button
     And I stop recording the screen
 
-  @configure-project @repositoryspecific @octo-built-in-feed
+  @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnet
   Scenario: Add Octopus Push Step
     Given I set the following aliases:
       | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
