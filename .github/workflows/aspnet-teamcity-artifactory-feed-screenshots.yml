@@ -31,7 +31,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
-        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
+        "-DCucumberAlias-ScreenshotDir=aspnet-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -63,7 +63,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
-        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
+        "-DCucumberAlias-ScreenshotDir=aspnet-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --plugin progress
@@ -92,7 +92,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
-        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
+        "-DCucumberAlias-ScreenshotDir=aspnet-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --plugin progress
@@ -122,7 +122,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
-        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
+        "-DCucumberAlias-ScreenshotDir=aspnet-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -143,7 +143,7 @@ jobs:
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
+        "-DCucumberAlias-ScreenshotDir=aspnet-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -166,7 +166,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         "-DdisableScreenshots=true"
-        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
+        "-DCucumberAlias-ScreenshotDir=aspnet-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -198,7 +198,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
-        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
+        "-DCucumberAlias-ScreenshotDir=aspnet-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
