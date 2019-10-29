@@ -22,12 +22,12 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Hide wizard" button
 
   @create-project @destinationspecific @iis
-  Scenario: Display annotation
+  Scenario: IIS - Display annotation
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating the IIS deployment project in Octopus" for "3" seconds
 
   @create-project @destinationspecific @azure-web-app
-  Scenario: Display annotation
+  Scenario: Azure Web App - Display annotation
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating the Azure Web App deployment project in Octopus" for "3" seconds
 
@@ -58,19 +58,11 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Save" button
     And I sleep for "2" seconds
 
-  @define-project
-  Scenario: Define project variables
+  @define-variables
+  Scenario: Open the variables section
     Given I set the following aliases:
-      | Save                    | //button[contains(.,'Save')]                                                                                                                                 |
-      | Deployments             | //a[contains(.,'Deployments')]                                                                                                                               |
-      | Overview                | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview']                                                                                           |
-      | Variables               | //a[contains(.,'Variables')]                                                                                                                                 |
-      | Variables text          | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
-      | New variable name       | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
-      | New variable value      | //input[contains(@id,'Entervalue')]                                                                                                                          |
-      | Project Variables       | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
-      | Project Variables Title | //h2[contains(.,'Project Variables')]                                                                                                                        |
-      | Add to list             | //button[@title='Add To List']                                                                                                                               |
+      | Variables      | //a[contains(.,'Variables')]                                         |
+      | Variables text | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables'] |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
@@ -83,7 +75,33 @@ Feature: Configure an Octopus ASP.NET project
     And I force click the "Project Variables" link
     And I remove the highlight from the "Variables text" link
 
+  @define-variables @applicationspecific @aspnet
+  Scenario: ASP.NET - Define project EnvironmentName Variable
+    ASP.NET apps use the Configuration Variables feature, which matches variables to those in the .config files
+    Given I set the following aliases:
+      | New variable name       | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
+      | New variable value      | //input[contains(@id,'Entervalue')]                                                                                                                          |
+      | Project Variables       | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
+      | Project Variables Title | //h2[contains(.,'Project Variables')]                                                                                                                        |
+      | Add to list             | //button[@title='Add To List']                                                                                                                               |
+
     And I populate the "New variable name" text box with "EnvironmentName"
+    And I populate the "New variable value" text box with "#{Octopus.Environment.Name}"
+    And I sleep for "1" second
+    And I click the "Add to list" button
+    And I force click the "Project Variables Title" element
+
+  @define-variables @applicationspecific @aspnetcore
+  Scenario: ASP.NET Core - Define project EnvironmentName Variable
+    ASP.NET Core apps use the JSON Configuration Variables feature, which uses the parent:child syntax for variables.
+    Given I set the following aliases:
+      | New variable name       | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
+      | New variable value      | //input[contains(@id,'Entervalue')]                                                                                                                          |
+      | Project Variables       | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
+      | Project Variables Title | //h2[contains(.,'Project Variables')]                                                                                                                        |
+      | Add to list             | //button[@title='Add To List']                                                                                                                               |
+
+    And I populate the "New variable name" text box with "AppSettings:EnvironmentName"
     And I populate the "New variable value" text box with "#{Octopus.Environment.Name}"
     And I sleep for "1" second
     And I click the "Add to list" button
@@ -132,7 +150,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\025-octopus-variables-populated.png"
 
   @define-project @destinationspecific @azure-web-app
-  Scenario: Define iis ports
+  Scenario: Save the variables
     Given I set the following aliases:
       | Save | //button[contains(.,'Save')] |
 
@@ -142,7 +160,7 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\025-octopus-variables-azure-populated.png"
 
   @define-project
-  Scenario: Save the variables
+  Scenario: Open the deployments view
     Given I set the following aliases:
       | Overview    | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview'] |
       | Deployments | //a[contains(.,'Deployments')]                                     |
@@ -351,7 +369,7 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @azure-web-app
-  Scenario: Continue to define project
+  Scenario: Azure Web apps - Continue to define project
     Given I set the following aliases:
       | Save | //button[contains(.,'Save')] |
 
@@ -363,7 +381,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "2" seconds
 
   @define-project @destinationspecific @iis
-  Scenario: Continue to define project
+  Scenario: IIS - Continue to define project
     Given I set the following aliases:
       | Web site name                             | //input[contains(@id, 'Websitename')]                                                                                                                        |
       | Enable Anonymous authentication           | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                                                                             |
