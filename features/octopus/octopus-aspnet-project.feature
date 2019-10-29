@@ -80,10 +80,10 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: ASP.NET - Define project EnvironmentName Variable
   ASP.NET apps use the Configuration Variables feature, which matches variables to those in the .config files
     Given I set the following aliases:
-      | New variable name       | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
-      | New variable value      | //input[contains(@id,'Entervalue')]                                                                                                                          |
-      | Project Variables Title | //h2[contains(.,'Project Variables')]                                                                                                                        |
-      | Add to list             | //button[@title='Add To List']                                                                                                                               |
+      | New variable name       | //input[contains(@id,'Enternewvariable')] |
+      | New variable value      | //input[contains(@id,'Entervalue')]       |
+      | Project Variables Title | //h2[contains(.,'Project Variables')]     |
+      | Add to list             | //button[@title='Add To List']            |
 
     And I populate the "New variable name" text box with "EnvironmentName"
     And I populate the "New variable value" text box with "#{Octopus.Environment.Name}"
@@ -309,10 +309,10 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis
   Scenario: Define IIS project
     Given I set the following aliases:
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
-      | Step Name                      | //input[contains(@id, 'Stepname')]                                                                  |
-      | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                        |
-      | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
+      | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
+      | Step Name                | //input[contains(@id, 'Stepname')]                                                                  |
+      | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
+      | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy web app to IIS"
@@ -496,14 +496,15 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: ASP.NET Core Configure Features
   Configure the JSON Configuration variables section
     Given I set the following aliases:
-      | Target files | //textarea[contains(@id,'Targetfiles')] |
+      | Target files           | //textarea[contains(@id,'Targetfiles')]        |
+      | Target files container | //div[./textarea[contains(@id,'Targetfiles')]] |
 
     And I scroll the "Target files" text box into view offset by "-200"
-    And I highlight outside the "Target files" text box
+    And I highlight outside the "Target files container" element
     And I populate the "Target files" text box with "appsettings.json"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}092-octopus-target-files.png"
-    And I remove the highlight from the "Target files" text box
+    And I remove the highlight from the "Target files container" element
 
   @define-project
   Scenario: Save the project

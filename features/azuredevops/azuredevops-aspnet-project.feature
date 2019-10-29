@@ -151,8 +151,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @create-project @applicationspecific @aspnet
   Scenario: Create project
     Given I set the following aliases:
-      | ASP.NET Row            | //div[./div/div/div/div[text()='Build and test an ASP.NET web application.']]   |
-      | ASP.NET                | //button[./div/span[text()='Apply ASP.NET template']]                           |
+      | ASP.NET Row | //div[./div/div/div/div[text()='Build and test an ASP.NET web application.']] |
+      | ASP.NET     | //button[./div/span[text()='Apply ASP.NET template']]                         |
 
     And I highlight inside the "ASP.NET Row" element
     And I mouse over the "ASP.NET Row" element
@@ -162,7 +162,21 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I sleep for "1" seconds
     And I stop recording the screen
 
-  @configure-project
+  @create-project @applicationspecific @aspnetcore
+  Scenario: Create project
+    Given I set the following aliases:
+      | ASP.NET Core Row | //div[./div/div/div/div[text()='Build and test an ASP.NET Core web application.']] |
+      | ASP.NET Core     | //button[./div/span[text()='Apply ASP.NET Core template']]                         |
+
+    And I highlight inside the "ASP.NET Core Row" element
+    And I mouse over the "ASP.NET Core Row" element
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{ScreenshotDir}070-aspnet.png"
+    And I click the "ASP.NET Core" button
+
+    And I sleep for "1" seconds
+    And I stop recording the screen
+
+  @configure-project @applicationspecific @aspnet
   Scenario: Configure project
     Given I set the following aliases:
       | Agent pool                 | //button[../input[@aria-label='Agent pool']]                                              |
