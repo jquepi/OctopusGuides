@@ -23,6 +23,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DCucumberAlias-ScreenshotDir=aspnetcore\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome

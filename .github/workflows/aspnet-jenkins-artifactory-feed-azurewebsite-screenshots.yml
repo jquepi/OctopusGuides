@@ -38,6 +38,7 @@ jobs:
           "-DscreenshotS3Bucket=octopus-guides-screenshots"
           "-DstepHandlerMessage=$env:GITHUB_SHA"
           "-DretryCount=1"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -62,6 +63,7 @@ jobs:
           "-DscreenshotS3Enabled=true"
           "-DscreenshotS3Bucket=octopus-guides-screenshots"
           "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -119,6 +121,7 @@ jobs:
           "-DscreenshotS3Bucket=octopus-guides-screenshots"
           "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
           "-DretryCount=1"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -143,6 +146,7 @@ jobs:
           "-DscreenshotS3Enabled=true"
           "-DscreenshotS3Bucket=octopus-guides-screenshots"
           "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -171,6 +175,7 @@ jobs:
           "-DCucumberAlias-ExternalApplicationTenantID=${{ secrets.ExternalApplicationTenantID }}"
           "-DCucumberAlias-ExternalAzureTenantID=${{ secrets.ExternalAzureTenantID }}"
           "-DCucumberAlias-ExternalAzureSubscriptionID=${{ secrets.ExternalAzureSubscriptionID }}"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -199,6 +204,7 @@ jobs:
           "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
           "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
           "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeeddevscreenshot')]]"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -232,6 +238,7 @@ jobs:
           "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
           "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
           "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeedtestscreenshot')]]"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -265,6 +272,7 @@ jobs:
           "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
           "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
           "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetbuiltinfeedprodscreenshot')]]"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -288,6 +296,7 @@ jobs:
           "-DscreenshotS3Enabled=true"
           "-DscreenshotS3Bucket=octopus-guides-screenshots"
           "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -310,6 +319,7 @@ jobs:
           "-DdisableVideoRecording=true"
           "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeeddevscreenshot.azurewebsites.net/"
           "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -334,6 +344,7 @@ jobs:
           "-DscreenshotS3Bucket=octopus-guides-screenshots"
           "-DstepHandlerMessage=$env:GITHUB_SHA"
           "-DretryCount=1"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -354,6 +365,7 @@ jobs:
           "-DmoveCursorToElement=true"
           "-DmouseMoveVerticalOffset=74"
           "-DdisableVideoRecording=true"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -374,6 +386,7 @@ jobs:
           "-DdisableVideoRecording=true"
           "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedtestscreenshot.azurewebsites.net/"
           "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -393,6 +406,7 @@ jobs:
           "-DmouseMoveVerticalOffset=74"
           "-DdisableVideoRecording=true"
           "-DCucumberAlias-ApplicationURL=[http://localhost:#{IIS Port}](http://localhost:#{IIS Port})"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -412,6 +426,7 @@ jobs:
           "-DmouseMoveVerticalOffset=74"
           "-DdisableVideoRecording=true"
           "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -448,6 +463,7 @@ jobs:
           "-DmoveCursorToElement=true"
           "-DmouseMoveVerticalOffset=74"
           "-DdisableVideoRecording=true"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -466,6 +482,7 @@ jobs:
           "-DmoveCursorToElement=true"
           "-DmouseMoveVerticalOffset=74"
           "-DdisableVideoRecording=true"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
@@ -484,6 +501,7 @@ jobs:
           "-DmoveCursorToElement=true"
           "-DmouseMoveVerticalOffset=74"
           "-DdisableVideoRecording=true"
+          "-DCucumberAlias-ScreenshotDir="
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
