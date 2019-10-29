@@ -231,7 +231,7 @@ Feature: Configure an Octopus ASP.NET project
 
   @define-project @applicationspecific @aspnetcore
   Scenario: ASP.NET Core Configure Features
-    Enable the JSON Configuration Variables feature for ASP.NET Core apps
+  Enable the JSON Configuration Variables feature for ASP.NET Core apps
 
     Given I set the following aliases:
       | Configure features                | (//button[contains(.,'Configure features')])[1]                  |
@@ -241,7 +241,7 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}046-octopus-azure-enable-conf-features.png"
+    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}046-octopus-enable-conf-features.png"
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
@@ -249,7 +249,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "OK" button with an offset of "2"
     And I force click the "Configuration Variables" option
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}047-octopus-azure-enable-conf-vars.png"
+    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}047-octopus-enable-conf-vars.png"
     And I click the "OK" button
 
   @define-project @destinationspecific @azure-web-app
@@ -411,9 +411,6 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}061-octopus-step-package-artifactory-azure-save.png"
 
-    And I click the "Save" button
-    And I sleep for "2" seconds
-
   @define-project @destinationspecific @iis
   Scenario: IIS - Continue to define project
     Given I set the following aliases:
@@ -491,6 +488,24 @@ Feature: Configure an Octopus ASP.NET project
     And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}090-octopus-step-auth.png"
     And I remove the highlight from the "Enable Anonymous authentication container" element
     And I remove the highlight from the "Enable Windows authentication container" element
+
+  @define-project @applicationspecific @aspnetcore
+  Scenario: ASP.NET Core Configure Features
+  Configure the JSON Configuration variables section
+    Given I set the following aliases:
+      | Target files | //textarea[contains(@id,'Targetfiles')] |
+
+    And I scroll the "Target files" text box into view offset by "-300"
+    And I highlight outside the "Target files" text box
+    And I populate the "Target files" text box with "appsettings.json"
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}092-octopus-target-files.png"
+    And I remove the highlight from the "Target files" text box
+
+  @define-project
+  Scenario: Save the project
+    Given I set the following aliases:
+      | Save | //button[contains(.,'Save')] |
 
     And I click the "Save" button
     And I sleep for "2" seconds
