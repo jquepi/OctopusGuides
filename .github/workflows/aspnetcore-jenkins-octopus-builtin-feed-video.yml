@@ -1,6 +1,6 @@
 name: ASP.NET Core Jenkins Octopus Built-in Feed Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 3 * * *'
 jobs:
@@ -97,6 +97,7 @@ jobs:
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DCucumberAlias-ScreenshotDir=aspnetcore\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
