@@ -172,7 +172,7 @@ Feature: Configure an Octopus ASP.NET project
     And I remove the highlight from the "Deployments" link
 
   @define-project @destinationspecific @azure-web-app
-  Scenario: Define azure web app project
+  Scenario: Add Azure Web App Step
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                        |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                              |
@@ -206,7 +206,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Add" button
 
   @define-project @destinationspecific @iis
-  Scenario: Define IIS project
+  Scenario: Add IIS Step
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                              |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                    |
