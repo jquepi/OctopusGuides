@@ -8,7 +8,7 @@ Feature: Configure an Octopus ASP.NET project
       | Sign In  | //button[contains(.,'SIGN IN')] |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I maximize the window
-    #And I set the window size to "1024" x "768"
+    And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I populate the "Username" text box with "admin"
@@ -61,8 +61,9 @@ Feature: Configure an Octopus ASP.NET project
   @define-variables
   Scenario: Open the variables section
     Given I set the following aliases:
-      | Variables      | //a[contains(.,'Variables')]                                         |
-      | Variables text | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables'] |
+      | Variables         | //a[contains(.,'Variables')]                                                                                                                                 |
+      | Variables text    | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
+      | Project Variables | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
@@ -81,7 +82,6 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | New variable name       | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
       | New variable value      | //input[contains(@id,'Entervalue')]                                                                                                                          |
-      | Project Variables       | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
       | Project Variables Title | //h2[contains(.,'Project Variables')]                                                                                                                        |
       | Add to list             | //button[@title='Add To List']                                                                                                                               |
 
@@ -180,8 +180,6 @@ Feature: Configure an Octopus ASP.NET project
       | Deploy an Azure Web App        | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]//button[contains(.,'Add')] |
 
-
-
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}030-octopus-define-process.png"
@@ -205,6 +203,40 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Deploy an Azure Web App" tile
     And I mouse over the "Deploy an Azure Web App" tile
     And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}045-octopus-azure-add-azure-webapp.png"
+    And I click the "Add" button
+
+  @define-project @destinationspecific @iis
+  Scenario: Define IIS project
+    Given I set the following aliases:
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                              |
+      | Add Step                       | //button[contains(.,'Add Step')]                                                                    |
+      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                         |
+      | Deploy to IIS                  | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                            |
+      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
+
+    And I highlight outside the "Define your deployment process" button with an offset of "2"
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}030-octopus-define-process.png"
+
+    And I click the "Define your deployment process" button
+    And I sleep for "1" second
+
+    And I highlight outside the "Add Step" button with an offset of "2"
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}035-octopus-add-step.png"
+    And I click the "Add Step" button
+
+    And I highlight outside the "Search" text box with an offset of "3"
+    And I populate the "Search" text box with "iis"
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}040-octopus-search-iis.png"
+    And I sleep for "2" seconds
+    And I remove the highlight from the "Search" text box
+
+    And I scroll the "Deploy to IIS" tile into view offset by "-200"
+    And I highlight outside the "Deploy to IIS" tile
+    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}045-octopus-add-iis.png"
+    And I mouse over the "Deploy to IIS" tile
     And I click the "Add" button
 
   @define-project @destinationspecific @azure-web-app @applicationspecific @aspnet
@@ -277,39 +309,10 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis
   Scenario: Define IIS project
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                              |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                    |
-      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                         |
-      | Deploy to IIS                  | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
       | Step Name                      | //input[contains(@id, 'Stepname')]                                                                  |
       | Runs on targets in roles       | //input[@title='Runs on targets in roles (type to add new)']                                        |
       | Web role                       | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
-
-    And I highlight outside the "Define your deployment process" button with an offset of "2"
-    And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}030-octopus-define-process.png"
-
-    And I click the "Define your deployment process" button
-    And I sleep for "1" second
-
-    And I highlight outside the "Add Step" button with an offset of "2"
-    And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}035-octopus-add-step.png"
-    And I click the "Add Step" button
-
-    And I highlight outside the "Search" text box with an offset of "3"
-    And I populate the "Search" text box with "iis"
-    And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}040-octopus-search-iis.png"
-    And I sleep for "2" seconds
-    And I remove the highlight from the "Search" text box
-
-    And I scroll the "Deploy to IIS" tile into view offset by "-200"
-    And I highlight outside the "Deploy to IIS" tile
-    And I save a screenshot to "C:\screenshots\octopus\project\#{ScreenshotDir}045-octopus-add-iis.png"
-    And I mouse over the "Deploy to IIS" tile
-    And I click the "Add" button
 
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy web app to IIS"
