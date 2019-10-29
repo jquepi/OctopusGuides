@@ -1,6 +1,6 @@
 name: ASP.NET Core Jenkins Octopus Built-in Feed Video
 on:
-  push:
+#  push:
   schedule:
     - cron:  '0 3 * * *'
 jobs:
@@ -339,7 +339,7 @@ jobs:
         "-DretryCount=1"
         "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
         "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
-        "-DCucumberAlias-ExternalMediaID=ve10ne2aih"
+        "-DCucumberAlias-ExternalMediaID=rselej84ft"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
