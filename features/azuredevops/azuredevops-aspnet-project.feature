@@ -110,8 +110,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Git repository URL     | //input[@id='INPUT-FIELD-STRING1']                                              |
       | OK                     | //button[contains(., 'OK')]                                                     |
       | Continue               | //button[contains(.,'Continue')]                                                |
-      | ASP.NET Row            | //div[./div/div/div/div[text()='Build and test an ASP.NET web application.']]   |
-      | ASP.NET                | //button[./div/span[text()='Apply ASP.NET template']]                           |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I start recording the screen to the directory "C:\screenshots"
@@ -149,6 +147,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Continue" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{ScreenshotDir}060-continue.png"
     And I click the "Continue" button
+
+  @create-project @applicationspecific @aspnet
+  Scenario: Create project
+    Given I set the following aliases:
+      | ASP.NET Row            | //div[./div/div/div/div[text()='Build and test an ASP.NET web application.']]   |
+      | ASP.NET                | //button[./div/span[text()='Apply ASP.NET template']]                           |
 
     And I highlight inside the "ASP.NET Row" element
     And I mouse over the "ASP.NET Row" element
