@@ -498,7 +498,7 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Target files | //textarea[contains(@id,'Targetfiles')] |
 
-    And I scroll the "Target files" text box into view offset by "-300"
+    And I scroll the "Target files" text box into view offset by "-200"
     And I highlight outside the "Target files" text box
     And I populate the "Target files" text box with "appsettings.json"
     And I sleep for "1" second
