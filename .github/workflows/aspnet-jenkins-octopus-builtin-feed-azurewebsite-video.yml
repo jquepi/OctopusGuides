@@ -2,7 +2,7 @@ name: ASP.NET Jenkins Octopus Built-in Feed Azure Websites Video
 #on: [push]
 on:
   schedule:
-    - cron:  '0 0 * * *'
+    - cron:  '0 0 1-31/2 * *'
 jobs:
   build:
     runs-on: windows-2019

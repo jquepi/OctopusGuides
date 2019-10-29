@@ -2,7 +2,7 @@ name: ASP.NET TeamCity Artifactory Feed Video
 #on: [push]
 on:
   schedule:
-    - cron:  '0 18 * * *'
+    - cron:  '0 18 1-31/2 * *'
 jobs:
   build:
     runs-on: windows-2019
