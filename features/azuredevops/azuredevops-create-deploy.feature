@@ -20,17 +20,17 @@ Feature: Create and deploy a release
     And I display a note with the text "Deploying an Octopus release from Azure DevOps" for "3" seconds
 
     And I highlight outside the "Random Quotes" tile
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\010-project-tile.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}010-project-tile.png"
     And I click the "Random Quotes" tile
 
     And I mouse over the "Pipelines" menu item
     And I highlight inside the "Pipelines" menu item
     And I highlight inside the "Build" link
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\020-build.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}020-build.png"
     And I click the "Build" menu item
 
     And I highlight inside the "Edit" button
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\030-edit.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}030-edit.png"
     And I click the "Edit" button
 
   @add-step @repositoryspecific @octo-built-in-feed
@@ -68,7 +68,7 @@ Feature: Create and deploy a release
     And I highlight outside the "Create release tile" element with an offset of "5"
 
     And I click the "Create release" button
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\040-create-release-job.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}040-create-release-job.png"
     And I sleep for "1" second
 
     And I scroll the "Create Octopus Release" job tile into view
@@ -96,7 +96,7 @@ Feature: Create and deploy a release
 
     And I highlight outside the "New" button with an offset of "2"
     And I zoom the browser out
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\045-octopus-connection.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}045-octopus-connection.png"
     And I zoom the browser in
     And I click the "New" button
     And I remove the highlight from the "New" button
@@ -108,7 +108,7 @@ Feature: Create and deploy a release
     And I populate the "Connection name" text box with "Octopus"
     And I populate the "Server URL" text box with "http://localhost"
     And I populate the "API Key" text box with "ExternalOctopusAPIKey"
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\046-octopus-details.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}046-octopus-details.png"
     And I click the "OK" button
     And I sleep for "1" second
     And I remove the highlight from the "New" button
@@ -140,7 +140,7 @@ Feature: Create and deploy a release
     And I sleep for "5" seconds
     And I click the "Octopus Deploy Project" drop down list
     And I click the "Random Quotes Project" option
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\050-populated.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}050-populated.png"
 
     And I remove the highlight from the "Octopus Deploy Project" drop down list
     And I remove the highlight from the "Octopus Deploy Space" drop down list
@@ -149,7 +149,7 @@ Feature: Create and deploy a release
     And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
     And I highlight inside the "Save and queue two" button
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\060-save-and-queue.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}060-save-and-queue.png"
     And I click the "Save and queue two" button
     And I remove the highlight from the "Save and queue" button
 
@@ -158,10 +158,10 @@ Feature: Create and deploy a release
     And I scroll the "Comment" text box into view offset by "100"
     And I populate the "Comment" text box with "Build and deploy"
     And I zoom the browser out
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\070-initial-build.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}070-initial-build.png"
     And I zoom the browser in
     And I scroll the "Save and queue three" button into view
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\075-initial-build-save-and-continue.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}075-initial-build-save-and-continue.png"
     And I click the "Save and queue three" button
     And I sleep for "3" seconds
 
@@ -176,7 +176,7 @@ Feature: Create and deploy a release
     And I sleep for "20" seconds
 
     And I scroll the "Post job Checkout" item into view
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\080-build-results.png"
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{ScreenshotDir}080-build-results.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

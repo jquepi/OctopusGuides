@@ -23,7 +23,6 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
-        "-DCucumberAlias-ScreenshotDir=aspnetcore\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -48,7 +47,6 @@ jobs:
         "-DdisableScreenshots=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes.git"
-        "-DCucumberAlias-ScreenshotDir=aspnetcore\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -98,7 +96,6 @@ jobs:
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DCucumberAlias-ScreenshotDir=aspnetcore\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome

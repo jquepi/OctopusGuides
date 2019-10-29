@@ -34,62 +34,62 @@ Feature: Create deployment
     And I display a note with the text "Creating a deploying a release in Octopus" for "3" seconds
 
     And I highlight inside the "Configure plan" link
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\010-configure-plan.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}010-configure-plan.png"
     And I click the "Configure plan" link
 
     And I highlight the "Default job" link
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\020-default-job.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}020-default-job.png"
     And I click the "Default job" link
 
     And I highlight the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\030-add-task.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}030-add-task.png"
     And I click the "Add task" button
     And I remove the highlight from the "Add task" button
 
     And I highlight the "Search" box
     And I populate the "Search" box with "Octopus"
     And I highlight inside the "Octopus Deploy: Create Release Tile" element
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\040-search.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}040-search.png"
     And I click the "Octopus Deploy: Create Release Tile" element
 
     And I highlight the "Task description" text box
     And I populate the "Task description" text box with "Create deployment"
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\050-description.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}050-description.png"
 
     And I highlight the "Server URL" text box
     And I scroll the "Server URL" text box into view offset by "-300"
     And I clear the "Server URL" text box
     And I populate the "Server URL" text box with "http://localhost"
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\060-server-url.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}060-server-url.png"
 
     And I highlight the "API key" text box
     And I scroll the "API key" text box into view offset by "-300"
     And I populate the "API key" text box with "ExternalOctopusAPIKey"
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\070-api-key.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}070-api-key.png"
     And I remove the highlight from the "Server URL" text box
     And I remove the highlight from the "API key" text box
 
     And I highlight the "Project" text box
     And I scroll the "Project" text box into view offset by "-300"
     And I populate the "Project" text box with "Random Quotes"
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\080-project.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}080-project.png"
 
     And I highlight the "Environment" text box
     And I scroll the "Environment" text box into view offset by "-300"
     And I populate the "Environment" text box with "Dev"
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\090-environment.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}090-environment.png"
 
     And I highlight the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\100-octo-push.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}100-octo-push.png"
     And I click the "Save" button
 
     And I scroll the "Run" button into view
     And I highlight the "Run" button with an offset of "5"
     And I click the "Run" button
     And I highlight the "Run plan" link with an offset of "5"
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\110-run.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}110-run.png"
     And I click the "Run plan" link
 
     And I scroll down "10000" px
@@ -97,7 +97,7 @@ Feature: Create deployment
     And I stop recording the screen
     And I start recording the screen to the directory "C:\screenshots"
     And I sleep for "60" seconds
-    And I save a screenshot to "c:\screenshots\bamboo\createrelease\120-build-results.png"
+    And I save a screenshot to "c:\screenshots\bamboo\createrelease\#{ScreenshotDir}120-build-results.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

@@ -35,56 +35,56 @@ Feature: Create and deploy a release
     And I display a note with the text "Deploying an Octopus release from TeamCity" for "3" seconds
 
     And I highlight outside the "Build" link
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\001-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}001-create-release.png"
     And I click the "Build" link
 
     And I highlight outside the "Edit Configuration Settings" link
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\002-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}002-create-release.png"
     And I click the "Edit Configuration Settings" link
 
     And I highlight outside the "Build Steps" link
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\003-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}003-create-release.png"
     And I click the "Build Steps" link
 
     And I highlight outside the "Add build step" button
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\004-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}004-create-release.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
     And I scroll the "OctopusDeploy: Create release" option into view
     And I click the "OctopusDeploy: Create release" option
     And I highlight outside the "Runner type container" drop down list
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\010-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}010-create-release.png"
 
     And I scroll the "Step name" text box into view offset by "-300"
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "Create and deploy release"
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\020-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}020-create-release.png"
 
     And I scroll the "Octopus URL" text box into view offset by "-300"
     And I highlight outside the "Octopus URL" text box
     And I populate the "Octopus URL" text box with "http://localhost"
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\030-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}030-create-release.png"
 
     And I scroll the "Octopus API key" text box into view offset by "-300"
     And I highlight outside the "Octopus API key" text box
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\040-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}040-create-release.png"
 
     And I scroll the "Octopus Project" text box into view offset by "-300"
     And I highlight outside the "Octopus Project" text box
     And I populate the "Octopus Project" text box with "Random Quotes"
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\050-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}050-create-release.png"
 
     And I scroll the "Octopus Environments" text box into view offset by "-300"
     And I highlight outside the "Octopus Environments" text box
     And I populate the "Octopus Environments" text box with "Dev"
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\060-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}060-create-release.png"
     And I remove the highlight from the "Octopus Environments" text box
 
     And I scroll the "Save" button into view
     And I highlight outside the "Save" button
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\070-create-release.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}070-create-release.png"
     And I click the "Save" button
 
     And I stop recording the screen
@@ -99,23 +99,23 @@ Feature: Create and deploy a release
 
     And I start recording the screen to the directory "C:\screenshots"
     And I highlight outside the "Build Configuration Home" link
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\080-build-config-home.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}080-build-config-home.png"
     And I click the "Build Configuration Home" link
 
     And I highlight outside the "Run" button
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\090-run.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}090-run.png"
     And I click the "Run" button
     And I sleep for "10" seconds
     And I refresh the page
 
     And I highlight outside the "Build Two" link
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\100-build-one.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}100-build-one.png"
     And I click the "Build Two" link
     And I click the "Build log" link
     And I scroll down "10000" px
     And I sleep for "30" seconds
 
-    And I save a screenshot to "c:\screenshots\teamcity\createrelease\110-build-one-results.png"
+    And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{ScreenshotDir}110-build-one-results.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 

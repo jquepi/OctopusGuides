@@ -21,7 +21,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -45,7 +45,7 @@ jobs:
         "-DdisableVideoRecording=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -67,7 +67,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -89,7 +89,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -111,7 +111,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -136,7 +136,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -158,7 +158,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -177,7 +177,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -197,7 +197,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         "-DCucumberAlias-ApplicationURL=[http://localhost:#{IIS Port}](http://localhost:#{IIS Port})"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -217,7 +217,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -236,7 +236,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -255,7 +255,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -274,7 +274,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -293,7 +293,7 @@ jobs:
         "-DmoveCursorToElement=true"
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
-        "-DCucumberAlias-ScreenshotDir="
+        "-DCucumberAlias-ScreenshotDir=aspnet\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
