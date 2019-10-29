@@ -1,5 +1,6 @@
 name: ASP.NET Core Jenkins Octopus Built-in Feed Screenshots
 on:
+  push:
   schedule:
     - cron:  '0 3 * * *'
 jobs:
