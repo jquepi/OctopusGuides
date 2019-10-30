@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Octopus Built-in Feed Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 5 * *'
 jobs:
@@ -58,7 +58,7 @@ jobs:
         "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes.git"
         "-DCucumberAlias-NugetPath="
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
+        "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
@@ -115,7 +115,7 @@ jobs:
         "-DdisableScreenshots=true"
         "-DdumpAliasesOnFailure=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
+        "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
