@@ -20,8 +20,8 @@ Feature: Add a manual intervention step
     Given I set the following aliases:
       | Projects                      | //span[contains(.,'Projects')]                                                                                     |
       | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                                                     |
-      | Deployments                   | //a[contains(.,'Deployments')]                                                                      |
-      | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                    |
+      | Deployments                   | //a[contains(.,'Deployments')]                                                                                     |
+      | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                                   |
       | Add Step                      | //button[contains(.,'Add Step')]                                                                                   |
       | Search                        | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                        |
       | Manual Intervention           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]                            |
@@ -110,7 +110,7 @@ Feature: Add a manual intervention step
     Given I set the following aliases:
       | Create Release | //button[contains(.,'Create release')] |
       | Deploy To      | //button[contains(.,'Deploy to...')]   |
-      | Test           | //span[./div/div/div[text()='Test']]   |
+      | Test           | //li[text()='Test']                    |
       | Deploy         | //button[contains(.,'Deploy')]         |
       | Save           | //button[contains(.,'Save')]           |
 
