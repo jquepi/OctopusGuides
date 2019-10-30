@@ -89,6 +89,8 @@ jobs:
         "-DnoProxyList=microsoft.com"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+        "-DCucumberAlias-NugetPath=RandomQuotes\obj\octopacked\"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"

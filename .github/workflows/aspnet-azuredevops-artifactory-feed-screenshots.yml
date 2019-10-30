@@ -76,6 +76,8 @@ jobs:
         "-DnoProxyList=microsoft.com"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+        "-DCucumberAlias-NugetPath=RandomQuotes\obj\octopacked\"
         "-DCucumberAlias-GuideSpecificScreenshotDir=aspnet-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress

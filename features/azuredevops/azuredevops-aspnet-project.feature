@@ -79,9 +79,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @create-project
   Scenario: Create project
     Given I set the following aliases:
-      | Project name   | //input[contains(@id,'project-name-textfield')]           |
-      | Description    | //textarea[contains(@id,'project-description-textfield')] |
-      | Create project | //button[contains(.,'Create project')]                    |
+      | Project name   | //input[contains(@id,'project-name-textfield')]                                 |
+      | Description    | //textarea[contains(@id,'project-description-textfield')]                       |
+      | Create project | //button[contains(.,'Create project')]                                          |
+      | Pipelines      | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the Azure DevOps project" for "3" seconds
@@ -95,7 +96,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Create project" button
     And I sleep for "5" seconds
     And I stop recording the screen
-    And I sleep for "40" seconds
+    And I verify the "Pipelines" menu item is present waiting up to "40" seconds if it exists
 
   @create-project
   Scenario: Create project
@@ -138,7 +139,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I clear the "Connection name" text box
     And I populate the "Connection name" text box with "Random Quotes GitHub"
     And I clear the "Git repository URL" text box
-    And I populate the "Git repository URL" text box with "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+    And I populate the "Git repository URL" text box with "GitUrl"
     And I sleep for "1" second
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}050-git-details.png"
     And I click the "OK" button
@@ -176,19 +177,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I sleep for "1" seconds
     And I stop recording the screen
 
-  @configure-project @applicationspecific @aspnet
-  Scenario: Configure project
+  @configure-project
+  Scenario: Configure build agent
     Given I set the following aliases:
-      | Agent pool                 | //button[../input[@aria-label='Agent pool']]                                              |
-      | Default                    | //button[@aria-label='Default']                                                           |
-      | Publish artifact           | //div[@data-list-index='5']/div/div/div/div[./div/div/div/div[text()='Publish Artifact']] |
-      | Test Assemblies            | //div[@data-list-index='3']/div/div/div/div[./div/div/div/div[text()='Test Assemblies']]  |
-      | Build solution             | //div[@data-list-index='2']/div/div/div/div[./div/div/div/div[text()='Build solution']]   |
-      | Specific location          | //input[../label/span[text()='Specific location']]                                        |
-      | Path to vstest.console.exe | //textarea[./../../../../../../../../div/label[text()='Path to vstest.console.exe']]      |
-      | MSBuild Arguments          | //textarea[./../../../../../../../../div/label[text()='MSBuild Arguments']]               |
-      | Add task                   | //button[@aria-label='Add a task to Agent job 1']                                         |
-      | Search                     | (//input[@aria-label='Search'])[2]                                                        |
+      | Agent pool | //button[../input[@aria-label='Agent pool']] |
+      | Default    | //button[@aria-label='Default']              |
 
     And I start recording the screen to the directory "C:\screenshots"
 
@@ -196,6 +189,17 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Agent pool" drop down list
     And I click the "Default" option
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}080-default-agent-pool.png"
+
+  @configure-project @applicationspecific @aspnet
+  Scenario: Configure project
+    Given I set the following aliases:
+      | Test Assemblies            | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Test Assemblies']] |
+      | Build solution             | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Build solution']]  |
+      | Specific location          | //input[../label/span[text()='Specific location']]                                                    |
+      | Path to vstest.console.exe | //textarea[./../../../../../../../../div/label[text()='Path to vstest.console.exe']]                  |
+      | MSBuild Arguments          | //textarea[./../../../../../../../../div/label[text()='MSBuild Arguments']]                           |
+      | Add task                   | //button[@aria-label='Add a task to Agent job 1']                                                     |
+      | Search                     | (//input[@aria-label='Search'])[2]                                                                    |
 
     And I highlight inside the "Build solution" row
     And I click the "Build solution" row
@@ -218,15 +222,94 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I stop recording the screen
 
+  @configure-project @applicationspecific @aspnetcore
+  Scenario: ASP.Net Core Configure project
+    Given I set the following aliases:
+      | Publish row               | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Publish']]          |
+      | Add task                  | //button[@aria-label='Add a task to Agent job 1']                                                      |
+      | Publish artifact          | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Publish Artifact']] |
+      | Search                    | (//input[@aria-label='Search'])[2]                                                                     |
+      | Package application title | //div[text()='Package Application for Octopus']                                                        |
+      | Package application       | //div[./div/div/div[text()='Package Application for Octopus']]/button                                  |
+      | Package application row   | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Package']]          |
+      | Package ID                | //textarea[../../../../../../../../div/label[normalize-space(text())='Package ID']]                    |
+      | Package Version           | //textarea[../../../../../../../../div/label[normalize-space(text())='Package Version']]               |
+      | Source Path               | //textarea[../../../../../../../../div/label[normalize-space(text())='Source Path']]                   |
+      | Zip Published Projects    | //button[.//span[text()='Zip Published Projects']]                                                     |
+
+    And I click the "Publish row" element
+
+    And I scroll the "Zip Published Projects" check box into view offset by "-200"
+    And I highlight outside the "Zip Published Projects" check box with an offset of "5"
+    And I click the "Zip Published Projects" check box
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}090-publish.png"
+
+    And I highlight inside the "Add task" button
+    And I click the "Publish artifact" row
+    And I click the "Add task" button
+
+    And I highlight outside the "Search" text box
+    And I populate the "Search" text box with "Octopus package"
+
+    And I highlight outside the "Package application title" element with an offset of "5"
+    And I mouse over the "Package application title" element
+    And I zoom the browser out
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}095-octopus-pack.png"
+    And I zoom the browser in
+    And I remove the highlight from the "Add task" button
+
+    And I click the "Package application" button
+    And I click the "Package application row" element
+
+    And I scroll the "Package ID" text box into view offset by "-200"
+    And I highlight outside the "Package ID" text box with an offset of "5"
+    And I populate the "Package ID" text box with "RandomQuotes"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}096-octopus-pack.png"
+
+    And I scroll the "Package Version" text box into view offset by "-200"
+    And I highlight outside the "Package Version" text box with an offset of "5"
+    And I populate the "Package Version" text box with "1.0.$(Build.BuildId)"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}097-octopus-pack.png"
+
+    And I scroll the "Source Path" text box into view offset by "-200"
+    And I highlight outside the "Source Path" text box with an offset of "5"
+    And I populate the "Source Path" text box with "RandomQuotes"
+
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}100-octopus-pack.png"
+
+    And I stop recording the screen
+
+  @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnet
+  Scenario: Push to Octopus
+    Given I set the following aliases:
+      | Add task         | //button[@aria-label='Add a task to Agent job 1']                                                      |
+      | Publish artifact | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Publish Artifact']] |
+
+    And I start recording the screen to the directory "C:\screenshots"
+
+    And I highlight inside the "Add task" button
+    And I click the "Publish artifact" row
+    And I click the "Add task" button
+
+  @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnetcore
+  Scenario: Push to Octopus
+    Given I set the following aliases:
+      | Add task                | //button[@aria-label='Add a task to Agent job 1']                                                          |
+      | Package application row | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Package RandomQuotes']] |
+
+    And I start recording the screen to the directory "C:\screenshots"
+
+    And I highlight inside the "Add task" button
+    And I click the "Package application row" element
+    And I click the "Add task" button
+
   @configure-project @repositoryspecific @artifactory
   Scenario: Push to Artifactory
     Given I set the following aliases:
-      | Add task                                                     | //button[@aria-label='Add a task to Agent job 1']                                                              |
-      | Publish artifact                                             | //div[@data-list-index='5']/div/div/div/div[./div/div/div/div[text()='Publish Artifact']]                      |
       | Search                                                       | (//input[@aria-label='Search'])[2]                                                                             |
       | NuGet title                                                  | //div[@class='info-name'][text()='NuGet']                                                                      |
       | NuGet Task                                                   | //div[./div/div/div[text()='NuGet']]/button                                                                    |
-      | NuGet restore                                                | //div[@data-list-index='6'][contains(.,'NuGet restore')]/div/div/div/div                                       |
+      | NuGet restore                                                | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='NuGet restore']]            |
       | Display name                                                 | //input[../../../../../../div/label[normalize-space(text())='Display name']]                                   |
       | Command                                                      | //input[../../../../../../../../../div/label[normalize-space(text())='Command']]                               |
       | Push command                                                 | //div[contains(@class,'combo-drop-popup')]//*[normalize-space(text())='push']                                  |
@@ -238,12 +321,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Feed URL                                                     | //input[@id='url']                                                                                             |
       | ApiKey                                                       | //input[@id='nugetkey']                                                                                        |
       | OK                                                           | //button[@id='ok']                                                                                             |
-
-    And I start recording the screen to the directory "C:\screenshots"
-
-    And I highlight inside the "Add task" button
-    And I click the "Publish artifact" row
-    And I click the "Add task" button
 
     And I highlight outside the "Search" text box
     And I populate the "Search" text box with "Nuget"
@@ -272,7 +349,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Path to NuGet package(s) to publish" text box with an offset of "2"
     And I clear the "Path to NuGet package(s) to publish" text box
-    And I populate the "Path to NuGet package(s) to publish" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(Build.BuildId).nupkg"
+    And I populate the "Path to NuGet package(s) to publish" text box with "#{NugetPath}RandomQuotes.1.0.$(Build.BuildId).nupkg"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}125-nuget-push.png"
     And I remove the highlight from the "Path to NuGet package(s) to publish" text box
 
@@ -302,27 +379,19 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @repositoryspecific @octo-built-in-feed
   Scenario: Push to Octopus
     Given I set the following aliases:
-      | Add task                 | //button[@aria-label='Add a task to Agent job 1']                                          |
-      | Publish artifact         | //div[@data-list-index='5']/div/div/div/div[./div/div/div/div[text()='Publish Artifact']]  |
-      | Search                   | (//input[@aria-label='Search'])[2]                                                         |
-      | Push package title       | //div[text()='Push Package(s) to Octopus']                                                 |
-      | Push package             | //div[./div/div/div[text()='Push Package(s) to Octopus']]/button                           |
-      | Push Packages to Octopus | //div[@data-list-index='6'][contains(.,'Push Packages to Octopus')]/div/div/div/div        |
-      | New                      | //div[./span[text()='Add Octopus Deploy Server']]                                          |
-      | Connection name          | //input[@id='connectionName']                                                              |
-      | Server URL               | //input[@id='url']                                                                         |
-      | API Key                  | //input[@id='apitoken']                                                                    |
-      | OK                       | //button[@id='ok']                                                                         |
-      | Space                    | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]] |
-      | Space Refresh            | //button[./div/span[text()='Refresh Space']]                                               |
-      | Default Space            | //li[text()='Default']                                                                     |
-      | Package                  | //textarea[../../../../../../div/label[contains(.,'Package')]]                             |
-
-    And I start recording the screen to the directory "C:\screenshots"
-
-    And I highlight inside the "Add task" button
-    And I click the "Publish artifact" row
-    And I click the "Add task" button
+      | Search                   | (//input[@aria-label='Search'])[2]                                                                             |
+      | Push package title       | //div[text()='Push Package(s) to Octopus']                                                                     |
+      | Push package             | //div[./div/div/div[text()='Push Package(s) to Octopus']]/button                                               |
+      | Push Packages to Octopus | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Push Packages to Octopus']] |
+      | New                      | //div[./span[text()='Add Octopus Deploy Server']]                                                              |
+      | Connection name          | //input[@id='connectionName']                                                                                  |
+      | Server URL               | //input[@id='url']                                                                                             |
+      | API Key                  | //input[@id='apitoken']                                                                                        |
+      | OK                       | //button[@id='ok']                                                                                             |
+      | Space                    | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]                     |
+      | Space Refresh            | //button[./div/span[text()='Refresh Space']]                                                                   |
+      | Default Space            | //li[text()='Default']                                                                                         |
+      | Package                  | //textarea[../../../../../../div/label[contains(.,'Package')]]                                                 |
 
     And I highlight outside the "Search" text box
     And I populate the "Search" text box with "Octopus Push"

@@ -86,6 +86,7 @@ jobs:
         "-DdisableVideoRecording=true"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=true"
