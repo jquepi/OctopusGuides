@@ -38,7 +38,24 @@ Feature: Create and deploy a release from Jenkins
     And I click the "Add build step" button
     And I highlight outside the "Add build step" button
     And I highlight outside the "Execute Windows batch command" option
+
+  @repositoryspecific @octo-built-in-feed
+  Scenario: Modify the existing project
+    Given I set the following aliases:
+      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
+      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
+
     And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}015-create-release-build-step.png"
+    And I click the "Execute Windows batch command" option
+    And I remove the highlight from the "Add build step" button
+
+  @repositoryspecific @artifactory
+  Scenario: Modify the existing project
+    Given I set the following aliases:
+      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
+      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
+
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}015-create-release-build-step-artifactory.png"
     And I click the "Execute Windows batch command" option
     And I remove the highlight from the "Add build step" button
 
