@@ -315,6 +315,7 @@ Feature: Configure an Octopus ASP.NET project
       | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
       | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
+    And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy web app to IIS"
     And I sleep for "1" second
