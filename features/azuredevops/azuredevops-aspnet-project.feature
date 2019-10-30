@@ -281,6 +281,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnet
   Scenario: Push to Octopus
+  The last task need to be selected and then the "Add task" button clicked to ensure the new task is appended to the end.
+  This Scenario selects the final task for the ASP.NET builds.
+
     Given I set the following aliases:
       | Add task         | //button[@aria-label='Add a task to Agent job 1']                                                      |
       | Publish artifact | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Publish Artifact']] |
@@ -293,6 +296,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnetcore
   Scenario: Push to Octopus
+  The last task need to be selected and then the "Add task" button clicked to ensure the new task is appended to the end.
+  This Scenario selects the final task for the ASP.NET Core builds.
+
     Given I set the following aliases:
       | Add task                | //button[@aria-label='Add a task to Agent job 1']                                                          |
       | Package application row | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Package RandomQuotes']] |
