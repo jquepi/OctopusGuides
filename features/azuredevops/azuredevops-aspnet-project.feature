@@ -252,6 +252,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Search" text box
     And I populate the "Search" text box with "Octopus package"
 
+    And I scroll the "Package application row" element into view offset by "-200"
     And I highlight outside the "Package application title" element with an offset of "5"
     And I mouse over the "Package application title" element
     And I zoom the browser out
