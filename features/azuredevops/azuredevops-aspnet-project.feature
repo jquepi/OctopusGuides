@@ -5,7 +5,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I open the shared browser "FirefoxNoImplicitWaitNoProxy"
     And I set the default explicit wait time to "30" seconds
     And I maximize the window
-    #And I set the window size to "1024" x "768"
+    And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/"
     And I start recording the screen to the directory "C:\screenshots"
 
@@ -250,9 +250,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Add task" button
 
     And I highlight outside the "Search" text box
-    And I populate the "Search" text box with "Octopus package"
+    And I populate the "Search" text box with "Package Application"
 
-    And I scroll the "Package application row" element into view offset by "-200"
     And I highlight outside the "Package application title" element with an offset of "5"
     And I mouse over the "Package application title" element
     And I zoom the browser out
