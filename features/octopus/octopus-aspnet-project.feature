@@ -291,6 +291,7 @@ Feature: Configure an Octopus ASP.NET project
       | On behalf of | //input[@title='On behalf of target roles (type to add new)']                                           |
       | Azure role   | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'azurewebapp')]//span |
 
+    And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy web app to Azure"
     And I sleep for "1" second
