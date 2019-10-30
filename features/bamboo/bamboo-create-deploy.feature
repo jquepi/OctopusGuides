@@ -31,6 +31,8 @@ Feature: Create deployment
       | Search                              | //h2[contains(.,'Task types')]//input                                 |
       | Save                                | //input[@id='createTask_save']                                        |
 
+    And I start recording the screen to the directory "C:\screenshots"
+
     And I display a note with the text "Creating a deploying a release in Octopus" for "3" seconds
 
     And I highlight inside the "Configure plan" link
