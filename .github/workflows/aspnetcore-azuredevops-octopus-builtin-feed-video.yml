@@ -1,4 +1,4 @@
-name: ASP.NET Azure DevOps Octopus Built-in Feed Video
+name: ASP.NET Core Azure DevOps Octopus Built-in Feed Video
 on:
   push:
   schedule:

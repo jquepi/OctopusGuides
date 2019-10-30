@@ -169,6 +169,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | ASP.NET Core Row | //div[./div/div/div/div[text()='Build and test an ASP.NET Core web application.']] |
       | ASP.NET Core     | //button[./div/span[text()='Apply ASP.NET Core template']]                         |
 
+    And I scroll the "ASP.NET Core Row" element into view offset by "-200"
     And I highlight inside the "ASP.NET Core Row" element
     And I mouse over the "ASP.NET Core Row" element
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}070-aspnet.png"
