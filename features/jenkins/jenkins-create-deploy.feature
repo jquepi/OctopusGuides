@@ -27,18 +27,18 @@ Feature: Create and deploy a release from Jenkins
     And I display a note with the text "Deploying an Octopus release from Jenkins" for "3" seconds
 
     And I highlight outside the "Random Quotes Project" link
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}005-random-quotes-link.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}005-random-quotes-link.png"
     And I click the "Random Quotes Project" link
 
     And I highlight inside the "Configure" link
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}010-create-release-configure.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}010-create-release-configure.png"
     And I click the "Configure" link
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I click the "Add build step" button
     And I highlight outside the "Add build step" button
     And I highlight outside the "Execute Windows batch command" option
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}015-create-release-build-step.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}015-create-release-build-step.png"
     And I click the "Execute Windows batch command" option
     And I remove the highlight from the "Add build step" button
 
@@ -53,10 +53,10 @@ Feature: Create and deploy a release from Jenkins
     And I populate the "Command Four" text box with "Create Release Command"
     And I highlight outside the "Command Four" text box
     And I highlight outside the "Save" button
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}020-create-release-command.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}020-create-release-command.png"
     And I remove the highlight from the "Command Four" text box
 
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}025-create-release-save.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}025-create-release-save.png"
     And I click the "Save" button
 
     And I stop recording the screen
@@ -72,10 +72,10 @@ Feature: Create and deploy a release from Jenkins
     And I populate the "Command Five" text box with "Create Release Command"
     And I highlight outside the "Command Five" text box
     And I highlight outside the "Save" button
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}020-create-release-command.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}020-create-release-command.png"
     And I remove the highlight from the "Command Five" text box
 
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}025-create-release-save.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}025-create-release-save.png"
     And I click the "Save" button
 
     And I stop recording the screen
@@ -91,28 +91,28 @@ Feature: Create and deploy a release from Jenkins
     And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight inside the "Build Now" link
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}030-build-and-deploy-now.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}030-build-and-deploy-now.png"
     And I click the "Build Now" link
 
     And I highlight inside the "Build Two" link
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}035-build-two.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}035-build-two.png"
     # Faking a click, because clicking this element fails a lot of the time
     And I mouse over the "Build Two" link
     And I open the URL "http://localhost:8080/job/Random%20Quotes/2/"
 
     And I highlight inside the "Console Output" link
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}040-build-and-deploy-console.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}040-build-and-deploy-console.png"
     And I click the "Console Output" link
     And I scroll down "10000" px
     And I sleep for "30" seconds
 
   @destinationspecific @iis
   Scenario: Get log screenshot
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}045-build-and-deploy-logs.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}045-build-and-deploy-logs.png"
 
   @destinationspecific @azure-web-app
   Scenario: Get log screenshot
-    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{ScreenshotDir}045-build-and-deploy-logs-azure.png"
+    And I save a screenshot to "c:\screenshots\jenkins\createrelease\#{GuideSpecificScreenshotDir}045-build-and-deploy-logs-azure.png"
 
   Scenario: display message
     And I display a note with the text "'Deploy Random Quotes release 0.0.2 to Dev: Success' means Octopus deployed the project" for "3" seconds

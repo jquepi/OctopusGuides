@@ -44,7 +44,7 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
 
     And I highlight inside the "Random Quotes" project tile
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}005-random-quotes-project.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}005-random-quotes-project.png"
     And I remove the highlight from the "Projects" link
     And I click the "Random Quotes" project tile
 
@@ -54,45 +54,45 @@ Feature: Add a manual intervention step
     And I click the "Process" link
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}010-add-step.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}010-add-step.png"
     And I remove the highlight from the "Deployments" link
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
     And I populate the "Search" text box with "manual intervention"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}015-octopus-search-intervention.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}015-octopus-search-intervention.png"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
     And I scroll the "Manual Intervention" tile into view offset by "-200"
     And I highlight outside the "Manual Intervention" tile
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}020-octopus-add-intervention.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}020-octopus-add-intervention.png"
     And I mouse over the "Manual Intervention" tile
     And I click the "Add" button
 
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deployment Sign Off"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}025-octopus-step-name.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}025-octopus-step-name.png"
     And I remove the highlight from the "Step Name" text box
 
     And I scroll the "Instructions" text box into view offset by "-300"
     And I highlight outside the "Instructions container" element
     And I populate the "Instructions" text box with "Open the application and confirm it meets all the requirements."
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}030-octopus-step-instructions.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}030-octopus-step-instructions.png"
     And I remove the highlight from the "Instructions container" element
 
     And I scroll the "Environments" section into view offset by "-300"
     And I highlight outside the "Environments" element
     And I click the "Environments" element
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}035-octopus-step-conditions.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}035-octopus-step-conditions.png"
 
     And I scroll the "Skip specific environment" radio button into view offset by "-300"
     And I highlight outside the "Skip specific environment" radio button
     And I force click the "Skip specific environment" radio button
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}040-octopus-step-skip-envs.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}040-octopus-step-skip-envs.png"
     And I remove the highlight from the "Skip specific environment" radio button
 
     And I scroll the "Select environments" text box into view offset by "-400"
@@ -101,7 +101,7 @@ Feature: Add a manual intervention step
     And I click the "Dev Environment" option
     And I highlight the "Save" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}045-octopus-step-skip-dev.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}045-octopus-step-skip-dev.png"
     And I click the "Save" button
     And I sleep for "2" seconds
 
@@ -147,7 +147,7 @@ Feature: Add a manual intervention step
 
     And I highlight outside the "Assign to me" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}050-octopus-deploy-assign-intervention.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}050-octopus-deploy-assign-intervention.png"
     And I click the "Assign to me" button
     And I sleep for "1" second
 
@@ -156,11 +156,11 @@ Feature: Add a manual intervention step
     And I scroll the "Notes" text box into view offset by "-200"
     And I populate the "Notes" text box with "Confirmed this deployment meets all the requirements."
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}055-octopus-deploy-intervention-notes.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}055-octopus-deploy-intervention-notes.png"
     And I click the "Proceed" button
     And I sleep for "10" second
 
-    And I save a screenshot to "C:\screenshots\octopus\intervention\#{ScreenshotDir}060-octopus-deploy-success.png"
+    And I save a screenshot to "C:\screenshots\octopus\intervention\#{GuideSpecificScreenshotDir}060-octopus-deploy-success.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

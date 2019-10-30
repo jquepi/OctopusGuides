@@ -42,7 +42,7 @@ Feature: Add a manual intervention step
     And I click the "More" link if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}005-octopus-configuration.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}005-octopus-configuration.png"
     And I click the "Configuration" link
     And I remove the highlight from the "More" link
     And I sleep for "1" second
@@ -51,7 +51,7 @@ Feature: Add a manual intervention step
     And I click the "More Two" link if it exists
     And I highlight inside the "SMTP" link
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}010-octopus-smtp.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}010-octopus-smtp.png"
     And I click the "SMTP" link
     And I sleep for "1" second
 
@@ -96,7 +96,7 @@ Feature: Add a manual intervention step
     And I click the "Save" button
     And I remove the highlight from the "Save" button
     And I sleep for "5" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}015-octopus-smtp-populated.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}015-octopus-smtp-populated.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
@@ -137,7 +137,7 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
 
     And I highlight inside the "Random Quotes" project tile
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}020-random-quotes-project.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}020-random-quotes-project.png"
     And I remove the highlight from the "Projects" link
     And I click the "Random Quotes" project tile
 
@@ -147,20 +147,20 @@ Feature: Add a manual intervention step
     And I click the "Process" link
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}025-add-step.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}025-add-step.png"
     And I remove the highlight from the "Deployments" link
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
     And I populate the "Search" text box with "email"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}030-octopus-search-email.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}030-octopus-search-email.png"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
     And I scroll the "Send an Email" tile into view offset by "-200"
     And I highlight outside the "Send an Email" tile with an offset of "5"
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}035-octopus-add-email.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}035-octopus-add-email.png"
     And I mouse over the "Send an Email" tile
     And I click the "Add" button
 
@@ -168,21 +168,21 @@ Feature: Add a manual intervention step
     And I highlight outside the "Step Name" text box with an offset of "5"
     And I populate the "Step Name" text box with "Random quotes deployment status"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}040-octopus-step-name.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}040-octopus-step-name.png"
     And I remove the highlight from the "Step Name" text box
 
     And I scroll the "To" text box into view offset by "-300"
     And I highlight outside the "To container" element with an offset of "5"
     And I populate the "To" text box with "octopusguides@gmail.com"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}045-octopus-step-to.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}045-octopus-step-to.png"
     And I remove the highlight from the "To container" element
 
     And I scroll the "Subject" text box into view offset by "-300"
     And I highlight outside the "Subject container" element with an offset of "5"
     And I populate the "Subject" text box with "Random quotes deployment status"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}050-octopus-step-subject.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}050-octopus-step-subject.png"
     And I remove the highlight from the "Subject container" element
 
     And I scroll the "Body" text box into view offset by "-300"
@@ -196,30 +196,30 @@ Feature: Add a manual intervention step
         #{/each}
       """
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}055-octopus-step-body.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}055-octopus-step-body.png"
     And I remove the highlight from the "Body container" element
 
     And I scroll the "Run Condition" section into view offset by "-300"
     And I highlight outside the "Run Condition" element
     And I click the "Run Condition" element
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}057-octopus-step-conditions.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}057-octopus-step-conditions.png"
     And I remove the highlight from the "Run Condition" element
 
     And I scroll the "Always run" radio button into view offset by "-300"
     And I highlight inside the "Always run" radio button
     And I force click the "Always run" radio button
     And I sleep for "2" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}058-octopus-step-always-run.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}058-octopus-step-always-run.png"
 
     And I scroll the "Environments" section into view offset by "-300"
     And I highlight outside the "Environments" element
     And I click the "Environments" element
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}059-octopus-step-conditions.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}059-octopus-step-conditions.png"
 
     And I scroll the "Skip specific environment" radio button into view offset by "-300"
     And I highlight outside the "Skip specific environment" radio button
     And I force click the "Skip specific environment" radio button
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}059-octopus-step-skip-envs.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}059-octopus-step-skip-envs.png"
     And I remove the highlight from the "Skip specific environment" radio button
 
     And I scroll the "Select environments" text box into view offset by "-400"
@@ -228,7 +228,7 @@ Feature: Add a manual intervention step
     And I click the "Dev Environment" option
     And I highlight the "Save" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}059-octopus-step-skip-dev.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}059-octopus-step-skip-dev.png"
     And I click the "Save" button
     And I sleep for "2" seconds
 
@@ -284,7 +284,7 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     And I click the "Proceed" button
     And I sleep for "10" second
-    And I save a screenshot to "C:\screenshots\octopus\email\#{ScreenshotDir}060-octopus-deployed.png"
+    And I save a screenshot to "C:\screenshots\octopus\email\#{GuideSpecificScreenshotDir}060-octopus-deployed.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

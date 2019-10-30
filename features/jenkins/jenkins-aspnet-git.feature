@@ -36,13 +36,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I display a note with the text "Installing the Jenkins plugins" for "3" seconds
 
     And I highlight inside the "Manage Jenkins" text box
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}05-manage-jenkins.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}05-manage-jenkins.png"
     And I click the "Manage Jenkins" link
     And I scroll the "Manage Plugins" link into view offset by "-100"
     # Give the top toolbar a change to realign itself
     And I wait for "1" seconds
     And I highlight outside the "Manage Plugins" text box
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}10-manage-plugins.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}10-manage-plugins.png"
     And I click the "Manage Plugins" link
     And I click the "Available" tab
     And I populate the "Filter" text box with the text "MSBuild"
@@ -51,12 +51,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Filter" tab
     And I highlight inside the "MSBuild Plugin Container" element
     And I highlight outside the "Install without restart" button
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}15-msbuild-plugin.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}15-msbuild-plugin.png"
     And I click the "Install without restart" button
     And I wait for "5" seconds
 
     And I highlight outside the "Back to top" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}20-plugin-install.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}20-plugin-install.png"
     # fake a click
     And I open the URL "http://localhost:8080/"
 
@@ -80,12 +80,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       # Give the top toolbar a change to realign itself
     And I wait for "1" seconds
     And I highlight outside the "Global Tool Configuration" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}25-global-tool-configuration.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}25-global-tool-configuration.png"
     And I click the "Global Tool Configuration" link
 
     And I scroll the "MSBuild Tool" button into view offset by "-100"
     And I highlight outside the "MSBuild Tool" button
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}30-msbuild-global-tool.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}30-msbuild-global-tool.png"
     And I click the "MSBuild Tool" button
     And I remove the highlight from the "MSBuild Tool" button
 
@@ -94,7 +94,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Save" button
     And I populate the "MSBuild Name" text box with "MSBuild"
     And I populate the "MSBuild Path" text box with the text "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}35-msbuild-settings.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}35-msbuild-settings.png"
     And I click the "Save" button
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
@@ -127,23 +127,23 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       # Give the top toolbar a change to realign itself
     And I wait for "1" seconds
     And I highlight outside the "Configure Credentials" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}40-configure-credentials.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}40-configure-credentials.png"
     And I click the "Configure Credentials" link
 
     And I highlight inside the "Credentials" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}45-credentials-parent.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}45-credentials-parent.png"
     And I click the "Credentials" link
 
     And I highlight inside the "System" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}50-credentials-system.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}50-credentials-system.png"
     And I click the "System" link
 
     And I highlight outside the "Global credentials cell" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}55-global-credentials.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}55-global-credentials.png"
     And I click the "Global credentials" link
 
     And I highlight inside the "Add Credentials" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}60-add-credentials.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}60-add-credentials.png"
     And I click the "Add Credentials" link
 
     And I highlight outside the "Kind" drop down list
@@ -157,7 +157,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Secret" text box with "ExternalOctopusAPIKey"
     And I populate the "ID" text box with "OctopusAPIKey"
     And I populate the "Description" text box with "The Octopus API Key"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}65-octopus-credentials.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}65-octopus-credentials.png"
     And I click the "OK" button
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
@@ -185,14 +185,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I display a note with the text "Creating the Jenkins project" for "3" seconds
 
     And I highlight inside the "New Item" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}75-new-item.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}75-new-item.png"
     And I click the "New Item" link
 
     And I highlight outside the "Freestyle project" link
     And I highlight outside the "Project name" link
     And I highlight outside the "OK" button
     And I populate the "Project name" text box with "Random Quotes"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}80-freestyle-project.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}80-freestyle-project.png"
     And I click the "Freestyle project" link
     And I scroll the "OK" button into view
     And I click the "OK" button
@@ -202,14 +202,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Git" option
     And I highlight outside the "Repository URL" text box
     And I populate the "Repository URL" text box with "GitUrl"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{ScreenshotDir}085-git-settings.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}085-git-settings.png"
 
     And I scroll the "Poll SCM" option into view offset by "-200"
     And I click the "Poll SCM" option
     And I populate the "Schedule" textarea with "H/5 * * * *"
     And I highlight outside the "Poll SCM" option
     And I highlight outside the "Schedule" textarea
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}90-git-polling.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}90-git-polling.png"
     And I remove the highlight from the "Poll SCM" option
     And I remove the highlight from the "Schedule" textarea
 
@@ -218,11 +218,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Use secrets" option
 
     And I highlight outside the "Bindings Add" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}95-binding-add.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}95-binding-add.png"
     And I click the "Bindings Add" option
     And I highlight outside the "Secret text" link
     And I sleep for "1" second
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}00-secret-text.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}00-secret-text.png"
     And I remove the highlight from the "Bindings Add" option
     And I remove the highlight from the "Use secrets" option
     And I click the "Secret text" link
@@ -230,7 +230,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Variable" text box
     And I highlight outside the "Credentials" drop down list
     And I populate the "Variable" text box with "OctopusAPIKey"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}05-credentials-octopusapikey.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}05-credentials-octopusapikey.png"
     And I remove the highlight from the "Variable" text box
     And I remove the highlight from the "Credentials" drop down list
 
@@ -250,7 +250,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}10-batch-command-1.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}10-batch-command-1.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -258,14 +258,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Command" text box into view offset by "-200"
     And I highlight outside the "Command" text box
     And I populate the "Command" text box with "C:\ProgramData\chocolatey\bin\nuget.exe restore"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}15-nuget-restore.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}15-nuget-restore.png"
     And I remove the highlight from the "Command" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Build a Visual Studio project or solution using MSBuild" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}20-msbuild-step-add.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}20-msbuild-step-add.png"
     And I click the "Build a Visual Studio project or solution using MSBuild" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Build a Visual Studio project or solution using MSBuild" option
@@ -277,7 +277,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I select the option "MSBuild" from the "MSBuild Version" drop down list
     And I populate the "MSBuild Build File" text box with "RandomQuotes.sln"
     And I populate the "Command Line Arguments" text box with "/p:RunOctoPack=true /p:OctoPackEnforceAddingFiles=true /p:OctoPackPackageVersion=1.0.$BUILD_NUMBER"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}25-msbuild-step.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}25-msbuild-step.png"
     And I remove the highlight from the "MSBuild Version" drop down list
     And I remove the highlight from the "MSBuild Build File" text box
     And I remove the highlight from the "Command Line Arguments" text box
@@ -286,7 +286,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}27-batch-command-2.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}27-batch-command-2.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -294,7 +294,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Command Two" text box into view offset by "-200"
     And I highlight outside the "Command Two" text box
     And I populate the "Command Two" text box with ".\packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe .\RandomQuotes.Tests\bin\Debug\RandomQuotes.Tests.dll"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}28-nunit-test.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}28-nunit-test.png"
     And I remove the highlight from the "Command Two" text box
 
   @configure-project @repositoryspecific @artifactory @applicationspecific @aspnet
@@ -309,7 +309,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}30-artifactory-batch-command-1.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}30-artifactory-batch-command-1.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -317,7 +317,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Command Three" text box into view offset by "-200"
     And I highlight outside the "Command Three" text box
     And I populate the "Command Three" text box with "C:\ProgramData\chocolatey\bin\nuget.exe push -Source Artifactory .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.%BUILD_NUMBER%.nupkg"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}35-nuget-push.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}35-nuget-push.png"
     And I remove the highlight from the "Command Three" text box
 
     And I click the "Save" button
@@ -335,7 +335,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}30-batch-command-3.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}30-batch-command-3.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -344,7 +344,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Command Three" text box
     And I highlight outside the "Save" button
     And I populate the "Command Three" text box with "Octo.exe push --server http://localhost --package .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}35-octo-push.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}35-octo-push.png"
 
     And I click the "Save" button
     And I stop recording the screen
@@ -366,7 +366,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}10-batch-command-1.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}10-batch-command-1.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -374,14 +374,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Command" text box into view offset by "-200"
     And I highlight outside the "Command" text box
     And I populate the "Command" text box with "dotnet test"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{ScreenshotDir}010-dotnet-test.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}010-dotnet-test.png"
     And I remove the highlight from the "Command" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{ScreenshotDir}020-batch-command-2.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}020-batch-command-2.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -389,14 +389,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Command Two" text box into view offset by "-200"
     And I highlight outside the "Command Two" text box
     And I populate the "Command Two" text box with "dotnet publish -c Release"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{ScreenshotDir}030-dotnet-publish.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}030-dotnet-publish.png"
     And I remove the highlight from the "Command Two" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{ScreenshotDir}040-batch-command-3.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}040-batch-command-3.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -404,7 +404,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Command Three" text box into view offset by "-200"
     And I highlight outside the "Command Three" text box
     And I populate the "Command Three" text box with "Octo.exe pack -id RandomQuotes -version 1.0.%BUILD_NUMBER% -include RandomQuotes\bin\Release\netcoreapp2.2\publish\"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{ScreenshotDir}060-octo-pack.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}060-octo-pack.png"
     And I remove the highlight from the "Command Three" text box
 
   @configure-project @repositoryspecific @artifactory @applicationspecific @aspnetcore
@@ -419,7 +419,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}30-artifactory-batch-command-1.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}30-artifactory-batch-command-1.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -427,7 +427,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Command Four" text box into view offset by "-200"
     And I highlight outside the "Command Four" text box
     And I populate the "Command Four" text box with "C:\ProgramData\chocolatey\bin\nuget.exe push -Source Artifactory RandomQuotes.1.0.%BUILD_NUMBER%.nupkg"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{ScreenshotDir}070-nuget-push.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}070-nuget-push.png"
     And I remove the highlight from the "Command Four" text box
 
     And I click the "Save" button
@@ -445,7 +445,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}30-batch-command-3.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}30-batch-command-3.png"
     And I click the "Execute Windows batch command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
@@ -454,7 +454,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Command Four" text box
     And I highlight outside the "Save" button
     And I populate the "Command Four" text box with "Octo.exe push --server http://localhost --package RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{ScreenshotDir}070-octo-push.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}070-octo-push.png"
 
     And I click the "Save" button
     And I stop recording the screen
@@ -471,17 +471,17 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight inside the "Build Now" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}40-build-now.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}40-build-now.png"
     And I click the "Build Now" link
 
     And I highlight inside the "Build One" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}45-build-one.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}45-build-one.png"
     # Fake a click here to fix stale element errors in WebDriver
     And I mouse over the "Build One" link
     And I open the URL "http://localhost:8080/job/Random%20Quotes/1/"
 
     And I highlight inside the "Console Output" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{ScreenshotDir}50-console.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject#\{GuideSpecificScreenshotDir}50-console.png"
     And I click the "Console Output" link
     And I scroll down "10000" px
     And I sleep for "30" seconds
