@@ -270,7 +270,6 @@ jobs:
         "-DdisableVideoRecording=false"
         "-DdisableHighlights=true"
         "-DCucumberAlias-ExternalUrl=https://bambooaspnetbuiltinfeedviddev.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -345,7 +344,6 @@ jobs:
         "-DdisableVideoRecording=false"
         "-DdisableHighlights=true"
         "-DCucumberAlias-ExternalUrl=https://bambooaspnetbuiltinfeedvidtest.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome

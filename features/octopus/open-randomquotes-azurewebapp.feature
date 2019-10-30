@@ -12,7 +12,7 @@ Feature: Open Random Quotes
     And I refresh the page
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Running the Random Quotes sample application" for "3" seconds
-    And I save a screenshot to "Screenshot"
+    And I save a screenshot to "C:\screenshots\app\azure\#{GuideSpecificScreenshotDir}\#{Screenshot}"
     And I click the "Refresh" button
     And I sleep for "2" seconds
 

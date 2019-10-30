@@ -309,7 +309,6 @@ jobs:
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
         "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetartifactoryfeedviddev.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -375,7 +374,6 @@ jobs:
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
         "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetartifactoryfeedvidtest.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome

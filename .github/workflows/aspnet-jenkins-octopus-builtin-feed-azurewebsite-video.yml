@@ -55,7 +55,6 @@ jobs:
         "-DdisableScreenshots=true"
         "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
-        "-DCucumberAlias-GuideSpecificScreenshotDir="
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -244,7 +243,6 @@ jobs:
         "-DdisableScreenshots=true"
         "-DdisableHighlights=true"
         "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedviddev.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -306,7 +304,6 @@ jobs:
         "-DdisableScreenshots=true"
         "-DdisableHighlights=true"
         "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetbuiltinfeedvidtest.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-test-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome

@@ -328,7 +328,6 @@ jobs:
         "-DdisableVideoRecording=false"
         "-DdisableHighlights=true"
         "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetartifactoryfeedviddev.azurewebsites.net/"
-        "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
