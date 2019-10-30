@@ -23,7 +23,7 @@ Feature: Create Azure Account
       | More                 | (//span[contains(.,'More')])[2]                      |
       | Accounts             | //span[contains(.,'Accounts')]                       |
       | Add Account          | //button[contains(.,'Add Account')]                  |
-      | Azure Subscription   | //span[./div/div/div[text()='Azure Subscription']]   |
+      | Azure Subscription   | //li[normalize-space(text())='Azure Subscription']   |
       | Account name         | //input[contains(@id,'Accountname')]                 |
       | Subscription ID      | //input[contains(@id,'Subscription')]                |
       | Tenant ID            | //input[contains(@id,'ActiveDirectoryTenantID')]     |
