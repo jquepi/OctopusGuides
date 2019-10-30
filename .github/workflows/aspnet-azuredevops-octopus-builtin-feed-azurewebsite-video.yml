@@ -2,7 +2,7 @@ name: ASP.NET Azure DevOps Octopus Built-in Feed Azure Websites Video
 on:
 #  push:
   schedule:
-    - cron:  '0 20 1-31/2 * *'
+    - cron:  '0 17 1 * *'
 jobs:
   build:
     runs-on: windows-2019
