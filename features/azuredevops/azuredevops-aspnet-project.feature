@@ -434,7 +434,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Default Space" option
 
     And I highlight outside the "Package" text box
-    And I populate the "Package" text box with "RandomQuotes\obj\octopacked\RandomQuotes.1.0.$(Build.BuildId).nupkg"
+    And I populate the "Package" text box with "#{NugetPath}RandomQuotes.1.0.$(Build.BuildId).nupkg"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}140-space-and-package.png"
     And I remove the highlight from the "Space" drop down list
     And I remove the highlight from the "Package" text box
