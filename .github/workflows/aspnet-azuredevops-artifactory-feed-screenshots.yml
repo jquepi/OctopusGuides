@@ -1,6 +1,6 @@
 name: ASP.NET Azure Devops Artifactory Feed Screenshots
-#on: [push]
 on:
+#  push:
   schedule:
     - cron:  '0 19 2-30/2 * *'
 jobs:

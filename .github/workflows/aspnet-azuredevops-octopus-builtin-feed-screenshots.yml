@@ -1,6 +1,6 @@
 name: ASP.NET Azure Devops Octopus Built-in Feed Screenshots
-#on: [push]
 on:
+#  push:
   schedule:
     - cron:  '0 15 2-30/2 * *'
 jobs:

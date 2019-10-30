@@ -1,6 +1,6 @@
 name: ASP.NET Jenkins Artifactory Feed Azure Website Video
-#on: [push]
 on:
+#  push:
   schedule:
     - cron:  '0 23 1-31/2 * *'
 jobs:
