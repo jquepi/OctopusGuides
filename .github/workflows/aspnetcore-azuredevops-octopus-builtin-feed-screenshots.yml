@@ -1,0 +1,142 @@
+name: ASP.NET Core Azure Devops Octopus Built-in Feed Screenshots
+on:
+#  push:
+  schedule:
+    - cron:  '0 14 5 * *'
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-dotnet@v1
+    - name: Execute puppet
+      shell: powershell
+      run: ./install.ps1 -Scripts azuredevops.pp,utilities.pp,octopus.pp,iis.pp,azurewait.pp
+    - name: Create API key
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
+        "-DdisableScreenshots=true"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\octopus\octopus-api-key.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create API key for tests
+      shell: powershell
+      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
+    - name: Add Azure DevOps Project
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
+        "-DnoProxyList=microsoft.com"
+        "-DdumpAliasesOnFailure=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes.git"
+        "-DCucumberAlias-NugetPath=RandomQuotes\obj\octopacked\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @octo-built-in-feed"
+        --tags "not @applicationspecific or @aspnetcore"
+        features\azuredevops\azuredevops-aspnet-project.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create the Octopus Environments
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DdisableVideoRecording=true"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\octopus\octopus-environments.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Add tentacle
+      shell: powershell
+      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\tentacle.pp --disable_warnings=deprecations'
+    - name: Create Octopus Project
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
+        "-DdisableScreenshots=true"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @octo-built-in-feed"
+        --tags "not @applicationspecific or @aspnetcore"
+        features\octopus\octopus-aspnet-project.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Add a deployment step
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableVideoRecording=true"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        --tags "not @destinationspecific or @iis"
+        --tags "not @repositoryspecific or @octo-built-in-feed"
+        --tags "not @applicationspecific or @aspnetcore"
+        features\azuredevops\azuredevops-create-deploy.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Upload screenshots
+      shell: powershell
+      run: |
+        ls c:\screenshots
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 sync c:\screenshots s3://i.octopus.com/guides --acl public-read
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
