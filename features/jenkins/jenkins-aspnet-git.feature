@@ -209,7 +209,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Schedule" textarea with "H/5 * * * *"
     And I highlight outside the "Poll SCM" option
     And I highlight outside the "Schedule" textarea
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}90-git-polling.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}090-git-polling.png"
     And I remove the highlight from the "Poll SCM" option
     And I remove the highlight from the "Schedule" textarea
 
@@ -218,7 +218,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Use secrets" option
 
     And I highlight outside the "Bindings Add" link
-    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}95-binding-add.png"
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}095-binding-add.png"
     And I click the "Bindings Add" option
     And I highlight outside the "Secret text" link
     And I sleep for "1" second
