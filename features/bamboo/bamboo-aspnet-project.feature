@@ -372,7 +372,7 @@ Feature: Configure Bamboo
     And I highlight outside the "API key" text box with an offset of "5"
 
     And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "Push to Artifactory"
+    And I populate the "Task description" text box with "Push to Octopus"
     And I scroll the "Server URL" text box into view offset by "-300"
     And I clear the "Server URL" text box
     And I populate the "Server URL" text box with "http://localhost"
