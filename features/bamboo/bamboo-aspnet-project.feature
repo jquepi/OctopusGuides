@@ -46,7 +46,10 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\addins\#{GuideSpecificScreenshotDir}020-find-apps.png"
     And I click the "Find new apps" link
 
+    And I stop recording the screen
     And I refresh the page if the "Search the Marketplace" text box does not exist
+    And I start recording the screen to the directory "C:\screenshots"
+
     And I populate the "Search the Marketplace" text box with "Octopus"
     And I highlight outside the "Search the Marketplace" text box with an offset of "5"
     And I sleep for "2" second
