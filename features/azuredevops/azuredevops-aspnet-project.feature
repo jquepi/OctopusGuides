@@ -274,7 +274,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Source Path" text box into view offset by "-200"
     And I highlight outside the "Source Path" text box with an offset of "5"
-    And I populate the "Source Path" text box with "$(build.artifactstagingdirectory)"
+    And I populate the "Source Path" text box with "$(build.artifactstagingdirectory)\RandomQuotes"
 
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}100-octopus-pack.png"
 
