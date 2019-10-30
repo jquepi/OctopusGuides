@@ -120,7 +120,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I display a note with the text "Adding the Octopus API key as a Jenkins secret" for "3" seconds
 
-    And I highlight inside the "Manage Jenkins" link
+    And I highlight inside the "Manage Jenkins" text box
+    And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}023-manage-jenkins.png"
     And I click the "Manage Jenkins" link
 
     And I scroll the "Configure Credentials" link into view offset by "-100"
