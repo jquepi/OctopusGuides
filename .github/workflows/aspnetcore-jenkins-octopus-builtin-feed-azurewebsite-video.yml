@@ -530,35 +530,35 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-#    - name: Replace Wistia Video
-#      shell: powershell
-#      run: >
-#        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-#        "--enable-preview"
-#        "-Xmx2g"
-#        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-#        "-DmoveCursorToElement=true"
-#        "-DmouseMoveVerticalOffset=74"
-#        "-DdisableHighlights=true"
-#        "-DdisableScreenshots=true"
-#        "-DdisableVideoRecording=true"
-#        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-#        "-DslackStepHandlerEnabled=false"
-#        "-DscreenshotS3Enabled=true"
-#        "-DscreenshotS3Bucket=octopus-guides-screenshots"
-#        "-DstepHandlerMessage=$env:GITHUB_SHA"
-#        "-DretryCount=1"
-#        "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
-#        "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
-#        "-DCucumberAlias-ExternalMediaID=xgn6egark8"
-#        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-#        --plugin progress
-#        --monochrome
-#        features\wistia\replace-video.feature
-#      env:
-#        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Replace Wistia Video
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DdisableVideoRecording=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
+        "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
+        "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
+        "-DCucumberAlias-ExternalMediaID=aj5asq70qt"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\wistia\replace-video.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Delete resource groups
       shell: powershell
       run: |
