@@ -1,4 +1,4 @@
-name: ASP.NET Core Jenkins Octopus Built-in Feed Azure Websites Video
+name: ASP.NET Core Jenkins Artifactory Feed Azure Websites Video
 on:
 #  push:
   schedule:
@@ -14,12 +14,38 @@ jobs:
     - name: Create Web App
       shell: powershell
       run: |
-        ./create-azure-web-app "jenkinsaspnetcorebuiltinfeedviddev"
-        ./create-azure-web-app "jenkinsaspnetcorebuiltinfeedvidtest"
-        ./create-azure-web-app "jenkinsaspnetcorebuiltinfeedvidprod"
+        ./create-azure-web-app "jenkinsaspnetcoreartifactoryviddev"
+        ./create-azure-web-app "jenkinsaspnetcoreartifactoryvidtest"
+        ./create-azure-web-app "jenkinsaspnetcoreartifactoryvidprod"
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
+      run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,artifactory.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
+    - name: Configure Artifactory
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\artifactory\artifactory-setup.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Create API key
       shell: powershell
       run: >
@@ -70,9 +96,36 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory)"
         --tags "not @applicationspecific or @aspnetcore"
         features\jenkins\jenkins-aspnet-git.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create the Octopus External Feed
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DdumpAliasesOnFailure=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\octopus\octopus-artifactory-feed.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -154,7 +207,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Dev"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetcorebuiltinfeedviddev')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetcoreartifactoryviddev')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -188,7 +241,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Test"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetcorebuiltinfeedvidtest')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetcoreartifactoryvidtest')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -222,7 +275,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Prod"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetcorebuiltinfeedvidprod')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetcoreartifactoryvidprod')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -251,7 +304,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory)"
         --tags "not @applicationspecific or @aspnetcore"
         features\octopus\octopus-aspnet-project.feature
     - name: Open Random Quotes
@@ -272,7 +325,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
-        "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetcorebuiltinfeedviddev.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetcoreartifactoryviddev.azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -301,7 +354,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory)"
         --tags "not @applicationspecific or @aspnetcore"
         features\jenkins\jenkins-create-deploy.feature
       env:
@@ -351,7 +404,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
-        "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetcorebuiltinfeedvidtest.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetcoreartifactoryvidtest.azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -525,7 +578,7 @@ jobs:
       shell: powershell
       run: |
         ls c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnetcore-jenkins-octopus-builtin-feed-azure.mp4 --acl public-read
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnetcore-jenkins-artifactory-feed-azure.mp4 --acl public-read
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -562,6 +615,6 @@ jobs:
     - name: Delete resource groups
       shell: powershell
       run: |
-        ./delete-resource-group.ps1 "jenkinsaspnetcorebuiltinfeedviddev"
-        ./delete-resource-group.ps1 "jenkinsaspnetcorebuiltinfeedvidtest"
-        ./delete-resource-group.ps1 "jenkinsaspnetcorebuiltinfeedvidprod"
+        ./delete-resource-group.ps1 "jenkinsaspnetcoreartifactoryviddev"
+        ./delete-resource-group.ps1 "jenkinsaspnetcoreartifactoryvidtest"
+        ./delete-resource-group.ps1 "jenkinsaspnetcoreartifactoryvidprod"
