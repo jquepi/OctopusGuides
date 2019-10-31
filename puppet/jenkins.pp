@@ -112,3 +112,8 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   ,
   logoutput => true
 }
+# Give the plugins a chance to install
+-> exec { 'Sleep for a bit':
+  command  => 'Start-Sleep 300',
+  provider => powershell,
+}
