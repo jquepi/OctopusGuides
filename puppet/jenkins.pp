@@ -45,7 +45,7 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
 
     // The list of plugins to install
     Set<String> plugins_to_install = [
-        "git", "github", "blueocean", "custom-tools-plugin", "simple-theme-plugin", "plain-credentials"
+        "git", "github", "plain-credentials"
     ]
 
     /*
