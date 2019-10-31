@@ -55,7 +55,7 @@ jobs:
         "-DretryCount=1"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes.git"
-        "-DCucumberAlias-NugetPath=RandomQuotes\obj\octopacked\"
+        "-DCucumberAlias-NugetPath="
         "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress

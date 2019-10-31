@@ -12,10 +12,10 @@ Feature: Create and deploy a release
   @add-step
   Scenario: Add deploy step
     Given I set the following aliases:
-      | Random Quotes            | //li[contains(@class,'project-card')]                                                                         |
-      | Pipelines                | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']]                               |
-      | Build                    | //a[@name='Builds']                                                                                           |
-      | Edit                     | //a[contains(.,'Edit')]                                                                                       |
+      | Random Quotes | //li[contains(@class,'project-card')]                                           |
+      | Pipelines     | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
+      | Build         | //a[@name='Builds']                                                             |
+      | Edit          | //a[contains(.,'Edit')]                                                         |
 
     And I display a note with the text "Deploying an Octopus release from Azure DevOps" for "3" seconds
 
@@ -36,7 +36,7 @@ Feature: Create and deploy a release
   @add-step @repositoryspecific @octo-built-in-feed
   Scenario: Click last step
     Given I set the following aliases:
-      | Push Packages to Octopus | //div[./div/div/div/div[text()='Push Package(s) to Octopus']]                                                 |
+      | Push Packages to Octopus | //div[./div/div/div/div[text()='Push Package(s) to Octopus']] |
 
     And I scroll the "Push Packages to Octopus" job tile into view
     And I click the "Push Packages to Octopus" job tile
@@ -44,7 +44,7 @@ Feature: Create and deploy a release
   @add-step @repositoryspecific @artifactory
   Scenario: Click last step
     Given I set the following aliases:
-      | Nuget push | //div[./div/div/div/div[text()='Nuget push']]                                                 |
+      | Nuget push | //div[./div/div/div/div[text()='Nuget push']] |
 
     And I scroll the "Nuget push" job tile into view
     And I click the "Nuget push" job tile
@@ -52,11 +52,11 @@ Feature: Create and deploy a release
   @add-step
   Scenario: Continue Adding deploy step
     Given I set the following aliases:
-      | Add task                 | //button[@aria-label='Add a task to Agent job 1']                                                             |
-      | Search                   | (//input[@aria-label='Search'])[2]                                                                            |
-      | Create release tile      | //div[@class='info-name'][text()='Create Octopus Release']                                                    |
-      | Create release           | //div[./div/div/div[text()='Create Octopus Release']]/button                                                  |
-      | Create Octopus Release   | //div[@data-list-index='7'][contains(.,'Create Octopus Release')]/div/div/div/div                             |
+      | Add task               | //button[@aria-label='Add a task to Agent job 1']                                 |
+      | Search                 | (//input[@aria-label='Search'])[2]                                                |
+      | Create release tile    | //div[@class='info-name'][text()='Create Octopus Release']                        |
+      | Create release         | //div[./div/div/div[text()='Create Octopus Release']]/button                      |
+      | Create Octopus Release | //div[@data-list-index='7'][contains(.,'Create Octopus Release')]/div/div/div/div |
 
     And I highlight inside the "Add task" button
     And I click the "Add task" button
@@ -78,8 +78,8 @@ Feature: Create and deploy a release
   @add-step @repositoryspecific @octo-built-in-feed
   Scenario: Select existing Octopus server
     Given I set the following aliases:
-      | Octopus Deploy Server    | //div[@aria-label='Expand'][../../../../../../../../../../div/div/label[contains(.,'Octopus Deploy Server')]] |
-      | Octopus Server           | //li[text()='Octopus']                                                                                        |
+      | Octopus Deploy Server | //div[@aria-label='Expand'][../../../../../../../../../../div/div/label[contains(.,'Octopus Deploy Server')]] |
+      | Octopus Server        | //li[text()='Octopus']                                                                                        |
 
     And I highlight outside the "Octopus Deploy Server" drop down list with an offset of "2"
     And I click the "Octopus Deploy Server" drop down list
@@ -88,11 +88,11 @@ Feature: Create and deploy a release
   @add-step @repositoryspecific @artifactory
   Scenario: Add new Octopus server
     Given I set the following aliases:
-      | New                      | //div[./span[text()='Add Octopus Deploy Server']]                                          |
-      | Connection name          | //input[@id='connectionName']                                                              |
-      | Server URL               | //input[@id='url']                                                                         |
-      | API Key                  | //input[@id='apitoken']                                                                    |
-      | OK                       | //button[@id='ok']                                                                         |
+      | New             | //div[./span[text()='Add Octopus Deploy Server']] |
+      | Connection name | //input[@id='connectionName']                     |
+      | Server URL      | //input[@id='url']                                |
+      | API Key         | //input[@id='apitoken']                           |
+      | OK              | //button[@id='ok']                                |
 
     And I highlight outside the "New" button with an offset of "2"
     And I zoom the browser out
@@ -116,18 +116,18 @@ Feature: Create and deploy a release
   @add-step
   Scenario: Continue adding step
     Given I set the following aliases:
-      | Space Refresh            | //button[./div/span[text()='Refresh Space']]                                                                  |
-      | Project Refresh          | //button[./div/span[text()='Refresh Project']]                                                                |
-      | Default Space            | //li[text()='Default']                                                                                        |
-      | Random Quotes Project    | //li[text()='Random Quotes']                                                                                  |
-      | Save and queue           | //button[@name='Save & queue']                                                                                |
-      | Save and queue two       | (//button[@name='Save & queue'])[2]                                                                           |
-      | Save and queue three     | //button[@aria-label='Save & queue']                                                                          |
-      | Comment                  | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                                            |
-      | Build link               | //a[contains(@class, 'ci-queued-build-link')]                                                                 |
-      | Post job Checkout        | //div[text()='Post-job: Checkout']                                                                            |
-      | Octopus Deploy Space     | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]                    |
-      | Octopus Deploy Project   | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]]                  |
+      | Space Refresh          | //button[./div/span[text()='Refresh Space']]                                                 |
+      | Project Refresh        | //button[./div/span[text()='Refresh Project']]                                               |
+      | Default Space          | //li[text()='Default']                                                                       |
+      | Random Quotes Project  | //li[text()='Random Quotes']                                                                 |
+      | Save and queue         | //button[@name='Save & queue']                                                               |
+      | Save and queue two     | (//button[@name='Save & queue'])[2]                                                          |
+      | Save and queue three   | //button[@aria-label='Save & queue']                                                         |
+      | Comment                | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                           |
+      | Build link             | //a[contains(@class, 'ci-queued-build-link')]                                                |
+      | Post job Checkout      | //div[text()='Post-job: Checkout']                                                           |
+      | Octopus Deploy Space   | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]   |
+      | Octopus Deploy Project | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]] |
 
     And I highlight outside the "Octopus Deploy Space" drop down list with an offset of "2"
     And I click the "Space Refresh" button
