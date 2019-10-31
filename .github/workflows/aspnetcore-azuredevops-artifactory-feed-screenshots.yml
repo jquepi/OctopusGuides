@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure Devops Artifactory Feed Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 5 * *'
 jobs:
@@ -182,6 +182,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
