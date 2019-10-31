@@ -280,7 +280,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I stop recording the screen
 
-  @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnet
+  @configure-project @applicationspecific @aspnet
   Scenario: Push to Octopus
   The last task need to be selected and then the "Add task" button clicked to ensure the new task is appended to the end.
   This Scenario selects the final task for the ASP.NET builds.
@@ -295,7 +295,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Publish artifact" row
     And I click the "Add task" button
 
-  @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnetcore
+  @configure-project @applicationspecific @aspnetcore
   Scenario: Push to Octopus
   The last task need to be selected and then the "Add task" button clicked to ensure the new task is appended to the end.
   This Scenario selects the final task for the ASP.NET Core builds.
