@@ -45,7 +45,7 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
 
     // The list of plugins to install
     Set<String> plugins_to_install = [
-        "git", "github", "build-environment", "plain-credentials"
+        "git", "github", "credentials", "credentials-binding", "plain-credentials"
     ]
 
     /*
@@ -55,6 +55,7 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
         c.each {
             println "Installing ${it} plugin."
             UpdateSite.Plugin plugin = updateSite.getPlugin(it)
+            // Wait for the future to be resolved, and check for any errors
             Throwable error = plugin.deploy(dynamicLoad).get().getError()
             if(error != null) {
                 println "ERROR installing ${it}, ${error}"
@@ -111,9 +112,4 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
     '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Jenkins.lnk"); $short.TargetPath = "http://localhost:8080"; $short.Save();'
   ,
   logoutput => true
-}
-# Give the plugins a chance to install
--> exec { 'Sleep for a bit':
-  command  => 'Start-Sleep 300',
-  provider => powershell,
 }
