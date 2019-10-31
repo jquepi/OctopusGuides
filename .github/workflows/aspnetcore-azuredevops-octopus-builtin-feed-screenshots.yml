@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure Devops Octopus Built-in Feed Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 5 * *'
 jobs:
@@ -47,6 +47,12 @@ jobs:
         "-DdisableVideoRecording=true"
         "-DnoProxyList=microsoft.com"
         "-DdumpAliasesOnFailure=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes.git"
         "-DCucumberAlias-NugetPath=RandomQuotes\obj\octopacked\"
@@ -97,6 +103,12 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
         "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
