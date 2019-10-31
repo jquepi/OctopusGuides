@@ -266,15 +266,18 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Package ID" text box with an offset of "5"
     And I populate the "Package ID" text box with "RandomQuotes"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}096-octopus-pack.png"
+    And I remove the highlight from the "Package ID" text box
 
     And I scroll the "Package Version" text box into view offset by "-200"
     And I highlight outside the "Package Version" text box with an offset of "5"
     And I populate the "Package Version" text box with "1.0.$(Build.BuildId)"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}097-octopus-pack.png"
+    And I remove the highlight from the "Package Version" text box
 
     And I scroll the "Source Path" text box into view offset by "-200"
     And I highlight outside the "Source Path" text box with an offset of "5"
     And I populate the "Source Path" text box with "$(build.artifactstagingdirectory)\RandomQuotes"
+    And I remove the highlight from the "Source Path" text box
 
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}100-octopus-pack.png"
 
