@@ -1,6 +1,6 @@
 name: ASP.NET Bamboo Octopus Built-in Feed Azure Website Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 17 2 * *'
 jobs:
@@ -70,6 +70,8 @@ jobs:
         "-DretryCount=1"
         "-Djava.util.logging.config.file=logging.properties"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
+        --tags "not @applicationspecific or @aspnet"
         --monochrome
         --plugin progress
         features\bamboo\bamboo-aspnet-project.feature
