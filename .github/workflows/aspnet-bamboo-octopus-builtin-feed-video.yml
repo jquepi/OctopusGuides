@@ -62,6 +62,8 @@ jobs:
         "-DretryCount=1"
         "-Djava.util.logging.config.file=logging.properties"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --tags "(not @destinationspecific or @iis) and (not @repositoryspecific or @octo-built-in-feed)"
+        --tags "not @applicationspecific or @aspnet"
         --monochrome
         --plugin progress
         features\bamboo\bamboo-aspnet-project.feature
