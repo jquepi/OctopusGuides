@@ -1,6 +1,6 @@
-name: ASP.NET Core Azure DevOps Octopus Built-in Feed Azure WebSites Video
+name: ASP.NET Core Azure DevOps Artifactory Azure WebSites Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 5 * *'
 jobs:
@@ -14,12 +14,38 @@ jobs:
     - name: Create Web App
       shell: powershell
       run: |
-        ./create-azure-web-app "azuredevopsaspnetcorebuiltinfeedviddev"
-        ./create-azure-web-app "azuredevopsaspnetcorebuiltinfeedvidtest"
-        ./create-azure-web-app "azuredevopsaspnetcorebuiltinfeedvidprod"
+        ./create-azure-web-app "azuredevopsaspnetcoreartifactoryviddev"
+        ./create-azure-web-app "azuredevopsaspnetcoreartifactoryvidtest"
+        ./create-azure-web-app "azuredevopsaspnetcoreartifactoryvidprod"
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts azuredevops.pp,utilities.pp,octopus.pp,iis.pp,sleep.pp,sleep.pp,azurewait.pp
+      run: ./install.ps1 -Scripts azuredevops.pp,utilities.pp,artifactory.pp,octopus.pp,iis.pp,sleep.pp,sleep.pp,azurewait.pp
+    - name: Configure Artifactory
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\artifactory\artifactory-setup.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Create API key
       shell: powershell
       run: >
@@ -75,9 +101,36 @@ jobs:
         --plugin progress
         --monochrome
         --tags "not @destinationspecific or @azure-web-app"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
+        --tags "not @repositoryspecific or @artifactory"
         --tags "not @applicationspecific or @aspnetcore"
         features\azuredevops\azuredevops-aspnet-project.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create the Octopus External Feed
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=true"
+        "-DmouseMoveVerticalOffset=74"
+        "-DdisableHighlights=true"
+        "-DdisableScreenshots=true"
+        "-DdumpAliasesOnFailure=true"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=true"
+        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DretryCount=1"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\octopus\octopus-artifactory-feed.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -159,7 +212,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Dev"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetcorebuiltinfeedviddev')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetcoreartifactoryviddev')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -193,7 +246,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Test"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetcorebuiltinfeedvidtest')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetcoreartifactoryvidtest')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -227,7 +280,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Prod"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetcorebuiltinfeedvidprod')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetcoreartifactoryvidprod')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -261,7 +314,7 @@ jobs:
         --plugin progress
         --monochrome
         --tags "not @destinationspecific or @azure-web-app"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
+        --tags "not @repositoryspecific or @artifactory"
         --tags "not @applicationspecific or @aspnetcore"
         features\octopus\octopus-aspnet-project.feature
       env:
@@ -286,7 +339,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
-        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetcorebuiltinfeedvidtest.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetcoreartifactoryvidtest.azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -317,7 +370,7 @@ jobs:
         --plugin progress
         --monochrome
         --tags "not @destinationspecific or @azure-web-app"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
+        --tags "not @repositoryspecific or @artifactory"
         --tags "not @applicationspecific or @aspnetcore"
         features\azuredevops\azuredevops-create-deploy.feature
       env:
@@ -374,7 +427,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Test"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetcorebuiltinfeedvidtest')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetcoreartifactoryvidtest')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -548,7 +601,7 @@ jobs:
       shell: powershell
       run: |
         ls c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnetcore-azuredevops-octopus-builtin-feed-azure.mp4 --acl public-read
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnetcore-azuredevops-artifactory-azure.mp4 --acl public-read
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -585,6 +638,6 @@ jobs:
     - name: Delete resource groups
       shell: powershell
       run: |
-        ./delete-resource-group.ps1 "azuredevopsaspnetcorebuiltinfeedviddev"
-        ./delete-resource-group.ps1 "azuredevopsaspnetcorebuiltinfeedvidtest"
-        ./delete-resource-group.ps1 "azuredevopsaspnetcorebuiltinfeedvidprod"
+        ./delete-resource-group.ps1 "azuredevopsaspnetcoreartifactoryviddev"
+        ./delete-resource-group.ps1 "azuredevopsaspnetcoreartifactoryvidtest"
+        ./delete-resource-group.ps1 "azuredevopsaspnetcoreartifactoryvidprod"
