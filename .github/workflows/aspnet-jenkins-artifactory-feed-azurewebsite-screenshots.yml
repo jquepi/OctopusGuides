@@ -403,7 +403,6 @@ jobs:
           "-DmoveCursorToElement=true"
           "-DmouseMoveVerticalOffset=74"
           "-DdisableVideoRecording=true"
-          "-DCucumberAlias-ApplicationURL=[http://localhost:#{IIS Port}](http://localhost:#{IIS Port})"
           "-DCucumberAlias-GuideSpecificScreenshotDir=aspnet-app\azurewebapp\"
           -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
