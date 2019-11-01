@@ -315,7 +315,7 @@ jobs:
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
         "-DscreenshotS3Bucket=$($env:SCREENSHOT_BUCKET)"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
+        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
