@@ -144,7 +144,7 @@ download_file { 'dotnet-hosting-2.2.7-win.exe':
     New-Item -ItemType file c:\DotNetHostingInstalled.txt
     | EOT
 }
--> exec { 'Install Azure':
+-> exec { 'Install DotNET Hosting':
   command   => '& C:/install_dotnethosting.ps1',
   creates   => 'c:/DotNetHostingInstalled.txt',
   timeout   => 3600,
