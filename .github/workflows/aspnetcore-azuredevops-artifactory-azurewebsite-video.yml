@@ -339,7 +339,7 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
-        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetcoreartifactoryvidtest.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetcoreartifactoryviddev.azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -402,7 +402,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    - name: Create Test Azure target
+    - name: Open Random Quotes
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
@@ -415,23 +415,16 @@ jobs:
         "-DdisableScreenshots=true"
         "-DdisableHighlights=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=true"
+        "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
-        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
-        "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
-        "-DCucumberAlias-ExternalApplicationTenantID=${{ secrets.ExternalApplicationTenantID }}"
-        "-DCucumberAlias-ExternalAzureTenantID=${{ secrets.ExternalAzureTenantID }}"
-        "-DCucumberAlias-ExternalAzureSubscriptionID=${{ secrets.ExternalAzureSubscriptionID }}"
-        "-DCucumberAlias-ExternalEnvironmentName=Test"
-        "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
-        "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'azuredevopsaspnetcoreartifactoryvidtest')]]"
+        "-DretryCount=1"
+        "-DCucumberAlias-ExternalUrl=https://azuredevopsaspnetcoreartifactoryvidtest.azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        features\octopus\octopus-create-azure-webapp-target.feature
+        features\octopus\open-randomquotes-azurewebapp.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
