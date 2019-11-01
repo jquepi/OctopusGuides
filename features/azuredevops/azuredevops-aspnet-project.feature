@@ -319,7 +319,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Search                                                       | (//input[@aria-label='Search'])[2]                                                                             |
       | NuGet title                                                  | //div[@class='info-name'][text()='NuGet']                                                                      |
       | NuGet Task                                                   | //div[./div/div/div[text()='NuGet']]/button                                                                    |
-      | NuGet restore                                                | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='NuGet restore']]            |
+      | NuGet restore                                                | (//div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='NuGet restore']])[last()]  |
       | Display name                                                 | //input[../../../../../../div/label[normalize-space(text())='Display name']]                                   |
       | Command                                                      | //input[../../../../../../../../../div/label[normalize-space(text())='Command']]                               |
       | Push command                                                 | //div[contains(@class,'combo-drop-popup')]//*[normalize-space(text())='push']                                  |
