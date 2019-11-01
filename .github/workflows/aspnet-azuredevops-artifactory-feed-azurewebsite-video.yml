@@ -17,6 +17,10 @@ jobs:
       MOUSE_VERTICAL_OFFSET: 74
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       STHREE_SCREENSHOT_ENABLED: true
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
+      NUGET_PATH: RandomQuotes\obj\octopacked\
+      VIDEO_FILE_NAME: aspnet-azuredevops-artifactory-feed-azure.mp4
+      SCREENSHOT_PATH:
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
@@ -99,8 +103,8 @@ jobs:
         "-DnoProxyList=microsoft.com"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
-        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
-        "-DCucumberAlias-NugetPath=RandomQuotes\obj\octopacked\"
+        "-DCucumberAlias-GitUrl=$env:GIT_URL"
+        "-DCucumberAlias-NugetPath=$env:NUGET_PATH"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
@@ -568,7 +572,7 @@ jobs:
       shell: powershell
       run: |
         ls c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnet-azuredevops-artifactory-feed-azure.mp4 --acl public-read
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 "s3://i.octopus.com/guides/$($env:VIDEO_FILE_NAME)" --acl public-read
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
