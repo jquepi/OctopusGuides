@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Octopus Built-in Feed Azure WebSites Video
 on:
-  push:
+#  push:
   schedule:
     - cron:  '0 14 5 * *'
 jobs:
@@ -10,7 +10,7 @@ jobs:
       TEST_RES_GROUP: azuredevopsaspnetcorebuiltinfeedvidtest
       PROD_RES_GROUP: azuredevopsaspnetcorebuiltinfeedvidprod
       CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore)"
-      WISTIA_MEDIA_ID: unknown
+      WISTIA_MEDIA_ID: m1idwitswa
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
       MOVE_TO_MOUSE_CUSROR: true
@@ -546,35 +546,35 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-#    - name: Replace Wistia Video
-#      shell: powershell
-#      run: >
-#        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-#        "--enable-preview"
-#        "-Xmx2g"
-#        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-#        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
-#        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-#        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
-#        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-#        "-DdisableVideoRecording=true"
-#        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-#        "-DslackStepHandlerEnabled=false"
-#        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
-#        "-DscreenshotS3Bucket=$($env:SCREENSHOT_BUCKET)"
-#        "-DstepHandlerMessage=$env:GITHUB_SHA"
-#        "-DretryCount=1"
-#        "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
-#        "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
-#        "-DCucumberAlias-ExternalMediaID=ghu05j71no"
-#        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-#        --plugin progress
-#        --monochrome
-#        features\wistia\replace-video.feature
-#      env:
-#        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Replace Wistia Video
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DdisableVideoRecording=true"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$($env:SCREENSHOT_BUCKET)"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DretryCount=1"
+        "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
+        "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
+        "-DCucumberAlias-ExternalMediaID=$env:WISTIA_MEDIA_ID"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\wistia\replace-video.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Delete resource groups
       shell: powershell
       run: |
