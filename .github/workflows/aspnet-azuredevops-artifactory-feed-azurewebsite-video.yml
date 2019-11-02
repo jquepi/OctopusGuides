@@ -331,8 +331,12 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableVideoRecording=false"
         "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DCucumberAlias-ExternalUrl=https://$($env:DEV_RES_GROUP).azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
@@ -402,8 +406,12 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableVideoRecording=false"
         "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DslackStepHandlerEnabled=false"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
+        "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DCucumberAlias-ExternalUrl=https://$($env:TEST_RES_GROUP).azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
