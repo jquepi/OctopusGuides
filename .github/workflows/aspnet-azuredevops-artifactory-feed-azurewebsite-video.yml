@@ -404,7 +404,7 @@ jobs:
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableVideoRecording=false"
         "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
-        ""-DCucumberAlias-ExternalUrl=https://$($env:TEST_RES_GROUP).azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://$($env:TEST_RES_GROUP).azurewebsites.net/"
         "-DCucumberAlias-Screenshot=C:\screenshots\app\azure\aspnet-random-quotes-dev-app.png"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
