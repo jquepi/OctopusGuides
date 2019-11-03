@@ -244,20 +244,20 @@ Feature: Configure Bamboo
   @applicationspecific @aspnetcore
   Scenario: ASP.NET Core Add tasks
     Given I set the following aliases:
-      | Add task                     | //a[@id='addTask']                                                                                          |
-      | Search                       | //h2[contains(.,'Task types')]//input                                                                       |
-      | Script Tile                  | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']]                       |
-      | Task description             | //input[@id='createTask_userDescription']                                                                   |
-      | Solution                     | //input[@id='solution']                                                                                     |
-      | Options                      | //input[@id='options']                                                                                      |
-      | Save                         | //input[@id='createTask_save']                                                                              |
-      | Interpreter                  | //select[@id='interpreter']                                                                                 |
-      | Script body                  | //div[@id='scriptBody']                                                                                     |
-      | Octopus Deploy: Pack Package | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Octopus Deploy: Pack Package']] |
-      | Package ID                   | //input[@id='packId']                                                                                       |
-      | Version number               | //input[@id='packVersion']                                                                                  |
-      | NuGet Package format         | //input[@id='packFormatnuget']                                                                              |
-      | Package include paths        | //textarea[@id='packInclude']                                                                               |
+      | Add task                          | //a[@id='addTask']                                                                                          |
+      | Search                            | //h2[contains(.,'Task types')]//input                                                                       |
+      | Script Tile                       | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']]                       |
+      | Task description                  | //input[@id='createTask_userDescription']                                                                   |
+      | Solution                          | //input[@id='solution']                                                                                     |
+      | Options                           | //input[@id='options']                                                                                      |
+      | Save                              | //input[@id='createTask_save']                                                                              |
+      | Interpreter                       | //select[@id='interpreter']                                                                                 |
+      | Script body                       | //div[@id='scriptBody']                                                                                     |
+      | Octopus Deploy: Pack Package Tile | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Octopus Deploy: Pack Package']] |
+      | Package ID                        | //input[@id='packId']                                                                                       |
+      | Version number                    | //input[@id='packVersion']                                                                                  |
+      | NuGet Package format              | //input[@id='packFormatnuget']                                                                              |
+      | Package include paths             | //textarea[@id='packInclude']                                                                               |
 
     And I start recording the screen to the directory "C:\screenshots"
 
@@ -312,7 +312,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Task description" text box
     And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "Dotnet Test"
+    And I populate the "Task description" text box with "Dotnet Publish"
 
     And I highlight outside the "Interpreter" text box
     And I scroll the "Interpreter" drop down list into view offset by "-300"
@@ -342,7 +342,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Search" box
     And I populate the "Search" box with "Octopus"
-    And I highlight inside the "Octopus Deploy: Push Packages Tile" element
+    And I highlight inside the "Octopus Deploy: Pack Package Tile" element
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}190-search.png"
     And I click the "Octopus Deploy: Pack Package Tile" element
 
