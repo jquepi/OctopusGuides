@@ -322,7 +322,7 @@ Feature: Configure Bamboo
     And I scroll the "Script body" text area into view offset by "-300"
     And I run the following JavaScript:
       """
-      ace.edit(scriptBody).setValue("dotnet publish")
+      ace.edit(scriptBody).setValue("dotnet publish -c Release")
       """
     And I sleep for "1" second
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}160-dotnet-publish.png"
