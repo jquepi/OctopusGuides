@@ -92,6 +92,7 @@ Feature: Create Azure Web App Target
 
     And I highlight outside the "Azure Web App List" text box
     And I scroll the "Azure Web App List" drop down list into view offset by "-200"
+    And I save a screenshot to "C:\screenshots\octopus\azuretarget\075-target.png"
     And I click the "Azure Web App List" drop down list
     And I save a screenshot to "C:\screenshots\octopus\azuretarget\080-target.png"
     And I scroll the "ExternalAzureWebAppOption" option into view offset by "-200"
