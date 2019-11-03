@@ -607,6 +607,7 @@ jobs:
         "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
         "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
         "-DCucumberAlias-ExternalMediaID=$env:WISTIA_MEDIA_ID"
+        "-DretryCount=3"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome

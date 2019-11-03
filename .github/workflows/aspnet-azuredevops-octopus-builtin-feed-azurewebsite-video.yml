@@ -542,10 +542,10 @@ jobs:
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
         "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
         "-DCucumberAlias-ExternalMediaID=asv2efisfl"
+        "-DretryCount=3"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome

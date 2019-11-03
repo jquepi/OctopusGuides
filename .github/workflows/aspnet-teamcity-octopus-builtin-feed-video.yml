@@ -439,7 +439,7 @@ jobs:
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
+        "-DretryCount=3"
         "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
         "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
         "-DCucumberAlias-ExternalMediaID=wi4kx6cm8l"
