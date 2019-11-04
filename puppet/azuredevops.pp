@@ -6,6 +6,9 @@ package { 'sql-server-express':
   ensure   => installed,
   provider => chocolatey
 }
+-> file { 'C:/tools':
+  ensure => 'directory'
+}
 -> download_file { 'azuredevopsexpress2019.exe':
   destination_directory => 'C:/tools',
   url                   =>
