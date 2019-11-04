@@ -1,6 +1,6 @@
 name: ASP.NET Core Bamboo Octopus Artifactory Feed Azure Web Site Video
 on:
-  push:
+#  push:
   schedule:
     - cron:  '0 16 8 * *'
 jobs:
