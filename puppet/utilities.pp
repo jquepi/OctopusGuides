@@ -20,11 +20,6 @@ package { 'ffmpeg':
   provider => chocolatey
 }
 
-package { 'NuGet.CommandLine':
-  ensure   => installed,
-  provider => chocolatey
-}
-
 package { '7zip':
   ensure   => installed,
   provider => chocolatey
@@ -36,11 +31,6 @@ package { 'git':
 }
 
 package { 'notepadplusplus':
-  ensure   => installed,
-  provider => chocolatey
-}
-
-package { 'terraform':
   ensure   => installed,
   provider => chocolatey
 }
@@ -57,16 +47,6 @@ package { 'openjdk13':
 
 package { 'firefox':
   ensure   => "69.0.3",
-  provider => chocolatey
-}
-
-package { 'kubernetes-helm':
-  ensure   => installed,
-  provider => chocolatey
-}
-
-package { 'kubernetes-cli':
-  ensure   => installed,
   provider => chocolatey
 }
 

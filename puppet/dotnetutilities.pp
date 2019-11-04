@@ -30,3 +30,8 @@ download_file { 'dotnet-hosting-2.2.7-win.exe':
   provider  => powershell,
   logoutput => true
 }
+
+package { 'NuGet.CommandLine':
+  ensure   => installed,
+  provider => chocolatey
+}
