@@ -1,6 +1,6 @@
 name: ASP.NET Core Bamboo Octopus Artifactory Feed Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 16 8 * *'
 jobs:
@@ -99,11 +99,10 @@ jobs:
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
         "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
-        "-DretryCount=1"
-        "-Djava.util.logging.config.file=logging.properties"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --plugin progress
+        --plugin pretty
         --tags $env:CUCUMBER_TAGS
         features\bamboo\bamboo-aspnet-project.feature
       env:
