@@ -6,10 +6,10 @@ on:
 jobs:
   build:
     env:
-      DEV_RES_GROUP: azuredevopsaspnetbuiltinfeedviddev
-      TEST_RES_GROUP: azuredeopsaspnetbuiltinfeedvidtest
-      PROD_RES_GROUP: azuredevopsaspnetbuiltinfeedvidprod
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @built-in-feed) and (not @applicationspecific or @aspnet)"
+      DEV_RES_GROUP: bambooaspnetartifactoryfeedviddev
+      TEST_RES_GROUP: bambooaspnetartifactoryfeedvidtest
+      PROD_RES_GROUP: bambooaspnetartifactoryfeedvidprod
+      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet)"
       WISTIA_MEDIA_ID: t95ab2tah5
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
@@ -30,9 +30,9 @@ jobs:
     - name: Create Web App
       shell: powershell
       run: |
-        ./create-azure-web-app "bambooaspnetartifactoryfeedviddev"
-        ./create-azure-web-app "bambooaspnetartifactoryfeedvidtest"
-        ./create-azure-web-app "bambooaspnetartifactoryfeedvidprod"
+        ./create-azure-web-app "$env:DEV_RES_GROUP"
+        ./create-azure-web-app "$env:TEST_RES_GROUP"
+        ./create-azure-web-app "$env:PROD_RES_GROUP"
     - name: Execute puppet
       shell: powershell
       run: ./install.ps1 -Scripts utilities.pp,artifactory.pp,bamboo.pp,octopus.pp,iis.pp,sleep.pp,bamboowait.pp
@@ -227,7 +227,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Dev"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'bambooaspnetartifactoryfeedviddev')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:DEV_RES_GROUP)')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -261,7 +261,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Test"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'bambooaspnetartifactoryfeedvidtest')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:TEST_RES_GROUP)')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -295,7 +295,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Prod"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'bambooaspnetartifactoryfeedvidprod')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:PROD_RES_GROUP)')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -345,7 +345,7 @@ jobs:
         "-DdisableVideoRecording=false"
         "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DCucumberAlias-ExternalUrl=https://bambooaspnetartifactoryfeedviddev.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://$($env:DEV_RES_GROUP).azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -416,7 +416,7 @@ jobs:
         "-DdisableVideoRecording=false"
         "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DCucumberAlias-ExternalUrl=https://bambooaspnetartifactoryfeedvidtest.azurewebsites.net/"
+        "-DCucumberAlias-ExternalUrl=https://$($env:TEST_RES_GROUP).azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -625,6 +625,6 @@ jobs:
     - name: Delete resource groups
       shell: powershell
       run: |
-        ./delete-resource-group.ps1 "bambooaspnetartifactoryfeedviddev"
-        ./delete-resource-group.ps1 "bambooaspnetartifactoryfeedvidtest"
-        ./delete-resource-group.ps1 "bambooaspnetartifactoryfeedvidprod"
+        ./delete-resource-group.ps1 "$env:DEV_RES_GROUP"
+        ./delete-resource-group.ps1 "$env:TEST_RES_GROUP"
+        ./delete-resource-group.ps1 "$env:PROD_RES_GROUP"
