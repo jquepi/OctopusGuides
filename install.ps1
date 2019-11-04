@@ -20,7 +20,7 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
         }
 
         if ($LASTEXITCODE -ne 0 -and $LASTEXITCODE -ne 2) {
-            Write-Error
+            Write-Error "Failed to run Puppet"
             exit 100
         }
     }
