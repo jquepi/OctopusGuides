@@ -9,7 +9,7 @@ jobs:
       DEV_RES_GROUP: bambooaspnetbuiltinfeedviddev
       TEST_RES_GROUP: bambooaspnetbuiltinfeedvidtest
       PROD_RES_GROUP: bambooaspnetbuiltinfeedvidprod
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @built-in-feed) and (not @applicationspecific or @aspnet)"
+      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet)"
       WISTIA_MEDIA_ID: hoge0jp851
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
