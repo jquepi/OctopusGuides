@@ -18,7 +18,15 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
                 break
             }
         }
+
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error
+            exit 100
+        }
     }
+
+    exit 0
 } else {
     Write-Error "Could not find the Puppet agent executable. Make sure the script was run from an administrative Powershell session."
+    exit 101
 }
