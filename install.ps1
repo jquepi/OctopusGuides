@@ -10,6 +10,8 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
 
     $ErrorActionPreference = "Continue"
 
+    cd $PSScriptRoot
+
     foreach($script in $scripts) {
         # Chocolatey installs are brittle, so we add a retry
         for ($retry = 0; $retry -lt 2; ++$retry) {
