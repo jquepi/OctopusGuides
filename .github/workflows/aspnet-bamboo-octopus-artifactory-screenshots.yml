@@ -1,6 +1,6 @@
 name: ASP.NET Bamboo Octopus Artifactory Feed Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 15 2 * *'
 jobs:
@@ -16,7 +16,8 @@ jobs:
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
-      NUGET_PATH: 'RandomQuotes\obj\octopacked\'
+      # This string is used as a JavaScript literal, so escape the slashes
+      NUGET_PATH: 'RandomQuotes\\obj\\octopacked\\'
       SCREENSHOT_PATH: aspnet-app\iis\
     runs-on: windows-2019
     steps:

@@ -6,7 +6,8 @@ on:
 jobs:
   build:
     env:
-      NUGET_PATH: 'RandomQuotes\obj\octopacked\'
+      # This string is used as a JavaScript literal, so escape the slashes
+      NUGET_PATH: 'RandomQuotes\\obj\\octopacked\\'
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
