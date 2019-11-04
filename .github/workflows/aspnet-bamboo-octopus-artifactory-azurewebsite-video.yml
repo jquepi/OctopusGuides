@@ -18,7 +18,7 @@ jobs:
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
-      NUGET_PATH: RandomQuotes\obj\octopacked\
+      NUGET_PATH: 'RandomQuotes\obj\octopacked\'
       VIDEO_FILE_NAME: aspnet-bamboo-octopus-artifactory-azure.mp4
       SCREENSHOT_PATH:
     runs-on: windows-2019
