@@ -536,6 +536,7 @@ Feature: Configure Bamboo
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}180-octo-push.png"
     And I click the "Save" button
+    And I stop recording the screen
 
   @repositoryspecific @artifactory
   Scenario: Add Octopus Push
