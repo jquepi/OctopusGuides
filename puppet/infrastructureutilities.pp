@@ -1,3 +1,5 @@
+include chocolatey
+
 package { 'terraform':
   ensure   => installed,
   provider => chocolatey

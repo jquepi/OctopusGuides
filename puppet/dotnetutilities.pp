@@ -1,3 +1,5 @@
+include chocolatey
+
 package { 'visualstudio2017buildtools':
   ensure          => installed,
   provider        => chocolatey,
