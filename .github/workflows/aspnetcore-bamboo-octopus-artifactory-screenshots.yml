@@ -1,6 +1,6 @@
 name: ASP.NET Core Bamboo Octopus Artifactory Feed Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 15 8 * *'
 jobs:
@@ -70,7 +70,7 @@ jobs:
         "-DdisableVideoRecording=$env:DISABLE_VIDEO"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
-        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+        "-DCucumberAlias-GitUrl=$env:GIT_URL"
         "-DCucumberAlias-NugetPath=$env:NUGET_PATH"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
