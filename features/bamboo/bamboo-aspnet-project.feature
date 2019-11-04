@@ -367,7 +367,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}230-octo-pack.png"
 
     And I scroll the "Save" button into view
-    And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}180-octo-pack.png"
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}240-octo-pack.png"
     And I click the "Save" button
 
   @applicationspecific @aspnet
@@ -586,15 +586,46 @@ Feature: Configure Bamboo
 
   Scenario: Create plan
     Given I set the following aliases:
-      | Create    | //button[@id='createPlan']               |
-      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
-      | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
+      | Create | //button[@id='createPlan'] |
+
     And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Create" button
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}190-create.png"
     And I click the "Create" button
     And I sleep for "5" seconds
+
+  @repositoryspecific @artifactory
+  Scenario: Create plan
+    Given I set the following aliases:
+      | Create    | //button[@id='createPlan']               |
+      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
+      | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
+    And I start recording the screen to the directory "C:\screenshots"
+
+    And I highlight outside the "Create" button
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}190-create-artifactory.png"
+    And I click the "Create" button
+    And I sleep for "5" seconds
+
+  @repositoryspecific @octo-built-in-feed
+  Scenario: Create plan
+    Given I set the following aliases:
+      | Create    | //button[@id='createPlan']               |
+      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
+      | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
+    And I start recording the screen to the directory "C:\screenshots"
+
+    And I highlight outside the "Create" button
+    And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}190-create-builtinfeed.png"
+    And I click the "Create" button
+    And I sleep for "5" seconds
+
+  Scenario: Create plan
+    Given I set the following aliases:
+      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
+      | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Build one" link with an offset of "5"
     And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}200-build-one.png"
