@@ -584,23 +584,10 @@ Feature: Configure Bamboo
     And I click the "Save" button
     And I stop recording the screen
 
-  Scenario: Create plan
-    Given I set the following aliases:
-      | Create | //button[@id='createPlan'] |
-
-    And I start recording the screen to the directory "C:\screenshots"
-
-    And I highlight outside the "Create" button
-    And I save a screenshot to "c:\screenshots\bamboo\initialproject\#{GuideSpecificScreenshotDir}190-create.png"
-    And I click the "Create" button
-    And I sleep for "5" seconds
-
   @repositoryspecific @artifactory
   Scenario: Create plan
     Given I set the following aliases:
       | Create    | //button[@id='createPlan']               |
-      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
-      | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
     And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Create" button
@@ -612,8 +599,6 @@ Feature: Configure Bamboo
   Scenario: Create plan
     Given I set the following aliases:
       | Create    | //button[@id='createPlan']               |
-      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
-      | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
     And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Create" button
