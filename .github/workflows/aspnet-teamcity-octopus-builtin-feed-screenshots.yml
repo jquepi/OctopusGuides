@@ -10,7 +10,7 @@ jobs:
     - uses: actions/setup-dotnet@v1
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts utilities.pp,teamcity.pp,octopus.pp,iis.pp,teamcitywait.pp
+      run: ./install.ps1 -Scripts utilities.pp,dotnetutilities,teamcity.pp,octopus.pp,iis.pp,teamcitywait.pp
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
