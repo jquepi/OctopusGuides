@@ -30,8 +30,14 @@ Feature: Create ASP.NET project
       | Command               | //input[@id='-ufd-teamcity-ui-command']                |
       | Test option           | //li[@data-title='test']                               |
       | Publish option        | //li[@data-title='publish']                            |
+      | Show advanced options | //a[text()='Show advanced options']                    |
+      | Configuration         | //input[@id='configuration']                           |
       | Save                  | //input[@value='Save']                                 |
-
+      | OctopusDeploy: Pack   | //li[@data-title='OctopusDeploy: Pack']                |
+      | Package ID            | //input[@id='octopus_packageid']                       |
+      | Package Version       | //input[@id='octopus_packageversion']                  |
+      | Source path           | //input[@id='octopus_packagesourcepath']               |
+      | Output path           | //input[@id='octopus_packageoutputpath']               |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
@@ -96,9 +102,39 @@ Feature: Create ASP.NET project
     And I scroll the "Publish option" element into view offset by "-200"
     And I click the "Publish option" element
 
+    And I scroll the "Show advanced options" link into view offset by "-200" if it exists
+    And I click the "Show advanced options" link if it exists
+
+    And I scroll the "Configuration" text box into view offset by "-200"
+    And I populate the "Configuration" text box with "Release"
+
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}070-dotnet-publish.png"
+    And I click the "Save" button
+
+    And I highlight outside the "Add build step" button
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}080-add-build-step.png"
+    And I click the "Add build step" button
+
+    And I click the "Runner type" drop down list
+
+    And I scroll the "OctopusDeploy: Pack" option into view
+    And I click the "OctopusDeploy: Pack" option
+    And I sleep for "1" second
+    And I highlight outside the "Runner type container" drop down list
+
+    And I highlight outside the "Step name" text box
+    And I populate the "Step name" text box with "Pack Project"
+
+    And I populate the "Package ID" text box with "RandomQuotes"
+    And I populate the "Package Version" text box with "1.0.%build.counter%"
+    And I populate the "Source path" text box with "RandomQuotes\bin\Release\netcoreapp2.2\publish\"
+    And I populate the "Output path" text box with "."
+
+    And I highlight outside the "Save" button
+    And I scroll the "Save" button into view
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}090-octo-pack.png"
     And I click the "Save" button
 
     And I stop recording the screen
