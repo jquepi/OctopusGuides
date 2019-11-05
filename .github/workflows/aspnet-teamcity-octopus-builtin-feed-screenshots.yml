@@ -5,6 +5,19 @@ on:
 jobs:
   build:
     runs-on: windows-2019
+    env:
+      CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet)"
+      WISTIA_MEDIA_ID:
+      DISABLE_HIGHLIGHTS: false
+      DISABLE_SCREENSHOTS: false
+      MOUSE_VERTICAL_OFFSET: 74
+      DISABLE_VIDEO: true
+      MOVE_TO_MOUSE_CUSROR: false
+      SCREENSHOT_BUCKET: octopus-guides-screenshots
+      STHREE_SCREENSHOT_ENABLED: true
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
+      NUGET_PATH: 'RandomQuotes\obj\octopacked\'
+      SCREENSHOT_PATH: aspnet-app\iis\
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender
@@ -23,20 +36,19 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=false"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=false"
-        "-DdisableScreenshots=false"
-        "-DdisableVideoRecording=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DdisableVideoRecording=$env:DISABLE_VIDEO"
         "-DnoProxyList=microsoft.com"
         "-DdumpAliasesOnFailure=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
-        "-DretryCount=1"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnet-app\iis\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --plugin progress
@@ -52,27 +64,24 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=false"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=false"
-        "-DdisableScreenshots=false"
-        "-DdisableVideoRecording=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DdisableVideoRecording=$env:DISABLE_VIDEO"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
-        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+        "-DCucumberAlias-GitUrl=$env:GIT_URL"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
-        "-DretryCount=1"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnet-app\iis\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --monochrome
         --plugin progress
-        --tags "not @destinationspecific or @iis"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
-        --tags "not @applicationspecific or @aspnet"
+        --tags $env:CUCUMBER_TAGS
         features\teamcity\teamcity-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -86,11 +95,11 @@ jobs:
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
-        "-DdisableVideoRecording=true"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnet-app\iis\"
+        "-DdisableVideoRecording=$env:DISABLE_VIDEO"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -110,16 +119,14 @@ jobs:
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableVideoRecording=true"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableVideoRecording=$env:DISABLE_VIDEO"
         "-DdisableScreenshots=true"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnet-app\iis\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "not @destinationspecific or @iis"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
-        --tags "not @applicationspecific or @aspnet"
+        --tags $env:CUCUMBER_TAGS
         features\octopus\octopus-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -132,26 +139,23 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=false"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=false"
-        "-DdisableScreenshots=false"
-        "-DdisableVideoRecording=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DdisableVideoRecording=$env:DISABLE_VIDEO"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
-        "-DretryCount=1"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnet-app\iis\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "not @destinationspecific or @iis"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
-        --tags "not @applicationspecific or @aspnet"
+        --tags $env:CUCUMBER_TAGS
         features\teamcity\teamcity-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
