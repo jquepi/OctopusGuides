@@ -10,6 +10,7 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
 
     $ErrorActionPreference = "Continue"
 
+    Write-Host "Script dir: $PSScriptRoot"
     cd $PSScriptRoot
 
     foreach($script in $scripts) {
