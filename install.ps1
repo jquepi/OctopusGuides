@@ -39,6 +39,7 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
         }
     }
 
+    Add-Content c:\puppetscript.log "All done"
     exit 0
 } else {
     Write-Error "Could not find the Puppet agent executable. Make sure the script was run from an administrative Powershell session."
