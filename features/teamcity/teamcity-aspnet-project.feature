@@ -14,7 +14,96 @@ Feature: Create ASP.NET project
     And I populate the "Password" text box with "Password01!"
     And I click the "Log in" button
 
-  @create-project
+  @create-project @applicationspecific @aspnetcore
+  Scenario: Create Project
+    Given I set the following aliases:
+      | Create project        | //a[contains(.,'Create project')]                      |
+      | Repository URL        | //input[@id='url']                                     |
+      | Proceed               | //input[@name='createProjectFromUrl']                  |
+      | Project name          | //input[@id='projectName']                             |
+      | Proceed Two           | //input[@name='createProject']                         |
+      | Configure manually    | //a[text()='configure build steps manually']           |
+      | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
+      | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']] |
+      | DotNet CLI            | //li[@data-title='.NET CLI (dotnet)']                  |
+      | Step name             | //input[@id='buildStepName']                           |
+      | Command               | //input[@id='-ufd-teamcity-ui-command']                |
+      | Test option           | //li[@data-title='test']                               |
+      | Publish option        | //li[@data-title='publish']                            |
+      | Save                  | //input[@value='Save']                                 |
+
+
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Create the TeamCity project" for "3" seconds
+
+    And I highlight outside the "Create project" button
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}010-create-project.png"
+    And I click the "Create project" button
+
+    And I highlight outside the "Repository URL" text box
+    And I highlight outside the "Proceed" button
+    And I populate the "Repository URL" text box with the text "GitUrl"
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}020-repo-url.png"
+    And I click the "Proceed" button
+
+    And I highlight outside the "Project name" text box
+    And I highlight outside the "Proceed Two" button
+    And I mouse over the "Project name" text box
+    And I clear the "Project name" text box
+    And I populate the "Project name" text box with "Random Quotes"
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}030-project-name.png"
+    And I click the "Proceed Two" button
+
+    And I highlight outside the "Configure manually" link
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}040-configure-manually.png"
+    And I click the "Configure manually" link
+
+    And I click the "Runner type" drop down list
+    And I scroll the "DotNet CLI" option into view offset by "-200"
+    And I click the "DotNet CLI" option
+    And I sleep for "1" second
+    And I highlight outside the "Runner type container" drop down list
+
+    And I highlight outside the "Step name" text box
+    And I populate the "Step name" text box with "DotNet Test"
+
+    And I click the "Command" drop down list
+    And I scroll the "Test option" element into view offset by "-200"
+    And I click the "Test option" element
+
+    And I highlight outside the "Save" button
+    And I scroll the "Save" button into view
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}050-dotnet-test.png"
+    And I click the "Save" button
+
+    And I click the "Got it" button waiting up to "5" seconds if it exists
+
+    And I highlight outside the "Add build step" button
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}060-add-build-step.png"
+    And I click the "Add build step" button
+
+    And I click the "Runner type" drop down list
+
+    And I scroll the "DotNet CLI" option into view
+    And I click the "DotNet CLI" option
+    And I sleep for "1" second
+    And I highlight outside the "Runner type container" drop down list
+
+    And I highlight outside the "Step name" text box
+    And I populate the "Step name" text box with "Publish Project"
+
+    And I click the "Command" drop down list
+    And I scroll the "Publish option" element into view offset by "-200"
+    And I click the "Publish option" element
+
+    And I highlight outside the "Save" button
+    And I scroll the "Save" button into view
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}070-dotnet-publish.png"
+    And I click the "Save" button
+
+    And I stop recording the screen
+
+  @create-project @applicationspecific @aspnet
   Scenario: Create Project
     Given I set the following aliases:
       | Create project               | //a[contains(.,'Create project')]                      |
@@ -55,7 +144,7 @@ Feature: Create ASP.NET project
 
     And I highlight outside the "Repository URL" text box
     And I highlight outside the "Proceed" button
-    And I populate the "Repository URL" text box with the text "https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+    And I populate the "Repository URL" text box with the text "GitUrl"
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}020-repo-url.png"
     And I click the "Proceed" button
 
@@ -241,7 +330,7 @@ Feature: Create ASP.NET project
 
     And I highlight outside the "Packages" text box with an offset of "5"
     And I scroll the "Packages" text box into view offset by "-300"
-    And I populate the "Packages" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
+    And I populate the "Packages" text box with "#{NuGetPath}RandomQuotes.1.0.%build.counter%.nupkg"
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-nuget-publish.png"
 
@@ -306,7 +395,7 @@ Feature: Create ASP.NET project
 
     And I highlight outside the "Package paths" text box
     And I scroll the "Package paths" text box into view offset by "-300"
-    And I populate the "Package paths" text box with "RandomQuotes/obj/octopacked/RandomQuotes.1.0.%build.counter%.nupkg"
+    And I populate the "Package paths" text box with "#{NuGetPath}RandomQuotes.1.0.%build.counter%.nupkg"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
