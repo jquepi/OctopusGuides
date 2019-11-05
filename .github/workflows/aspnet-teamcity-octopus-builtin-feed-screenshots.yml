@@ -7,7 +7,9 @@ jobs:
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/setup-dotnet@v1
+    - name: Disable Windows Defender
+      shell: powershell
+      run: reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection' /v DisableRealtimeMonitoring /t REG_DWORD /d 1
     - name: Execute puppet
       shell: powershell
       run: ./install.ps1 -Scripts utilities.pp,dotnetutilities,teamcity.pp,octopus.pp,iis.pp,teamcitywait.pp
