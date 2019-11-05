@@ -16,25 +16,20 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
     Write-Host "Script dir: $PSScriptRoot"
     cd $PSScriptRoot
 
-    Add-Content c:\puppetscript.log "Running puppet"
+    foreach ($script in $scripts) {
 
-    foreach($script in $scripts) {
         # Chocolatey installs are brittle, so we add a retry
         for ($retry = 0; $retry -lt 2; ++$retry) {
-            $result = Start-Process "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" `
-                -ArgumentList @("apply", "puppet\$script", "--disable_warnings=deprecations", "--logdest", "C:\puppet.log", "--detailed-exitcodes") `
-                -Wait `
-                -PassThru
-            Write-Host "Got return code $($result.ExitCode) for script $script"
-            Add-Content c:\puppetscript.log "Got return code $($result.ExitCode) for script $script"
-            if ($result.ExitCode -eq 0 -or $result.ExitCode -eq 2) {
+            & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply "puppet\$script" "--disable_warnings=deprecations" --logdest C:\puppet.log --detailed-exitcodes
+            Write-Host "Got return code $LASTEXITCODE for script $script"
+
+            if ($LASTEXITCODE -eq 0 -or $LASTEXITCODE -eq 2) {
                 break
             }
         }
 
-        if ($result.ExitCode -ne 0 -and $result.ExitCode -ne 2) {
+        if ($LASTEXITCODE -ne 0 -and $LASTEXITCODE -ne 2) {
             Write-Error "Failed to run Puppet script $script"
-            Add-Content c:\puppetscript.log "Failed to run Puppet script $script"
             exit 100
         }
     }
@@ -43,6 +38,5 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
     exit 0
 } else {
     Write-Error "Could not find the Puppet agent executable. Make sure the script was run from an administrative Powershell session."
-    Add-Content c:\puppetscript.log "Could not find the Puppet agent executable. Make sure the script was run from an administrative Powershell session."
     exit 101
 }
