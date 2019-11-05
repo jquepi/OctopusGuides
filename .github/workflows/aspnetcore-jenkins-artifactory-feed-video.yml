@@ -14,7 +14,7 @@ jobs:
     - uses: actions/setup-dotnet@v1
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,dotnetutilities,artifactory.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
+      run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,dotnetutilities.pp,artifactory.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
     - name: Configure Artifactory
       shell: powershell
       run: >

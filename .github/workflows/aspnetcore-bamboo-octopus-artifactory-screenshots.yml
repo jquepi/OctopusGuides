@@ -27,7 +27,7 @@ jobs:
       run: reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection' /v DisableRealtimeMonitoring /t REG_DWORD /d 1
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts utilities.pp,dotnetutilities,artifactory.pp,bamboo.pp,octopus.pp,iis.pp,bamboowait.pp
+      run: ./install.ps1 -Scripts utilities.pp,dotnetutilities.pp,artifactory.pp,bamboo.pp,octopus.pp,iis.pp,bamboowait.pp
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'

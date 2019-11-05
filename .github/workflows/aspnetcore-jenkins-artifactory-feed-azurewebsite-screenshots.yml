@@ -22,7 +22,7 @@ jobs:
           ./create-azure-web-app "jenkinsaspnetcoreartifactoryprod"
       - name: Execute puppet
         shell: powershell
-        run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,dotnetutilities,artifactory.pp,octopus.pp,jenkins.pp,sleep.pp,jenkinswait.pp
+        run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,dotnetutilities.pp,artifactory.pp,octopus.pp,jenkins.pp,sleep.pp,jenkinswait.pp
       - name: Configure Artifactory
         shell: powershell
         run: >
