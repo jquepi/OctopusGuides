@@ -1,4 +1,7 @@
 param([String[]] $Scripts)
+
+Add-Content c:\puppetscript.log "Installing puppet"
+
 Start-Process msiexec.exe -Wait -ArgumentList '/qn /norestart /i https://downloads.puppetlabs.com/windows/puppet5/puppet-agent-x64-latest.msi PUPPET_MASTER_SERVER=puppet'
 if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
     & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" module install puppetlabs/windows
@@ -13,6 +16,8 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
     Write-Host "Script dir: $PSScriptRoot"
     cd $PSScriptRoot
 
+    Add-Content c:\puppetscript.log "Running puppet"
+
     foreach($script in $scripts) {
         # Chocolatey installs are brittle, so we add a retry
         for ($retry = 0; $retry -lt 2; ++$retry) {
@@ -21,6 +26,7 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
                 -Wait `
                 -PassThru
             Write-Host "Got return code $($result.ExitCode) for script $script"
+            Add-Content c:\puppetscript.log "Got return code $($result.ExitCode) for script $script"
             if ($result.ExitCode -eq 0 -or $result.ExitCode -eq 2) {
                 break
             }
