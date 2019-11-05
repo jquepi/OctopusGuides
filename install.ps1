@@ -34,6 +34,7 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
 
         if ($result.ExitCode -ne 0 -and $result.ExitCode -ne 2) {
             Write-Error "Failed to run Puppet script $script"
+            Add-Content c:\puppetscript.log "Failed to run Puppet script $script"
             exit 100
         }
     }
@@ -41,5 +42,6 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
     exit 0
 } else {
     Write-Error "Could not find the Puppet agent executable. Make sure the script was run from an administrative Powershell session."
+    Add-Content c:\puppetscript.log "Could not find the Puppet agent executable. Make sure the script was run from an administrative Powershell session."
     exit 101
 }
