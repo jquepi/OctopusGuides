@@ -73,6 +73,7 @@ Feature: Create ASP.NET project
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "DotNet Test"
 
+    And I highlight outside the "Command" drop down list
     And I click the "Command" drop down list
     And I scroll the "Test option" element into view offset by "-200"
     And I click the "Test option" element
@@ -99,6 +100,7 @@ Feature: Create ASP.NET project
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "Publish Project"
 
+    And I highlight outside the "Command" drop down list
     And I click the "Command" drop down list
     And I scroll the "Publish option" element into view offset by "-200"
     And I click the "Publish option" element
@@ -108,6 +110,7 @@ Feature: Create ASP.NET project
     And I scroll the "Show advanced options" link into view offset by "-200" if it exists
     And I click the "Show advanced options" link if it exists
 
+    And I highlight outside the "Configuration" text box
     And I scroll the "Configuration" text box into view offset by "-200"
     And I populate the "Configuration" text box with "Release"
 
@@ -132,12 +135,25 @@ Feature: Create ASP.NET project
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "Pack Project"
 
+    And I highlight outside the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
+
+    And I highlight outside the "Package Version" text box
     And I populate the "Package Version" text box with "1.0.%build.counter%"
+
+    And I highlight outside the "Source path" text box
     And I populate the "Source path" text box with "RandomQuotes\bin\Release\netcoreapp2.2\publish\"
+
+    And I highlight outside the "Output path" text box
     And I populate the "Output path" text box with "."
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}085-octo-pack.png"
+
+    And I remove the highlight from the "Step name" text box
+    And I remove the highlight from the "Package ID" text box
+    And I remove the highlight from the "Package Version" text box
+    And I remove the highlight from the "Source path" text box
+    And I remove the highlight from the "Output path" text box
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
@@ -435,6 +451,11 @@ Feature: Create ASP.NET project
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}140-push-top-octo.png"
+
+    And I remove the highlight from the "Runner type container" drop down list
+    And I remove the highlight from the "Step name" text box
+    And I remove the highlight from the "Octopus URL" text box
+    And I remove the highlight from the "Octopus API key" text box
 
     And I highlight outside the "Package paths" text box
     And I scroll the "Package paths" text box into view offset by "-300"
