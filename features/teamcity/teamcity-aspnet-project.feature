@@ -76,6 +76,7 @@ Feature: Create ASP.NET project
     And I click the "Command" drop down list
     And I scroll the "Test option" element into view offset by "-200"
     And I click the "Test option" element
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}045-dotnet-test.png"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
@@ -108,6 +109,8 @@ Feature: Create ASP.NET project
     And I scroll the "Configuration" text box into view offset by "-200"
     And I populate the "Configuration" text box with "Release"
 
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}065-add-build-step.png"
+
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}070-dotnet-publish.png"
@@ -131,6 +134,8 @@ Feature: Create ASP.NET project
     And I populate the "Package Version" text box with "1.0.%build.counter%"
     And I populate the "Source path" text box with "RandomQuotes\bin\Release\netcoreapp2.2\publish\"
     And I populate the "Output path" text box with "."
+
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}085-octo-pack.png"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
