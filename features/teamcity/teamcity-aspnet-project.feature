@@ -103,6 +103,8 @@ Feature: Create ASP.NET project
     And I scroll the "Publish option" element into view offset by "-200"
     And I click the "Publish option" element
 
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}063-add-build-step.png"
+
     And I scroll the "Show advanced options" link into view offset by "-200" if it exists
     And I click the "Show advanced options" link if it exists
 
