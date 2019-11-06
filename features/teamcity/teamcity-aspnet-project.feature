@@ -466,12 +466,12 @@ Feature: Create ASP.NET project
     And I click the "Build One" link
     And I click the "Build log" link
     And I scroll down "10000" px
-    And I sleep for "10" seconds
+    And I sleep for "20" seconds
     And I stop recording the screen
 
     And I sleep for "150" seconds
     And I start recording the screen to the directory "C:\screenshots"
-    And I sleep for "20" seconds
+    And I sleep for "5" seconds
 
   @octo-built-in-feed
   Scenario: Get screenshot
