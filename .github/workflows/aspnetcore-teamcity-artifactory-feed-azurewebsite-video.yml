@@ -132,6 +132,7 @@ jobs:
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DCucumberAlias-GitUrl=$env:GIT_URL"
+        "-DCucumberAlias-NuGetPath=$env:NUGET_PATH"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
