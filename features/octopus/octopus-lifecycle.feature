@@ -207,7 +207,7 @@ Feature: Create a Lifecycle in Octopus
     And I display a note with the text "Deploy to the Test environment, skipping Dev" for "3" seconds
 
     And I click the "Create Release" button
-    And I highlight outside the "Create Release" button with an offset of "2"
+    And I highlight inside the "Create Release" button
     And I highlight outside the "Save" button
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\#{GuideSpecificScreenshotDir}110-random-quotes-create-release.png"

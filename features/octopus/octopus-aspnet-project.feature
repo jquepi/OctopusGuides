@@ -147,7 +147,9 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Save" button
     And I scroll down "10000" px
     And I sleep for "7" second
+    And I zoom the browser out
     And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}025-octopus-variables-populated.png"
+    And I zoom the browser in
 
   @define-project @destinationspecific @azure-web-app
   Scenario: Save the variables
@@ -527,7 +529,7 @@ Feature: Configure an Octopus ASP.NET project
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
 
-    And I highlight outside the "Create Release" button with an offset of "2"
+    And I highlight inside the "Create Release" button
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}095-octopus-create-release.png"
     And I click the "Create Release" button

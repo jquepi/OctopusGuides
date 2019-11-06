@@ -71,10 +71,16 @@ Feature: Create and deploy a release
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{GuideSpecificScreenshotDir}040-create-release.png"
 
+    And I remove the highlight from the "Step name" text box
+    And I remove the highlight from the "Octopus URL" text box
+    And I remove the highlight from the "Octopus API key" text box
+
     And I scroll the "Octopus Project" text box into view offset by "-300"
     And I highlight outside the "Octopus Project" text box
     And I populate the "Octopus Project" text box with "Random Quotes"
     And I save a screenshot to "c:\screenshots\teamcity\createrelease\#{GuideSpecificScreenshotDir}050-create-release.png"
+
+    And I remove the highlight from the "Octopus Project" text box
 
     And I scroll the "Octopus Environments" text box into view offset by "-300"
     And I highlight outside the "Octopus Environments" text box
