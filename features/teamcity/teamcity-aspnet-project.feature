@@ -129,8 +129,8 @@ Feature: Create ASP.NET project
 
     And I populate the "Package ID" text box with "RandomQuotes"
     And I populate the "Package Version" text box with "1.0.%build.counter%"
-    And I populate the "Source path" text box with "%system.teamcity.build.workingDir%\RandomQuotes\bin\Release\netcoreapp2.2\publish\"
-    And I populate the "Output path" text box with "%system.teamcity.build.workingDir%"
+    And I populate the "Source path" text box with "RandomQuotes\bin\Release\netcoreapp2.2\publish\"
+    And I populate the "Output path" text box with "."
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
