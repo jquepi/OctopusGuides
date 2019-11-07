@@ -340,18 +340,19 @@ Feature: Create ASP.NET project
   @create-project @repositoryspecific @artifactory
   Scenario: Add artifactory push step
     Given I set the following aliases:
-      | Add build step        | //a[contains(.,'Add build step')]                      |
-      | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
-      | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']] |
-      | NuGet Publish         | //li[@data-title='NuGet Publish']                      |
-      | Step name             | //input[@id='buildStepName']                           |
-      | Save                  | //input[@value='Save']                                 |
-      | NuGet.exe             | //select[@id='toolPathSelectorNuGet.CommandLine']      |
-      | NuGet.exe path        | //input[@id='toolCustomPathNuGet.CommandLine']         |
-      | Packages              | //textarea[@id='nuget.publish.files']                  |
-      | API key               | //input[@id='secure:nuget.api.key']                    |
-      | Package source        | //input[@id='nuget.publish.source']                    |
-      | Show advanced options | //a[text()='Show advanced options']                    |
+      | Add build step           | //a[contains(.,'Add build step')]                          |
+      | Runner type              | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']             |
+      | Runner type container    | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']]     |
+      | NuGet Publish            | //li[@data-title='NuGet Publish']                          |
+      | Step name                | //input[@id='buildStepName']                               |
+      | Save                     | //input[@value='Save']                                     |
+      | NuGet.exe                | //select[@id='toolPathSelectorNuGet.CommandLine']          |
+      | NuGet.exe path           | //input[@id='toolCustomPathNuGet.CommandLine']             |
+      | Packages                 | //textarea[@id='nuget.publish.files']                      |
+      | API key                  | //input[@id='secure:nuget.api.key']                        |
+      | Package source           | //input[@id='nuget.publish.source']                        |
+      | Show advanced options    | //a[text()='Show advanced options']                        |
+      | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
 
     And I start recording the screen to the directory "C:\screenshots"
 
@@ -410,20 +411,26 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}170-artifactory-save.png"
 
     And I click the "Save" button
+
+    And I highlight outside the "Build Configuration Home" link
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-build-config-home-artifactory.png"
+    And I click the "Build Configuration Home" link
+
     And I stop recording the screen
 
   @create-project @repositoryspecific @octo-built-in-feed
   Scenario: Add octopus push step
     Given I set the following aliases:
-      | Add build step               | //a[contains(.,'Add build step')]                      |
-      | Runner type                  | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
-      | Runner type container        | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']] |
-      | OctopusDeploy: Push Packages | //li[@data-title='OctopusDeploy: Push Packages']       |
-      | Octopus URL                  | //input[@id='octopus_host']                            |
-      | Octopus API key              | //input[@id='secure:octopus_apikey']                   |
-      | Package paths                | //textarea[@id='octopus_packagepaths']                 |
-      | Save                         | //input[@value='Save']                                 |
-      | Step name                    | //input[@id='buildStepName']                           |
+      | Add build step               | //a[contains(.,'Add build step')]                          |
+      | Runner type                  | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']             |
+      | Runner type container        | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']]     |
+      | OctopusDeploy: Push Packages | //li[@data-title='OctopusDeploy: Push Packages']           |
+      | Octopus URL                  | //input[@id='octopus_host']                                |
+      | Octopus API key              | //input[@id='secure:octopus_apikey']                       |
+      | Package paths                | //textarea[@id='octopus_packagepaths']                     |
+      | Save                         | //input[@value='Save']                                     |
+      | Step name                    | //input[@id='buildStepName']                               |
+      | Build Configuration Home     | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
 
     And I start recording the screen to the directory "C:\screenshots"
 
@@ -452,12 +459,12 @@ Feature: Create ASP.NET project
     And I scroll the "Octopus API key" text box into view offset by "-300"
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}140-push-top-octo.png"
-
     And I remove the highlight from the "Runner type container" drop down list
     And I remove the highlight from the "Step name" text box
     And I remove the highlight from the "Octopus URL" text box
     And I remove the highlight from the "Octopus API key" text box
+
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}140-push-top-octo.png"
 
     And I highlight outside the "Package paths" text box
     And I scroll the "Package paths" text box into view offset by "-300"
@@ -469,6 +476,11 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}150-push-top-octo.png"
 
     And I click the "Save" button
+
+    And I highlight outside the "Build Configuration Home" link
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-build-config-home.png"
+    And I click the "Build Configuration Home" link
+
     And I stop recording the screen
 
   @run-build
@@ -480,10 +492,6 @@ Feature: Create ASP.NET project
       | Build log                | //a[contains(.,'Build Log')]                               |
 
     And I start recording the screen to the directory "C:\screenshots"
-
-    And I highlight outside the "Build Configuration Home" link
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-build-config-home.png"
-    And I click the "Build Configuration Home" link
 
     And I highlight outside the "Run" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}170-run.png"
