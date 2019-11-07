@@ -451,6 +451,9 @@ Feature: Create ASP.NET project
 
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}130-push-top-octo.png"
 
+    And I remove the highlight from the "Runner type container" drop down list
+    And I remove the highlight from the "Step name" text box
+
     And I highlight outside the "Octopus URL" text box
     And I scroll the "Octopus URL" text box into view offset by "-300"
     And I populate the "Octopus URL" text box with "http://localhost"
@@ -459,12 +462,10 @@ Feature: Create ASP.NET project
     And I scroll the "Octopus API key" text box into view offset by "-300"
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
 
-    And I remove the highlight from the "Runner type container" drop down list
-    And I remove the highlight from the "Step name" text box
+    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}140-push-top-octo.png"
+
     And I remove the highlight from the "Octopus URL" text box
     And I remove the highlight from the "Octopus API key" text box
-
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}140-push-top-octo.png"
 
     And I highlight outside the "Package paths" text box
     And I scroll the "Package paths" text box into view offset by "-300"
