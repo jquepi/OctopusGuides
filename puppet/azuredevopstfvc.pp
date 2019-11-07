@@ -1,27 +1,6 @@
-file { 'C:/tools':
-  ensure => 'directory'
-}
--> download_file { 'vs_TeamExplorer.exe':
-  destination_directory => 'C:/tools',
-  url                   =>
-    'https://octopus-guides.s3.amazonaws.com/azuredevops/vs_TeamExplorer.exe',
-}
--> file { 'C:/install_tfcli.ps1':
-  ensure  => 'file',
-  owner   => 'Administrators',
-  group   => 'Administrators',
-  mode    => '0644',
-  content => @(EOT)
-    Start-Process "C:\tools\vs_TeamExplorer.exe" -ArgumentList @("install", "-q") -NoNewWindow -Wait
-    New-Item -ItemType file c:\TeamExplorerInstalled.txt
-    | EOT
-}
--> exec { 'Install Team Explorer':
-  command   => '& C:/install_tfcli.ps1',
-  creates   => 'c:/TeamExplorerInstalled.txt',
-  timeout   => 3600,
-  provider  => powershell,
-  logoutput => true
+package { 'visualstudio2019teamexplorer':
+  ensure   => installed,
+  provider => chocolatey
 }
 
 file { 'C:/temp':
@@ -33,7 +12,7 @@ file { 'C:/temp':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    $env:PATH += ";C:\Program Files (x86)\Microsoft Visual Studio\2017\TeamExplorer\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer"
+    $env:PATH += ";C:\Program Files (x86)\Microsoft Visual Studio\2019\TeamExplorer\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer"
     cd c:\temp
     mkdir RandomQuotesGit
     cd RandomQuotesGit
