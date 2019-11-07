@@ -77,7 +77,7 @@ jobs:
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Populate TFVC repo
       shell: powershell
-      run: ./install.ps1 -Scripts azuredevopstfvc.pp
+      run: ./install.ps1 -Scripts azuredevopstfvcaspnet.pp
     - name: Run the build
       shell: powershell
       run: >
