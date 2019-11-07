@@ -42,7 +42,7 @@ file { 'C:/temp':
     cd ..
     mkdir RandomQuotes
     cd RandomQuotes
-    tf workspace /collection:http://localhost:9090/DefaultCollection/ /nopromt
+    tf workspace /new /collection:http://localhost:9090/DefaultCollection/ /noprompt
     tf get
     cd ..
     xcopy /s RandomQuotesGit\RandomQuotes\RandomQuotes-master\*.* "RandomQuotes\Random Quotes"

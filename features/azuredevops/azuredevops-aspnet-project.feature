@@ -76,7 +76,37 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I sleep for "1" second
     And I stop recording the screen
 
-  @create-project
+  @create-project @sourcespecific @tfvc
+  Scenario: Create project
+    Given I set the following aliases:
+      | Project name                    | //input[contains(@id,'project-name-textfield')]                                                                            |
+      | Description                     | //textarea[contains(@id,'project-description-textfield')]                                                                  |
+      | Create project                  | //button[contains(.,'Create project')]                                                                                     |
+      | Pipelines                       | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']]                                            |
+      | Advanced                        | //button[contains(.,'Advanced')]                                                                                           |
+      | Version control                 | //div[@aria-label='Select a version control type for the default repository. You can always add more repositories later.'] |
+      | Team Foundation Version Control | //button[contains(.,'Team Foundation Version Control')]                                                                    |
+
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Create the Azure DevOps project" for "3" seconds
+
+    And I highlight outside the "Project name" text box
+    And I highlight outside the "Description" text box
+    And I highlight outside the "Create project" button
+    And I highlight outside the "Advanced" link
+    And I populate the "Project name" text box with "Random Quotes"
+    And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
+    And I click the "Advanced" link
+    And I click the "Version control" drop down list
+    And I click the "Team Foundation Version Control" option
+    And I highlight outside the "Version control" drop down list
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}010-create-project-tfvc.png"
+    And I click the "Create project" button
+    And I sleep for "5" seconds
+    And I stop recording the screen
+    And I verify the "Pipelines" menu item is present waiting up to "40" seconds if it exists
+
+  @create-project @sourcespecific @git
   Scenario: Create project
     Given I set the following aliases:
       | Project name   | //input[contains(@id,'project-name-textfield')]                                 |
@@ -98,7 +128,38 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I stop recording the screen
     And I verify the "Pipelines" menu item is present waiting up to "40" seconds if it exists
 
-  @create-project
+  @create-project @sourcespecific @tfvc
+  Scenario: Create project
+    Given I set the following aliases:
+      | Pipelines      | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
+      | Build          | //a[@name='Builds']                                                             |
+      | New pipeline   | //button[contains(., 'New pipeline')]                                           |
+      | TFVC Container | //div[./label//div[contains(., 'TFVC')]]                                        |
+      | TFVC           | //input[../div[contains(., 'TFVC')]]                                            |
+      | Continue       | //button[contains(.,'Continue')]                                                |
+
+    And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
+    And I start recording the screen to the directory "C:\screenshots"
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}debug1-tfvc.png"
+    And I mouse over the "Pipelines" menu item
+    And I highlight inside the "Pipelines" menu item
+    And I highlight inside the "Build" link
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}020-build-tfvc.png"
+    And I click the "Build" link
+
+    And I highlight outside the "New pipeline" button
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}030-new-pipeline-tfvc.png"
+    And I click the "New pipeline" button
+
+    And I highlight outside the "TFVC Container" element
+    And I click the "TFVC Container" element
+
+    And I sleep for "3" second
+    And I highlight outside the "Continue" button
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}060-continue-tfvc.png"
+    And I click the "Continue" button
+
+  @create-project @sourcespecific @git
   Scenario: Create project
     Given I set the following aliases:
       | Pipelines              | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
@@ -451,7 +512,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I stop recording the screen
 
-  @configure-project
+  @execute-project
   Scenario: Execute build
     Given I set the following aliases:
       | Save and queue       | //button[@name='Save & queue']                                     |

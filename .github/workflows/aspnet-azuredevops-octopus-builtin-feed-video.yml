@@ -6,6 +6,19 @@ on:
 jobs:
   build:
     runs-on: windows-2019
+    env:
+      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
+      WISTIA_MEDIA_ID: pa5ng26yxj
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      MOVE_TO_MOUSE_CUSROR: true
+      MOUSE_VERTICAL_OFFSET: 74
+      SCREENSHOT_BUCKET: octopus-guides-screenshots
+      STHREE_SCREENSHOT_ENABLED: true
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
+      NUGET_PATH: 'RandomQuotes\obj\octopacked\'
+      VIDEO_FILE_NAME: aspnet-azuredevops-octopus-builtin-feed.mp4
+      SCREENSHOT_PATH:
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender
@@ -21,14 +34,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -49,28 +62,26 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdisableBrowserZoom=true"
         "-DnoProxyList=microsoft.com"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
-        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
-        "-DCucumberAlias-NugetPath=RandomQuotes\obj\octopacked\"
+        "-DCucumberAlias-GitUrl=$env:GIT_URL"
+        "-DCucumberAlias-NugetPath=$env:NUGET_PATH"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "not @destinationspecific or @iis"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
-        --tags "not @applicationspecific or @aspnet"
+        --tags $env:CUCUMBER_TAGS
         features\azuredevops\azuredevops-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -83,14 +94,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -111,23 +122,21 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdumpAliasesOnFailure=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "not @destinationspecific or @iis"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
-        --tags "not @applicationspecific or @aspnet"
+        --tags $env:CUCUMBER_TAGS
         features\octopus\octopus-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -140,14 +149,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -165,23 +174,21 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdisableBrowserZoom=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "not @destinationspecific or @iis"
-        --tags "not @repositoryspecific or @octo-built-in-feed"
-        --tags "not @applicationspecific or @aspnet"
+        --tags $env:CUCUMBER_TAGS
         features\azuredevops\azuredevops-create-deploy.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -194,14 +201,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -219,14 +226,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -244,14 +251,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
@@ -268,15 +275,15 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -294,14 +301,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -319,14 +326,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -344,14 +351,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -369,14 +376,14 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
@@ -400,7 +407,7 @@ jobs:
       shell: powershell
       run: |
         ls c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnet-azuredevops-octopus-builtin-feed.mp4 --acl public-read
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 "s3://i.octopus.com/guides/$(#env:VIDEO_FILE_NAME)" --acl public-read
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -412,20 +419,20 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdisableVideoRecording=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=3"
         "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
         "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
-        "-DCucumberAlias-ExternalMediaID=pa5ng26yxj"
+        "-DCucumberAlias-ExternalMediaID=$env:WISTIA_MEDIA_ID"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
