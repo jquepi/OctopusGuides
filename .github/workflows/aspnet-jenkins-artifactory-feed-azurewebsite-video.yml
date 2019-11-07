@@ -6,6 +6,22 @@ on:
 jobs:
   build:
     runs-on: windows-2019
+    env:
+      DEV_RES_GROUP: jenkinsaspnetartifactoryfeedviddev
+      TEST_RES_GROUP: jenkinsaspnetartifactoryfeedvidtest
+      PROD_RES_GROUP: jenkinsaspnetartifactoryfeedvidprod
+      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
+      WISTIA_MEDIA_ID: l79187lpox
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      MOVE_TO_MOUSE_CUSROR: true
+      MOUSE_VERTICAL_OFFSET: 74
+      SCREENSHOT_BUCKET: octopus-guides-screenshots
+      STHREE_SCREENSHOT_ENABLED: true
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
+      NUGET_PATH: 'RandomQuotes\obj\octopacked\'
+      VIDEO_FILE_NAME: aspnet-jenkins-artifactory-feed-azure.mp4
+      SCREENSHOT_PATH:
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender
@@ -17,9 +33,9 @@ jobs:
     - name: Create Web App
       shell: powershell
       run: |
-        ./create-azure-web-app "jenkinsaspnetartifactoryfeedviddev"
-        ./create-azure-web-app "jenkinsaspnetartifactoryfeedvidtest"
-        ./create-azure-web-app "jenkinsaspnetartifactoryfeedvidprod"
+        ./create-azure-web-app "$env:DEV_RES_GROUP"
+        ./create-azure-web-app "$env:TEST_RES_GROUP"
+        ./create-azure-web-app "$env:PROD_RES_GROUP"
     - name: Execute puppet
       shell: powershell
       run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,dotnetutilities.pp,artifactory.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
@@ -31,16 +47,15 @@ jobs:
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -56,20 +71,23 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-api-key.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
@@ -80,25 +98,28 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
-        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
+        "-DCucumberAlias-GitUrl=$env:GIT_URL"
+        "-DCucumberAlias-NuGetPath=$env:NUGET_PATH"
         "-DCucumberAlias-GuideSpecificScreenshotDir="
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory)"
-        --tags "not @applicationspecific or @aspnet"
+        --tags $env:CUCUMBER_TAGS
         features\jenkins\jenkins-aspnet-git.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Create the Octopus External Feed
       shell: powershell
       run: >
@@ -106,18 +127,17 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -133,20 +153,23 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-environments.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Create the Octopus Azure Account
       shell: powershell
       run: >
@@ -154,16 +177,16 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableVideoRecording=false"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdisableBrowserZoom=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
         "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
@@ -185,21 +208,21 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableVideoRecording=false"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
         "-DCucumberAlias-ExternalEnvironmentName=Dev"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetartifactoryfeedviddev')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:DEV_RES_GROUP)')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -215,15 +238,15 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableVideoRecording=false"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
         "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
@@ -233,7 +256,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Test"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetartifactoryfeedvidtest')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:TEST_RES_GROUP)')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -249,15 +272,15 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableVideoRecording=false"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
         "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
@@ -267,7 +290,7 @@ jobs:
         "-DCucumberAlias-ExternalEnvironmentName=Prod"
         "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
         "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
-        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'jenkinsaspnetartifactoryfeedvidprod')]]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:PROD_RES_GROUP)')]]"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -283,22 +306,24 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory)"
-        --tags "not @applicationspecific or @aspnet"
+        --tags $env:CUCUMBER_TAGS
         features\octopus\octopus-aspnet-project.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Open Random Quotes
       shell: powershell
       run: >
@@ -306,12 +331,12 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableVideoRecording=false"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
-        "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetartifactoryfeedviddev.azurewebsites.net/"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DCucumberAlias-ExternalUrl=https://$($env:DEV_RES_GROUP).azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -327,22 +352,24 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory)"
-        --tags "not @applicationspecific or @aspnet"
+        --tags $env:CUCUMBER_TAGS
         features\jenkins\jenkins-create-deploy.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Add a lifecycle
       shell: powershell
       run: >
@@ -350,20 +377,23 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-lifecycle.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Open Random Quotes
       shell: powershell
       run: >
@@ -371,12 +401,12 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableVideoRecording=false"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
-        "-DCucumberAlias-ExternalUrl=https://jenkinsaspnetartifactoryfeedvidtest.azurewebsites.net/"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DCucumberAlias-ExternalUrl=https://$($env:TEST_RES_GROUP).azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -392,19 +422,23 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-manual-intervention.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Add email notification
       shell: powershell
       run: >
@@ -412,21 +446,24 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-email-notification.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Add users and team
       shell: powershell
       run: >
@@ -434,20 +471,23 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-users-and-teams.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: View internal deployer dashboard
       shell: powershell
       run: >
@@ -455,20 +495,23 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-view-internal-deployments.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: View production deployer dashboard
       shell: powershell
       run: >
@@ -476,20 +519,23 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-view-production-deployments.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: View audit logs
       shell: powershell
       run: >
@@ -497,20 +543,23 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
         features\octopus\octopus-audit-log.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Convert video
       shell: powershell
       run: gci c:\screenshots\*.avi | % {Start-Process "C:\Program Files\VideoLAN\VLC\vlc.exe" -NoNewWindow -Wait -ArgumentList @("-I", "dummy", "-vvv", "`"$($_.FullName)`"", "--sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=mp4,dst=`"c:\screenshots\$($_.BaseName).mp4`"}", "vlc://quit")}
@@ -524,7 +573,7 @@ jobs:
       shell: powershell
       run: |
         ls c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnet-jenkins-artifactory-feed-azure.mp4 --acl public-read
+        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 "s3://i.octopus.com/guides/$($env:VIDEO_FILE_NAME)" --acl public-read
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -536,20 +585,20 @@ jobs:
         "--enable-preview"
         "-Xmx2g"
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdisableVideoRecording=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=3"
         "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
         "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
-        "-DCucumberAlias-ExternalMediaID=l79187lpox"
+        "-DCucumberAlias-ExternalMediaID=$env:WISTIA_MEDIA_ID"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -561,6 +610,6 @@ jobs:
     - name: Delete resource groups
       shell: powershell
       run: |
-        ./delete-resource-group.ps1 "jenkinsaspnetartifactoryfeedviddev"
-        ./delete-resource-group.ps1 "jenkinsaspnetartifactoryfeedvidtest"
-        ./delete-resource-group.ps1 "jenkinsaspnetartifactoryfeedvidprod"
+        ./delete-resource-group.ps1 "$env:DEV_RES_GROUP"
+        ./delete-resource-group.ps1 "$env:TEST_RES_GROUP"
+        ./delete-resource-group.ps1 "$env:PROD_RES_GROUP"

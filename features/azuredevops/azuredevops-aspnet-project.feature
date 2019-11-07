@@ -533,6 +533,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   @execute-project @sourcespecific @tfvc
   Scenario: Open pipeline again
+  We interrupt the flow of the build to populate the TFVC repo behind the scenes. This scenario gets us back into
+  the pipeline edit from where we will queue a build.
+
     Given I set the following aliases:
       | Edit    | //a[contains(.,'Edit')]                              |
 
@@ -541,6 +544,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   @execute-project
   Scenario: Execute build
+  The pipeline is saved, so we queue a build here.
+
     Given I set the following aliases:
       | More commands     | //button[@aria-label='More commands']                              |
       | Queue             | //button[@name='Queue']                                            |
@@ -556,6 +561,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight inside the "Queue" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}163-queue.png"
     And I click the "Queue" button
+
+    And I remove the highlight from the "More commands" button
+    And I remove the highlight from the "Queue" button
 
     And I highlight inside the "Queue two" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}164-queue.png"
@@ -575,11 +583,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
 
-  Scenario: View agents
-    Given I open the URL "http://localhost:9090/DefaultCollection/_settings/agentpools?poolId=1&_a=agents"
-    And I sleep for "10" seconds
-    Then I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}build-agents.png"
-
   Scenario: Shutdown
+    And I stop recording the screen
+    And I close the browser
+
+  @execute-project @sourcespecific @tfvc
+  Scenario: Shutdown after TFVC build
     And I stop recording the screen
     And I close the browser
