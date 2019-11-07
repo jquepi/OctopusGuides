@@ -38,6 +38,7 @@ Feature: Create ASP.NET project
       | Package Version       | //input[@id='octopus_packageversion']                  |
       | Source path           | //input[@id='octopus_packagesourcepath']               |
       | Output path           | //input[@id='octopus_packageoutputpath']               |
+      | Got it                | //button[contains(.,'Got it')]                         |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
@@ -84,7 +85,7 @@ Feature: Create ASP.NET project
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}050-dotnet-test.png"
     And I click the "Save" button
 
-    And I click the "Got it" button waiting up to "10" seconds if it exists
+    And I click the "Got it" button waiting up to "5" seconds if it exists
 
     And I highlight outside the "Add build step" button
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}060-add-build-step.png"
