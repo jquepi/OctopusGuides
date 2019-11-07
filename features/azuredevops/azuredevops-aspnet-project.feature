@@ -510,38 +510,56 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I remove the highlight from the "Space" drop down list
     And I remove the highlight from the "Package" text box
 
+  @save-project
+  Scenario: Save project
+    Given I set the following aliases:
+      | Save and queue | //button[@name='Save & queue'] |
+      | Save           | (//button[@name='Save'])[1]    |
+      | Save two       | //button[@aria-label='Save']   |
+
+    And I highlight inside the "Save and queue" button
+    And I click the "Save and queue" button
+    And I highlight inside the "Save" button
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}150-save.png"
+    And I click the "Save" button
+    And I remove the highlight from the "Save and queue" button
+
+    And I highlight outside the "Save two" button
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}160-save.png"
+    And I click the "Save two" button
+    And I sleep for "3" seconds
+
     And I stop recording the screen
+
+  @execute-project @sourcespecific @tfvc
+  Scenario: Open pipeline again
+    Given I set the following aliases:
+      | Edit    | //a[contains(.,'Edit')]                              |
+
+    And I open the URL "http://localhost:9090/DefaultCollection/Random Quotes/_build"
+    And I click the "Edit" button
 
   @execute-project
   Scenario: Execute build
     Given I set the following aliases:
-      | Save and queue       | //button[@name='Save & queue']                                     |
-      | Save and queue two   | (//button[@name='Save & queue'])[2]                                |
-      | Save and queue three | //button[@aria-label='Save & queue']                               |
-      | Comment              | //textarea[../../../../../../../../div//label[contains(.,'Save')]] |
-      | Build link           | //a[contains(@class, 'ci-queued-build-link')]                      |
-      | Post job Checkout    | //div[text()='Post-job: Checkout']                                 |
+      | More commands     | //button[@aria-label='More commands']                              |
+      | Queue             | //button[@name='Queue']                                            |
+      | Queue two         | //button[@aria-label='Queue']                                      |
+      | Build link        | //a[contains(@class, 'ci-queued-build-link')]                      |
+      | Post job Checkout | //div[text()='Post-job: Checkout']                                 |
 
     And I start recording the screen to the directory "C:\screenshots"
 
-    And I highlight inside the "Save and queue" button
-    And I click the "Save and queue" button
-    And I highlight inside the "Save and queue two" button
-    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}150-save-and-queue.png"
-    And I click the "Save and queue two" button
-    And I remove the highlight from the "Save and queue" button
+    And I highlight inside the "More commands" button
+    And I click the "More commands" button if it exists waiting up to "5" seconds
 
-    And I highlight outside the "Comment" text box with an offset of "0"
-    And I highlight outside the "Save and queue three" button with an offset of "2"
-    And I scroll the "Comment" text box into view offset by "100"
-    And I populate the "Comment" text box with "Initial build"
-    And I zoom the browser out
-    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}160-initial-build.png"
-    And I scroll the "Save and queue three" button into view
-    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}163-save-and-queue.png"
-    And I click the "Save and queue three" button
-    And I zoom the browser in
-    And I sleep for "3" seconds
+    And I highlight inside the "Queue" button
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}163-queue.png"
+    And I click the "Queue" button
+
+    And I highlight inside the "Queue two" button
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}164-queue.png"
+    And I click the "Queue two" button
 
     And I highlight outside the "Build link" element
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}165-build-link.png"

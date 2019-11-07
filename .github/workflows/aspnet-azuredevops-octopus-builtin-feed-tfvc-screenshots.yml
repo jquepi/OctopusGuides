@@ -1,6 +1,6 @@
 name: ASP.NET Azure Devops Octopus Built-in Feed TFVC Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 18 1 * *'
 jobs:
@@ -97,7 +97,7 @@ jobs:
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        --tags "@execute-project"
+        --tags "@execute-project or @login"
         features\azuredevops\azuredevops-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
