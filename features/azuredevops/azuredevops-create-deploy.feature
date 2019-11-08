@@ -155,7 +155,7 @@ Feature: Create and deploy a release
 
     And I highlight outside the "Comment" text box with an offset of "0"
     And I highlight outside the "Save and queue three" button with an offset of "2"
-    And I scroll the "Comment" text box into view offset by "100"
+    And I scroll the "Comment" text box into view offset by "-100"
     And I populate the "Comment" text box with "Build and deploy"
     And I zoom the browser out
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}070-initial-build.png"
