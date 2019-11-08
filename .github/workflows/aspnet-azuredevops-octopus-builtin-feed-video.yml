@@ -1,6 +1,6 @@
 name: ASP.NET Azure DevOps Octopus Built-in Feed Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 19 1 * *'
 jobs:
@@ -73,7 +73,7 @@ jobs:
         "-DCucumberAlias-GitUrl=$env:GIT_URL"
         "-DCucumberAlias-NugetPath=$env:NUGET_PATH"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
+        "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
         "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
