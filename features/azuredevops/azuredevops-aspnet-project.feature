@@ -94,6 +94,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Description" text box
     And I highlight outside the "Create project" button
     And I highlight outside the "Advanced" link
+    And I scroll the "Project name" text box into view offset by "-200"
     And I populate the "Project name" text box with "Random Quotes"
     And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
     And I click the "Advanced" link
