@@ -98,10 +98,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Project name" text box with "Random Quotes"
     And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
     And I click the "Advanced" link
+    And I scroll the "Version control" drop down list into view offset by "-200"
     And I click the "Version control" drop down list
     And I click the "Team Foundation Version Control" option
     And I highlight outside the "Version control" drop down list
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}010-create-project-tfvc.png"
+    And I scroll the "Create project" button list into view offset by "-200"
     And I click the "Create project" button
     And I sleep for "5" seconds
     And I stop recording the screen
