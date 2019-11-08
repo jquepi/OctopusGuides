@@ -7,12 +7,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I maximize the window
     #And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/"
-    And I start recording the screen to the directory "C:\screenshots"
 
   @install-extensions
   Scenario: Install Extensions
     Given I set the following aliases:
       | Admin settings | //a[@href='/DefaultCollection/_settings/'] |
+
+    And I start recording the screen to the directory "C:\screenshots"
 
     And I display a note with the text "Installing the Azure DevOps extensions" for "3" seconds
     And I highlight inside the "Admin settings" button
