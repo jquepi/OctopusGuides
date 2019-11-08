@@ -563,7 +563,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Queue" button
 
     And I remove the highlight from the "More commands" button
-    And I remove the highlight from the "Queue" button
 
     And I highlight inside the "Queue two" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}164-queue.png"
