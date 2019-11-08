@@ -1,6 +1,6 @@
 name: ASP.NET Azure Devops Octopus Built-in Feed TFVC Screenshots
 on:
-  push:
+#  push:
   schedule:
     - cron:  '0 18 1 * *'
 jobs:
