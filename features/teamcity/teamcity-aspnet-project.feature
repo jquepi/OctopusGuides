@@ -43,7 +43,7 @@ Feature: Create ASP.NET project
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
 
-    And I highlight outside the "Create project" button
+    And I highlight outside the "Create project" button with an offset of "5"
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}010-create-project.png"
     And I click the "Create project" button
 
@@ -199,7 +199,7 @@ Feature: Create ASP.NET project
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
 
-    And I highlight outside the "Create project" button
+    And I highlight outside the "Create project" button with an offset of "5"
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}010-create-project.png"
     And I click the "Create project" button
 
@@ -224,7 +224,7 @@ Feature: Create ASP.NET project
     And I click the "Runner type" drop down list
     And I scroll the "NuGet Installer" option into view offset by "-200"
     And I click the "NuGet Installer" option
-    And I sleep for "1" second
+    And I sleep for "2" second
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
@@ -303,7 +303,7 @@ Feature: Create ASP.NET project
 
     And I scroll the "NUnit" option into view offset by "-200"
     And I click the "NUnit" option
-    And I sleep for "1" second
+    And I sleep for "2" second
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
