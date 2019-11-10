@@ -1,14 +1,17 @@
-name: ASP.NET Azure DevOps Octopus Built-in Feed TFVC Video
+name: ASP.NET Azure DevOps Octopus Built-in Feed Azure Websites TFVC Video
 on:
 #  push:
   schedule:
-    - cron:  '0 19 1 * *'
+    - cron:  '0 17 1 * *'
 jobs:
   build:
     runs-on: windows-2019
     env:
-      CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @tfvc)"
-      WISTIA_MEDIA_ID: yhutvs36se
+      DEV_RES_GROUP: azuredevopsaspnetbuiltinfeedviddev
+      TEST_RES_GROUP: azuredevopsaspnetbuiltinfeedvidtest
+      PROD_RES_GROUP: azuredevopsaspnetbuiltinfeedvidprod
+      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @tfvc)"
+      WISTIA_MEDIA_ID:
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
       MOVE_TO_MOUSE_CUSROR: true
@@ -17,13 +20,22 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
       NUGET_PATH: 'RandomQuotes\obj\octopacked\'
-      VIDEO_FILE_NAME: aspnet-azuredevops-octopus-builtin-feed-tfvc.mp4
+      VIDEO_FILE_NAME: aspnet-azuredevops-octopus-builtin-feed-tfvc-azure.mp4
       SCREENSHOT_PATH:
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender
       shell: powershell
       run: reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection' /v DisableRealtimeMonitoring /t REG_DWORD /d 1
+    - uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Create Web App
+      shell: powershell
+      run: |
+        ./create-azure-web-app "$env:DEV_RES_GROUP"
+        ./create-azure-web-app "$env:TEST_RES_GROUP"
+        ./create-azure-web-app "$env:PROD_RES_GROUP"
     - name: Execute puppet
       shell: powershell
       run: ./install.ps1 -Scripts azuredevops.pp,azuredevopsagent.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp
@@ -36,7 +48,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
@@ -64,7 +76,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdisableBrowserZoom=true"
         "-DnoProxyList=microsoft.com"
@@ -73,7 +85,7 @@ jobs:
         "-DCucumberAlias-GitUrl=$env:GIT_URL"
         "-DCucumberAlias-NugetPath=$env:NUGET_PATH"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=true"
+        "-DslackStepHandlerEnabled=false"
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
         "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
@@ -82,35 +94,6 @@ jobs:
         --plugin progress
         --monochrome
         --tags $env:CUCUMBER_TAGS
-        --tags "not @execute-project"
-        features\azuredevops\azuredevops-aspnet-project.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    - name: Populate TFVC repo
-      shell: powershell
-      run: ./install.ps1 -Scripts azuredevopstfvcaspnet.pp
-    - name: Run the build
-      shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
-        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableVideoRecording=$env:DISABLE_VIDEO"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
-        "-DslackStepHandlerEnabled=true"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
-        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        --tags "@execute-project or @login"
         features\azuredevops\azuredevops-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -125,7 +108,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
@@ -141,9 +124,133 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    - name: Add tentacle
+    - name: Create the Octopus Azure Account
       shell: powershell
-      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\tentacle.pp --disable_warnings=deprecations'
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableVideoRecording=false"
+        "-DdisableBrowserZoom=true"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+        "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
+        "-DCucumberAlias-ExternalApplicationTenantID=${{ secrets.ExternalApplicationTenantID }}"
+        "-DCucumberAlias-ExternalAzureTenantID=${{ secrets.ExternalAzureTenantID }}"
+        "-DCucumberAlias-ExternalAzureSubscriptionID=${{ secrets.ExternalAzureSubscriptionID }}"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\octopus\octopus-create-azure-account.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create Dev Azure target
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableVideoRecording=false"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+        "-DCucumberAlias-ExternalEnvironmentName=Dev"
+        "-DCucumberAlias-ExternalTargetName=Azure web app - Dev"
+        "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:DEV_RES_GROUP)')]]"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\octopus\octopus-create-azure-webapp-target.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create Test Azure target
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableVideoRecording=false"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+        "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
+        "-DCucumberAlias-ExternalApplicationTenantID=${{ secrets.ExternalApplicationTenantID }}"
+        "-DCucumberAlias-ExternalAzureTenantID=${{ secrets.ExternalAzureTenantID }}"
+        "-DCucumberAlias-ExternalAzureSubscriptionID=${{ secrets.ExternalAzureSubscriptionID }}"
+        "-DCucumberAlias-ExternalEnvironmentName=Test"
+        "-DCucumberAlias-ExternalTargetName=Azure web app - Test"
+        "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:TEST_RES_GROUP)')]]"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\octopus\octopus-create-azure-webapp-target.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Create Prod Azure target
+      shell: powershell
+      run: >
+        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+        "--enable-preview"
+        "-Xmx2g"
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+        "-DdisableVideoRecording=false"
+        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
+        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+        "-DslackStepHandlerEnabled=true"
+        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
+        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
+        "-DCucumberAlias-ExternalApplicationPassword=${{ secrets.ExternalApplicationPassword }}"
+        "-DCucumberAlias-ExternalApplicationTenantID=${{ secrets.ExternalApplicationTenantID }}"
+        "-DCucumberAlias-ExternalAzureTenantID=${{ secrets.ExternalAzureTenantID }}"
+        "-DCucumberAlias-ExternalAzureSubscriptionID=${{ secrets.ExternalAzureSubscriptionID }}"
+        "-DCucumberAlias-ExternalEnvironmentName=Prod"
+        "-DCucumberAlias-ExternalTargetName=Azure web app - Prod"
+        "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]"
+        "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:PROD_RES_GROUP)')]]"
+        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        --plugin progress
+        --monochrome
+        features\octopus\octopus-create-azure-webapp-target.feature
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Create Octopus Project
       shell: powershell
       run: >
@@ -153,18 +260,18 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdumpAliasesOnFailure=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
+        "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
         "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
+        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
         "-DretryCount=1"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
         --monochrome
+        --plugin progress
         --tags $env:CUCUMBER_TAGS
         features\octopus\octopus-aspnet-project.feature
       env:
@@ -180,18 +287,13 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
-        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
-        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
+        "-DdisableVideoRecording=false"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
+        "-DCucumberAlias-ExternalUrl=https://$($env:DEV_RES_GROUP).azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        features\octopus\open-randomquotes-iis-dev.feature
+        features\octopus\open-randomquotes-azurewebapp.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -205,7 +307,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdisableBrowserZoom=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
@@ -232,7 +334,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
@@ -248,7 +350,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-    - name: Open Random Quotes in the test environment
+    - name: Open Random Quotes
       shell: powershell
       run: >
         & "C:\Program Files\OpenJDK\jdk-13\bin\java"
@@ -257,18 +359,13 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
-        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
-        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
+        "-DdisableVideoRecording=false"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
+        "-DCucumberAlias-ExternalUrl=https://$($env:TEST_RES_GROUP).azurewebsites.net/"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
-        features\octopus\open-randomquotes-iis-test.feature
+        features\octopus\open-randomquotes-azurewebapp.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -282,7 +379,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
@@ -307,7 +404,7 @@ jobs:
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
@@ -332,7 +429,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
@@ -357,7 +454,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
@@ -382,7 +479,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
@@ -407,7 +504,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=false"
@@ -450,7 +547,7 @@ jobs:
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+        "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdisableVideoRecording=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
@@ -458,10 +555,10 @@ jobs:
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
         "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=3"
         "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
         "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
         "-DCucumberAlias-ExternalMediaID=$env:WISTIA_MEDIA_ID"
+        "-DretryCount=3"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -470,3 +567,9 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+    - name: Delete resource groups
+      shell: powershell
+      run: |
+        ./delete-resource-group.ps1 "$env:DEV_RES_GROUP"
+        ./delete-resource-group.ps1 "$env:TEST_RES_GROUP"
+        ./delete-resource-group.ps1 "$env:PROD_RES_GROUP"
