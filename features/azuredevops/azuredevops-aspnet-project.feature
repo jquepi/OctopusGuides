@@ -135,12 +135,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @create-project @sourcespecific @tfvc
   Scenario: Create project
     Given I set the following aliases:
-      | Pipelines      | //a[@aria-label='Pipelines']             |
-      | Build          | //a[@aria-label='Builds']                |
-      | New pipeline   | //button[contains(., 'New pipeline')]    |
-      | TFVC Container | //div[./label//div[contains(., 'TFVC')]] |
-      | TFVC           | //input[../div[contains(., 'TFVC')]]     |
-      | Continue       | //button[contains(.,'Continue')]         |
+      | Pipelines                       | //a[@aria-label='Pipelines']                         |
+      | Build                           | //a[@aria-label='Builds']                            |
+      | New pipeline                    | //button[contains(., 'New pipeline')]                |
+      | Team Foundation Version Control | //tr[contains(., 'Team Foundation Version Control')] |
+      | TFVC Container                  | //div[./label//div[contains(., 'TFVC')]]             |
+      | TFVC                            | //input[../div[contains(., 'TFVC')]]                 |
+      | Continue                        | //button[contains(.,'Continue')]                     |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I start recording the screen to the directory "C:\screenshots"
@@ -154,6 +155,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "New pipeline" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}030-new-pipeline-tfvc.png"
     And I click the "New pipeline" button
+
+    And I highlight the "Team Foundation Version Control" row
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}035-source-control-tfvc.png"
+    And I click the "Team Foundation Version Control" row
 
     And I highlight outside the "TFVC Container" element
     And I click the "TFVC Container" element
@@ -386,6 +391,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @repositoryspecific @artifactory
   Scenario: Push to Artifactory
     Given I set the following aliases:
+      | Add task                                                     | //button[@aria-label='Add a task to Agent job 1']                                                              |
       | Search                                                       | (//input[@aria-label='Search'])[2]                                                                             |
       | NuGet title                                                  | //div[@class='info-name'][text()='NuGet']                                                                      |
       | NuGet Task                                                   | //div[./div/div/div[text()='NuGet']]/button                                                                    |
