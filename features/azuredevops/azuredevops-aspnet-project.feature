@@ -81,7 +81,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Create project
     Given I set the following aliases:
       | Project name                    | //input[contains(@class,'project-name-textfield')]                                                                         |
-      | Description                     | //textarea[contains(@class,'description-textarea-input')]                                                               |
+      | Description                     | //textarea[contains(@class,'description-textarea-input')]                                                                  |
       | Create project                  | //button[contains(.,'Create project')]                                                                                     |
       | Pipelines                       | //a[@aria-label='Pipelines']                                                                                               |
       | Advanced                        | //button[contains(.,'Advanced')]                                                                                           |
@@ -113,16 +113,16 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @create-project @sourcespecific @git
   Scenario: Create project
     Given I set the following aliases:
-      | Project name   | //input[contains(@id,'project-name-textfield')]           |
-      | Description    | //textarea[contains(@id,'project-description-textfield')] |
+      | Project name   | //input[contains(@class,'project-name-textfield')]        |
+      | Description    | //textarea[contains(@class,'description-textarea-input')] |
       | Create project | //button[contains(.,'Create project')]                    |
       | Pipelines      | //a[@aria-label='Pipelines']                              |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the Azure DevOps project" for "3" seconds
 
-    And I highlight outside the "Project name" text box
-    And I highlight outside the "Description" text box
+    And I highlight inside the "Project name" text box
+    And I highlight inside the "Description" text box
     And I highlight outside the "Create project" button
     And I populate the "Project name" text box with "Random Quotes"
     And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
@@ -166,16 +166,17 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @create-project @sourcespecific @git
   Scenario: Create project
     Given I set the following aliases:
-      | Pipelines              | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
-      | Build                  | //a[@aria-label='Builds']                                                       |
-      | New pipeline           | //button[contains(., 'New pipeline')]                                           |
-      | External Git Container | //div[./label//div[contains(., 'External Git')]]                                |
-      | External Git           | //input[../div[contains(., 'External Git')]]                                    |
-      | Add connection         | //button[contains(.,'Add connection')]                                          |
-      | Connection name        | //input[@id='INPUT-FIELD-STRING0']                                              |
-      | Git repository URL     | //input[@id='INPUT-FIELD-STRING1']                                              |
-      | OK                     | //button[contains(., 'OK')]                                                     |
-      | Continue               | //button[contains(.,'Continue')]                                                |
+      | Pipelines              | //a[@aria-label='Pipelines']                  |
+      | Build                  | //a[@aria-label='Builds']                     |
+      | New pipeline           | //button[contains(., 'New pipeline')]         |
+      | Other Git              | //tr[contains(., 'Other Git')]                |
+      | External Git Container | //div[./label//div[contains(., 'Other Git')]] |
+      | External Git           | //input[../div[contains(., 'Other Git')]]     |
+      | Add connection         | //button[contains(.,'Add connection')]        |
+      | Connection name        | //input[@id='INPUT-FIELD-STRING0']            |
+      | Git repository URL     | //input[@id='INPUT-FIELD-STRING1']            |
+      | OK                     | //button[contains(., 'OK')]                   |
+      | Continue               | //button[contains(.,'Continue')]              |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I start recording the screen to the directory "C:\screenshots"
@@ -189,6 +190,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "New pipeline" button
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}030-new-pipeline.png"
     And I click the "New pipeline" button
+
+    And I highlight the "Other Git" row
+    And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}035-other-git.png"
+    And I click the "Other Git" row
 
     And I highlight outside the "External Git Container" element
     And I click the "External Git Container" element
