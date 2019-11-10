@@ -146,7 +146,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I start recording the screen to the directory "C:\screenshots"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}debug1-tfvc.png"
-    And I mouse over the "Pipelines" menu item
+    And I click the "Pipelines" link
     And I highlight inside the "Pipelines" menu item
     And I highlight inside the "Build" link
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}020-build-tfvc.png"
