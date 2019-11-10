@@ -12,10 +12,10 @@ Feature: Create and deploy a release
   @add-step
   Scenario: Add deploy step
     Given I set the following aliases:
-      | Random Quotes | //li[contains(@class,'project-card')]                                           |
-      | Pipelines     | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
-      | Build         | //a[@aria-label='Builds']                                                       |
-      | Edit          | //a[contains(.,'Edit')]                                                         |
+      | Random Quotes | //li[contains(@class,'project-card')] |
+      | Pipelines     | //a[@aria-label='Pipelines']       |
+      | Build         | //a[@aria-label='Builds']             |
+      | Edit          | //a[contains(.,'Edit')]               |
 
     And I display a note with the text "Deploying an Octopus release from Azure DevOps" for "3" seconds
 

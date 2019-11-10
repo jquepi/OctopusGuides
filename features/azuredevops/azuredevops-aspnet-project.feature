@@ -83,7 +83,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Project name                    | //input[contains(@id,'project-name-textfield')]                                                                            |
       | Description                     | //textarea[contains(@id,'project-description-textfield')]                                                                  |
       | Create project                  | //button[contains(.,'Create project')]                                                                                     |
-      | Pipelines                       | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']]                                            |
+      | Pipelines                       | //a[@aria-label='Pipelines']                                                                                               |
       | Advanced                        | //button[contains(.,'Advanced')]                                                                                           |
       | Version control                 | //div[@aria-label='Select a version control type for the default repository. You can always add more repositories later.'] |
       | Team Foundation Version Control | //button[contains(.,'Team Foundation Version Control')]                                                                    |
@@ -113,10 +113,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @create-project @sourcespecific @git
   Scenario: Create project
     Given I set the following aliases:
-      | Project name   | //input[contains(@id,'project-name-textfield')]                                 |
-      | Description    | //textarea[contains(@id,'project-description-textfield')]                       |
-      | Create project | //button[contains(.,'Create project')]                                          |
-      | Pipelines      | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
+      | Project name   | //input[contains(@id,'project-name-textfield')]           |
+      | Description    | //textarea[contains(@id,'project-description-textfield')] |
+      | Create project | //button[contains(.,'Create project')]                    |
+      | Pipelines      | //a[@aria-label='Pipelines']                              |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the Azure DevOps project" for "3" seconds
@@ -135,12 +135,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @create-project @sourcespecific @tfvc
   Scenario: Create project
     Given I set the following aliases:
-      | Pipelines      | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
-      | Build          | //a[@name='Builds']                                                             |
-      | New pipeline   | //button[contains(., 'New pipeline')]                                           |
-      | TFVC Container | //div[./label//div[contains(., 'TFVC')]]                                        |
-      | TFVC           | //input[../div[contains(., 'TFVC')]]                                            |
-      | Continue       | //button[contains(.,'Continue')]                                                |
+      | Pipelines      | //a[@aria-label='Pipelines']             |
+      | Build          | //a[@aria-label='Builds']                |
+      | New pipeline   | //button[contains(., 'New pipeline')]    |
+      | TFVC Container | //div[./label//div[contains(., 'TFVC')]] |
+      | TFVC           | //input[../div[contains(., 'TFVC')]]     |
+      | Continue       | //button[contains(.,'Continue')]         |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I start recording the screen to the directory "C:\screenshots"
@@ -167,7 +167,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Create project
     Given I set the following aliases:
       | Pipelines              | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
-      | Build                  | //a[@aria-label='Builds']                                                             |
+      | Build                  | //a[@aria-label='Builds']                                                       |
       | New pipeline           | //button[contains(., 'New pipeline')]                                           |
       | External Git Container | //div[./label//div[contains(., 'External Git')]]                                |
       | External Git           | //input[../div[contains(., 'External Git')]]                                    |
@@ -541,7 +541,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   the pipeline edit from where we will queue a build.
 
     Given I set the following aliases:
-      | Edit    | //a[contains(.,'Edit')]                              |
+      | Edit | //a[contains(.,'Edit')] |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random Quotes/_build"
     And I click the "Edit" button
@@ -551,11 +551,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   The pipeline is saved, so we queue a build here.
 
     Given I set the following aliases:
-      | More commands     | //button[@aria-label='More commands']                              |
-      | Queue             | //button[@name='Queue']                                            |
-      | Queue two         | //button[@aria-label='Queue']                                      |
-      | Build link        | //a[contains(@class, 'ci-queued-build-link')]                      |
-      | Post job Checkout | //div[text()='Post-job: Checkout']                                 |
+      | More commands     | //button[@aria-label='More commands']         |
+      | Queue             | //button[@name='Queue']                       |
+      | Queue two         | //button[@aria-label='Queue']                 |
+      | Build link        | //a[contains(@class, 'ci-queued-build-link')] |
+      | Post job Checkout | //div[text()='Post-job: Checkout']            |
 
     And I start recording the screen to the directory "C:\screenshots"
 
