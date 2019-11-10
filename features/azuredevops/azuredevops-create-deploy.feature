@@ -128,6 +128,8 @@ Feature: Create and deploy a release
       | Post job Checkout      | //div[text()='Post-job: Checkout']                                                           |
       | Octopus Deploy Space   | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]   |
       | Octopus Deploy Project | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]] |
+      | Deployment Section     | //div[@aria-label='Deployment']                                                              |
+      | Environment            | //input[../../../../../../../../../div/label[text()='To Environment']]                       |
 
     And I highlight outside the "Octopus Deploy Space" drop down list with an offset of "2"
     And I click the "Space Refresh" button
@@ -145,6 +147,15 @@ Feature: Create and deploy a release
     And I remove the highlight from the "Octopus Deploy Project" drop down list
     And I remove the highlight from the "Octopus Deploy Space" drop down list
     And I remove the highlight from the "Octopus Deploy Server" drop down list
+
+    And I highlight outside the "Deployment Section" heading with an offset of "2"
+    And I scroll the "Deployment Section" heading into view offset by "-200"
+    And I click the "Deployment Section" heading
+
+    And I highlight inside the "Environment" text box
+    And I populate the "Environment" text box with "Dev"
+
+    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}055-environment.png"
 
     And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
