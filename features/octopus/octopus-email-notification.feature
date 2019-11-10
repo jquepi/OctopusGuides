@@ -245,7 +245,7 @@ Feature: Add a manual intervention step
     And I display a note with the text "Deploy to the Test environment" for "3" seconds
 
     And I click the "Create Release" button
-    And I highlight outside the "Create Release" button
+    And I highlight inside the "Create Release" button
     And I highlight outside the "Save" button
     And I sleep for "1" second
     And I remove the highlight from the "Create Release" button
