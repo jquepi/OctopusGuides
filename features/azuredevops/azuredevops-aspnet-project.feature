@@ -528,7 +528,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Save" button
     And I remove the highlight from the "Save and queue" button
 
-    And I highlight outside the "Save two" button
+    And I highlight outside the "Save two" button with an offset of "2"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}160-save.png"
     And I click the "Save two" button
     And I sleep for "3" seconds
