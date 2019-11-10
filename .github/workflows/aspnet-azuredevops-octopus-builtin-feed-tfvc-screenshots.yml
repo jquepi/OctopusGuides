@@ -1,6 +1,6 @@
 name: ASP.NET Azure Devops Octopus Built-in Feed TFVC Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 18 1 * *'
 jobs:
@@ -18,7 +18,7 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
       NUGET_PATH: 'RandomQuotes\obj\octopacked\'
-      SCREENSHOT_PATH: aspnet-app\iis\
+      SCREENSHOT_PATH: aspnet-app\iis\builtin\tfvc\
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender
