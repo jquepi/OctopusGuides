@@ -80,8 +80,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @create-project @sourcespecific @tfvc
   Scenario: Create project
     Given I set the following aliases:
-      | Project name                    | //input[contains(@id,'project-name-textfield')]                                                                            |
-      | Description                     | //textarea[contains(@id,'project-description-textfield')]                                                                  |
+      | Project name                    | //input[contains(@class,'project-name-textfield')]                                                                         |
+      | Description                     | //textarea[contains(@class,'description-textarea-input')]                                                               |
       | Create project                  | //button[contains(.,'Create project')]                                                                                     |
       | Pipelines                       | //a[@aria-label='Pipelines']                                                                                               |
       | Advanced                        | //button[contains(.,'Advanced')]                                                                                           |
@@ -91,8 +91,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the Azure DevOps project" for "3" seconds
 
-    And I highlight outside the "Project name" text box
-    And I highlight outside the "Description" text box
+    And I highlight inside the "Project name" text box
+    And I highlight inside the "Description" text box
     And I highlight outside the "Create project" button
     And I highlight outside the "Advanced" link
     And I scroll the "Project name" text box into view offset by "-200"
