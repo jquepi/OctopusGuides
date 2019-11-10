@@ -14,7 +14,7 @@ Feature: Create and deploy a release
     Given I set the following aliases:
       | Random Quotes | //li[contains(@class,'project-card')]                                           |
       | Pipelines     | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
-      | Build         | //a[@name='Builds']                                                             |
+      | Build         | //a[@aria-label='Builds']                                                       |
       | Edit          | //a[contains(.,'Edit')]                                                         |
 
     And I display a note with the text "Deploying an Octopus release from Azure DevOps" for "3" seconds
@@ -23,7 +23,7 @@ Feature: Create and deploy a release
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}010-project-tile.png"
     And I click the "Random Quotes" tile
 
-    And I mouse over the "Pipelines" menu item
+    And I click the "Pipelines" menu item
     And I highlight inside the "Pipelines" menu item
     And I highlight inside the "Build" link
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}020-build.png"

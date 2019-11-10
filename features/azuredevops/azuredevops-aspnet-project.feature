@@ -26,7 +26,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Extensions            | //a[@href='/DefaultCollection/_settings/extensions']                          |
       | Close                 | //button[contains(@class,'bolt-teaching-pane-close-button')]                  |
-      | Browse Marketplace    | //a[contains(.,'Browse Marketplace')]                                         |
+      | Browse Marketplace    | //a[contains(.,'Browse marketplace')]                                         |
       | Search                | //input[@aria-label='Search Azure DevOps extensions']                         |
       | Search button         | //span[@title='search']                                                       |
       | Octopus tile          | //a[@href='/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks'] |
@@ -167,7 +167,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   Scenario: Create project
     Given I set the following aliases:
       | Pipelines              | //div[@role='menuitem'][./a[@href='/DefaultCollection/Random%20Quotes/_build']] |
-      | Build                  | //a[@name='Builds']                                                             |
+      | Build                  | //a[@aria-label='Builds']                                                             |
       | New pipeline           | //button[contains(., 'New pipeline')]                                           |
       | External Git Container | //div[./label//div[contains(., 'External Git')]]                                |
       | External Git           | //input[../div[contains(., 'External Git')]]                                    |
@@ -180,7 +180,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I start recording the screen to the directory "C:\screenshots"
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}debug1.png"
-    And I mouse over the "Pipelines" menu item
+    And I click the "Pipelines" menu item
     And I highlight inside the "Pipelines" menu item
     And I highlight inside the "Build" link
     And I save a screenshot to "c:\screenshots\azuredevops\initialproject\#{GuideSpecificScreenshotDir}020-build.png"
