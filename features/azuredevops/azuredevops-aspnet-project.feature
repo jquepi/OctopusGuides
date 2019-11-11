@@ -40,7 +40,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "c:\screenshots\azuredevops\extensions\#{GuideSpecificScreenshotDir}015-extensions.png"
     And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
 
-    And I click the "Close" button if it exists
+    # This might not be needed in the new version of Azure Devops
+    And I click the "Close" button waiting up to "2" seconds if it exists
 
     And I highlight outside the "Browse Marketplace" button with an offset of "0"
     And I mouse over the "Browse Marketplace" button

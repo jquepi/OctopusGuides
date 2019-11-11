@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Artifactory Feed TFVC Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 16 1 * *'
 jobs:
@@ -210,7 +210,7 @@ jobs:
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdumpAliasesOnFailure=true"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
+        "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
         "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
