@@ -48,7 +48,7 @@ apt::key { 'docker-repository':
   mode    => '0744',
   content => @(EOT)
     #!/bin/bash
-    minikube start
+    sudo minikube start --vm-driver none
     touch /opt/minikube-started
     | EOT
 }

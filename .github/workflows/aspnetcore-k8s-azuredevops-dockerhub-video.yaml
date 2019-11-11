@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure Devops Artifactory Feed TFVC Screenshots
 on:
-  #  push:
+    push:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,4 +21,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install Puppet
-        run: sudo apt-get install puppet-agent
+        run: install.sh minikube.pp
