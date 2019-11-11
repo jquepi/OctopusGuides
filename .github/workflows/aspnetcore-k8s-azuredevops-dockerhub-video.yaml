@@ -1,4 +1,4 @@
-name: ASP.NET Core Azure Devops Artifactory Feed TFVC Screenshots
+name: ASP.NET Core Azure Devops Kubernetes DockerHub Video
 on:
     push:
 jobs:
@@ -21,4 +21,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install Puppet
-        run: install.sh minikube.pp
+        run: ./install.sh minikube.pp
