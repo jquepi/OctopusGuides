@@ -311,7 +311,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Package ID                | //textarea[../../../../../../../../div/label[normalize-space(text())='Package ID']]                    |
       | Package Version           | //textarea[../../../../../../../../div/label[normalize-space(text())='Package Version']]               |
       | Source Path               | //textarea[../../../../../../../../div/label[normalize-space(text())='Source Path']]                   |
-      | Zip Published Projects    | //button[.//span[text()='Zip Published Projects']]                                                     |
+      | Zip Published Projects    | //div[./div[text()='Zip Published Projects']]                                                          |
 
     And I click the "Publish row" element
 

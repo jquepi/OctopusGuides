@@ -1,6 +1,6 @@
 name: ASP.NET Azure DevOps Artifactory Feed Azure Website TFVC Video
 on:
-  push:
+#  push:
   schedule:
     - cron:  '0 14 1 * *'
 jobs:
@@ -10,7 +10,7 @@ jobs:
       TEST_RES_GROUP: azuredeopsaspnetartifactoryfeedvidtest
       PROD_RES_GROUP: azuredevopsaspnetartifactoryfeedvidprod
       CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @tfvc)"
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: 38vactpj5y
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
       MOVE_TO_MOUSE_CUSROR: true
