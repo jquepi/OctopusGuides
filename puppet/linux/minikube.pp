@@ -23,7 +23,7 @@ file { '/usr/local/bin/minikube':
 }
 -> file { '/opt/start-minikube.sh':
   ensure  => 'file',
-  mode    => '0644',
+  mode    => '0744',
   content => @(EOT)
     #!/bin/bash
     minikube start
