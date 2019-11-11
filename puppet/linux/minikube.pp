@@ -17,6 +17,25 @@ apt::source { 'docker':
   },
 }
 
+apt::key { 'kubernetes-repository':
+  id     => '54A647F9048D5688D7DA2ABE6A030B21BA07F4FB',
+  source => 'https://packages.cloud.google.com/apt/doc/apt-key.gpg',
+  server  => 'pgp.mit.edu'
+}
+
+apt::source { 'kubernetes':
+  comment  => 'This is the kubernetes repository',
+  location => 'http://apt.kubernetes.io/',
+  release  => '',
+  repos    => 'kubernetes-xenial main',
+  key      => {
+    'id' => '54A647F9048D5688D7DA2ABE6A030B21BA07F4FB',
+  },
+  include  => {
+    'deb' => true,
+  },
+}
+
 package { 'apt-transport-https':
   ensure => installed,
 }
@@ -47,25 +66,6 @@ package { 'docker-ce-cli':
 
 package { 'containerd.io':
   ensure => installed,
-}
-
-apt::key { 'kubernetes-repository':
-  id     => '54A647F9048D5688D7DA2ABE6A030B21BA07F4FB',
-  source => 'https://packages.cloud.google.com/apt/doc/apt-key.gpg',
-  server  => 'pgp.mit.edu'
-}
-
-apt::source { 'kubernetes':
-  comment  => 'This is the kubernetes repository',
-  location => 'http://apt.kubernetes.io/',
-  release  => '',
-  repos    => 'kubernetes-xenial main',
-  key      => {
-    'id' => '54A647F9048D5688D7DA2ABE6A030B21BA07F4FB',
-  },
-  include  => {
-    'deb' => true,
-  },
 }
 
 file { '/usr/local/bin/minikube':
