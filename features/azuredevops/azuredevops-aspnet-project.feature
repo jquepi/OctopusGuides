@@ -465,6 +465,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @repositoryspecific @octo-built-in-feed
   Scenario: Push to Octopus
     Given I set the following aliases:
+      | Add task                 | //button[@aria-label='Add a task to Agent job 1']                                                              |
       | Search                   | (//input[@aria-label='Search'])[2]                                                                             |
       | Push package title       | //div[text()='Push Package(s) to Octopus']                                                                     |
       | Push package             | //div[./div/div/div[text()='Push Package(s) to Octopus']]/button                                               |
