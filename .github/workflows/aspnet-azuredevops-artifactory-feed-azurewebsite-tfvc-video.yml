@@ -1,6 +1,6 @@
 name: ASP.NET Azure DevOps Artifactory Feed Azure Website TFVC Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 1 * *'
 jobs:
@@ -117,6 +117,7 @@ jobs:
         --plugin progress
         --monochrome
         --tags $env:CUCUMBER_TAGS
+        --tags "not @execute-project"
         features\azuredevops\azuredevops-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

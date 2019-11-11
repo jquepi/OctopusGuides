@@ -117,6 +117,7 @@ jobs:
         --plugin progress
         --monochrome
         --tags $env:CUCUMBER_TAGS
+        --tags "not @execute-project"
         features\azuredevops\azuredevops-aspnet-project.feature
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
