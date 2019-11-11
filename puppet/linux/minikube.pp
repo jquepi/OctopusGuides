@@ -10,7 +10,7 @@ apt::source { 'docker':
   release  => '',
   repos    => 'stable bionic',
   key      => {
-    'id' => '54A647F9048D5688D7DA2ABE6A030B21BA07F4FB',
+    'id' => '9DC858229FC7DD38854AE2D88D81803C0EBFCD88',
   },
   include  => {
     'deb' => true,
