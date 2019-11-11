@@ -51,6 +51,8 @@ file { '/usr/local/bin/minikube':
   mode    => '0744',
   content => @(EOT)
     #!/bin/bash
+    # The GitHub Actions VM has a custom Docker version like 3.0.8, and minikube doesn't understand this version,
+    # so we ignore the system verification errors
     sudo minikube start --vm-driver=none --extra-config kubeadm.ignore-preflight-errors=SystemVerification
     touch /opt/minikube-started
     | EOT
