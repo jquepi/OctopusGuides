@@ -30,7 +30,7 @@ jobs:
       run: ./install.ps1 -Scripts utilities.pp,dotnetutilities.pp,artifactory.pp,bamboo.pp,octopus.pp,iis.pp,bamboowait.pp,artifactorywait.pp
     - name: Create API key for tests
       shell: powershell
-      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
+      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
     - name: Configure Artifactory
       shell: powershell
       run: >

@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Octopus Built-in Feed Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 5 * *'
 jobs:
@@ -54,7 +54,7 @@ jobs:
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Create API key for tests
       shell: powershell
-      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
+      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
     - name: Add project
       shell: powershell
       run: >

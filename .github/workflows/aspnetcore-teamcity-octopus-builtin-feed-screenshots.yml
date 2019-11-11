@@ -29,7 +29,7 @@ jobs:
       run: ./install.ps1 -Scripts utilities.pp,dotnetutilities.pp,teamcity.pp,octopus.pp,iis.pp,teamcitywait.pp
     - name: Create API key for tests
       shell: powershell
-      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\octopus-api-key.pp --disable_warnings=deprecations'
+      run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
     - name: Initial Team City Configuration
       shell: powershell
       run: >
