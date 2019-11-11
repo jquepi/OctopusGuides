@@ -51,7 +51,7 @@ file { '/usr/local/bin/minikube':
   mode    => '0744',
   content => @(EOT)
     #!/bin/bash
-    sudo minikube start --vm-driver=none --ignore-preflight-errors=SystemVerification
+    sudo minikube start --vm-driver=none --extra-config kubeadm.ignore-preflight-errors=SystemVerification
     touch /opt/minikube-started
     | EOT
 }
