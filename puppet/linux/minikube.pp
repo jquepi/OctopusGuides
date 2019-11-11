@@ -1,3 +1,4 @@
+/*
 apt::key { 'docker-repository':
   id     => '9DC858229FC7DD38854AE2D88D81803C0EBFCD88',
   source => 'https://download.docker.com/linux/ubuntu/gpg',
@@ -39,7 +40,9 @@ apt::key { 'docker-repository':
 -> package { 'containerd.io':
   ensure => installed,
 }
--> file { '/usr/local/bin/minikube':
+*/
+
+file { '/usr/local/bin/minikube':
   source => 'https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64',
   mode   => '0755'
 }

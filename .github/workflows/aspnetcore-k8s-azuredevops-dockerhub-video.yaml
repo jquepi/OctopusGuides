@@ -11,10 +11,9 @@ jobs:
       MOVE_TO_MOUSE_CUSROR: false
       MOUSE_VERTICAL_OFFSET: 74
       DISABLE_VIDEO: true
-      SCREENSHOT_BUCKET: octopus-guides-screenshots
       STHREE_SCREENSHOT_ENABLED: true
+      SCREENSHOT_BUCKET: octopus-guides-screenshots
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
-      NUGET_PATH:
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME:
       SCREENSHOT_PATH: aspnetcore-app\k8s\dockerhub\git\
