@@ -20,7 +20,7 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
 
         # Chocolatey installs are brittle, so we add a retry
         for ($retry = 0; $retry -lt 2; ++$retry) {
-            & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply "puppet\$script" "--disable_warnings=deprecations" --logdest C:\puppet.log --detailed-exitcodes
+            & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply "puppet\windows\$script" "--disable_warnings=deprecations" --logdest C:\puppet.log --detailed-exitcodes
             Write-Host "Got return code $LASTEXITCODE for script $script"
 
             if ($LASTEXITCODE -eq 0 -or $LASTEXITCODE -eq 2) {
