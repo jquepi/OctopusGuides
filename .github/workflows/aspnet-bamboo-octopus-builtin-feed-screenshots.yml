@@ -16,7 +16,7 @@ jobs:
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
-      NUGET_PATH: 'RandomQuotes\obj\octopacked\'
+      NUGET_PATH: 'RandomQuotes\\obj\\octopacked\\'
       SCREENSHOT_PATH: aspnet-app\iis\
     runs-on: windows-2019
     steps:
