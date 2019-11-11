@@ -82,9 +82,9 @@ apt::key { 'kubernetes-repository':
     openssl pkcs12 \
       -passout pass: \
       -export \
-      -out ~/client.pfx \
-      -in ~/.minikube/client.crt \
-      -inkey ~/.minikube/client.key
+      -out /root/client.pfx \
+      -in /root/.minikube/client.crt \
+      -inkey /root/.minikube/client.key
     touch /opt/minikube-started
     | EOT
 }
