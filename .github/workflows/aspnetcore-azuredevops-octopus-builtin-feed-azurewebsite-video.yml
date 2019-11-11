@@ -9,7 +9,7 @@ jobs:
       DEV_RES_GROUP: azuredevopsaspnetcorebuiltinfeedviddev
       TEST_RES_GROUP: azuredevopsaspnetcorebuiltinfeedvidtest
       PROD_RES_GROUP: azuredevopsaspnetcorebuiltinfeedvidprod
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore)"
+      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID: m1idwitswa
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
