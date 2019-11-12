@@ -39,6 +39,7 @@ Feature: Create Azure Web App Target
       | Kubernetes cluster URL     | //input[contains(@id,'KubernetesclusterURL')]                                                                |
       | Minikube CA                | (//span[./div/div/div[text()='Minikube CA']])[1]                                                             |
       | Save                       | //button[contains(.,'Save')]                                                                                 |
+      | Kubernetes namespace       | //input[contains(@id,'Kubernetesnamespace')]                                                                 |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating Kubernetes deployment targets" for "3" seconds
@@ -99,7 +100,12 @@ Feature: Create Azure Web App Target
     And I click the "Select cluster certificate" drop down list
     And I click the "Minikube CA" option
     And I highlight outside the "Select cluster certificate" drop down list
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\090-target.png"
+
+    And I scroll the "Kubernetes namespace" text box into view offset by "-200"
+    And I highlight outside the "Kubernetes namespace" text box
+    And I populate the "Kubernetes namespace" text box with "randomquotes-dev"
 
     And I highlight outside the "Save" button
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\090-target.png"
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\100-target.png"
     And I click the "Save" button

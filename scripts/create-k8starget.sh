@@ -14,6 +14,9 @@
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
+  "-DCucumberAlias-ExternalEnvironmentName=Dev" \
+  "-DCucumberAlias-ExternalTargetName=Kubernetes" \
+  "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
