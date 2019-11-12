@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure Devops Kubernetes DockerHub Video
 on:
-#    push:
+    push:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,12 +25,11 @@ jobs:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Create certificates
-        shell: powershell
         run: >
-          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          java
           "--enable-preview"
           "-Xmx2g"
-          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-Dwebdriver.gecko.driver=/usr/bin/geckodriver.exe"
           "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CURSOR"
           "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
           "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
