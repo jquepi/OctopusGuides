@@ -11,6 +11,7 @@ for var in "$@"
 do
     for i in {1..2}
     do
+      # sudo -E is required to get the FACTER_ environment variables
       sudo -E /opt/puppetlabs/bin/puppet apply puppet/linux/$var --detailed-exitcodes
       if [[ $? -eq 0 ]] || [[ $? -eq 2 ]]
       then
