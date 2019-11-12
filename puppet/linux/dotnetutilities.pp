@@ -7,6 +7,10 @@ file { '/opt/packages-microsoft-prod.deb':
   provider => dpkg,
   source   => '/opt/packages-microsoft-prod.deb'
 }
+-> exec { 'Update apt repo':
+  command   => 'apt-get update',
+  logoutput => true
+}
 -> package { 'apt-transport-https':
   ensure => installed,
 }
