@@ -10,9 +10,9 @@ package { 'xvfb':
   logoutput => true
 }
 
-download_file { 'webdrivertraining-1.0-SNAPSHOT.jar':
-  destination_directory => '/opt',
-  url                   => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining-1.0-SNAPSHOT.jar',
+file { '/opt/webdrivertraining-1.0-SNAPSHOT.jar':
+  ensure => 'file',
+  source => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining-1.0-SNAPSHOT.jar'
 }
 
 archive { '/opt/geckodriver-v0.26.0-linux64.tar.gz':
