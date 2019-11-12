@@ -6,6 +6,10 @@ on:
 jobs:
   build:
     runs-on: windows-2019
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender
@@ -29,10 +33,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-api-key.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
@@ -56,10 +57,7 @@ jobs:
         --tags "not @repositoryspecific or @octo-built-in-feed"
         --tags "not @applicationspecific or @aspnet"
         features\jenkins\jenkins-aspnet-git.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Create the Octopus Environments
       shell: powershell
       run: >
@@ -75,10 +73,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-environments.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Add tentacle
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\tentacle.pp --disable_warnings=deprecations'
@@ -100,10 +95,7 @@ jobs:
         --tags "not @repositoryspecific or @octo-built-in-feed"
         --tags "not @applicationspecific or @aspnet"
         features\octopus\octopus-aspnet-project.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Open Random Quotes
       shell: powershell
       run: >
@@ -119,10 +111,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\open-randomquotes-iis-dev.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Add a deployment step
       shell: powershell
       run: >
@@ -147,10 +136,7 @@ jobs:
         --tags "not @repositoryspecific or @octo-built-in-feed"
         --tags "not @applicationspecific or @aspnet"
         features\jenkins\jenkins-create-deploy.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Add a lifecycle
       shell: powershell
       run: >
@@ -166,10 +152,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-lifecycle.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Open Random Quotes in the test environment
       shell: powershell
       run: >
@@ -185,10 +168,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\open-randomquotes-iis-test.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Add manual intervention
       shell: powershell
       run: >
@@ -204,10 +184,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-manual-intervention.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Add email notification
       shell: powershell
       run: >
@@ -224,10 +201,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-email-notification.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Add users and team
       shell: powershell
       run: >
@@ -243,10 +217,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-users-and-teams.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: View internal deployer dashboard
       shell: powershell
       run: >
@@ -262,10 +233,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-view-internal-deployments.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: View production deployer dashboard
       shell: powershell
       run: >
@@ -281,10 +249,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-view-production-deployments.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: View audit logs
       shell: powershell
       run: >
@@ -300,16 +265,9 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-audit-log.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Upload screenshots
       shell: powershell
       run: |
         ls c:\screenshots
         & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 sync c:\screenshots s3://i.octopus.com/guides --acl public-read
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
