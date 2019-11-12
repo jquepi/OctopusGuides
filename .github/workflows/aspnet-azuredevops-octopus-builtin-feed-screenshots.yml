@@ -7,6 +7,9 @@ jobs:
   build:
     runs-on: windows-2019
     env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID:
       DISABLE_HIGHLIGHTS: false
@@ -43,10 +46,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-api-key.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
@@ -71,10 +71,7 @@ jobs:
         --monochrome
         --tags $env:CUCUMBER_TAGS
         features\azuredevops\azuredevops-aspnet-project.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Create the Octopus Environments
       shell: powershell
       run: >
@@ -92,10 +89,7 @@ jobs:
         --plugin progress
         --monochrome
         features\octopus\octopus-environments.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Add tentacle
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\tentacle.pp --disable_warnings=deprecations'
@@ -116,10 +110,7 @@ jobs:
         --monochrome
         --tags $env:CUCUMBER_TAGS
         features\octopus\octopus-aspnet-project.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Add a deployment step
       shell: powershell
       run: >
@@ -137,16 +128,10 @@ jobs:
         --monochrome
         --tags $env:CUCUMBER_TAGS
         features\azuredevops\azuredevops-create-deploy.feature
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     - name: Upload screenshots
       shell: powershell
       run: |
         ls c:\screenshots
         & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 sync c:\screenshots s3://i.octopus.com/guides --acl public-read
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
