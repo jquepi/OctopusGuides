@@ -13,7 +13,7 @@ docker::image { 'mcr.microsoft.com/mssql/server':
 -> docker::run { 'octopusdeploy':
   image => 'octopusdeploy/linuxoctopus:2019.10.5',
   env   => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com', 'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y', 'CONNSTRING=Server=host.docker.internal,1433;Database=Octopus;User Id=SA;Password=Password01!'],
-  ports => [80],
+  ports => [8080],
   expose => [80]
 }
 -> file { '/opt/octo':
