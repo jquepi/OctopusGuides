@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure Devops Octopus Built-in Feed Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 5 * *'
 jobs:
@@ -41,7 +41,7 @@ jobs:
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableVideoRecording=$env:DISABLE_VIDEO"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -71,7 +71,7 @@ jobs:
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         "-DCucumberAlias-GitUrl=$env:GIT_URL"
         "-DCucumberAlias-NugetPath=$env:NUGET_PATH"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -90,7 +90,7 @@ jobs:
         "-DdisableHighlights=$env:DISABLE_SCREENSHOTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DdisableVideoRecording=$env:DISABLE_VIDEO"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -116,7 +116,7 @@ jobs:
         "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
         "-DstepHandlerMessage=$env:GITHUB_SHA"
         "-DretryCount=1"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
@@ -133,7 +133,7 @@ jobs:
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableVideoRecording=$env:DISABLE_VIDEO"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\iis\"
+        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
