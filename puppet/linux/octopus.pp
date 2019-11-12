@@ -1,9 +1,9 @@
 docker_network { 'octopus':
   ensure   => present,
   driver   => 'bridge',
-  subnet   => '192.168.1.0/24',
-  gateway  => '192.168.1.1',
-  ip_range => '192.168.1.4/32',
+  subnet   => '192.168.0.0/16',
+  gateway  => '192.168.0.1',
+  ip_range => '192.168.1.0/24',
 }
 -> docker::image { 'mcr.microsoft.com/mssql/server':
   image_tag => '2017-latest-ubuntu'
