@@ -8,7 +8,7 @@ jobs:
     runs-on: windows-2019
     env:
       CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @tfvc)"
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: agi8r195u1
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
       MOVE_TO_MOUSE_CUSROR: true
