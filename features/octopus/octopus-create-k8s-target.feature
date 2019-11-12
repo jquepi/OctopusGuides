@@ -104,7 +104,7 @@ Feature: Create Azure Web App Target
 
     And I scroll the "Kubernetes namespace" text box into view offset by "-200"
     And I highlight outside the "Kubernetes namespace" text box
-    And I populate the "Kubernetes namespace" text box with "randomquotes-dev"
+    And I populate the "Kubernetes namespace" text box with "ExternalNamespace"
 
     And I highlight outside the "Save" button
     And I save a screenshot to "C:\screenshots\octopus\k8starget\100-target.png"

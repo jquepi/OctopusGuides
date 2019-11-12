@@ -17,6 +17,7 @@
   "-DCucumberAlias-ExternalEnvironmentName=Dev" \
   "-DCucumberAlias-ExternalTargetName=Kubernetes" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
+  "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
