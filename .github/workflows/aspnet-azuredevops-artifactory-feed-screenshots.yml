@@ -1,6 +1,6 @@
 name: ASP.NET Azure Devops Artifactory Feed Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 15 1 * *'
 jobs:
@@ -22,7 +22,7 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
       NUGET_PATH: 'RandomQuotes\obj\octopacked\'
       VIDEO_FILE_NAME:
-      SCREENSHOT_PATH: aspnet-app\iis\artifactory\git
+      SCREENSHOT_PATH: aspnet-app\iis\artifactory\git\
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender

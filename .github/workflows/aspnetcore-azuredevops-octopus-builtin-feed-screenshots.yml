@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure Devops Octopus Built-in Feed Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 5 * *'
 jobs:
@@ -21,7 +21,7 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
       NUGET_PATH: 
-      SCREENSHOT_PATH: aspnet-app\iis\
+      SCREENSHOT_PATH: aspnetcore-app\iis\builtin\git\
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender
