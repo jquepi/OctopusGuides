@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure Devops Kubernetes DockerHub Video
 on:
-#    push:
+    push:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,12 +15,36 @@ jobs:
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
       WISTIA_MEDIA_ID:
-      VIDEO_FILE_NAME:
+      VIDEO_FILE_NAME: aspnetcore-k8s-dockerhub.mp4
       SCREENSHOT_PATH: aspnetcore-app\k8s\dockerhub\git\
     steps:
       - uses: actions/checkout@v1
       - name: Install Puppet
-        run: ./install.sh minikube.pp dockercreds.pp dotnetutilities.pp octopus.pp
+        run: ./install.sh minikube.pp dockercreds.pp dotnetutilities.pp octopus.pp utilities.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Create certificates
+        shell: powershell
+        run: >
+          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
+          "--enable-preview"
+          "-Xmx2g"
+          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
+          "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
+          "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
+          "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
+          "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+          "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
+          "-DslackStepHandlerEnabled=true"
+          "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
+          "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
+          "-DstepHandlerMessage=$env:GITHUB_SHA"
+          -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar
+          --plugin progress
+          --monochrome
+          features\octopus\octopus-create-certificate.feature
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
