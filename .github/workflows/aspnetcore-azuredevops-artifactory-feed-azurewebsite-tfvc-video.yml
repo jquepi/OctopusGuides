@@ -1,14 +1,14 @@
 name: ASP.NET Core Azure DevOps Artifactory Feed Azure Website TFVC Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 1 * *'
 jobs:
   build:
     env:
-      DEV_RES_GROUP: azuredevopsaspnetartifactoryfeedviddev
-      TEST_RES_GROUP: azuredeopsaspnetartifactoryfeedvidtest
-      PROD_RES_GROUP: azuredevopsaspnetartifactoryfeedvidprod
+      DEV_RES_GROUP: azuredevopsaspnetcoreartifactoryfeedviddev
+      TEST_RES_GROUP: azuredeopsaspnetcoreartifactoryfeedvidtest
+      PROD_RES_GROUP: azuredevopsaspnetcoreartifactoryfeedvidprod
       CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @tfvc)"
       WISTIA_MEDIA_ID:
       DISABLE_HIGHLIGHTS: true
