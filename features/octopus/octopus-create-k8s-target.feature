@@ -1,0 +1,105 @@
+Feature: Create Azure Web App Target
+
+  @login
+  Scenario: Login
+    Given I set the following aliases:
+      | Username | //input[@name='userName']       |
+      | Password | //input[@name='password']       |
+      | Sign In  | //button[contains(.,'SIGN IN')] |
+    And I open the shared browser "FirefoxNoImplicitWait"
+    And I maximize the window
+    #And I set the window size to "1024" x "768"
+    And I set the default explicit wait time to "30" seconds
+    And I open the URL "http://localhost"
+
+    And I populate the "Username" text box with "admin"
+    And I populate the "Password" text box with "Password01!"
+    And I click the "Sign In" button
+
+  Scenario: Add target
+    Given I set the following aliases:
+      | Infrastructure             | //span[contains(.,'Infrastructure')]                                                                         |
+      | Deployment Targets         | (//a[contains(.,'Deployment Targets')])[1]                                                                   |
+      | Deployment Targets text    | (//a/span[contains(.,'Deployment Targets')])[1]                                                              |
+      | Add Deployment Target      | //button[contains(.,'Add deployment target')]                                                                |
+      | Kubernetes Cluster         | //button[contains(.,'Kubernetes Cluster')]                                                                   |
+      | Kubernetes Cluster Target  | //div[contains(@class, 'EndpointCard_card') and contains(.,'Kubernetes Cluster')]                            |
+      | Add                        | //div[contains(@class, 'EndpointCard_card') and contains(.,'Kubernetes Cluster')]//button[contains(.,'Add')] |
+      | Display Name               | //input[contains(@id,'Displayname')]                                                                         |
+      | Environments               | //input[@title='Select environments']                                                                        |
+      | Environments Container     | //div[./div/div/div/input[@title='Select environments']]                                                     |
+      | Dev environment            | //span[./div/div/div[text()='Dev']]                                                                          |
+      | Target Roles               | //input[@title='Roles (type to add new)']                                                                    |
+      | Target Roles Container     | //div[./div/div/div/input[@title='Roles (type to add new)']]                                                 |
+      | K8S web app role           | //span[./div/div/div[contains(.,'k8s')]]                                                                     |
+      | Client Certificate         | //input[@value='KubernetesCertificate']                                                                      |
+      | Select account certificate | (//button[../../../../div[text()='Select certificate']])[1]                                                  |
+      | Select cluster certificate | (//button[../../../../div[text()='Select certificate']])[3]                                                  |
+      | Minikube certificate       | (//span[./div/div/div[text()='Minikube Client Certificate']])[1]                                             |
+      | Kubernetes cluster URL     | //input[contains(@id,'KubernetesclusterURL')]                                                                |
+      | Minikube CA                | (//span[./div/div/div[text()='Minikube CA']])[1]                                                             |
+      | Save                       | //button[contains(.,'Save')]                                                                                 |
+
+    And I start recording the screen to the directory "C:\screenshots"
+    And I display a note with the text "Creating Kubernetes deployment targets" for "3" seconds
+
+    And I highlight outside the "Infrastructure" link with an offset of "5"
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\010-target.png"
+    And I click the "Infrastructure" link
+    And I remove the highlight from the "Infrastructure" link
+
+    And I highlight outside the "Deployment Targets text" link with an offset of "2" waiting up to "3" seconds if it exists
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\020-target.png"
+    And I click the "Deployment Targets" link
+
+    And I highlight outside the "Add Deployment Target" button
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\030-target.png"
+    And I click the "Add Deployment Target" button
+
+    And I click the "Kubernetes Cluster" button
+
+    And I scroll the "Kubernetes Cluster Target" tile into view offset by "-200"
+    And I highlight outside the "Kubernetes Cluster Target" tile
+    And I mouse over the "Kubernetes Cluster Target" tile
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\040-target.png"
+    And I click the "Add" button
+
+    And I highlight outside the "Display Name" text box
+    And I populate the "Display Name" text box with "ExternalTargetName"
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\050-target.png"
+
+    And I highlight inside the "Environments Container" element
+    And I scroll the "Environments" text box into view offset by "-200"
+    And I populate the "Environments" text box with "ExternalEnvironmentName"
+    And I click the "ExternalEnvironment" option
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\055-target.png"
+
+    And I highlight outside the "Target Roles Container" element
+    And I scroll the "Target Roles" text box into view offset by "-200"
+    And I populate the "Target Roles" text box with "k8s"
+    And I click the "K8S web app role" option
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\060-target.png"
+
+    And I highlight outside the "Client Certificate" option
+    And I scroll the "Client Certificate" option into view offset by "-200"
+    And I force click the "Client Certificate" option
+    And I sleep for "1" second
+
+    And I click the "Select account certificate" drop down list
+    And I click the "Minikube certificate" option
+    And I highlight outside the "Select account certificate" drop down list
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\070-target.png"
+
+    And I highlight outside the "Kubernetes cluster URL" text box
+    And I scroll the "Kubernetes cluster URL" text box into view offset by "-200"
+    And I populate the "Kubernetes cluster URL" text box with "https://localhost:8443"
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\080-target.png"
+
+    And I click the "Select cluster certificate" drop down list
+    And I click the "Minikube CA" option
+    And I highlight outside the "Select cluster certificate" drop down list
+
+    And I highlight outside the "Save" button
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\090-target.png"
+    And I click the "Save" button

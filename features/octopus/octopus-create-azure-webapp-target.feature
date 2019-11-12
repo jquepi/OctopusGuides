@@ -28,7 +28,7 @@ Feature: Create Azure Web App Target
       | Save                    | //button[contains(.,'Save')]                                                                            |
       | Display Name            | //input[contains(@id,'Displayname')]                                                                    |
       | Environments            | //input[@title='Select environments']                                                                   |
-      | Environments Container  | //div[./div/div/div/input[@title='Select environments']]                                        |
+      | Environments Container  | //div[./div/div/div/input[@title='Select environments']]                                                |
       | Dev environment         | //span[./div/div/div[text()='Dev']]                                                                     |
       | Target Roles            | //input[@title='Roles (type to add new)']                                                               |
       | Target Roles Container  | //div[./div/div/div/input[@title='Roles (type to add new)']]                                            |

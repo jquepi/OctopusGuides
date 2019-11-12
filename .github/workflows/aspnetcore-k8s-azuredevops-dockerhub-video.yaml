@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure Devops Kubernetes DockerHub Video
 on:
-#    push:
+    push:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,3 +31,5 @@ jobs:
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Create certificates
         run: ./scripts/create-certificates.sh
+      - name: Create target
+        run: ./scripts/create-k8starget.sh
