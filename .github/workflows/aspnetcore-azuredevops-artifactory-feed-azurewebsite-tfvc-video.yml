@@ -13,7 +13,7 @@ jobs:
       TEST_RES_GROUP: azuredeopsaspnetcoreartifactoryfeedvidtest
       PROD_RES_GROUP: azuredevopsaspnetcoreartifactoryfeedvidprod
       CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @tfvc)"
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: 6hr08a73ep
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
       MOVE_TO_MOUSE_CUSROR: true
