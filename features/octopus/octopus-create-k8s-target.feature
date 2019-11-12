@@ -40,6 +40,8 @@ Feature: Create Azure Web App Target
       | Minikube CA                | (//span[./div/div/div[text()='Minikube CA']])[1]                                                             |
       | Save                       | //button[contains(.,'Save')]                                                                                 |
       | Kubernetes namespace       | //input[contains(@id,'Kubernetesnamespace')]                                                                 |
+      | Connectivity               | //a[./span[text()='Connectivity']] \| //a[text()='Connectivity'][not(*)]                                     |
+      | Check Health               | //button[contains(.,'Check health')]                                                                         |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating Kubernetes deployment targets" for "3" seconds
@@ -109,3 +111,11 @@ Feature: Create Azure Web App Target
     And I highlight outside the "Save" button
     And I save a screenshot to "C:\screenshots\octopus\k8starget\100-target.png"
     And I click the "Save" button
+
+    And I highlight outside the "Connectivity" link
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\110-target.png"
+    And I click the "Connectivity" link
+
+    And I highlight outside the "Check Health" button
+    And I save a screenshot to "C:\screenshots\octopus\k8starget\120-target.png"
+    And I click the "Check Health" link
