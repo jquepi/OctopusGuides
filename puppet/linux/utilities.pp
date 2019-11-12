@@ -1,20 +1,12 @@
 include apt
 
 apt::ppa { 'ppa:openjdk-r/ppa': }
--> exec { 'Update apt repo':
-  command   => '/usr/bin/apt-get update',
-  logoutput => true
-}
 -> package { 'openjdk-13-jdk':
   ensure => installed,
 }
 
 package { 'xvfb':
   ensure => installed,
-}
--> exec { 'Run xvfb':
-  command   => '/usr/bin/Xvfb :99 -screen 0 1024x768x24 &',
-  logoutput => true
 }
 
 file { '/opt/webdrivertraining-1.0-SNAPSHOT.jar':
