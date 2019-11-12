@@ -5,7 +5,7 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
   command   => '/usr/bin/apt-get update',
   logoutput => true
 }
--> package { 'openjdk-13':
+-> package { 'openjdk-13-jdk':
   ensure => installed,
 }
 
