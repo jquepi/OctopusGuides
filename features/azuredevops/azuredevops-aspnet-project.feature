@@ -49,8 +49,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     # Open the marketplace URL directly to avoid it popping up in a new tab
     And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
 
-    And I highlight outside the "Search" text box
     And I populate the "Search" text box with "Octopus Deploy"
+    And I highlight outside the "Search" text box
     And I click the "Search button" element
 
     And I highlight outside the "Octopus tile" element with an offset of "0"
