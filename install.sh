@@ -5,12 +5,13 @@ sudo apt-get install puppet-agent
 
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs/apt
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs/docker
+sudo /opt/puppetlabs/bin/puppet module install puppet/archive
 
 for var in "$@"
 do
-    for i in {1..5}
+    for i in {1..2}
     do
-      sudo /opt/puppetlabs/bin/puppet apply puppet/linux/$var --detailed-exitcodes
+      sudo -E /opt/puppetlabs/bin/puppet apply puppet/linux/$var --detailed-exitcodes
       if [[ $? -eq 0 ]] || [[ $? -eq 2 ]]
       then
         break
