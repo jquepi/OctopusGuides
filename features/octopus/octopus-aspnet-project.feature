@@ -342,10 +342,10 @@ Feature: Configure an Octopus ASP.NET project
       | Package ID   | //input[contains(@id, 'PackageID')]              |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
-    And I highlight outside the "Package feed" drop down list
     And I click the "Package feed" drop down list
     And I sleep for "1" second
     And I force click the "Artifactory" option
+    And I highlight outside the "Package feed" drop down list
     And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}056-octopus-step-feed.png"
     And I remove the highlight from the "Package feed" text box
 
@@ -380,10 +380,10 @@ Feature: Configure an Octopus ASP.NET project
       | Package ID   | //input[contains(@id, 'PackageID')]              |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
-    And I highlight outside the "Package feed" drop down list
     And I click the "Package feed" drop down list
     And I sleep for "1" second
     And I force click the "Artifactory" option
+    And I highlight outside the "Package feed" drop down list
     And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}056-octopus-step-feed-azure.png"
     And I remove the highlight from the "Package feed" text box
 
