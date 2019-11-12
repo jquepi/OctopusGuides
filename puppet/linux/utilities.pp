@@ -1,4 +1,5 @@
-package { 'openjdk-13':
+apt::ppa { 'ppa:openjdk-r/ppa': }
+-> package { 'openjdk-13':
   ensure => installed,
 }
 
