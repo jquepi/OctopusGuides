@@ -9,7 +9,7 @@
   "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
-  "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}" \
+  "-DslackHookUrl=$SLACK_HOOK_URL" \
   "-DscreenshotS3Enabled=$STHREE_SCREENSHOT_ENABLED" \
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
