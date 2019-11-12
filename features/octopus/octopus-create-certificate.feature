@@ -34,7 +34,7 @@ Feature: Create Certificate
     And I click the "Certificates" link
     And I click the "Add Certificate" button
     And I populate the "Name" text box with "Minikube Client Certificate"
-    And I populate the "File" file selector with a keystroke delay of "0" with "/root/client.pfx"
+    And I populate the "File" file selector with a keystroke delay of "0" with "/tmp/client.pfx"
     And I sleep for "1" second
     And I click the "Save" button
     And I sleep for "1" second
