@@ -67,7 +67,7 @@ Feature: Create and deploy a release
     And I mouse over the "Create release tile" element
     And I highlight outside the "Create release tile" element with an offset of "5"
 
-    And I click the "Create release" button
+    And I force click the "Create release" button
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}040-create-release-job.png"
     And I sleep for "1" second
 
