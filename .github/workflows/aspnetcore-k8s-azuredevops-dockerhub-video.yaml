@@ -42,7 +42,7 @@ jobs:
           -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar
           --plugin progress
           --monochrome
-          features\octopus\octopus-create-certificate.feature
+          features/octopus/octopus-create-certificate.feature
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
