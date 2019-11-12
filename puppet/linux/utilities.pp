@@ -8,6 +8,10 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
 package { 'xvfb':
   ensure => installed,
 }
+-> exec { 'Run xvfb':
+  command   => '/usr/bin/Xvfb :99 -screen 0 1024x768x24 &',
+  logoutput => true
+}
 
 package { 'firefox':
   ensure => installed,
