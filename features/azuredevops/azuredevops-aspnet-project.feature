@@ -591,7 +591,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I sleep for "20" seconds
     And I stop recording the screen
-    And I sleep for "120" seconds
+    And I sleep for "300" seconds
 
     And I start recording the screen to the directory "C:\screenshots"
     And I scroll the "Post job Checkout" item into view
