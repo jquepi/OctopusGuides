@@ -32,7 +32,7 @@ docker::image { 'mcr.microsoft.com/mssql/server':
   mode    => '0744',
   content => @(EOT)
     #!/bin/bash
-    /opt/octo/octo list-machines --server http://localhost --user admin --pass Password01!
+    /opt/octo/Octo list-machines --server http://localhost --user admin --pass Password01!
     | EOT
 }
 -> exec { 'Query Octopus':
