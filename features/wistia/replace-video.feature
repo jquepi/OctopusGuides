@@ -12,7 +12,7 @@ Feature: Replace Video
     And I open the URL "https://octopushq.wistia.com/medias/#{ExternalMediaID}"
     And I click the "replace_video" link
     And I click the "overwrite" option
-    And I populate the "(//input[@type='file'])[2]" file selector with a keystroke delay of "0" with "c:\screenshots\fast.mp4"
+    And I populate the hidden "(//input[@type='file'])[2]" file selector with "c:\screenshots\fast.mp4"
     And I sleep for "120" seconds
 
   Scenario: Shutdown
