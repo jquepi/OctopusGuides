@@ -1,6 +1,6 @@
 name: ASP.NET Azure Devops Artifactory Feed TFVC Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 15 1 * *'
 jobs:
@@ -107,7 +107,7 @@ jobs:
         AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
     - name: Populate TFVC repo
       shell: powershell
-      run: ./install.ps1 -Scripts azuredevopstfvcaspnetcore.pp
+      run: ./install.ps1 -Scripts azuredevopstfvcaspnet.pp
     - name: Run the build
       shell: powershell
       run: >
