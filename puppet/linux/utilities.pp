@@ -9,6 +9,10 @@ package { 'xvfb':
   ensure => installed,
 }
 
+package { 'firefox':
+  ensure => installed,
+}
+
 file { '/opt/webdrivertraining-1.0-SNAPSHOT.jar':
   ensure => 'file',
   source => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining-1.0-SNAPSHOT.jar'
