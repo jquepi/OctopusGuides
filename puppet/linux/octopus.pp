@@ -1,6 +1,6 @@
 docker_network { 'octopus':
   ensure   => present,
-  driver   => 'overlay',
+  driver   => 'bridge',
   subnet   => '192.168.1.0/24',
   gateway  => '192.168.1.1',
   ip_range => '192.168.1.4/32',
