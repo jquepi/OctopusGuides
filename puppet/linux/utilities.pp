@@ -2,6 +2,14 @@ package { 'openjdk-13':
   ensure => installed,
 }
 
+package { 'xvfb':
+  ensure => installed,
+}
+-> exec { 'Run xvfb':
+  command   => '/usr/bin/Xvfb :99 -screen 0 1024x768x24 &',
+  logoutput => true
+}
+
 download_file { 'webdrivertraining-1.0-SNAPSHOT.jar':
   destination_directory => '/opt',
   url                   => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining-1.0-SNAPSHOT.jar',
