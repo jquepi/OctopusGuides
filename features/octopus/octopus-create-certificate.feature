@@ -29,7 +29,7 @@ Feature: Create Certificate
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Upload Certificates" for "3" seconds
 
-    And I click the "More" link if it exists
+    #And I click the "More" link if it exists
     And I click the "Library" link
     And I click the "Certificates" link
     And I click the "Add Certificate" button
@@ -52,7 +52,7 @@ Feature: Create Certificate
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Upload Certificates" for "3" seconds
 
-    And I click the "More" link if it exists
+    #And I click the "More" link if it exists
     And I click the "Library" link
     And I click the "Certificates" link
     And I click the "Add Certificate" button
