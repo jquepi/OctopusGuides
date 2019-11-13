@@ -86,7 +86,7 @@ Feature: Create and deploy a release
     # Don't record the full refresh time
     And I sleep for "2" seconds
     And I stop recording the screen
-    And I sleep for "10" seconds
+    And I sleep for "20" seconds
     And I start recording the screen to the directory "C:\screenshots"
     And I highlight outside the "Octopus Deploy Server" drop down list with an offset of "2"
     And I click the "Octopus Deploy Server" drop down list
@@ -138,23 +138,23 @@ Feature: Create and deploy a release
       | Deployment Section     | //div[@aria-label='Deployment']                                                              |
       | Environment            | //input[../../../../../../../../../div/label[text()='To Environment']]                       |
 
-    And I scroll the "Octopus Deploy Space" drop down list into view offset by "-200"
+    And I scroll the "Octopus Deploy Space" drop down list into view offset by "-300"
     And I highlight outside the "Octopus Deploy Space" drop down list with an offset of "2"
     And I click the "Space Refresh" button
     # Don't record the full refresh time
     And I sleep for "2" seconds
     And I stop recording the screen
-    And I sleep for "10" seconds
+    And I sleep for "20" seconds
     And I click the "Octopus Deploy Space" drop down list
     And I click the "Default Space" option
 
-    And I scroll the "Octopus Deploy Project" drop down list into view offset by "-200"
+    And I scroll the "Octopus Deploy Project" drop down list into view offset by "-300"
     And I highlight outside the "Octopus Deploy Project" drop down list with an offset of "2"
     And I click the "Project Refresh" button
     # Don't record the full refresh time
     And I sleep for "2" seconds
     And I stop recording the screen
-    And I sleep for "10" seconds
+    And I sleep for "20" seconds
     And I click the "Octopus Deploy Project" drop down list
     And I click the "Random Quotes Project" option
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}050-populated.png"
@@ -164,7 +164,7 @@ Feature: Create and deploy a release
     And I remove the highlight from the "Octopus Deploy Server" drop down list
 
     And I highlight outside the "Deployment Section" heading with an offset of "2"
-    And I scroll the "Deployment Section" heading into view offset by "-200"
+    And I scroll the "Deployment Section" heading into view offset by "-300"
     And I click the "Deployment Section" heading
 
     And I highlight inside the "Environment" text box
