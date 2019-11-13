@@ -31,7 +31,7 @@ jobs:
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Create Api Key
         run: ./scripts/create-apikey.sh
-       - name: Create environments
+      - name: Create environments
         run: ./scripts/create-environments.sh
       - name: Create certificates
         run: ./scripts/create-certificates.sh
