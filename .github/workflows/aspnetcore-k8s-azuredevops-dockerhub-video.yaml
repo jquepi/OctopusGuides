@@ -41,3 +41,5 @@ jobs:
         run: ./scripts/create-k8starget.sh
       - name: Create docker feed
         run: ./scripts/create-dockerfeed.sh
+      - name: Create project
+        run: ./scripts/create-k8sproject.sh
