@@ -78,9 +78,12 @@ Feature: Create and deploy a release
   @add-step @repositoryspecific @octo-built-in-feed
   Scenario: Select existing Octopus server
     Given I set the following aliases:
+      | Server Refresh        | //button[./div/span[text()='Refresh Octopus Deploy Server']]                                                  |
       | Octopus Deploy Server | //div[@aria-label='Expand'][../../../../../../../../../../div/div/label[contains(.,'Octopus Deploy Server')]] |
       | Octopus Server        | //li[text()='Octopus']                                                                                        |
 
+    And I click the "Server Refresh" button
+    And I sleep for "5" seconds
     And I highlight outside the "Octopus Deploy Server" drop down list with an offset of "2"
     And I click the "Octopus Deploy Server" drop down list
     And I click the "Octopus Server" option
