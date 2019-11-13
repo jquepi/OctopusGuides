@@ -6,7 +6,7 @@ Feature: Create Azure Web App Target
       | Username | //input[@name='userName']       |
       | Password | //input[@name='password']       |
       | Sign In  | //button[contains(.,'SIGN IN')] |
-    And I open the shared browser "FirefoxNoImplicitWait"
+    And I open the shared browser "ChromeNoImplicitWait"
     And I maximize the window
     #And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
