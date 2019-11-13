@@ -47,4 +47,5 @@ Feature: Create Azure Web App Target
 
     And I click the "Feed type" drop down list
     And I click the "Docker Container Registry" option
+    And I populate the "Feed name" text box with "Docker"
     And I click the "Save" button
