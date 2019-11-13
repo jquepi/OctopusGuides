@@ -1,6 +1,6 @@
 #!/bin/bash
 
-serverUrl="https://localhost"       # The url of your Octous server
+serverUrl="http://localhost"       # The url of your Octous server
 serverCommsPort=10943               # The communication port the Octopus Server is listening on (10943 by default)
 apiKey=`cat /tmp/api_key.txt`       # An Octopus Server api key with permission to add machines
 name=$HOSTNAME                      # The name of the Tentacle at is will appear in the Octopus portal
