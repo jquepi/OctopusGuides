@@ -122,6 +122,6 @@ Feature: Create Azure Web App Target
     And I save a screenshot to "C:\screenshots\octopus\k8starget\120-target.png"
     And I click the "Check Health" link
 
-    And I sleep for "10" seconds
+    And I sleep for "60" seconds
     And I click the "Task Log" link
     And I scroll down "10000" px
