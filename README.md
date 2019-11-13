@@ -4,3 +4,5 @@ To write the scripts in IntelliJ, reference the JAR file created by the project 
 IntelliJ can extract the Cucumber step definitions and use them to validate the feature files. 
 
 ![](intellij.png) 
+
+a
