@@ -14,7 +14,6 @@ file { '/opt/octo':
   mode    => '0744',
   content => @(EOT)
     #!/bin/bash
-    sleep 60
     /opt/octo/Octo list-machines --server http://localhost --user admin --pass Password01!
     | EOT
 }
