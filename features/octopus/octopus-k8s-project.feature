@@ -102,6 +102,10 @@ Feature: Configure an Octopus Kubernetes project
       | Step Name    | //input[contains(@id, 'Stepname')]                                                              |
       | On behalf of | //input[@title='On behalf of target roles (type to add new)']                                   |
       | K8s role     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
+    | Deployment name | //input[contains(@id,'Deploymentname')]                                                      |
+    | Add Container   | //button[@title='Add Container']                                                             |
+
+
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
