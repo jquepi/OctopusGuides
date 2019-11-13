@@ -107,10 +107,10 @@ Feature: Configure an Octopus Kubernetes project
       | Image name       | //input[contains(@id,'Name')]                                                                   |
       | Package Id       | //input[contains(@id,'PackageID')]                                                              |
       | Package Id label | //label[contains(@for,'PackageID')]                                                             |
-      | Add Port         | //button[@title='Add Port']                                                                     |
+      | Add Port         | (//button[@title='Add Port'])[3]                                                                |
       | Port name        | (//input[contains(@id,'Name')])[2]                                                              |
       | Port number      | //input[contains(@id,'Port')]                                                                   |
-      | OK               | //input[@title='Ok']                                                                            |
+      | OK               | //button[@title='Ok']                                                                           |
       | Save             | //button[@title='Save']                                                                         |
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -138,13 +138,8 @@ Feature: Configure an Octopus Kubernetes project
     And I scroll the "Image name" text box into view offset by "-300"
     And I populate the "Image name" text box with "randomquotes"
 
-    And I scroll the "Package Id" text box into view offset by "-300"
-    And I populate the "Package Id" text box with "octopusdeploy/randomquotes"
-    And I sleep for "1" second
-    And I click the "Package Id" text box
-
     And I scroll the "Add Port" button into view offset by "-300"
-    And I click the "Add Port" button
+    And I force click the "Add Port" button
 
     And I scroll the "Port name" text box into view offset by "-300"
     And I populate the "Port name" text box with "web"
@@ -152,5 +147,55 @@ Feature: Configure an Octopus Kubernetes project
     And I scroll the "Port number" text box into view offset by "-300"
     And I populate the "Port number" text box with "5000"
 
-    And I click the "OK" button
+    And I scroll the "Package Id" text box into view offset by "-300"
+    And I populate the "Package Id" text box with "octopusdeploy/randomquotes"
+    And I sleep for "1" second
+
+    And I force click the "OK" button
     And I click the "Save" button
+    And I sleep for "2" seconds
+
+  @deploy-project
+  Scenario: Deploy project
+    Given I set the following aliases:
+      | Create Release | //button[@title='Create release']        |
+      | Save           | //button[@title='Save']                  |
+      | Deploy To Dev  | //button[contains(.,'Deploy to Dev...')] |
+      | Deploy         | //button[@title='Deploy']                |
+
+    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
+    And I sleep for "1" second
+
+    And I highlight inside the "Create Release" button
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}095-octopus-create-release.png"
+    And I click the "Create Release" button
+
+    And I highlight outside the "Save" button
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}100-octopus-save-release.png"
+    And I remove the highlight from the "Create Release" button
+    And I click the "Save" button
+    And I sleep for "1" second
+
+    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}deploy.png"
+    And I highlight outside the "Deploy To Dev" button with an offset of "2"
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}105-octopus-deploy-to-dev.png"
+    And I click the "Deploy To Dev" button
+
+    And I highlight outside the "Deploy" button
+    And I sleep for "3" second
+    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}110-octopus-deploy.png"
+    And I click the "Deploy" button
+
+    And I stop recording the screen
+    And I start recording the screen to the directory "C:\screenshots"
+    And I sleep for "23" seconds
+
+    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}115-octopus-deployment.png"
+
+  Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
+    And I close the browser
