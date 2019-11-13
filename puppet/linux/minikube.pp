@@ -32,7 +32,7 @@ apt::key { 'kubernetes-repository':
     #!/bin/bash
     # The GitHub Actions VM has a custom Docker version like 3.0.8, and minikube doesn't understand this version,
     # so we ignore the system verification errors
-    sudo minikube start --vm-driver=none --extra-config kubeadm.ignore-preflight-errors=SystemVerification
+    sudo minikube start --vm-driver=none --extra-config=kubeadm.ignore-preflight-errors=SystemVerification -extra-config=kubelet.node-ip=127.0.0.1
     sudo cat ~/.kube/config
     sudo kubectl get nodes
     # Create a pfx file with the client certificate and key
@@ -43,7 +43,7 @@ apt::key { 'kubernetes-repository':
     sudo chmod 644 /root/.minikube/client.crt
     sudo chmod 644 /root/.minikube/client.key
     sudo chmod 644 /root/.minikube/ca.crt
-    echo "Listing /tmp"
+    echo "Listing /tmp"k
     sudo ls -la /tmp
     echo "Listing /root/.minikube"
     sudo ls -la /root/.minikube
