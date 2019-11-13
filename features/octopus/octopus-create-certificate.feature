@@ -18,13 +18,13 @@ Feature: Create Certificate
 
   Scenario: Add Client PFX
     Given I set the following aliases:
-      | More            | //a[contains(.,'More')]                 |
-      | Library         | //span[contains(.,'Library')]           |
-      | Certificates    | //a[contains(.,'Certificates')]         |
-      | Add Certificate | //button[contains(.,'Add certificate')] |
-      | Name            | //input[contains(@id,'Name')]           |
-      | File            | //input[@type='file']                   |
-      | Save            | //button[contains(.,'Save')]            |
+      | More            | //a[contains(.,'More')]                                                         |
+      | Library         | //span[./div/div/div[contains(.,'Library')]] \| //a[@href='#/Spaces-1/library'] |
+      | Certificates    | //a[contains(.,'Certificates')]                                                 |
+      | Add Certificate | //button[contains(.,'Add certificate')]                                         |
+      | Name            | //input[contains(@id,'Name')]                                                   |
+      | File            | //input[@type='file']                                                           |
+      | Save            | //button[contains(.,'Save')]                                                    |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Upload Certificates" for "3" seconds
