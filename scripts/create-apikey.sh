@@ -14,11 +14,11 @@
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
-  "-DCucumberAlias-ExternalApiKeyFile=/opt/api_key.txt" \
+  "-DCucumberAlias-ExternalApiKeyFile=/tmp/api_key.txt" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
   features/octopus/octopus-api-key.feature
 
-ls /opt
-cat /opt/api_key.txt
+ls /tmp
+cat /tmp/api_key.txt
