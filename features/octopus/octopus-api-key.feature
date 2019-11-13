@@ -51,7 +51,7 @@ Feature: Generate an API key
     And I sleep for "3" seconds
     And I save a screenshot to "C:\screenshots\octopus\apikey\api-key.png"
 
-    And I get the text from the "ApiKey" element
+    And I get the text from the "Api Key" element
     And I write the value of the alias "LastReturn" to the file "ExternalApiKeyFile"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
