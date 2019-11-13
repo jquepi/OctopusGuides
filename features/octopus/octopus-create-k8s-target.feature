@@ -119,3 +119,5 @@ Feature: Create Azure Web App Target
     And I highlight outside the "Check Health" button
     And I save a screenshot to "C:\screenshots\octopus\k8starget\120-target.png"
     And I click the "Check Health" link
+
+    And I sleep for "10" seconds

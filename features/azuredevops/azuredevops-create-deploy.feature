@@ -61,7 +61,7 @@ Feature: Create and deploy a release
     And I highlight inside the "Add task" button
     And I click the "Add task" button
     And I highlight outside the "Search" text box
-    And I populate the "Search" text box with "Octopus Release"
+    And I populate the "Search" text box with "Create Octopus Release"
     And I sleep for "2" seconds
 
     And I mouse over the "Create release tile" element

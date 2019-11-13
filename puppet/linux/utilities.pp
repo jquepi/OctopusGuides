@@ -22,6 +22,12 @@ file { '/opt/webdrivertraining-1.0-SNAPSHOT.jar':
   source => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining-1.0-SNAPSHOT.jar'
 }
 
+file { '/usr/bin/umoci':
+  ensure => 'file',
+  source => 'https://github.com/openSUSE/umoci/releases/download/v0.4.4/umoci.amd64',
+  mode   => '0755'
+}
+
 archive { '/opt/geckodriver-v0.26.0-linux64.tar.gz':
   ensure       => present,
   extract      => true,
