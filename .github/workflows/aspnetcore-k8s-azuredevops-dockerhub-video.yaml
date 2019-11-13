@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install Puppet
-        run: ./install.sh minikube.pp dockercreds.pp dotnetutilities.pp octopus.pp utilities.pp
+        run: ./install.sh minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp utilities.pp octopuscli.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}

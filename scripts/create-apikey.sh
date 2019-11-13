@@ -19,6 +19,3 @@
   --plugin progress \
   --monochrome \
   features/octopus/octopus-api-key.feature
-
-ls /tmp
-cat /tmp/api_key.txt

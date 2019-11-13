@@ -2,7 +2,7 @@
 
 serverUrl="https://localhost"       # The url of your Octous server
 serverCommsPort=10943               # The communication port the Octopus Server is listening on (10943 by default)
-apiKey=`cat /opt/api_key.txt`       # An Octopus Server api key with permission to add machines
+apiKey=`cat /tmp/api_key.txt`       # An Octopus Server api key with permission to add machines
 name=$HOSTNAME                      # The name of the Tentacle at is will appear in the Octopus portal
 workerPool="Default Worker Pool"    # The worker pool to register the Tentacle in
 configFilePath="/etc/octopus/default/tentacle-default.config"
