@@ -42,6 +42,8 @@ Feature: Create Azure Web App Target
       | Kubernetes namespace       | //input[contains(@id,'Kubernetesnamespace')]                                                                 |
       | Connectivity               | //a[./span[text()='Connectivity']] \| //a[text()='Connectivity'][not(*)]                                     |
       | Check Health               | //button[contains(.,'Check health')]                                                                         |
+      | Task Log                   | //button[contains(.,'Task Log')]                                                                             |
+    
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating Kubernetes deployment targets" for "3" seconds
@@ -121,3 +123,5 @@ Feature: Create Azure Web App Target
     And I click the "Check Health" link
 
     And I sleep for "10" seconds
+    And I click the "Task Log" link
+    And I scroll down "10000" px
