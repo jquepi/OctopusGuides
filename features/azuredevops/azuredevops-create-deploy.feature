@@ -124,48 +124,35 @@ Feature: Create and deploy a release
   @add-step
   Scenario: Continue adding step
     Given I set the following aliases:
-      | Space Refresh          | //button[./div/span[text()='Refresh Space']]                                                 |
-      | Project Refresh        | //button[./div/span[text()='Refresh Project']]                                               |
-      | Default Space          | //li[text()='Default']                                                                       |
-      | Random Quotes Project  | //li[text()='Random Quotes']                                                                 |
-      | Save and queue         | //button[@name='Save & queue']                                                               |
-      | Save and queue two     | (//button[@name='Save & queue'])[2]                                                          |
-      | Save and queue three   | //button[@aria-label='Save & queue']                                                         |
-      | Comment                | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                           |
-      | Build link             | //a[contains(@class, 'ci-queued-build-link')]                                                |
-      | Post job Checkout      | //div[text()='Post-job: Checkout']                                                           |
-      | Octopus Deploy Space   | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]   |
-      | Octopus Deploy Project | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]] |
-      | Deployment Section     | //div[@aria-label='Deployment']                                                              |
-      | Environment            | //input[../../../../../../../../../div/label[text()='To Environment']]                       |
+      | Space Refresh                | //button[./div/span[text()='Refresh Space']]                                                 |
+      | Project Refresh              | //button[./div/span[text()='Refresh Project']]                                               |
+      | Default Space                | //li[text()='Default']                                                                       |
+      | Random Quotes Project        | //li[text()='Random Quotes']                                                                 |
+      | Save and queue               | //button[@name='Save & queue']                                                               |
+      | Save and queue two           | (//button[@name='Save & queue'])[2]                                                          |
+      | Save and queue three         | //button[@aria-label='Save & queue']                                                         |
+      | Comment                      | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                           |
+      | Build link                   | //a[contains(@class, 'ci-queued-build-link')]                                                |
+      | Post job Checkout            | //div[text()='Post-job: Checkout']                                                           |
+      | Octopus Deploy Space         | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]   |
+      | Octopus Deploy Space Input   | //input[../../../../../../../../../../div/div/label[contains(.,'Space')]]                    |
+      | Octopus Deploy Project       | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]] |
+      | Octopus Deploy Project Input | //input[../../../../../../../../../../div/div/label[contains(.,'Project')]]                  |
+      | Deployment Section           | //div[@aria-label='Deployment']                                                              |
+      | Environment                  | //input[../../../../../../../../../div/label[text()='To Environment']]                       |
 
-    And I scroll the "Octopus Deploy Space" drop down list into view offset by "-300"
-    And I highlight outside the "Octopus Deploy Space" drop down list with an offset of "2"
-    And I click the "Space Refresh" button
-    # Don't record the full refresh time
-    And I sleep for "2" seconds
-    And I stop recording the screen
-    And I sleep for "20" seconds
-    And I start recording the screen to the directory "C:\screenshots"
-    And I click the "Octopus Deploy Space" drop down list
-    And I sleep for "1" second
-    And I click the "Default Space" option
+    And I scroll the "Octopus Deploy Space Input" text box into view offset by "-300"
+    And I highlight outside the "Octopus Deploy Space Input" text box list with an offset of "2"
+    And I populate the "Octopus Deploy Space Input" text box with "Default"
 
-    And I scroll the "Octopus Deploy Project" drop down list into view offset by "-300"
-    And I highlight outside the "Octopus Deploy Project" drop down list with an offset of "2"
-    And I click the "Project Refresh" button
-    # Don't record the full refresh time
-    And I sleep for "2" seconds
-    And I stop recording the screen
-    And I sleep for "20" seconds
-    And I start recording the screen to the directory "C:\screenshots"
-    And I click the "Octopus Deploy Project" drop down list
-    And I sleep for "1" second
-    And I click the "Random Quotes Project" option
+    And I scroll the "Octopus Deploy Project Input" text box into view offset by "-300"
+    And I highlight outside the "Octopus Deploy Project Input" text box with an offset of "2"
+    And I populate the "Octopus Deploy Project Input" text box with "Random Quotes"
+
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}050-populated.png"
 
-    And I remove the highlight from the "Octopus Deploy Project" drop down list
-    And I remove the highlight from the "Octopus Deploy Space" drop down list
+    And I remove the highlight from the "Octopus Deploy Project Input" text box
+    And I remove the highlight from the "Octopus Deploy Space Input" text box
     And I remove the highlight from the "Octopus Deploy Server" drop down list
 
     And I highlight outside the "Deployment Section" heading with an offset of "2"
