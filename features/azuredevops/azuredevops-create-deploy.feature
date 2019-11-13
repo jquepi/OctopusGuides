@@ -13,7 +13,7 @@ Feature: Create and deploy a release
   Scenario: Add deploy step
     Given I set the following aliases:
       | Random Quotes | //li[contains(@class,'project-card')] |
-      | Pipelines     | //a[@aria-label='Pipelines']       |
+      | Pipelines     | //a[@aria-label='Pipelines']          |
       | Build         | //a[@aria-label='Builds']             |
       | Edit          | //a[contains(.,'Edit')]               |
 
@@ -52,11 +52,11 @@ Feature: Create and deploy a release
   @add-step
   Scenario: Continue Adding deploy step
     Given I set the following aliases:
-      | Add task               | //button[@aria-label='Add a task to Agent job 1']                                 |
-      | Search                 | (//input[@aria-label='Search'])[2]                                                |
-      | Create release tile    | //div[@class='info-name'][text()='Create Octopus Release']                        |
-      | Create release         | //div[./div/div/div[text()='Create Octopus Release']]/button                      |
-      | Create Octopus Release | //div[@data-list-index='7'][contains(.,'Create Octopus Release')]/div/div/div/div |
+      | Add task                   | //button[@aria-label='Add a task to Agent job 1']                                 |
+      | Search                     | (//input[@aria-label='Search'])[2]                                                |
+      | Create release tile        | //div[@class='info-name'][text()='Create Octopus Release']                        |
+      | Create release             | //div[./div/div/div[text()='Create Octopus Release']]/button                      |
+      | Create Octopus Release Row | //div[@data-list-index='7'][contains(.,'Create Octopus Release')]/div/div/div/div |
 
     And I highlight inside the "Add task" button
     And I click the "Add task" button
@@ -71,8 +71,8 @@ Feature: Create and deploy a release
     And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}040-create-release-job.png"
     And I sleep for "1" second
 
-    And I scroll the "Create Octopus Release" job tile into view
-    And I click the "Create Octopus Release" job tile
+    And I scroll the "Create Octopus Release Row" job tile into view
+    And I click the "Create Octopus Release Row" job tile
     And I remove the highlight from the "Add task" button
 
   @add-step @repositoryspecific @octo-built-in-feed
