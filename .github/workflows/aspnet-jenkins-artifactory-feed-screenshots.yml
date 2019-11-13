@@ -57,6 +57,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableVideoRecording=true"
         "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
+        "-DCucumberAlias-ExternalApiKeyFile=C:\api_key.txt"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome

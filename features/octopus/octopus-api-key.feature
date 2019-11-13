@@ -21,6 +21,7 @@ Feature: Generate an API key
       | New API Key  | (//button[contains(.,'New API Key')])[1]                                 |
       | Purpose      | //input[contains(@id,'Purpose')]                                         |
       | Generate New | //button[contains(.,'Generate New')]                                     |
+      | Api Key      | //strong                                                                 |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Creating an API key" for "3" seconds
@@ -49,6 +50,9 @@ Feature: Generate an API key
 
     And I sleep for "3" seconds
     And I save a screenshot to "C:\screenshots\octopus\apikey\api-key.png"
+
+    And I get the text from the "ApiKey" element
+    And I write the value of the alias "LastReturn" to the file "ExternalApiKeyFile"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 

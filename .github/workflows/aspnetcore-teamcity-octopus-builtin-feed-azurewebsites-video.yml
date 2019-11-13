@@ -53,6 +53,7 @@ jobs:
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
+        "-DCucumberAlias-ExternalApiKeyFile=C:\api_key.txt"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome

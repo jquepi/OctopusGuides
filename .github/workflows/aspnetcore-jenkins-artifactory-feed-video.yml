@@ -53,6 +53,7 @@ jobs:
         "-DmouseMoveVerticalOffset=74"
         "-DdisableHighlights=true"
         "-DdisableScreenshots=true"
+        "-DCucumberAlias-ExternalApiKeyFile=C:\api_key.txt"
         -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
         --plugin progress
         --monochrome
