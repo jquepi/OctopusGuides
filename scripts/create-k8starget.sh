@@ -1,5 +1,7 @@
 #!/bin/bash
 
+MINIKUBE_IP=`sudo minikube ip`
+
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \
   "-Xmx2g" \
@@ -18,6 +20,7 @@
   "-DCucumberAlias-ExternalTargetName=Kubernetes" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
+  "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \

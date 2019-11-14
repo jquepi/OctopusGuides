@@ -98,7 +98,7 @@ Feature: Create Azure Web App Target
 
     And I highlight outside the "Kubernetes cluster URL" text box
     And I scroll the "Kubernetes cluster URL" text box into view offset by "-200"
-    And I populate the "Kubernetes cluster URL" text box with "https://localhost:8443"
+    And I populate the "Kubernetes cluster URL" text box with "https://#{ExternalMinikubeIP}:8443"
     And I save a screenshot to "C:\screenshots\octopus\k8starget\080-target.png"
 
     And I click the "Select cluster certificate" drop down list
