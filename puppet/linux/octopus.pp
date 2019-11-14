@@ -18,7 +18,7 @@ docker_network { 'octopus':
   image_tag => '2019.10.7-ci0008'
 }
 -> docker::run { 'octopusdeploy':
-  image => 'octopusdeploy/linuxoctopus:2019.10.5',
+  image => 'octopusdeploy/linuxoctopus:2019.10.7-ci0008',
   env   => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com', 'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'
     , 'CONNSTRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!'],
   ports => ['80:8080', '10943:10943'],
