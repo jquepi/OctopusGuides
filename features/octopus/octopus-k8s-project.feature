@@ -113,7 +113,7 @@ Feature: Configure an Octopus Kubernetes project
       | OK                | //button[@title='Ok']                                                                           |
       | Save              | //button[@title='Save']                                                                         |
       | Service name      | //input[contains(@id,'Servicename')]                                                            |
-      | Add Port          | //button[@title='Add Port']                                                                     |
+      | Add Service Port  | //button[@title='Add Port']                                                                     |
       | Service Port Name | //input[contains(@id,'Name')]                                                                   |
       | Service Port      | //input[contains(@id,'Port')]                                                                   |
       | Node Port         | //input[contains(@id,'NodePort')]                                                               |
@@ -143,8 +143,8 @@ Feature: Configure an Octopus Kubernetes project
     And I scroll the "Image name" text box into view offset by "-300"
     And I populate the "Image name" text box with "randomquotes"
 
-    And I scroll the "Add Port" button into view offset by "-300"
-    And I force click the "Add Port" button
+    And I scroll the "Add Service Port" button into view offset by "-300"
+    And I force click the "Add Service Port" button
 
     And I scroll the "Port name" text box into view offset by "-300"
     And I populate the "Port name" text box with "web"
