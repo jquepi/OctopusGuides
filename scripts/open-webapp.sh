@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MINIKUBE_IP=`minikube ip`
+SERVICE_URL=`minikube service service --url`
 
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \
@@ -20,7 +20,7 @@ MINIKUBE_IP=`minikube ip`
   "-DCucumberAlias-ExternalTargetName=Kubernetes" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
-  "-DCucumberAlias-ExternalUrl=http://$MINIKUBE_IP:30000" \
+  "-DCucumberAlias-ExternalUrl=$SERVICE_URL" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
