@@ -22,7 +22,7 @@ Feature: Create Azure Web App Target
       | Library                   | //span[contains(.,'Library')]                                                  |
       | External Feeds            | //a[contains(.,'External Feeds')]                                              |
       | External Feeds text       | //a[contains(.,'External Feeds')][not(*)] \| //a/span[text()='External Feeds'] |
-      | Add Feed                  | //button[contains(.,'Add Feed')]                                               |
+      | Add Feed                  | //button[contains(.,'Add feed')]                                               |
       | Feed type                 | //div[../../div[text()='Feed type']]                                           |
       | Docker Container Registry | //div[./div/div[text()='Docker Container Registry']]                           |
       | Feed name                 | //input[contains(@id,'Feedname')]                                              |
@@ -39,7 +39,7 @@ Feature: Create Azure Web App Target
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\#{GuideSpecificScreenshotDir}010-lifecycle-lifecycles.png"
     And I click the "External Feeds" link
     And I highlight outside the "External Feeds text" link with an offset of "2"
-    And I highlight outside the "Add Lifecycle" button with an offset of "2"
+    And I highlight outside the "Add Feed" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\#{GuideSpecificScreenshotDir}015-lifecycle-add-lifecycle.png"
     And I remove the highlight from the "Library" link
