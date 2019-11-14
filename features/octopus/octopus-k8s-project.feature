@@ -145,7 +145,7 @@ Feature: Configure an Octopus Kubernetes project
     And I populate the "Port name" text box with "web"
 
     And I scroll the "Port number" text box into view offset by "-300"
-    And I populate the "Port number" text box with "5000"
+    And I populate the "Port number" text box with "80"
 
     And I scroll the "Package Id" text box into view offset by "-300"
     And I populate the "Package Id" text box with "octopusdeploy/randomquotes"
