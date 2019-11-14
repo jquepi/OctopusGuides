@@ -15,7 +15,7 @@ docker_network { 'octopus':
   net   => 'octopus'
 }
 -> docker::image { 'octopusdeploy/linuxoctopus':
-  image_tag => '2019.10.5'
+  image_tag => '2019.10.7-ci0008'
 }
 -> docker::run { 'octopusdeploy':
   image => 'octopusdeploy/linuxoctopus:2019.10.5',
