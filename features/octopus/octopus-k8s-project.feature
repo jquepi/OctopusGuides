@@ -208,7 +208,7 @@ Feature: Configure an Octopus Kubernetes project
     And I highlight outside the "Deploy" button
     And I sleep for "3" second
     And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}110-octopus-deploy.png"
-    And I click the "Deploy" button
+    And I force click the "Deploy" button
 
     And I stop recording the screen
     And I start recording the screen to the directory "C:\screenshots"
