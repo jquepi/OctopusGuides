@@ -11,7 +11,7 @@ do
     vlc://quit
 done
 
-VIDEO_FILE_LIST=`ls $MEDIA_PATH/*.mp4 -m | tr "," " " | tr "\n" " " | tr -s " "`
+VIDEO_FILE_LIST=`ls $MEDIA_PATH/*.mp4 -m --quoting-style=shell-escape-always | tr "," " " | tr "\n" " " | tr -s " "`
 echo $VIDEO_FILE_LIST
 
 vlc -I dummy \
@@ -23,5 +23,3 @@ vlc -I dummy \
    vlc://quit
 
 ffmpeg -i $MEDIA_PATH/video.mp4 "-filter:v" "setpts=0.75*PTS" "$MEDIA_PATH/fast.mp4"
-
-exit 0
