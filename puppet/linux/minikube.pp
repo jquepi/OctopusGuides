@@ -51,7 +51,8 @@ apt::key { 'kubernetes-repository':
 
     # Show some details
     echo "Minikube IP"
-    sudo minikube ip
+    sudo minikube ip > /tmp/minikubeip.txt
+    cat /tmp/minikubeip.txt
 
     touch /opt/minikube-started
     | EOT
