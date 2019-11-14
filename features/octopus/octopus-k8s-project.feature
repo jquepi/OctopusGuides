@@ -99,19 +99,24 @@ Feature: Configure an Octopus Kubernetes project
   @define-project @destinationspecific @azure-web-app
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Step Name        | //input[contains(@id, 'Stepname')]                                                              |
-      | On behalf of     | //input[@title='On behalf of target roles (type to add new)']                                   |
-      | K8s role         | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
-      | Deployment name  | //input[contains(@id,'Deploymentname')]                                                         |
-      | Add Container    | //button[@title='Add Container']                                                                |
-      | Image name       | //input[contains(@id,'Name')]                                                                   |
-      | Package Id       | //input[contains(@id,'PackageID')]                                                              |
-      | Package Id label | //label[contains(@for,'PackageID')]                                                             |
-      | Add Port         | (//button[@title='Add Port'])[3]                                                                |
-      | Port name        | (//input[contains(@id,'Name')])[2]                                                              |
-      | Port number      | //input[contains(@id,'Port')]                                                                   |
-      | OK               | //button[@title='Ok']                                                                           |
-      | Save             | //button[@title='Save']                                                                         |
+      | Step Name         | //input[contains(@id, 'Stepname')]                                                              |
+      | On behalf of      | //input[@title='On behalf of target roles (type to add new)']                                   |
+      | K8s role          | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
+      | Deployment name   | //input[contains(@id,'Deploymentname')]                                                         |
+      | Add Container     | //button[@title='Add Container']                                                                |
+      | Image name        | //input[contains(@id,'Name')]                                                                   |
+      | Package Id        | //input[contains(@id,'PackageID')]                                                              |
+      | Package Id label  | //label[contains(@for,'PackageID')]                                                             |
+      | Add Port          | (//button[@title='Add Port'])[3]                                                                |
+      | Port name         | (//input[contains(@id,'Name')])[2]                                                              |
+      | Port number       | //input[contains(@id,'Port')]                                                                   |
+      | OK                | //button[@title='Ok']                                                                           |
+      | Save              | //button[@title='Save']                                                                         |
+      | Service name      | //input[contains(@id,'Servicename')]                                                            |
+      | Add Port          | //button[@title='Add Port']                                                                     |
+      | Service Port Name | //input[contains(@id,'Name')]                                                                   |
+      | Service Port      | //input[contains(@id,'Port')]                                                                   |
+      | Node Port         | //input[contains(@id,'NodePort')]                                                               |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -152,6 +157,18 @@ Feature: Configure an Octopus Kubernetes project
     And I sleep for "1" second
 
     And I force click the "OK" button
+
+    And I scroll the "Service name" text box into view offset by "-300"
+    And I populate the "Service name" text box with "randomquotes"
+
+    And I scroll the "Add Port" button into view offset by "-300"
+    And I click the "Add Port" button
+
+    And I populate the "Service Port Name" text box with "web"
+    And I populate the "Service Port" text box with "80"
+    And I populate the "Node Port" text box with "30000"
+    And I click the "OK" button
+
     And I click the "Save" button
     And I sleep for "2" seconds
 

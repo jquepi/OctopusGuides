@@ -43,3 +43,5 @@ jobs:
         run: ./scripts/create-dockerfeed.sh
       - name: Create project
         run: ./scripts/create-k8sproject.sh
+      - name: Open App
+        run: ./scripts/open-webapp.sh
