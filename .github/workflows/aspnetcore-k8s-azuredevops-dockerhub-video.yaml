@@ -21,7 +21,8 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME: aspnetcore-k8s-dockerhub.mp4
-      SCREENSHOT_PATH: aspnetcore-app\k8s\dockerhub\git\
+      SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
+      MEDIA_PATH: /tmp/screenshots
     steps:
       - uses: actions/checkout@v1
       - name: Install Puppet
@@ -45,3 +46,7 @@ jobs:
         run: ./scripts/create-k8sproject.sh
       - name: Open App
         run: ./scripts/open-webapp.sh
+      - name: Process videos
+        run: ./scripts/convert-video.sh
+      - name: Upload videos
+        run: ./scripts/upload-video.sh

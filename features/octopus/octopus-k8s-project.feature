@@ -32,13 +32,13 @@ Feature: Configure an Octopus Kubernetes project
     And I display a note with the text "Creating the Kubernetes deployment project in Octopus" for "3" seconds
 
     And I highlight outside the "Projects" link with an offset of "5"
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}005-octopus-projects.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}005-octopus-projects.png"
     And I click the "Projects" link
     And I sleep for "1" second
 
     And I highlight outside the "Add project" link with an offset of "1"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}010-octopus-add-project.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}010-octopus-add-project.png"
     And I click the "Add project" button
     And I remove the highlight from the "Add project" link
     And I remove the highlight from the "Projects" link
@@ -46,7 +46,7 @@ Feature: Configure an Octopus Kubernetes project
     And I highlight outside the "New project name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
     And I populate the "New project name" text box with "Random Quotes"
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}015-octopus-new-project-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}015-octopus-new-project-name.png"
     And I click the "Save" button
     And I sleep for "2" seconds
 
@@ -73,27 +73,27 @@ Feature: Configure an Octopus Kubernetes project
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}030-octopus-define-process.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}030-octopus-define-process.png"
 
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}035-octopus-k8s-add-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}035-octopus-k8s-add-step.png"
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
     And I populate the "Search" text box with "Kubernetes"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}040-octopus-k8s-search.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}040-octopus-k8s-search.png"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
     And I scroll the "Deploy Kubernetes containers" tile into view offset by "-200"
     And I highlight outside the "Deploy Kubernetes containers" tile
     And I mouse over the "Deploy Kubernetes containers" tile
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}045-octopus-k8s-add-containers.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}045-octopus-k8s-add-containers.png"
     And I click the "Add" button
 
   @define-project @destinationspecific @azure-web-app
@@ -123,7 +123,7 @@ Feature: Configure an Octopus Kubernetes project
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy container to Kubernetes"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}050-octopus-k8s-step-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}050-octopus-k8s-step-name.png"
     And I remove the highlight from the "Step Name" text box
 
     And I scroll the "On behalf of" text box into view offset by "-300"
@@ -131,7 +131,7 @@ Feature: Configure an Octopus Kubernetes project
     And I populate the "On behalf of" text box with "k8s"
     And I sleep for "1" second
     And I highlight outside the "On behalf of" text box
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}055-octopus-k8s-step-role.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}055-octopus-k8s-step-role.png"
     And I click the "K8s role" option
     And I remove the highlight from the "On behalf of" text box
 
@@ -189,32 +189,32 @@ Feature: Configure an Octopus Kubernetes project
 
     And I highlight inside the "Create Release" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}095-octopus-create-release.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}095-octopus-create-release.png"
     And I click the "Create Release" button
 
     And I highlight outside the "Save" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}100-octopus-save-release.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-save-release.png"
     And I remove the highlight from the "Create Release" button
     And I force click the "Save" button
     And I sleep for "1" second
 
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}deploy.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}deploy.png"
     And I highlight outside the "Deploy To Dev" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}105-octopus-deploy-to-dev.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}105-octopus-deploy-to-dev.png"
     And I click the "Deploy To Dev" button
 
     And I highlight outside the "Deploy" button
     And I sleep for "3" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}110-octopus-deploy.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-deploy.png"
     And I force click the "Deploy" button
 
     And I stop recording the screen
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "ExternalMediaPath"
     And I sleep for "23" seconds
 
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}115-octopus-deployment.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}115-octopus-deployment.png"
 
   @shutdown
   Scenario: Shutdown

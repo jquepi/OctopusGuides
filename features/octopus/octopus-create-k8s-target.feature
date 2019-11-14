@@ -45,21 +45,21 @@ Feature: Create Azure Web App Target
       | Task Log                   | //button[contains(.,'Task Log')]                                                                             |
     
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Creating Kubernetes deployment targets" for "3" seconds
 
     And I highlight outside the "Infrastructure" link with an offset of "5"
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\010-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/010-target.png"
     And I click the "Infrastructure" link
     And I remove the highlight from the "Infrastructure" link
 
     And I highlight outside the "Deployment Targets text" link with an offset of "2" waiting up to "3" seconds if it exists
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\020-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/020-target.png"
     And I click the "Deployment Targets" link
 
     And I highlight outside the "Add Deployment Target" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\030-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/030-target.png"
     And I click the "Add Deployment Target" button
 
     And I click the "Kubernetes Cluster" button
@@ -67,24 +67,24 @@ Feature: Create Azure Web App Target
     And I scroll the "Kubernetes Cluster Target" tile into view offset by "-200"
     And I highlight outside the "Kubernetes Cluster Target" tile
     And I mouse over the "Kubernetes Cluster Target" tile
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\040-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/040-target.png"
     And I click the "Add" button
 
     And I highlight outside the "Display Name" text box
     And I populate the "Display Name" text box with "ExternalTargetName"
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\050-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/050-target.png"
 
     And I highlight inside the "Environments Container" element
     And I scroll the "Environments" text box into view offset by "-200"
     And I populate the "Environments" text box with "ExternalEnvironmentName"
     And I click the "ExternalEnvironment" option
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\055-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/055-target.png"
 
     And I highlight outside the "Target Roles Container" element
     And I scroll the "Target Roles" text box into view offset by "-200"
     And I populate the "Target Roles" text box with "k8s"
     And I click the "K8S web app role" option
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\060-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/060-target.png"
 
     And I highlight outside the "Client Certificate" option
     And I scroll the "Client Certificate" option into view offset by "-200"
@@ -94,32 +94,32 @@ Feature: Create Azure Web App Target
     And I click the "Select account certificate" drop down list
     And I click the "Minikube certificate" option
     And I highlight outside the "Select account certificate" drop down list
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\070-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/070-target.png"
 
     And I highlight outside the "Kubernetes cluster URL" text box
     And I scroll the "Kubernetes cluster URL" text box into view offset by "-200"
     And I populate the "Kubernetes cluster URL" text box with "https://#{ExternalMinikubeIP}:8443"
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\080-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/080-target.png"
 
     And I click the "Select cluster certificate" drop down list
     And I click the "Minikube CA" option
     And I highlight outside the "Select cluster certificate" drop down list
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\090-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/090-target.png"
 
     And I scroll the "Kubernetes namespace" text box into view offset by "-200"
     And I highlight outside the "Kubernetes namespace" text box
     And I populate the "Kubernetes namespace" text box with "ExternalNamespace"
 
     And I highlight outside the "Save" button
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\100-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/100-target.png"
     And I click the "Save" button
 
     And I highlight outside the "Connectivity" link
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\110-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/110-target.png"
     And I click the "Connectivity" link
 
     And I highlight outside the "Check Health" button
-    And I save a screenshot to "C:\screenshots\octopus\k8starget\120-target.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/120-target.png"
     And I click the "Check Health" link
 
     And I sleep for "60" seconds

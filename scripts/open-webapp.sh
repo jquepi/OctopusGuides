@@ -8,6 +8,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
+  "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
   "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
@@ -22,7 +23,8 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
   "-DCucumberAlias-ExternalUrl=http://$MINIKUBE_IP:30000" \
+  "-DCucumberAlias-Screenshot=k8s-random-quotes-dev-app.png" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
-  features/octopus/open-randomquotes-azurewebapp.feature
+  features/octopus/open-randomquotes-generic.feature

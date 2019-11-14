@@ -49,7 +49,7 @@ Feature: Create Certificate
       | File            | //input[@type='file']                                                           |
       | Save            | //button[contains(.,'Save')]                                                    |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Upload Certificates" for "3" seconds
 
     #And I click the "More" link if it exists

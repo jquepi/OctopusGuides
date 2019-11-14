@@ -29,19 +29,19 @@ Feature: Create Azure Web App Target
       | Save                      | //button[@title='Save']                                                        |
 
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Create a lifecycle in Octopus" for "3" seconds
 
     And I highlight outside the "Library" link
-    And I save a screenshot to "C:\screenshots\octopus\lifecycle\#{GuideSpecificScreenshotDir}005-lifecycle-library.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/005-feed-library.png"
     And I click the "Library" link
 
-    And I save a screenshot to "C:\screenshots\octopus\lifecycle\#{GuideSpecificScreenshotDir}010-lifecycle-lifecycles.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/010-feed-feeds.png"
     And I click the "External Feeds" link
     And I highlight outside the "External Feeds text" link with an offset of "2"
     And I highlight outside the "Add Feed" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\lifecycle\#{GuideSpecificScreenshotDir}015-lifecycle-add-lifecycle.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/015-feed-add-feed.png"
     And I remove the highlight from the "Library" link
     And I click the "Add Feed" button
 
