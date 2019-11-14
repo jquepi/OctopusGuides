@@ -103,19 +103,20 @@ Feature: Configure an Octopus Kubernetes project
       | On behalf of      | //input[@title='On behalf of target roles (type to add new)']                                   |
       | K8s role          | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
       | Deployment name   | //input[contains(@id,'Deploymentname')]                                                         |
-      | Add Container     | //button[@title='Add Container']                                                                |
+      | Add Container     | (//button[@title='Add Container'])[1]                                                           |
       | Image name        | //input[contains(@id,'Name')]                                                                   |
       | Package Id        | //input[contains(@id,'PackageID')]                                                              |
       | Package Id label  | //label[contains(@for,'PackageID')]                                                             |
       | Add Port          | (//button[@title='Add Port'])[3]                                                                |
       | Port name         | (//input[contains(@id,'Name')])[2]                                                              |
-      | Port number       | //input[contains(@id,'Port')]                                                                   |
-      | OK                | //button[@title='Ok']                                                                           |
+      | Port number       | (//input[contains(@id,'Port')])[1]                                                              |
+      | OK                | (//button[@title='Ok'])[1]                                                                      |
       | Save              | //button[@title='Save']                                                                         |
       | Service name      | //input[contains(@id,'Servicename')]                                                            |
-      | Add Service Port  | //button[@title='Add Port']                                                                     |
+      | Add Service Port  | (//button[@title='Add Port'])[1]                                                                |
       | Service Port Name | //input[contains(@id,'Name')]                                                                   |
-      | Service Port      | //input[contains(@id,'Port')]                                                                   |
+      | Port 80           | //span[./div/div/div[text()='80']]                                                              |
+      | Service Port      | (//input[contains(@id,'Port')])[1]                                                              |
       | Node Port         | //input[contains(@id,'NodePort')]                                                               |
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -143,14 +144,16 @@ Feature: Configure an Octopus Kubernetes project
     And I scroll the "Image name" text box into view offset by "-300"
     And I populate the "Image name" text box with "randomquotes"
 
-    And I scroll the "Add Service Port" button into view offset by "-300"
-    And I force click the "Add Service Port" button
+    And I scroll the "Add Port" button into view offset by "-300"
+    And I force click the "Add Port" button
 
     And I scroll the "Port name" text box into view offset by "-300"
     And I populate the "Port name" text box with "web"
 
     And I scroll the "Port number" text box into view offset by "-300"
     And I populate the "Port number" text box with "80"
+
+    And I click the "OK" button
 
     And I scroll the "Package Id" text box into view offset by "-300"
     And I populate the "Package Id" text box with "octopusdeploy/randomquotes"
@@ -161,16 +164,17 @@ Feature: Configure an Octopus Kubernetes project
     And I scroll the "Service name" text box into view offset by "-300"
     And I populate the "Service name" text box with "randomquotes"
 
-    And I scroll the "Add Port" button into view offset by "-300"
-    And I click the "Add Port" button
+    And I scroll the "Add Service Port" button into view offset by "-300"
+    And I click the "Add Service Port" button
 
     And I populate the "Service Port Name" text box with "web"
     And I populate the "Service Port" text box with "80"
+    And I click the "Port 80" option
     And I populate the "Node Port" text box with "30000"
     And I click the "OK" button
 
     And I click the "Save" button
-    And I sleep for "2" seconds
+    And I sleep for "10" seconds
 
   @deploy-project
   Scenario: Deploy project
@@ -212,6 +216,7 @@ Feature: Configure an Octopus Kubernetes project
 
     And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}115-octopus-deployment.png"
 
+  @shutdown
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
