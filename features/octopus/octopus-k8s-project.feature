@@ -173,7 +173,7 @@ Feature: Configure an Octopus Kubernetes project
     And I populate the "Node Port" text box with "30000"
     And I click the "OK" button
 
-    And I click the "Save" button
+    And I force click the "Save" button
     And I sleep for "10" seconds
 
   @deploy-project
