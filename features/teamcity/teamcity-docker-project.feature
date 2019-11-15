@@ -121,6 +121,28 @@ Feature: Create Docker project
     And I populate the "Image name:tag" text box with "octopusdeploy/randomquotes:1.0.%build.counter%"
     And I click the "Save" button
 
+  Scenario: Add Connection
+    Given I set the following aliases:
+      | Random Quotes   | //a[@href='/admin/editProject.html?init=1&projectId=RandomQuotes']               |
+      | Connections     | //a[@href='/admin/editProject.html?projectId=RandomQuotes&tab=oauthConnections'] |
+      | Add Connection  | //a[contains(.,'Add Connection')]                                                |
+      | Connection type | //input[@id='-ufd-teamcity-ui-typeSelector']                                     |
+      | Docker Registry | //li[@data-title='Docker Registry']                                              |
+      | Username        | //input[@id='userName']                                                          |
+      | Password        | //input[@id='secure:userPass']                                                   |
+      | Save            | //input[@value='Save']                                                           |
+      | Project Home    | //a[@href='/project.html?projectId=RandomQuotes&tab=projectOverview']            |
+
+    And I click the "Random Quotes" project link
+    And I click the "Connections" link
+    And I click the "Add Connection" button
+    And I click the "Connection type" drop down list
+    And I click the "Docker Registry" option
+    And I populate the "Username" text box with "ExternalDockerUsername"
+    And I populate the "Password" text box with "ExternalDockerPassword"
+    And I click the "Save" button
+    And I click the "Project Home" link
+
   @run-build
   Scenario: Run a build
     Given I set the following aliases:
@@ -148,7 +170,7 @@ Feature: Create Docker project
     And I sleep for "150" seconds
     And I start recording the screen to the directory "C:\screenshots"
     And I sleep for "5" seconds
-    
+
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}190-build-one-results.png"
 
   Scenario: Shutdown

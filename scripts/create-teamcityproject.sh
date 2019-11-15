@@ -22,6 +22,8 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalOctopusAPIKey=$API_KEY" \
   "-DCucumberAlias-GitUrl=$GIT_URL" \
+  "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
+  "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \

@@ -26,6 +26,8 @@ jobs:
       VIDEO_FILE_NAME: aspnetcore-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
       MEDIA_PATH: /tmp/screenshots
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     steps:
       - uses: actions/checkout@v1
       - name: Install Puppet
