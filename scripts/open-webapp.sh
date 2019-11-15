@@ -10,7 +10,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
-  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
+  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
   "-DslackHookUrl=$SLACK_HOOK_URL" \
