@@ -21,6 +21,5 @@ archive { '/opt/TeamCity-2019.1.4.tar.gz':
 -> exec { 'Start TeamCity':
   command   => '/opt/start_teamcity.sh',
   creates   => '/opt/TeamCityStarted.txt',
-  provider  => powershell,
   logoutput => true
 }
