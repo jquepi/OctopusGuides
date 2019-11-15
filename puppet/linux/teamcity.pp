@@ -13,7 +13,7 @@ archive { '/opt/TeamCity-2019.1.4.tar.gz':
   group   => 'root',
   mode    => '0755',
   content => @(EOT)
-    /opt/TeamCity/bin/runAll.sh start &
+    /opt/TeamCity/bin/runAll.sh start
     touch /opt/TeamCityStarted.txt
     exit 0
     | EOT
