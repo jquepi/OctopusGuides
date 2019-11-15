@@ -47,5 +47,12 @@ Feature: Create Azure Web App Target
 
     And I click the "Feed type" drop down list
     And I click the "Docker Container Registry" option
+
+    And I scroll the "Feed name" text box into view offset by "-300"
     And I populate the "Feed name" text box with "Docker"
     And I click the "Save" button
+
+  Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
+    And I close the browser

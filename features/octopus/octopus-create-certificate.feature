@@ -24,6 +24,7 @@ Feature: Create Certificate
       | Add Certificate | //button[contains(.,'Add certificate')]                                         |
       | Name            | //input[contains(@id,'Name')]                                                   |
       | File            | //input[@type='file']                                                           |
+      | Upload a File   | //label[text()='Upload a File']                                                 |
       | Save            | //button[contains(.,'Save')]                                                    |
 
     And I start recording the screen to the directory "ExternalMediaPath"
@@ -34,6 +35,7 @@ Feature: Create Certificate
     And I click the "Certificates" link
     And I click the "Add Certificate" button
     And I populate the "Name" text box with "Minikube Client Certificate"
+    And I scroll the "Upload a File" label into view offset by "-300"
     And I populate the hidden "File" file selector with "/tmp/client.pfx"
     And I sleep for "1" second
     And I click the "Save" button
