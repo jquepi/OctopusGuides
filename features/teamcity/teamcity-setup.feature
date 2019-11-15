@@ -17,8 +17,9 @@ Feature: Set up Team City
     And I click the "Proceed" button
 
     And I scroll the "Accept" check box into view waiting up to "500" seconds
-    And I click the "Accept" check box
-    And I click the "Continue" button
+    And I scroll down "100000" px
+    And I force click the "Accept" check box
+    And I force click the "Continue" button
 
     And I populate the "Username" text box with "admin"
     And I populate the "Password One" text box with "Password01!"
