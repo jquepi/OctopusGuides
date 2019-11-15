@@ -114,14 +114,19 @@ Feature: Create Azure Web App Target
     And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/100-target.png"
     And I click the "Save" button
 
-    And I highlight outside the "Connectivity" link
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/110-target.png"
-    And I click the "Connectivity" link
+    #And I highlight outside the "Connectivity" link
+    #And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/110-target.png"
+    #And I click the "Connectivity" link
 
-    And I highlight outside the "Check Health" button
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/120-target.png"
-    And I click the "Check Health" link
+    #And I highlight outside the "Check Health" button
+    #And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/120-target.png"
+    #And I click the "Check Health" link
 
-    And I sleep for "5" seconds
-    And I click the "Task Log" link
-    And I scroll down "10000" px
+    #And I sleep for "10" seconds
+    #And I click the "Task Log" link
+    #And I scroll down "10000" px
+
+  Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
+    And I close the browser

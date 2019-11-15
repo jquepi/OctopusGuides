@@ -24,4 +24,4 @@
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
-  features/wistia/replace-video.feature
+  features/wistia/replace-video-linux.feature
