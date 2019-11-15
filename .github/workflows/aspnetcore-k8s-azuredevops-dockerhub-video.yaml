@@ -35,6 +35,8 @@ jobs:
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Create Api Key
         run: ./scripts/create-apikey.sh
+      - name: Create Team City project
+        run: ./scripts/create-teamcityproject.sh
       - name: Create Worker
         run: sudo ./scripts/create-worker.sh
       - name: Create environments
