@@ -124,6 +124,7 @@ Feature: Create Docker project
   Scenario: Add Connection
     Given I set the following aliases:
       | Random Quotes   | //a[@href='/admin/editProject.html?init=1&projectId=RandomQuotes']               |
+      | Show more       | //a[contains(.,'Show more')]                                                     |
       | Connections     | //a[@href='/admin/editProject.html?projectId=RandomQuotes&tab=oauthConnections'] |
       | Add Connection  | //a[contains(.,'Add Connection')]                                                |
       | Connection type | //input[@id='-ufd-teamcity-ui-typeSelector']                                     |
@@ -134,6 +135,7 @@ Feature: Create Docker project
       | Project Home    | //a[@href='/project.html?projectId=RandomQuotes&tab=projectOverview']            |
 
     And I click the "Random Quotes" project link
+    And I click the "Show more" link
     And I click the "Connections" link
     And I click the "Add Connection" button
     And I click the "Connection type" drop down list
