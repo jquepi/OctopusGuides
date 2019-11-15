@@ -11,15 +11,15 @@ do
     vlc://quit
 done
 
-VIDEO_FILE_LIST=`ls $MEDIA_PATH/*.mp4 -m --quoting-style=shell-escape-always | tr "," " " | tr "\n" " " | tr -s " "`
-echo $VIDEO_FILE_LIST
+VIDEO_FILE_LIST=(`ls $MEDIA_PATH/*.mp4`)
+echo "${VIDEO_FILE_LIST[@]}"
 
 vlc -I dummy \
-   $VIDEO_FILE_LIST \
+   "${VIDEO_FILE_LIST}" \
    --no-sout-all \
    --sout-keep \
    --sout \
-   "#gather:std{access=file,mux=mp4,dst=$MEDIA_PATH/video.mp4}" \
+   "#gather:std{access=file,mux=mp4,dst=\"$MEDIA_PATH/video.mp4\"}" \
    vlc://quit
 
 ffmpeg -i $MEDIA_PATH/video.mp4 "-filter:v" "setpts=0.75*PTS" "$MEDIA_PATH/fast.mp4"
