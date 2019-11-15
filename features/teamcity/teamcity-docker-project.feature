@@ -33,7 +33,7 @@ Feature: Create Docker project
       | Path to file          | //input[@id='path']                                      |
       | Image name:tag        | //textarea[@id='docker.image.namesAndTags']              |
       | Push                  | //input[@name='prop:docker.command.type'][@value='push'] |
-      | Save                  | //input[@value='Save']                                   |
+      | Save                  | (//input[@value='Save'])[1]                              |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
