@@ -15,7 +15,7 @@ VIDEO_FILE_LIST=(`ls $MEDIA_PATH/*.mp4`)
 echo "${VIDEO_FILE_LIST[@]}"
 
 vlc -I dummy \
-   "${VIDEO_FILE_LIST}" \
+   "${VIDEO_FILE_LIST[@]}" \
    --no-sout-all \
    --sout-keep \
    --sout \
