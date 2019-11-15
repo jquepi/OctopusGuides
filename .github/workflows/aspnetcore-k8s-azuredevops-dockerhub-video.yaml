@@ -31,12 +31,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install Puppet
-        run: ./install.sh minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp utilities.pp octopuscli.pp
+        run: ./install.sh minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp utilities.pp octopuscli.pp teamcity.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Create Api Key
         run: ./scripts/create-apikey.sh
+      - name: Setup TeamCity
+        run: ./scripts/setup-teamcity.sh
       - name: Create Team City project
         run: ./scripts/create-teamcityproject.sh
       - name: Create Worker
