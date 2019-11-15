@@ -9,16 +9,19 @@
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
-  "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
+  "-DmoveCursorToElement=false" \
   "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
-  "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
-  "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
+  "-DdisableHighlights=true" \
+  "-DdisableScreenshots=true" \
   "-DslackHookUrl=$SLACK_HOOK_URL" \
   "-DscreenshotS3Enabled=$STHREE_SCREENSHOT_ENABLED" \
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
-  "-DslackStepHandlerEnabled=true" \
+  "-DslackStepHandlerEnabled=false" \
+  "-DCucumberAlias-ExternalWistiaUsername=$WISTIA_USERNAME" \
+  "-DCucumberAlias-ExternalWistiaPassword=$WISTIA_PASSWORD" \
+  "-DCucumberAlias-ExternalMediaID=$WISTIA_MEDIA_ID" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
-  features/octopus/octopus-k8s-project.feature
+  features/wistia/replace-video.feature
