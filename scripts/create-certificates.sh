@@ -6,7 +6,7 @@
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
-  "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
+  "-DmoveCursorToElement=$MOUSE_VERTICAL_OFFSET_CHROME" \
   "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
