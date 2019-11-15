@@ -27,4 +27,4 @@ API_KEY=`cat /tmp/api_key.txt`
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
-  features/octopus/teamcity-docker-project.feature
+  features/teamcity/teamcity-docker-project.feature
