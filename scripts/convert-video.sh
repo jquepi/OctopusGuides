@@ -11,8 +11,9 @@ do
     vlc://quit
 done
 
-$MEDIA_PATH
+cd $MEDIA_PATH
 
+# Remoave spaces from filenames
 find $1 -name "*.mp4" -type f -print0 | \
   while read -d $'\0' f; do mv -v "$f" "${f// /_}"; done
 
