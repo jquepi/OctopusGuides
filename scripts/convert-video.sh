@@ -11,11 +11,16 @@ do
     vlc://quit
 done
 
+$MEDIA_PATH
+
+find $1 -name "*.mp4" -type f -print0 | \
+  while read -d $'\0' f; do mv -v "$f" "${f// /_}"; done
+
 VIDEO_FILE_LIST=(`ls $MEDIA_PATH/*.mp4`)
-echo "${VIDEO_FILE_LIST[@]@Q}"
+echo "${VIDEO_FILE_LIST[@]}"
 
 vlc -I dummy \
-   "${VIDEO_FILE_LIST[@]@Q}" \
+   "${VIDEO_FILE_LIST[@]}" \
    --no-sout-all \
    --sout-keep \
    --sout \
