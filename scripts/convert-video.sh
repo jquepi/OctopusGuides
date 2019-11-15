@@ -12,10 +12,10 @@ do
 done
 
 VIDEO_FILE_LIST=(`ls $MEDIA_PATH/*.mp4`)
-echo "${VIDEO_FILE_LIST[@]}"
+echo "${VIDEO_FILE_LIST[@]@Q}"
 
 vlc -I dummy \
-   "${VIDEO_FILE_LIST[@]}" \
+   "${VIDEO_FILE_LIST[@]@Q}" \
    --no-sout-all \
    --sout-keep \
    --sout \
