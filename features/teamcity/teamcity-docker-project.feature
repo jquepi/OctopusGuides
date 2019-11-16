@@ -35,6 +35,7 @@ Feature: Create Docker project
       | Image name:tag        | //textarea[@id='docker.image.namesAndTags']              |
       | Push                  | //input[@name='prop:docker.command.type'][@value='push'] |
       | Save                  | (//input[@value='Save'])[1]                              |
+      | Got it                | //button[contains(.,'Got it')]                           |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
