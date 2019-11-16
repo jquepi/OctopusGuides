@@ -35,7 +35,7 @@ Feature: Create Docker project
       | Push                  | //input[@name='prop:docker.command.type'][@value='push'] |
       | Save                  | (//input[@value='Save'])[1]                              |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
 
     And I highlight outside the "Create project" button with an offset of "5"
