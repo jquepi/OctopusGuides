@@ -40,7 +40,7 @@ Feature: Setup Artifactory
     And I clear the "License Key" text box
     And I populate the "License Key" text box with "ExternalArtifactoryKey"
     And I click the "Save" button
-    And I sleep for "30" seconds
+    And I sleep for "60" seconds
 
   Scenario: Add NuGet repo
     Given I set the following aliases:
@@ -64,7 +64,8 @@ Feature: Setup Artifactory
 
     And I highlight inside the "Local" link
     And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\020-nuget-repo.png"
-    And I click the "Local" link
+    And I mouse over the "Local" link
+    And I open the URL "http://localhost:8040/artifactory/webapp/#/admin/repositories/local"
 
     And I remove the highlight from the "Admin" link
 
