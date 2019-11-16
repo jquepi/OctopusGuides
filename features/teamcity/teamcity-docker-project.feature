@@ -131,7 +131,7 @@ Feature: Create Docker project
       | Docker Registry | //li[@data-title='Docker Registry']                                              |
       | Username        | //input[@id='userName']                                                          |
       | Password        | //input[@id='secure:userPass']                                                   |
-      | Save            | //input[@value='Save']                                                           |
+      | Save            | (//input[@value='Save'])[1]                                                      |
       | Project Home    | //a[@href='/project.html?projectId=RandomQuotes&tab=projectOverview']            |
 
     And I click the "Random Quotes" project link
