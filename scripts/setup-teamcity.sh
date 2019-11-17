@@ -15,6 +15,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
+  "-DdisableVideoRecording=true" \
   "-DslackHookUrl=$SLACK_HOOK_URL" \
   "-DscreenshotS3Enabled=$STHREE_SCREENSHOT_ENABLED" \
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \

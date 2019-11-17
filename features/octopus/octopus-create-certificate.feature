@@ -81,7 +81,7 @@ Feature: Create Certificate
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}070-target.png"
     And I click the "Library" link
 
-    And I highlight outside the "Add Certificate" button
+    And I highlight outside the "Certificates" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}080-target.png"
     And I click the "Certificates" link
 
