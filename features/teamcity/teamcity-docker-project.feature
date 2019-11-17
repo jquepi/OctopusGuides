@@ -165,12 +165,12 @@ Feature: Create Docker project
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}130-connections.png"
     And I populate the "Username" text box with "ExternalDockerUsername"
     And I populate the "Password" text box with "ExternalDockerPassword"
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}130-connections.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}140-connections.png"
 
     And I click the "Save" button
 
     And I highlight outside the "Project Home" link
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}140-connections.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}150-connections.png"
     And I click the "Project Home" link
 
   @run-build
@@ -184,13 +184,13 @@ Feature: Create Docker project
     And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Run" button
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}150-run.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}160-run.png"
     And I click the "Run" button
     And I sleep for "10" seconds
     And I refresh the page
 
     And I highlight outside the "Build One" link
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}160-build-one.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-build-one.png"
     And I click the "Build One" link
     And I click the "Build log" link
     And I scroll down "10000" px
@@ -201,7 +201,7 @@ Feature: Create Docker project
     And I start recording the screen to the directory "C:\screenshots"
     And I sleep for "5" seconds
 
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-build-one-results.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}180-build-one-results.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
