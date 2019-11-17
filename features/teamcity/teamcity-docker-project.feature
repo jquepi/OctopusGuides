@@ -102,6 +102,7 @@ Feature: Create Docker project
 
     And I scroll the "Image name:tag" text box into view offset by "-300"
     And I populate the "Image name:tag" text box with "octopusdeploy/randomquotes:1.0.%build.counter%"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-docker-build.png"
     And I click the "Save" button
 
     And I highlight outside the "Add build step" button
@@ -121,6 +122,7 @@ Feature: Create Docker project
 
     And I scroll the "Image name:tag" text box into view offset by "-300"
     And I populate the "Image name:tag" text box with "octopusdeploy/randomquotes:1.0.%build.counter%"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}090-docker-push.png"
     And I click the "Save" button
 
   Scenario: Add Connection
@@ -136,15 +138,39 @@ Feature: Create Docker project
       | Save            | (//input[@value='Save'])[1]                                                      |
       | Project Home    | //a[@href='/project.html?projectId=RandomQuotes&tab=projectOverview']            |
 
+    And I highlight outside the "Random Quotes" project link
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}100-connections.png"
     And I click the "Random Quotes" project link
+
+    And I highlight outside the "Show more" link
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}110-connections.png"
     And I click the "Show more" link
+
+    And I highlight outside the "Connections" link
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}120-connections.png"
     And I click the "Connections" link
+
+    And I highlight outside the "Add Connection" button
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}130-connections.png"
     And I click the "Add Connection" button
+
+    And I highlight outside the "Connection type" drop down list
     And I click the "Connection type" drop down list
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}130-connections.png"
     And I click the "Docker Registry" option
+
+    And I highlight outside the "Username" text box
+    And I highlight outside the "Password" text box
+    And I highlight outside the "Save" button
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}130-connections.png"
     And I populate the "Username" text box with "ExternalDockerUsername"
     And I populate the "Password" text box with "ExternalDockerPassword"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}130-connections.png"
+
     And I click the "Save" button
+
+    And I highlight outside the "Project Home" link
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}140-connections.png"
     And I click the "Project Home" link
 
   @run-build
@@ -158,13 +184,13 @@ Feature: Create Docker project
     And I start recording the screen to the directory "C:\screenshots"
 
     And I highlight outside the "Run" button
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-run.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}150-run.png"
     And I click the "Run" button
     And I sleep for "10" seconds
     And I refresh the page
 
     And I highlight outside the "Build One" link
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}180-build-one.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}160-build-one.png"
     And I click the "Build One" link
     And I click the "Build log" link
     And I scroll down "10000" px
@@ -175,7 +201,7 @@ Feature: Create Docker project
     And I start recording the screen to the directory "C:\screenshots"
     And I sleep for "5" seconds
 
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}190-build-one-results.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-build-one-results.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

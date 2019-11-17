@@ -33,23 +33,28 @@ Feature: Create Azure Web App Target
     And I display a note with the text "Create a lifecycle in Octopus" for "3" seconds
 
     And I highlight outside the "Library" link
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/005-feed-library.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/010-feed-library.png"
     And I click the "Library" link
 
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/010-feed-feeds.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/020-feed-feeds.png"
     And I click the "External Feeds" link
     And I highlight outside the "External Feeds text" link with an offset of "2"
     And I highlight outside the "Add Feed" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/015-feed-add-feed.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/030-feed-add-feed.png"
     And I remove the highlight from the "Library" link
     And I click the "Add Feed" button
 
+    And I highlight outside the "Feed type" drop down list
     And I click the "Feed type" drop down list
     And I click the "Docker Container Registry" option
 
+    And I highlight outside the "Feed name" text box
     And I scroll the "Feed name" text box into view offset by "-300"
     And I populate the "Feed name" text box with "Docker"
+
+    And I highlight outside the "Save" button
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/040-feed-add-feed.png"
     And I click the "Save" button
 
   Scenario: Shutdown
