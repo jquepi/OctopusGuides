@@ -35,7 +35,7 @@ Feature: Generate an API key
     And I remove the highlight from the "User" link
 
     And I click the "My API Keys" link
-    And I highlight inside the "My API Keys" link
+    And I highlight outside the "My API Keys" link with an offset of "-3"
     And I highlight outside the "New API Key" button
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\apikey\keys.png"
