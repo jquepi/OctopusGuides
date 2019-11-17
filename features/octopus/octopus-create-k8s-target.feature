@@ -91,6 +91,7 @@ Feature: Create Azure Web App Target
     And I force click the "Client Certificate" option
     And I sleep for "1" second
 
+    And I scroll the "Select account certificate" drop down list into view offset by "-200"
     And I click the "Select account certificate" drop down list
     And I click the "Minikube certificate" option
     And I highlight outside the "Select account certificate" drop down list

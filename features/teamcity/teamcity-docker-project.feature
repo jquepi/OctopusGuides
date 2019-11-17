@@ -144,6 +144,7 @@ Feature: Create Docker project
 
     And I highlight outside the "Show more" link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}110-connections.png"
+    And I remove the highlight from the "Show more" link
     And I click the "Show more" link
 
     And I highlight outside the "Connections" link

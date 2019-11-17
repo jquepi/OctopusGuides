@@ -33,11 +33,12 @@ Feature: Create Certificate
 
     #And I click the "More" link if it exists
 
-    And I highlight outside the "Library" link
+    And I highlight inside the "Library" link
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}010-target.png"
+    And I remove the highlight from the "Library" link
     And I click the "Library" link
 
-    And I highlight outside the "Certificates" link
+    And I highlight outside the "Certificates" link link with an offset of "-3"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}020-target.png"
     And I click the "Certificates" link
 
@@ -77,7 +78,7 @@ Feature: Create Certificate
 
     #And I click the "More" link if it exists
 
-    And I highlight outside the "Library" link
+    And I highlight inside the "Library" link
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}070-target.png"
     And I click the "Library" link
 
