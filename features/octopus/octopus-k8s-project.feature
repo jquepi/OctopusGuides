@@ -138,15 +138,25 @@ Feature: Configure an Octopus Kubernetes project
 
     And I scroll the "Deployment name" text box into view offset by "-300"
     And I populate the "Deployment name" text box with "randomquotes"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-k8s.png"
 
-    And I scroll the "Deployment name" text box into view offset by "-300"
+    And I highlight outside the "Add Container" button
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-k8s.png"
+    And I scroll the "Add Container" button into view offset by "-300"
     And I click the "Add Container" button
 
+    And I highlight outside the "Image name" text box
     And I scroll the "Image name" text box into view offset by "-300"
     And I populate the "Image name" text box with "randomquotes"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-k8s.png"
 
+    And I highlight outside the "Add Port" button
     And I scroll the "Add Port" button into view offset by "-300"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-k8s.png"
     And I force click the "Add Port" button
+
+    And I highlight outside the "Port name" text box
+    And I highlight outside the "Port number" text box
 
     And I scroll the "Port name" text box into view offset by "-300"
     And I populate the "Port name" text box with "web"
@@ -154,26 +164,40 @@ Feature: Configure an Octopus Kubernetes project
     And I scroll the "Port number" text box into view offset by "-300"
     And I populate the "Port number" text box with "80"
 
-    And I click the "OK" button
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-k8s.png"
 
+    And I highlight outside the "OK" button
+    And I highlight outside the "Package Id" text box
     And I scroll the "Package Id" text box into view offset by "-300"
     And I populate the "Package Id" text box with "octopusdeploy/randomquotes"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-k8s.png"
     And I sleep for "1" second
 
     And I force click the "OK" button
 
+    And I highlight outside the "Service name" text box
     And I scroll the "Service name" text box into view offset by "-300"
     And I populate the "Service name" text box with "randomquotes"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}120-octopus-k8s.png"
 
+    And I highlight outside the "Add Service Port" button
     And I scroll the "Add Service Port" button into view offset by "-300"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}130-octopus-k8s.png"
     And I click the "Add Service Port" button
 
+    And I highlight outside the "Service Port Name" text box
+    And I highlight outside the "Service Port" text box
+    And I highlight outside the "Node Port" text box
+    And I highlight outside the "OK" button
     And I populate the "Service Port Name" text box with "web"
     And I populate the "Service Port" text box with "80"
     And I click the "Port 80" option
     And I populate the "Node Port" text box with "30000"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-k8s.png"
     And I click the "OK" button
 
+    And I highlight outside the "OK" button
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-k8s.png"
     And I force click the "Save" button
     And I sleep for "10" seconds
 
@@ -190,32 +214,31 @@ Feature: Configure an Octopus Kubernetes project
 
     And I highlight inside the "Create Release" button
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}095-octopus-create-release.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-create-release.png"
     And I click the "Create Release" button
 
     And I highlight outside the "Save" button
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-save-release.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-save-release.png"
     And I remove the highlight from the "Create Release" button
     And I force click the "Save" button
     And I sleep for "1" second
 
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}deploy.png"
     And I highlight outside the "Deploy To Dev" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}105-octopus-deploy-to-dev.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}180-octopus-deploy-to-dev.png"
     And I click the "Deploy To Dev" button
 
     And I highlight outside the "Deploy" button
     And I sleep for "3" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-deploy.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}190-octopus-deploy.png"
     And I force click the "Deploy" button
 
     And I stop recording the screen
     And I start recording the screen to the directory "ExternalMediaPath"
     And I sleep for "23" seconds
 
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}115-octopus-deployment.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}200-octopus-deployment.png"
 
   @shutdown
   Scenario: Shutdown
