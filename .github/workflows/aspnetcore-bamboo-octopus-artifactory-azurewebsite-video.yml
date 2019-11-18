@@ -9,6 +9,8 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
       CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore)"
       DEV_RES_GROUP: bambooaspnetcorebuiltinfeedviddev
       TEST_RES_GROUP: bambooaspnetcorebuiltinfeedvidtest
@@ -44,26 +46,7 @@ jobs:
       run: ./install.ps1 -Scripts utilities.pp,dotnetutilities.pp,artifactory.pp,bamboo.pp,octopus.pp,iis.pp,sleep.pp,bamboowait.pp,artifactorywait.pp
     - name: Configure Artifactory
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DCucumberAlias-ExternalArtifactoryKey=${{ secrets.ARTIFACTORY_KEY }}"
-        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
-        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
-        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
-        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\artifactory\artifactory-setup.feature
+      run: ./scripts/windows/configure-artifactory.ps1
 
     - name: Create API key
       shell: powershell

@@ -36,26 +36,26 @@ jobs:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Create Api Key
-        run: ./scripts/create-apikey.sh
+        run: ./scripts/linux/create-apikey.sh
       - name: Setup TeamCity
-        run: ./scripts/setup-teamcity.sh
+        run: ./scripts/linux/setup-teamcity.sh
       - name: Create Team City project
-        run: ./scripts/create-teamcityproject.sh
+        run: ./scripts/linux/create-teamcityproject.sh
       - name: Create Worker
-        run: sudo ./scripts/create-worker.sh
+        run: sudo ./scripts/linux/create-worker.sh
       - name: Create environments
-        run: ./scripts/create-environments.sh
+        run: ./scripts/linux/create-environments.sh
       - name: Create certificates
-        run: ./scripts/create-certificates.sh
+        run: ./scripts/linux/create-certificates.sh
       - name: Create target
-        run: ./scripts/create-k8starget.sh
+        run: ./scripts/linux/create-k8starget.sh
       - name: Create docker feed
-        run: ./scripts/create-dockerfeed.sh
+        run: ./scripts/linux/create-dockerfeed.sh
       - name: Create project
-        run: ./scripts/create-k8sproject.sh
+        run: ./scripts/linux/create-k8sproject.sh
       - name: Open App
-        run: ./scripts/open-webapp.sh
+        run: ./scripts/linux/open-webapp.sh
       - name: Create release
-        run: ./scripts/create-teamcitycreaterelease.sh
+        run: ./scripts/linux/create-teamcitycreaterelease.sh
       - name: Upload screenshots
-        run: ./scripts/upload-screenshots.sh
+        run: ./scripts/linux/upload-screenshots.sh
