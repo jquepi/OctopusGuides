@@ -48,13 +48,13 @@ jobs:
       - name: Create certificates
         run: ./scripts/linux/create-certificates.sh
       - name: Create target
-        run: ./scripts/linux/create-k8starget.sh
+        run: ./scripts/linux/create-k8starget-screenshots.sh
       - name: Create docker feed
         run: ./scripts/linux/create-dockerfeed.sh
       - name: Create project
         run: ./scripts/linux/create-k8sproject.sh
       - name: Open App
-        run: ./scripts/linux/open-webapp.sh
+        run: ./scripts/linux/open-devwebapp.sh
       - name: Create release
         run: ./scripts/linux/create-teamcitycreaterelease.sh
       - name: Upload screenshots

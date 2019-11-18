@@ -1,6 +1,6 @@
 name: ASP.NET Core TeamCity Kubernetes DockerHub Video
 on:
-#    push:
+    push:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -48,13 +48,29 @@ jobs:
       - name: Create certificates
         run: ./scripts/linux/create-certificates.sh
       - name: Create target
-        run: ./scripts/linux/create-k8starget.sh
+        run: ./scripts/linux/create-k8starget-video.sh
       - name: Create docker feed
         run: ./scripts/linux/create-dockerfeed.sh
       - name: Create project
         run: ./scripts/linux/create-k8sproject.sh
-      - name: Open App
-        run: ./scripts/linux/open-webapp.sh
+      - name: Open Dev App
+        run: ./scripts/linux/open-devwebapp.sh
+      - name: Create Lifecycle
+        run: ./scripts/linux/create-lifecycle.sh
+      - name: Open Test App
+        run: ./scripts/linux/open-testwebapp.sh
+      - name: Add Manual Intervention
+        run: ./scripts/linux/add-manualintervention.sh
+      - name: Add Notification
+        run: ./scripts/linux/add-notification.sh
+      - name: Add Users and Teams
+        run: ./scripts/linux/add-usersandteams.sh
+      - name: View Internal Deployer Dashboard
+        run: ./scripts/linux/view-internaldeployerdashboard.sh
+      - name: View Production Deployer Dashboard
+        run: ./scripts/linux/view-productiondeployerdashboard.sh
+      - name: View Audit Logs
+        run: ./scripts/linux/view-auditlogs.sh
       - name: Process videos
         run: ./scripts/linux/convert-video.sh
       - name: Upload videos

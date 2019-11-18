@@ -412,7 +412,7 @@ Feature: Create ASP.NET project
 
     And I click the "Save" button
 
-    And I highlight outside the "Build Configuration Home" link
+    And I highlight outside the "Build Configuration Home" link with an offset of "2"
     And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-build-config-home-artifactory.png"
     And I click the "Build Configuration Home" link
 
