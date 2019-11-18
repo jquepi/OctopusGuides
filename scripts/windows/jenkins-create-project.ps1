@@ -15,6 +15,7 @@
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     "-DCucumberAlias-GitUrl=$env:GIT_URL" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
+    --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `
     features\jenkins\jenkins-aspnet-git.feature

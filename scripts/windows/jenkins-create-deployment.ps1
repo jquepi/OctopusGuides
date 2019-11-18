@@ -14,6 +14,7 @@
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
+    --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `
     features\jenkins\jenkins-create-deploy.feature
