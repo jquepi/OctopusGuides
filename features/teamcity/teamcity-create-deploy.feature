@@ -29,7 +29,7 @@ Feature: Create and deploy a release
       | Octopus API key               | //input[@id='secure:octopus_apikey']                   |
       | Octopus Project               | //input[@id='octopus_project_name']                    |
       | Octopus Environments          | //input[@id='octopus_deployto']                        |
-      | Save                          | //input[@value='Save']                                 |
+      | Save                          | (//input[@value='Save'])[1]                            |
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Deploying an Octopus release from TeamCity" for "3" seconds

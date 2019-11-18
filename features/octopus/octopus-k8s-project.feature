@@ -51,6 +51,106 @@ Feature: Configure an Octopus Kubernetes project
     And I click the "Save" button
     And I sleep for "2" seconds
 
+  @define-variables
+  Scenario: Open the variables section
+    Given I set the following aliases:
+      | Variables         | //a[contains(.,'Variables')]                                                                                                                                 |
+      | Variables text    | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
+      | Project Variables | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
+
+    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
+    And I sleep for "1" second
+
+    And I highlight outside the "Variables text" link with an offset of "2"
+    And I click the "Variables" link
+    And I highlight inside the "Project Variables" link
+    And I sleep for "1" second
+    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}020-octopus-variables.png"
+    And I force click the "Project Variables" link
+    And I remove the highlight from the "Variables text" link
+
+  @define-variables
+  Scenario: Define project EnvironmentName Variable
+  Define the contents of the appsettins JSON file
+    Given I set the following aliases:
+      | New variable name       | //input[contains(@id,'Enternewvariable')] |
+      | New variable value      | //input[contains(@id,'Entervalue')]       |
+      | Open Editor             | //span[text()='Open Editor']              |
+      | Project Variables Title | //h2[contains(.,'Project Variables')]     |
+      | Done                    | //button[contains(.,'Done')]              |
+      | Add to list             | //button[@title='Add To List']            |
+
+    And I populate the "New variable name" text box with "appsettings"
+    And I click the "New variable value" text box
+    And I click the "Open Editor" link
+    And I run the following JavaScript:
+    """
+window.findReactComponent = function(el) {
+  for (const key in el) {
+    if (key.startsWith('__reactInternalInstance$')) {
+      const fiberNode = el[key];
+
+      return fiberNode && fiberNode.return && fiberNode.return.stateNode;
+    }
+  }
+  return null;
+};
+
+elements = document.getElementsByClassName("ReactCodeMirror");
+if (elements.length !== 0) {
+  cm = findReactComponent(document.getElementsByClassName("ReactCodeMirror")[0]);
+  cm.props.onChange("{\r\n  \"Logging\": {\r\n    \"IncludeScopes\": false,\r\n    \"LogLevel\": {\r\n      \"Default\": \"Warning\"\r\n    }\r\n  },\r\n  \"AppSettings\": {\r\n    \"AppVersion\": \"0.0.0\",\r\n    \"EnvironmentName\": \"DEV\"\r\n  }\r\n}\r\n");
+}
+    """
+    And I sleep for "1" second
+    And I click the "Done" button
+    And I click the "Add to list" button
+    And I force click the "Project Variables Title" element
+
+  @define-project
+  Scenario: Define node ports
+    Given I set the following aliases:
+      | Define scope            | //div[@title='Define scope']                    |
+      | Select environments     | //input[@title='Select environments']           |
+      | Dev environment         | //div[./div/div[text() = 'Dev']]                |
+      | Test environment        | //div[./div/div[text() = 'Test']]               |
+      | Prod environment        | //div[./div/div[text() = 'Prod']]               |
+      | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
+      | Project Variables Title | //h2[contains(.,'Project Variables')]           |
+      | New variable name       | //input[contains(@id,'Enternewvariable')]       |
+      | New variable value      | //input[contains(@id,'Entervalue')]             |
+      | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]        |
+      | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]        |
+      | Save                    | //button[contains(.,'Save')]                    |
+
+    And I populate the "New variable name" text box with "K8S Node Port"
+    And I populate the "New variable value" text box with "30000"
+    And I force click the "Define scope" field
+    And I force click the "Select environments" field
+    And I force click the "Dev environment" option
+    And I force click the "Project Variables Title" element
+
+    And I click the "Add Another Value" button
+    And I populate the "New variable value 2" text box with "30001"
+    And I force click the "Define scope" field
+    And I force click the "Select environments" field
+    And I force click the "Test environment" option
+    And I force click the "Project Variables Title" element
+
+    And I click the "Add Another Value" button
+    And I populate the "New variable value 3" text box with "30002"
+    And I force click the "Define scope" field
+    And I force click the "Select environments" field
+    And I force click the "Prod environment" option
+    And I force click the "Project Variables Title" element
+
+    And I click the "Save" button
+    And I scroll down "10000" px
+    And I sleep for "7" second
+    And I zoom the browser out
+    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}025-octopus-variables-populated.png"
+    And I zoom the browser in
+
   @define-project
   Scenario: Open the deployments view
     Given I set the following aliases:
@@ -196,7 +296,7 @@ Feature: Configure an Octopus Kubernetes project
     And I populate the "Service Port Name" text box with "web"
     And I populate the "Service Port" text box with "80"
     And I click the "Port 80" option
-    And I populate the "Node Port" text box with "30000"
+    And I populate the "Node Port" text box with "#{K8S Node Port}"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-k8s.png"
     And I click the "OK" button
     And I remove the highlight from the "Add Service Port" button
