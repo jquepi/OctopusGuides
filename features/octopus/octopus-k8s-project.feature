@@ -219,7 +219,7 @@ if (elements.length !== 0) {
       | Volume name                | (//input[contains(@id,'Name')])[3]                                                              |
       | Mount path                 | (//input[contains(@id,'Mountpath')])[1]                                                         |
       | Sub path                   | (//input[contains(@id,'Subpath')])[1]                                                           |
-      | appsettings volume         |  //span[./div/div/div[text()='appsettings']]                                                    |
+      | appsettings volume         | //span[./div/div/div[text()='appsettings']]                                                     |
       | OK                         | (//button[@title='Ok'])[1]                                                                      |
       | Save                       | //button[@title='Save']                                                                         |
       | Service name               | //input[contains(@id,'Servicename')]                                                            |
@@ -229,9 +229,9 @@ if (elements.length !== 0) {
       | Service Port               | (//input[contains(@id,'Port')])[1]                                                              |
       | Node Port                  | //input[contains(@id,'NodePort')]                                                               |
       | ConfigMap name             | //input[contains(@id,'ConfigMapname')]                                                          |
-      | Add Config Map Item        | //input[contains(.,'Add Config map item')]                                                      |
+      | Add Config Map Item        | (//button[contains(.,'Add Config map item')])[1]                                                |
       | Key                        | //input[../label[text()='Key']]                                                                 |
-      | Value                      | //input[../label[text()='Value']]                                                               |
+      | Value                      | //textarea[contains(@id,'Value')]                                                               |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -345,8 +345,8 @@ if (elements.length !== 0) {
     And I populate the "ConfigMap name" text box with "randomquotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}141-octopus-k8s.png"
 
-    And I highlight outside the "Add Config map item" button
-    And I click the "Add Config map item" button
+    And I highlight outside the "Add Config Map Item" button
+    And I click the "Add Config Map Item" button
     And I highlight outside the "Key" text box with an offset of "2"
     And I highlight outside the "Value" text box with an offset of "2"
     And I populate the "Key" text box with "appsettings.json"
