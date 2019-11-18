@@ -14,6 +14,7 @@
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     "-DCucumberAlias-GitUrl=$env:GIT_URL" `
+    "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `
