@@ -219,7 +219,7 @@ if (elements.length !== 0) {
       | Volume name                | (//input[contains(@id,'Name')])[3]                                                              |
       | Mount path                 | (//input[contains(@id,'Mountpath')])[1]                                                         |
       | Sub path                   | (//input[contains(@id,'Subpath')])[1]                                                           |
-      | appsettings volume         | //span[./div/div/div[text()='appsettings']]                                                     |
+      | appsettings volume         | //span[./div/div/div[text()='appsettings-volume']]                                                     |
       | OK                         | (//button[@title='Ok'])[1]                                                                      |
       | Save                       | //button[@title='Save']                                                                         |
       | Service name               | //input[contains(@id,'Servicename')]                                                            |
