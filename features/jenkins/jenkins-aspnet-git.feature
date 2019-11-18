@@ -253,7 +253,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "c:\screenshots\jenkins\initialproject\#{GuideSpecificScreenshotDir}110-batch-command-1.png"
     And I click the "Execute Windows batch command" link
-    And I remove the highlight from the "Add build step" optionI click the "Create release" button
+    And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
 
     And I scroll the "Command" text box into view offset by "-200"

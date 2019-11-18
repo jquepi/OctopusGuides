@@ -16,4 +16,4 @@
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `
-    features\artifactory\jenkins-aspnet-git.feature
+    features\jenkins\jenkins-aspnet-git.feature

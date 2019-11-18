@@ -16,4 +16,4 @@
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `
-    features\artifactory\open-randomquotes-iis-dev.feature
+    features\octopus\open-randomquotes-iis-dev.feature

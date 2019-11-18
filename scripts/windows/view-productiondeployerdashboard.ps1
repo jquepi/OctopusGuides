@@ -16,4 +16,4 @@
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `
-    features\artifactory\octopus-view-production-deployments.feature
+    features\octopus\octopus-view-production-deployments.feature
