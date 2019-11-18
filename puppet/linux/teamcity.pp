@@ -1,4 +1,14 @@
-archive { '/opt/TeamCity-2019.1.4.tar.gz':
+file { '/root/.BuildServer':
+  ensure => 'directory'
+}
+-> file { '/root/.BuildServer/plugins':
+  ensure => 'directory'
+}
+file { '/root/.BuildServer/plugins/Octopus.TeamCity.zip':
+  source => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
+  mode   => '0644'
+}
+-> archive { '/opt/TeamCity-2019.1.4.tar.gz':
   ensure          => present,
   extract         => true,
   extract_path    => '/opt',
