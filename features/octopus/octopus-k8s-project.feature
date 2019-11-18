@@ -197,6 +197,7 @@ Feature: Configure an Octopus Kubernetes project
     And I populate the "Node Port" text box with "30000"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-k8s.png"
     And I click the "OK" button
+    And I remove the highlight from the "Add Service Port" button
 
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-k8s.png"
