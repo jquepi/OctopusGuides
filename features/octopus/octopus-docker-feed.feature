@@ -19,6 +19,7 @@ Feature: Create Azure Web App Target
   @define-lifecycle
   Scenario: Add docker feed
     Given I set the following aliases:
+      | More                      | //span[contains(.,'More')]                                                     |
       | Library                   | //span[contains(.,'Library')]                                                  |
       | External Feeds            | //a[contains(.,'External Feeds')]                                              |
       | External Feeds text       | //a[contains(.,'External Feeds')][not(*)] \| //a/span[text()='External Feeds'] |
@@ -31,6 +32,8 @@ Feature: Create Azure Web App Target
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Create a lifecycle in Octopus" for "3" seconds
+
+    And I click the "More" link waiting up to "5" seconds if the "Library" link does not exist
 
     And I highlight outside the "Library" link
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/010-feed-library.png"

@@ -17,6 +17,7 @@ Feature: Create a Lifecycle in Octopus
   @define-lifecycle
   Scenario: Add dev, test and prod
     Given I set the following aliases:
+      | More                            | //span[contains(.,'More')]                                             |
       | Library                         | //span[contains(.,'Library')]                                          |
       | Lifecycles                      | //a[contains(.,'Lifecycles')]                                          |
       | Lifecycles text                 | //a[contains(.,'Lifecycles')][not(*)] \| //a/span[text()='Lifecycles'] |
@@ -42,6 +43,8 @@ Feature: Create a Lifecycle in Octopus
 
     And I start recording the screen to the directory "C:\screenshots"
     And I display a note with the text "Create a lifecycle in Octopus" for "3" seconds
+
+    And I click the "More" link waiting up to "5" seconds if the "Library" link does not exist
 
     And I highlight outside the "Library" link
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\#{GuideSpecificScreenshotDir}005-lifecycle-library.png"
