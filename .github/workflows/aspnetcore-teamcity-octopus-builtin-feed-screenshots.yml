@@ -10,6 +10,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      MEDIA_PATH: C:\screenshots
       CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore)"
       WISTIA_MEDIA_ID:
       DISABLE_HIGHLIGHTS: false
@@ -139,6 +140,7 @@ jobs:
         "-DdisableVideoRecording=$env:DISABLE_VIDEO"
         "-DdumpAliasesOnFailure=true"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
         "-DslackStepHandlerEnabled=true"
         "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"

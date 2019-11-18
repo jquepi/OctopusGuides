@@ -10,6 +10,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      MEDIA_PATH: C:\screenshots
       DEV_RES_GROUP: teamcityaspnetcorebuiltinfeedviddev
       TEST_RES_GROUP: teamcityaspnetcorebuiltinfeedvidtest
       PROD_RES_GROUP: teamcityaspnetcorebuiltinfeedvidprod
@@ -298,6 +299,7 @@ jobs:
         "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
         "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
         "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
+        "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH"
         "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
         "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
         "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
