@@ -261,7 +261,7 @@ if (elements.length !== 0) {
     And I highlight outside the "ConfigMap Name" text box with an offset of "2"
     And I highlight outside the "Linked ConfigMap Container" option with an offset of "2"
     And I highlight outside the "OK" button with an offset of "2"
-    And I populate the "ConfigMap Name" text box with "appsettings"
+    And I populate the "ConfigMap Name" text box with "appsettings-volume"
     And I force click the "Linked ConfigMap" option
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}062-octopus-k8s.png"
     And I click the "OK" button
@@ -300,10 +300,10 @@ if (elements.length !== 0) {
     And I highlight outside the "Volume name" text box with an offset of "2"
     And I highlight outside the "Mount path" text box with an offset of "2"
     And I highlight outside the "Sub path" text box with an offset of "2"
-    And I populate the "Volume name" text box with "appsettings"
+    And I populate the "Volume name" text box with "appsettings-volume"
     And I click the "appsettings volume" option
-    And I populate the "Mount path" text box with "appsettings"
-    And I populate the "Sub path" text box with "/app/appsettings.json"
+    And I populate the "Mount path" text box with "/app/appsettings.json"
+    And I populate the "Sub path" text box with "appsettings.json"
 
     And I highlight outside the "OK" button with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-k8s.png"
