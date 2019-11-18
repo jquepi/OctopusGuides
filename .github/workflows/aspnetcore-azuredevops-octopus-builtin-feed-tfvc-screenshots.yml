@@ -33,21 +33,7 @@ jobs:
       run: ./install.ps1 -Scripts azuredevops.pp,azuredevopsagent.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,azurewait.pp
     - name: Create API key
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
-        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableVideoRecording=$env:DISABLE_VIDEO"
-        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH"
-        "-DCucumberAlias-ExternalApiKeyFile=C:\api_key.txt"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-api-key.feature
+      run: ./scripts/windows/create-apikey.ps1
 
     - name: Create API key for tests
       shell: powershell

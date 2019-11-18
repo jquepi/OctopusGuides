@@ -39,6 +39,9 @@ jobs:
     - name: Configure Artifactory
       shell: powershell
       run: ./scripts/windows/configure-artifactory.ps1
+    - name: Create API key
+      shell: powershell
+      run: ./scripts/windows/create-apikey.ps1
 
     - name: Add Project
       shell: powershell

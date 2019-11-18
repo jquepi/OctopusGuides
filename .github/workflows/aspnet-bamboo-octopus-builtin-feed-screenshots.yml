@@ -34,6 +34,9 @@ jobs:
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
+    - name: Create API key
+      shell: powershell
+      run: ./scripts/windows/create-apikey.ps1
     - name: Add Project
       shell: powershell
       run: >

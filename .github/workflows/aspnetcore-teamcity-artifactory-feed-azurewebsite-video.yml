@@ -51,24 +51,7 @@ jobs:
 
     - name: Create API key
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
-        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
-        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
-        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DCucumberAlias-ExternalApiKeyFile=C:\api_key.txt"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --monochrome
-        features\octopus\octopus-api-key.feature
+      run: ./scripts/windows/create-apikey.ps1
 
     - name: Create API key for tests
       shell: powershell
