@@ -20,7 +20,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalEnvironmentName=Prod" \
-  "-DCucumberAlias-ExternalTargetName=Kubernetes" \
+  "-DCucumberAlias-ExternalTargetName=Kubernetes Prod" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-prod" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
@@ -46,7 +46,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalEnvironmentName=Test" \
-  "-DCucumberAlias-ExternalTargetName=Kubernetes" \
+  "-DCucumberAlias-ExternalTargetName=Kubernetes Test" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-test" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
@@ -72,7 +72,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalEnvironmentName=Dev" \
-  "-DCucumberAlias-ExternalTargetName=Kubernetes" \
+  "-DCucumberAlias-ExternalTargetName=Kubernetes Dev" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \

@@ -291,10 +291,11 @@ if (elements.length !== 0) {
 
     And I scroll the "Port number" text box into view offset by "-300"
     And I populate the "Port number" text box with "80"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}091-octopus-k8s.png"
 
     And I scroll the "Add Volume Mount" button into view offset by "-300"
     And I highlight outside the "Add Volume Mount" button with an offset of "2"
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}091-octopus-k8s.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}092-octopus-k8s.png"
     And I click the "Add Volume Mount" button
 
     And I highlight outside the "Volume name" text box with an offset of "2"
@@ -304,6 +305,7 @@ if (elements.length !== 0) {
     And I click the "appsettings volume" option
     And I populate the "Mount path" text box with "/app/appsettings.json"
     And I populate the "Sub path" text box with "appsettings.json"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}093-octopus-k8s.png"
 
     And I highlight outside the "OK" button with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-k8s.png"
