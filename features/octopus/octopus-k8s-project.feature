@@ -141,22 +141,24 @@ Feature: Configure an Octopus Kubernetes project
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-k8s.png"
 
     And I highlight outside the "Add Container" button
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-k8s.png"
     And I scroll the "Add Container" button into view offset by "-300"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-k8s.png"
     And I click the "Add Container" button
 
     And I highlight outside the "Image name" text box
     And I scroll the "Image name" text box into view offset by "-300"
     And I populate the "Image name" text box with "randomquotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-k8s.png"
+    And I remove the highlight from the "Image name" text box
 
-    And I highlight outside the "Add Port" button
+    And I highlight outside the "Add Port" button offset by "5"
     And I scroll the "Add Port" button into view offset by "-300"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-k8s.png"
     And I force click the "Add Port" button
+    And I remove the highlight from the "Add Port" button
 
-    And I highlight outside the "Port name" text box
-    And I highlight outside the "Port number" text box
+    And I highlight outside the "Port name" text box with an offset of "2"
+    And I highlight outside the "Port number" text box with an offset of "2"
 
     And I scroll the "Port name" text box into view offset by "-300"
     And I populate the "Port name" text box with "web"
@@ -164,7 +166,7 @@ Feature: Configure an Octopus Kubernetes project
     And I scroll the "Port number" text box into view offset by "-300"
     And I populate the "Port number" text box with "80"
 
-    And I highlight outside the "OK" button
+    And I highlight outside the "OK" button with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-k8s.png"
     And I remove the highlight from the "OK" button
 
@@ -186,11 +188,11 @@ Feature: Configure an Octopus Kubernetes project
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}130-octopus-k8s.png"
     And I click the "Add Service Port" button
 
-    And I highlight outside the "OK" button
-    And I highlight outside the "Service Port Name" text box
-    And I highlight outside the "Service Port" text box
-    And I highlight outside the "Node Port" text box
-    And I highlight outside the "OK" button
+    And I highlight outside the "OK" button with an offset of "2"
+    And I highlight outside the "Service Port Name" text box with an offset of "2"
+    And I highlight outside the "Service Port" text box with an offset of "2"
+    And I highlight outside the "Node Port" text box with an offset of "2"
+    And I highlight outside the "OK" button with an offset of "2"
     And I populate the "Service Port Name" text box with "web"
     And I populate the "Service Port" text box with "80"
     And I click the "Port 80" option

@@ -83,7 +83,7 @@ Feature: Create Certificate
     And I click the "Library" link
     And I remove the highlight from the "Library" link
 
-    And I highlight outside the "Certificates" button
+    And I highlight outside the "Certificates" button with an offset of "-3"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}080-target.png"
     And I click the "Certificates" link
 
