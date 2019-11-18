@@ -251,7 +251,7 @@ if (elements.length !== 0) {
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-k8s.png"
     And I remove the highlight from the "Image name" text box
 
-    And I highlight outside the "Add Port" button offset by "5"
+    And I highlight outside the "Add Port" button with an offset of "5"
     And I scroll the "Add Port" button into view offset by "-300"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-k8s.png"
     And I force click the "Add Port" button
