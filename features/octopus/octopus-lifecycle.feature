@@ -8,6 +8,7 @@ Feature: Create a Lifecycle in Octopus
       | Sign In  | //button[contains(.,'SIGN IN')] |
     And I open the shared browser "FirefoxNoImplicitWait"
     And I maximize the window
+    And I set the window size to "1024" x "700"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I populate the "Username" text box with "admin"
@@ -56,7 +57,7 @@ Feature: Create a Lifecycle in Octopus
     And I highlight outside the "Add Lifecycle" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\lifecycle\#{GuideSpecificScreenshotDir}015-lifecycle-add-lifecycle.png"
-    And I remove the highlight from the "Library" link
+    And I remove the highlight from the "Library" link if it exists
     And I click the "Add Lifecycle" button
 
     And I populate the "Lifecycle name" text box with "Dev, Test and Prod"

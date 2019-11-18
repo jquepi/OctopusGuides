@@ -45,7 +45,7 @@ Feature: Create Azure Web App Target
     And I highlight outside the "Add Feed" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/030-feed-add-feed.png"
-    And I remove the highlight from the "Library" link
+    And I remove the highlight from the "Library" link if it exists
     And I click the "Add Feed" button
 
     And I highlight outside the "Feed type" drop down list

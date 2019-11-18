@@ -39,7 +39,7 @@ Feature: Add Artifactory NuGet feed
     And I highlight outside the "Add Feed" button with an offset of "1"
     And I sleep for "1" second
     And I save a screenshot to "C:\screenshots\octopus\externalfeeds\030-add-feed.png"
-    And I remove the highlight from the "Library" link
+    And I remove the highlight from the "Library" link if it exists
     And I click the "Add Feed" button
 
     And I scroll the "Feed name" text box into view offset by "-200"
