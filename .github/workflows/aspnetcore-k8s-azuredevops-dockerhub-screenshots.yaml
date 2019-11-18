@@ -1,6 +1,6 @@
 name: ASP.NET Core TeamCity Kubernetes DockerHub Screenshots
 on:
-#    push:
+    push:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -55,5 +55,7 @@ jobs:
         run: ./scripts/create-k8sproject.sh
       - name: Open App
         run: ./scripts/open-webapp.sh
+      - name: Create release
+        run: ./scripts/create-teamcitycreaterelease.sh
       - name: Upload screenshots
         run: ./scripts/upload-screenshots.sh
