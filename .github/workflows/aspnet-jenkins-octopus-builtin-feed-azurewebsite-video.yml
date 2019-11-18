@@ -10,7 +10,21 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
+      WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
+      WISTIA_MEDIA_ID: xgn6egark8
+      VIDEO_FILE_NAME: aspnet-jenkins-octopus-builtin-feed-azure.mp4
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      MOVE_TO_MOUSE_CUSROR: true
+      MOUSE_VERTICAL_OFFSET: 74
+      SCREENSHOT_BUCKET: octopus-guides-screenshots
+      STHREE_SCREENSHOT_ENABLED: true
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
+      NUGET_PATH: 'RandomQuotes\obj\octopacked\'
+      SCREENSHOT_PATH: aspnet-app\azurewebapp\builtin\git\
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender
@@ -30,59 +44,18 @@ jobs:
       run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
     - name: Create API key
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
-        "-DCucumberAlias-ExternalApiKeyFile=C:\api_key.txt"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-api-key.feature
+      run: ./scripts/windows/create-apikey.ps1
 
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
     - name: Create Jenkins Project and Octopus
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
-        "-DCucumberAlias-GitUrl=https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git"
-        "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
-        --tags "not @applicationspecific or @aspnet"
-        features\jenkins\jenkins-aspnet-git.feature
+      run: ./scripts/windows/jenkins-create-project.ps1
 
     - name: Create the Octopus Environments
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-environments.feature
+      run: ./scripts/windows/create-environments.ps1
 
     - name: Create the Octopus Azure Account
       shell: powershell
@@ -203,21 +176,7 @@ jobs:
 
     - name: Create Octopus Project
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableScreenshots=true"
-        "-DdisableHighlights=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
-        --tags "not @applicationspecific or @aspnet"
-        features\octopus\octopus-aspnet-project.feature
+      run: ./scripts/windows/create-octopusaspnetproject.ps1
     - name: Open Random Quotes
       shell: powershell
       run: >
@@ -238,37 +197,11 @@ jobs:
 
     - name: Add a deployment step
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableScreenshots=true"
-        "-DdisableHighlights=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        --tags "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed)"
-        --tags "not @applicationspecific or @aspnet"
-        features\jenkins\jenkins-create-deploy.feature
+      run: ./scripts/windows/jenkins-create-deployment.ps1
 
     - name: Add a lifecycle
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableScreenshots=true"
-        "-DdisableHighlights=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-lifecycle.feature
+      run: ./scripts/windows/create-lifecycle.ps1
 
     - name: Open Random Quotes
       shell: powershell
@@ -290,141 +223,37 @@ jobs:
 
     - name: Add manual intervention
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableScreenshots=true"
-        "-DdisableHighlights=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-manual-intervention.feature
+      run: ./scripts/windows/add-manualintervention.ps1
 
     - name: Add email notification
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DCucumberAlias-SMTPPassword=${{ secrets.GMAIL_PASSWORD }}"
-        "-DdisableScreenshots=true"
-        "-DdisableHighlights=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-email-notification.feature
+      run: ./scripts/windows/add-notification.ps1
 
     - name: Add users and team
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableScreenshots=true"
-        "-DdisableHighlights=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-users-and-teams.feature
+      run: ./scripts/windows/create-usersandteams.ps1
 
     - name: View internal deployer dashboard
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableScreenshots=true"
-        "-DdisableHighlights=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-view-internal-deployments.feature
+      run: ./scripts/windows/view-internaldeployerdashboard.ps1
 
     - name: View production deployer dashboard
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableScreenshots=true"
-        "-DdisableHighlights=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-view-production-deployments.feature
+      run: ./scripts/windows/view-productiondeployerdashboard.ps1
 
     - name: View audit logs
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableScreenshots=true"
-        "-DdisableHighlights=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-audit-log.feature
+      run: ./scripts/windows/view-auditlogs.ps1
 
-    - name: Convert video
+    - name: Process video
       shell: powershell
-      run: gci c:\screenshots\*.avi | % {Start-Process "C:\Program Files\VideoLAN\VLC\vlc.exe" -NoNewWindow -Wait -ArgumentList @("-I", "dummy", "-vvv", "`"$($_.FullName)`"", "--sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=mp4,dst=`"c:\screenshots\$($_.BaseName).mp4`"}", "vlc://quit")}
-    - name: Merge video
-      shell: powershell
-      run: Start-Process -FilePath "C:\Program Files\VideoLAN\VLC\vlc.exe" -Wait -ArgumentList (@("-I", "dummy", "-vvv") + $(gci C:\screenshots\*.mp4 | ?{$_.Name -ne "video.mp4"} | %{"`"" + $_.FullName + "`""}) + @("--sout", "#gather:std{access=file,mux=mp4,dst=c:\screenshots\video.mp4}", "--no-sout-all", "--sout-keep", "vlc://quit"))
-    - name: Speed up video
-      shell: powershell
-      run: Start-Process -FilePath "C:\ProgramData\chocolatey\bin\ffmpeg.exe" -Wait -ArgumentList (@("-i", "c:\screenshots\video.mp4", "-filter:v", "setpts=0.75*PTS", "c:\screenshots\fast.mp4"))
+      run: ./scripts/windows/process-video.ps1
     - name: Upload video
       shell: powershell
-      run: |
-        ls c:\screenshots
-        & "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 s3://i.octopus.com/guides/aspnet-jenkins-octopus-builtin-feed-azure.mp4 --acl public-read
-
+      run: ./scripts/windows/upload-video.ps1
     - name: Replace Wistia Video
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
-        "-DdisableVideoRecording=true"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=true"
-        "-DscreenshotS3Bucket=octopus-guides-screenshots"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=3"
-        "-DCucumberAlias-ExternalWistiaUsername=${{ secrets.WISTIA_USERNAME }}"
-        "-DCucumberAlias-ExternalWistiaPassword=${{ secrets.WISTIA_PASSWORD }}"
-        "-DCucumberAlias-ExternalMediaID=xgn6egark8"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\wistia\replace-video.feature
+      run: ./scripts/windows/replace-wistia-video.ps1
 
     - name: Delete resource groups
       shell: powershell

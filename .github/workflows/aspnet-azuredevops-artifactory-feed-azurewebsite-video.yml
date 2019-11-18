@@ -47,11 +47,9 @@ jobs:
     - name: Configure Artifactory
       shell: powershell
       run: ./scripts/windows/configure-artifactory.ps1
-
     - name: Create API key
       shell: powershell
-    run: ./scripts/windows/create-apikey.ps1
-
+      run: ./scripts/windows/create-apikey.ps1
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
