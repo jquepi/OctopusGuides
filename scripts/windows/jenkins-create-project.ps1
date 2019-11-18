@@ -13,6 +13,7 @@
     "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED" `
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
+    "-DCucumberAlias-GitUrl=$env:GIT_URL" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `
