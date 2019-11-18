@@ -12,7 +12,7 @@ Feature: Open Random Quotes
     And I refresh the page
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Running the Random Quotes sample application" for "3" seconds
-    And I save a screenshot to "#{ExternalMediaPath}#{GuideSpecificScreenshotDir}#{Screenshot}"
+    And I save a screenshot to "#{ExternalMediaPath}/app#{GuideSpecificScreenshotDir}#{Screenshot}"
     And I click the "Refresh" button
     And I sleep for "2" seconds
 

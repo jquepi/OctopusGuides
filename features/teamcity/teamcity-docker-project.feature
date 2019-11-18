@@ -152,26 +152,26 @@ Feature: Create Docker project
     And I click the "Connections" link
 
     And I highlight outside the "Add Connection" button
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}130-connections.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}140-connections.png"
     And I click the "Add Connection" button
 
     And I highlight outside the "Connection type" drop down list
     And I click the "Connection type" drop down list
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}130-connections.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}150-connections.png"
     And I click the "Docker Registry" option
 
     And I highlight outside the "Username" text box
     And I highlight outside the "Password" text box
     And I highlight outside the "Save" button
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}130-connections.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}160-connections.png"
     And I populate the "Username" text box with "ExternalDockerUsername"
     And I populate the "Password" text box with "ExternalDockerPassword"
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}140-connections.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-connections.png"
 
     And I click the "Save" button
 
     And I highlight outside the "Project Home" link
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}150-connections.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}180-connections.png"
     And I click the "Project Home" link
 
   @run-build
@@ -190,7 +190,7 @@ Feature: Create Docker project
     And I sleep for "10" seconds
     And I refresh the page
 
-    And I highlight outside the "Build One" link
+    And I highlight inside the "Build One" link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-build-one.png"
     And I click the "Build One" link
     And I click the "Build log" link
