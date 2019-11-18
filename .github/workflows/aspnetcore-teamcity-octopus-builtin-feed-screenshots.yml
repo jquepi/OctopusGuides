@@ -1,6 +1,6 @@
 name: ASP.NET Core TeamCity Octopus Built-in Feed Screenshots
 on:
-  push:
+#  push:
   schedule:
     - cron:  '0 18 9 * *'
 jobs:
