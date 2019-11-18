@@ -1,0 +1,1 @@
+& "C:\Program Files\Amazon\AWSCLI\bin\aws.exe" s3 cp c:\screenshots\fast.mp4 "s3://i.octopus.com/guides/$(env:VIDEO_FILE_NAME)" --acl public-read
