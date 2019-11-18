@@ -99,7 +99,7 @@ window.findReactComponent = function(el) {
 elements = document.getElementsByClassName("ReactCodeMirror");
 if (elements.length !== 0) {
   cm = findReactComponent(document.getElementsByClassName("ReactCodeMirror")[0]);
-  cm.props.onChange("{\r\n  \"Logging\": {\r\n    \"IncludeScopes\": false,\r\n    \"LogLevel\": {\r\n      \"Default\": \"Warning\"\r\n    }\r\n  },\r\n  \"AppSettings\": {\r\n    \"AppVersion\": \"0.0.0\",\r\n    \"EnvironmentName\": \"DEV\"\r\n  }\r\n}\r\n");
+  cm.props.onChange("{\r\n  \"Logging\": {\r\n    \"IncludeScopes\": false,\r\n    \"LogLevel\": {\r\n      \"Default\": \"Warning\"\r\n    }\r\n  },\r\n  \"AppSettings\": {\r\n    \"AppVersion\": \"0.0.0\",\r\n    \"EnvironmentName\": \"#{Octopus.Environment.Name}\"\r\n  }\r\n}\r\n");
 }
     """
     And I sleep for "1" second
