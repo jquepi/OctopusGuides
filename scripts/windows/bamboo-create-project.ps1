@@ -21,4 +21,4 @@
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `
-    features\jenkins\bamboo-create-project.ps1
+    features\bamboo\bamboo-aspnet-project.feature

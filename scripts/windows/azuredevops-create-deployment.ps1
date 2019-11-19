@@ -19,4 +19,4 @@
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `
-    features\jenkins\azuredevops-create-deploy.feature
+    features\azuredevops\azuredevops-create-deploy.feature

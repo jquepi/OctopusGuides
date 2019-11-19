@@ -19,4 +19,4 @@
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `
-    features\jenkins\teamcity-create-deploy.feature
+    features\teamcity\teamcity-create-deploy.feature

@@ -21,4 +21,4 @@
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `
-    features\jenkins\teamcity-aspnet-project.feature
+    features\teamcity\teamcity-aspnet-project.feature

@@ -19,4 +19,4 @@
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `
-    features\jenkins\bamboo-create-deploy.feature
+    features\bamboo\bamboo-create-deploy.feature

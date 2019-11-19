@@ -21,4 +21,4 @@
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `
-    features\jenkins\azuredevops-aspnet-project.feature
+    features\azuredevops\azuredevops-aspnet-project.feature
