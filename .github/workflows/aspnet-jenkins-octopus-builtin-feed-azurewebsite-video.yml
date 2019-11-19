@@ -35,84 +35,110 @@ jobs:
       SCREENSHOT_PATH: aspnet-app\azurewebapp\builtin\git\
     steps:
     - uses: actions/checkout@v1
+      -
     - name: Disable Windows Defender
       shell: powershell
       run: reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection' /v DisableRealtimeMonitoring /t REG_DWORD /d 1
+
     - uses: azure/actions/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Create Web App
       shell: powershell
       run: |
         ./create-azure-web-app $env:DEV_RES_GROUP
         ./create-azure-web-app $env:TEST_RES_GROUP
         ./create-azure-web-app $env:PROD_RES_GROUP
+
     - name: Execute puppet
       shell: powershell
       run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
+
     - name: Create API key
       shell: powershell
       run: ./scripts/windows/create-apikey.ps1
+
     - name: Create API key for tests
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
+
     - name: Create Jenkins Project and Octopus
       shell: powershell
       run: ./scripts/windows/jenkins-create-project.ps1
+
     - name: Create the Octopus Environments
       shell: powershell
       run: ./scripts/windows/create-environments.ps1
+
     - name: Create the Octopus Azure Account
       shell: powershell
       run: ./scripts/windows/create-azureaccount.ps1
+
     - name: Create Dev Azure target
       shell: powershell
       run: ./scripts/windows/create-devazuretarget.ps1
+
     - name: Create Test Azure target
       shell: powershell
       run: ./scripts/windows/create-testazuretarget.ps1
+
     - name: Create Prod Azure target
       shell: powershell
       run: ./scripts/windows/create-prodazuretarget.ps1
+
     - name: Create Octopus Project
       shell: powershell
       run: ./scripts/windows/create-octopusaspnetproject.ps1
+
     - name: Open Random Quotes
       shell: powershell
       run: ./scripts/windows/open-devazurewebapp.ps1
+
     - name: Add a deployment step
       shell: powershell
       run: ./scripts/windows/jenkins-create-deployment.ps1
+
     - name: Add a lifecycle
       shell: powershell
       run: ./scripts/windows/create-lifecycle.ps1
+
     - name: Open Random Quotes
       shell: powershell
       run: ./scripts/windows/open-testazurewebapp.ps1
+
     - name: Add manual intervention
       shell: powershell
       run: ./scripts/windows/add-manualintervention.ps1
+
     - name: Add email notification
       shell: powershell
       run: ./scripts/windows/add-notification.ps1
+
     - name: Add users and team
       shell: powershell
       run: ./scripts/windows/create-usersandteams.ps1
+
     - name: View internal deployer dashboard
       shell: powershell
       run: ./scripts/windows/view-internaldeployerdashboard.ps1
+
     - name: View production deployer dashboard
       shell: powershell
       run: ./scripts/windows/view-productiondeployerdashboard.ps1
+
     - name: View audit logs
       shell: powershell
       run: ./scripts/windows/view-auditlogs.ps1
+
     - name: Process video
       shell: powershell
       run: ./scripts/windows/process-video.ps1
+
     - name: Upload video
       shell: powershell
       run: ./scripts/windows/upload-video.ps1
+
     - name: Replace Wistia Video
       shell: powershell
       run: ./scripts/windows/replace-wistia-video.ps1

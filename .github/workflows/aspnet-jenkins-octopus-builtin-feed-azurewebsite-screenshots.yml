@@ -35,21 +35,26 @@ jobs:
       SCREENSHOT_PATH: aspnet-app\azurewebapp\builtin\git\
     steps:
       - uses: actions/checkout@v1
+        -
       - name: Disable Windows Defender
         shell: powershell
         run: reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection' /v DisableRealtimeMonitoring /t REG_DWORD /d 1
+
       - uses: azure/actions/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
       - name: Create Web App
         shell: powershell
         run: |
           ./create-azure-web-app $env:DEV_RES_GROUP
           ./create-azure-web-app $env:TEST_RES_GROUP
           ./create-azure-web-app $env:PROD_RES_GROUP
+
       - name: Execute puppet
         shell: powershell
         run: ./install.ps1 -Scripts jenkinsinstall.pp,utilities.pp,dotnetutilities.pp,octopus.pp,jenkins.pp,sleep.pp,jenkinswait.pp
+
       - name: Create API key
         shell: powershell
         run: ./scripts/windows/create-apikey.ps1
@@ -57,6 +62,7 @@ jobs:
       - name: Create API key for tests
         shell: powershell
         run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
+
       - name: Create Jenkins Project
         shell: powershell
         run: ./scripts/windows/jenkins-create-project.ps1
