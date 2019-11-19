@@ -1,6 +1,6 @@
 name: ASP.NET Core TeamCity Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 0 10 * *'
 jobs:
@@ -59,6 +59,8 @@ jobs:
         run: ./scripts/linux/open-devwebapp.sh
       - name: Create release
         run: ./scripts/linux/create-teamcitycreaterelease.sh
+      - name: Create Lifecycle
+        run: ./scripts/linux/create-lifecycle.sh
       - name: Open App in Test
         run: ./scripts/linux/open-testwebapp.sh
       - name: Upload screenshots
