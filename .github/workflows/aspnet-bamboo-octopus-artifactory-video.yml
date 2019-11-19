@@ -11,6 +11,8 @@ jobs:
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
+      WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       MEDIA_PATH: C:\screenshots
       # This string is used as a JavaScript literal, so escape the slashes
       NUGET_PATH: 'RandomQuotes\\obj\\octopacked\\'

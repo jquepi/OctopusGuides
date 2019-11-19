@@ -1,6 +1,6 @@
 name: ASP.NET Azure DevOps Artifactory Feed Azure Website TFVC Video
 on:
-  push:
+#  push:
   schedule:
     - cron:  '0 14 1 * *'
 jobs:
@@ -11,6 +11,8 @@ jobs:
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
+      WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       EXTERNAL_APPLICATION_PASSWORD: ${{ secrets.ExternalApplicationPassword }}
       EXTERNAL_APPLICATION_TENANT_ID: ${{ secrets.ExternalApplicationTenantID }}
       EXTERNAL_AZURE_TENANT_ID: ${{ secrets.ExternalAzureTenantID }}
