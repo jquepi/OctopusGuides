@@ -45,7 +45,7 @@ jobs:
       shell: powershell
       run: '& "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply puppet\windows\octopus-api-key.pp --disable_warnings=deprecations'
 
-    - name: Create Jenkins Project and Octopus
+    - name: Create Jenkins Project
       shell: powershell
       run: ./scripts/windows/jenkins-create-project.ps1
 
