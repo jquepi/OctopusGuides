@@ -69,9 +69,9 @@ Feature: Configure an Octopus Kubernetes project
     And I force click the "Project Variables" link
     And I remove the highlight from the "Variables text" link
 
-  @define-variables
+  @define-variables @destinationspecific @k8s
   Scenario: Define project EnvironmentName Variable
-  Define the contents of the appsettins JSON file
+  Define the contents of the appsettings JSON file
     Given I set the following aliases:
       | New variable name       | //input[contains(@id,'Enternewvariable')] |
       | New variable value      | //input[contains(@id,'Entervalue')]       |
@@ -107,7 +107,7 @@ if (elements.length !== 0) {
     And I click the "Add to list" button
     And I force click the "Project Variables Title" element
 
-  @define-project
+  @define-project @destinationspecific @k8s
   Scenario: Define node ports
     Given I set the following aliases:
       | Define scope            | //div[@title='Define scope']                    |
@@ -197,7 +197,7 @@ if (elements.length !== 0) {
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}045-octopus-k8s-add-containers.png"
     And I click the "Add" button
 
-  @define-project @destinationspecific @azure-web-app
+  @define-project @destinationspecific @k8s
   Scenario: K8S Define step
     Given I set the following aliases:
       | Step Name                  | //input[contains(@id, 'Stepname')]                                                              |

@@ -1,6 +1,6 @@
 name: ASP.NET Jenkins Octopus Built-in Feed Video
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 21 3 * *'
 jobs:
