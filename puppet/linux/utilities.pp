@@ -8,11 +8,18 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
 package { 'fluxbox':
   ensure => installed,
 }
+-> package { 'xcompmgr':
+  ensure => installed,
+}
 -> package { 'xvfb':
   ensure => installed,
 }
 -> exec { 'Run xvfb':
   command   => '/usr/bin/Xvfb :99 -screen 0 1024x768x24 &',
+  logoutput => true
+}
+-> exec { 'Run composite manager':
+  command   => '/usr/bin/xcompmgr -d :99 &',
   logoutput => true
 }
 -> exec { 'Run fluxbox':
