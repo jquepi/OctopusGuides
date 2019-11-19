@@ -104,7 +104,7 @@ Feature: Create and deploy a release
       | Build log                | //a[contains(.,'Build Log')]                               |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I highlight outside the "Build Configuration Home" link with an offset of "5"
+    And I highlight outside the "Build Configuration Home" link with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/createrelease/#{GuideSpecificScreenshotDir}080-build-config-home.png"
     And I click the "Build Configuration Home" link
 

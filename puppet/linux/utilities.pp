@@ -5,6 +5,10 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
   ensure => installed,
 }
 
+package { 'fluxbox':
+  ensure => installed,
+}
+
 package { 'xvfb':
   ensure => installed,
 }

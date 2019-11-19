@@ -102,6 +102,7 @@ if (elements.length !== 0) {
   cm.props.onChange("{\r\n  \"Logging\": {\r\n    \"IncludeScopes\": false,\r\n    \"LogLevel\": {\r\n      \"Default\": \"Warning\"\r\n    }\r\n  },\r\n  \"AppSettings\": {\r\n    \"AppVersion\": \"0.0.0\",\r\n    \"EnvironmentName\": \"#{Octopus.Environment.Name}\"\r\n  }\r\n}\r\n");
 }
     """
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}023-octopus-variables-appsettings.png"
     And I sleep for "1" second
     And I click the "Done" button
     And I click the "Add to list" button
@@ -219,7 +220,7 @@ if (elements.length !== 0) {
       | Volume name                | (//input[contains(@id,'Name')])[3]                                                              |
       | Mount path                 | (//input[contains(@id,'Mountpath')])[1]                                                         |
       | Sub path                   | (//input[contains(@id,'Subpath')])[1]                                                           |
-      | appsettings volume         | //span[./div/div/div[text()='appsettings-volume']]                                                     |
+      | appsettings volume         | //span[./div/div/div[text()='appsettings-volume']]                                              |
       | OK                         | (//button[@title='Ok'])[1]                                                                      |
       | Save                       | //button[@title='Save']                                                                         |
       | Service name               | //input[contains(@id,'Servicename')]                                                            |
@@ -232,6 +233,7 @@ if (elements.length !== 0) {
       | Add Config Map Item        | (//button[contains(.,'Add Config map item')])[1]                                                |
       | Key                        | //input[../label[text()='Key']]                                                                 |
       | Value                      | //textarea[contains(@id,'Value')]                                                               |
+      | Value container            | //div[./textarea[contains(@id,'Value')]]                                                        |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -315,7 +317,7 @@ if (elements.length !== 0) {
 
     And I highlight outside the "Package Id" text box
     And I scroll the "Package Id" text box into view offset by "-300"
-    And I populate the "Package Id" text box with "octopusdeploy/randomquotes"
+    And I populate the "Package Id" text box with a keystroke delay of "0" with "octopusdeploy/randomquotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-k8s.png"
     And I sleep for "1" second
 
@@ -354,7 +356,7 @@ if (elements.length !== 0) {
     And I highlight outside the "Key" text box with an offset of "2"
     And I highlight outside the "Value" text box with an offset of "2"
     And I populate the "Key" text box with "appsettings.json"
-    And I populate the "Value" text box with "#{appsettings}"
+    And I populate the "Value container" text box with "#{appsettings}"
 
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-k8s.png"
