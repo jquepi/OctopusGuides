@@ -65,7 +65,7 @@ Feature: Configure an Octopus Kubernetes project
     And I click the "Variables" link
     And I highlight inside the "Project Variables" link
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}020-octopus-variables.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}020-octopus-variables.png"
     And I force click the "Project Variables" link
     And I remove the highlight from the "Variables text" link
 
@@ -148,7 +148,7 @@ if (elements.length !== 0) {
     And I scroll down "10000" px
     And I sleep for "7" second
     And I zoom the browser out
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}025-octopus-variables-populated.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}025-octopus-variables-populated.png"
     And I zoom the browser in
 
   @define-project
