@@ -7,7 +7,7 @@ Feature: Configure Bamboo
       | Password   | //input[@id='loginForm_os_password'] |
       | Log in Two | // input[@id='loginForm_save']       |
 
-    And I open the shared browser "FirefoxNoImplicitWait"
+    And I open the shared browser "ExternalBrowserType"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:6990/bamboo"
     And I click the "Log in" button

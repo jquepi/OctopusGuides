@@ -4,7 +4,7 @@ Feature: Open Random Quotes
     Given I set the following aliases:
       | Refresh | //input[@type='submit'] |
 
-    And I open the shared browser "ChromeNoImplicitWait"
+    And I open the shared browser "ExternalBrowserType"
     And I maximize the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "ExternalUrl"

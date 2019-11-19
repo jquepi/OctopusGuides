@@ -15,6 +15,7 @@
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())" `
+    "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `

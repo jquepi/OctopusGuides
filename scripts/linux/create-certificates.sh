@@ -16,6 +16,7 @@
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
+  "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \

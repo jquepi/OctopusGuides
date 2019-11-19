@@ -2,7 +2,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   @login
   Scenario: Log into Azure DevOps
-    And I open the shared browser "FirefoxNoImplicitWait"
+    And I open the shared browser "ExternalBrowserType"
     And I set the default explicit wait time to "30" seconds
     And I maximize the window
     #And I set the window size to "1024" x "768"

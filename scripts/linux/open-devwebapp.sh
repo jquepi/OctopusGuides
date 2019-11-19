@@ -25,6 +25,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
   "-DCucumberAlias-ExternalUrl=http://$MINIKUBE_IP:30000" \
   "-DCucumberAlias-Screenshot=k8s-random-quotes-dev-app.png" \
+  "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \

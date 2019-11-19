@@ -7,7 +7,7 @@
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
-  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
+  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
   "-DslackHookUrl=$SLACK_HOOK_URL" \
@@ -16,6 +16,7 @@
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalApiKeyFile=/tmp/api_key.txt" \
+  "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \

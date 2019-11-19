@@ -15,6 +15,7 @@
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
+    "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `

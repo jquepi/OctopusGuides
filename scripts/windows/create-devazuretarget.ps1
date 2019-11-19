@@ -18,6 +18,7 @@
     "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" `
     "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:DEV_RES_GROUP)')]]" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
+    "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `
