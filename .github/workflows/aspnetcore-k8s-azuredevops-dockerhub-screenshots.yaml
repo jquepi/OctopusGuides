@@ -1,6 +1,6 @@
 name: ASP.NET Core TeamCity Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 0 10 * *'
 jobs:
@@ -55,9 +55,11 @@ jobs:
         run: ./scripts/linux/create-dockerfeed.sh
       - name: Create project
         run: ./scripts/linux/create-k8sproject.sh
-      - name: Open App
+      - name: Open App in Dev
         run: ./scripts/linux/open-devwebapp.sh
       - name: Create release
         run: ./scripts/linux/create-teamcitycreaterelease.sh
+      - name: Open App in Test
+        run: ./scripts/linux/open-testwebapp.sh
       - name: Upload screenshots
         run: ./scripts/linux/upload-screenshots.sh
