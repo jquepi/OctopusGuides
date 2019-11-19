@@ -19,4 +19,4 @@
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `
     --monochrome `
-    features\jenkins\teamcity-setup.feature
+    features\teamcity\teamcity-setup.feature
