@@ -31,7 +31,7 @@ Feature: Create and deploy a release
       | Octopus Environments          | //input[@id='octopus_deployto']                        |
       | Save                          | (//input[@value='Save'])[1]                            |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Deploying an Octopus release from TeamCity" for "3" seconds
 
     And I highlight outside the "Build" link
@@ -103,7 +103,7 @@ Feature: Create and deploy a release
       | Build Two                | //a[contains(.,'#2')]                                      |
       | Build log                | //a[contains(.,'Build Log')]                               |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I highlight outside the "Build Configuration Home" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/createrelease/#{GuideSpecificScreenshotDir}080-build-config-home.png"
     And I click the "Build Configuration Home" link

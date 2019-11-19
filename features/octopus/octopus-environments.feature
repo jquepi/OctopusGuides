@@ -22,21 +22,21 @@ Feature: Configure the Octopus environments
       | New environment name | //input[contains(@id, 'Newenvironmentname')] |
       | Save                 | //button[contains(.,'Save')]                 |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the Octopus environments" for "3" seconds
 
     And I highlight outside the "Infrastructure" link with an offset of "5"
-    And I save a screenshot to "C:\screenshots\octopus\environments\005-infrastructure.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\005-infrastructure.png"
     And I click the "Infrastructure" link
 
     And I highlight outside the "Environments text" link with an offset of "2"
-    And I save a screenshot to "C:\screenshots\octopus\environments\010-environments-1.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\010-environments-1.png"
     And I click the "Environments" link
 
     And I highlight outside the "Add Environment" button
     And I highlight outside the "Environments text" link with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\environments\015-add-environment-1.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\015-add-environment-1.png"
     And I click the "Add Environment" button
     And I remove the highlight from the "Environments text" link
     And I remove the highlight from the "Add Environment" button
@@ -46,15 +46,15 @@ Feature: Configure the Octopus environments
     And I highlight outside the "New environment name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\environments\020-environment-dev.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\020-environment-dev.png"
     And I click the "Save" button
     And I sleep for "1" second
 
     And I highlight outside the "Environments text" link with an offset of "2"
-    And I save a screenshot to "C:\screenshots\octopus\environments\025-environments-2.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\025-environments-2.png"
     And I click the "Environments" link
     And I highlight outside the "Add Environment" button
-    And I save a screenshot to "C:\screenshots\octopus\environments\030-add-environment-2.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\030-add-environment-2.png"
     And I click the "Add Environment" button
     And I remove the highlight from the "Add Environment" button
 
@@ -62,15 +62,15 @@ Feature: Configure the Octopus environments
     And I highlight outside the "New environment name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\environments\035-environment-test.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\035-environment-test.png"
     And I click the "Save" button
     And I sleep for "1" second
 
     And I highlight outside the "Environments text" link with an offset of "2"
-    And I save a screenshot to "C:\screenshots\octopus\environments\040-environments-3.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\040-environments-3.png"
     And I click the "Environments" link
     And I highlight outside the "Add Environment" button
-    And I save a screenshot to "C:\screenshots\octopus\environments\045-add-environment-3.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\045-add-environment-3.png"
     And I click the "Add Environment" button
     And I remove the highlight from the "Add Environment" button
 
@@ -78,7 +78,7 @@ Feature: Configure the Octopus environments
     And I highlight outside the "New environment name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\environments\050-environment-prod.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\environments\050-environment-prod.png"
     And I click the "Save" button
     And I sleep for "1" second
 

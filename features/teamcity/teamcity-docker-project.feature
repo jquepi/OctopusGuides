@@ -182,7 +182,7 @@ Feature: Create Docker project
       | Build One                | //a[contains(.,'#1')]                                      |
       | Build log                | //a[contains(.,'Build Log')]                               |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Run" button
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}160-run.png"
@@ -199,7 +199,7 @@ Feature: Create Docker project
     And I stop recording the screen
 
     And I sleep for "150" seconds
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I sleep for "5" seconds
 
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}180-build-one-results.png"

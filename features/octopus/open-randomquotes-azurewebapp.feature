@@ -10,9 +10,9 @@ Feature: Open Random Quotes
     And I open the URL "ExternalUrl"
     And I verify the "Refresh" button is present waiting up to "300" seconds if it exists
     And I refresh the page
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Running the Random Quotes sample application" for "3" seconds
-    And I save a screenshot to "C:\screenshots\app\#{GuideSpecificScreenshotDir}#{Screenshot}"
+    And I save a screenshot to "#{ExternalMediaPath}\app\#{GuideSpecificScreenshotDir}#{Screenshot}"
     And I click the "Refresh" button
     And I sleep for "2" seconds
 

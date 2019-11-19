@@ -23,12 +23,12 @@ Feature: Configure an Octopus ASP.NET project
 
   @create-project @destinationspecific @iis
   Scenario: IIS - Display annotation
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the IIS deployment project in Octopus" for "3" seconds
 
   @create-project @destinationspecific @azure-web-app
   Scenario: Azure Web App - Display annotation
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the Azure Web App deployment project in Octopus" for "3" seconds
 
   @create-project
@@ -40,13 +40,13 @@ Feature: Configure an Octopus ASP.NET project
       | Save             | (//div[contains(.,'Save')])[9]           |
 
     And I highlight outside the "Projects" link with an offset of "5"
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}005-octopus-projects.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}005-octopus-projects.png"
     And I click the "Projects" link
     And I sleep for "1" second
 
     And I highlight outside the "Add project" link with an offset of "1"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}010-octopus-add-project.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}010-octopus-add-project.png"
     And I click the "Add project" button
     And I remove the highlight from the "Add project" link
     And I remove the highlight from the "Projects" link
@@ -54,7 +54,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "New project name" text box with an offset of "2"
     And I highlight outside the "Save" button with an offset of "2"
     And I populate the "New project name" text box with "Random Quotes"
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}015-octopus-new-project-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}015-octopus-new-project-name.png"
     And I click the "Save" button
     And I sleep for "2" seconds
 
@@ -72,7 +72,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Variables" link
     And I highlight inside the "Project Variables" link
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}020-octopus-variables.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}020-octopus-variables.png"
     And I force click the "Project Variables" link
     And I remove the highlight from the "Variables text" link
 
@@ -148,7 +148,7 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll down "10000" px
     And I sleep for "7" second
     And I zoom the browser out
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}025-octopus-variables-populated.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}025-octopus-variables-populated.png"
     And I zoom the browser in
 
   @define-project @destinationspecific @azure-web-app
@@ -159,7 +159,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Save" button
     And I scroll down "10000" px
     And I sleep for "7" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}025-octopus-variables-azure-populated.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}025-octopus-variables-azure-populated.png"
 
   @define-project
   Scenario: Open the deployments view
@@ -184,27 +184,27 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}030-octopus-define-process.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}030-octopus-define-process.png"
 
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}035-octopus-azure-add-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}035-octopus-azure-add-step.png"
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
     And I populate the "Search" text box with "Azure Web App"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}040-octopus-azure-search-webapp.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}040-octopus-azure-search-webapp.png"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
     And I scroll the "Deploy an Azure Web App" tile into view offset by "-200"
     And I highlight outside the "Deploy an Azure Web App" tile
     And I mouse over the "Deploy an Azure Web App" tile
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}045-octopus-azure-add-azure-webapp.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}045-octopus-azure-add-azure-webapp.png"
     And I click the "Add" button
 
   @define-project @destinationspecific @iis
@@ -218,26 +218,26 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}030-octopus-define-process.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}030-octopus-define-process.png"
 
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}035-octopus-add-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}035-octopus-add-step.png"
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
     And I populate the "Search" text box with "iis"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}040-octopus-search-iis.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}040-octopus-search-iis.png"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
     And I scroll the "Deploy to IIS" tile into view offset by "-200"
     And I highlight outside the "Deploy to IIS" tile
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}045-octopus-add-iis.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}045-octopus-add-iis.png"
     And I mouse over the "Deploy to IIS" tile
     And I click the "Add" button
 
@@ -252,7 +252,7 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}046-octopus-azure-enable-conf-features.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}046-octopus-azure-enable-conf-features.png"
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
@@ -260,7 +260,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "OK" button with an offset of "2"
     And I force click the "Configuration Variables" option
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}047-octopus-azure-enable-conf-vars.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}047-octopus-azure-enable-conf-vars.png"
     And I click the "OK" button
 
   @define-project @applicationspecific @aspnetcore
@@ -275,7 +275,7 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}046-octopus-enable-conf-features.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}046-octopus-enable-conf-features.png"
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
@@ -283,7 +283,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "OK" button with an offset of "2"
     And I force click the "Configuration Variables" option
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}047-octopus-enable-conf-vars.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}047-octopus-enable-conf-vars.png"
     And I click the "OK" button
 
   @define-project @destinationspecific @azure-web-app
@@ -297,7 +297,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy web app to Azure"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}050-octopus-azure-step-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}050-octopus-azure-step-name.png"
     And I remove the highlight from the "Step Name" text box
 
     And I scroll the "On behalf of" text box into view offset by "-300"
@@ -305,7 +305,7 @@ Feature: Configure an Octopus ASP.NET project
     And I populate the "On behalf of" text box with "azurewebapp"
     And I sleep for "1" second
     And I highlight outside the "On behalf of" text box
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}055-octopus-azure-step-role.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}055-octopus-azure-step-role.png"
     And I click the "Azure role" option
     And I remove the highlight from the "On behalf of" text box
 
@@ -321,7 +321,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy web app to IIS"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}050-octopus-step-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}050-octopus-step-name.png"
     And I remove the highlight from the "Step Name" text box
 
     And I scroll the "Runs on targets in roles" text box into view offset by "-300"
@@ -329,7 +329,7 @@ Feature: Configure an Octopus ASP.NET project
     And I populate the "Runs on targets in roles" text box with "web"
     And I sleep for "1" second
     And I highlight outside the "Runs on targets in roles" text box
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}055-octopus-step-role.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}055-octopus-step-role.png"
     And I click the "Web role" option
     And I remove the highlight from the "Runs on targets in roles" text box
 
@@ -346,7 +346,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
     And I force click the "Artifactory" option
     And I highlight outside the "Package feed" drop down list
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}056-octopus-step-feed.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}056-octopus-step-feed.png"
     And I remove the highlight from the "Package feed" text box
 
     And I scroll the "Package ID" text box into view offset by "-300"
@@ -354,7 +354,7 @@ Feature: Configure an Octopus ASP.NET project
     And I populate the "Package ID" text box with "RandomQuotes"
     And I sleep for "2" second
     And I press the escape key from the "Package ID" text box
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}060-octopus-step-package-artifactory.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}060-octopus-step-package-artifactory.png"
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @iis @repositoryspecific @octo-built-in-feed
@@ -368,7 +368,7 @@ Feature: Configure an Octopus ASP.NET project
     And I populate the "Package ID" text box with "RandomQuotes"
     And I sleep for "2" second
     And I press the escape key from the "Package ID" text box
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}060-octopus-step-package.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}060-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @azure-web-app @repositoryspecific @artifactory
@@ -384,7 +384,7 @@ Feature: Configure an Octopus ASP.NET project
     And I sleep for "1" second
     And I force click the "Artifactory" option
     And I highlight outside the "Package feed" drop down list
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}056-octopus-step-feed-azure.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}056-octopus-step-feed-azure.png"
     And I remove the highlight from the "Package feed" text box
 
     And I scroll the "Package ID" text box into view offset by "-300"
@@ -392,7 +392,7 @@ Feature: Configure an Octopus ASP.NET project
     And I populate the "Package ID" text box with "RandomQuotes"
     And I sleep for "2" second
     And I press the escape key from the "Package ID" text box
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}060-octopus-step-package-artifactory-azure.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}060-octopus-step-package-artifactory-azure.png"
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @azure-web-app @repositoryspecific @octo-built-in-feed
@@ -406,7 +406,7 @@ Feature: Configure an Octopus ASP.NET project
     And I populate the "Package ID" text box with "RandomQuotes"
     And I sleep for "2" second
     And I press the escape key from the "Package ID" text box
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}060-octopus-step-package-azure.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}060-octopus-step-package-azure.png"
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @azure-web-app
@@ -416,7 +416,7 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight outside the "Save" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}061-octopus-step-package-artifactory-azure-save.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}061-octopus-step-package-artifactory-azure-save.png"
 
   @define-project @destinationspecific @iis
   Scenario: IIS - Continue to define project
@@ -455,25 +455,25 @@ Feature: Configure an Octopus ASP.NET project
     And I press the escape key from the "Web site name" text box
     And I populate the "Web site name" text box with "RandomQuotes"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}065-octopus-step-website-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}065-octopus-step-website-name.png"
     And I remove the highlight from the "Web site name" text box
 
     And I scroll the "Application Pool name" text box into view offset by "-300"
     And I highlight outside the "Application Pool name" text box
     And I populate the "Application Pool name" text box with "RandomQuotes"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}070-octopus-step-apppool-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}070-octopus-step-apppool-name.png"
     And I remove the highlight from the "Application Pool name" text box
 
     And I scroll the "Remove binding" button into view offset by "-300"
     And I highlight outside the "Remove binding" button
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}075-octopus-step-remove-binding.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}075-octopus-step-remove-binding.png"
     And I click the "Remove binding" button
     And I sleep for "1" second
 
     And I highlight outside the "Add binding" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}080-octopus-step-add-binding.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}080-octopus-step-add-binding.png"
     And I force click the "Add binding" button
     And I remove the highlight from the "Add binding" button
 
@@ -482,7 +482,7 @@ Feature: Configure an Octopus ASP.NET project
     And I clear the "Port" text box
     And I populate the "Port" text box with "#{IIS Port}"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}085-octopus-step-binding-port.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}085-octopus-step-binding-port.png"
     And I click the "OK" button
 
     And I scroll the "Enable Anonymous authentication" check box into view offset by "-300"
@@ -492,7 +492,7 @@ Feature: Configure an Octopus ASP.NET project
     And I force click the "Enable Anonymous authentication" check box
     And I force click the "Enable Windows authentication" check box
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}090-octopus-step-auth.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}090-octopus-step-auth.png"
     And I remove the highlight from the "Enable Anonymous authentication container" element
     And I remove the highlight from the "Enable Windows authentication container" element
 
@@ -507,7 +507,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Target files container" element
     And I populate the "Target files" text box with "appsettings.json"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}092-octopus-target-files.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}092-octopus-target-files.png"
     And I remove the highlight from the "Target files container" element
 
   @define-project
@@ -531,32 +531,32 @@ Feature: Configure an Octopus ASP.NET project
 
     And I highlight inside the "Create Release" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}095-octopus-create-release.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}095-octopus-create-release.png"
     And I click the "Create Release" button
 
     And I highlight outside the "Save" button
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}100-octopus-save-release.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}100-octopus-save-release.png"
     And I remove the highlight from the "Create Release" button
     And I click the "Save" button
     And I sleep for "1" second
 
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}deploy.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}deploy.png"
     And I highlight outside the "Deploy To Dev" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}105-octopus-deploy-to-dev.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}105-octopus-deploy-to-dev.png"
     And I click the "Deploy To Dev" button
 
     And I highlight outside the "Deploy" button
     And I sleep for "3" second
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}110-octopus-deploy.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}110-octopus-deploy.png"
     And I click the "Deploy" button
 
     And I stop recording the screen
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I sleep for "23" seconds
 
-    And I save a screenshot to "C:\screenshots\octopus\project\#{GuideSpecificScreenshotDir}115-octopus-deployment.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\project\#{GuideSpecificScreenshotDir}115-octopus-deployment.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

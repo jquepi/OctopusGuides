@@ -23,7 +23,7 @@ Feature: Create Octopus Users and Teams
       | Configuration | //span[contains(.,'Configuration')] |
       | Audit         | //span[contains(.,'Audit')]         |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "View the audit log" for "3" seconds
     And I sleep for "1" second
 
@@ -31,18 +31,18 @@ Feature: Create Octopus Users and Teams
     And I click the "More" link
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\audit\005-octopus-configuration.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\audit\005-octopus-configuration.png"
     And I click the "Configuration" link
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
     And I highlight inside the "Audit" link
     And I sleep for "1" second
-    And I save a screenshot to "C:\screenshots\octopus\audit\010-octopus-audit.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\audit\010-octopus-audit.png"
     And I click the "Audit" link
 
     And I sleep for "3" second
-    And I save a screenshot to "C:\screenshots\octopus\audit\015-octopus-audit-logs.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\audit\015-octopus-audit-logs.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 

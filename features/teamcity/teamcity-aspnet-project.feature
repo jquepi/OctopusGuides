@@ -40,17 +40,17 @@ Feature: Create ASP.NET project
       | Output path           | //input[@id='octopus_packageoutputpath']               |
       | Got it                | //button[contains(.,'Got it')]                         |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
 
     And I highlight outside the "Create project" button with an offset of "5"
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}010-create-project.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}010-create-project.png"
     And I click the "Create project" button
 
     And I highlight outside the "Repository URL" text box
     And I highlight outside the "Proceed" button
     And I populate the "Repository URL" text box with the text "GitUrl"
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}020-repo-url.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}020-repo-url.png"
     And I click the "Proceed" button
 
     And I highlight outside the "Project name" text box
@@ -58,11 +58,11 @@ Feature: Create ASP.NET project
     And I mouse over the "Project name" text box
     And I clear the "Project name" text box
     And I populate the "Project name" text box with "Random Quotes"
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}030-project-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}030-project-name.png"
     And I click the "Proceed Two" button
 
     And I highlight outside the "Configure manually" link
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}040-configure-manually.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}040-configure-manually.png"
     And I click the "Configure manually" link
 
     And I click the "Runner type" drop down list
@@ -78,17 +78,17 @@ Feature: Create ASP.NET project
     And I click the "Command" drop down list
     And I scroll the "Test option" element into view offset by "-200"
     And I click the "Test option" element
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}045-dotnet-test.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}045-dotnet-test.png"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}050-dotnet-test.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}050-dotnet-test.png"
     And I click the "Save" button
 
     And I click the "Got it" button waiting up to "5" seconds if it exists
 
     And I highlight outside the "Add build step" button
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}060-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}060-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
@@ -106,7 +106,7 @@ Feature: Create ASP.NET project
     And I scroll the "Publish option" element into view offset by "-200"
     And I click the "Publish option" element
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}063-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}063-add-build-step.png"
 
     And I scroll the "Show advanced options" link into view offset by "-200" if it exists
     And I click the "Show advanced options" link if it exists
@@ -115,15 +115,15 @@ Feature: Create ASP.NET project
     And I scroll the "Configuration" text box into view offset by "-200"
     And I populate the "Configuration" text box with "Release"
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}065-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}065-add-build-step.png"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}070-dotnet-publish.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}070-dotnet-publish.png"
     And I click the "Save" button
 
     And I highlight outside the "Add build step" button
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}080-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}080-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
@@ -148,7 +148,7 @@ Feature: Create ASP.NET project
     And I highlight outside the "Output path" text box
     And I populate the "Output path" text box with "."
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}085-octo-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}085-octo-pack.png"
 
     And I remove the highlight from the "Runner type container" drop down list
     And I remove the highlight from the "Step name" text box
@@ -159,7 +159,7 @@ Feature: Create ASP.NET project
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}090-octo-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}090-octo-pack.png"
     And I click the "Save" button
 
     And I stop recording the screen
@@ -196,17 +196,17 @@ Feature: Create ASP.NET project
       | Show advanced options        | //a[text()='Show advanced options']                    |
       | Command line parameters      | //textarea[@id='runnerArgs']                           |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
 
     And I highlight outside the "Create project" button with an offset of "5"
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}010-create-project.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}010-create-project.png"
     And I click the "Create project" button
 
     And I highlight outside the "Repository URL" text box
     And I highlight outside the "Proceed" button
     And I populate the "Repository URL" text box with the text "GitUrl"
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}020-repo-url.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}020-repo-url.png"
     And I click the "Proceed" button
 
     And I highlight outside the "Project name" text box
@@ -214,11 +214,11 @@ Feature: Create ASP.NET project
     And I mouse over the "Project name" text box
     And I clear the "Project name" text box
     And I populate the "Project name" text box with "Random Quotes"
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}030-project-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}030-project-name.png"
     And I click the "Proceed Two" button
 
     And I highlight outside the "Configure manually" link
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}040-configure-manually.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}040-configure-manually.png"
     And I click the "Configure manually" link
 
     And I click the "Runner type" drop down list
@@ -244,13 +244,13 @@ Feature: Create ASP.NET project
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}050-nuget-installer.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}050-nuget-installer.png"
     And I click the "Save" button
 
     And I click the "Got it" button waiting up to "5" seconds if it exists
 
     And I highlight outside the "Add build step" button
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}060-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}060-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
@@ -272,7 +272,7 @@ Feature: Create ASP.NET project
     And I sleep for "1" second
     And I highlight outside the "Visual Studio" drop down list
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}070-build-options.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}070-build-options.png"
 
     And I highlight outside the "Run OctoPack" check box
     And I scroll the "Run OctoPack" check box into view offset by "-300"
@@ -291,12 +291,12 @@ Feature: Create ASP.NET project
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}080-octopack-options.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}080-octopack-options.png"
 
     And I click the "Save" button
 
     And I highlight outside the "Add build step" button
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}090-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}090-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
@@ -317,7 +317,7 @@ Feature: Create ASP.NET project
     And I scroll the "NUnit Console Path" text box list into view offset by "-300"
     And I populate the "NUnit Console Path" text box with "packages\NUnit.ConsoleRunner.3.10.0\tools\nunit3-console.exe"
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}100-nunit-settings.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}100-nunit-settings.png"
 
     And I remove the highlight from the "Runner type" drop down list
     And I remove the highlight from the "Step name" text box
@@ -331,7 +331,7 @@ Feature: Create ASP.NET project
     And I highlight outside the "Save" button into view
     And I scroll the "Save" button into view
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}110-nunit-files.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}110-nunit-files.png"
 
     And I click the "Save" button
 
@@ -354,16 +354,16 @@ Feature: Create ASP.NET project
       | Show advanced options    | //a[text()='Show advanced options']                        |
       | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Add build step" button
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}120-artifactory-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}120-artifactory-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
 
     And I scroll the "NuGet Publish" option into view
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}130-nuget-publish.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}130-nuget-publish.png"
     And I click the "NuGet Publish" option
     And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
@@ -372,7 +372,7 @@ Feature: Create ASP.NET project
     And I scroll the "Step name" text box into view offset by "-300"
     And I populate the "Step name" text box with "Push to Artifactory"
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}140-nuget-publish.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}140-nuget-publish.png"
 
     And I remove the highlight from the "Runner type container" drop down list
     And I remove the highlight from the "Step name" text box
@@ -385,7 +385,7 @@ Feature: Create ASP.NET project
     And I scroll the "NuGet.exe path" text box into view offset by "-300"
     And I populate the "NuGet.exe path" text box with "C:\ProgramData\chocolatey\bin\nuget.exe"
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}150-nuget-publish.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}150-nuget-publish.png"
 
     And I remove the highlight from the "NuGet.exe" drop down
     And I remove the highlight from the "NuGet.exe path" text box
@@ -394,7 +394,7 @@ Feature: Create ASP.NET project
     And I scroll the "Packages" text box into view offset by "-300"
     And I populate the "Packages" text box with "#{NuGetPath}RandomQuotes.1.0.%build.counter%.nupkg"
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-nuget-publish.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-nuget-publish.png"
 
     And I remove the highlight from the "Packages" text box
 
@@ -408,12 +408,12 @@ Feature: Create ASP.NET project
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}170-artifactory-save.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}170-artifactory-save.png"
 
     And I click the "Save" button
 
     And I highlight outside the "Build Configuration Home" link with an offset of "2"
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-build-config-home-artifactory.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-build-config-home-artifactory.png"
     And I click the "Build Configuration Home" link
 
     And I stop recording the screen
@@ -432,10 +432,10 @@ Feature: Create ASP.NET project
       | Step name                    | //input[@id='buildStepName']                               |
       | Build Configuration Home     | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Add build step" button
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}120-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}120-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
@@ -449,7 +449,7 @@ Feature: Create ASP.NET project
     And I scroll the "Step name" text box into view offset by "-300"
     And I populate the "Step name" text box with "Push to Octopus"
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}130-push-top-octo.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}130-push-top-octo.png"
 
     And I remove the highlight from the "Runner type container" drop down list
     And I remove the highlight from the "Step name" text box
@@ -462,7 +462,7 @@ Feature: Create ASP.NET project
     And I scroll the "Octopus API key" text box into view offset by "-300"
     And I populate the "Octopus API key" text box with "ExternalOctopusAPIKey"
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}140-push-top-octo.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}140-push-top-octo.png"
 
     And I remove the highlight from the "Octopus URL" text box
     And I remove the highlight from the "Octopus API key" text box
@@ -474,12 +474,12 @@ Feature: Create ASP.NET project
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
 
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}150-push-top-octo.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}150-push-top-octo.png"
 
     And I click the "Save" button
 
     And I highlight outside the "Build Configuration Home" link
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-build-config-home.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}160-build-config-home.png"
     And I click the "Build Configuration Home" link
 
     And I stop recording the screen
@@ -492,16 +492,16 @@ Feature: Create ASP.NET project
       | Build One                | //a[contains(.,'#1')]                                      |
       | Build log                | //a[contains(.,'Build Log')]                               |
 
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Run" button
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}170-run.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}170-run.png"
     And I click the "Run" button
     And I sleep for "10" seconds
     And I refresh the page
 
     And I highlight outside the "Build One" link
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}180-build-one.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}180-build-one.png"
     And I click the "Build One" link
     And I click the "Build log" link
     And I scroll down "10000" px
@@ -509,16 +509,16 @@ Feature: Create ASP.NET project
     And I stop recording the screen
 
     And I sleep for "150" seconds
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I sleep for "5" seconds
 
   @octo-built-in-feed
   Scenario: Get screenshot
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}190-build-one-results.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}190-build-one-results.png"
 
   @artifactory
   Scenario: Get screenshot
-    And I save a screenshot to "c:\screenshots\teamcity\initialproject\#{GuideSpecificScreenshotDir}190-build-one-artifactory-results.png"
+    And I save a screenshot to "#{ExternalMediaPath}\teamcity\initialproject\#{GuideSpecificScreenshotDir}190-build-one-artifactory-results.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

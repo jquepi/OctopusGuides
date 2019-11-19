@@ -55,15 +55,15 @@ Feature: Setup Artifactory
 
     And I open the URL "http://localhost:8040/artifactory/webapp/#/home"
     And I verify the "License Key" text box is not present waiting up to "60" seconds
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the NuGet repository in Artifactory" for "3" seconds
 
     And I highlight inside the "Admin" link
-    And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\010-nuget-repo.png"
+    And I save a screenshot to "#{ExternalMediaPath}\artifactory\nugetrepo\010-nuget-repo.png"
     And I click the "Admin" link
 
     And I highlight inside the "Local" link
-    And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\020-nuget-repo.png"
+    And I save a screenshot to "#{ExternalMediaPath}\artifactory\nugetrepo\020-nuget-repo.png"
     And I mouse over the "Local" link
     And I open the URL "http://localhost:8040/artifactory/webapp/#/admin/repositories/local"
 
@@ -72,18 +72,18 @@ Feature: Setup Artifactory
     And I verify the "Spinner" overlay is not present waiting up to "60" seconds
 
     And I highlight outside the "New" button
-    And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\030-nuget-repo.png"
+    And I save a screenshot to "#{ExternalMediaPath}\artifactory\nugetrepo\030-nuget-repo.png"
     And I click the "New" button
 
     And I highlight outside the "NuGet Icon" element
-    And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\040-nuget-repo.png"
+    And I save a screenshot to "#{ExternalMediaPath}\artifactory\nugetrepo\040-nuget-repo.png"
     And I click the "NuGet Icon" element
 
     And I highlight outside the "Repository Key" text box with an offset of "5"
     And I highlight outside the "Save & Finish" button
     And I populate the "Repository Key" text box with "NuGet"
     And I sleep for "5" seconds
-    And I save a screenshot to "c:\screenshots\artifactory\nugetrepo\050-nuget-repo.png"
+    And I save a screenshot to "#{ExternalMediaPath}\artifactory\nugetrepo\050-nuget-repo.png"
     And I click the "Save & Finish" button
 
   Scenario: Shutdown

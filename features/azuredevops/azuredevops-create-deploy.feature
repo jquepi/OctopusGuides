@@ -7,7 +7,7 @@ Feature: Create and deploy a release
     And I maximize the window
     #And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/DefaultCollection"
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
   @add-step
   Scenario: Add deploy step
@@ -20,17 +20,17 @@ Feature: Create and deploy a release
     And I display a note with the text "Deploying an Octopus release from Azure DevOps" for "3" seconds
 
     And I highlight outside the "Random Quotes" tile
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}010-project-tile.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}010-project-tile.png"
     And I click the "Random Quotes" tile
 
     And I click the "Pipelines" menu item
     And I highlight inside the "Pipelines" menu item
     And I highlight inside the "Build" link
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}020-build.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}020-build.png"
     And I click the "Build" menu item
 
     And I highlight inside the "Edit" button
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}030-edit.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}030-edit.png"
     And I click the "Edit" button
 
   @add-step @repositoryspecific @octo-built-in-feed
@@ -68,7 +68,7 @@ Feature: Create and deploy a release
     And I highlight outside the "Create release tile" element with an offset of "5"
 
     And I click the "Create release" button
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}040-create-release-job.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}040-create-release-job.png"
     And I sleep for "1" second
 
     And I scroll the "Create Octopus Release Row" job tile into view
@@ -87,7 +87,7 @@ Feature: Create and deploy a release
     And I sleep for "2" seconds
     And I stop recording the screen
     And I sleep for "20" seconds
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I highlight outside the "Octopus Deploy Server" drop down list with an offset of "2"
     And I sleep for "1" second
     And I click the "Octopus Deploy Server" drop down list
@@ -104,7 +104,7 @@ Feature: Create and deploy a release
 
     And I highlight outside the "New" button with an offset of "2"
     And I zoom the browser out
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}045-octopus-connection.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}045-octopus-connection.png"
     And I zoom the browser in
     And I click the "New" button
     And I remove the highlight from the "New" button
@@ -116,7 +116,7 @@ Feature: Create and deploy a release
     And I populate the "Connection name" text box with "Octopus"
     And I populate the "Server URL" text box with "http://localhost"
     And I populate the "API Key" text box with "ExternalOctopusAPIKey"
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}046-octopus-details.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}046-octopus-details.png"
     And I click the "OK" button
     And I sleep for "1" second
     And I remove the highlight from the "New" button
@@ -149,7 +149,7 @@ Feature: Create and deploy a release
     And I highlight outside the "Octopus Deploy Project Input" text box with an offset of "2"
     And I populate the "Octopus Deploy Project Input" text box with "Random Quotes"
 
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}050-populated.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}050-populated.png"
 
     And I remove the highlight from the "Octopus Deploy Project Input" text box
     And I remove the highlight from the "Octopus Deploy Space Input" text box
@@ -162,12 +162,12 @@ Feature: Create and deploy a release
     And I highlight inside the "Environment" text box
     And I populate the "Environment" text box with "Dev"
 
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}055-environment.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}055-environment.png"
 
     And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
     And I highlight inside the "Save and queue two" button
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}060-save-and-queue.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}060-save-and-queue.png"
     And I click the "Save and queue two" button
     And I remove the highlight from the "Save and queue" button
 
@@ -176,10 +176,10 @@ Feature: Create and deploy a release
     And I scroll the "Comment" text box into view offset by "-100"
     And I populate the "Comment" text box with "Build and deploy"
     And I zoom the browser out
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}070-initial-build.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}070-initial-build.png"
     And I zoom the browser in
     And I scroll the "Save and queue three" button into view
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}075-initial-build-save-and-continue.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}075-initial-build-save-and-continue.png"
     And I click the "Save and queue three" button
     And I sleep for "3" seconds
 
@@ -190,11 +190,11 @@ Feature: Create and deploy a release
     And I stop recording the screen
 
     And I sleep for "30" seconds
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I sleep for "20" seconds
 
     And I scroll the "Post job Checkout" item into view
-    And I save a screenshot to "c:\screenshots\azuredevops\createrelease\#{GuideSpecificScreenshotDir}080-build-results.png"
+    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\createrelease\#{GuideSpecificScreenshotDir}080-build-results.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

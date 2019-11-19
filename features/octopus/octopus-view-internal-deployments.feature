@@ -11,7 +11,7 @@ Feature: Open Random Quotes
     #And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
-    And I start recording the screen to the directory "C:\screenshots"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "View the dashboard as an internal deployer" for "3" seconds
     And I populate the "Username" text box with "internaldeployer"
     And I populate the "Password" text box with "Password01!"
@@ -26,7 +26,7 @@ Feature: Open Random Quotes
     And I click the "Close help" button
     And I scroll down "10000" px
     And I display a note with the text "There are no options to deploy to the Prod environment" for "3" seconds
-    And I save a screenshot to "C:\screenshots\octopus\permissions\180-octopus-internal-deployer-overview.png"
+    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\180-octopus-internal-deployer-overview.png"
     And I sleep for "3" seconds
 
   Scenario: Shutdown
