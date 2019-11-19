@@ -73,12 +73,12 @@ jobs:
         run: ./scripts/windows/create-prodazuretarget.ps1
 
       - name: Create Test Azure target
-          shell: powershell
-          run: ./scripts/windows/create-testazuretarget.ps1
+        shell: powershell
+        run: ./scripts/windows/create-testazuretarget.ps1
 
       - name: Create Dev Azure target
-          shell: powershell
-          run: ./scripts/windows/create-devazuretarget.ps1
+        shell: powershell
+        run: ./scripts/windows/create-devazuretarget.ps1
 
       - name: Create Octopus Project
         shell: powershell
