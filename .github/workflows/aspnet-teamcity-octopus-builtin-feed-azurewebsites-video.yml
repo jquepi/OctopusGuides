@@ -11,6 +11,10 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      EXTERNAL_APPLICATION_PASSWORD: ${{ secrets.ExternalApplicationPassword }}
+      EXTERNAL_APPLICATION_TENANT_ID: ${{ secrets.ExternalApplicationTenantID }}
+      EXTERNAL_AZURE_TENANT_ID: ${{ secrets.ExternalAzureTenantID }}
+      EXTERNAL_AZURE_SUBSCRIPTION_ID: ${{ secrets.ExternalAzureSubscriptionID }}
       DEV_RES_GROUP: teamcityaspnetbuiltinfeedviddev
       TEST_RES_GROUP: teamcityaspnetbuiltinfeedvidtest
       PROD_RES_GROUP: teamcityaspnetbuiltinfeedvidprod
