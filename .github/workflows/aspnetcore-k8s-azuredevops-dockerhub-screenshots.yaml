@@ -1,6 +1,6 @@
 name: ASP.NET Core TeamCity Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 0 10 * *'
 jobs:
@@ -37,31 +37,47 @@ jobs:
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Wait for Octopus
+        run: ./scripts/linux/wait-octopus.sh
+
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
+
       - name: Setup TeamCity
         run: ./scripts/linux/setup-teamcity.sh
+
       - name: Create Team City project
         run: ./scripts/linux/create-teamcityproject.sh
+
       - name: Create Worker
         run: sudo ./scripts/linux/create-worker.sh
+
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
+
       - name: Create certificates
         run: ./scripts/linux/create-certificates.sh
+
       - name: Create target
         run: ./scripts/linux/create-k8starget-screenshots.sh
+
       - name: Create docker feed
         run: ./scripts/linux/create-dockerfeed.sh
+
       - name: Create project
         run: ./scripts/linux/create-k8sproject.sh
+
       - name: Open App in Dev
         run: ./scripts/linux/open-devwebapp.sh
+
       - name: Create release
         run: ./scripts/linux/create-teamcitycreaterelease.sh
+
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh
+
       - name: Open App in Test
         run: ./scripts/linux/open-testwebapp.sh
+
       - name: Upload screenshots
         run: ./scripts/linux/upload-screenshots.sh
