@@ -16,6 +16,7 @@
     "-DCucumberAlias-ExternalWistiaUsername=$env:WISTIA_USERNAME" `
     "-DCucumberAlias-ExternalWistiaPassword=$env:WISTIA_PASSWORD" `
     "-DCucumberAlias-ExternalMediaID=$env:WISTIA_MEDIA_ID" `
+    "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `

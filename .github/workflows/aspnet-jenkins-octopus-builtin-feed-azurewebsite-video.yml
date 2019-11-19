@@ -20,6 +20,7 @@ jobs:
       DEV_RES_GROUP: jenkinsaspnetbuiltinfeedviddev
       TEST_RES_GROUP: jenkinsaspnetbuiltinfeedvidtest
       PROD_RES_GROUP: jenkinsaspnetbuiltinfeedvidprod
+      MEDIA_PATH: C:\screenshots
       CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID: xgn6egark8
       VIDEO_FILE_NAME: aspnet-jenkins-octopus-builtin-feed-azure.mp4

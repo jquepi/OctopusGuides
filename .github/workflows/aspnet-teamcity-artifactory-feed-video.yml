@@ -210,24 +210,7 @@ jobs:
 
     - name: Add a lifecycle
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
-        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
-        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
-        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
-        "-DstepHandlerMessage=$env:GITHUB_SHA $env:GITHUB_ACTION"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --monochrome
-        --plugin progress
-        features\octopus\octopus-lifecycle.feature
+      run: ./scripts/windows/create-lifecycle.ps1
 
     - name: Open Random Quotes in the test environment
       shell: powershell

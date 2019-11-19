@@ -13,6 +13,7 @@ jobs:
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      MEDIA_PATH: C:\screenshots
       CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID: 39v3bdyiy8
       DISABLE_HIGHLIGHTS: true

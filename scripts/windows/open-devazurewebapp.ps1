@@ -14,6 +14,7 @@
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     "-DCucumberAlias-ExternalUrl=https://$($env:DEV_RES_GROUP).azurewebsites.net/" `
+    "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `

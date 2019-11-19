@@ -11,6 +11,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      MEDIA_PATH: C:\screenshots
       CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID: pa5ng26yxj
       DISABLE_HIGHLIGHTS: true
@@ -164,25 +165,7 @@ jobs:
 
     - name: Add a lifecycle
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR"
-        "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET"
-        "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS"
-        "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS"
-        "-DslackHookUrl=${{ secrets.SLACK_HOOK_URL }}"
-        "-DslackStepHandlerEnabled=false"
-        "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED"
-        "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET"
-        "-DstepHandlerMessage=$env:GITHUB_SHA"
-        "-DretryCount=1"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-lifecycle.feature
+      run: ./scripts/windows/create-lifecycle.ps1
 
     - name: Open Random Quotes in the test environment
       shell: powershell

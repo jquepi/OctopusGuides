@@ -18,6 +18,7 @@
     "-DCucumberAlias-ExternalAzureSubscriptionID=$env:EXTERNAL_AZURE_SUBSCRIPTION_ID" `
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-ExternalArtifactoryKey=$env:ARTIFACTORY_KEY" `
+    "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `

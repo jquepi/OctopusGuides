@@ -15,6 +15,7 @@
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     "-DCucumberAlias-GitUrl=$env:GIT_URL" `
     "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())" `
+    "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `

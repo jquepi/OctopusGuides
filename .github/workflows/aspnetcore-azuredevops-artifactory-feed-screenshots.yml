@@ -12,6 +12,7 @@ jobs:
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      MEDIA_PATH: C:\screenshots
       CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID:
       DISABLE_HIGHLIGHTS: false

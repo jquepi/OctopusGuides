@@ -11,6 +11,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      MEDIA_PATH: C:\screenshots
     steps:
     - uses: actions/checkout@v1
     - name: Disable Windows Defender
@@ -149,19 +150,7 @@ jobs:
         features\jenkins\jenkins-create-deploy.feature
     - name: Add a lifecycle
       shell: powershell
-      run: >
-        & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-        "--enable-preview"
-        "-Xmx2g"
-        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-        "-DmoveCursorToElement=true"
-        "-DmouseMoveVerticalOffset=74"
-        "-DdisableHighlights=true"
-        "-DdisableScreenshots=true"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-        --plugin progress
-        --monochrome
-        features\octopus\octopus-lifecycle.feature
+      run: ./scripts/windows/create-lifecycle.ps1
 
     - name: Open Random Quotes in the test environment
       shell: powershell

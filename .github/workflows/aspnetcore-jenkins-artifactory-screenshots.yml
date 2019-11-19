@@ -12,6 +12,7 @@ jobs:
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      MEDIA_PATH: C:\screenshots
     steps:
       - uses: actions/checkout@v1
       - name: Disable Windows Defender
@@ -170,19 +171,7 @@ jobs:
 
       - name: Add a lifecycle
         shell: powershell
-        run: >
-          & "C:\Program Files\OpenJDK\jdk-13\bin\java"
-          "--enable-preview"
-          "-Xmx2g"
-          "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe"
-          "-DmoveCursorToElement=true"
-          "-DmouseMoveVerticalOffset=74"
-          "-DdisableVideoRecording=true"
-          "-DCucumberAlias-GuideSpecificScreenshotDir=aspnetcore-app\azurewebapp\"
-          -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
-          --plugin progress
-          --monochrome
-          features\octopus\octopus-lifecycle.feature
+        run: ./scripts/windows/create-lifecycle.ps1
 
       - name: Open Random Quotes in the test environment
         shell: powershell
