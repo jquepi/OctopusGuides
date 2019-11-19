@@ -83,6 +83,7 @@ Feature: Configure an Octopus Kubernetes project
     And I populate the "New variable name" text box with "appsettings"
     And I click the "New variable value" text box
     And I click the "Open Editor" link
+    And I sleep for "1" second
     And I run the following JavaScript:
     """
 window.findReactComponent = function(el) {

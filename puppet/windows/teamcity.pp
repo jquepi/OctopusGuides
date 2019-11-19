@@ -26,7 +26,7 @@ file { 'C:/ProgramData/JetBrains':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    start "C:\tools\TeamCity\bin\runAll.bat" -ArgumentList "start" -PassThru
+    start "C:\tools\TeamCity\bin\runAll.bat" -ArgumentList "start" -PassThru -WindowStyle Minimized
     New-Item -ItemType file c:\TeamCityStarted.txt
     exit 0
     | EOT
