@@ -250,6 +250,7 @@ if (elements.length !== 0) {
     And I remove the highlight from the "On behalf of" text box
 
     And I scroll the "Deployment name" text box into view offset by "-300"
+    And I highlight outside the "Deployment name" text box
     And I populate the "Deployment name" text box with "randomquotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-k8s.png"
 
@@ -277,7 +278,7 @@ if (elements.length !== 0) {
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-k8s.png"
     And I remove the highlight from the "Image name" text box
 
-    And I highlight outside the "Add Port" button with an offset of "5"
+    And I highlight outside the "Add Port" button with an offset of "2"
     And I scroll the "Add Port" button into view offset by "-300"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-k8s.png"
     And I force click the "Add Port" button
@@ -293,10 +294,11 @@ if (elements.length !== 0) {
     And I populate the "Port number" text box with "80"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}091-octopus-k8s.png"
 
-    And I scroll the "Add Volume Mount" button into view offset by "-300"
+    And I scroll the "Add Volume Mount" button into view offset by "-200"
     And I highlight outside the "Add Volume Mount" button with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}092-octopus-k8s.png"
     And I click the "Add Volume Mount" button
+    And I remove the highlight from the "Add Volume Mount" button
 
     And I highlight outside the "Volume name" text box with an offset of "2"
     And I highlight outside the "Mount path" text box with an offset of "2"
