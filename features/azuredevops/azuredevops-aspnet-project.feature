@@ -17,7 +17,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I display a note with the text "Installing the Azure DevOps extensions" for "3" seconds
     And I highlight inside the "Admin settings" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\extensions\#{GuideSpecificScreenshotDir}010-admin-settings.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}010-admin-settings.png"
     And I click the "Admin settings" button
     And I sleep for "3" seconds
 
@@ -34,10 +34,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Install               | //button[contains(.,'Install')]                                               |
       | Proceed to collection | //a[@href='/DefaultCollection/']                                              |
 
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\extensions\#{GuideSpecificScreenshotDir}debug1.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}debug1.png"
     And I highlight inside the "Extensions" button
     And I mouse over the "Extensions" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\extensions\#{GuideSpecificScreenshotDir}015-extensions.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}015-extensions.png"
     And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
 
     # This might not be needed in the new version of Azure Devops
@@ -45,7 +45,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Browse Marketplace" button with an offset of "0"
     And I mouse over the "Browse Marketplace" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\extensions\#{GuideSpecificScreenshotDir}020-browse-marketplace.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}020-browse-marketplace.png"
     # Open the marketplace URL directly to avoid it popping up in a new tab
     And I open the URL "https://marketplace.visualstudio.com/search?target=AzureDevOps&category=All%20categories&hosting=onpremises&sortBy=Relevance"
 
@@ -55,25 +55,25 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Octopus tile" element with an offset of "0"
     And I mouse over the "Octopus tile" element
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\extensions\#{GuideSpecificScreenshotDir}030-octopus-extension-tile.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}030-octopus-extension-tile.png"
     # Open the URL directly, but make it look like we clicked on the tile
     And I open the URL "https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks"
 
     And I highlight outside the "Get it free" button
     And I mouse over the "Get it free" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\extensions\#{GuideSpecificScreenshotDir}040-octopus-extension-getit.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}040-octopus-extension-getit.png"
     # This is a workaround to the fact that we don't have a public url, so we don't click the button but instead
     # open the internal URL that allows us to add the extension.
     And I open the URL "http://localhost:9090/_gallery/acquisition?itemName=octopusdeploy.octopus-deploy-build-release-tasks&installContext=eyJpdGVtTmFtZSI6Im9jdG9wdXNkZXBsb3kub2N0b3B1cy1kZXBsb3ktYnVpbGQtcmVsZWFzZS10YXNrcyIsIml0ZW1VcmwiOiJodHRwczovL21hcmtldHBsYWNlLnZpc3VhbHN0dWRpby5jb20vaXRlbXM%2FaXRlbU5hbWU9b2N0b3B1c2RlcGxveS5vY3RvcHVzLWRlcGxveS1idWlsZC1yZWxlYXNlLXRhc2tzIiwiY29sbGVjdGlvbklkIjoiOGFmMWNhYzktYjU1Yi00ODY5LWE0ZGItY2UxODEwZTQ1NmY5In0%3D"
     And I sleep for "10" seconds
 
     And I highlight outside the "Install" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\extensions\#{GuideSpecificScreenshotDir}050-octopus-extension-install.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}050-octopus-extension-install.png"
     And I click the "Install" button
     And I sleep for "5" seconds
 
     And I highlight outside the "Proceed to collection" button with an offset of "5"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\extensions\#{GuideSpecificScreenshotDir}060-octopus-extension-continue.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}060-octopus-extension-continue.png"
     And I click the "Proceed to collection" button
     And I sleep for "1" second
     And I stop recording the screen
@@ -104,7 +104,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Version control" drop down list
     And I click the "Team Foundation Version Control" option
     And I highlight outside the "Version control" drop down list
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}010-create-project-tfvc.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}010-create-project-tfvc.png"
     And I scroll the "Create project" button list into view offset by "-200"
     And I click the "Create project" button
     And I sleep for "5" seconds
@@ -127,7 +127,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Create project" button
     And I populate the "Project name" text box with "Random Quotes"
     And I populate the "Description" text box with "Build and test an ASP.NET application, and push it to Octopus"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}010-create-project.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}010-create-project.png"
     And I click the "Create project" button
     And I sleep for "5" seconds
     And I stop recording the screen
@@ -146,19 +146,19 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}debug1-tfvc.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}debug1-tfvc.png"
     And I click the "Pipelines" link
     And I highlight inside the "Pipelines" menu item
     And I highlight inside the "Build" link
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}020-build-tfvc.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}020-build-tfvc.png"
     And I click the "Build" link
 
     And I highlight outside the "New pipeline" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}030-new-pipeline-tfvc.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}030-new-pipeline-tfvc.png"
     And I click the "New pipeline" button
 
     And I highlight the "Team Foundation Version Control" row
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}035-source-control-tfvc.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}035-source-control-tfvc.png"
     And I click the "Team Foundation Version Control" row
 
     And I highlight outside the "TFVC Container" element
@@ -166,7 +166,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I sleep for "3" second
     And I highlight outside the "Continue" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}060-continue-tfvc.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}060-continue-tfvc.png"
     And I click the "Continue" button
 
   @create-project @sourcespecific @git
@@ -186,25 +186,25 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}debug1.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}debug1.png"
     And I click the "Pipelines" menu item
     And I highlight inside the "Pipelines" menu item
     And I highlight inside the "Build" link
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}020-build.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}020-build.png"
     And I click the "Build" link
 
     And I highlight outside the "New pipeline" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}030-new-pipeline.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}030-new-pipeline.png"
     And I click the "New pipeline" button
 
     And I highlight the "Other Git" row
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}035-other-git.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}035-other-git.png"
     And I click the "Other Git" row
 
     And I highlight outside the "External Git Container" element
     And I click the "External Git Container" element
     And I highlight outside the "Add connection" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}040-external-git.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}040-external-git.png"
     And I click the "Add connection" button
     And I remove the highlight from the "External Git Container" element
     And I remove the highlight from the "Add connection" button
@@ -217,12 +217,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I clear the "Git repository URL" text box
     And I populate the "Git repository URL" text box with "GitUrl"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}050-git-details.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}050-git-details.png"
     And I click the "OK" button
 
     And I sleep for "3" second
     And I highlight outside the "Continue" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}060-continue.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}060-continue.png"
     And I click the "Continue" button
 
   @create-project @applicationspecific @aspnet
@@ -233,7 +233,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight inside the "ASP.NET Row" element
     And I mouse over the "ASP.NET Row" element
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}070-aspnet.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}070-aspnet.png"
     And I click the "ASP.NET" button
 
     And I sleep for "1" seconds
@@ -248,7 +248,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "ASP.NET Core Row" element into view offset by "-200"
     And I highlight inside the "ASP.NET Core Row" element
     And I mouse over the "ASP.NET Core Row" element
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}070-aspnet.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}070-aspnet.png"
     And I click the "ASP.NET Core" button
 
     And I sleep for "1" seconds
@@ -265,7 +265,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight inside the "Agent pool" drop down list
     And I click the "Agent pool" drop down list
     And I click the "Default" option
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}080-default-agent-pool.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}080-default-agent-pool.png"
 
   @configure-project @applicationspecific @aspnet
   Scenario: Configure project
@@ -284,7 +284,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "MSBuild Arguments" text box into view offset by "-200"
     And I clear the "MSBuild Arguments" text box
     And I populate the "MSBuild Arguments" text box with "/p:RunOctoPack=true /p:OctoPackPackageVersion=1.0.$(Build.BuildId) /p:OctoPackEnforceAddingFiles=true"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}090-msbuild-arguments.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}090-msbuild-arguments.png"
     And I remove the highlight from the "Build solution" row
 
     And I highlight inside the "Test Assemblies" row
@@ -294,7 +294,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I force click the "Specific location" option
     And I highlight inside the "Path to vstest.console.exe" text box
     And I populate the "Path to vstest.console.exe" text box with "$(Build.Repository.LocalPath)\packages\Microsoft.TestPlatform.16.3.0\tools\net451\Common7\IDE\Extensions\TestPlatform\vstest.console.exe"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}100-vstest-location.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}100-vstest-location.png"
     And I remove the highlight from the "Test Assemblies" row
 
     And I stop recording the screen
@@ -319,7 +319,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Zip Published Projects" check box into view offset by "-200"
     And I highlight outside the "Zip Published Projects" check box with an offset of "5"
     And I click the "Zip Published Projects" check box
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}090-publish.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}090-publish.png"
 
     And I highlight inside the "Add task" button
     And I click the "Publish artifact" row
@@ -331,7 +331,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Package application title" element with an offset of "5"
     And I mouse over the "Package application title" element
     And I zoom the browser out
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}095-octopus-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}095-octopus-pack.png"
     And I zoom the browser in
     And I remove the highlight from the "Add task" button
 
@@ -341,13 +341,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Package ID" text box into view offset by "-200"
     And I highlight outside the "Package ID" text box with an offset of "5"
     And I populate the "Package ID" text box with "RandomQuotes"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}096-octopus-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}096-octopus-pack.png"
     And I remove the highlight from the "Package ID" text box
 
     And I scroll the "Package Version" text box into view offset by "-200"
     And I highlight outside the "Package Version" text box with an offset of "5"
     And I populate the "Package Version" text box with "1.0.$(Build.BuildId)"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}097-octopus-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}097-octopus-pack.png"
     And I remove the highlight from the "Package Version" text box
 
     And I scroll the "Source Path" text box into view offset by "-200"
@@ -355,7 +355,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Source Path" text box with "$(build.artifactstagingdirectory)\RandomQuotes"
     And I remove the highlight from the "Source Path" text box
 
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}100-octopus-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}100-octopus-pack.png"
 
     And I stop recording the screen
 
@@ -415,7 +415,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "NuGet title" element with an offset of "5"
     And I mouse over the "NuGet title" element
     And I zoom the browser out
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}110-nuget-push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}110-nuget-push.png"
     And I zoom the browser in
     And I remove the highlight from the "Add task" button
 
@@ -425,29 +425,29 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Display name" text box list with an offset of "2"
     And I clear the "Display name" text box
     And I populate the "Display name" text box with "Nuget push"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}115-nuget-push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}115-nuget-push.png"
     And I remove the highlight from the "Display name" text box
 
     And I highlight outside the "Command" drop down list with an offset of "2"
     And I click the "Command" drop down list
     And I click the "Push command" option
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}120-nuget-push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}120-nuget-push.png"
     And I remove the highlight from the "Command" drop down list
 
     And I highlight outside the "Path to NuGet package(s) to publish" text box with an offset of "2"
     And I clear the "Path to NuGet package(s) to publish" text box
     And I populate the "Path to NuGet package(s) to publish" text box with "#{NugetPath}RandomQuotes.1.0.$(Build.BuildId).nupkg"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}125-nuget-push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}125-nuget-push.png"
     And I remove the highlight from the "Path to NuGet package(s) to publish" text box
 
     And I highlight outside the "External NuGet server (including other accounts/collections)" radio button with an offset of "2"
     And I force click the "External NuGet server (including other accounts/collections)" radio button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}130-nuget-push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}130-nuget-push.png"
 
     And I highlight outside the "New" button with an offset of "2"
     And I scroll the "New" button into view offset by "-300"
     And I click the "New" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}135-nuget-push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}135-nuget-push.png"
     And I remove the highlight from the "New" button
     And I remove the highlight from the "External NuGet server (including other accounts/collections)" radio button
 
@@ -459,7 +459,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Feed URL" text box with "http://localhost:8041/artifactory/api/nuget/NuGet"
     And I populate the "ApiKey" text box with "admin:password"
     And I click the "OK" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}140-nuget-push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}140-nuget-push.png"
 
     And I stop recording the screen
 
@@ -488,7 +488,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Push package title" element with an offset of "5"
     And I mouse over the "Push package title" element
     And I zoom the browser out
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}110-octopus-push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}110-octopus-push.png"
     And I zoom the browser in
     And I remove the highlight from the "Add task" button
 
@@ -496,7 +496,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Push Packages to Octopus" row
     And I highlight outside the "New" button with an offset of "2"
     And I zoom the browser out
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}120-octopus-connection.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}120-octopus-connection.png"
     And I zoom the browser in
     And I click the "New" button
     And I remove the highlight from the "New" button
@@ -508,7 +508,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Connection name" text box with "Octopus"
     And I populate the "Server URL" text box with "http://localhost"
     And I populate the "API Key" text box with "ExternalOctopusAPIKey"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}130-octopus-details.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}130-octopus-details.png"
     And I click the "OK" button
     And I remove the highlight from the "New" button
 
@@ -518,12 +518,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I highlight outside the "Space" drop down list with an offset of "2"
     And I click the "Space" drop down list
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}debug2.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}debug2.png"
     And I click the "Default Space" option
 
     And I highlight outside the "Package" text box
     And I populate the "Package" text box with "#{NugetPath}RandomQuotes.1.0.$(Build.BuildId).nupkg"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}140-space-and-package.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}140-space-and-package.png"
     And I remove the highlight from the "Space" drop down list
     And I remove the highlight from the "Package" text box
 
@@ -537,12 +537,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
     And I highlight inside the "Save" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}150-save.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}150-save.png"
     And I click the "Save" button
     And I remove the highlight from the "Save and queue" button
 
     And I highlight outside the "Save two" button with an offset of "2"
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}160-save.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}160-save.png"
     And I click the "Save two" button
     And I sleep for "3" seconds
 
@@ -576,17 +576,17 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "More commands" button if it exists waiting up to "5" seconds
 
     And I highlight inside the "Queue" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}163-queue.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}163-queue.png"
     And I click the "Queue" button
 
     And I remove the highlight from the "More commands" button
 
     And I highlight inside the "Queue two" button
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}164-queue.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}164-queue.png"
     And I click the "Queue two" button
 
     And I highlight outside the "Build link" element
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}165-build-link.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}165-build-link.png"
     And I click the "Build link" element
 
     And I sleep for "20" seconds
@@ -595,7 +595,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I scroll the "Post job Checkout" item into view
-    And I save a screenshot to "#{ExternalMediaPath}\azuredevops\initialproject\#{GuideSpecificScreenshotDir}170-build-results.png"
+    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}170-build-results.png"
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
 

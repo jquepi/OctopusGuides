@@ -26,7 +26,7 @@ Feature: Open Random Quotes
     And I click the "Close help" button
     And I scroll down "10000" px
     And I display a note with the text "There are no options to deploy to the Dev or Test environments" for "3" seconds
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\185-octopus-proudction-deployer-overview.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/185-octopus-proudction-deployer-overview.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

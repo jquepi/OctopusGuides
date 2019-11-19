@@ -26,7 +26,7 @@ Feature: Open Random Quotes
     And I click the "Close help" button
     And I scroll down "10000" px
     And I display a note with the text "There are no options to deploy to the Prod environment" for "3" seconds
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\180-octopus-internal-deployer-overview.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/180-octopus-internal-deployer-overview.png"
     And I sleep for "3" seconds
 
   Scenario: Shutdown

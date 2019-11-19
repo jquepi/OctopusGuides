@@ -37,7 +37,7 @@ Feature: Create Octopus Users and Teams
     And I click the "More" link if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\005-octopus-configuration.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/005-octopus-configuration.png"
     And I click the "Configuration" link
     And I remove the highlight from the "More" link
     And I sleep for "1" second
@@ -46,13 +46,13 @@ Feature: Create Octopus Users and Teams
     And I click the "More Two" link if it exists
     And I highlight inside the "Users" link
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\010-octopus-users.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/010-octopus-users.png"
     And I click the "Users" link
     And I sleep for "1" second
 
     And I highlight outside the "Add user" button
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\015-octopus-add-user.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/015-octopus-add-user.png"
     And I click the "Add user" button
 
     And I scroll the "Username" text box into view offset by "-200"
@@ -60,7 +60,7 @@ Feature: Create Octopus Users and Teams
     And I clear the "Username" text box
     And I populate the "Username" text box with "internaldeployer"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\020-octopus-username.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/020-octopus-username.png"
     And I remove the highlight from the "Username" text box
 
     And I scroll the "Display name" text box into view offset by "-200"
@@ -68,7 +68,7 @@ Feature: Create Octopus Users and Teams
     And I clear the "Display name" text box
     And I populate the "Display name" text box with "Internal Deployer"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\025-octopus-displayname.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/025-octopus-displayname.png"
     And I remove the highlight from the "Display name" text box
 
     And I scroll the "Email address" text box into view offset by "-200"
@@ -76,7 +76,7 @@ Feature: Create Octopus Users and Teams
     And I clear the "Email address" text box
     And I populate the "Email address" text box with "internaldeployer@example.org"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\030-octopus-email.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/030-octopus-email.png"
     And I remove the highlight from the "Email address" text box
 
     And I scroll the "Password" text box into view offset by "-200"
@@ -89,35 +89,35 @@ Feature: Create Octopus Users and Teams
     And I populate the "Confirm password" text box with "Password01!"
     And I highlight outside the "Save" button with an offset of "5"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\035-octopus-password.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/035-octopus-password.png"
 
     And I click the "Save" button
     And I sleep for "2" seconds
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\037-octopus-user-overview.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/037-octopus-user-overview.png"
 
     # Click the Users link in the breadcrumb
     And I highlight inside the "Users" link
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\040-octopus-users.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/040-octopus-users.png"
     And I click the "Users" link
     And I sleep for "1" second
 
     And I highlight outside the "Add user" button
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\045-octopus-add-user.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/045-octopus-add-user.png"
     And I click the "Add user" button
 
     And I scroll the "Username" text box into view offset by "-200"
     And I highlight outside the "Username" text box with an offset of "5"
     And I clear the "Username" text box
     And I populate the "Username" text box with "productiondeployer"
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\050-octopus-username.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/050-octopus-username.png"
     And I remove the highlight from the "Username" text box
 
     And I scroll the "Display name" text box into view offset by "-200"
     And I highlight outside the "Display name" text box with an offset of "5"
     And I clear the "Display name" text box
     And I populate the "Display name" text box with "Production Deployer"
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\055-octopus-displayname.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/055-octopus-displayname.png"
     And I remove the highlight from the "Display name" text box
 
     And I scroll the "Email address" text box into view offset by "-200"
@@ -125,7 +125,7 @@ Feature: Create Octopus Users and Teams
     And I clear the "Email address" text box
     And I populate the "Email address" text box with "productiondeployer@example.org"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\060-octopus-email.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/060-octopus-email.png"
     And I remove the highlight from the "Email address" text box
 
     And I scroll the "Password" text box into view offset by "-200"
@@ -137,11 +137,11 @@ Feature: Create Octopus Users and Teams
     And I clear the "Confirm password" text box
     And I populate the "Confirm password" text box with "Password01!"
     And I highlight outside the "Save" button with an offset of "5"
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\065-octopus-password.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/065-octopus-password.png"
 
     And I click the "Save" button
     And I sleep for "2" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\067-octopus-user-overview.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/067-octopus-user-overview.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
@@ -182,7 +182,7 @@ Feature: Create Octopus Users and Teams
     And I click the "More" link if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\070-octopus-configuration.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/070-octopus-configuration.png"
     And I click the "Configuration" link
     And I remove the highlight from the "More" link
     And I sleep for "1" second
@@ -191,13 +191,13 @@ Feature: Create Octopus Users and Teams
     And I click the "More Two" link if it exists
     And I highlight inside the "Teams" link
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\075-octopus-teams.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/075-octopus-teams.png"
     And I click the "Teams" link
     And I sleep for "1" second
 
     And I highlight outside the "Add Team" button
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\080-octopus-add-team.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/080-octopus-add-team.png"
     And I click the "Add Team" button
 
     And I highlight outside the "New team name" text box with an offset of "0"
@@ -206,12 +206,12 @@ Feature: Create Octopus Users and Teams
     And I populate the "New team name" text box with "Internal Deployers"
     And I populate the "New team description" text box with "Grants access to perform a deployment to the internal environments"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\085-octopus-new-team.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/085-octopus-new-team.png"
     And I click the "Save" button
 
     And I highlight outside the "Add Member" button
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\090-octopus-add-member.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/090-octopus-add-member.png"
     And I remove the highlight from the "Add Member" button
     And I click the "Add Member" button
 
@@ -219,14 +219,14 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "Add" button with an offset of "2"
     And I click the "Select users" drop down list
     And I click the "Internal Deployer User" option
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\095-octopus-add-internal-user.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/095-octopus-add-internal-user.png"
     And I click the "Add" button
 
     And I click the "User roles" tab
     And I highlight the "Include User Role" button
     And I highlight inside the "User roles" tab
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\100-octopus-user-roles.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/100-octopus-user-roles.png"
     And I remove the highlight from the "User roles" tab
     And I remove the highlight from the "Include User Role" button
     And I click the "Include User Role" button
@@ -236,7 +236,7 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Define Scope" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\105-octopus-add-role.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/105-octopus-add-role.png"
 
     And I click the "Define Scope" button
     And I click the "Select environments" drop down list
@@ -245,12 +245,12 @@ Feature: Create Octopus Users and Teams
     And I click the "Test environment" option
     And I highlight outside the "Apply" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\110-octopus-role-scope.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/110-octopus-role-scope.png"
     And I click the "Apply" button
 
     And I highlight the "Include User Role" button
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\115-octopus-user-roles.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/115-octopus-user-roles.png"
     And I remove the highlight from the "Include User Role" button
     And I click the "Include User Role" button
 
@@ -259,12 +259,12 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Apply" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\120-octopus-add-role.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/120-octopus-add-role.png"
     And I click the "Apply" button
 
     And I click the "Save" button
     And I sleep for "5" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\123-octopus-team-roles.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/123-octopus-team-roles.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
@@ -304,7 +304,7 @@ Feature: Create Octopus Users and Teams
     And I click the "More" link if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\125-octopus-configuration.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/125-octopus-configuration.png"
     And I click the "Configuration" link
     And I remove the highlight from the "More" link
     And I sleep for "1" second
@@ -313,13 +313,13 @@ Feature: Create Octopus Users and Teams
     And I click the "More Two" link if it exists
     And I highlight inside the "Teams" link
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\130-octopus-teams.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/130-octopus-teams.png"
     And I click the "Teams" link
     And I sleep for "1" second
 
     And I highlight outside the "Add Team" button
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\135-octopus-add-team.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/135-octopus-add-team.png"
     And I click the "Add Team" button
 
     And I highlight outside the "New team name" text box with an offset of "0"
@@ -328,12 +328,12 @@ Feature: Create Octopus Users and Teams
     And I populate the "New team name" text box with "Production Deployers"
     And I populate the "New team description" text box with "Grants access to perform a deployment to the production environment"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\140-octopus-new-team.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/140-octopus-new-team.png"
     And I click the "Save" button
 
     And I highlight outside the "Add Member" button
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\145-octopus-add-member.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/145-octopus-add-member.png"
     And I remove the highlight from the "Add Member" button
     And I click the "Add Member" button
 
@@ -341,14 +341,14 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "Add" button with an offset of "2"
     And I click the "Select users" drop down list
     And I click the "Production Deployer User" option
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\150-octopus-add-internal-user.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/150-octopus-add-internal-user.png"
     And I click the "Add" button
 
     And I click the "User roles" tab
     And I highlight the "Include User Role" button
     And I highlight inside the "User roles" tab
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\155-octopus-user-roles.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/155-octopus-user-roles.png"
     And I remove the highlight from the "User roles" tab
     And I remove the highlight from the "Include User Role" button
     And I click the "Include User Role" button
@@ -358,17 +358,17 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Define Scope" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\160-octopus-add-role.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/160-octopus-add-role.png"
 
     And I click the "Define Scope" button
     And I click the "Select environments" drop down list
     And I click the "Prod environment" option
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\165-octopus-role-scope.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/165-octopus-role-scope.png"
     And I click the "Apply" button
 
     And I highlight the "Include User Role" button
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\170-octopus-user-roles.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/170-octopus-user-roles.png"
     And I remove the highlight from the "Include User Role" button
     And I click the "Include User Role" button
 
@@ -377,12 +377,12 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Apply" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\175-octopus-add-role.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/175-octopus-add-role.png"
     And I click the "Apply" button
 
     And I click the "Save" button
     And I sleep for "5" second
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\permissions\178-octopus-team-roles.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/178-octopus-team-roles.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 

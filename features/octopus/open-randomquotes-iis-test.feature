@@ -10,7 +10,7 @@ Feature: Open Random Quotes in the Test environment
     And I open the URL "http://localhost:8082"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Open the application in the Test environment (port 8082)" for "3" seconds
-    And I save a screenshot to "#{ExternalMediaPath}\octopus\app\#{GuideSpecificScreenshotDir}aspnet-random-quotes-test-app.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/app/#{GuideSpecificScreenshotDir}aspnet-random-quotes-test-app.png"
     And I click the "Refresh" button
     And I sleep for "2" seconds
 
