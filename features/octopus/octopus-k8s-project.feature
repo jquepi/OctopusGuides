@@ -354,9 +354,9 @@ if (elements.length !== 0) {
     And I highlight outside the "Add Config Map Item" button
     And I click the "Add Config Map Item" button
     And I highlight outside the "Key" text box with an offset of "2"
-    And I highlight outside the "Value" text box with an offset of "2"
+    And I highlight outside the "Value container" element with an offset of "2"
     And I populate the "Key" text box with "appsettings.json"
-    And I populate the "Value container" text box with "#{appsettings}"
+    And I populate the "Value" text box with "#{appsettings}"
 
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-k8s.png"
