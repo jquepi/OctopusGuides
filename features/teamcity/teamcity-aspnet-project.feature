@@ -491,6 +491,9 @@ Feature: Create ASP.NET project
       | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
       | Build One                | //a[contains(.,'#1')]                                      |
       | Build log                | //a[contains(.,'Build Log')]                               |
+      | Lets Go                  | //a[contains(.,"Let's go")]                                |
+
+    And I click the "Lets Go" button if it exists
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 

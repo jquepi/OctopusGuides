@@ -188,7 +188,7 @@ Feature: Create Docker project
       | Build log                | //a[contains(.,'Build Log')]                               |
       | Lets Go                  | //a[contains(.,"Let's go")]                                |
 
-    And I click the "Lets Go" button if it exists waiting up to "5" seconds
+    And I click the "Lets Go" button if it exists
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
