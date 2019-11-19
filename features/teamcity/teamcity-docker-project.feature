@@ -186,6 +186,9 @@ Feature: Create Docker project
       | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
       | Build One                | //a[contains(.,'#1')]                                      |
       | Build log                | //a[contains(.,'Build Log')]                               |
+      | Lets Go                  | //a[contains(.,"Let's go")]                                |
+
+    And I click the "Lets Go" button if it exists waiting up to "5" seconds
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
