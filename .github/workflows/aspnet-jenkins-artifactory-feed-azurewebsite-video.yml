@@ -30,7 +30,7 @@ jobs:
       SCREENSHOT_PATH: aspnet-app\azurewebapp\artifactory\git\
     steps:
     - uses: actions/checkout@v1
-      -
+
     - name: Disable Windows Defender
       shell: powershell
       run: reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection' /v DisableRealtimeMonitoring /t REG_DWORD /d 1
