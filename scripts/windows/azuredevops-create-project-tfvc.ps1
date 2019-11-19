@@ -14,6 +14,7 @@
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     "-DCucumberAlias-GitUrl=$env:GIT_URL" `
+    "-DCucumberAlias-NugetPath=$env:NUGET_PATH" `
     "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
