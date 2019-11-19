@@ -22,4 +22,4 @@
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `
-    features\octopus\octopus-environments.feature
+    features\octopus\octopus-create-azure-webapp-target.feature
