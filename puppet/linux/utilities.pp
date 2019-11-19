@@ -8,12 +8,15 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
 package { 'fluxbox':
   ensure => installed,
 }
-
-package { 'xvfb':
+-> package { 'xvfb':
   ensure => installed,
 }
 -> exec { 'Run xvfb':
   command   => '/usr/bin/Xvfb :99 -screen 0 1024x768x24 &',
+  logoutput => true
+}
+-> exec { 'Run fluxbox':
+  command   => '/usr/bin/fluxbox &',
   logoutput => true
 }
 
