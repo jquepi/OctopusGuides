@@ -495,6 +495,7 @@ Feature: Create ASP.NET project
       | No thanks                | //button[contains(.,'No, thanks')]                         |
 
     And I click the "No thanks" button if it exists
+    And I sleep for "1" second
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
@@ -502,7 +503,14 @@ Feature: Create ASP.NET project
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-run.png"
     And I click the "Run" button
     And I sleep for "10" seconds
+
+    And I stop recording the screen
     And I refresh the page
+
+    And I click the "No thanks" button if it exists
+    And I sleep for "1" second
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Build One" link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}180-build-one.png"
