@@ -39,17 +39,14 @@ jobs:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-#      - name: Wait for Octopus
-#        run: ./scripts/linux/wait-octopus.sh
-#
-#      - name: Create Api Key
-#        run: ./scripts/linux/create-apikey.sh
-#
-#      - name: Setup TeamCity
-#        run: ./scripts/linux/setup-teamcity.sh
-#
-#      - name: Create Team City project
-#        run: ./scripts/linux/create-teamcityproject.sh
+      - name: Wait for Octopus
+        run: ./scripts/linux/wait-octopus.sh
+
+      - name: Create Api Key
+        run: ./scripts/linux/create-apikey.sh
+
+      - name: Create Jankins project
+        run: ./scripts/linux/create-jenkinsproject.sh
 #
 #      - name: Create Worker
 #        run: sudo ./scripts/linux/create-worker.sh

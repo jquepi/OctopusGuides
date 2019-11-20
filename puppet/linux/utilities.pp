@@ -1,11 +1,15 @@
 include apt
 
 apt::ppa { 'ppa:openjdk-r/ppa': }
+-> package { 'openjdk-8-jdk':
+  ensure => installed,
+}
 -> package { 'openjdk-13-jdk':
   ensure => installed,
 }
--> package { 'openjdk-8-jdk':
-  ensure => installed,
+-> exec { 'Set default jdk':
+  command   => '/usr/sbin/update-java-alternatives --set java-1.8.0-openjdk-amd64',
+  logoutput => true
 }
 
 package { 'fluxbox':
