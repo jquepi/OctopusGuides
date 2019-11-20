@@ -212,14 +212,14 @@ if (elements.length !== 0) {
       | Linked ConfigMap Container | //div[./input[@value='LinkedResource']]                                                         |
       | Volume Name                | (//input[contains(@id,'Name')])[2]                                                              |
       | Add Container              | (//button[@title='Add Container'])[1]                                                           |
-      | Image name                 | //input[contains(@id,'Name')]                                                                   |
+      | Image name                 | (//input[contains(@id,'Name')])[2]                                                              |
       | Package Id                 | //input[contains(@id,'PackageID')]                                                              |
       | Package Id label           | //label[contains(@for,'PackageID')]                                                             |
       | Add Port                   | (//button[@title='Add Port'])[3]                                                                |
-      | Port name                  | (//input[contains(@id,'Name')])[2]                                                              |
+      | Port name                  | (//input[contains(@id,'Name')])[3]                                                              |
       | Port number                | (//input[contains(@id,'Port')])[1]                                                              |
       | Add Volume Mount           | (//button[@title='Add Volume Mount'])[1]                                                        |
-      | Container Volume name      | (//input[contains(@id,'Name')])[3]                                                              |
+      | Container Volume name      | (//input[contains(@id,'Name')])[4]                                                              |
       | Mount path                 | (//input[contains(@id,'Mountpath')])[1]                                                         |
       | Sub path                   | (//input[contains(@id,'Subpath')])[1]                                                           |
       | appsettings volume         | //span[./div/div/div[text()='appsettings-volume']]                                              |
