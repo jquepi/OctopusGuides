@@ -179,6 +179,8 @@ Feature: Create Docker project
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}180-connections.png"
     And I click the "Project Home" link
 
+    And I stop recording the screen
+
   @run-build
   Scenario: Run a build
     Given I set the following aliases:
