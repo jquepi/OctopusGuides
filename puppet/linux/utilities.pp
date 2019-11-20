@@ -8,6 +8,18 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
 package { 'fluxbox':
   ensure => installed,
 }
+-> file { '/root/.fluxbox':
+  ensure => 'directory'
+}
+-> file { '/root/.fluxbox/init':
+  ensure  => 'file',
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0755',
+  content => @(EOT)
+    session.screen0.toolbar.visible: false
+    | EOT
+}
 -> package { 'xcompmgr':
   ensure => installed,
 }
