@@ -7,7 +7,7 @@ apt::key { 'jenkins-repository':
   comment  => 'This is the jenkins repository',
   location => 'http://pkg.jenkins.io/debian-stable',
   release  => '',
-  repos    => 'binary',
+  repos    => 'binary/',
   key      => {
     'id' => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
   },
