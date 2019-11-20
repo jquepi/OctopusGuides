@@ -4,6 +4,9 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
 -> package { 'openjdk-13-jdk':
   ensure => installed,
 }
+-> package { 'openjdk-8-jdk':
+  ensure => installed,
+}
 
 package { 'fluxbox':
   ensure => installed,
