@@ -45,7 +45,7 @@ jobs:
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
 
-      - name: Create Jankins project
+      - name: Create Jenkins project
         run: ./scripts/linux/create-jenkinsproject.sh
 #
 #      - name: Create Worker
@@ -93,11 +93,11 @@ jobs:
 #      - name: View Audit Logs
 #        run: ./scripts/linux/view-auditlogs.sh
 #
-#      - name: Process videos
-#        run: ./scripts/linux/convert-video.sh
-#
-#      - name: Upload videos
-#        run: ./scripts/linux/upload-video.sh
+      - name: Process videos
+        run: ./scripts/linux/convert-video.sh
+
+      - name: Upload videos
+        run: ./scripts/linux/upload-video.sh
 #
 #      - name: Replace Wistia video
 #        run: ./scripts/linux/replace-wistia-video.sh
