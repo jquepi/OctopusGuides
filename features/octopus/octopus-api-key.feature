@@ -1,5 +1,13 @@
 Feature: Generate an API key
 
+  Scenario: Initial window open
+  I've noticed that sometimes the browser is hidden behind a command prompt, so this scenario opens
+  and closes the browser so the next browser is in front of any windows.
+    And I open the browser "ExternalBrowserType"
+    And I maximize the window
+    And I open the URL "http://localhost"
+    And I close the browser
+
   Scenario: Login
     Given I set the following aliases:
       | Username | //input[@name='userName']       |
