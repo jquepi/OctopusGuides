@@ -63,6 +63,7 @@ file { '/var/lib/jenkins/init.groovy.d':
     | EOT
 }
 -> file { '/var/lib/jenkins/init.groovy.d/b.plugins.groovy':
+  notify  => Service['jenkins'],
   ensure  => 'file',
   owner   => 'root',
   group   => 'root',
@@ -124,12 +125,7 @@ file { '/var/lib/jenkins/init.groovy.d':
         println "Jenkins up-to-date.  Nothing to do."
     }
 
+    Jenkins.instance.setInstallState(InstallState.INITIAL_SETUP_COMPLETED)
+
     | EOT
-}
--> file_line { 'installStateName':
-  path    => '/var/lib/jenkins/config.xml',
-  line    => '  <installStateName>RUNNING</installStateName>',
-  match   => '^\s*<installStateName>NEW</installStateName>',
-  replace => true,
-  notify  => Service['jenkins']
 }
