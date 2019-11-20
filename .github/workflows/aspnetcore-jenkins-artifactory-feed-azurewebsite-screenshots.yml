@@ -25,9 +25,10 @@ jobs:
       CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME:
-      DISABLE_HIGHLIGHTS: true
-      DISABLE_SCREENSHOTS: true
-      MOVE_TO_MOUSE_CUSROR: true
+      DISABLE_HIGHLIGHTS: false
+      DISABLE_SCREENSHOTS: false
+      MOVE_TO_MOUSE_CUSROR: false
+      DISABLE_VIDEO: true
       MOUSE_VERTICAL_OFFSET: 74
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       STHREE_SCREENSHOT_ENABLED: true

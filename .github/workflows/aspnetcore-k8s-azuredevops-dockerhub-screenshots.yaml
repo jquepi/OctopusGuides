@@ -23,7 +23,7 @@ jobs:
       CUCUMBER_TAGS: "(not @destinationspecific or @k8s) and (not @repositoryspecific or @dockerhub) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
       DISABLE_HIGHLIGHTS: false
       DISABLE_SCREENSHOTS: false
-      MOVE_TO_MOUSE_CURSOR: false
+      MOVE_TO_MOUSE_CUSROR: false
       DISABLE_VIDEO: true
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git

@@ -16,12 +16,12 @@ jobs:
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       MEDIA_PATH: C:\screenshots
       CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
-      WISTIA_MEDIA_ID: 
+      WISTIA_MEDIA_ID:
       DISABLE_HIGHLIGHTS: false
       DISABLE_SCREENSHOTS: false
       MOVE_TO_MOUSE_CUSROR: false
-      MOUSE_VERTICAL_OFFSET: 74
       DISABLE_VIDEO: true
+      MOUSE_VERTICAL_OFFSET: 74
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
