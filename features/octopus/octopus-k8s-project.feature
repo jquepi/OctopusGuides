@@ -219,7 +219,7 @@ if (elements.length !== 0) {
       | Port name                  | (//input[contains(@id,'Name')])[2]                                                              |
       | Port number                | (//input[contains(@id,'Port')])[1]                                                              |
       | Add Volume Mount           | (//button[@title='Add Volume Mount'])[1]                                                        |
-      | Volume name                | (//input[contains(@id,'Name')])[3]                                                              |
+      | Container Volume name      | (//input[contains(@id,'Name')])[3]                                                              |
       | Mount path                 | (//input[contains(@id,'Mountpath')])[1]                                                         |
       | Sub path                   | (//input[contains(@id,'Subpath')])[1]                                                           |
       | appsettings volume         | //span[./div/div/div[text()='appsettings-volume']]                                              |
@@ -263,10 +263,10 @@ if (elements.length !== 0) {
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}061-octopus-k8s.png"
     And I click the "Add Volume" button
 
-    And I highlight outside the "ConfigMap Name" text box with an offset of "2"
+    And I highlight outside the "Volume Name" text box with an offset of "2"
     And I highlight outside the "Linked ConfigMap Container" option with an offset of "2"
     And I highlight outside the "OK" button with an offset of "2"
-    And I populate the "ConfigMap Name" text box with "appsettings-volume"
+    And I populate the "Volume Name" text box with "appsettings-volume"
     And I force click the "Linked ConfigMap" option
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}062-octopus-k8s.png"
     And I click the "OK" button
@@ -304,10 +304,10 @@ if (elements.length !== 0) {
     And I click the "Add Volume Mount" button
     And I remove the highlight from the "Add Volume Mount" button
 
-    And I highlight outside the "Volume name" text box with an offset of "2"
+    And I highlight outside the "Container Volume name" text box with an offset of "2"
     And I highlight outside the "Mount path" text box with an offset of "2"
     And I highlight outside the "Sub path" text box with an offset of "2"
-    And I populate the "Volume name" text box with "appsettings-volume"
+    And I populate the "Container Volume name" text box with "appsettings-volume"
     And I click the "appsettings volume" option
     And I populate the "Mount path" text box with "/app/appsettings.json"
     And I populate the "Sub path" text box with "appsettings.json"
@@ -348,9 +348,9 @@ if (elements.length !== 0) {
     And I click the "OK" button
     And I remove the highlight from the "Add Service Port" button
 
-    And I scroll the "Volume name" text box into view offset by "-300"
-    And I highlight outside the "Volume name" text box with an offset of "2"
-    And I populate the "Volume name" text box with "randomquotes"
+    And I scroll the "ConfigMap name" text box into view offset by "-300"
+    And I highlight outside the "ConfigMap name" text box with an offset of "2"
+    And I populate the "ConfigMap name" text box with "randomquotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}141-octopus-k8s.png"
 
     And I highlight outside the "Add Config Map Item" button
