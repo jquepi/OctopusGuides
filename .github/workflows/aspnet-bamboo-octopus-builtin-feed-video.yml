@@ -1,6 +1,6 @@
 name: ASP.NET Bamboo Octopus Built-in Feed Video
 on:
-  push:
+#  push:
   schedule:
     - cron:  '0 19 2 * *'
 jobs:

@@ -1,5 +1,14 @@
 Feature: Setup Artifactory
 
+  Scenario: Initial window open
+  I've noticed that sometimes the browser is hidden behind a command prompt, so this scenario opens
+  and closes the browser so the next browser is in front of any windows.
+    And I open the browser "ExternalBrowserType"
+    And I maximize the window
+    And I open the URL "http://localhost:8040"
+    And I sleep for "10" seconds
+    And I close the browser
+
   Scenario: Log in
     Given I set the following aliases:
       | Username       | //input[@id='user']                                     |

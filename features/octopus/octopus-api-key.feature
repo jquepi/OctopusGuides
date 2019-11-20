@@ -6,6 +6,7 @@ Feature: Generate an API key
     And I open the browser "ExternalBrowserType"
     And I maximize the window
     And I open the URL "http://localhost"
+    And I sleep for "10" seconds
     And I close the browser
 
   @login
