@@ -210,7 +210,7 @@ if (elements.length !== 0) {
       | Add Volume                 | (//button[@title='Add Volume'])[1]                                                              |
       | Linked ConfigMap           | //input[@value='LinkedResource']                                                                |
       | Linked ConfigMap Container | //div[./input[@value='LinkedResource']]                                                         |
-      | ConfigMap Name             | //input[contains(@id,'Name')]                                                                   |
+      | Volume Name                | (//input[contains(@id,'Name')])[2]                                                              |
       | Add Container              | (//button[@title='Add Container'])[1]                                                           |
       | Image name                 | //input[contains(@id,'Name')]                                                                   |
       | Package Id                 | //input[contains(@id,'PackageID')]                                                              |
@@ -348,9 +348,9 @@ if (elements.length !== 0) {
     And I click the "OK" button
     And I remove the highlight from the "Add Service Port" button
 
-    And I scroll the "ConfigMap name" text box into view offset by "-300"
-    And I highlight outside the "ConfigMap name" text box with an offset of "2"
-    And I populate the "ConfigMap name" text box with "randomquotes"
+    And I scroll the "Volume name" text box into view offset by "-300"
+    And I highlight outside the "Volume name" text box with an offset of "2"
+    And I populate the "Volume name" text box with "randomquotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}141-octopus-k8s.png"
 
     And I highlight outside the "Add Config Map Item" button
