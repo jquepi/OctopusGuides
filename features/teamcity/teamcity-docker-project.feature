@@ -189,8 +189,9 @@ Feature: Create Docker project
       | Build One                | //a[contains(.,'#1')]                                      |
       | Build log                | //a[contains(.,'Build Log')]                               |
       | Lets Go                  | //a[contains(.,"Let's go")]                                |
+      | No thanks                | //button[contains(.,'No, thanks')]                         |
 
-    And I click the "Lets Go" button if it exists
+    And I click the "No thanks" button if it exists
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
