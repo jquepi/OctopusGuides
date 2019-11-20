@@ -227,7 +227,7 @@ if (elements.length !== 0) {
       | Save                       | //button[@title='Save']                                                                         |
       | Service name               | //input[contains(@id,'Servicename')]                                                            |
       | Add Service Port           | (//button[@title='Add Port'])[1]                                                                |
-      | Service Port Name          | //input[contains(@id,'Name')]                                                                   |
+      | Service Port Name          | (//input[contains(@id,'Name')])[2]                                                              |
       | Port 80                    | //span[./div/div/div[text()='80']]                                                              |
       | Service Port               | (//input[contains(@id,'Port')])[1]                                                              |
       | Node Port                  | //input[contains(@id,'NodePort')]                                                               |
