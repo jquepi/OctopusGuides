@@ -73,7 +73,7 @@ file { '/var/lib/jenkins':
                   println "ERROR installing ${it}, ${error}"
               }
             } else {
-              println "Could not find plugin ${it}" +
+              println "Could not find plugin ${it}"
             }
         }
         null
