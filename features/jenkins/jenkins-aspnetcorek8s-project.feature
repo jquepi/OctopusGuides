@@ -232,6 +232,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
       | Name of the image to push (repository/image) | //input[@name='_.image']                               |
       | Tag                                          | (//input[@name='_.tag'])[3]                            |
       | Registry                                     | //input[@name='_.registry']                            |
+      | Docker registry URL                          | //input[@name='_.url']                                 |
       | Registry credentials                         | (//select[@name='_.credentialsId'])[4]                 |
       | Save                                         | //button[@type='button'][contains(.,'Save')]           |
 
@@ -284,6 +285,10 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I scroll the "Registry" text box into view offset by "-300"
     And I highlight outside the "Registry" text box
     And I populate the "Registry" text box with "octopusdeploy"
+
+    And I scroll the "Docker registry URL" text box into view offset by "-300"
+    And I highlight outside the "Docker registry URL" text box
+    And I populate the "Docker registry URL" text box with "https://index.docker.io/v1/"
 
     And I scroll the "Registry credentials" drop down list into view offset by "-300"
     And I highlight outside the "Registry credentials" drop down list
