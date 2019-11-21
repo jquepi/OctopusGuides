@@ -124,9 +124,9 @@ file { '/var/lib/jenkins':
     import hudson.util.*
     import jenkins.install.*
 
-    println "Current state: ${Jenkins.instance.installState}"
+    println "Current installState: ${Jenkins.instance.installState}"
     if (!Jenkins.instance.installState.setupComplete) {
-      println '--> Skipping SetupWizard'
+      println 'Setting installState to: INITIAL_SETUP_COMPLETED'
       Jenkins.instance.installState = InstallState.INITIAL_SETUP_COMPLETED
     }
 
