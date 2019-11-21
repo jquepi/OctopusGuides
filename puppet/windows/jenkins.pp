@@ -42,6 +42,8 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
     import hudson.model.UpdateSite
     import hudson.PluginWrapper
     import jenkins.model.*
+    import hudson.util.*
+    import jenkins.install.*
 
     // The list of plugins to install
     Set<String> plugins_to_install = [
@@ -55,10 +57,15 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
         c.each {
             println "Installing ${it} plugin."
             UpdateSite.Plugin plugin = updateSite.getPlugin(it)
+
             // Wait for the future to be resolved, and check for any errors
-            Throwable error = plugin.deploy(dynamicLoad).get().getError()
-            if(error != null) {
-                println "ERROR installing ${it}, ${error}"
+            if (plugin != null) {
+              Throwable error = plugin.deploy(dynamicLoad).get().getError()
+              if(error != null) {
+                  println "ERROR installing ${it}, ${error}"
+              }
+            } else {
+              println "Could not find plugin ${it}"
             }
         }
         null
@@ -93,7 +100,6 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
     } else {
         println "Jenkins up-to-date.  Nothing to do."
     }
-
     | EOT
 }
 -> file_line { 'installStateName':

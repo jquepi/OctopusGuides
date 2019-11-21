@@ -48,11 +48,6 @@ file { '/var/lib/jenkins':
     import hudson.util.*
     import jenkins.install.*
 
-    if (Jenkins.instance.installState == InstallState.NEW) {
-      println '--> Skipping SetupWizard'
-      Jenkins.instance.installState = InstallState.INITIAL_SETUP_COMPLETED
-    }
-
     // The list of plugins to install
     Set<String> plugins_to_install = [
         "git", "github", "credentials", "credentials-binding", "plain-credentials"
