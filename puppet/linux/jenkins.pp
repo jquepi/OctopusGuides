@@ -149,6 +149,10 @@ file { '/var/lib/jenkins':
     'deb' => true,
   },
 }
+-> exec { 'Update apt repo':
+  command   => '/usr/bin/apt-get update',
+  logoutput => false
+}
 -> package { 'jenkins':
   ensure => installed,
 }
