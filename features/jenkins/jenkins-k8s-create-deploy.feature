@@ -38,7 +38,7 @@ Feature: Create and deploy a release from Jenkins
     And I scroll the "Add build step" button into view offset by "-200"
     And I click the "Add build step" button
     And I highlight outside the "Add build step" button
-    And I highlight outside the "Execute Windows batch command" option
+    And I highlight outside the "Execute shell" option
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}015-create-release-build-step.png"
     And I click the "Execute shell" option
