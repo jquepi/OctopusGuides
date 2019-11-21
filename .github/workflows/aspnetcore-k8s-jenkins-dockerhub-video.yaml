@@ -30,7 +30,6 @@ jobs:
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME: aspnetcore-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
-      JAVA_OPTS: -Djenkins.install.runSetupWizard=false
     steps:
       - uses: actions/checkout@v1
 
