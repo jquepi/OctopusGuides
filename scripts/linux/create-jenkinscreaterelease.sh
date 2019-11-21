@@ -27,4 +27,4 @@ API_KEY=`cat /tmp/api_key.txt`
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \
   --monochrome \
-  features/teamcity/jenkins-k8s-create-deploy.feature
+  features/jenkins/jenkins-k8s-create-deploy.feature
