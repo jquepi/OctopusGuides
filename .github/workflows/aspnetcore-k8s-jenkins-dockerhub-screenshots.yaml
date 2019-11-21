@@ -28,15 +28,15 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
       WISTIA_MEDIA_ID:
-      VIDEO_FILE_NAME: aspnetcore-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
     steps:
       - uses: actions/checkout@v1
       - name: Install Puppet
-        run: ./install.sh utilities.pp teamcity.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp
+        run: ./install.sh utilities.pp jenkins.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
 
