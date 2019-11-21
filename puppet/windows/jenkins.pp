@@ -76,6 +76,8 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
 
     // The default update site
     UpdateSite updateSite = Jenkins.getInstance().getUpdateCenter().getById('default')
+    // Update the site
+    updateSite.updateDirectlyNow(false)
 
     List<PluginWrapper> plugins = Jenkins.instance.pluginManager.getPlugins()
 
@@ -100,6 +102,7 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
     } else {
         println "Jenkins up-to-date.  Nothing to do."
     }
+
     | EOT
 }
 -> file_line { 'installStateName':
