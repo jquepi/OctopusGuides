@@ -157,8 +157,9 @@ file { '/var/lib/jenkins':
   ensure  => 'running',
   enable  => true,
 }
+# Not a secure solution, but fine for a disposable VM
 -> file { "/var/run/docker.sock":
   owner => "root",
   group => "docker",
-  mode => 0777,
+  mode => '0777',
 }
