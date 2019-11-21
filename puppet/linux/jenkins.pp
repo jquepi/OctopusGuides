@@ -125,7 +125,7 @@ file { '/var/lib/jenkins':
     import jenkins.install.*
 
     println "Current state: ${Jenkins.instance.installState}"
-    if (Jenkins.instance.installState == InstallState.NEW) {
+    if (!Jenkins.instance.installState.setupComplete) {
       println '--> Skipping SetupWizard'
       Jenkins.instance.installState = InstallState.INITIAL_SETUP_COMPLETED
     }
