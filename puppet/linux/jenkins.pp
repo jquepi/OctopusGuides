@@ -1,8 +1,34 @@
-file { '/var/lib/jenkins':
-  ensure => 'directory',
+apt::key { 'jenkins-repository':
+  id     => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
+  source => 'https://pkg.jenkins.io/debian/jenkins-ci.org.key',
+  server  => 'pgp.mit.edu'
 }
--> file { '/var/lib/jenkins/init.groovy.d':
-  ensure => 'directory',
+-> apt::source { 'jenkins':
+  comment  => 'This is the jenkins repository',
+  location => 'http://pkg.jenkins.io/debian-stable',
+  release  => '',
+  repos    => 'binary/',
+  key      => {
+    'id' => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
+  },
+  include  => {
+    'deb' => true,
+  },
+}
+-> exec { 'Update apt repo':
+  command   => '/usr/bin/apt-get update',
+  logoutput => false
+}
+-> package { 'jenkins':
+  ensure => installed,
+}
+-> service { 'jenkins':
+  ensure  => 'running',
+  enable  => true,
+}
+exec { 'Get logs':
+  command   => '/bin/sleep 60; /bin/cat /var/log/jenkins/jenkins.log;',
+  logoutput => true
 }
 -> file { '/var/lib/jenkins/init.groovy.d/a.security.groovy':
   ensure  => 'file',
@@ -108,52 +134,13 @@ file { '/var/lib/jenkins':
 
     | EOT
 }
-# -> file { '/var/lib/jenkins/init.groovy.d/c.skipwizard.groovy':
-#   ensure  => 'file',
-#   owner   => 'root',
-#   group   => 'root',
-#   mode    => '0644',
-#   content => @(EOT)
-#     #!groovy
-#     import hudson.model.UpdateSite
-#     import hudson.PluginWrapper
-#     import jenkins.model.*
-#     import hudson.util.*
-#     import jenkins.install.*
-#
-#     println "Current installState: ${Jenkins.instance.installState}"
-#     if (!Jenkins.instance.installState.setupComplete) {
-#       println 'Setting installState to: INITIAL_SETUP_COMPLETED'
-#       Jenkins.instance.installState = InstallState.RUNNING
-#     }
-#
-#     | EOT
-# }
--> apt::key { 'jenkins-repository':
-  id     => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
-  source => 'https://pkg.jenkins.io/debian/jenkins-ci.org.key',
-  server  => 'pgp.mit.edu'
+-> file_line { 'installStateName':
+  path    => '/var/lib/jenkins/config.xml',
+  line    => '  <installStateName>RUNNING</installStateName>',
+  match   => '^\s*<installStateName>.*?</installStateName>',
+  replace => true,
 }
--> apt::source { 'jenkins':
-  comment  => 'This is the jenkins repository',
-  location => 'http://pkg.jenkins.io/debian-stable',
-  release  => '',
-  repos    => 'binary/',
-  key      => {
-    'id' => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
-  },
-  include  => {
-    'deb' => true,
-  },
-}
--> exec { 'Update apt repo':
-  command   => '/usr/bin/apt-get update',
-  logoutput => false
-}
--> package { 'jenkins':
-  ensure => installed,
-}
--> service { 'jenkins':
-  ensure  => 'running',
-  enable  => true,
+-> exec { 'Restart service':
+  command   => '/bin/systemctl restart jenkins ',
+  logoutput => true
 }
