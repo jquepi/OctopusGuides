@@ -24,14 +24,14 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
   @plugin-install @applicationspecific @k8s
   Scenario: Install plugins
     Given I set the following aliases:
-      | Manage Jenkins          | //a[@class='task-link' and contains(.,'Manage Jenkins')]   |
-      | Manage Plugins          | //a[@href='pluginManager']                                 |
-      | Available               | //a[contains(@href,'available')]                           |
-      | Filter                  | #filter-box                                                |
-      | Docker Plugin           | //input[@name='plugin.docker-build-publish.default']       |
-      | Docker Plugin Container | //td[./input[@name='plugin.docker-build-publish.default']] |
-      | Install without restart | //button[text()='Install without restart']                 |
-      | Back to top             | //a[contains(.,'Go back to the top page')]                 |
+      | Manage Jenkins          | //a[@class='task-link' and contains(.,'Manage Jenkins')] |
+      | Manage Plugins          | //a[@href='pluginManager']                               |
+      | Available               | //a[contains(@href,'available')]                         |
+      | Filter                  | #filter-box                                              |
+      | Docker Plugin           | //input[@name='plugin.docker-build-step.default']        |
+      | Docker Plugin Container | //td[./input[@name='plugin.docker-build-step.default']]  |
+      | Install without restart | //button[text()='Install without restart']               |
+      | Back to top             | //a[contains(.,'Go back to the top page')]               |
 
     And I display a note with the text "Installing the Jenkins plugins" for "3" seconds
 
@@ -45,7 +45,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}010-manage-plugins.png"
     And I click the "Manage Plugins" link
     And I click the "Available" tab
-    And I populate the "Filter" text box with the text "CloudBees Docker"
+    And I populate the "Filter" text box with the text "Docker"
     And I click the "Docker Plugin" checkbox
     And I highlight inside the "Available" tab
     And I highlight outside the "Filter" tab
@@ -220,53 +220,74 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
   @configure-project
   Scenario: ASP.NET - Create the project
     Given I set the following aliases:
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
-      | Docker Build and Publish      | //a[contains(.,'Docker Build and Publish')]            |
-      | Repository Name               | //input[@name='_.repoName']                            |
-      | Tag                           | //input[@name='_.repoTag']                             |
-      | Docker registry URL           | (//input[@name='_.url'])[2]                            |
-      | Registry credentials          | (//select[@name='_.credentialsId'])[5]                 |
-      | Command                       | //textarea[@name='command']                            |
-      | Advanced                      | (//button[text()='Advanced...'])[7]                    |
-      | Build Context                 | //input[@name='_.buildContext']                        |
-      | Dockerfile Path               | //input[@name='_.dockerfilePath']                      |
-      | Command Line Arguments        | //textarea[@name='msBuildBuilder.cmdLineArgs']         |
-      | Command Two                   | (//textarea[contains(@name,'command')])[2]             |
-      | Save                          | //button[@type='button'][contains(.,'Save')]           |
+      | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
+      | Execute Windows batch command                | //a[contains(.,'Execute Windows batch command')]       |
+      | Execute Docker command                       | //a[contains(.,'Execute Docker command')]              |
+      | Docker command one                           | (//select[../../td[text()='Docker command']])[1]       |
+      | Docker command two                           | (//select[../../td[text()='Docker command']])[2]       |
+      | Create/build image                           | 4                                                      |
+      | Build context folder                         | //input[@name='_.dockerFolder']                        |
+      | Tag of the resulting docker image            | //input[@name='_.imageTag']                            |
+      | Push image                                   | 7                                                      |
+      | Name of the image to push (repository/image) | //input[@name='_.image']                               |
+      | Tag                                          | (//input[@name='_.tag'])[3]                            |
+      | Registry                                     | //input[@name='_.registry']                            |
+      | Registry credentials                         | (//select[@name='_.credentialsId'])[4]                 |
+      | Save                                         | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
-    And I highlight outside the "Docker Build and Publish" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}110-docker-build-and-publish-1.png"
-    And I click the "Docker Build and Publish" link
+    And I highlight outside the "Execute Docker command" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}110-execute-docker-command-1.png"
+    And I click the "Execute Docker command" link
     And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Docker Build and Publish" option
+    And I remove the highlight from the "Execute Docker command" option
 
-    And I scroll the "Repository Name" text box into view offset by "-300"
-    And I highlight outside the "Repository Name" text box
-    And I populate the "Repository Name" text box with "octopusdeploy/randomquotes"
+    And I scroll the "Docker command one" drop down list into view offset by "-300"
+    And I highlight outside the "Docker command one" drop down list
+    And I select the option value "Create/build image" from the "Docker command one" drop down list
+
+    And I scroll the "Build context folder" text box into view offset by "-300"
+    And I highlight outside the "Build context folder" text box
+    And I clear the "Build context folder" text box
+    And I populate the "Build context folder" text box with "$WORKSPACE/RandomQuotes"
+
+    And I scroll the "Tag of the resulting docker image" text box into view offset by "-300"
+    And I highlight outside the "Tag of the resulting docker image" text box
+    And I clear the "Tag of the resulting docker image" text box
+    And I populate the "Tag of the resulting docker image" text box with "octopusdeploy/randomquotes:1.0.$BUILD_NUMBER"
+
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}120-execute-docker-command-1.png"
+
+    And I scroll the "Add build step" button into view offset by "-200"
+    And I highlight outside the "Add build step" button
+    And I click the "Add build step" button
+    And I highlight outside the "Execute Docker command" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-execute-docker-command-1.png"
+    And I click the "Execute Docker command" link
+    And I remove the highlight from the "Add build step" option
+    And I remove the highlight from the "Execute Docker command" option
+
+    And I scroll the "Docker command two" drop down list into view offset by "-300"
+    And I highlight outside the "Docker command two" drop down list
+    And I select the option value "Push image" from the "Docker command two" drop down list
+
+    And I scroll the "Name of the image to push (repository/image)" text box into view offset by "-300"
+    And I highlight outside the "Name of the image to push (repository/image)" text box
+    And I populate the "Name of the image to push (repository/image)" text box with "randomquotes"
 
     And I scroll the "Tag" text box into view offset by "-300"
     And I highlight outside the "Tag" text box
     And I populate the "Tag" text box with "1.0.$BUILD_NUMBER"
 
-    And I scroll the "Docker registry URL" text box into view offset by "-300"
-    And I highlight outside the "Docker registry URL" text box
-    And I populate the "Docker registry URL" text box with "https://index.docker.io/v1/"
+    And I scroll the "Registry" text box into view offset by "-300"
+    And I highlight outside the "Registry" text box
+    And I populate the "Registry" text box with "octopusdeploy"
 
     And I scroll the "Registry credentials" drop down list into view offset by "-300"
     And I highlight outside the "Registry credentials" drop down list
     And I select the option value "DockerCredentials" from the "Registry credentials" drop down list
-
-    And I scroll the "Advanced" button into view offset by "-300"
-    And I highlight outside the "Advanced" button
-    And I click the "Advanced" button
-
-    And I scroll the "Build Context" text box into view offset by "-300"
-    And I highlight outside the "Build Context" text box
-    And I populate the "Build Context" text box with "RandomQuotes"
 
     And I click the "Save" button
     And I stop recording the screen
