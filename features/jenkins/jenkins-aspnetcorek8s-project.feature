@@ -218,7 +218,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I remove the highlight from the "Credentials" drop down list
 
   @configure-project
-  Scenario: ASP.NET - Create the project
+  Scenario: ASP.NET Core - Create the project
     Given I set the following aliases:
       | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
       | Execute Windows batch command                | //a[contains(.,'Execute Windows batch command')]       |
