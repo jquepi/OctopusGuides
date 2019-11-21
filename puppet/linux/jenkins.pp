@@ -77,9 +77,9 @@ file { '/var/lib/jenkins/init.groovy.d':
     import hudson.util.*
     import jenkins.install.*
 
-    if (!Jenkins.instance.installState.isSetupComplete()) {
-      InstallState.INITIAL_SETUP_COMPLETED.initializeState()
-      Jenkins.instance.save()
+    if (Jenkins.instance.installState == InstallState.NEW) {
+      println '--> Skipping SetupWizard'
+      Jenkins.instance.installState = InstallState.INITIAL_SETUP_COMPLETED
     }
 
     // The list of plugins to install
