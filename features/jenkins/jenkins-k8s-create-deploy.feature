@@ -54,7 +54,7 @@ Feature: Create and deploy a release from Jenkins
       """
       var textarea = document.evaluate("(//div[@class='CodeMirror'])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror
-      editor.setValue("/opt/octo/Octo create-release --server http://localhost --apiKey %OctopusAPIKey% --project \"Random Quotes\" --progress --deployto Dev");
+      editor.setValue("/opt/octo/Octo create-release \\\n--server http://localhost \\\n--apiKey $OctopusAPIKey \\\n--project \"Random Quotes\" \\\n--progress \\\n--deployto Dev");
       """
     And I highlight outside the "Command" text box
     And I highlight outside the "Save" button
@@ -98,8 +98,6 @@ Feature: Create and deploy a release from Jenkins
 
     And I scroll down "10000" px
     And I sleep for "5" seconds
-
-    And I display a note with the text "'Deploy Random Quotes release 0.0.2 to Dev: Success' means Octopus deployed the project" for "3" seconds
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
