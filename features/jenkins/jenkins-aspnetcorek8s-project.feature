@@ -296,3 +296,30 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
 
     And I click the "Save" button
     And I stop recording the screen
+
+  @build-now
+  Scenario: Run build
+    Given I set the following aliases:
+      | Build Now      | //a[contains(.,'Build Now')]      |
+      | Build One      | //a[contains(.,'#1')]             |
+      | Console Output | //a[contains(.,'Console Output')] |
+
+    And I open the URL "http://localhost:8080/job/Random%20Quotes/"
+    And I clear the transition
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
+    And I highlight inside the "Build Now" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}140-build-now.png"
+    And I click the "Build Now" link
+
+    And I highlight inside the "Build One" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}145-build-one.png"
+    # Fake a click here to fix stale element errors in WebDriver
+    And I mouse over the "Build One" link
+    And I open the URL "http://localhost:8080/job/Random%20Quotes/1/"
+
+    And I highlight inside the "Console Output" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-console.png"
+    And I click the "Console Output" link
+    And I scroll down "10000" px
+    And I sleep for "30" seconds
