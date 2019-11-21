@@ -124,7 +124,7 @@ file { '/var/lib/jenkins':
     println "Current installState: ${Jenkins.instance.installState}"
     if (!Jenkins.instance.installState.setupComplete) {
       println 'Setting installState to: INITIAL_SETUP_COMPLETED'
-      Jenkins.instance.installState = InstallState.INITIAL_SETUP_COMPLETED
+      Jenkins.instance.installState = InstallState.RUNNING
     }
 
     | EOT
