@@ -55,6 +55,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Install without restart" button
     And I wait for "5" seconds
 
+    And I stop recording the screen
+    And I sleep for "60" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I highlight outside the "Back to top" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}020-plugin-install.png"
     # fake a click

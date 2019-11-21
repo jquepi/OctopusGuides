@@ -27,7 +27,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: qerza61a2j
       VIDEO_FILE_NAME: jenkins-aspnetcore-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
     steps:
@@ -98,6 +98,6 @@ jobs:
 
       - name: Upload videos
         run: ./scripts/linux/upload-video.sh
-#
-#      - name: Replace Wistia video
-#        run: ./scripts/linux/replace-wistia-video.sh
+
+      - name: Replace Wistia video
+        run: ./scripts/linux/replace-wistia-video.sh
