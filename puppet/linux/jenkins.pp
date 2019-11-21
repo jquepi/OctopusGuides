@@ -124,6 +124,7 @@ file { '/var/lib/jenkins':
     import hudson.util.*
     import jenkins.install.*
 
+    println "Current state: ${Jenkins.instance.installState}"
     if (Jenkins.instance.installState == InstallState.NEW) {
       println '--> Skipping SetupWizard'
       Jenkins.instance.installState = InstallState.INITIAL_SETUP_COMPLETED
@@ -156,6 +157,6 @@ file { '/var/lib/jenkins':
   enable  => true,
 }
 -> exec { 'Get logs':
-  command   => '/bin/sleep 60; /bin/cat /var/log/jenkins/jenkins.log',
+  command   => '/bin/sleep 60; /bin/cat /var/log/jenkins/jenkins.log; ',
   logoutput => true
 }
