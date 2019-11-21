@@ -232,7 +232,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
       | Name of the image to push (repository/image) | //input[@name='_.image']                               |
       | Tag                                          | (//input[@name='_.tag'])[3]                            |
       | Registry                                     | //input[@name='_.registry']                            |
-      | Docker registry URL                          | //input[@name='_.url']                                 |
+      | Docker registry URL                          | (//input[@name='_.url'])[2]                            |
       | Registry credentials                         | (//select[@name='_.credentialsId'])[4]                 |
       | Save                                         | //button[@type='button'][contains(.,'Save')]           |
 
