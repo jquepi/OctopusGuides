@@ -108,27 +108,27 @@ file { '/var/lib/jenkins':
 
     | EOT
 }
--> file { '/var/lib/jenkins/init.groovy.d/c.skipwizard.groovy':
-  ensure  => 'file',
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0644',
-  content => @(EOT)
-    #!groovy
-    import hudson.model.UpdateSite
-    import hudson.PluginWrapper
-    import jenkins.model.*
-    import hudson.util.*
-    import jenkins.install.*
-
-    println "Current installState: ${Jenkins.instance.installState}"
-    if (!Jenkins.instance.installState.setupComplete) {
-      println 'Setting installState to: INITIAL_SETUP_COMPLETED'
-      Jenkins.instance.installState = InstallState.RUNNING
-    }
-
-    | EOT
-}
+# -> file { '/var/lib/jenkins/init.groovy.d/c.skipwizard.groovy':
+#   ensure  => 'file',
+#   owner   => 'root',
+#   group   => 'root',
+#   mode    => '0644',
+#   content => @(EOT)
+#     #!groovy
+#     import hudson.model.UpdateSite
+#     import hudson.PluginWrapper
+#     import jenkins.model.*
+#     import hudson.util.*
+#     import jenkins.install.*
+#
+#     println "Current installState: ${Jenkins.instance.installState}"
+#     if (!Jenkins.instance.installState.setupComplete) {
+#       println 'Setting installState to: INITIAL_SETUP_COMPLETED'
+#       Jenkins.instance.installState = InstallState.RUNNING
+#     }
+#
+#     | EOT
+# }
 -> apt::key { 'jenkins-repository':
   id     => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
   source => 'https://pkg.jenkins.io/debian/jenkins-ci.org.key',
