@@ -36,13 +36,13 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I display a note with the text "Installing the Jenkins plugins" for "3" seconds
 
     And I highlight inside the "Manage Jenkins" text box
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}005-manage-jenkins.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}010-manage-jenkins.png"
     And I click the "Manage Jenkins" link
     And I scroll the "Manage Plugins" link into view offset by "-100"
     # Give the top toolbar a change to realign itself
     And I wait for "1" seconds
     And I highlight outside the "Manage Plugins" text box
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}010-manage-plugins.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}020-manage-plugins.png"
     And I click the "Manage Plugins" link
     And I click the "Available" tab
     And I populate the "Filter" text box with the text "Docker"
@@ -51,7 +51,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I highlight outside the "Filter" tab
     And I highlight inside the "Docker Plugin Container" element
     And I highlight outside the "Install without restart" button
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}015-msbuild-plugin.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}030-msbuild-plugin.png"
     And I click the "Install without restart" button
     And I wait for "5" seconds
 
@@ -60,7 +60,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Back to top" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}020-plugin-install.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}040-plugin-install.png"
     # fake a click
     And I open the URL "http://localhost:8080/"
 
@@ -90,30 +90,30 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I display a note with the text "Adding the Octopus API key as a Jenkins secret" for "3" seconds
 
     And I highlight inside the "Manage Jenkins" text box
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}023-manage-jenkins.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}050-manage-jenkins.png"
     And I click the "Manage Jenkins" link
 
     And I scroll the "Configure Credentials" link into view offset by "-100"
     # Give the top toolbar a change to realign itself
     And I wait for "1" seconds
     And I highlight outside the "Configure Credentials" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}040-configure-credentials.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}060-configure-credentials.png"
     And I click the "Configure Credentials" link
 
     And I highlight inside the "Credentials" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}045-credentials-parent.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}070-credentials-parent.png"
     And I click the "Credentials" link
 
     And I highlight inside the "System" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}050-credentials-system.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}080-credentials-system.png"
     And I click the "System" link
 
     And I highlight outside the "Global credentials cell" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}055-global-credentials.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}090-global-credentials.png"
     And I click the "Global credentials" link
 
     And I highlight inside the "Add Credentials" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}060-add-credentials.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}100-add-credentials.png"
     And I click the "Add Credentials" link
 
     And I highlight outside the "Username" text box with an offset of "0"
@@ -126,11 +126,11 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I populate the "Password" text box with "ExternalDockerPassword"
     And I populate the "ID" text box with "DockerCredentials"
     And I populate the "Description" text box with "The Dockerhub Credentials"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}065-octopus-credentials.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}110-octopus-credentials.png"
     And I click the "OK" button
 
     And I highlight inside the "Add Credentials" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}070-add-credentials.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}120-add-credentials.png"
     And I click the "Add Credentials" link
 
     And I highlight outside the "Kind" drop down list
@@ -144,7 +144,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I populate the "Secret" text box with "ExternalOctopusAPIKey"
     And I populate the "ID Two" text box with "OctopusAPIKey"
     And I populate the "Description Two" text box with "The Octopus API Key"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}071-octopus-credentials.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-octopus-credentials.png"
     And I click the "OK" button
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
@@ -163,21 +163,21 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I display a note with the text "Configure Docker" for "3" seconds
 
     And I highlight inside the "Manage Jenkins" text box
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}080-manage-jenkins.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}140-manage-jenkins.png"
     And I click the "Manage Jenkins" link
 
     And I scroll the "Configure System" link into view offset by "-100"
     # Give the top toolbar a change to realign itself
     And I wait for "1" seconds
     And I highlight outside the "Configure System" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}090-configure-system.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-configure-system.png"
     And I click the "Configure System" link
 
     And I scroll the "Docker URL" text box into view offset by "-300"
     And I highlight outside the "Docker URL" text box
     And I highlight outside the "Save" button
     And I populate the "Docker URL" text box with "unix:///var/run/docker.sock"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}100-dockerurl.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-dockerurl.png"
     And I click the "Save" button
 
   @configure-project
@@ -203,14 +203,14 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I display a note with the text "Creating the Jenkins project" for "3" seconds
 
     And I highlight inside the "New Item" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}075-new-item.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}170-new-item.png"
     And I click the "New Item" link
 
     And I highlight outside the "Freestyle project" link
     And I highlight outside the "Project name" link
     And I highlight outside the "OK" button
     And I populate the "Project name" text box with "Random Quotes"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}080-freestyle-project.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}180-freestyle-project.png"
     And I click the "Freestyle project" link
     And I scroll the "OK" button into view
     And I click the "OK" button
@@ -220,14 +220,14 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I click the "Git" option
     And I highlight outside the "Repository URL" text box
     And I populate the "Repository URL" text box with "GitUrl"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}085-git-settings.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}190-git-settings.png"
 
     And I scroll the "Poll SCM" option into view offset by "-200"
     And I click the "Poll SCM" option
     And I populate the "Schedule" textarea with "H/5 * * * *"
     And I highlight outside the "Poll SCM" option
     And I highlight outside the "Schedule" textarea
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}090-git-polling.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}200-git-polling.png"
     And I remove the highlight from the "Poll SCM" option
     And I remove the highlight from the "Schedule" textarea
 
@@ -236,11 +236,11 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I click the "Use secrets" option
 
     And I highlight outside the "Bindings Add" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}095-binding-add.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}210-binding-add.png"
     And I click the "Bindings Add" option
     And I highlight outside the "Secret text" link
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}100-secret-text.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}220-secret-text.png"
     And I remove the highlight from the "Bindings Add" option
     And I remove the highlight from the "Use secrets" option
     And I click the "Secret text" link
@@ -248,7 +248,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I highlight outside the "Variable" text box
     And I highlight outside the "Credentials" drop down list
     And I populate the "Variable" text box with "OctopusAPIKey"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}105-credentials-octopusapikey.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}230-credentials-octopusapikey.png"
     And I remove the highlight from the "Variable" text box
     And I remove the highlight from the "Credentials" drop down list
 
@@ -257,6 +257,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     Given I set the following aliases:
       | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
       | Execute Windows batch command                | //a[contains(.,'Execute Windows batch command')]       |
+      | Command                                      | //textarea[@name='command']                            |
       | Execute Docker command                       | //a[contains(.,'Execute Docker command')]              |
       | Docker command one                           | (//select[../../td[text()='Docker command']])[1]       |
       | Docker command two                           | (//select[../../td[text()='Docker command']])[2]       |
@@ -274,8 +275,23 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
+    And I highlight outside the "Execute Windows batch command" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}240-batch-command-1.png"
+    And I click the "Execute Windows batch command" link
+    And I remove the highlight from the "Add build step" option
+    And I remove the highlight from the "Execute Windows batch command" option
+
+    And I scroll the "Command" text box into view offset by "-200"
+    And I highlight outside the "Command" text box
+    And I populate the "Command" text box with "dotnet test"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-dotnet-test.png"
+    And I remove the highlight from the "Command" text box
+
+    And I scroll the "Add build step" button into view offset by "-200"
+    And I highlight outside the "Add build step" button
+    And I click the "Add build step" button
     And I highlight outside the "Execute Docker command" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}110-execute-docker-command-1.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}260-execute-docker-command-1.png"
     And I click the "Execute Docker command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Docker command" option
@@ -294,13 +310,13 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I clear the "Tag of the resulting docker image" text box
     And I populate the "Tag of the resulting docker image" text box with "octopusdeploy/randomquotes:1.0.$BUILD_NUMBER"
 
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}120-execute-docker-command-1.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}270-execute-docker-command-1.png"
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Docker command" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-execute-docker-command-1.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}280-execute-docker-command-1.png"
     And I click the "Execute Docker command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Docker command" option
@@ -327,7 +343,9 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
 
     And I scroll the "Registry credentials" drop down list into view offset by "-300"
     And I highlight outside the "Registry credentials" drop down list
+    And I highlight outside the "Save" button
     And I select the option value "DockerCredentials" from the "Registry credentials" drop down list
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}290-execute-docker-command-1.png"
 
     And I click the "Save" button
     And I stop recording the screen
@@ -344,17 +362,17 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight inside the "Build Now" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}140-build-now.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}300-build-now.png"
     And I click the "Build Now" link
 
     And I highlight inside the "Build One" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}145-build-one.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}310-build-one.png"
     # Fake a click here to fix stale element errors in WebDriver
     And I mouse over the "Build One" link
     And I open the URL "http://localhost:8080/job/Random%20Quotes/1/"
 
     And I highlight inside the "Console Output" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-console.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}320-console.png"
     And I click the "Console Output" link
     And I scroll down "10000" px
     And I sleep for "10" seconds
