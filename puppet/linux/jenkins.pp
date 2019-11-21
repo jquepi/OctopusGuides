@@ -157,3 +157,8 @@ file { '/var/lib/jenkins':
   ensure  => 'running',
   enable  => true,
 }
+-> file { "/var/run/docker.sock":
+  owner => "root",
+  group => "docker",
+  mode => 0777,
+}
