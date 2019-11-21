@@ -246,11 +246,11 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
 
     And I scroll the "Repository Name" text box into view offset by "-300"
     And I highlight outside the "Repository Name" text box
-    And I populate the "Repository Name" text box with "octopusdeploy"
+    And I populate the "Repository Name" text box with "octopusdeploy/randomquotes"
 
     And I scroll the "Tag" text box into view offset by "-300"
     And I highlight outside the "Tag" text box
-    And I populate the "Tag" text box with "randomquotes.1.0.$BUILD_NUMBER"
+    And I populate the "Tag" text box with "1.0.$BUILD_NUMBER"
 
     And I scroll the "Docker registry URL" text box into view offset by "-300"
     And I highlight outside the "Docker registry URL" text box
