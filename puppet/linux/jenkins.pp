@@ -73,6 +73,8 @@ file { '/var/lib/jenkins/init.groovy.d':
     import hudson.model.UpdateSite
     import hudson.PluginWrapper
     import jenkins.model.*
+    import hudson.util.*
+    import jenkins.install.*
 
     // The list of plugins to install
     Set<String> plugins_to_install = [
@@ -125,7 +127,7 @@ file { '/var/lib/jenkins/init.groovy.d':
         println "Jenkins up-to-date.  Nothing to do."
     }
 
-    Jenkins.instance.setInstallState(InstallState.INITIAL_SETUP_COMPLETED)
+    Jenkins.instance.setInstallState(InstallState.RUNNING)
 
     | EOT
 }
