@@ -32,6 +32,7 @@ file { '/var/lib/jenkins/init.groovy.d':
   ensure => 'directory',
 }
 -> file { '/var/lib/jenkins/init.groovy.d/a.security.groovy':
+  notify  => Service['jenkins'],
   ensure  => 'file',
   owner   => 'root',
   group   => 'root',
@@ -75,6 +76,8 @@ file { '/var/lib/jenkins/init.groovy.d':
     import jenkins.model.*
     import hudson.util.*
     import jenkins.install.*
+
+    Jenkins.instance.setInstallState(InstallState.RUNNING)
 
     // The list of plugins to install
     Set<String> plugins_to_install = [
@@ -126,8 +129,6 @@ file { '/var/lib/jenkins/init.groovy.d':
     } else {
         println "Jenkins up-to-date.  Nothing to do."
     }
-
-    Jenkins.instance.setInstallState(InstallState.RUNNING)
 
     | EOT
 }
