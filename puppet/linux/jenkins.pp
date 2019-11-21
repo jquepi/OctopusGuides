@@ -125,7 +125,7 @@ file { '/var/lib/jenkins':
 }
 -> exec { 'Update apt repo':
   command   => '/usr/bin/apt-get update',
-  logoutput => true
+  logoutput => false
 }
 -> package { 'jenkins':
   ensure => installed,
@@ -133,4 +133,8 @@ file { '/var/lib/jenkins':
 -> service { 'jenkins':
   ensure  => 'running',
   enable  => true,
+}
+-> exec { 'Update apt repo':
+  command   => '/bin/sleep 60; /bin/cat /var/log/jenkins/jenkins.log',
+  logoutput => true
 }

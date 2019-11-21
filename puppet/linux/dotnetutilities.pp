@@ -9,7 +9,7 @@ file { '/opt/packages-microsoft-prod.deb':
 }
 -> exec { 'Update apt repo':
   command   => '/usr/bin/apt-get update',
-  logoutput => true
+  logoutput => false
 }
 -> package { 'apt-transport-https':
   ensure => installed,
