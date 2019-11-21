@@ -357,4 +357,16 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-console.png"
     And I click the "Console Output" link
     And I scroll down "10000" px
-    And I sleep for "30" seconds
+    And I sleep for "10" seconds
+
+    And I stop recording the screen
+    And I sleep for "120" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
+    And I scroll down "10000" px
+    And I sleep for "5" seconds
+
+  Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
+    And I close the browser
