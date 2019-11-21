@@ -77,7 +77,7 @@ file { '/var/lib/jenkins/init.groovy.d':
     import hudson.util.*
     import jenkins.install.*
 
-    Jenkins.instance.setInstallState(InstallState.RUNNING)
+    Jenkins.instance.setInstallState(InstallState.INITIAL_SETUP_COMPLETED)
 
     // The list of plugins to install
     Set<String> plugins_to_install = [
