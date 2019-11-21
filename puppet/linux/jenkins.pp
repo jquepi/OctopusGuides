@@ -164,3 +164,7 @@ file { '/var/lib/jenkins':
   command   => '/bin/sleep 60; /bin/cat /var/log/jenkins/jenkins.log; ',
   logoutput => true
 }
+-> exec { 'Restart service':
+  command   => '/bin/systemctl restart jenkins ',
+  logoutput => true
+}
