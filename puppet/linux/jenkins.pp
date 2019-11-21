@@ -1,38 +1,10 @@
-apt::key { 'jenkins-repository':
-  id     => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
-  source => 'https://pkg.jenkins.io/debian/jenkins-ci.org.key',
-  server  => 'pgp.mit.edu'
+file { '/var/lib/jenkins':
+  ensure => 'directory',
 }
--> apt::source { 'jenkins':
-  comment  => 'This is the jenkins repository',
-  location => 'http://pkg.jenkins.io/debian-stable',
-  release  => '',
-  repos    => 'binary/',
-  key      => {
-    'id' => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
-  },
-  include  => {
-    'deb' => true,
-  },
-}
--> exec { 'Update apt repo':
-  command   => '/usr/bin/apt-get update',
-  logoutput => true
-}
--> package { 'jenkins':
-  ensure => installed,
-}
-
-service { 'jenkins':
-  ensure  => 'running',
-  enable  => true,
-}
-
-file { '/var/lib/jenkins/init.groovy.d':
+-> file { '/var/lib/jenkins/init.groovy.d':
   ensure => 'directory',
 }
 -> file { '/var/lib/jenkins/init.groovy.d/a.security.groovy':
-  notify  => Service['jenkins'],
   ensure  => 'file',
   owner   => 'root',
   group   => 'root',
@@ -64,7 +36,6 @@ file { '/var/lib/jenkins/init.groovy.d':
     | EOT
 }
 -> file { '/var/lib/jenkins/init.groovy.d/b.plugins.groovy':
-  notify  => Service['jenkins'],
   ensure  => 'file',
   owner   => 'root',
   group   => 'root',
@@ -134,4 +105,32 @@ file { '/var/lib/jenkins/init.groovy.d':
     }
 
     | EOT
+}
+-> apt::key { 'jenkins-repository':
+  id     => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
+  source => 'https://pkg.jenkins.io/debian/jenkins-ci.org.key',
+  server  => 'pgp.mit.edu'
+}
+-> apt::source { 'jenkins':
+  comment  => 'This is the jenkins repository',
+  location => 'http://pkg.jenkins.io/debian-stable',
+  release  => '',
+  repos    => 'binary/',
+  key      => {
+    'id' => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
+  },
+  include  => {
+    'deb' => true,
+  },
+}
+-> exec { 'Update apt repo':
+  command   => '/usr/bin/apt-get update',
+  logoutput => true
+}
+-> package { 'jenkins':
+  ensure => installed,
+}
+-> service { 'jenkins':
+  ensure  => 'running',
+  enable  => true,
 }
