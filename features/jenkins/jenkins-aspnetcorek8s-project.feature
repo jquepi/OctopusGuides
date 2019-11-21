@@ -21,7 +21,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     Then I verify the text from the "Profile Name" element matches the regex "jenkinsadmin" waiting up to "120" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
-  @plugin-install @applicationspecific @k8s
+  @plugin-install @destinationspecific @k8s
   Scenario: Install plugins
     Given I set the following aliases:
       | Manage Jenkins          | //a[@class='task-link' and contains(.,'Manage Jenkins')] |
