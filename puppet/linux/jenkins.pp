@@ -65,10 +65,15 @@ file { '/var/lib/jenkins':
         c.each {
             println "Installing ${it} plugin."
             UpdateSite.Plugin plugin = updateSite.getPlugin(it)
+
             // Wait for the future to be resolved, and check for any errors
-            Throwable error = plugin.deploy(dynamicLoad).get().getError()
-            if(error != null) {
-                println "ERROR installing ${it}, ${error}"
+            if (plugin != null) {
+              Throwable error = plugin.deploy(dynamicLoad).get().getError()
+              if(error != null) {
+                  println "ERROR installing ${it}, ${error}"
+              }
+            } else {
+              println "Could not find plugin ${it}" +
             }
         }
         null
@@ -106,6 +111,26 @@ file { '/var/lib/jenkins':
 
     | EOT
 }
+-> file { '/var/lib/jenkins/init.groovy.d/c.skipwizard.groovy':
+  ensure  => 'file',
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0644',
+  content => @(EOT)
+    #!groovy
+    import hudson.model.UpdateSite
+    import hudson.PluginWrapper
+    import jenkins.model.*
+    import hudson.util.*
+    import jenkins.install.*
+
+    if (Jenkins.instance.installState == InstallState.NEW) {
+      println '--> Skipping SetupWizard'
+      Jenkins.instance.installState = InstallState.INITIAL_SETUP_COMPLETED
+    }
+
+    | EOT
+}
 -> apt::key { 'jenkins-repository':
   id     => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
   source => 'https://pkg.jenkins.io/debian/jenkins-ci.org.key',
@@ -122,10 +147,6 @@ file { '/var/lib/jenkins':
   include  => {
     'deb' => true,
   },
-}
--> exec { 'Update apt repo':
-  command   => '/usr/bin/apt-get update',
-  logoutput => false
 }
 -> package { 'jenkins':
   ensure => installed,
