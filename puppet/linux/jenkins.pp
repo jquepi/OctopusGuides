@@ -79,6 +79,8 @@ file { '/var/lib/jenkins':
 
     // The default update site
     UpdateSite updateSite = Jenkins.getInstance().getUpdateCenter().getById('default')
+    // Update the site
+    updateSite.updateDirectlyNow(false)
 
     List<PluginWrapper> plugins = Jenkins.instance.pluginManager.getPlugins()
 
