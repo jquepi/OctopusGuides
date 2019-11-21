@@ -256,8 +256,8 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
   Scenario: ASP.NET Core - Create the project
     Given I set the following aliases:
       | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command                | //a[contains(.,'Execute Windows batch command')]       |
-      | Command                                      | //textarea[@name='command']                            |
+      | Execute shell                                | //a[contains(.,'Execute shell')]                       |
+      | Command                                      | //div[@class='CodeMirror']                             |
       | Execute Docker command                       | //a[contains(.,'Execute Docker command')]              |
       | Docker command one                           | (//select[../../td[text()='Docker command']])[1]       |
       | Docker command two                           | (//select[../../td[text()='Docker command']])[2]       |
@@ -275,15 +275,20 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
-    And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}240-batch-command-1.png"
-    And I click the "Execute Windows batch command" link
+    And I highlight outside the "Execute shell" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}240-shell-command-1.png"
+    And I click the "Execute shell" link
     And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Execute Windows batch command" option
+    And I remove the highlight from the "Execute shell" option
 
     And I scroll the "Command" text box into view offset by "-200"
     And I highlight outside the "Command" text box
-    And I populate the "Command" text box with "dotnet test"
+    And I run the following JavaScript:
+      """
+      var textarea = document.evaluate("//div[@class='CodeMirror']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var editor = textarea.CodeMirror
+      editor.setValue("dotnet test");
+      """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-dotnet-test.png"
     And I remove the highlight from the "Command" text box
 
