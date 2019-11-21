@@ -19,10 +19,11 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Random Quotes Project         | //a[contains(.,'Random Quotes')]                       |
-      | Configure                     | //a[contains(.,'Configure')]                           |
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
+      | Random Quotes Project | //a[contains(.,'Random Quotes')]                       |
+      | Configure             | //a[contains(.,'Configure')]                           |
+      | Add build step        | //button[@type='button'][contains(.,'Add build step')] |
+      | Execute shell         | //a[contains(.,'Execute shell')]                       |
+
 
     And I display a note with the text "Deploying an Octopus release from Jenkins" for "3" seconds
 
@@ -40,17 +41,21 @@ Feature: Create and deploy a release from Jenkins
     And I highlight outside the "Execute Windows batch command" option
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}015-create-release-build-step.png"
-    And I click the "Execute Windows batch command" option
+    And I click the "Execute shell" option
     And I remove the highlight from the "Add build step" button
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Command                | (//textarea[contains(@name,'command')])                                                                                        |
-      | Save                   | //button[@type='button'][contains(.,'Save')]                                                                                   |
-      | Create Release Command | Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project "Random Quotes" --progress --deployto Dev |
+      | Command | (//div[@class='CodeMirror'])[2]              |
+      | Save    | //button[@type='button'][contains(.,'Save')] |
 
     And I scroll the "Command" text box into view offset by "-200"
-    And I populate the "Command" text box with "Create Release Command"
+    And I run the following JavaScript:
+      """
+      var textarea = document.evaluate("(//div[@class='CodeMirror'])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var editor = textarea.CodeMirror
+      editor.setValue("/opt/octo/Octo create-release --server http://localhost --apiKey %OctopusAPIKey% --project \"Random Quotes\" --progress --deployto Dev");
+      """
     And I highlight outside the "Command" text box
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-create-release-command.png"
