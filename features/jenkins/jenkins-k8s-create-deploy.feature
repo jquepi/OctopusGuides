@@ -55,6 +55,7 @@ Feature: Create and deploy a release from Jenkins
       var textarea = document.evaluate("(//div[@class='CodeMirror'])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror
       editor.setValue("#!/bin/bash\n/opt/octo/Octo create-release \\\n--server http://localhost \\\n--apiKey $OctopusAPIKey \\\n--project \"Random Quotes\" \\\n--progress \\\n--deployto Dev");
+      editor.save();
       """
     And I highlight outside the "Command" text box
     And I highlight outside the "Save" button
