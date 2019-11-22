@@ -17,6 +17,7 @@
     "-DCucumberAlias-ExternalWistiaPassword=$env:WISTIA_PASSWORD" `
     "-DCucumberAlias-ExternalMediaID=$env:WISTIA_MEDIA_ID" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
+    "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `

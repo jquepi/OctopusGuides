@@ -14,6 +14,7 @@
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
+    "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
