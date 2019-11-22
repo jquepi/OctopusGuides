@@ -34,7 +34,7 @@ package { 'fluxbox':
   ensure => installed,
 }
 -> exec { 'Run xvfb':
-  command   => '/usr/bin/Xvfb :99 -screen 0 1024x768x24 &',
+  command   => '/usr/bin/Xvfb :99 -screen 0 1920x1080x24 &',
   logoutput => true
 }
 -> exec { 'Run composite manager':
