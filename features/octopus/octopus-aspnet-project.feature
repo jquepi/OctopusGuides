@@ -240,7 +240,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Deploy to IIS" tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}045-octopus-add-iis.png"
     And I mouse over the "Deploy to IIS" tile
-    And IFclick the "Add" button
+    And I force click the "Add" button
 
   @define-project @destinationspecific @azure-web-app @applicationspecific @aspnet
   Scenario: ASP.NET Azure Configure Features
