@@ -21,7 +21,7 @@ Feature: Create Octopus Users and Teams
     Given I set the following aliases:
       | More          | (//span[contains(.,'More')])[1]                                                                 |
       | Configuration | //a[./span[contains(.,'Configuration')][not(*)]] \| //span[.//div[contains(.,'Configuration')]] |
-      | Audit         | //span[contains(.,'Audit')]                                                                     |
+      | Audit         | (//a[contains(.,'Audit')][not(*)] \| //span[contains(.,'Audit')])[1]                            |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "View the audit log" for "3" seconds
