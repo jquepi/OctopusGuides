@@ -18,12 +18,12 @@ Feature: Configure the Octopus environments
 
   Scenario: Add dev, test and prod
     Given I set the following aliases:
-      | Infrastructure       | //span[contains(.,'Infrastructure')]         |
-      | Environments         | (//a[contains(.,'Environments')])[1]         |
-      | Environments text    | (//a/span[contains(.,'Environments')])[1]    |
-      | Add Environment      | //button[contains(.,'Add Environment')]      |
-      | New environment name | //input[contains(@id, 'Newenvironmentname')] |
-      | Save                 | //button[contains(.,'Save')]                 |
+      | Infrastructure       | //span[contains(.,'Infrastructure')]                                                 |
+      | Environments         | (//a[contains(.,'Environments')])[1]                                                 |
+      | Environments text    | (//a/span[contains(.,'Environments')])[1] \| //a[contains(.,'Environments')][not(*)] |
+      | Add Environment      | //button[contains(.,'Add Environment')]                                              |
+      | New environment name | //input[contains(@id, 'Newenvironmentname')]                                         |
+      | Save                 | //button[contains(.,'Save')]                                                         |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the Octopus environments" for "3" seconds
