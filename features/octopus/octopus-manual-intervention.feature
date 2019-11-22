@@ -70,7 +70,7 @@ Feature: Add a manual intervention step
     And I highlight outside the "Manual Intervention" tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/intervention/#{GuideSpecificScreenshotDir}020-octopus-add-intervention.png"
     And I mouse over the "Manual Intervention" tile
-    And I click the "Add" button
+    And I force click the "Add" button
 
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deployment Sign Off"
