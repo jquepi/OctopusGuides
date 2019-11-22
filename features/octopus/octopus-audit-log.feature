@@ -9,6 +9,7 @@ Feature: Create Octopus Users and Teams
       | Close help | //div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M11 18h2v-2h-2v2zm1-16C6.48 2 2')]] |
     And I open the shared browser "ExternalBrowserType"
     And I maximize the window
+    #And I set the window size to "1024" x "768"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I populate the "Username" text box with "admin"
@@ -33,8 +34,8 @@ Feature: Create Octopus Users and Teams
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/audit/005-octopus-configuration.png"
     And I click the "Configuration" link
-    And I remove the highlight from the "More" link if it exists
-    And I remove the highlight from the "Configuration" link if it exists
+    And I remove the highlight from the "More" link waiting up to "3" seconds if it exists
+    And I remove the highlight from the "Configuration" link waiting up to "3" seconds if it exists
     And I sleep for "1" second
 
     And I highlight inside the "Audit" link
