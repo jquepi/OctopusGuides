@@ -33,7 +33,7 @@ Feature: Create Octopus Users and Teams
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/audit/005-octopus-configuration.png"
     And I click the "Configuration" link
-    And I remove the highlight from the "More" link
+    And I remove the highlight from the "More" link if it exists
     And I sleep for "1" second
 
     And I highlight inside the "Audit" link
