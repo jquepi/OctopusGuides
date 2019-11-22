@@ -19,16 +19,16 @@ Feature: Create Octopus Users and Teams
   @view-audit
   Scenario: Configure Users
     Given I set the following aliases:
-      | More          | (//span[contains(.,'More')])[1]     |
-      | Configuration | //span[contains(.,'Configuration')] |
-      | Audit         | //span[contains(.,'Audit')]         |
+      | More          | (//span[contains(.,'More')])[1]                                                                 |
+      | Configuration | //a[./span[contains(.,'Configuration')][not(*)]] \| //span[.//div[contains(.,'Configuration')]] |
+      | Audit         | //span[contains(.,'Audit')]                                                                     |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "View the audit log" for "3" seconds
     And I sleep for "1" second
 
-    And I highlight outside the "More" link
-    And I click the "More" link
+    And I highlight outside the "More" link if it exists
+    And I click the "More" link if it exists waiting up to "1" second
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/audit/005-octopus-configuration.png"
