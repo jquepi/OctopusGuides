@@ -1,6 +1,6 @@
 name: ASP.NET Core TeamCity Artifactory Feed Screenshots
 on:
-#  push:
+  push:
   schedule:
     - cron:  '0 14 9 * *'
 jobs:
