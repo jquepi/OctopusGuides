@@ -468,7 +468,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Add task                 | //button[@aria-label='Add a task to Agent job 1']                                                              |
       | Search                   | (//input[@aria-label='Search'])[2]                                                                             |
-      | Push package title       | //div[text()='Push Package(s) to Octopus']                                                                     |
+      | Push package title       | //div[text()='Push Package(s) to Octopus'][@class='info-name']                                                 |
       | Push package             | //div[./div/div/div[text()='Push Package(s) to Octopus']]/button                                               |
       | Push Packages to Octopus | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Push Packages to Octopus']] |
       | New                      | //div[./span[text()='Add Octopus Deploy Server']]                                                              |
