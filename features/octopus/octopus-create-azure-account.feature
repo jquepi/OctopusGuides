@@ -19,17 +19,17 @@ Feature: Create Azure Account
 
   Scenario: Add target
     Given I set the following aliases:
-      | Infrastructure       | //span[contains(.,'Infrastructure')]                 |
-      | More                 | (//span[contains(.,'More')])[2]                      |
-      | Accounts             | //span[contains(.,'Accounts')]                       |
-      | Add Account          | //button[contains(.,'Add Account')]                  |
-      | Azure Subscription   | //li[normalize-space(text())='Azure Subscription']   |
-      | Account name         | //input[contains(@id,'Accountname')]                 |
-      | Subscription ID      | //input[contains(@id,'Subscription')]                |
-      | Tenant ID            | //input[contains(@id,'ActiveDirectoryTenantID')]     |
-      | Application ID       | //input[contains(@id,'ActiveDirectoryAppicationID')] |
-      | Application Password | //input[contains(@id,'ActiveDirectoryPasswordKey')]  |
-      | Save                 | (//button[contains(.,'Save')])[2]                    |
+      | Infrastructure       | //span[contains(.,'Infrastructure')]                          |
+      | More                 | (//span[contains(.,'More')])[2]                               |
+      | Accounts             | //span[contains(.,'Accounts')] \| //a[contains(.,'Accounts')] |
+      | Add Account          | //button[contains(.,'Add Account')]                           |
+      | Azure Subscription   | //li[normalize-space(text())='Azure Subscription']            |
+      | Account name         | //input[contains(@id,'Accountname')]                          |
+      | Subscription ID      | //input[contains(@id,'Subscription')]                         |
+      | Tenant ID            | //input[contains(@id,'ActiveDirectoryTenantID')]              |
+      | Application ID       | //input[contains(@id,'ActiveDirectoryAppicationID')]          |
+      | Application Password | //input[contains(@id,'ActiveDirectoryPasswordKey')]           |
+      | Save                 | (//button[contains(.,'Save')])[2]                             |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating Azure account" for "3" seconds
@@ -41,7 +41,7 @@ Feature: Create Azure Account
     And I sleep for "1" second
 
     And I force click the "More" link waiting up to "5" seconds if it exists
-    And I highlight outside the "More" link with an offset of "5"
+    And I highlight outside the "More" link with an offset of "5" if it exists
     And I highlight inside the "Accounts" link
     And I zoom the browser out
     And I save a screenshot to "#{ExternalMediaPath}/octopus/azureaccount/020-accounts.png"
