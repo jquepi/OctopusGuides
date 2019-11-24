@@ -16,6 +16,7 @@
     "-DCucumberAlias-ExternalUrl=https://$($env:TEST_RES_GROUP).azurewebsites.net/" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
+    "-DCucumberAlias-Screenshot=aspnet-random-quotes-test-app.png" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
     --plugin progress `
