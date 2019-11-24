@@ -1,6 +1,6 @@
 name: ASP.NET Core TeamCity Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 10 * *'
@@ -80,6 +80,12 @@ jobs:
 
       - name: Open App in Test
         run: ./scripts/linux/open-testwebapp.sh
+
+      - name: Add Manual Intervention
+        run: ./scripts/linux/add-manualintervention.sh
+
+      - name: Add Notification
+        run: ./scripts/linux/add-notification.sh
 
       - name: Upload screenshots
         run: ./scripts/linux/upload-screenshots.sh
