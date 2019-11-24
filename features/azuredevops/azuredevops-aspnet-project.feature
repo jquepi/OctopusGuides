@@ -413,7 +413,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Search" text box with "Nuget"
 
     And I highlight outside the "NuGet title" element with an offset of "5"
-    And I click the "NuGet title" element
+    And I force focus on the "NuGet title" element
     And I zoom the browser out
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}110-nuget-push.png"
     And I zoom the browser in
@@ -486,7 +486,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I sleep for "5" seconds
 
     And I highlight outside the "Push package title" element with an offset of "5"
-    And I click the "Push package title" element
+    And I force focus on the "Push package title" element
     And I zoom the browser out
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}110-octopus-push.png"
     And I zoom the browser in
