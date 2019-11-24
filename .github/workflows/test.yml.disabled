@@ -2,6 +2,7 @@ name: Test Workflow
 on: [push]
 jobs:
   build:
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow)
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1

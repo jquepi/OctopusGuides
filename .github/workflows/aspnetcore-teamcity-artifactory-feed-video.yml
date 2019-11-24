@@ -1,10 +1,12 @@
 name: ASP.NET Core TeamCity Artifactory Feed Video
 on:
 #  push:
+  repository_disptach:
   schedule:
     - cron:  '0 16 9 * *'
 jobs:
   build:
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow)
     runs-on: windows-2019
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
