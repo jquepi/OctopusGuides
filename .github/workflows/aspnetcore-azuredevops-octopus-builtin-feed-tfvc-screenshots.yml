@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure Devops Octopus Built-in Feed TFVC Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 18 1 * *'
@@ -57,7 +57,7 @@ jobs:
 
       - name: Populate TFVC repo
         shell: powershell
-        run: ./install.ps1 -Scripts azuredevopstfvcaspnet.pp
+        run: ./install.ps1 -Scripts azuredevopstfvcaspnetcore.pp
 
       - name: Run the build
         shell: powershell
