@@ -20,7 +20,7 @@ Feature: Create Azure Web App Target
     Given I set the following aliases:
       | Infrastructure                | //span[contains(.,'Infrastructure')]                                                                         |
       | Deployment Targets            | (//a[contains(.,'Deployment Targets')])[1]                                                                   |
-      | Deployment Targets text       | (//a/span[contains(.,'Deployment Targets')] \| //a[contains(.,'Deployment Targets')])[1]                                                              |
+      | Deployment Targets text       | (//a/span[contains(.,'Deployment Targets')] \| //a[contains(.,'Deployment Targets')])[1]                     |
       | Add Deployment Target         | //button[contains(.,'Add deployment target')]                                                                |
       | Kubernetes Cluster            | //button[contains(.,'Kubernetes Cluster')]                                                                   |
       | Kubernetes Cluster Target     | //div[contains(@class, 'EndpointCard_card') and contains(.,'Kubernetes Cluster')]                            |
