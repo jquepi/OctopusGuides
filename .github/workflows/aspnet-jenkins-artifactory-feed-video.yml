@@ -1,7 +1,7 @@
 name: ASP.NET Jenkins Artifactory Feed Video
 on:
 #  push:
-  repository_disptach:
+  repository_dispatch:
   schedule:
     - cron:  '0 17 3 * *'
 jobs:

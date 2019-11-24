@@ -1,7 +1,7 @@
 name: ASP.NET Core Jenkins Artifactory Feed Screenshots
 on:
 #  push:
-  repository_disptach:
+  repository_dispatch:
   schedule:
     - cron:  '0 5 * * *'
 jobs:

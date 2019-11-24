@@ -1,7 +1,7 @@
 name: ASP.NET Core TeamCity Kubernetes DockerHub Video
 on:
 #  push:
-  repository_disptach:
+  repository_dispatch:
   schedule:
     - cron:  '0 0 10 * *'
 jobs:

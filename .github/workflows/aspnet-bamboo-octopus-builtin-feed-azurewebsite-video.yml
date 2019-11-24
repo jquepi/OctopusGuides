@@ -1,7 +1,7 @@
 name: ASP.NET Bamboo Octopus Built-in Feed Azure Website Video
 on:
 #  push:
-  repository_disptach:
+  repository_dispatch:
   schedule:
     - cron:  '0 17 2 * *'
 jobs:

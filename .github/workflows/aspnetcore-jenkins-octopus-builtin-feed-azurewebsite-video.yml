@@ -1,7 +1,7 @@
 name: ASP.NET Core Jenkins Octopus Built-in Feed Azure Websites Video
 on:
 #  push:
-  repository_disptach:
+  repository_dispatch:
   schedule:
     - cron:  '0 19 3 * *'
 jobs:

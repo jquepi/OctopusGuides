@@ -1,7 +1,7 @@
 name: ASP.NET Core TeamCity Octopus Built-in Feed Azure Websites Video
 on:
 #  push:
-  repository_disptach:
+  repository_dispatch:
   schedule:
     - cron:  '0 17 9 * *'
 jobs:
