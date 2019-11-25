@@ -33,6 +33,7 @@ jobs:
       SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
     steps:
       - uses: actions/checkout@v1
+
       - name: Install Puppet
         run: ./install.sh utilities.pp jenkins.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp
         env:
