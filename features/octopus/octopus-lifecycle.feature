@@ -182,12 +182,15 @@ Feature: Create a Lifecycle in Octopus
 
     And I highlight inside the "Deployments" link
     And I click the "Deployments" link
+
     And I highlight inside the "Process" link
     And I click the "Process" link
+
     And I highlight outside the "Change" button
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}100-random-quotes-change-lifecycle.png"
     And I remove the highlight from the "Deployments" link
+    And I remove the highlight from the "Process" link
     And I remove the highlight from the "Change" button
     And I click the "Change" button
 

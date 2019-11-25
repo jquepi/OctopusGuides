@@ -76,6 +76,7 @@ Feature: Create Docker project
     And I scroll the "Test option" element into view offset by "-200"
     And I click the "Test option" element
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}045-dotnet-test.png"
+    And I remove the highlight from the "Command" drop down list
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
