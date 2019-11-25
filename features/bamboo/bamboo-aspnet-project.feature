@@ -35,7 +35,7 @@ Feature: Configure Bamboo
     And I display a note with the text "Installing the Bamboo add ons" for "3" seconds
 
     And I scroll the "Administration" button into view
-    And I click the "Administration" button
+    And I force click the "Administration" button
     And I highlight inside the "Administration" button
     And I highlight outside the "Overview" link
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/addins/#{GuideSpecificScreenshotDir}010-administration.png"
@@ -90,7 +90,7 @@ Feature: Configure Bamboo
     And I display a note with the text "Configuring the executables" for "3" seconds
 
     And I scroll the "Administration" button into view
-    And I click the "Administration" button
+    And I force click the "Administration" button
     And I highlight inside the "Administration" button
     And I highlight outside the "Overview" link
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}010-administration.png"
