@@ -26,7 +26,7 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
       NUGET_PATH: 'RandomQuotes\\obj\\octopacked\\'
-      SCREENSHOT_PATH: aspnet-app\iis\
+      SCREENSHOT_PATH: aspnet-app\iis\builtin\git\
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1

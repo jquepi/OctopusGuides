@@ -28,7 +28,7 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
       NUGET_PATH:
       VIDEO_FILE_NAME: aspnetcore-bamboo-octopus-artifactory.mp4
-      SCREENSHOT_PATH: aspnetcore-app\iis\
+      SCREENSHOT_PATH: aspnetcore-app\iis\artifactory\git\
     runs-on: windows-2019
     steps:
       - uses: actions/checkout@v1

@@ -28,7 +28,7 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
       # This string is used as a JavaScript literal, so escape the slashes
       NUGET_PATH: 'RandomQuotes\\obj\\octopacked\\'
-      SCREENSHOT_PATH: aspnet-app\iis\
+      SCREENSHOT_PATH: aspnet-app\iis\artifactory\git\
     runs-on: windows-2019
     steps:
     - uses: actions/checkout@v1
