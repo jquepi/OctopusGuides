@@ -39,7 +39,7 @@ Feature: Configure Bamboo
     And I highlight inside the "Administration" button
     And I highlight outside the "Overview" link
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/addins/#{GuideSpecificScreenshotDir}010-administration.png"
-    And I click the "Overview" link
+    And I force click the "Overview" link
 
     And I scroll the "Find new apps" link into view offset by "-300"
     And I highlight outside the "Find new apps" link with an offset of "5"
@@ -94,7 +94,7 @@ Feature: Configure Bamboo
     And I highlight inside the "Administration" button
     And I highlight outside the "Overview" link
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}010-administration.png"
-    And I click the "Overview" link
+    And I force click the "Overview" link
 
     And I highlight outside the "Server capabilities" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}020-server-capabilities.png"
