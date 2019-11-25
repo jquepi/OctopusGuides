@@ -1,6 +1,6 @@
 name: ASP.NET Core Bamboo Octopus Built-in Feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 18 8 * *'
