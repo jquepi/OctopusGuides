@@ -17,7 +17,7 @@
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
-    -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
+    -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `
     features\octopus\octopus-artifactory-feed.feature

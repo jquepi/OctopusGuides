@@ -18,7 +18,7 @@
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-Screenshot=aspnet-random-quotes-test-app.png" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
-    -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar `
+    -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `
     features\octopus\open-randomquotes-azurewebapp.feature

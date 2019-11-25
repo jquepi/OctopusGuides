@@ -22,7 +22,7 @@
   "-DCucumberAlias-ExternalWistiaPassword=$WISTIA_PASSWORD" \
   "-DCucumberAlias-ExternalMediaID=$WISTIA_MEDIA_ID" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
-  -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
+  -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
   features/wistia/replace-video-linux.feature

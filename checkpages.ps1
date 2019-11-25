@@ -12,7 +12,7 @@ foreach($line in Get-Content .\links.txt)
         "-Dwebdriver.gecko.driver=c:\tools\geckodriver.exe" `
         "-DCucumberAlias-ExternalBrowserType=FirefoxHeadless" `
         "-DCucumberAlias-ExternalURL=$line" `
-        -jar ..\WebDriverTraining\target\webdrivertraining-1.0-SNAPSHOT.jar `
+        -jar ..\WebDriverTraining\target\webdrivertraining.1.0-SNAPSHOT.jar `
         features\verify\verify.feature
 
         if ($LASTEXITCODE -ne 0)

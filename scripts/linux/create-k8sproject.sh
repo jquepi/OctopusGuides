@@ -20,7 +20,7 @@
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
-  -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
+  -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \
   --monochrome \

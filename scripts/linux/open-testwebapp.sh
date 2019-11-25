@@ -26,7 +26,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalUrl=http://$MINIKUBE_IP:30001" \
   "-DCucumberAlias-Screenshot=k8s-random-quotes-test-app.png" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
-  -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
+  -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
   features/octopus/open-randomquotes-generic.feature

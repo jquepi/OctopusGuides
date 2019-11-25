@@ -13,7 +13,7 @@ jobs:
         architecture: x64
     - name: Download WebDriver
       shell: powershell
-      run: (New-Object System.Net.WebClient).DownloadFile("https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.5/webdrivertraining-1.0-SNAPSHOT.jar", "C:\tools\webdrivertraining-1.0-SNAPSHOT.jar")
+      run: (New-Object System.Net.WebClient).DownloadFile("https://github.com/OctopusDeploy/WebDriverTraining/releases/download/0.0.5/webdrivertraining.1.0-SNAPSHOT.jar", "C:\tools\webdrivertraining.1.0-SNAPSHOT.jar")
     - name: Download Geckdriver
       shell: powershell
       run: (New-Object System.Net.WebClient).DownloadFile("https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-win64.zip", "C:\tools\geckodriver-v0.25.0-win64.zip")
@@ -36,7 +36,7 @@ jobs:
         "-DscreenshotS3Enabled=true"
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=TestFeature"
-        -jar c:\tools\webdrivertraining-1.0-SNAPSHOT.jar
+        -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar
         --monochrome
         features\test\test.feature
       env:

@@ -25,7 +25,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
-  -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
+  -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
   features/octopus/octopus-create-k8s-target.feature
@@ -52,7 +52,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalNamespace=randomquotes-test" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
-  -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
+  -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
   features/octopus/octopus-create-k8s-target.feature
@@ -79,7 +79,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalNamespace=randomquotes-prod" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
-  -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
+  -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
   features/octopus/octopus-create-k8s-target.feature

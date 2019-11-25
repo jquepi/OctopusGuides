@@ -72,9 +72,9 @@ file { '/opt/google-chrome-stable_current_amd64.deb':
   source   => '/opt/google-chrome-stable_current_amd64.deb'
 }
 
-file { '/opt/webdrivertraining-1.0-SNAPSHOT.jar':
+file { '/opt/webdrivertraining.1.0-SNAPSHOT.jar':
   ensure => 'file',
-  source => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining-1.0-SNAPSHOT.jar'
+  source => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining.1.0-SNAPSHOT.jar'
 }
 
 # file { '/usr/bin/umoci':

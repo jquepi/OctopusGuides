@@ -17,7 +17,7 @@
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalApiKeyFile=/tmp/api_key.txt" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
-  -jar /opt/webdrivertraining-1.0-SNAPSHOT.jar \
+  -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --monochrome \
   features/octopus/octopus-api-key.feature
