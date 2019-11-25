@@ -1,6 +1,6 @@
 name: ASP.NET Jenkins Octopus Built-in Feed Screenshots
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 20 3 * *'

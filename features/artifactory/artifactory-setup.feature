@@ -27,6 +27,7 @@ Feature: Setup Artifactory
       | Spinner        | //div[contains(@class,'spinner')]                       |
 
     And I open the shared browser "ExternalBrowserType"
+    And I maximize the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8040"
     And I verify the "Spinner" overlay is present waiting up to "60" seconds if it exists
