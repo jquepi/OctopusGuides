@@ -1,5 +1,6 @@
 foreach($line in Get-Content .\links.txt) {
     if($line -match $regex){
+        Write-Host "Testing $line"
         & "C:\Program Files\Java\jdk-13\bin\java.exe" `
         --enable-preview `
         "-Dwebdriver.gecko.driver=c:\tools\geckodriver.exe" `
