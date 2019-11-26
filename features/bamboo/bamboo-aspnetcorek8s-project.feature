@@ -271,16 +271,20 @@ Feature: Configure Bamboo
       | Search                                                    | //h2[contains(.,'Task types')]//input                                                      |
       | Docker Tile                                               | (//li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Docker']])[1] |
       | Task description                                          | //input[@id='createTask_userDescription']                                                  |
+      | Command                                                   | //select[@id='commandOption']                                                              |
       | Repository                                                | //input[@id='repository']                                                                  |
       | Use an existing Dockerfile in the tasks working directory | //input[@id='dockerfileOptionexisting']                                                    |
       | Advanced options                                          | //h3[text()='Advanced options']                                                            |
       | Working subdirectory                                      | //input[@id='workingSubDirectory']                                                         |
+      | Push repository                                           | //input[@id='pushRepository']                                                              |
+      | Provide username and password                             | //label[@id='pushCredentialsSourceUSER']                                                   |
+      | Username                                                  | //input[@id='username']                                                                    |
+      | Password                                                  | //input[@id='password']                                                                    |
       | Save                                                      | //input[@id='createTask_save']                                                             |
 
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
-    # dotnet test script task
     And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}100-add-task.png"
@@ -313,6 +317,42 @@ Feature: Configure Bamboo
     And I scroll the "Working subdirectory" text box into view offset by "-300"
     And I populate the "Working subdirectory" text box with "RandomQuotes"
 
+    And I highlight outside the "Add task" button with an offset of "2"
+    And I scroll the "Add task" button into view
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}100-add-task.png"
+    And I click the "Add task" button
+    And I remove the highlight from the "Add task" button
+
+    And I highlight outside the "Search" box
+    And I populate the "Search" box with "Docker"
+    And I highlight inside the "Docker Tile" element
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}110-search.png"
+    And I click the "Docker Tile" element
+
+    And I highlight outside the "Task description" text box
+    And I scroll the "Task description" text box into view offset by "-300"
+    And I populate the "Task description" text box with "Docker Push"
+
+    And I highlight outside the "Command" drop down list
+    And I scroll the "Command" drop down list into view offset by "-300"
+    And I select the option value "push" from the "Command" drop down list
+
+    And I highlight outside the "Push repository" text box
+    And I scroll the "Push repository" text box into view offset by "-300"
+    And I populate the "Push repository" text box with "octopusdeploy/randomquotes:1.0.${bamboo.buildNumber}"
+
+    And I highlight outside the "Provide username and password" radio button
+    And I scroll the "Provide username and password" radio button into view offset by "-300"
+    And I click the "Provide username and password" radio button
+
+    And I highlight outside the "Username" text box
+    And I scroll the "Username" text box into view offset by "-300"
+    And I populate the "Username" text box with "ExternalDockerUsername"
+
+    And I highlight outside the "Password" text box
+    And I scroll the "Password" text box into view offset by "-300"
+    And I populate the "Password" text box with "ExternalDockerPassword"
+
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}240-octo-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}240-docker push.png"
     And I click the "Save" button
