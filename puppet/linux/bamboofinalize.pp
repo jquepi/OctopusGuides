@@ -9,6 +9,8 @@ file { '/opt/wait_for_bamboo.sh':
     exit 0
     | EOT
 }
--> exec {"wait for bamboo":
-  command => "/opt/wait_for_bamboo.sh",
+-> exec { "wait for bamboo":
+  command   => "/opt/wait_for_bamboo.sh",
+  logoutput => true,
+  timeout   => 3600
 }
