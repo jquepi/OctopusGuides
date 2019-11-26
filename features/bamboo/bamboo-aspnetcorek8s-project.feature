@@ -76,14 +76,13 @@ Feature: Configure Bamboo
   @executables
   Scenario: Configure Docker
     Given I set the following aliases:
-      | Close dialog        | //span[@class='aui-icon icon-close']                  |
-      | Administration      | //span[contains(.,'Administration')]                  |
-      | Overview            | //a[contains(.,'Overview')]                           |
-      | Server capabilities | //a[contains(.,'Server capabilities')]                |
-      | Git                 | //a[contains(.,'Git')]                                |
-      | Edit                | //a[contains(.,'Edit')]                               |
-      | Path                | //input[@id='updateSharedCapability_capabilityValue'] |
-      | Update              | //input[@id='updateSharedCapability_save']            |
+      | Close dialog        | //span[@class='aui-icon icon-close']          |
+      | Administration      | //span[contains(.,'Administration')]          |
+      | Overview            | //a[contains(.,'Overview')]                   |
+      | Server capabilities | //a[contains(.,'Server capabilities')]        |
+      | Capability type     | //select[@id='addCapability_capabilityType']  |
+      | Path                | //input[@id='addCapability_dockerExecutable'] |
+      | Add                 | //input[@id='addCapability_save']             |
 
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
 
@@ -102,16 +101,12 @@ Feature: Configure Bamboo
     And I click the "Server capabilities" link
 
     And I scroll the "Capability type" drop down list into view offset by "-300"
-    And I select the option "Executable" from the "Capability type" drop down list
-    And I select the option "Docker" from the "Type" drop down list
-    And I populate the "Executable label" text box with "Docker"
-    And I populate the "Executable path" text box with "/usr/bin/docker"
+    And I select the option "Docker" from the "Capability type" drop down list
+    And I populate the "Path" text box with "/usr/bin/docker"
     And I scroll the "Add" button into view offset by "-300"
 
     And I highlight outside the "Capability type" drop down list with an offset of "2"
-    And I highlight outside the "Type" drop down list with an offset of "2"
-    And I highlight outside the "Executable label" text box with an offset of "2"
-    And I highlight outside the "Executable path" text box with an offset of "5"
+    And I highlight outside the "Path" text box with an offset of "2"
     And I highlight outside the "Add" button with an offset of "5"
 
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}030-docker.png"
@@ -211,6 +206,7 @@ Feature: Configure Bamboo
     And I highlight outside the "Configure plan" button
     And I scroll the "Configure plan" button into view
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}090-configure-plan.png"
+    And I click the "Configure plan" button
 
   @applicationspecific @aspnetcore
   Scenario: ASP.NET Core Add tasks
