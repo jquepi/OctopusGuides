@@ -1,0 +1,108 @@
+name: ASP.NET Core Bamboo Kubernetes DockerHub Video
+on:
+  push:
+  repository_dispatch:
+  schedule:
+    - cron:  '0 0 10 * *'
+jobs:
+  build:
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all')
+    runs-on: ubuntu-latest
+    env:
+      SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
+      WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      MEDIA_PATH: /tmp/screenshots
+      SCREENSHOT_BUCKET: octopus-guides-screenshots
+      DISPLAY: ":99.0"
+      MOUSE_VERTICAL_OFFSET: 74
+      MOUSE_VERTICAL_OFFSET_CHROME: 126
+      CUCUMBER_TAGS: "(not @destinationspecific or @k8s) and (not @repositoryspecific or @dockerhub) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      MOVE_TO_MOUSE_CURSOR: true
+      DISABLE_VIDEO: false
+      STHREE_SCREENSHOT_ENABLED: true
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
+      WISTIA_MEDIA_ID:
+      VIDEO_FILE_NAME: bamboo-aspnetcore-k8s-dockerhub.mp4
+      SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Puppet
+        run: ./install.sh utilities.pp bamboo.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp
+        env:
+          FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Wait for Octopus
+        run: ./scripts/linux/wait-octopus.sh
+
+      - name: Create Api Key
+        run: ./scripts/linux/create-apikey.sh
+
+      - name: Create Jenkins project
+        run: ./scripts/linux/create-jenkinsproject.sh
+
+      - name: Create Worker
+        run: sudo ./scripts/linux/create-worker.sh
+
+      - name: Create environments
+        run: ./scripts/linux/create-environments.sh
+
+      - name: Create certificates
+        run: ./scripts/linux/create-certificates.sh
+
+      - name: Create target
+        run: ./scripts/linux/create-k8starget-video.sh
+
+      - name: Create docker feed
+        run: ./scripts/linux/create-dockerfeed.sh
+
+      - name: Create project
+        run: ./scripts/linux/create-k8sproject.sh
+
+      - name: Open Dev App
+        run: ./scripts/linux/open-devwebapp.sh
+
+      - name: Create release
+        run: ./scripts/linux/create-jenkinscreaterelease.sh
+
+      - name: Create Lifecycle
+        run: ./scripts/linux/create-lifecycle.sh
+
+      - name: Open Test App
+        run: ./scripts/linux/open-testwebapp.sh
+
+      - name: Add Manual Intervention
+        run: ./scripts/linux/add-manualintervention.sh
+
+      - name: Add Notification
+        run: ./scripts/linux/add-notification.sh
+
+      - name: Add Users and Teams
+        run: ./scripts/linux/add-usersandteams.sh
+
+      - name: View Internal Deployer Dashboard
+        run: ./scripts/linux/view-internaldeployerdashboard.sh
+
+      - name: View Production Deployer Dashboard
+        run: ./scripts/linux/view-productiondeployerdashboard.sh
+
+      - name: View Audit Logs
+        run: ./scripts/linux/view-auditlogs.sh
+#
+      - name: Process videos
+        run: ./scripts/linux/convert-video.sh
+
+      - name: Upload videos
+        run: ./scripts/linux/upload-video.sh
+
+      - name: Replace Wistia video
+        run: ./scripts/linux/replace-wistia-video.sh
