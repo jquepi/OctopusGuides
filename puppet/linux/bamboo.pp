@@ -62,6 +62,7 @@ apt::key { 'atlassian-repository':
     TTYReset=yes
     TTYVHangup=yes
     ExecStart=/opt/bamboo/start_bamboo.sh
+    Environment=DOTNET_CLI_HOME=/root
     | EOT
 }
 -> service {'bamboo':
