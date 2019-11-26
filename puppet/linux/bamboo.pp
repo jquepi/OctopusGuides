@@ -18,17 +18,30 @@ apt::key { 'atlassian-repository':
 -> package { 'atlassian-plugin-sdk':
   ensure => installed,
 }
--> file { '/opt/start_bamboo.sh':
+-> file { '/opt/bamboo':
+  ensure => 'directory',
+}
+-> file { '/opt/bamboo/target':
+  ensure => 'directory',
+}
+-> file { '/opt/bamboo/target/classes':
+  ensure => 'directory',
+}
+-> exec { '':
+  command => '/bin/cp config/pom.xml /opt/bamboo'
+}
+-> exec { '':
+  command => '/bin/cp config/atlassian-plugin.xml /opt/bamboo/target/classes'
+}
+-> file { '/opt/bamboo/start_bamboo.sh':
   ensure  => 'file',
   owner   => 'root',
   group   => 'root',
   mode    => '0755',
   content => @(EOT)
     #!/bin/bash
-    mkdir -p /tmp/bamboo/target/classes
-    cp config/pom.xml /tmp/bamboo
-    cp config/atlassian-plugin.xml /tmp/bamboo/target/classes
-    cd /tmp/bamboo
+    cd /opt/bamboo
+    atlas-run
     | EOT
 }
 -> file { '/lib/systemd/system/bamboo.service':
