@@ -27,10 +27,10 @@ apt::key { 'atlassian-repository':
 -> file { '/opt/bamboo/target/classes':
   ensure => 'directory',
 }
--> exec { '':
+-> exec { 'copy pom':
   command => '/bin/cp config/pom.xml /opt/bamboo'
 }
--> exec { '':
+-> exec { 'copy plugin':
   command => '/bin/cp config/atlassian-plugin.xml /opt/bamboo/target/classes'
 }
 -> file { '/opt/bamboo/start_bamboo.sh':
@@ -54,7 +54,7 @@ apt::key { 'atlassian-repository':
     Description=Bamboo
 
     [Service]
-    ExecStart=/opt/start_bamboo.sh
+    ExecStart=/opt/bamboo/start_bamboo.sh
     | EOT
 }
 -> service {'bamboo':
