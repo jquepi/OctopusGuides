@@ -281,6 +281,7 @@ Feature: Configure Bamboo
       | Username                                                  | //input[@id='username']                                                                    |
       | Password                                                  | //input[@id='password']                                                                    |
       | Save                                                      | //input[@id='createTask_save']                                                             |
+      | Create                                                    | //button[@id='createPlan']                                                                 |
 
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
@@ -360,3 +361,31 @@ Feature: Configure Bamboo
     And I scroll the "Save" button into view
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}150-docker push.png"
     And I click the "Save" button
+
+    And I highlight outside the "Create" button
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-create-builtinfeed.png"
+    And I click the "Create" button
+    And I sleep for "5" seconds
+
+  Scenario: Create plan
+    Given I set the following aliases:
+      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
+      | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
+    And I highlight outside the "Build one" link with an offset of "5"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}170-build-one.png"
+    And I click the "Build one" link
+    And I click the "Logs" link
+    And I sleep for "10" seconds
+    And I scroll down "10000" px
+    And I sleep for "50" seconds
+    And I stop recording the screen
+    And I sleep for "120" seconds
+    And I scroll down "10000" px
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}180-build-results.png"
+
+  Scenario: Shutdown
+    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
+    And I close the browser
