@@ -247,7 +247,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Interpreter" text box
     And I scroll the "Interpreter" drop down list into view offset by "-300"
-    And I select the option "Windows PowerShell" from the "Interpreter" drop down list
+    And I select the option "Shell" from the "Interpreter" drop down list
 
     And I highlight inside the "Script body" text box
     And I scroll the "Script body" text area into view offset by "-300"
