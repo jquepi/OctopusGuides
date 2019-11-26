@@ -29,12 +29,21 @@ apt::key { 'atlassian-repository':
     cp config/pom.xml /tmp/bamboo
     cp config/atlassian-plugin.xml /tmp/bamboo/target/classes
     cd /tmp/bamboo
-    touch /opt/BambooStarted.txt
-    atlas-run
     | EOT
 }
--> exec { 'Start Bamboo':
-  command   => '/opt/start_bamboo.sh &',
-  creates   => '/opt/BambooStarted.txt',
-  logoutput => true
+-> file { '/lib/systemd/system/bamboo.service':
+  ensure  => 'file',
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0755',
+  content => @(EOT)
+    [Unit]
+    Description=Bamboo
+
+    [Service]
+    ExecStart=/opt/start_bamboo.sh
+    | EOT
+}
+-> service {'bamboo':
+  ensure => running
 }
