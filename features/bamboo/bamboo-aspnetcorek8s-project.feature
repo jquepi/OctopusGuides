@@ -277,7 +277,7 @@ Feature: Configure Bamboo
       | Advanced options                                          | //h3[text()='Advanced options']                                                            |
       | Working subdirectory                                      | //input[@id='workingSubDirectory']                                                         |
       | Push repository                                           | //input[@id='pushRepository']                                                              |
-      | Provide username and password                             | //label[@id='pushCredentialsSourceUSER']                                                   |
+      | Provide username and password                             | //input[@id='pushCredentialsSourceUSER']                                                   |
       | Username                                                  | //input[@id='username']                                                                    |
       | Password                                                  | //input[@id='password']                                                                    |
       | Save                                                      | //input[@id='createTask_save']                                                             |
