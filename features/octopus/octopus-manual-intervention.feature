@@ -105,6 +105,7 @@ Feature: Add a manual intervention step
     And I save a screenshot to "#{ExternalMediaPath}/octopus/intervention/#{GuideSpecificScreenshotDir}045-octopus-step-skip-dev.png"
     And I click the "Save" button
     And I sleep for "2" seconds
+    And I stop recording the screen
 
   @deploy-to-test
   Scenario: Deploy to the test environment
@@ -116,6 +117,7 @@ Feature: Add a manual intervention step
       | Save           | //button[contains(.,'Save')]           |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/process"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Deploy to the Test environment" for "3" seconds
 
     And I click the "Create Release" button
@@ -137,6 +139,8 @@ Feature: Add a manual intervention step
     And I click the "Deploy" button
     And I sleep for "5" seconds
 
+    And I stop recording the screen
+
   @approve-deployment
   Scenario: Approve manual intervention
     Given I set the following aliases:
@@ -145,7 +149,6 @@ Feature: Add a manual intervention step
       | Notes           | //textarea[contains(@id,'Notes')]        |
       | Notes container | //div[./textarea[contains(@id,'Notes')]] |
 
-    And I stop recording the screen
     And I verify the "Assign to me" button is present waiting up to "60" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 

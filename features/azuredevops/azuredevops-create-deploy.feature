@@ -33,21 +33,31 @@ Feature: Create and deploy a release
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/createrelease/#{GuideSpecificScreenshotDir}030-edit.png"
     And I click the "Edit" button
 
+    And I stop recording the screen
+
   @add-step @repositoryspecific @octo-built-in-feed
   Scenario: Click last step
     Given I set the following aliases:
       | Push Packages to Octopus | //div[./div/div/div/div[text()='Push Package(s) to Octopus']] |
 
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I scroll the "Push Packages to Octopus" job tile into view
     And I click the "Push Packages to Octopus" job tile
+
+    And I stop recording the screen
 
   @add-step @repositoryspecific @artifactory
   Scenario: Click last step
     Given I set the following aliases:
       | Nuget push | //div[./div/div/div/div[text()='Nuget push']] |
 
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I scroll the "Nuget push" job tile into view
     And I click the "Nuget push" job tile
+
+    And I stop recording the screen
 
   @add-step
   Scenario: Continue Adding deploy step
@@ -57,6 +67,8 @@ Feature: Create and deploy a release
       | Create release tile        | //div[@class='info-name'][text()='Create Octopus Release']                        |
       | Create release             | //div[./div/div/div[text()='Create Octopus Release']]/button                      |
       | Create Octopus Release Row | //div[@data-list-index='7'][contains(.,'Create Octopus Release')]/div/div/div/div |
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight inside the "Add task" button
     And I click the "Add task" button
@@ -75,12 +87,16 @@ Feature: Create and deploy a release
     And I click the "Create Octopus Release Row" job tile
     And I remove the highlight from the "Add task" button
 
+    And I stop recording the screen
+
   @add-step @repositoryspecific @octo-built-in-feed
   Scenario: Select existing Octopus server
     Given I set the following aliases:
       | Server Refresh        | //button[./div/span[text()='Refresh Octopus Deploy Server']]                                                  |
       | Octopus Deploy Server | //div[@aria-label='Expand'][../../../../../../../../../../div/div/label[contains(.,'Octopus Deploy Server')]] |
       | Octopus Server        | //li[text()='Octopus']                                                                                        |
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I click the "Server Refresh" button
     # Don't record the full refresh time
@@ -93,6 +109,8 @@ Feature: Create and deploy a release
     And I click the "Octopus Deploy Server" drop down list
     And I click the "Octopus Server" option
 
+    And I stop recording the screen
+
   @add-step @repositoryspecific @artifactory
   Scenario: Add new Octopus server
     Given I set the following aliases:
@@ -101,6 +119,8 @@ Feature: Create and deploy a release
       | Server URL      | //input[@id='url']                                |
       | API Key         | //input[@id='apitoken']                           |
       | OK              | //button[@id='ok']                                |
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "New" button with an offset of "2"
     And I zoom the browser out
@@ -121,6 +141,8 @@ Feature: Create and deploy a release
     And I sleep for "1" second
     And I remove the highlight from the "New" button
 
+    And I stop recording the screen
+
   @add-step
   Scenario: Continue adding step
     Given I set the following aliases:
@@ -140,6 +162,8 @@ Feature: Create and deploy a release
       | Octopus Deploy Project Input | //input[../../../../../../../../../../div/div/label[contains(.,'Project')]]                  |
       | Deployment Section           | //div[@aria-label='Deployment']                                                              |
       | Environment                  | //input[../../../../../../../../../div/label[text()='To Environment']]                       |
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I scroll the "Octopus Deploy Space Input" text box into view offset by "-300"
     And I highlight outside the "Octopus Deploy Space Input" text box list with an offset of "2"
