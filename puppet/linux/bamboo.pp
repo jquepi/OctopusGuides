@@ -29,12 +29,12 @@ apt::key { 'atlassian-repository':
     cp config/pom.xml /tmp/bamboo
     cp config/atlassian-plugin.xml /tmp/bamboo/target/classes
     cd /tmp/bamboo
-    atlas-run &
     touch /opt/BambooStarted.txt
+    atlas-run
     | EOT
 }
 -> exec { 'Start Bamboo':
-  command   => '/opt/start_bamboo.sh',
+  command   => '/opt/start_bamboo.sh &',
   creates   => '/opt/BambooStarted.txt',
   logoutput => true
 }
