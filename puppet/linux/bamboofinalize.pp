@@ -8,7 +8,6 @@ file { '/opt/wait_for_bamboo.sh':
     max=120; while [[ \"$(curl --max-time 5 -s -o /dev/null -w ''%{http_code}'' http://localhost:6990/bamboo/)\" != \"200\" ]]; do
       max=$(( max - 1 ));
       [ $max -lt 0 ] && break;
-      echo 'Sleeping';
       sleep 10;
     done;
     exit 0

@@ -41,6 +41,7 @@ apt::key { 'atlassian-repository':
   content => @(EOT)
     #!/bin/bash
     cd /opt/bamboo
+    atlas-compile
     atlas-run
     | EOT
 }
@@ -56,6 +57,10 @@ apt::key { 'atlassian-repository':
     [Service]
     Restart=always
     RestartSec=5
+    StandardInput=tty
+    TTYPath=/dev/tty2
+    TTYReset=yes
+    TTYVHangup=yes
     ExecStart=/opt/bamboo/start_bamboo.sh
     | EOT
 }
