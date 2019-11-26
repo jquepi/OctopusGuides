@@ -54,6 +54,8 @@ apt::key { 'atlassian-repository':
     Description=Bamboo
 
     [Service]
+    Restart=always
+    RestartSec=5
     ExecStart=/opt/bamboo/start_bamboo.sh
     | EOT
 }
