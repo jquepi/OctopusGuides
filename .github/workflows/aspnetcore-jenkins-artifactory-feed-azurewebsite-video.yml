@@ -1,6 +1,6 @@
 name: ASP.NET Core Jenkins Artifactory Feed Azure Websites Video
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 19 3 * *'
