@@ -317,16 +317,20 @@ Feature: Configure Bamboo
     And I scroll the "Working subdirectory" text box into view offset by "-300"
     And I populate the "Working subdirectory" text box with "RandomQuotes"
 
+    And I scroll the "Save" button into view
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-docker push.png"
+    And I click the "Save" button
+
     And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}100-add-task.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}130-add-task.png"
     And I click the "Add task" button
     And I remove the highlight from the "Add task" button
 
     And I highlight outside the "Search" box
     And I populate the "Search" box with "Docker"
     And I highlight inside the "Docker Tile" element
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}110-search.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}140-search.png"
     And I click the "Docker Tile" element
 
     And I highlight outside the "Task description" text box
@@ -354,5 +358,5 @@ Feature: Configure Bamboo
     And I populate the "Password" text box with "ExternalDockerPassword"
 
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}240-docker push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}150-docker push.png"
     And I click the "Save" button
