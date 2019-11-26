@@ -1,6 +1,6 @@
 name: ASP.NET Azure DevOps Octopus Built-in Feed Azure Websites TFVC Video
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 17 1 * *'
