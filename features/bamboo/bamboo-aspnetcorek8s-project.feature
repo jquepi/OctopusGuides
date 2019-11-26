@@ -211,4 +211,112 @@ Feature: Configure Bamboo
     And I highlight outside the "Configure plan" button
     And I scroll the "Configure plan" button into view
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}090-configure-plan.png"
-    And I click the "Configure plan" button
+
+  @applicationspecific @aspnetcore
+  Scenario: ASP.NET Core Add tasks
+    Given I set the following aliases:
+      | Add task                          | //a[@id='addTask']                                                                                          |
+      | Search                            | //h2[contains(.,'Task types')]//input                                                                       |
+      | Script Tile                       | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']]                       |
+      | Task description                  | //input[@id='createTask_userDescription']                                                                   |
+      | Solution                          | //input[@id='solution']                                                                                     |
+      | Options                           | //input[@id='options']                                                                                      |
+      | Save                              | //input[@id='createTask_save']                                                                              |
+      | Interpreter                       | //select[@id='interpreter']                                                                                 |
+      | Script body                       | //div[@id='scriptBody']                                                                                     |
+      | Octopus Deploy: Pack Package Tile | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Octopus Deploy: Pack Package']] |
+      | Package ID                        | //input[@id='packId']                                                                                       |
+      | Version number                    | //input[@id='packVersion']                                                                                  |
+      | NuGet Package format              | //input[@id='packFormatnuget']                                                                              |
+      | Package include paths             | //textarea[@id='packInclude']                                                                               |
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
+    # dotnet test script task
+    And I highlight outside the "Add task" button with an offset of "2"
+    And I scroll the "Add task" button into view
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}100-add-task.png"
+    And I click the "Add task" button
+    And I remove the highlight from the "Add task" button
+
+    And I highlight outside the "Search" box
+    And I populate the "Search" box with "Script"
+    And I highlight inside the "Script Tile" element
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}110-search.png"
+    And I click the "Script Tile" element
+
+    And I highlight outside the "Task description" text box
+    And I scroll the "Task description" text box into view offset by "-300"
+    And I populate the "Task description" text box with "Dotnet Test"
+
+    And I highlight outside the "Interpreter" text box
+    And I scroll the "Interpreter" drop down list into view offset by "-300"
+    And I select the option "Windows PowerShell" from the "Interpreter" drop down list
+
+    And I highlight inside the "Script body" text box
+    And I scroll the "Script body" text area into view offset by "-300"
+    And I run the following JavaScript:
+      """
+      ace.edit(scriptBody).setValue("dotnet test")
+      """
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-dotnet-test.png"
+    And I remove the highlight from the "Script body" text box
+
+    And I highlight outside the "Save" button
+    And I scroll the "Save" button into view
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}130-dotnet-test.png"
+    And I click the "Save" button
+
+  @destinationspecific @k8s
+  Scenario: ASP.NET Core Add tasks
+    Given I set the following aliases:
+      | Add task                                                  | //a[@id='addTask']                                                                         |
+      | Search                                                    | //h2[contains(.,'Task types')]//input                                                      |
+      | Docker Tile                                               | (//li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Docker']])[1] |
+      | Task description                                          | //input[@id='createTask_userDescription']                                                  |
+      | Repository                                                | //input[@id='repository']                                                                  |
+      | Use an existing Dockerfile in the tasks working directory | //input[@id='dockerfileOptionexisting']                                                    |
+      | Advanced options                                          | //h3[text()='Advanced options']                                                            |
+      | Working subdirectory                                      | //input[@id='workingSubDirectory']                                                         |
+      | Save                                                      | //input[@id='createTask_save']                                                             |
+
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
+    # dotnet test script task
+    And I highlight outside the "Add task" button with an offset of "2"
+    And I scroll the "Add task" button into view
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}100-add-task.png"
+    And I click the "Add task" button
+    And I remove the highlight from the "Add task" button
+
+    And I highlight outside the "Search" box
+    And I populate the "Search" box with "Docker"
+    And I highlight inside the "Docker Tile" element
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}110-search.png"
+    And I click the "Docker Tile" element
+
+    And I highlight outside the "Task description" text box
+    And I scroll the "Task description" text box into view offset by "-300"
+    And I populate the "Task description" text box with "Docker Build"
+
+    And I highlight outside the "Repository" text box
+    And I scroll the "Repository" text box into view offset by "-300"
+    And I populate the "Repository" text box with "index.docker.io/octopusdeploy/randomquotes:1.0.${bamboo.buildNumber}"
+
+    And I highlight outside the "Use an existing Dockerfile in the tasks working directory" radio button
+    And I scroll the "Use an existing Dockerfile in the tasks working directory" radio button into view offset by "-300"
+    And I click the "Use an existing Dockerfile in the tasks working directory" radio button
+
+    And I highlight outside the "Advanced options" heading
+    And I scroll the "Advanced options" heading into view offset by "-300"
+    And I click the "Advanced options" heading
+
+    And I highlight outside the "Working subdirectory" text box
+    And I scroll the "Working subdirectory" text box into view offset by "-300"
+    And I populate the "Working subdirectory" text box with "RandomQuotes"
+
+    And I scroll the "Save" button into view
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}240-octo-pack.png"
+    And I click the "Save" button
