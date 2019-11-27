@@ -319,7 +319,7 @@ Feature: Configure Bamboo
     And I populate the "Working subdirectory" text box with "RandomQuotes"
 
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-docker push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-docker-build.png"
     And I click the "Save" button
 
     And I highlight outside the "Add task" button with an offset of "2"
