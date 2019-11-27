@@ -41,7 +41,6 @@ apt::key { 'atlassian-repository':
   content => @(EOT)
     #!/bin/bash
     cd /opt/bamboo
-    atlas-compile
     atlas-run
     | EOT
 }

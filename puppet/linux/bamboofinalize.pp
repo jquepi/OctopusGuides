@@ -5,7 +5,8 @@ file { '/opt/wait_for_bamboo.sh':
   mode    => '0755',
   content => @(EOT)
     #!/bin/bash
-    max=120; while [[ \"$(curl --max-time 5 -s -o /dev/null -w ''%{http_code}'' http://localhost:6990/bamboo/)\" != \"200\" ]]; do
+    max=120;
+    while [[ \"$(curl --max-time 5 -s -o /dev/null -w ''%{http_code}'' http://localhost:6990/bamboo/)\" != \"200\" ]]; do
       max=$(( max - 1 ));
       [ $max -lt 0 ] && break;
       sleep 10;
