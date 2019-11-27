@@ -188,6 +188,9 @@ Feature: Create and deploy a release
 
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/createrelease/#{GuideSpecificScreenshotDir}055-environment.png"
 
+    And I stop recording the screen
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I highlight inside the "Save and queue" button
     And I click the "Save and queue" button
     And I highlight inside the "Save and queue two" button
