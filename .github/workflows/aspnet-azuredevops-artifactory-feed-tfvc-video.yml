@@ -1,6 +1,6 @@
 name: ASP.NET Azure DevOps Artifactory Feed TFVC Video
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 16 1 * *'
@@ -90,6 +90,10 @@ jobs:
     - name: Add a deployment step
       shell: powershell
       run: ./scripts/windows/azuredevops-create-deployment.ps1
+
+    - name: Shutdown Azure Devops
+      shell: powershell
+      run: ./scripts/windows/stop-azuredevops.ps1
 
     - name: Add a lifecycle
       shell: powershell
