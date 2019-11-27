@@ -288,14 +288,14 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}100-add-task.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}140-add-task.png"
     And I click the "Add task" button
     And I remove the highlight from the "Add task" button
 
     And I highlight outside the "Search" box
     And I populate the "Search" box with "Docker"
     And I highlight inside the "Docker Tile" element
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}110-search.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}150-search.png"
     And I click the "Docker Tile" element
 
     And I highlight outside the "Task description" text box
@@ -319,19 +319,19 @@ Feature: Configure Bamboo
     And I populate the "Working subdirectory" text box with "RandomQuotes"
 
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-docker push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-docker push.png"
     And I click the "Save" button
 
     And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}130-add-task.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}170-add-task.png"
     And I click the "Add task" button
     And I remove the highlight from the "Add task" button
 
     And I highlight outside the "Search" box
     And I populate the "Search" box with "Docker"
     And I highlight inside the "Docker Tile" element
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}140-search.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}180-search.png"
     And I click the "Docker Tile" element
 
     And I highlight outside the "Task description" text box
@@ -359,11 +359,11 @@ Feature: Configure Bamboo
     And I populate the "Password" text box with "ExternalDockerPassword"
 
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}150-docker push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}190-docker push.png"
     And I click the "Save" button
 
     And I highlight outside the "Create" button
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-create-builtinfeed.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}200-create-builtinfeed.png"
     And I click the "Create" button
     And I sleep for "5" seconds
 
@@ -374,7 +374,7 @@ Feature: Configure Bamboo
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Build one" link with an offset of "5"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}170-build-one.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}210-build-one.png"
     And I click the "Build one" link
     And I click the "Logs" link
     And I sleep for "10" seconds
@@ -383,7 +383,7 @@ Feature: Configure Bamboo
     And I stop recording the screen
     And I sleep for "120" seconds
     And I scroll down "10000" px
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}180-build-results.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-build-results.png"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
