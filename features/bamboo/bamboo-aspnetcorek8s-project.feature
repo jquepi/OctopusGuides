@@ -359,11 +359,11 @@ Feature: Configure Bamboo
     And I populate the "Password" text box with "ExternalDockerPassword"
 
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}190-docker push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}190-docker-push.png"
     And I click the "Save" button
 
     And I highlight outside the "Create" button
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}200-create-builtinfeed.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}200-create-project.png"
     And I click the "Create" button
     And I sleep for "5" seconds
 
