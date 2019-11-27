@@ -29,7 +29,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: o2eegfjmfx
       VIDEO_FILE_NAME: bamboo-aspnetcore-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
     steps:
