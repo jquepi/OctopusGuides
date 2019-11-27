@@ -18,32 +18,6 @@ apt::key { 'atlassian-repository':
 -> package { 'atlassian-plugin-sdk':
   ensure => installed,
 }
--> file { '/opt/bamboo':
-  ensure => 'directory',
-}
--> file { '/opt/bamboo/target':
-  ensure => 'directory',
-}
--> file { '/opt/bamboo/target/classes':
-  ensure => 'directory',
-}
--> exec { 'copy pom':
-  command => '/bin/cp config/pom.xml /opt/bamboo'
-}
--> exec { 'copy plugin':
-  command => '/bin/cp config/atlassian-plugin.xml /opt/bamboo/target/classes'
-}
--> file { '/opt/bamboo/start_bamboo.sh':
-  ensure  => 'file',
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0755',
-  content => @(EOT)
-    #!/bin/bash
-    cd /opt/bamboo
-    atlas-run
-    | EOT
-}
 -> file { '/lib/systemd/system/bamboo.service':
   ensure  => 'file',
   owner   => 'root',
@@ -60,7 +34,7 @@ apt::key { 'atlassian-repository':
     TTYPath=/dev/tty2
     TTYReset=yes
     TTYVHangup=yes
-    ExecStart=/opt/bamboo/start_bamboo.sh
+    ExecStart=/usr/bin/atlas-run-standalone --product bamboo
     Environment=DOTNET_CLI_HOME=/root
     | EOT
 }
