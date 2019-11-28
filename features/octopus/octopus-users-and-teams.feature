@@ -48,7 +48,7 @@ Feature: Create Octopus Users and Teams
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/010-octopus-users.png"
-    And I click the "Users" link
+    And I force click the "Users" link
     And I sleep for "1" second
 
     And I highlight outside the "Add user" button
@@ -100,7 +100,7 @@ Feature: Create Octopus Users and Teams
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/040-octopus-users.png"
-    And I click the "Users" link
+    And I force click the "Users" link
     And I sleep for "1" second
 
     And I highlight outside the "Add user" button
