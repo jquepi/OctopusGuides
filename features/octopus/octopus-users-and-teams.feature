@@ -103,7 +103,7 @@ Feature: Create Octopus Users and Teams
     And I force click the "Users" link
     And I sleep for "1" second
 
-    And I highlight outside the "Add user" button
+    And I highlight outside the "Add user" buttonl
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/045-octopus-add-user.png"
     And I click the "Add user" button
 
