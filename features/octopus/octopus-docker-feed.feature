@@ -33,7 +33,7 @@ Feature: Create Azure Web App Target
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Create a lifecycle in Octopus" for "3" seconds
 
-    And I click the "More" link waiting up to "5" seconds if the "Library" link does not exist
+    And I click the "More" link waiting up to "1" seconds if the "Library" link does not exist
 
     And I highlight outside the "Library" link
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/010-feed-library.png"

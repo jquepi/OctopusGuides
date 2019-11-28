@@ -35,7 +35,7 @@ Feature: Create Octopus Users and Teams
     And I display a note with the text "Create users for internal and production deployments" for "3" seconds
 
     And I highlight outside the "More" link if it exists
-    And I click the "More" link if it exists
+    And I click the "More" link waiting up to "1" second if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/005-octopus-configuration.png"
@@ -182,7 +182,7 @@ Feature: Create Octopus Users and Teams
     And I display a note with the text "Create the internal deployment team" for "3" seconds
 
     And I highlight outside the "More" link if it exists
-    And I click the "More" link if it exists
+    And I click the "More" link waiting up to "1" second if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/070-octopus-configuration.png"
@@ -305,7 +305,7 @@ Feature: Create Octopus Users and Teams
     And I display a note with the text "Create the production deployment team" for "3" seconds
 
     And I highlight outside the "More" link if it exists
-    And I click the "More" link if it exists
+    And I click the "More" link waiting up to "1" second if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/125-octopus-configuration.png"
@@ -313,7 +313,7 @@ Feature: Create Octopus Users and Teams
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
-    And I highlight inside the "More Two" link waiting up to "1" seconds if it exists
+    And I highlight inside the "More Two" link if it exists
     And I click the "More Two" link waiting up to "1" seconds if it exists
     And I highlight inside the "Teams" link
     And I sleep for "1" second

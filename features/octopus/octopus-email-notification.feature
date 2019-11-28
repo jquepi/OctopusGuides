@@ -40,7 +40,7 @@ Feature: Add a manual intervention step
     And I display a note with the text "Configure SMTP settings" for "3" seconds
 
     And I highlight outside the "More" link if it exists
-    And I click the "More" link if it exists
+    And I click the "More" link waiting up to "1" second if it exists
     And I highlight inside the "Configuration" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}005-octopus-configuration.png"

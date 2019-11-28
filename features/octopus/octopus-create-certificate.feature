@@ -31,7 +31,7 @@ Feature: Create Certificate
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Upload Certificates" for "3" seconds
 
-    And I click the "More" link waiting up to "5" seconds if the "Library" link does not exist
+    And I click the "More" link waiting up to "1" seconds if the "Library" link does not exist
 
     And I highlight inside the "Library" link
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}010-target.png"
@@ -76,7 +76,7 @@ Feature: Create Certificate
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Upload Certificates" for "3" seconds
 
-    And I click the "More" link waiting up to "5" seconds if the "Library" link does not exist
+    And I click the "More" link waiting up to "1" seconds if the "Library" link does not exist
 
     And I highlight inside the "Library" link
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}070-target.png"
