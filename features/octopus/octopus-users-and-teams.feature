@@ -43,8 +43,8 @@ Feature: Create Octopus Users and Teams
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
-    And I highlight inside the "More Two" link if it exists
-    And I click the "More Two" link if it exists
+    And I highlight inside the "More Two" link waiting up to "1" second if it exists
+    And I click the "More Two" link waiting up to "1" second if it exists
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/010-octopus-users.png"
@@ -190,8 +190,8 @@ Feature: Create Octopus Users and Teams
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
-    And I highlight inside the "More Two" link if it exists
-    And I click the "More Two" link if it exists
+    And I highlight inside the "More Two" link waiting up to "1" second if it exists
+    And I click the "More Two" link waiting up to "1" second if it exists
     And I highlight inside the "Teams" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/075-octopus-teams.png"
@@ -313,8 +313,8 @@ Feature: Create Octopus Users and Teams
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
-    And I highlight inside the "More Two" link if it exists
-    And I click the "More Two" link if it exists
+    And I highlight inside the "More Two" link waiting up to "1" seconds if it exists
+    And I click the "More Two" link waiting up to "1" seconds if it exists
     And I highlight inside the "Teams" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/130-octopus-teams.png"

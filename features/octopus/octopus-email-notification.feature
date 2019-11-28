@@ -48,8 +48,8 @@ Feature: Add a manual intervention step
     And I remove the highlight from the "More" link
     And I sleep for "1" second
 
-    And I highlight inside the "More Two" link if it exists
-    And I click the "More Two" link if it exists
+    And I highlight inside the "More Two" link waiting up to "1" second if it exists
+    And I click the "More Two" link waiting up to "1" second if it exists
     And I highlight inside the "SMTP" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}010-octopus-smtp.png"
