@@ -10,13 +10,13 @@ package { 'NuGet.CommandLine':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/install',
-  source       => 'https://octopus-guides.s3.amazonaws.com/artifactory/jfrog-artifactory-pro-6.13.1.zip',
-  creates      => 'C:/install/artifactory-pro-6.13.1/README.txt',
+  source       => 'https://octopus-guides.s3.amazonaws.com/artifactory/jfrog-artifactory-pro-6.15.0.zip',
+  creates      => 'C:/install/artifactory-pro-6.15.0/README.txt',
   cleanup      => true,
 }
 # Change the repo port to 8041 to avoid a conflict with the IIS ports that have been used to deploy apps
 -> file_line { 'Artifactory Port Settings':
-  path    => 'C:/install/artifactory-pro-6.13.1/tomcat/conf/server.xml',
+  path    => 'C:/install/artifactory-pro-6.15.0/tomcat/conf/server.xml',
   line    =>
     '        <Connector port="8041" sendReasonPhrase="true" relaxedPathChars=\'[]\' relaxedQueryChars=\'[]\' maxThreads="200"/>'
   ,
@@ -27,7 +27,7 @@ package { 'NuGet.CommandLine':
 }
 # Reduce the memory that Artifactory can consume
 -> file_line { 'Artifactory Memory Settings':
-  path    => 'C:/install/artifactory-pro-6.13.1/bin/artifactory.bat',
+  path    => 'C:/install/artifactory-pro-6.15.0/bin/artifactory.bat',
   line    => 'set JAVA_OPTIONS=-server -Xms384m -Xmx384m -Xss256k -XX:+UseG1GC',
   match   => 'set JAVA_OPTIONS=-server -Xms512m -Xmx4g -Xss256k -XX:\+UseG1GC',
   replace => true,
@@ -38,7 +38,7 @@ package { 'NuGet.CommandLine':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    start "C:\install\artifactory-pro-6.13.1\bin\artifactory.bat" -PassThru
+    start "C:\install\artifactory-pro-6.15.0\bin\artifactory.bat" -PassThru
     # Add the NuGet source for the current user
     C:\ProgramData\chocolatey\bin\nuget.exe sources add -Name Artifactory -Source http://localhost:8041/artifactory/api/nuget/NuGet -Username admin -Password password
     # Add the NuGet source for the LOCAL SYSTEM user
