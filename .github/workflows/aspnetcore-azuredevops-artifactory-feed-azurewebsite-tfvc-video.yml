@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Artifactory Feed Azure Website TFVC Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 14 1 * *'
@@ -41,7 +41,7 @@ jobs:
 
       - name: Set screen resolution
         shell: powershell
-        run: ./scripts/windows/set-resolution.ps1
+        run: ./scripts/windows/set-lowresolution.ps1
 
       - name: Disable Windows Defender
         shell: powershell
