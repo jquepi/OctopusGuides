@@ -185,6 +185,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Continue               | //button[contains(.,'Continue')]              |
 
     And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
+    And I refresh the page if the "Pipelines" menu item does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}debug1.png"
     And I click the "Pipelines" menu item
