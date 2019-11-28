@@ -7,3 +7,4 @@ Feature: Test feature
     And I sleep for "10" seconds
     And I verify there were no network errors
     And I close the browser
+    And I define an artifact called "report.html" from the file "report/index.html"
