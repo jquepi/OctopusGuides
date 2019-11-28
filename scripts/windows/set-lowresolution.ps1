@@ -1,1 +1,1 @@
-Set-DisplayResolution -Width 1366 -Height 768 -Force
+Set-DisplayResolution -Width 1440 -Height 900 -Force
