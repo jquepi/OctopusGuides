@@ -535,7 +535,9 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Save two       | //button[@aria-label='Save']   |
 
     And I highlight inside the "Save and queue" button
-    And I click the "Save and queue" button
+    # Force click to fix the error:
+    # Element <button id="CommandBar177save-and-queue-dropdown" class="ms-CommandBarItem-link itemLink_582ca1be" name="Save & queue"> is not clickable at point (780,132) because another element <div class="ms-Callout ms-Tooltip vss-Tooltip root-157 css-36"> obscures it
+    And I force click the "Save and queue" button
     And I highlight inside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}150-save.png"
     And I click the "Save" button
