@@ -77,6 +77,19 @@ file { '/opt/webdrivertraining.1.0-SNAPSHOT.jar':
   source => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining.1.0-SNAPSHOT.jar'
 }
 
+file { '/opt/setup_13.x':
+  ensure => 'file',
+  source => 'https://deb.nodesource.com/setup_13.x',
+  mode   => '0755'
+}
+-> exec { 'Install Node.js repo':
+  command   => '/opt/setup_13.x',
+  logoutput => true
+}
+-> package { 'nodejs':
+  ensure => installed,
+}
+
 # file { '/usr/bin/umoci':
 #   ensure => 'file',
 #   source => 'https://github.com/openSUSE/umoci/releases/download/v0.4.4/umoci.amd64',
