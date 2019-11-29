@@ -319,7 +319,7 @@ if (elements.length !== 0) {
 
     And I highlight outside the "Package Id" text box
     And I scroll the "Package Id" text box into view offset by "-300"
-    And I populate the "Package Id" text box with a keystroke delay of "0" with "octopusdeploy/randomquotes"
+    And I populate the "Package Id" text box with a keystroke delay of "0" with "ExternalDockerImage"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-k8s.png"
     And I sleep for "1" second
 
