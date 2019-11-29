@@ -331,14 +331,6 @@ Feature: Configure Bamboo
     And I scroll the "Use an existing Dockerfile in the tasks working directory" radio button into view offset by "-300"
     And I click the "Use an existing Dockerfile in the tasks working directory" radio button
 
-    And I highlight outside the "Advanced options" heading
-    And I scroll the "Advanced options" heading into view offset by "-300"
-    And I click the "Advanced options" heading
-
-    And I highlight outside the "Working subdirectory" text box
-    And I scroll the "Working subdirectory" text box into view offset by "-300"
-    And I populate the "Working subdirectory" text box with "RandomQuotes"
-
     And I scroll the "Save" button into view
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}180-docker-build.png"
     And I click the "Save" button
