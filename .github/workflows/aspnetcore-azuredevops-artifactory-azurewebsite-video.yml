@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Artifactory Azure WebSites Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 14 5 * *'
