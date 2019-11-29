@@ -250,6 +250,7 @@ Feature: Configure Bamboo
     And I highlight outside the "Add" button
     And I populate the "Executable label" text box with "npm"
     And I populate the "Path" text box with "/usr/bin/npm"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}115-npm-executable.png"
     And I click the "Add" button
 
     And I highlight outside the "Command" text box
