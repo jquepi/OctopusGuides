@@ -21,6 +21,8 @@
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   "-DCucumberAlias-ExternalDockerImage=$DOCKER_IMAGE" \
+  "-DCucumberAlias-ExternalConfigFile=$CONFIG_FILE" \
+  "-DCucumberAlias-ExternalConfigMountPath=$CONFIG_FILE_MOUNT_PATH" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \

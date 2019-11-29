@@ -33,6 +33,8 @@ jobs:
       VIDEO_FILE_NAME: aspnetcore-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotes
+      CONFIG_FILE: "{\n  \"Logging\": {\n    \"IncludeScopes\": false,\n    \"LogLevel\": {\n      \"Default\": \"Warning\"\n    }\n  },\n  \"AppSettings\": {\n    \"AppVersion\": \"0.0.0\",\n    \"EnvironmentName\": \"#{Octopus.Environment.Name}\"\n  }\n}"
+      CONFIG_FILE_MOUNT_PATH: "/app/appsettings.json"
     steps:
       - uses: actions/checkout@v1
 

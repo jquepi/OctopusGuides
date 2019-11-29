@@ -101,7 +101,7 @@ window.findReactComponent = function(el) {
 elements = document.getElementsByClassName("ReactCodeMirror");
 if (elements.length !== 0) {
   cm = findReactComponent(document.getElementsByClassName("ReactCodeMirror")[0]);
-  cm.props.onChange("{\r\n  \"Logging\": {\r\n    \"IncludeScopes\": false,\r\n    \"LogLevel\": {\r\n      \"Default\": \"Warning\"\r\n    }\r\n  },\r\n  \"AppSettings\": {\r\n    \"AppVersion\": \"0.0.0\",\r\n    \"EnvironmentName\": \"#{Octopus.Environment.Name}\"\r\n  }\r\n}\r\n");
+  cm.props.onChange("#{ExternalConfigFile}");
 }
     """
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}023-octopus-variables-appsettings.png"
@@ -309,7 +309,7 @@ if (elements.length !== 0) {
     And I highlight outside the "Sub path" text box with an offset of "2"
     And I populate the "Container Volume name" text box with "appsettings-volume"
     And I click the "appsettings volume" option
-    And I populate the "Mount path" text box with "/app/appsettings.json"
+    And I populate the "Mount path" text box with "ExternalConfigMountPath"
     And I populate the "Sub path" text box with "appsettings.json"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}093-octopus-k8s.png"
 
