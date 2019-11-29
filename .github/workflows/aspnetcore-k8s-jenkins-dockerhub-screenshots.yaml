@@ -31,6 +31,7 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes.git
       WISTIA_MEDIA_ID:
       SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
+      DOCKER_IMAGE: octopusdeploy/randomquotes
     steps:
       - uses: actions/checkout@v1
 

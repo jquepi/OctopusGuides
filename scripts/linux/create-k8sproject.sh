@@ -20,6 +20,7 @@
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+  "-DCucumberAlias-ExternalDockerImage=$DOCKER_IMAGE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \

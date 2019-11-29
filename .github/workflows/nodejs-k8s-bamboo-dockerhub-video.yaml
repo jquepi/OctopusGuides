@@ -32,6 +32,7 @@ jobs:
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME: bamboo-nodejs-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /node-app/k8s/dockerhub/git/
+      DOCKER_IMAGE: octopusdeploy/randomquotesnodejs
     steps:
       - uses: actions/checkout@v1
 

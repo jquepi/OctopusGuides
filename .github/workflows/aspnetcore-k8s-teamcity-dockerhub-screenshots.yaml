@@ -32,6 +32,7 @@ jobs:
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME: aspnetcore-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
+      DOCKER_IMAGE: octopusdeploy/randomquotes
     steps:
       - uses: actions/checkout@v1
 
