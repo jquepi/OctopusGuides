@@ -40,7 +40,7 @@ jobs:
 
       - name: Set screen resolution
         shell: powershell
-        run: ./scripts/windows/set-resolution.ps1
+        run: ./scripts/windows/set-lowresolution.ps1
 
       - name: Disable Windows Defender
         shell: powershell

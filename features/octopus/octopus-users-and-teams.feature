@@ -48,7 +48,7 @@ Feature: Create Octopus Users and Teams
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/010-octopus-users.png"
-    # At certain resolutions the users link can be off the page in the vertical menu, so force click lets us proceed
+    And I scroll the "Users" link into view
     And I force click the "Users" link
     And I sleep for "1" second
 
@@ -101,7 +101,7 @@ Feature: Create Octopus Users and Teams
     And I highlight inside the "Users" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/040-octopus-users.png"
-    # At certain resolutions the users link can be off the page in the vertical menu, so force click lets us proceed
+    And I scroll the "Users" link into view
     And I force click the "Users" link
     And I sleep for "1" second
 
@@ -195,7 +195,7 @@ Feature: Create Octopus Users and Teams
     And I highlight inside the "Teams" link
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/075-octopus-teams.png"
-    # At certain resolutions the team link can be off the page in the vertical menu, so force click lets us proceed
+    And I scroll the "Teams" link into view
     And I force click the "Teams" link
     And I sleep for "1" second
 
