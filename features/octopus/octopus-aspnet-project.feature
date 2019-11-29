@@ -254,6 +254,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}046-octopus-azure-enable-conf-features.png"
+    And I scroll the "Configure features" button into view offset by "-300"
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
@@ -277,6 +278,7 @@ Feature: Configure an Octopus ASP.NET project
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}046-octopus-enable-conf-features.png"
+    And I scroll the "Configure features" button into view offset by "-300"
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
