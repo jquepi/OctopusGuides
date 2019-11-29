@@ -200,6 +200,7 @@ Feature: Configure Bamboo
       | Executable label   | //input[@id='addSharedBuilderCapability_builderLabel']                             |
       | Path               | //input[@id='addSharedBuilderCapability_builderPath']                              |
       | Add                | //input[@id='addSharedBuilderCapability_save']                                     |
+      | Save               | //input[@id='createTask_save']                                                     |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
