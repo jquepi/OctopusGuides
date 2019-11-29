@@ -218,14 +218,17 @@ Feature: Create and deploy a release
     And I sleep for "10" seconds
     And I stop recording the screen
 
-    And I sleep for "30" seconds
+    And I sleep for "60" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I sleep for "20" seconds
+    And I sleep for "5" seconds
 
     And I scroll the "Post job Checkout" item into view
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/createrelease/#{GuideSpecificScreenshotDir}080-build-results.png"
 
+    And I stop recording the screen
+
   Scenario: Shutdown
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
     And I close the browser
