@@ -109,7 +109,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Create project" button
     And I sleep for "5" seconds
     And I stop recording the screen
-    And I verify the "Pipelines" menu item is present waiting up to "40" seconds if it exists
+    And I verify the "Pipelines" menu item is present waiting up to "300" seconds if it exists
 
   @create-project @sourcespecific @git
   Scenario: Create project
@@ -131,7 +131,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I click the "Create project" button
     And I sleep for "5" seconds
     And I stop recording the screen
-    And I verify the "Pipelines" menu item is present waiting up to "40" seconds if it exists
+    And I verify the "Pipelines" menu item is present waiting up to "300" seconds if it exists
 
   @create-project @sourcespecific @tfvc
   Scenario: Create project
