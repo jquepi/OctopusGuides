@@ -149,7 +149,7 @@ Feature: Add a manual intervention step
       | Notes           | //textarea[contains(@id,'Notes')]        |
       | Notes container | //div[./textarea[contains(@id,'Notes')]] |
 
-    And I verify the "Assign to me" button is present waiting up to "60" seconds
+    And I verify the "Assign to me" button is present waiting up to "120" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Assign to me" button

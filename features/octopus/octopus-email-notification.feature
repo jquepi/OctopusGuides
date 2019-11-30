@@ -263,7 +263,8 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     And I click the "Deploy" button
 
-    And I sleep for "23" seconds
+    And I sleep for "10" seconds
+    And I stop recording the screen
 
   @approve-deployment
   Scenario: Approve manual intervention
@@ -272,6 +273,9 @@ Feature: Add a manual intervention step
       | Proceed         | //button[contains(.,'Proceed')]          |
       | Notes           | //textarea[contains(@id,'Notes')]        |
       | Notes container | //div[./textarea[contains(@id,'Notes')]] |
+
+    And I verify the "Assign to me" button is present waiting up to "120" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Assign to me" button
     And I sleep for "1" second

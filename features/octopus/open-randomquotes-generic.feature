@@ -2,7 +2,7 @@ Feature: Open Random Quotes
 
   Scenario: Login
     Given I set the following aliases:
-      | Refresh | //input[@type='submit'] |
+      | Refresh | //input[@type='submit'] \| //button[@id='refreshQuote'] |
 
     And I open the shared browser "ExternalBrowserType"
     And I maximize the window
