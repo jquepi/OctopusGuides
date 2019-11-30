@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Artifactory Feed Azure Website TFVC Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 14 1 * *'
@@ -50,6 +50,13 @@ jobs:
       - uses: azure/actions/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Delete resource groups
+        shell: powershell
+        run: |
+          ./delete-resource-group.ps1 "$env:DEV_RES_GROUP" -Wait
+          ./delete-resource-group.ps1 "$env:TEST_RES_GROUP" -Wait
+          ./delete-resource-group.ps1 "$env:PROD_RES_GROUP" -Wait
 
       - name: Create Web App
         shell: powershell
