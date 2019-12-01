@@ -42,7 +42,7 @@ jobs:
 
       - name: Execute puppet
         shell: powershell
-        run: ./install.ps1 -Scripts azuredevops.pp,azuredevopsagent.pp,artifactory.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp,artifactorywait.pp
+        run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,artifactory.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp,artifactorywait.pp
 
       - name: Configure Artifactory
         shell: powershell
@@ -62,7 +62,7 @@ jobs:
 
       - name: Populate TFVC repo
         shell: powershell
-        run: ./install.ps1 -Scripts azuredevopstfvcaspnetcore.pp
+        run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevopstfvcaspnetcore.pp
 
       - name: Run the build
         shell: powershell

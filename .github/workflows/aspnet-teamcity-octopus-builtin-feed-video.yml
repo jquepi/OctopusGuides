@@ -41,7 +41,7 @@ jobs:
 
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts utilities.pp,dotnetutilities.pp,teamcity.pp,octopus.pp,iis.pp,sleep.pp,teamcitywait.pp
+      run: ./install.ps1 -Scripts sqlserverexpress.pp,utilities.pp,dotnetutilities.pp,teamcity.pp,octopus.pp,iis.pp,sleep.pp,teamcitywait.pp
 
     - name: Create API key
       shell: powershell

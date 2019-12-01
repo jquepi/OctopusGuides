@@ -38,10 +38,6 @@ file { 'C:/install/system.componentmodel.annotations.4.1.0':
 
 # CONFIGURE OCTOPUS
 
-package { 'sql-server-express':
-  ensure   => installed,
-  provider => chocolatey
-}
 -> package { 'octopusdeploy':
   ensure   => installed,
   provider => chocolatey
