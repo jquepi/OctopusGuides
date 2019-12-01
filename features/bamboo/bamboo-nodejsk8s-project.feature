@@ -247,7 +247,7 @@ Feature: Configure Bamboo
     And I click the "Add new executable" link
     And I highlight outside the "Executable label" text box
     And I highlight outside the "Path" text box
-    And I highlight outside the "Add" button
+    And I highlight outside the "Add" button with an offset of "5"
     And I populate the "Executable label" text box with "node"
     And I populate the "Path" text box with "/usr/bin/node"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}115-npm-executable.png"
@@ -348,7 +348,8 @@ Feature: Configure Bamboo
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}200-search.png"
     And I click the "Docker Tile" element
 
-    And I highlight outside the "Task description" text box
+    # Don't highlight this to save a screenshot
+    #And I highlight outside the "Task description" text box
     And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "Docker Push"
 
