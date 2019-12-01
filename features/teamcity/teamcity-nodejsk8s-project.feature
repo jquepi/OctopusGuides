@@ -203,9 +203,11 @@ Feature: Create Docker project
     And I highlight outside the "Run" button
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}160-run.png"
     And I click the "Run" button
-    And I sleep for "10" seconds
+    And I sleep for "3" seconds
 
+    # Sometimes TC doesn't show the latest build link by itself, and you need to refresh the page
     And I stop recording the screen
+    And I sleep for "30" seconds
     And I refresh the page
 
     And I click the "No thanks" button if it exists
