@@ -14,7 +14,7 @@ download_file { 'SQLEXPR_x64_ENU.ex':
     | EOT
 }
 -> exec { 'Install SQLServer':
-  command   => '& C:/install_azure.ps1',
+  command   => '& C:/install_sql.ps1',
   creates   => 'c:/SqlInstalled.txt',
   timeout   => 3600,
   provider  => powershell,
