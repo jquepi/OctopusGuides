@@ -1,9 +1,9 @@
 name: NodeJS TeamCity Kubernetes DockerHub Screenshots
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 18 * *'
+    - cron:  '0 0 23 * *'
 jobs:
   build:
     if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-nodejs-k8s-screenshots')
