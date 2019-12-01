@@ -9,7 +9,7 @@ download_file { 'SQLEXPR_x64_ENU.ex':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    Start-Process "C:\tools\SQLEXPR_x64_ENU.ex" -ArgumentList @("/IACCEPTSQLSERVERLICENSETERMS", "/Q", "/ACTION=install", "/INSTANCEID=SQLEXPRESS", "/INSTANCENAME=SQLEXPRESS", "/UPDATEENABLED=FALSE") -NoNewWindow -Wait
+    Start-Process "C:\tools\SQLEXPR_x64_ENU.exe" -ArgumentList @("/IACCEPTSQLSERVERLICENSETERMS", "/Q", "/ACTION=install", "/INSTANCEID=SQLEXPRESS", "/INSTANCENAME=SQLEXPRESS", "/UPDATEENABLED=FALSE") -NoNewWindow -Wait
     New-Item -ItemType file c:\SqlInstalled.txt
     | EOT
 }
