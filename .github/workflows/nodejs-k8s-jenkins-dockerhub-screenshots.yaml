@@ -1,6 +1,6 @@
 name: Node.js Jenkins Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 5 * *'
@@ -50,7 +50,7 @@ jobs:
         run: ./scripts/linux/create-apikey.sh
 
       - name: Create Jenkins project
-        run: ./scripts/linux/create-jenkinsproject.sh
+        run: ./scripts/linux/create-nodejs-jenkinsproject.sh
 
       - name: Create Worker
         run: sudo ./scripts/linux/create-worker.sh

@@ -27,5 +27,4 @@
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \
-  --monochrome \
   features/octopus/octopus-k8s-project.feature

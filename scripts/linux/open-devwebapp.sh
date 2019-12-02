@@ -28,5 +28,4 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
-  --monochrome \
   features/octopus/open-randomquotes-generic.feature

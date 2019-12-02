@@ -18,5 +18,4 @@
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
-  --monochrome \
   features/octopus/octopus-view-internal-deployments.feature

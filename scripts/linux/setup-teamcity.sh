@@ -28,5 +28,4 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
-  --monochrome \
   features/teamcity/teamcity-setup.feature
