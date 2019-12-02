@@ -23,7 +23,7 @@ file { '/root/.BuildServer/plugins/Octopus.TeamCity.zip':
   group   => 'root',
   mode    => '0755',
   content => @(EOT)
-    /opt/TeamCity/bin/runAll.sh start
+    sudo /opt/TeamCity/bin/runAll.sh start
     touch /opt/TeamCityStarted.txt
     exit 0
     | EOT
