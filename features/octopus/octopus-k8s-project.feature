@@ -310,7 +310,7 @@ if (elements.length !== 0) {
     And I populate the "Container Volume name" text box with "appsettings-volume"
     And I click the "appsettings volume" option
     And I populate the "Mount path" text box with "ExternalConfigMountPath"
-    And I populate the "Sub path" text box with "appsettings.json"
+    And I populate the "Sub path" text box with "ExternalConfigFileName"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}093-octopus-k8s.png"
 
     And I highlight outside the "OK" button with an offset of "2"
@@ -357,7 +357,7 @@ if (elements.length !== 0) {
     And I click the "Add Config Map Item" button
     And I highlight outside the "Key" text box with an offset of "2"
     And I highlight outside the "Value container" element with an offset of "2"
-    And I populate the "Key" text box with "appsettings.json"
+    And I populate the "Key" text box with "ExternalConfigFileName"
     And I populate the "Value" text box with "#{appsettings}"
 
     And I highlight outside the "Save" button
