@@ -1,6 +1,6 @@
 name: Node.js Bamboo Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 16 * *'
@@ -34,7 +34,7 @@ jobs:
       SCREENSHOT_PATH: /node-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesnodejs
       CONFIG_FILE: "const config = {\\n    port: 80,\\n    appVersion: \\\"0.0.0\\\",\\n    environmentName: \\\"#{Octopus.Environment.Name}\\\"\\n};\\n\\nmodule.exports = config;"
-      CONFIG_FILE_MOUNT_PATH: "/usr/src/app/source/server/config/config.js"
+      CONFIG_FILE_MOUNT_PATH: "/usr/src/app/source/config/config.js"
       CONFIG_FILE_NAME: "config.js"
     steps:
       - uses: actions/checkout@v1
