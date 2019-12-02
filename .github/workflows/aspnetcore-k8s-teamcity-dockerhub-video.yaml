@@ -21,7 +21,7 @@ jobs:
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       DISPLAY: ":99.0"
       MOUSE_VERTICAL_OFFSET: 74
-      MOUSE_VERTICAL_OFFSET_CHROME: 126
+      MOUSE_VERTICAL_OFFSET_CHROME: 0
       CUCUMBER_TAGS: "(not @destinationspecific or @k8s) and (not @repositoryspecific or @dockerhub) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
