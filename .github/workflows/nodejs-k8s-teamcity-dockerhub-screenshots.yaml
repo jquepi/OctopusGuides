@@ -29,7 +29,7 @@ jobs:
       DISABLE_VIDEO: true
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-JS.git
-      SCREENSHOT_PATH: /aspnetcore-app/k8s/dockerhub/git/
+      SCREENSHOT_PATH: /node-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjs
       CONFIG_FILE: "const config = {\\n    port: 80,\\n    appVersion: \\\"0.0.0\\\",\\n    environmentName: \\\"#{Octopus.Environment.Name}\\\"\\n};\\n\\nmodule.exports = config;"
       CONFIG_FILE_MOUNT_PATH: "/usr/src/app/source/server/config/config.js"
