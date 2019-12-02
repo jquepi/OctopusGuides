@@ -6,5 +6,4 @@ Feature: Test feature
     And I open the URL "ExternalURL"
     And I sleep for "10" seconds
     And I verify there were no network errors
-    And I define an artifact called "report.html" from the file "report/index.html"
     And I close the browser
