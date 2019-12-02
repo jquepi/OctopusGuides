@@ -4,7 +4,7 @@ Feature: Create and deploy a release
   Scenario: Log into Azure DevOps
     And I open the shared browser "ExternalBrowserType"
     And I set the default explicit wait time to "30" seconds
-    And I maximize the window
+    And I fullscreen the window
     #And I set the window size to "1024" x "768"
     When I open the URL "http://localhost:9090/DefaultCollection"
     And I start recording the screen to the directory "#{ExternalMediaPath}"

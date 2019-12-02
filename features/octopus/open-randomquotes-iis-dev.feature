@@ -5,7 +5,7 @@ Feature: Open Random Quotes
       | Refresh | //input[@type='submit'] |
 
     And I open the shared browser "ExternalBrowserType"
-    And I maximize the window
+    And I fullscreen the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8081"
     And I start recording the screen to the directory "#{ExternalMediaPath}"

@@ -2,7 +2,7 @@ Feature: Replace Video
   Scenario: Log in
     Given I open the shared browser "FirefoxNoImplicitWait"
     And I set the default explicit wait time to "30" seconds
-    And I maximize the window
+    And I fullscreen the window
     And I open the URL "https://auth.wistia.com/session/new?app=wistia"
     And I populate the "user_email" text box with "ExternalWistiaUsername"
     And I populate the "user_password" text box with "ExternalWistiaPassword"

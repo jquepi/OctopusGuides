@@ -4,7 +4,7 @@ Feature: Setup Artifactory
   I've noticed that sometimes the browser is hidden behind a command prompt, so this scenario opens
   and closes the browser so the next browser is in front of any windows.
     And I open the browser "ExternalBrowserType"
-    And I maximize the window
+    And I fullscreen the window
     And I open the URL "http://localhost:8040"
     And I sleep for "10" seconds
     And I close the browser
@@ -27,7 +27,7 @@ Feature: Setup Artifactory
       | Spinner        | //div[contains(@class,'spinner')]                       |
 
     And I open the shared browser "ExternalBrowserType"
-    And I maximize the window
+    And I fullscreen the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8040"
     And I verify the "Spinner" overlay is present waiting up to "60" seconds if it exists

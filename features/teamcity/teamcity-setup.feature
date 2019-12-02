@@ -11,7 +11,7 @@ Feature: Set up Team City
       | Create Account | //input[@value='Create Account']      |
 
     And I open the browser "FirefoxNoImplicitWait"
-    And I maximize the window
+    And I fullscreen the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8111"
     And I click the "Proceed" button

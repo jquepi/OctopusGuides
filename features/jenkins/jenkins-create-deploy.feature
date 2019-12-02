@@ -9,7 +9,7 @@ Feature: Create and deploy a release from Jenkins
 
     And I open the shared browser "ExternalBrowserType"
     And I set the default explicit wait time to "30" seconds
-    And I maximize the window
+    And I fullscreen the window
     When I open the URL "http://localhost:8080"
     And I populate the "Username" text box with the text "jenkinsadmin"
     And I populate the "Password" text box with the text "Password01!"
