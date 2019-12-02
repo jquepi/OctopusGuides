@@ -79,7 +79,6 @@ Feature: Create Docker project
       npm test
       """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}045-npm-install.png"
-    And I remove the highlight from the "Script content" text area
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
