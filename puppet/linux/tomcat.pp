@@ -4,7 +4,7 @@ package { 'tomcat9':
 -> file_line { 'Change Tomcat Port':
   path    => '/usr/share/tomcat9/etc/server.xml',
   line    => '<Connector port="9091"',
-  match   => '\s*<Connector port="9091"',
+  match   => '\s*<Connector port="8080"',
   replace => true,
 }
 -> service {'bamboo':
