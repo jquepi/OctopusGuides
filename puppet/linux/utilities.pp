@@ -62,6 +62,10 @@ package { 'awscli':
   ensure => installed,
 }
 
+package { 'maven':
+  ensure => installed,
+}
+
 file { '/opt/google-chrome-stable_current_amd64.deb':
   source => 'https://octopus-guides.s3.amazonaws.com/chrome/google-chrome-stable_current_amd64.deb',
   mode   => '0644'
