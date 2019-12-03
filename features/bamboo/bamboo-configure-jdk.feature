@@ -12,10 +12,12 @@ Feature: Configure Maven
       | Path                | //input[@id='updateSharedCapability_capabilityValue'] |
       | Update              | //input[@id='updateSharedCapability_save']            |
 
+    And I stop recording the screen
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I display a note with the text "Configuring the executables" for "3" seconds
+    And I display a note with the text "Configuring the JDK path" for "3" seconds
 
     And I scroll the "Administration" button into view
     And I force click the "Administration" button
@@ -45,5 +47,3 @@ Feature: Configure Maven
     And I highlight outside the "Update" button with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}050-jdk-path.png"
     And I click the "Update" button
-
-    And I click the "Server capabilities" link

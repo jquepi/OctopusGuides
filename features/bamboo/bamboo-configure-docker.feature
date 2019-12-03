@@ -10,10 +10,11 @@ Feature: Configure Docker
       | Path                | //input[@id='addCapability_dockerExecutable'] |
       | Add                 | //input[@id='addCapability_save']             |
 
+    And I stop recording the screen
     And I click the "Close dialog" button waiting up to "5" seconds if it exists
-
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I display a note with the text "Configuring the executables" for "3" seconds
+
+    And I display a note with the text "Configuring the Docker executable" for "3" seconds
 
     And I scroll the "Administration" button into view
     And I force click the "Administration" button

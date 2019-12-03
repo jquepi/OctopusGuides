@@ -11,6 +11,8 @@ Feature: Configure Maven
       | Executable path  | //input[@id='addCapability_builderPath']     |
       | Add              | //input[@id='addCapability_save']            |
 
+    And I display a note with the text "Configuring the Maven executable" for "3" seconds
+
     And I scroll the "Capability type" drop down list into view offset by "-300"
     And I select the option "Executable" from the "Capability type" drop down list
     And I select the option "Maven 3.x" from the "Type" drop down list
