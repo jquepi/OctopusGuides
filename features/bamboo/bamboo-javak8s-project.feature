@@ -10,7 +10,7 @@ Feature: Configure Bamboo
     And I run the feature "bamboo-add-project.feature"
 
   @applicationspecific @java
-  Scenario: ASP.NET Core Add tasks
+  Scenario: Java Add tasks
     Given I set the following aliases:
       | Add task         | //a[@id='addTask']                                                                       |
       | Search           | //h2[contains(.,'Task types')]//input                                                    |
@@ -47,7 +47,7 @@ Feature: Configure Bamboo
     And I click the "Save" button
 
   @destinationspecific @k8s
-  Scenario: ASP.NET Core Add tasks
+  Scenario: Docker Add tasks
     Given I set the following aliases:
       | Add task                                                  | //a[@id='addTask']                                                                         |
       | Search                                                    | //h2[contains(.,'Task types')]//input                                                      |

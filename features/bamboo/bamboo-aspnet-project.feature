@@ -494,98 +494,11 @@ Feature: Configure Bamboo
 
   @repositoryspecific @octo-built-in-feed
   Scenario: Add Octopus Push
-    Given I set the following aliases:
-      | Add task                           | //a[@id='addTask']                                                                                           |
-      | Octopus Deploy: Push Packages Tile | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Octopus Deploy: Push Packages']] |
-      | Search                             | //h2[contains(.,'Task types')]//input                                                                        |
-      | Task description                   | //input[@id='createTask_userDescription']                                                                    |
-      | Server URL                         | //input[@id='serverUrl']                                                                                     |
-      | API key                            | //input[@id='apiKey']                                                                                        |
-      | Package paths                      | //textarea[@id='pushPattern']                                                                                |
-      | Save                               | //input[@id='createTask_save']                                                                               |
-
-    And I highlight outside the "Add task" button with an offset of "2"
-    And I scroll the "Add task" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-add-task.png"
-    And I click the "Add task" button
-    And I remove the highlight from the "Add task" button
-
-    And I highlight outside the "Search" box
-    And I populate the "Search" box with "Octopus"
-    And I highlight inside the "Octopus Deploy: Push Packages Tile" element
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}170-search.png"
-    And I click the "Octopus Deploy: Push Packages Tile" element
-
-    And I highlight outside the "Task description" text box with an offset of "5"
-    And I highlight outside the "Server URL" text box with an offset of "5"
-    And I highlight outside the "API key" text box with an offset of "5"
-
-    And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "Push to Octopus"
-    And I scroll the "Server URL" text box into view offset by "-300"
-    And I clear the "Server URL" text box
-    And I populate the "Server URL" text box with "http://localhost"
-    And I scroll the "API key" text box into view offset by "-300"
-    And I populate the "API key" text box with "ExternalOctopusAPIKey"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}173-octo-push.png"
-
-    And I highlight outside the "Package paths" text box with an offset of "5"
-    And I highlight outside the "Save" button
-    And I scroll the "Package paths" text box into view offset by "-200"
-    And I populate the "Package paths" text box with "#{NugetPath}RandomQuotes.1.0.${bamboo.buildNumber}.nupkg"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}175-octo-push.png"
-    And I remove the highlight from the "Package paths" text box
-
-    And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}180-octo-push.png"
-    And I click the "Save" button
-    And I stop recording the screen
+    And I run the feature "bamboo-push-to-octo.feature"
 
   @repositoryspecific @artifactory
   Scenario: Add Octopus Push
-    Given I set the following aliases:
-      | Add task         | //a[@id='addTask']                                                                    |
-      | Script Tile      | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']] |
-      | Search           | //h2[contains(.,'Task types')]//input                                                 |
-      | Task description | //input[@id='createTask_userDescription']                                             |
-      | Interpreter      | //select[@id='interpreter']                                                           |
-      | Script body      | //div[@id='scriptBody']                                                               |
-      | Save             | //input[@id='createTask_save']                                                        |
-
-    And I highlight outside the "Add task" button with an offset of "2"
-    And I scroll the "Add task" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-add-task-nuget-push.png"
-    And I click the "Add task" button
-    And I remove the highlight from the "Add task" button
-
-    And I highlight outside the "Search" box
-    And I populate the "Search" box with "Script"
-    And I highlight inside the "Script Tile" element
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}170-search-nuget-push.png"
-    And I click the "Script Tile" element
-
-    And I highlight outside the "Task description" text box
-    And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "NuGet Push"
-
-    And I highlight outside the "Interpreter" text box
-    And I scroll the "Interpreter" drop down list into view offset by "-300"
-    And I select the option "Windows PowerShell" from the "Interpreter" drop down list
-
-    And I highlight inside the "Script body" text box
-    And I scroll the "Script body" text area into view offset by "-300"
-    And I run the following JavaScript:
-      """
-      ace.edit(scriptBody).setValue("C:\\ProgramData\\chocolatey\\bin\\nuget.exe push `\n-Source Artifactory `\n#{NugetPath}RandomQuotes.1.0.${bamboo.buildNumber}.nupkg")
-      """
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}180-nuget-push.png"
-
-    And I highlight outside the "Save" button
-    And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}190-nuget-push.png"
-    And I click the "Save" button
-    And I stop recording the screen
+    And I run the feature "bamboo-push-to-artifactory.feature"
 
   @repositoryspecific @artifactory
   Scenario: Create plan
@@ -610,22 +523,7 @@ Feature: Configure Bamboo
     And I sleep for "5" seconds
 
   Scenario: Create plan
-    Given I set the following aliases:
-      | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
-      | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
-
-    And I highlight outside the "Build one" link with an offset of "5"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}200-build-one.png"
-    And I click the "Build one" link
-    And I click the "Logs" link
-    And I sleep for "10" seconds
-    And I scroll down "10000" px
-    And I sleep for "50" seconds
-    And I stop recording the screen
-    And I sleep for "120" seconds
-    And I scroll down "10000" px
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}210-build-results.png"
+    And I run the feature "bamboo-create-plan.feature"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

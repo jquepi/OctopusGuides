@@ -12,3 +12,4 @@ These are the ports used by the various apps deployed by Puppet and Octopus.
 | 8083 | ISS Prod     |
 | 6990 | Bamboo       |
 | 9090 | Azure DevOps | 
+| 9091 | Tomcat | 

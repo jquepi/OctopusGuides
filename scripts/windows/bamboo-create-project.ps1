@@ -14,7 +14,7 @@
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
     "-DCucumberAlias-GitUrl=$env:GIT_URL" `
-    "-DCucumberAlias-NugetPath=$env:NUGET_PATH" `
+    "-DCucumberAlias-ArtifactPath=$($env:NUGET_PATH)RandomQuotes.1.0.`${bamboo.buildNumber}.nupkg" `
     "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `

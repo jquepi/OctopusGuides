@@ -1,0 +1,13 @@
+package { 'tomcat9':
+  ensure => installed,
+}
+-> file_line { 'Change Tomcat Port':
+  path    => '/usr/share/tomcat9/etc/server.xml',
+  line    => '.*?<Connector port="8080"',
+  match   => '<Connector port="9091"',
+  replace => true,
+}
+-> service {'bamboo':
+  ensure => running
+}
+
