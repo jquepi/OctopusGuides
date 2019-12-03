@@ -7,7 +7,7 @@ Feature: Configure Maven
       | Administration      | //span[contains(.,'Administration')]                  |
       | Overview            | //a[contains(.,'Overview')]                           |
       | Server capabilities | //a[contains(.,'Server capabilities')]                |
-      | JDK                 | //a[id='title:system.jdk.JDK']                        |
+      | JDK                 | //a[@id='title:system.jdk.JDK']                        |
       | Edit                | //a[contains(.,'Edit')]                               |
       | Path                | //input[@id='updateSharedCapability_capabilityValue'] |
       | Update              | //input[@id='updateSharedCapability_save']            |
