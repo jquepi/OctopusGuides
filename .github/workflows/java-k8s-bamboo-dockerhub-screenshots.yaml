@@ -1,4 +1,4 @@
-name: Java Bamboo Kubernetes DockerHub Video
+name: Java Bamboo Kubernetes DockerHub Screenshots
 on:
   push:
   repository_dispatch:

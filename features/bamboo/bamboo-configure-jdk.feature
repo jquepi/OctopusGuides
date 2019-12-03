@@ -36,14 +36,14 @@ Feature: Configure Maven
     And I click the "JDK" link
 
     And I highlight outside the "Edit" link with an offset of "5"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}035-edit.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}040-jdk-edit.png"
     And I click the "Edit" link
 
     And I clear the "Path" text box
     And I populate the "Path" text box with "/usr/lib/jvm/java-1.8.0-openjdk-amd64"
     And I highlight outside the "Path" text box with an offset of "2"
     And I highlight outside the "Update" button with an offset of "2"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}040-path.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}050-jdk-path.png"
     And I click the "Update" button
 
     And I click the "Server capabilities" link
