@@ -24,7 +24,7 @@ Feature: Add Octopus plugin
     And I highlight outside the "Overview" link
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/addins/#{GuideSpecificScreenshotDir}010-administration.png"
     # There were some issues trying to click this link, so we mouse over and then manually redirect
-    And I mouse over the "Overview" link
+    And I force mouse over the "Overview" link
     And I open the URL "http://localhost:6990/bamboo/admin/administer.action"
 
     And I scroll the "Find new apps" link into view offset by "-300"

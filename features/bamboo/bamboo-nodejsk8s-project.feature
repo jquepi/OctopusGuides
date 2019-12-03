@@ -41,7 +41,7 @@ Feature: Configure Bamboo
     And I highlight outside the "Overview" link
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/addins/#{GuideSpecificScreenshotDir}010-administration.png"
         # There were some issues trying to click this link, so we mouse over and then manually redirect
-    And I mouse over the "Overview" link
+    And I force mouse over the "Overview" link
     And I open the URL "http://localhost:6990/bamboo/admin/administer.action"
 
     And I scroll the "Find new apps" link into view offset by "-300"
@@ -96,8 +96,9 @@ Feature: Configure Bamboo
     And I highlight inside the "Administration" button
     And I highlight outside the "Overview" link
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}010-administration.png"
-        # There were some issues trying to click this link, so we mouse over and then manually redirect
-    And I mouse over the "Overview" link
+    # There were some issues trying to click this link (org.openqa.selenium.JavascriptException: javascript error:
+    # Failed to execute 'elementsFromPoint' on 'Document': The provided double value is non-finite.), so we mouse over and then manually redirect
+    And I force mouse over the "Overview" link
     And I open the URL "http://localhost:6990/bamboo/admin/administer.action"
 
     And I highlight outside the "Server capabilities" link with an offset of "5"
