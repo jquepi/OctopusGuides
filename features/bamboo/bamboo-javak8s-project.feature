@@ -43,7 +43,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-npm-install.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-maven-test.png"
     And I click the "Save" button
 
   @destinationspecific @k8s
