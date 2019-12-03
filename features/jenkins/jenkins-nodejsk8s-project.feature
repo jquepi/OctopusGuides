@@ -42,7 +42,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
       """
       var textarea = document.evaluate("//div[@class='CodeMirror']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror
-      editor.setValue("npm install\npm test");
+      editor.setValue("npm install\nnpm test");
       """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-dotnet-test.png"
     And I remove the highlight from the "Command" text box
