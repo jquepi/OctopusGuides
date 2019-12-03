@@ -16,7 +16,7 @@ Feature: Configure Bamboo
       | Search           | //h2[contains(.,'Task types')]//input                                                    |
       | Maven Tile       | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Maven 3.x']] |
       | Task description | //input[@id='createTask_userDescription']                                                |
-      | Build JDK        | //input[@id='buildJdk']                                                                  |
+      | Build JDK        | //select[@id='buildJdk']                                                                  |
       | Save             | //input[@id='createTask_save']                                                           |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
