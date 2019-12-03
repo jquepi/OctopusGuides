@@ -15,6 +15,7 @@ Feature: Configure Maven
     And I select the option "Executable" from the "Capability type" drop down list
     And I select the option "Maven 3.x" from the "Type" drop down list
     And I populate the "Executable label" text box with "Maven"
+    And I clear the "Executable path" text box
     And I populate the "Executable path" text box with "/usr/bin/mvn"
     And I scroll the "Add" button into view offset by "-300"
 
