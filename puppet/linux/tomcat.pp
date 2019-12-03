@@ -7,7 +7,7 @@ package { 'tomcat9':
   match   => '^\s*<Connector\ port\="8080"\ protocol\="HTTP/1.1"',
   replace => true,
 }
--> file_line { 'Change Tomcat Port':
+-> file_line { 'Add Tomcat User':
   path    => '/usr/share/tomcat9/etc/tomcat-users.xml',
   line    => '<tomcat-users><role\ rolename\="manager-script"/><user\ username\="tomcat"\ password\="Password01!"\ roles\="manager-script"/>',
   match   => '^<tomcat-users>',
