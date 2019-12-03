@@ -52,7 +52,7 @@ jobs:
         run: ./scripts/linux/create-apikey.sh
 
       - name: Create Bamboo project
-        run: ./scripts/linux/create-nodejs-bambooproject.sh
+        run: ./scripts/linux/create-java-bambooproject.sh
 
       - name: Create Worker
         run: sudo ./scripts/linux/create-worker.sh
