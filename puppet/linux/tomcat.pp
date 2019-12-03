@@ -9,7 +9,7 @@ package { 'tomcat9':
 }
 -> file_line { 'Add Tomcat User':
   path    => '/usr/share/tomcat9/etc/tomcat-users.xml',
-  line    => '<role\ rolename\="manager-script"/><user\ username\="tomcat"\ password\="Password01!"\ roles\="manager-script"/></tomcat-users>',
+  line    => '<role rolename="manager-script"/><user username="tomcat" password="Password01!" roles="manager-script"/></tomcat-users>',
   match   => '^</tomcat-users>',
   replace => true,
 }
