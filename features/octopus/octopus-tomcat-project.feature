@@ -89,10 +89,27 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Step Name       | //input[contains(@id, 'Stepname')]                                                              |
-      | On target roles | //input[@title='Runs on targets in roles (type to add new)']                                    |
-      | Web role        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Configure features                      | (//button[contains(.,'Configure features')])[1]                                                 |
+      | Substitute Variables in Files           | //input[..//label[text()='Substitute Variables in Files']]                                      |
+      | Substitute Variables in Files Container | //div[./input[..//label[text()='Substitute Variables in Files']]]                               |
+      | OK                                      | //button[contains(.,'Ok')]                                                                      |
+      | Step Name                               | //input[contains(@id, 'Stepname')]                                                              |
+      | On target roles                         | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | Web role                                | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
+    And I highlight outside the "Configure features" button
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}046-octopus-java-enable-conf-features.png"
+    And I scroll the "Configure features" button into view offset by "-300"
+    And I click the "Configure features" button
+    And I remove the highlight from the "Configure features" button
+
+    And I highlight inside the "Substitute Variables in Files Container" option
+    And I highlight outside the "OK" button with an offset of "2"
+    And I force click the "Substitute Variables in Files" option
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}047-octopus-java-enable-conf-vars.png"
+    And I click the "OK" button
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -155,6 +172,7 @@ Feature: Configure an Octopus Tomcat project
       | Management user     | //input[contains(@id, 'Managementuser')]     |
       | Management password | //input[contains(@id, 'Managementpassword')] |
       | Context path        | //input[contains(@id, 'Contextpath')]        |
+      | Target files        | //textarea[contains(@id, 'Targetfiles')]     |
       | Save                | //button[contains(.,'Save')]                 |
 
     And I scroll the "Tomcat Manager URL" text box into view offset by "-300"
@@ -193,6 +211,10 @@ Feature: Configure an Octopus Tomcat project
     And I highlight outside the "Context path" text box
     And I clear the "Context path" text box
     And I populate the "Context path" text box with "randomquotes-#{Octopus.Environment.Name | ToLower}"
+
+    And I scroll the "Target files" text box into view offset by "-300"
+    And I highlight outside the "Target files" text box
+    And I populate the "Target files" text box with "**\deployed-application.yml"
 
     And I click the "Save" button
     And I sleep for "2" seconds
