@@ -160,6 +160,10 @@ Feature: Configure an Octopus Tomcat project
     And I scroll the "Tomcat Manager URL" text box into view offset by "-300"
     And I highlight outside the "Tomcat Manager URL" text box
     And I clear the "Tomcat Manager URL" text box
+    And I run the following JavaScript:
+    """
+    document.getElementById('TomcatManagerURL').value = "";
+    """
     And I populate the "Tomcat Manager URL" text box with "http://localhost:9091/manager"
 
     And I scroll the "Management user" text box into view offset by "-300"
