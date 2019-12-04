@@ -1,15 +1,17 @@
 Feature: Configure Octopus
+
   @executables
   Scenario: Configure Octo CLI
     Given I set the following aliases:
-      | Close dialog     | //span[@class='aui-icon icon-close']         |
-      | Administration   | //span[contains(.,'Administration')]         |
-      | Overview         | //a[contains(.,'Overview')]                  |
-      | Capability type  | //select[@id='addCapability_capabilityType'] |
-      | Type             | //select[@id='executableTypeSelect']         |
-      | Executable label | //input[@id='addCapability_builderLabel']    |
-      | Executable path  | //input[@id='addCapability_builderPath']     |
-      | Add              | //input[@id='addCapability_save']            |
+      | Close dialog        | //span[@class='aui-icon icon-close']         |
+      | Administration      | //span[contains(.,'Administration')]         |
+      | Server capabilities | //a[contains(.,'Server capabilities')]       |
+      | Overview            | //a[contains(.,'Overview')]                  |
+      | Capability type     | //select[@id='addCapability_capabilityType'] |
+      | Type                | //select[@id='executableTypeSelect']         |
+      | Executable label    | //input[@id='addCapability_builderLabel']    |
+      | Executable path     | //input[@id='addCapability_builderPath']     |
+      | Add                 | //input[@id='addCapability_save']            |
 
     And I display a note with the text "Configuring the Octopus CLI executable" for "3" seconds
 
@@ -21,6 +23,10 @@ Feature: Configure Octopus
         # There were some issues trying to click this link, so we mouse over and then manually redirect
     And I force mouse over the "Overview" link
     And I open the URL "http://localhost:6990/bamboo/admin/administer.action"
+
+    And I highlight outside the "Server capabilities" link with an offset of "5"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}020-server-capabilities.png"
+    And I click the "Server capabilities" link
 
     And I scroll the "Capability type" drop down list into view offset by "-300"
     And I select the option "Executable" from the "Capability type" drop down list
