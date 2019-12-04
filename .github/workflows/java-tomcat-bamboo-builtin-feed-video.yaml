@@ -21,6 +21,8 @@ jobs:
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       DISPLAY: ":99.0"
       MOUSE_VERTICAL_OFFSET: 74
+      # This is slightly larger than the warning bar presented by Chrome to stop the mouse cursor triggering the menu
+      # next to the administration menu as we try and click the Overview link.
       MOUSE_VERTICAL_OFFSET_CHROME: 50
       CUCUMBER_TAGS: "(not @destinationspecific or @tomcat) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
       DISABLE_HIGHLIGHTS: true
@@ -51,11 +53,11 @@ jobs:
       - name: Create Bamboo project
         run: ./scripts/linux/create-javawar-bambooproject.sh
 
-      - name: Create Target
-        run: sudo ./scripts/linux/create-target.sh
-
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
+
+      - name: Create Target
+        run: sudo ./scripts/linux/create-target.sh
 
       - name: Create project
         run: ./scripts/linux/create-tomcatproject.sh
