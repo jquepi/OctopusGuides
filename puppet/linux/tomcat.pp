@@ -25,6 +25,10 @@ package { 'tomcat9':
   replace => true,
   notify  => Service['tomcat9']
 }
+-> exec { 'Reload daemon':
+  command   => '/bin/systemctl daemon-reload',
+  logoutput => true
+}
 -> exec { 'Print users':
   command   => '/bin/cat /etc/tomcat9/tomcat-users.xml',
   logoutput => true
