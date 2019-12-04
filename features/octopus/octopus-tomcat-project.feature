@@ -163,10 +163,10 @@ Feature: Configure an Octopus Tomcat project
     And I clear the "Tomcat Manager URL" text box
     And I populate the "Tomcat Manager URL" text box with "http://localhost:9091/manager"
 
-    And I scroll the "Management user " text box into view offset by "-300"
-    And I highlight outside the "Management user " text box
-    And I clear the "Management user " text box
-    And I populate the "Management user " text box with "tomcat"
+    And I scroll the "Management user" text box into view offset by "-300"
+    And I highlight outside the "Management user" text box
+    And I clear the "Management user" text box
+    And I populate the "Management user" text box with "tomcat"
 
     And I scroll the "Management password" text box into view offset by "-300"
     And I highlight outside the "Management password" text box
