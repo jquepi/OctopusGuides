@@ -214,7 +214,7 @@ Feature: Configure an Octopus Tomcat project
     And I force click the "Deploy" button
 
     And I stop recording the screen
-    And I sleep for "60" seconds
+    And I sleep for "300" seconds
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I sleep for "5" seconds
