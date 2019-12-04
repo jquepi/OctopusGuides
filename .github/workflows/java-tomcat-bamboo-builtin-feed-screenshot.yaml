@@ -31,7 +31,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
-      SCREENSHOT_PATH: /java-app/tomcat/dockerhub/git/
+      SCREENSHOT_PATH: /java-app/tomcat/builtin/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjava
     steps:
       - uses: actions/checkout@v1

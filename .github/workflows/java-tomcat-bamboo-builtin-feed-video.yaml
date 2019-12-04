@@ -33,7 +33,7 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME: bamboo-java-tomcat-builtin.mp4
-      SCREENSHOT_PATH: /java-app/tomcat/dockerhub/git/
+      SCREENSHOT_PATH: /java-app/tomcat/builtin/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjava
     steps:
       - uses: actions/checkout@v1
