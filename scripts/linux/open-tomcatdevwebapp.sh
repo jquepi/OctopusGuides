@@ -19,7 +19,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
-  "-DCucumberAlias-ExternalUrl=http://localhost:9091/randomquotes-dev" \
+  "-DCucumberAlias-ExternalUrl=http://localhost:9091/randomquotes-dev/index.html" \
   "-DCucumberAlias-Screenshot=tomcat-random-quotes-dev-app.png" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
