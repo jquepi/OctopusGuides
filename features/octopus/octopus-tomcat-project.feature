@@ -157,7 +157,6 @@ Feature: Configure an Octopus Tomcat project
       | Context path        | //input[contains(@id, 'Contextpath')]        |
       | Save                | //button[contains(.,'Save')]                 |
 
-
     And I scroll the "Tomcat Manager URL" text box into view offset by "-300"
     And I highlight outside the "Tomcat Manager URL" text box
     And I clear the "Tomcat Manager URL" text box
