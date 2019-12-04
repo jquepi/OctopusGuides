@@ -19,4 +19,4 @@
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
-  features/tomcat/view-tmanager.feature
+  features/tomcat/view-manager.feature
