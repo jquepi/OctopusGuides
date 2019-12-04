@@ -18,6 +18,13 @@ package { 'tomcat9':
   replace => true,
   notify  => Service['tomcat9']
 }
+-> file_line { 'Define config name':
+  path    => '/lib/systemd/system/tomcat9.service',
+  line    => 'Environment="JAVA_OPTS=-Djava.awt.headless=true -Dspring.config.name=deployed-application"',
+  match   => 'Environment\="JAVA_OPTS\=-Djava.awt.headless=true"',
+  replace => true,
+  notify  => Service['tomcat9']
+}
 -> exec { 'Print users':
   command   => '/bin/cat /etc/tomcat9/tomcat-users.xml',
   logoutput => true
