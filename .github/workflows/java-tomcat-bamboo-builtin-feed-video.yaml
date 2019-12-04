@@ -62,6 +62,9 @@ jobs:
       - name: Create project
         run: ./scripts/linux/create-tomcatproject.sh
 
+      - name: Open Tomcat Manager
+        run: ./scripts/linux/view-tomcatmanager.sh
+
       - name: Open Dev App
         run: ./scripts/linux/open-tomcatdevwebapp.sh
 
