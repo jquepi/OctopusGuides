@@ -4,9 +4,6 @@ if [ -n "$WISTIA_MEDIA_ID" ]; then
   /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
     "--enable-preview" \
     "-Xmx2g" \
-    "-Xmx2g" \
-    "--enable-preview" \
-    "-Xmx2g" \
     "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
     "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
     "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
