@@ -36,6 +36,10 @@ package { 'tomcat9':
   command   => '/bin/cat /etc/tomcat9/server.xml',
   logoutput => true
 }
+-> exec { 'Print service':
+  command   => '/bin/cat /lib/systemd/system/tomcat9.service',
+  logoutput => true
+}
 
 service {'tomcat9':
   ensure => running
