@@ -1,6 +1,9 @@
 package { 'tomcat9':
   ensure => installed,
 }
+-> package { 'tomcat9-admin':
+  ensure => installed,
+}
 -> file_line { 'Change Tomcat Port':
   path    => '/etc/tomcat9/tomcat-users.xml',
   line    => '    <Connector port="9091" protocol="HTTP/1.1"',
