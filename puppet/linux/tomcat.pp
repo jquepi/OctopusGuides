@@ -4,6 +4,10 @@ package { 'tomcat9':
 -> package { 'tomcat9-admin':
   ensure => installed,
 }
+-> service {'tomcat9':
+  ensure => running,
+  subscribe   => [File_line['Change Tomcat Port'], File_line['Add Tomcat User']],
+}
 -> file_line { 'Change Tomcat Port':
   path    => '/etc/tomcat9/tomcat-users.xml',
   line    => '    <Connector port="9091" protocol="HTTP/1.1"',
@@ -16,7 +20,5 @@ package { 'tomcat9':
   match   => '^</tomcat-users>',
   replace => true,
 }
--> service {'tomcat9':
-  ensure => running
-}
+
 
