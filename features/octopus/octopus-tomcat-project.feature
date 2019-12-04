@@ -214,8 +214,10 @@ Feature: Configure an Octopus Tomcat project
     And I force click the "Deploy" button
 
     And I stop recording the screen
+    And I sleep for "60"
+
     And I start recording the screen to the directory "ExternalMediaPath"
-    And I sleep for "23" seconds
+    And I sleep for "5" seconds
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}210-octopus-deployment.png"
 
