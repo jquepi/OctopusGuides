@@ -162,7 +162,20 @@ Feature: Configure an Octopus Tomcat project
     And I clear the "Tomcat Manager URL" text box
     And I run the following JavaScript:
     """
-    document.evaluate("//input[contains(@id, 'TomcatManagerURL')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.value = "";
+    function setNativeValue(element, value) {
+      const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set;
+      const prototype = Object.getPrototypeOf(element);
+      const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
+
+      if (valueSetter && valueSetter !== prototypeValueSetter) {
+        prototypeValueSetter.call(element, value);
+      } else {
+        valueSetter.call(element, value);
+      }
+    }
+    input=document.evaluate("//input[contains(@id, 'TomcatManagerURL')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+    setNativeValue(input, "");
+    input.dispatchEvent(new Event('input', { bubbles: true }));
     """
     And I populate the "Tomcat Manager URL" text box with "http://localhost:9091/manager"
 
@@ -218,7 +231,7 @@ Feature: Configure an Octopus Tomcat project
     And I force click the "Deploy" button
 
     And I stop recording the screen
-    And I sleep for "300" seconds
+    And I sleep for "60" seconds
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I sleep for "5" seconds
