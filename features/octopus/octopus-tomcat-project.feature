@@ -108,7 +108,7 @@ Feature: Configure an Octopus Tomcat project
     And I highlight outside the "On target roles" text box
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}055-octopus-tomcat-step-role.png"
     And I click the "Web role" option
-    And I remove the highlight from the "On behalf of" text box
+    And I remove the highlight from the "On target roles" text box
 
   @define-project @destinationspecific @tomcat @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the tomcat deployment
