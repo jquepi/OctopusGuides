@@ -60,6 +60,14 @@ Feature: Configure Bamboo
     And I run the feature "bamboo-push-to-artifactory.feature"
 
   Scenario: Create plan
+    Given I set the following aliases:
+      | Create | //button[@id='createPlan'] |
+
+    And I highlight outside the "Create" button
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-create-project.png"
+    And I click the "Create" button
+    And I sleep for "5" seconds
+
     And I run the feature "bamboo-create-plan.feature"
 
   Scenario: Shutdown
