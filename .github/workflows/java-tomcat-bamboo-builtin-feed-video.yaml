@@ -31,7 +31,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: j5atwd104l
       VIDEO_FILE_NAME: bamboo-java-tomcat-builtin.mp4
       SCREENSHOT_PATH: /java-app/tomcat/builtin/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjava
