@@ -162,7 +162,7 @@ Feature: Configure an Octopus Tomcat project
     And I clear the "Tomcat Manager URL" text box
     And I run the following JavaScript:
     """
-    document.getElementById('TomcatManagerURL').value = "";
+    document.evaluate("//input[contains(@id, 'TomcatManagerURL')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.value = "";
     """
     And I populate the "Tomcat Manager URL" text box with "http://localhost:9091/manager"
 
