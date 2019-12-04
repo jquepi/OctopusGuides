@@ -5,7 +5,7 @@ package { 'tomcat9':
   ensure => installed,
 }
 -> file_line { 'Change Tomcat Port':
-  path    => '/etc/tomcat9/tomcat-users.xml',
+  path    => '/etc/tomcat9/server.xml',
   line    => '    <Connector port="9091" protocol="HTTP/1.1"',
   match   => '^\s*<Connector\ port\="8080"\ protocol\="HTTP/1.1"',
   replace => true,
@@ -17,6 +17,14 @@ package { 'tomcat9':
   match   => '^</tomcat-users>',
   replace => true,
   notify  => Service['tomcat9']
+}
+-> exec { 'Print users':
+  command   => '/bin/cat /etc/tomcat9/tomcat-users.xml',
+  logoutput => true
+}
+-> exec { 'Print config':
+  command   => '/bin/cat /etc/tomcat9/server.xml',
+  logoutput => true
 }
 
 service {'tomcat9':
