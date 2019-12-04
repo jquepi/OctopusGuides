@@ -173,7 +173,7 @@ Feature: Configure an Octopus Tomcat project
         valueSetter.call(element, value);
       }
     }
-    input=document.evaluate("//input[contains(@id, 'TomcatManagerURL')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue
+    input=document.evaluate("//input[contains(@id, 'TomcatManagerURL')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     setNativeValue(input, "");
     input.dispatchEvent(new Event('input', { bubbles: true }));
     """
