@@ -13,7 +13,7 @@ package { 'tomcat9':
   match   => '^</tomcat-users>',
   replace => true,
 }
--> service {'bamboo':
+-> service {'tomcat':
   ensure => running
 }
 
