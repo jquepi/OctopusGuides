@@ -22,7 +22,7 @@ jobs:
       DISPLAY: ":99.0"
       MOUSE_VERTICAL_OFFSET: 74
       MOUSE_VERTICAL_OFFSET_CHROME: 50
-      CUCUMBER_TAGS: "(not @destinationspecific or @k8s) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: "(not @destinationspecific or @tomcat) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
       MOVE_TO_MOUSE_CURSOR: true
@@ -61,7 +61,7 @@ jobs:
         run: ./scripts/linux/create-tomcatproject.sh
 
       - name: Open Dev App
-        run: ./scripts/linux/open-devwebapp.sh
+        run: ./scripts/linux/open-tomcatdevwebapp.sh
 
       - name: Create release
         run: ./scripts/linux/create-bamboocreaterelease.sh
@@ -70,7 +70,7 @@ jobs:
         run: ./scripts/linux/create-lifecycle.sh
 
       - name: Open Test App
-        run: ./scripts/linux/open-testwebapp.sh
+        run: ./scripts/linux/open-tomcattestwebapp.sh
 
       - name: Add Manual Intervention
         run: ./scripts/linux/add-manualintervention.sh
