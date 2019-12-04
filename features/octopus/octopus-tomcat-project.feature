@@ -20,7 +20,7 @@ Feature: Configure an Octopus Tomcat project
   Scenario: Hide wizard
     Given I set the following aliases:
       | Hide wizard | //em[contains(@class,'fa fa-minus')] |
-    And I click the "Hide wizard" button
+    And I click the "Hide wizard" button if it exists
 
   @create-project
   Scenario: Create Project
@@ -103,7 +103,7 @@ Feature: Configure an Octopus Tomcat project
 
     And I scroll the "On target roles" text box into view offset by "-300"
     And I click the "On target roles" text box
-    And I populate the "On target roles" text box with "k8s"
+    And I populate the "On target roles" text box with "web"
     And I sleep for "1" second
     And I highlight outside the "On target roles" text box
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}055-octopus-tomcat-step-role.png"
