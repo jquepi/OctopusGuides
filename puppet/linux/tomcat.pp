@@ -20,9 +20,8 @@ package { 'tomcat9':
 }
 -> file_line { 'Define config name':
   path    => '/lib/systemd/system/tomcat9.service',
-  line    => 'Environment="JAVA_OPTS=-Djava.awt.headless=true -Dspring.config.name=deployed-application"',
-  match   => 'Environment\="JAVA_OPTS\=-Djava.awt.headless=true"',
-  replace => true,
+  line    => 'Environment="SPRING_CONFIG_NAME=deployed-application"',
+  after   => 'Environment\="JAVA_OPTS\=-Djava.awt.headless=true"',
   notify  => Service['tomcat9']
 }
 -> exec { 'Reload daemon':
