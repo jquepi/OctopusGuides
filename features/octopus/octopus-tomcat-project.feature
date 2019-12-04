@@ -89,9 +89,9 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Step Name    | //input[contains(@id, 'Stepname')]                                                              |
-      | On behalf of | //input[@title='On behalf of target roles (type to add new)']                                   |
-      | Web role     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Step Name       | //input[contains(@id, 'Stepname')]                                                              |
+      | On target roles | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | Web role        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -101,11 +101,11 @@ Feature: Configure an Octopus Tomcat project
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}050-octopus-tomcat-step-name.png"
     And I remove the highlight from the "Step Name" text box
 
-    And I scroll the "On behalf of" text box into view offset by "-300"
-    And I click the "On behalf of" text box
-    And I populate the "On behalf of" text box with "k8s"
+    And I scroll the "On target roles" text box into view offset by "-300"
+    And I click the "On target roles" text box
+    And I populate the "On target roles" text box with "k8s"
     And I sleep for "1" second
-    And I highlight outside the "On behalf of" text box
+    And I highlight outside the "On target roles" text box
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}055-octopus-tomcat-step-role.png"
     And I click the "Web role" option
     And I remove the highlight from the "On behalf of" text box
@@ -180,7 +180,7 @@ Feature: Configure an Octopus Tomcat project
 
     And I click the "Save" button
     And I sleep for "2" seconds
-    
+
   @deploy-project
   Scenario: Deploy project
     Given I set the following aliases:
