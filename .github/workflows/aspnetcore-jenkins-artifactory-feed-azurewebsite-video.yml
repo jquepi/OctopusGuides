@@ -24,7 +24,7 @@ jobs:
       TEST_RES_GROUP: jenkinsaspnetcoreartifactoryvidtest
       PROD_RES_GROUP: jenkinsaspnetcoreartifactoryvidprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID: cosry7us47
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

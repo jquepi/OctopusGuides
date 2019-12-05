@@ -1,13 +1,13 @@
 Feature: Configure Bamboo
 
   Scenario: Configure Bamboo
-    Given I run the feature "bamboo-login.feature"
-    And I run the feature "bamboo-add-plugin.feature"
-    And I run the feature "bamboo-configure-jdk.feature"
-    And I run the feature "bamboo-configure-docker.feature"
-    And I run the feature "bamboo-configure-octopus.feature"
-    And I run the feature "bamboo-configure-maven.feature"
-    And I run the feature "bamboo-add-project.feature"
+    Given I run the feature "shared/bamboo-login.feature"
+    And I run the feature "shared/bamboo-add-plugin.feature"
+    And I run the feature "shared/bamboo-configure-jdk.feature"
+    And I run the feature "shared/bamboo-configure-docker.feature"
+    And I run the feature "shared/bamboo-configure-octopus.feature"
+    And I run the feature "shared/bamboo-configure-maven.feature"
+    And I run the feature "shared/bamboo-add-project.feature"
 
   @applicationspecific @java
   Scenario: Java Add tasks
@@ -142,7 +142,7 @@ Feature: Configure Bamboo
     And I sleep for "5" seconds
 
   Scenario: Create plan
-    And I run the feature "bamboo-create-plan.feature"
+    And I run the feature "shared/bamboo-create-plan.feature"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

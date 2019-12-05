@@ -23,7 +23,7 @@ jobs:
       TEST_RES_GROUP: azuredevopsaspnetbuiltinfeedvidtest
       PROD_RES_GROUP: azuredevopsaspnetbuiltinfeedvidprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @tfvc)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @tfvc)"
       WISTIA_MEDIA_ID: vtk65z7xj5
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

@@ -17,7 +17,7 @@ jobs:
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID: u5q27ancsi
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

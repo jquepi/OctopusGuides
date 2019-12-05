@@ -24,7 +24,7 @@ jobs:
       DEV_RES_GROUP: teamcityaspnetartifactoryfeedviddev
       TEST_RES_GROUP: teamcityaspnetartifactoryfeedvidtest
       PROD_RES_GROUP: teamcityaspnetartifactoryfeedvidprod
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet)"
       WISTIA_MEDIA_ID: polk4sa82t
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
