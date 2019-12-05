@@ -17,7 +17,7 @@ Feature: Add Push to Octopus Step
 
     And I click the "Runner type" drop down list
 
-    And I scroll the "OctopusDeploy: Push Packages" option into view
+    And I scroll the "OctopusDeploy: Push Packages" option into view offset by "-300"
     And I click the "OctopusDeploy: Push Packages" option
     And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list

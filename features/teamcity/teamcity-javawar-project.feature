@@ -47,7 +47,7 @@ Feature: Create Docker project
     And I click the "Configure manually" link
 
     And I click the "Runner type" drop down list
-    And I scroll the "Maven" option into view offset by "-200"
+    And I scroll the "Maven" option into view offset by "-300"
     And I click the "Maven" option
     And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
@@ -67,7 +67,7 @@ Feature: Create Docker project
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
-    And I scroll the "Maven" option into view offset by "-200"
+    And I scroll the "Maven" option into view offset by "-300"
     And I click the "Maven" option
     And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
@@ -75,10 +75,10 @@ Feature: Create Docker project
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "Maven Package"
 
-    And I scroll the "Goal" text box into view offset by "-300"
-    And I highlight outside the "Goal" text box
+    And I scroll the "Goals" text box into view offset by "-300"
+    And I highlight outside the "Goals" text box
     And I highlight outside the "Save" button
-    And I populate the "Goal" text box with "clean test package -Pwar"
+    And I populate the "Goals" text box with "clean test package -Pwar"
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-maven-publish.png"
     And I click the "Save" button
 
