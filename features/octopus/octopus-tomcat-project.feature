@@ -148,7 +148,7 @@ Feature: Configure an Octopus Tomcat project
     And I populate the "Package ID" text box with "randomquotes"
     And I sleep for "2" second
     And I press the escape key from the "Package ID" text box
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-step-package-artifactory.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @tomcat @repositoryspecific @octo-built-in-feed
@@ -207,14 +207,20 @@ Feature: Configure an Octopus Tomcat project
     And I clear the "Management password" text box
     And I populate the "Management password" text box with "Password01!"
 
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-tomcat-manager.png"
+
     And I scroll the "Context path" text box into view offset by "-300"
     And I highlight outside the "Context path" text box
     And I clear the "Context path" text box
     And I populate the "Context path" text box with "randomquotes-#{Octopus.Environment.Name | ToLower}"
 
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-tomcat-context.png"
+
     And I scroll the "Target files" text box into view offset by "-300"
     And I highlight outside the "Target files" text box
     And I populate the "Target files" text box with "**/deployed-application.yml"
+
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-tomcat-filereplacement.png"
 
     And I click the "Save" button
     And I sleep for "2" seconds
