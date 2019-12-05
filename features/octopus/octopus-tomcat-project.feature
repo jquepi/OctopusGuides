@@ -214,7 +214,7 @@ Feature: Configure an Octopus Tomcat project
 
     And I scroll the "Target files" text box into view offset by "-300"
     And I highlight outside the "Target files" text box
-    And I populate the "Target files" text box with "**\deployed-application.yml"
+    And I populate the "Target files" text box with "**/deployed-application.yml"
 
     And I click the "Save" button
     And I sleep for "2" seconds
