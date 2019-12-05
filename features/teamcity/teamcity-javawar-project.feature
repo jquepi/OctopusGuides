@@ -55,10 +55,10 @@ Feature: Create Docker project
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "Set Maven Version"
 
-    And I scroll the "Goal" text box into view offset by "-300"
-    And I highlight outside the "Goal" text box
+    And I scroll the "Goals" text box into view offset by "-300"
+    And I highlight outside the "Goals" text box
     And I highlight outside the "Save" button
-    And I populate the "Goal" text box with "versions:set -DnewVersion=1.0.${bamboo.buildNumber}"
+    And I populate the "Goals" text box with "versions:set -DnewVersion=1.0.%build.counter%"
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-maven-version.png"
     And I click the "Save" button
 
