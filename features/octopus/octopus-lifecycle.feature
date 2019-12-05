@@ -172,7 +172,9 @@ Feature: Create a Lifecycle in Octopus
     And I display a note with the text "Assign the custom lifecycle to the Octopus project" for "3" seconds
 
     And I highlight outside the "Projects" link
-    And I click the "Projects" link
+    # force click to fis:
+    # org.openqa.selenium.ElementClickInterceptedException: Element <span> is not clickable at point (300,24) because another element <div class="MuiDialog-container MuiDialog-scrollPaper"> obscures it
+    And I force click the "Projects" link
     And I sleep for "1" second
 
     And I highlight inside the "Random Quotes" project tile
