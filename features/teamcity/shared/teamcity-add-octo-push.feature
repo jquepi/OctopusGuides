@@ -46,7 +46,7 @@ Feature: Add Push to Octopus Step
 
     And I highlight outside the "Package paths" text box
     And I scroll the "Package paths" text box into view offset by "-300"
-    And I populate the "Package paths" text box with "`ArtifactPath`"
+    And I populate the "Package paths" text box with "ArtifactPath"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
