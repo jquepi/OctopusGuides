@@ -35,6 +35,36 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Task description" text box
     And I scroll the "Task description" text box into view offset by "-300"
+    And I populate the "Task description" text box with "Maven set version"
+
+    And I highlight outside the "Goal" text box
+    And I scroll the "Goal" text box into view offset by "-300"
+    And I clear the "Goal" text box
+    And I populate the "Goal" text box with "mvn versions:set -DnewVersion=1.0.${bamboo.buildNumber}"
+
+    And I scroll the "Build JDK" drop down list into view
+    And I highlight outside the "Build JDK" drop down list
+    And I select the option value "JDK" from the "Build JDK" drop down
+
+    And I highlight outside the "Save" button
+    And I scroll the "Save" button into view
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-maven-version.png"
+    And I click the "Save" button
+
+    And I highlight outside the "Add task" button with an offset of "2"
+    And I scroll the "Add task" button into view
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}130-add-task.png"
+    And I click the "Add task" button
+    And I remove the highlight from the "Add task" button
+
+    And I highlight outside the "Search" box
+    And I populate the "Search" box with "Maven"
+    And I highlight inside the "Maven Tile" element
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}140-search.png"
+    And I click the "Maven Tile" element
+
+    And I highlight outside the "Task description" text box
+    And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "Maven test"
 
     And I highlight outside the "Goal" text box
@@ -48,7 +78,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-maven-test.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}150-maven-test.png"
     And I click the "Save" button
 
   @repositoryspecific @octo-built-in-feed

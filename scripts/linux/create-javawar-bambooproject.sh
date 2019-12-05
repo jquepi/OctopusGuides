@@ -22,7 +22,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-GitUrl=$GIT_URL" \
   "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
   "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
-  "-DCucumberAlias-ArtifactPath=target/randomquotes.0.1.0.war" \
+  "-DCucumberAlias-ArtifactPath=target/randomquotes.1.0.\${bamboo.buildNumber}.war" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
