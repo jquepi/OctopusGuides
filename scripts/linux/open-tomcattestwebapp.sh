@@ -17,7 +17,7 @@
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalUrl=http://localhost:9091/randomquotes-test" \
-  "-DCucumberAlias-Screenshot=tomcat-random-quotes-dev-app.png" \
+  "-DCucumberAlias-Screenshot=tomcat-random-quotes-test-app.png" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
