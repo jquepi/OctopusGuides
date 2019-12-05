@@ -5,5 +5,5 @@ IntelliJ can extract the Cucumber step definitions and use them to validate the 
 
 ![](intellij.png) 
 
-.
+..
 
