@@ -17,6 +17,7 @@ Feature: Configure Bamboo
       | Task description | //input[@id='createTask_userDescription']                                                |
       | Goal             | //textarea[@id='goal']                                                                   |
       | Build JDK        | //select[@id='buildJdk']                                                                 |
+      | Test result      | //input[@id='testChecked']                                                               |
       | Save             | //input[@id='createTask_save']                                                           |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
@@ -40,11 +41,15 @@ Feature: Configure Bamboo
     And I highlight outside the "Goal" text box
     And I scroll the "Goal" text box into view offset by "-300"
     And I clear the "Goal" text box
-    And I populate the "Goal" text box with "mvn versions:set -DnewVersion=1.0.${bamboo.buildNumber}"
+    And I populate the "Goal" text box with "versions:set -DnewVersion=1.0.${bamboo.buildNumber}"
 
     And I scroll the "Build JDK" drop down list into view
     And I highlight outside the "Build JDK" drop down list
     And I select the option value "JDK" from the "Build JDK" drop down
+
+    And I scroll the "Test result" check box into view
+    And I highlight outside the "Test result" check box
+    And I click the "Test result" check box
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
