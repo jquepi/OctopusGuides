@@ -3,7 +3,7 @@ Feature: Create Docker project
   Scenario: Prepare TeamCity
     Given I run the feature "shared/teamcity-login.feature"
 
-  @create-project @applicationspecific @aspnetcore
+  @create-project @applicationspecific @nodejs
   Scenario: Create Project
     Given I set the following aliases:
       | Create project        | //a[contains(.,'Create project')]                        |
@@ -14,14 +14,10 @@ Feature: Create Docker project
       | Configure manually    | //a[text()='configure build steps manually']             |
       | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']           |
       | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']]   |
-      | DotNet CLI            | //li[@data-title='.NET CLI (dotnet)']                    |
-      | Docker                | //li[@data-title='Docker']                               |
+      | Command Line          | //li[@data-title='Command Line']                         |
+      | Maven                 | //li[@data-title='Maven']                                |
       | Step name             | //input[@id='buildStepName']                             |
-      | Command               | //input[@id='-ufd-teamcity-ui-command']                  |
-      | Test option           | //li[@data-title='test']                                 |
-      | Path to file          | //input[@id='path']                                      |
-      | Image name:tag        | //textarea[@id='docker.image.namesAndTags']              |
-      | Push                  | //input[@name='prop:docker.command.type'][@value='push'] |
+      | Goals                 | //input[@id='goals']                                     |
       | Save                  | (//input[@value='Save'])[1]                              |
       | Got it                | //button[contains(.,'Got it')]                           |
 
@@ -51,76 +47,44 @@ Feature: Create Docker project
     And I click the "Configure manually" link
 
     And I click the "Runner type" drop down list
-    And I scroll the "DotNet CLI" option into view offset by "-200"
-    And I click the "DotNet CLI" option
+    And I scroll the "Maven" option into view offset by "-200"
+    And I click the "Maven" option
     And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
-    And I populate the "Step name" text box with "DotNet Test"
+    And I populate the "Step name" text box with "Set Maven Version"
 
-    And I highlight outside the "Command" drop down list
-    And I click the "Command" drop down list
-    And I scroll the "Test option" element into view offset by "-200"
-    And I click the "Test option" element
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}045-dotnet-test.png"
-    And I remove the highlight from the "Command" drop down list
-
+    And I scroll the "Goal" text box into view offset by "-300"
+    And I highlight outside the "Goal" text box
     And I highlight outside the "Save" button
-    And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-dotnet-test.png"
+    And I populate the "Goal" text box with "versions:set -DnewVersion=1.0.${bamboo.buildNumber}"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-maven-version.png"
     And I click the "Save" button
-
-    And I click the "Got it" button waiting up to "5" seconds if it exists
 
     And I highlight outside the "Add build step" button
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}060-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
-    And I scroll the "Docker" option into view offset by "-200"
-    And I click the "Docker" option
+    And I scroll the "Maven" option into view offset by "-200"
+    And I click the "Maven" option
     And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
-    And I populate the "Step name" text box with "Docker Build"
+    And I populate the "Step name" text box with "Maven Package"
 
-    And I scroll the "Path to file" text box into view offset by "-300"
-    And I highlight outside the "Path to file" text box
-    And I populate the "Path to file" text box with "RandomQuotes/Dockerfile"
-
-    And I scroll the "Image name:tag" text box into view offset by "-300"
-    And I highlight outside the "Image name:tag" text box
+    And I scroll the "Goal" text box into view offset by "-300"
+    And I highlight outside the "Goal" text box
     And I highlight outside the "Save" button
-    And I populate the "Image name:tag" text box with "octopusdeploy/randomquotes:1.0.%build.counter%"
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-docker-build.png"
+    And I populate the "Goal" text box with "clean test package -Pwar"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-maven-publish.png"
     And I click the "Save" button
 
-    And I highlight outside the "Add build step" button
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}080-add-build-step.png"
-    And I click the "Add build step" button
+    And I click the "Got it" button waiting up to "5" seconds if it exists
 
-    And I click the "Runner type" drop down list
-    And I scroll the "Docker" option into view offset by "-200"
-    And I click the "Docker" option
-    And I sleep for "1" second
-    And I highlight outside the "Runner type container" drop down list
-
-    And I highlight outside the "Step name" text box
-    And I populate the "Step name" text box with "Docker Push"
-
-    And I click the "Push" radio button
-
-    And I scroll the "Image name:tag" text box into view offset by "-300"
-    And I highlight outside the "Image name:tag" text box
-    And I highlight outside the "Save" button
-    And I populate the "Image name:tag" text box with "octopusdeploy/randomquotes:1.0.%build.counter%"
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}090-docker-push.png"
-    And I click the "Save" button
-
-  Scenario: Add Connection
-    And I run the feature "shared/teamcity-adddockerconnection.feature"
+    And I run the feature "shared/teamcity-add-octo-push.feature"
 
   @run-build
   Scenario: Run a build

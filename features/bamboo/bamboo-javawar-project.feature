@@ -70,7 +70,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Task description" text box
     And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "Maven test"
+    And I populate the "Task description" text box with "Maven package"
 
     And I highlight outside the "Goal" text box
     And I scroll the "Goal" text box into view offset by "-300"
