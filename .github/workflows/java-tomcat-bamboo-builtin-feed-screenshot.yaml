@@ -92,6 +92,6 @@ jobs:
 
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
-#
+
       - name: Upload screenshots
         run: ./scripts/linux/upload-screenshots.sh
