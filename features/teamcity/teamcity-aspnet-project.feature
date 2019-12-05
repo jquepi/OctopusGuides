@@ -476,53 +476,5 @@ Feature: Create ASP.NET project
 
   @run-build
   Scenario: Run a build
-    Given I set the following aliases:
-      | Run                      | //button[contains(.,'Run')]                                |
-      | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
-      | Build One                | //a[contains(.,'#1')]                                      |
-      | Build log                | //a[contains(.,'Build Log')]                               |
-      | Lets Go                  | //a[contains(.,"Let's go")]                                |
-      | No thanks                | //button[contains(.,'No, thanks')]                         |
-
-    And I click the "No thanks" button if it exists
-    And I sleep for "1" second
-
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
-
-    And I highlight outside the "Run" button
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-run.png"
-    And I click the "Run" button
-    And I sleep for "10" seconds
-
-    And I stop recording the screen
-    And I refresh the page
-
-    And I click the "No thanks" button if it exists
-    And I sleep for "1" second
-
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
-
-    And I highlight outside the "Build One" link
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}180-build-one.png"
-    And I click the "Build One" link
-    And I click the "Build log" link
-    And I scroll down "10000" px
-    And I sleep for "20" seconds
-    And I stop recording the screen
-
-    And I sleep for "150" seconds
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I sleep for "5" seconds
-
-  @octo-built-in-feed
-  Scenario: Get screenshot
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}190-build-one-results.png"
-
-  @artifactory
-  Scenario: Get screenshot
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}190-build-one-artifactory-results.png"
-
-  Scenario: Shutdown
-    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
-    And I stop recording the screen
-    And I close the browser
+    And I run the feature "shared/teamcity-runbuild.feature"
+    And I run the feature "shared/teamcity-close.feature"

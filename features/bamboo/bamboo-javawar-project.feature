@@ -1,7 +1,7 @@
 Feature: Configure Bamboo
 
   Scenario: Configure Bamboo
-    Given I run the feature "shared/bamboo-login.feature"
+    Given I run the feature "shared/bamboo-login.feature" passing the original arguments
     And I run the feature "shared/bamboo-add-plugin.feature"
     And I run the feature "shared/bamboo-configure-jdk.feature"
     And I run the feature "shared/bamboo-configure-octopus.feature"

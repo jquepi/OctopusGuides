@@ -1,4 +1,4 @@
-name: Java Teamcity Tomcat BuiltIn Feed Video
+name: Java Teamcity Tomcat BuiltIn Feed Screenshots
 on:
   push:
   repository_dispatch:

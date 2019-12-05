@@ -127,8 +127,4 @@ Feature: Create Docker project
   @run-build
   Scenario: Run a build
     And I run the feature "shared/teamcity-runbuild.feature"
-
-  Scenario: Shutdown
-    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
-    And I stop recording the screen
-    And I close the browser
+    And I run the feature "shared/teamcity-close.feature"
