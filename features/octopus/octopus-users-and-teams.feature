@@ -245,7 +245,10 @@ Feature: Create Octopus Users and Teams
     And I click the "Define Scope" button
     And I click the "Select environments" drop down list
     And I click the "Dev environment" option
-    And I click the "Select environments" drop down list
+    # Force click to fix:
+    # org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <input type="text" autocomplete="off" name="name9" title="Select environments" id="MultiSelect-40330" value="" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgb(51, 51, 51); cursor: inherit; font: inherit; opacity: 1; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; margin-top: 0px; text-overflow: ellipsis; overflow: hidden;">
+    # is not clickable at point (960, 745). Other element would receive the click: <div role="presentation" style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;">...</div>
+    And I force click the "Select environments" drop down list
     And I click the "Test environment" option
     And I highlight outside the "Apply" button with an offset of "2"
     And I sleep for "1" second
