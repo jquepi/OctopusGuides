@@ -494,11 +494,11 @@ Feature: Configure Bamboo
 
   @repositoryspecific @octo-built-in-feed
   Scenario: Add Octopus Push
-    And I run the feature "bamboo-push-to-octo.feature"
+    And I run the feature "shared/bamboo-push-to-octo.feature"
 
   @repositoryspecific @artifactory
   Scenario: Add Octopus Push
-    And I run the feature "bamboo-push-to-artifactory.feature"
+    And I run the feature "shared/bamboo-push-to-artifactory.feature"
 
   @repositoryspecific @artifactory
   Scenario: Create plan
@@ -523,7 +523,7 @@ Feature: Configure Bamboo
     And I sleep for "5" seconds
 
   Scenario: Create plan
-    And I run the feature "bamboo-create-plan.feature"
+    And I run the feature "shared/bamboo-create-plan.feature"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

@@ -1,0 +1,108 @@
+name: Java Teamcity Tomcat BuiltIn Feed Video
+on:
+  push:
+  repository_dispatch:
+  schedule:
+    - cron:  '0 0 17 * *'
+jobs:
+  build:
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-java-tomcat-video')
+    runs-on: ubuntu-latest
+    env:
+      SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
+      WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      MEDIA_PATH: /tmp/screenshots
+      SCREENSHOT_BUCKET: octopus-guides-screenshots
+      DISPLAY: ":99.0"
+      MOUSE_VERTICAL_OFFSET: 74
+      # This is slightly larger than the warning bar presented by Chrome to stop the mouse cursor triggering the menu
+      # next to the administration menu as we try and click the Overview link.
+      MOUSE_VERTICAL_OFFSET_CHROME: 125
+      CUCUMBER_TAGS: "(not @browserspecific or @chrome) and (not @destinationspecific or @tomcat) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      MOVE_TO_MOUSE_CURSOR: true
+      DISABLE_VIDEO: false
+      STHREE_SCREENSHOT_ENABLED: true
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
+      WISTIA_MEDIA_ID: mo3pt6qaa7
+      VIDEO_FILE_NAME: teamcity-java-tomcat-builtin.mp4
+      SCREENSHOT_PATH: /java-app/tomcat/builtin/git/
+      DOCKER_IMAGE: octopusdeploy/randomquotesjava
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Puppet
+        run: ./install.sh utilities.pp teamcity.pp tomcat.pp dockercreds.pp octopus.pp octopuscli.pp
+        env:
+          FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
+          FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Wait for Octopus
+        run: ./scripts/linux/wait-octopus.sh
+
+      - name: Create Api Key
+        run: ./scripts/linux/create-apikey.sh
+
+      - name: Setup TeamCity
+        run: ./scripts/linux/setup-teamcity.sh
+
+      - name: Create TeamCity project
+        run: ./scripts/linux/create-javawar-teamcityproject.sh
+
+      - name: Create environments
+        run: ./scripts/linux/create-environments.sh
+
+      - name: Create Target
+        run: sudo ./scripts/linux/create-target.sh
+
+      - name: Create project
+        run: ./scripts/linux/create-tomcatproject.sh
+
+      - name: Open Tomcat Manager
+        run: ./scripts/linux/view-tomcatmanager.sh
+
+      - name: Open Dev App
+        run: ./scripts/linux/open-tomcatdevwebapp.sh
+
+      - name: Create release
+        run: ./scripts/linux/create-teamcitycreaterelease.sh
+
+      - name: Create Lifecycle
+        run: ./scripts/linux/create-lifecycle.sh
+
+      - name: Open Test App
+        run: ./scripts/linux/open-tomcattestwebapp.sh
+
+      - name: Add Manual Intervention
+        run: ./scripts/linux/add-manualintervention.sh
+
+      - name: Add Notification
+        run: ./scripts/linux/add-notification.sh
+
+      - name: Add Users and Teams
+        run: ./scripts/linux/add-usersandteams.sh
+
+      - name: View Internal Deployer Dashboard
+        run: ./scripts/linux/view-internaldeployerdashboard.sh
+
+      - name: View Production Deployer Dashboard
+        run: ./scripts/linux/view-productiondeployerdashboard.sh
+
+      - name: View Audit Logs
+        run: ./scripts/linux/view-auditlogs.sh
+#
+      - name: Process videos
+        run: ./scripts/linux/convert-video.sh
+
+      - name: Upload videos
+        run: ./scripts/linux/upload-video.sh
+
+      - name: Replace Wistia video
+        run: ./scripts/linux/replace-wistia-video.sh

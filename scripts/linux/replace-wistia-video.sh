@@ -22,5 +22,6 @@ if [ -n "$WISTIA_MEDIA_ID" ]; then
     "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
     -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
     --plugin progress \
+    --tags "$CUCUMBER_TAGS" \
     features/wistia/replace-video-linux.feature
 fi

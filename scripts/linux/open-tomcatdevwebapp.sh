@@ -1,8 +1,5 @@
 #!/bin/bash
 
-MINIKUBE_IP=`cat /tmp/minikubeip.txt`
-echo "Minikube IP: $MINIKUBE_IP"
-
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \
   "-Xmx2g" \
@@ -24,4 +21,5 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
+  --tags "$CUCUMBER_TAGS" \
   features/octopus/open-randomquotes-generic.feature

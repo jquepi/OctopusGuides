@@ -1,5 +1,8 @@
 Feature: Create Octopus Users and Teams
 
+  Scenario: Open Browser
+    Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
+
   @login
   Scenario: Login
     Given I set the following aliases:
@@ -7,8 +10,7 @@ Feature: Create Octopus Users and Teams
       | Password   | //input[@name='password']                                                                                 |
       | Sign In    | //button[contains(.,'SIGN IN')]                                                                           |
       | Close help | //div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M11 18h2v-2h-2v2zm1-16C6.48 2 2')]] |
-    And I open the shared browser "ExternalBrowserType"
-    And I fullscreen the window
+
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I populate the "Username" text box with "admin"
@@ -245,7 +247,10 @@ Feature: Create Octopus Users and Teams
     And I click the "Define Scope" button
     And I click the "Select environments" drop down list
     And I click the "Dev environment" option
-    And I click the "Select environments" drop down list
+    # Force click to fix:
+    # org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <input type="text" autocomplete="off" name="name9" title="Select environments" id="MultiSelect-40330" value="" style="padding: 0px; position: relative; width: 100%; border: none; outline: none; background-color: rgba(0, 0, 0, 0); color: rgb(51, 51, 51); cursor: inherit; font: inherit; opacity: 1; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; margin-top: 0px; text-overflow: ellipsis; overflow: hidden;">
+    # is not clickable at point (960, 745). Other element would receive the click: <div role="presentation" style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;">...</div>
+    And I force click the "Select environments" drop down list
     And I click the "Test environment" option
     And I highlight outside the "Apply" button with an offset of "2"
     And I sleep for "1" second

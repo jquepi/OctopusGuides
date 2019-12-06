@@ -16,7 +16,7 @@ jobs:
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet)"
       WISTIA_MEDIA_ID:
       DISABLE_HIGHLIGHTS: false
       DISABLE_SCREENSHOTS: false

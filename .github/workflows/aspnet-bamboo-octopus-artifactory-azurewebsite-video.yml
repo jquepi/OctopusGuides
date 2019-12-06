@@ -23,7 +23,7 @@ jobs:
       TEST_RES_GROUP: bambooaspnetartifactoryfeedvidtest
       PROD_RES_GROUP: bambooaspnetartifactoryfeedvidprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet)"
       WISTIA_MEDIA_ID: t95ab2tah5
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

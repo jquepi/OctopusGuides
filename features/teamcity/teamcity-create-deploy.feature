@@ -1,19 +1,7 @@
 Feature: Create and deploy a release
 
-  @login
-  Scenario: Login
-    Given I set the following aliases:
-      | Username | //input[@id='username']      |
-      | Password | //input[@id='password']      |
-      | Log in   | //input[@name='submitLogin'] |
-
-    And I open the shared browser "ExternalBrowserType"
-    And I fullscreen the window
-    And I set the default explicit wait time to "30" seconds
-    And I open the URL "http://localhost:8111"
-    And I populate the "Username" text box with "admin"
-    And I populate the "Password" text box with "Password01!"
-    And I click the "Log in" button
+  Scenario: Prepare TeamCity
+    Given I run the feature "shared/teamcity-login.feature" passing the original arguments
 
   @add-step
   Scenario: Add step
@@ -124,8 +112,5 @@ Feature: Create and deploy a release
 
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/createrelease/#{GuideSpecificScreenshotDir}110-build-one-results.png"
 
-    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
-
   Scenario: Shutdown
-    And I stop recording the screen
-    And I close the browser
+    And I run the feature "shared/teamcity-close.feature"

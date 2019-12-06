@@ -20,7 +20,7 @@ jobs:
       EXTERNAL_AZURE_TENANT_ID: ${{ secrets.ExternalAzureTenantID }}
       EXTERNAL_AZURE_SUBSCRIPTION_ID: ${{ secrets.ExternalAzureSubscriptionID }}
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore)"
       DEV_RES_GROUP: bambooaspnetcorebuiltinfeedviddev
       TEST_RES_GROUP: bambooaspnetcorebuiltinfeedvidtest
       PROD_RES_GROUP: bambooaspnetcorebuiltinfeedvidprod

@@ -24,7 +24,7 @@ jobs:
       TEST_RES_GROUP: teamcityaspnetcoreartifactoryfeedvidtest
       PROD_RES_GROUP: teamcityaspnetcoreartifactoryfeedvidprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore)"
       WISTIA_MEDIA_ID: j4tsxyu91e
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

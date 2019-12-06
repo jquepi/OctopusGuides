@@ -23,7 +23,7 @@ jobs:
       TEST_RES_GROUP: teamcityaspnetcorebuiltinfeedvidtest
       PROD_RES_GROUP: teamcityaspnetcorebuiltinfeedvidprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore)"
       WISTIA_MEDIA_ID: yhgjj0o5j8
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

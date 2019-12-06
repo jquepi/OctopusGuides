@@ -1,19 +1,7 @@
 Feature: Create ASP.NET project
 
-  @login
-  Scenario: Login
-    Given I set the following aliases:
-      | Username | //input[@id='username']      |
-      | Password | //input[@id='password']      |
-      | Log in   | //input[@name='submitLogin'] |
-
-    And I open the shared browser "ExternalBrowserType"
-    And I fullscreen the window
-    And I set the default explicit wait time to "30" seconds
-    And I open the URL "http://localhost:8111"
-    And I populate the "Username" text box with "admin"
-    And I populate the "Password" text box with "Password01!"
-    And I click the "Log in" button
+  Scenario: Prepare TeamCity
+    Given I run the feature "shared/teamcity-login.feature"
 
   @create-project @applicationspecific @aspnetcore
   Scenario: Create Project
@@ -488,53 +476,5 @@ Feature: Create ASP.NET project
 
   @run-build
   Scenario: Run a build
-    Given I set the following aliases:
-      | Run                      | //button[contains(.,'Run')]                                |
-      | Build Configuration Home | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build'] |
-      | Build One                | //a[contains(.,'#1')]                                      |
-      | Build log                | //a[contains(.,'Build Log')]                               |
-      | Lets Go                  | //a[contains(.,"Let's go")]                                |
-      | No thanks                | //button[contains(.,'No, thanks')]                         |
-
-    And I click the "No thanks" button if it exists
-    And I sleep for "1" second
-
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
-
-    And I highlight outside the "Run" button
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-run.png"
-    And I click the "Run" button
-    And I sleep for "10" seconds
-
-    And I stop recording the screen
-    And I refresh the page
-
-    And I click the "No thanks" button if it exists
-    And I sleep for "1" second
-
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
-
-    And I highlight outside the "Build One" link
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}180-build-one.png"
-    And I click the "Build One" link
-    And I click the "Build log" link
-    And I scroll down "10000" px
-    And I sleep for "20" seconds
-    And I stop recording the screen
-
-    And I sleep for "150" seconds
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I sleep for "5" seconds
-
-  @octo-built-in-feed
-  Scenario: Get screenshot
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}190-build-one-results.png"
-
-  @artifactory
-  Scenario: Get screenshot
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}190-build-one-artifactory-results.png"
-
-  Scenario: Shutdown
-    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
-    And I stop recording the screen
-    And I close the browser
+    And I run the feature "shared/teamcity-runbuild.feature"
+    And I run the feature "shared/teamcity-close.feature"

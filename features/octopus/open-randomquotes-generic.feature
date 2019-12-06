@@ -1,11 +1,12 @@
 Feature: Open Random Quotes
 
+  Scenario: Open Browser
+    Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
+
   Scenario: Login
     Given I set the following aliases:
       | Refresh | //input[@type='submit'] \| //button[@id='refreshQuote'] |
 
-    And I open the shared browser "ExternalBrowserType"
-    And I fullscreen the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "ExternalUrl"
     And I verify the "Refresh" button is present waiting up to "300" seconds if it exists

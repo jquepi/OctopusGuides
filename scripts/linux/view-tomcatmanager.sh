@@ -19,4 +19,5 @@
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
-  features/tomcat/view-tomcatmanager.feature
+  --tags "$CUCUMBER_TAGS" \
+  features/tomcat/view-manager.feature

@@ -1,5 +1,8 @@
 Feature: Configure an Octopus Tomcat project
 
+  Scenario: Open Browser
+    Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
+
   @login
   Scenario: Login
     Given I set the following aliases:
@@ -7,8 +10,7 @@ Feature: Configure an Octopus Tomcat project
       | Password   | //input[@name='password']                                                                                 |
       | Sign In    | //button[contains(.,'SIGN IN')]                                                                           |
       | Close help | //div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M11 18h2v-2h-2v2zm1-16C6.48 2 2')]] |
-    And I open the shared browser "ExternalBrowserType"
-    And I fullscreen the window
+
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I populate the "Username" text box with "admin"
@@ -31,7 +33,7 @@ Feature: Configure an Octopus Tomcat project
       | Save             | (//div[contains(.,'Save')])[9]           |
 
     And I start recording the screen to the directory "ExternalMediaPath"
-    And I display a note with the text "Creating the Kubernetes deployment project in Octopus" for "3" seconds
+    And I display a note with the text "Creating the Tomcat deployment project in Octopus" for "3" seconds
 
     And I highlight outside the "Projects" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}005-octopus-projects.png"
@@ -89,10 +91,27 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Step Name       | //input[contains(@id, 'Stepname')]                                                              |
-      | On target roles | //input[@title='Runs on targets in roles (type to add new)']                                    |
-      | Web role        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Configure features                      | (//button[contains(.,'Configure features')])[1]                                                 |
+      | Substitute Variables in Files           | //input[..//label[text()='Substitute Variables in Files']]                                      |
+      | Substitute Variables in Files Container | //div[./input[..//label[text()='Substitute Variables in Files']]]                               |
+      | OK                                      | //button[contains(.,'Ok')]                                                                      |
+      | Step Name                               | //input[contains(@id, 'Stepname')]                                                              |
+      | On target roles                         | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | Web role                                | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
+    And I highlight outside the "Configure features" button
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}046-octopus-java-enable-conf-features.png"
+    And I scroll the "Configure features" button into view offset by "-300"
+    And I click the "Configure features" button
+    And I remove the highlight from the "Configure features" button
+
+    And I highlight inside the "Substitute Variables in Files Container" option
+    And I highlight outside the "OK" button with an offset of "2"
+    And I force click the "Substitute Variables in Files" option
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}047-octopus-java-enable-conf-vars.png"
+    And I click the "OK" button
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -131,7 +150,7 @@ Feature: Configure an Octopus Tomcat project
     And I populate the "Package ID" text box with "randomquotes"
     And I sleep for "2" second
     And I press the escape key from the "Package ID" text box
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-step-package-artifactory.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @tomcat @repositoryspecific @octo-built-in-feed
@@ -155,6 +174,7 @@ Feature: Configure an Octopus Tomcat project
       | Management user     | //input[contains(@id, 'Managementuser')]     |
       | Management password | //input[contains(@id, 'Managementpassword')] |
       | Context path        | //input[contains(@id, 'Contextpath')]        |
+      | Target files        | //textarea[contains(@id, 'Targetfiles')]     |
       | Save                | //button[contains(.,'Save')]                 |
 
     And I scroll the "Tomcat Manager URL" text box into view offset by "-300"
@@ -162,7 +182,20 @@ Feature: Configure an Octopus Tomcat project
     And I clear the "Tomcat Manager URL" text box
     And I run the following JavaScript:
     """
-    document.evaluate("//input[contains(@id, 'TomcatManagerURL')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.value = "";
+    function setNativeValue(element, value) {
+      const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set;
+      const prototype = Object.getPrototypeOf(element);
+      const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
+
+      if (valueSetter && valueSetter !== prototypeValueSetter) {
+        prototypeValueSetter.call(element, value);
+      } else {
+        valueSetter.call(element, value);
+      }
+    }
+    input=document.evaluate("//input[contains(@id, 'TomcatManagerURL')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    setNativeValue(input, "");
+    input.dispatchEvent(new Event('input', { bubbles: true }));
     """
     And I populate the "Tomcat Manager URL" text box with "http://localhost:9091/manager"
 
@@ -176,10 +209,20 @@ Feature: Configure an Octopus Tomcat project
     And I clear the "Management password" text box
     And I populate the "Management password" text box with "Password01!"
 
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-tomcat-manager.png"
+
     And I scroll the "Context path" text box into view offset by "-300"
     And I highlight outside the "Context path" text box
     And I clear the "Context path" text box
     And I populate the "Context path" text box with "randomquotes-#{Octopus.Environment.Name | ToLower}"
+
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-tomcat-context.png"
+
+    And I scroll the "Target files" text box into view offset by "-300"
+    And I highlight outside the "Target files" text box
+    And I populate the "Target files" text box with "**/deployed-application.yml"
+
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-tomcat-filereplacement.png"
 
     And I click the "Save" button
     And I sleep for "2" seconds
@@ -218,7 +261,7 @@ Feature: Configure an Octopus Tomcat project
     And I force click the "Deploy" button
 
     And I stop recording the screen
-    And I sleep for "300" seconds
+    And I sleep for "60" seconds
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I sleep for "5" seconds

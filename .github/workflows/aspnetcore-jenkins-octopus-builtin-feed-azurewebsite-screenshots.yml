@@ -24,7 +24,7 @@ jobs:
       TEST_RES_GROUP: jenkinsaspnetcorebuiltinfeedtest
       PROD_RES_GROUP: jenkinsaspnetcorebuiltinfeedprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME:
       DISABLE_HIGHLIGHTS: false

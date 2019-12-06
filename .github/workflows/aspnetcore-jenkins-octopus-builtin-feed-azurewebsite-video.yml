@@ -23,7 +23,7 @@ jobs:
       TEST_RES_GROUP: jenkinsaspnetcorebuiltinfeedvidtest
       PROD_RES_GROUP: jenkinsaspnetcorebuiltinfeedvidprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID: aj5asq70qt
       VIDEO_FILE_NAME: aspnetcore-jenkins-octopus-builtin-feed-azure.mp4
       DISABLE_HIGHLIGHTS: true

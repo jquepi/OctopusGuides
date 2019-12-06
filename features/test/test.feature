@@ -5,4 +5,4 @@ Feature: Test feature
     #And I press the "F11" function key
     And I set the default explicit wait time to "30" seconds
     #And I fullscreen the window
-    And I run the feature "test2.feature"
+    And I run the feature "test2.feature" passing the original arguments
