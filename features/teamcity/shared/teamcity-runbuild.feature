@@ -10,6 +10,7 @@ Feature: Run a build
       | Lets Go                  | //a[contains(.,"Let's go")]                                |
       | No thanks                | //button[contains(.,'No, thanks')]                         |
 
+    And I stop recording the screen
     And I click the "No thanks" button if it exists
     And I sleep for "1" second
 
