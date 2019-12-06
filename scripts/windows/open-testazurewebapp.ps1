@@ -21,4 +21,5 @@
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `
+    --tags $env:CUCUMBER_TAGS `
     features\octopus\open-randomquotes-azurewebapp.feature
