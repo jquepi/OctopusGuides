@@ -1,11 +1,11 @@
 Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Octopus instance
 
   Scenario: Initial setup
-    And I run the feature "jenkins-login.feature"
-    And I run the feature "jenkins-docker-plugin.feature"
-    And I run the feature "jenkins-docker-creds.feature"
-    And I run the feature "jenkins-configure-docker.feature"
-    And I run the feature "jenkins-initial-project-setup.feature"
+    And I run the feature "shared/jenkins-login.feature"
+    And I run the feature "shared/jenkins-docker-plugin.feature"
+    And I run the feature "shared/jenkins-docker-creds.feature"
+    And I run the feature "shared/jenkins-configure-docker.feature"
+    And I run the feature "shared/jenkins-initial-project-setup.feature"
 
   @configure-project
   Scenario: ASP.NET Core - Create the project

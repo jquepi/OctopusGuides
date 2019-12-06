@@ -1,11 +1,12 @@
 Feature: Open Random Quotes in the Test environment
 
+  Scenario: Open Browser
+    Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
+
   Scenario: Login
     Given I set the following aliases:
       | Refresh | //input[@type='submit'] |
 
-    And I open the shared browser "ExternalBrowserType"
-    And I fullscreen the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8082"
     And I start recording the screen to the directory "#{ExternalMediaPath}"

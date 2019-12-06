@@ -1,5 +1,8 @@
 Feature: Configure an Octopus Kubernetes project
 
+  Scenario: Open Browser
+    Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
+
   @login
   Scenario: Login
     Given I set the following aliases:
@@ -7,8 +10,7 @@ Feature: Configure an Octopus Kubernetes project
       | Password   | //input[@name='password']                                                                                 |
       | Sign In    | //button[contains(.,'SIGN IN')]                                                                           |
       | Close help | //div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M11 18h2v-2h-2v2zm1-16C6.48 2 2')]] |
-    And I open the shared browser "ExternalBrowserType"
-    And I fullscreen the window
+
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost"
     And I populate the "Username" text box with "admin"
