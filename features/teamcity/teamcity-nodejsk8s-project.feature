@@ -1,7 +1,7 @@
 Feature: Create Docker project
 
   Scenario: Prepare TeamCity
-    Given I run the feature "shared/teamcity-login.feature"
+    Given I run the feature "shared/teamcity-login.feature" passing the original arguments
 
   @create-project @applicationspecific @nodejs
   Scenario: Create Project
