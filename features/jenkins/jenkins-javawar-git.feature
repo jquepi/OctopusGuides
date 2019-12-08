@@ -2,11 +2,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
   Scenario: Initial Setup
     Given I run the feature "shared/jenkins-open-browser.feature" passing the original arguments
-    And I run the feature "shared/jenkins-login.feature"
-    And I run the feature "shared/jenkins-add-octo-creds.feature"
-    And I run the feature "shared/jenkins-initial-project-setup.feature"
+    And I run the feature "shared/jenkins-login.feature" passing the original arguments
+    And I run the feature "shared/jenkins-add-octo-creds.feature" passing the original arguments
+    And I run the feature "shared/jenkins-initial-project-setup.feature" passing the original arguments
 
-  @configure-project @applicationspecific @aspnet
+  @configure-project @applicationspecific @java
   Scenario: ASP.NET - Create the project
     Given I set the following aliases:
       | Add build step                 | //button[@type='button'][contains(.,'Add build step')] |

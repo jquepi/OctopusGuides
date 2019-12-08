@@ -1,4 +1,5 @@
 Feature: Configure the Octopus creds
+  @configure-credentials
    Scenario: Configure credentials
      Given I set the following aliases:
        | Manage Jenkins          | //a[@class='task-link' and contains(.,'Manage Jenkins')]               |

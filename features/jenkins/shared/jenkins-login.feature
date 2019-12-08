@@ -1,8 +1,5 @@
 Feature: Jenkins login
 
-  Scenario: Open Browser
-    Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
-
   @login
   Scenario: Log into Jenkins
     Given I set the following aliases:
