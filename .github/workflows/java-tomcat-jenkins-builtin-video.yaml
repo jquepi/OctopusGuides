@@ -50,7 +50,7 @@ jobs:
         run: ./scripts/linux/create-apikey.sh
 
       - name: Create Jenkins project
-        run: ./scripts/linux/create-javawar-bambooproject.sh
+        run: ./scripts/linux/create-javawar-jenkinsproject.sh
 
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
