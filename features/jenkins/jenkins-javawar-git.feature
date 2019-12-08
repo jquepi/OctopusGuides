@@ -38,11 +38,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
 
-    And I scroll the "Goals" text box into view offset by "-200"
-    And I highlight outside the "Goals" text box
-    And I populate the "Goals" text box with "clean test package -Pwar"
+    And I scroll the "Goals Two" text box into view offset by "-200"
+    And I highlight outside the "Goals Two" text box
+    And I populate the "Goals Two" text box with "clean test package -Pwar"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}140-maven.png"
-    And I remove the highlight from the "Goals" text box
+    And I remove the highlight from the "Goals Two" text box
 
   Scenario: Java - Add Octopus Push Step
     Given I set the following aliases:
