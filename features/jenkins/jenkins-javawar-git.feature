@@ -21,7 +21,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}110-maven.png"
     And I click the "Invoke top-level Maven targets" link
     And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Execute Windows batch command" option
+    And I remove the highlight from the "Invoke top-level Maven targets" option
 
     And I scroll the "Goals One" text box into view offset by "-200"
     And I highlight outside the "Goals One" text box
@@ -66,7 +66,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
       """
       var textarea = document.evaluate("//div[@class='CodeMirror']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror
-      editor.setValue("/opt/octo/Octo push --server http://localhost --package #{ArtifactPath} --apiKey %OctopusAPIKey%");
+      editor.setValue("/opt/octo/Octo push --server http://localhost --package #{ArtifactPath} --apiKey $OctopusAPIKey");
       editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-octo-push.png"
