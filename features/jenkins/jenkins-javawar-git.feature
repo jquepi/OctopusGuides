@@ -66,7 +66,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
       """
       var textarea = document.evaluate("//div[@class='CodeMirror']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror
-      editor.setValue("/opt/octo/Octo push --server http://localhost --package #{ArtifactPath} --apiKey $OctopusAPIKey");
+      editor.setValue("#!/bin/bash\n/opt/octo/Octo push --server http://localhost --package #{ArtifactPath} --apiKey $OctopusAPIKey");
       editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-octo-push.png"
