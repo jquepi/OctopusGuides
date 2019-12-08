@@ -16,6 +16,7 @@
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
+    "-DCucumberAlias-SMTPPassword=$env:SMTP_PASSWORD" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --plugin progress `
     --monochrome `

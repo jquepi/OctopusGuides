@@ -16,6 +16,7 @@
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+  "-DCucumberAlias-SMTPPassword=$SMTP_PASSWORD" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \

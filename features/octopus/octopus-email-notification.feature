@@ -69,7 +69,7 @@ Feature: Add a manual intervention step
     And I scroll the "SMTP Port Section" element into view offset by "-200"
     And I click the "SMTP Port Section" element
     And I highlight outside the "SMTP Port" text box with an offset of "5"
-    And I clear the "SMTP Port" text box
+    And I force clear the "SMTP Port" text box
     And I populate the "SMTP Port" text box with "587"
 
     And I scroll the "SMTP SSL Section" element into view offset by "-200"
