@@ -6,7 +6,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I run the feature "shared/jenkins-add-octo-creds.feature" passing the original arguments
     And I run the feature "shared/jenkins-initial-project-setup.feature" passing the original arguments
 
-  @configure-project @applicationspecific @java
+  @configure-project
   Scenario: Java - Create the project
     Given I set the following aliases:
       | Add build step                 | //button[@type='button'][contains(.,'Add build step')] |
