@@ -24,7 +24,6 @@ Feature: Create and deploy a release from Jenkins
       | Add build step        | //button[@type='button'][contains(.,'Add build step')] |
       | Execute shell         | //a[contains(.,'Execute shell')]                       |
 
-
     And I display a note with the text "Deploying an Octopus release from Jenkins" for "3" seconds
 
     And I highlight outside the "Random Quotes Project" link
