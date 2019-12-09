@@ -67,8 +67,8 @@ Feature: Create and deploy a release from Jenkins
     And I stop recording the screen
 
   @build-now
-  Scenario: Run build
-    And I run the feature "shared/jenkins-build.feature"
+  Scenario: Build project
+    And I run the feature "shared/jenkins-build-two.feature"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
