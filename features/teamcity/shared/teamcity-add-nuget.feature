@@ -1,5 +1,10 @@
 Feature: Add NuGet feed
 
+#  Scenario: Login
+#    Given I run the feature "teamcity-login.feature" passing the original arguments
+#    And I open the URL "http://localhost:8111/admin/editBuild.html?id=buildType:RandomQuotes_Build"
+#    And I set the default explicit wait time to "30" seconds
+
   Scenario: Add NuGet feed
     Given I set the following aliases:
       | Random Quotes      | //a[@href='/admin/editProject.html?init=1&projectId=RandomQuotes'] |
@@ -9,10 +14,6 @@ Feature: Add NuGet feed
       | Name               | //input[@id='name']                                                |
       | Save               | (//input[@value='Save'])[1]                                        |
 
-    Given I run the feature "teamcity-login.feature" passing the original arguments
-    And I open the URL "http://localhost:8111/admin/editBuild.html?id=buildType:RandomQuotes_Build"
-    And I set the default explicit wait time to "30" seconds
-    
     And I highlight outside the "Random Quotes" project link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}100-nugetfeed.png"
     And I click the "Random Quotes" project link
