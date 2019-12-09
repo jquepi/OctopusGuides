@@ -179,24 +179,7 @@ Feature: Configure an Octopus Tomcat project
 
     And I scroll the "Tomcat Manager URL" text box into view offset by "-300"
     And I highlight outside the "Tomcat Manager URL" text box
-    And I clear the "Tomcat Manager URL" text box
-    And I run the following JavaScript:
-    """
-    function setNativeValue(element, value) {
-      const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set;
-      const prototype = Object.getPrototypeOf(element);
-      const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
-
-      if (valueSetter && valueSetter !== prototypeValueSetter) {
-        prototypeValueSetter.call(element, value);
-      } else {
-        valueSetter.call(element, value);
-      }
-    }
-    input=document.evaluate("//input[contains(@id, 'TomcatManagerURL')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    setNativeValue(input, "");
-    input.dispatchEvent(new Event('input', { bubbles: true }));
-    """
+    And I force clear the "Tomcat Manager URL" text box
     And I populate the "Tomcat Manager URL" text box with "http://localhost:9091/manager"
 
     And I scroll the "Management user" text box into view offset by "-300"
