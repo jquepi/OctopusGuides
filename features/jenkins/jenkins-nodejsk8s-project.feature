@@ -117,7 +117,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I stop recording the screen
 
   Scenario: Build project
-    And I run the feature "shared/jenkins-build.feature"
+    And I run the feature "shared/jenkins-build-two.feature"
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
