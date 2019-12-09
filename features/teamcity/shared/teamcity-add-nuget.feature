@@ -5,6 +5,7 @@ Feature: Add NuGet feed
 #    And I open the URL "http://localhost:8111/admin/editBuild.html?id=buildType:RandomQuotes_Build"
 #    And I set the default explicit wait time to "30" seconds
 
+  @repositoryspecific @tcnuget
   Scenario: Add NuGet feed
     Given I set the following aliases:
       | Random Quotes      | //a[@href='/admin/editProject.html?init=1&projectId=RandomQuotes'] |
@@ -13,6 +14,8 @@ Feature: Add NuGet feed
       | Add new NuGet Feed | //a[contains(.,'Add new NuGet Feed')]                              |
       | Name               | //input[@id='name']                                                |
       | Save               | (//input[@value='Save'])[1]                                        |
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Random Quotes" project link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}100-nugetfeed.png"
