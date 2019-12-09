@@ -6,7 +6,7 @@ on:
     - cron:  '0 0 5 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-aspnetcore-k8s-screenshots')
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-nodejs-k8s-screenshots')
     runs-on: ubuntu-latest
     env:
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
@@ -35,6 +35,7 @@ jobs:
       CONFIG_FILE: "const config = {\\n    port: 80,\\n    appVersion: \\\"0.0.0\\\",\\n    environmentName: \\\"#{Octopus.Environment.Name}\\\"\\n};\\n\\nmodule.exports = config;"
       CONFIG_FILE_MOUNT_PATH: "/usr/src/app/source/config/config.js"
       CONFIG_FILE_NAME: "config.js"
+      CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
     steps:
       - uses: actions/checkout@v1
 

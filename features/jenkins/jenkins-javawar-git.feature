@@ -36,7 +36,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-maven.png"
     And I click the "Invoke top-level Maven targets" link
     And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Execute Windows batch command" option
+    And I remove the highlight from the "Invoke top-level Maven targets" option
 
     And I scroll the "Goals Two" text box into view offset by "-200"
     And I highlight outside the "Goals Two" text box

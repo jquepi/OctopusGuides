@@ -45,21 +45,20 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Command | (//div[@class='CodeMirror'])[2]              |
       | Save    | //button[@type='button'][contains(.,'Save')] |
 
-    And I scroll the "Command" text box into view offset by "-200"
+    And I scroll the "ExternalShellLocator" text box into view offset by "-200"
     And I run the following JavaScript:
       """
-      var textarea = document.evaluate("(//div[@class='CodeMirror'])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var textarea = document.evaluate("#{ExternalShellLocator}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror
       editor.setValue("#!/bin/bash\n/opt/octo/Octo create-release \\\n--server http://localhost \\\n--apiKey $OctopusAPIKey \\\n--project \"Random Quotes\" \\\n--progress \\\n--deployto Dev");
       editor.save();
       """
-    And I highlight outside the "Command" text box
+    And I highlight outside the "ExternalShellLocator" text box
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-create-release-command.png"
-    And I remove the highlight from the "Command" text box
+    And I remove the highlight from the "ExternalShellLocator" text box
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}025-create-release-save.png"
     And I click the "Save" button

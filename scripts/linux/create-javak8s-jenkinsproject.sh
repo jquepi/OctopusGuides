@@ -23,8 +23,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
   "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
-  "-DCucumberAlias-ExternalShellLocator=$CREATE_RELEASE_SHELL_LOCATOR" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \
-  features/jenkins/jenkins-k8s-create-deploy.feature
+  features/jenkins/jenkins-javak8s-project.feature

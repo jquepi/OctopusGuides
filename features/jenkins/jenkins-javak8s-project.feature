@@ -1,4 +1,4 @@
-Feature: Build and deploy a Node js application hosted in Git on a local Octopus instance
+Feature: Build and deploy a Java application hosted in Git on a local Octopus instance
 
   Scenario: Initial setup
     Given I run the feature "shared/jenkins-open-browser.feature" passing the original arguments
@@ -8,11 +8,14 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I run the feature "shared/jenkins-configure-docker.feature" passing the original arguments
     And I run the feature "shared/jenkins-initial-project-setup.feature" passing the original arguments
 
+
   @configure-project
   Scenario: Node.js - Create the project
     Given I set the following aliases:
       | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute shell                                | //a[contains(.,'Execute shell')]                       |
+      | Invoke top-level Maven targets               | //a[contains(.,'Invoke top-level Maven targets')]      |
+      | Goals One                                    | (//input[@id='textarea._.targets'])[1]                 |
+      | Goals Two                                    | (//input[@id='textarea._.targets'])[2]                 |
       | Command                                      | //div[@class='CodeMirror']                             |
       | Execute Docker command                       | //a[contains(.,'Execute Docker command')]              |
       | Docker command one                           | (//select[../../td[text()='Docker command']])[1]       |
@@ -31,29 +34,38 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
-    And I highlight outside the "Execute shell" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}240-shell-command-1.png"
-    And I click the "Execute shell" link
+    And I highlight outside the "Invoke top-level Maven targets" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}240-maven.png"
+    And I click the "Invoke top-level Maven targets" link
     And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Execute shell" option
+    And I remove the highlight from the "Invoke top-level Maven targets" option
 
-    And I scroll the "Command" text box into view offset by "-200"
-    And I highlight outside the "Command" text box
-    And I run the following JavaScript:
-      """
-      var textarea = document.evaluate("//div[@class='CodeMirror']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      var editor = textarea.CodeMirror
-      editor.setValue("npm install\nnpm test");
-      editor.save();
-      """
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-dotnet-test.png"
-    And I remove the highlight from the "Command" text box
+    And I scroll the "Goals One" text box into view offset by "-200"
+    And I highlight outside the "Goals One" text box
+    And I populate the "Goals One" text box with "versions:set -DnewVersion=1.0.$BUILD_NUMBER"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-maven.png"
+    And I remove the highlight from the "Goals One" text box
+
+    And I scroll the "Add build step" button into view offset by "-200"
+    And I highlight outside the "Add build step" button
+    And I click the "Add build step" button
+    And I highlight outside the "Invoke top-level Maven targets" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}260-maven.png"
+    And I click the "Invoke top-level Maven targets" link
+    And I remove the highlight from the "Add build step" option
+    And I remove the highlight from the "Invoke top-level Maven targets" option
+
+    And I scroll the "Goals Two" text box into view offset by "-200"
+    And I highlight outside the "Goals Two" text box
+    And I populate the "Goals Two" text box with "clean test package -Pwar"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}270-maven.png"
+    And I remove the highlight from the "Goals Two" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Docker command" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}260-execute-docker-command-1.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}280-execute-docker-command-1.png"
     And I click the "Execute Docker command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Docker command" option
@@ -70,9 +82,9 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I scroll the "Tag of the resulting docker image" text box into view offset by "-300"
     And I highlight outside the "Tag of the resulting docker image" text box with an offset of "2"
     And I clear the "Tag of the resulting docker image" text box
-    And I populate the "Tag of the resulting docker image" text box with "octopusdeploy/randomquotesjs:1.0.$BUILD_NUMBER"
+    And I populate the "Tag of the resulting docker image" text box with "octopusdeploy/randomquotesjava:1.0.$BUILD_NUMBER"
 
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}270-execute-docker-command-1.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}290-execute-docker-command-1.png"
 
     And I remove the highlight from the "Docker command one" drop down list
     And I remove the highlight from the "Build context folder" text box
@@ -82,7 +94,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute Docker command" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}280-execute-docker-command-1.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}300-execute-docker-command-1.png"
     And I click the "Execute Docker command" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Docker command" option
@@ -93,7 +105,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
 
     And I scroll the "Name of the image to push (repository/image)" text box into view offset by "-300"
     And I highlight outside the "Name of the image to push (repository/image)" text box with an offset of "2"
-    And I populate the "Name of the image to push (repository/image)" text box with "randomquotesjs"
+    And I populate the "Name of the image to push (repository/image)" text box with "randomquotesjava"
 
     And I scroll the "Tag" text box into view offset by "-300"
     And I highlight outside the "Tag" text box with an offset of "2"
@@ -111,7 +123,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I highlight outside the "Registry credentials" drop down list with an offset of "2"
     And I highlight outside the "Save" button
     And I select the option value "DockerCredentials" from the "Registry credentials" drop down list
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}290-execute-docker-command-1.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}310-execute-docker-command-1.png"
 
     And I click the "Save" button
     And I stop recording the screen
