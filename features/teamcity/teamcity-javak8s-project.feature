@@ -3,7 +3,7 @@ Feature: Create Docker project
   Scenario: Prepare TeamCity
     Given I run the feature "shared/teamcity-login.feature" passing the original arguments
 
-  @create-project @applicationspecific @nodejs
+  @create-project @applicationspecific @java
   Scenario: Create Project
     Given I set the following aliases:
       | Create project        | //a[contains(.,'Create project')]                        |
@@ -14,10 +14,11 @@ Feature: Create Docker project
       | Configure manually    | //a[text()='configure build steps manually']             |
       | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']           |
       | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']]   |
-      | Command Line          | //li[@data-title='Command Line']                         |
+      | Maven                 | //li[@data-title='Maven']                                |
+      | Goals                 | //input[@id='goals']                                     |
       | Docker                | //li[@data-title='Docker']                               |
       | Step name             | //input[@id='buildStepName']                             |
-      | Script content        | //textarea[@id='script.content']                            |
+      | Script content        | //textarea[@id='script.content']                         |
       | Test option           | //li[@data-title='test']                                 |
       | Path to file          | //input[@id='path']                                      |
       | Image name:tag        | //textarea[@id='docker.image.namesAndTags']              |
@@ -51,32 +52,45 @@ Feature: Create Docker project
     And I click the "Configure manually" link
 
     And I click the "Runner type" drop down list
-    And I scroll the "Command Line" option into view offset by "-300"
-    And I click the "Command Line" option
+    And I scroll the "Maven" option into view offset by "-300"
+    And I click the "Maven" option
     And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
-    And I populate the "Step name" text box with "NPM Install and Test"
+    And I populate the "Step name" text box with "Set Maven Version"
 
-    And I highlight outside the "Script content" text area
-    And I scroll the "Script content" text area into view offset by "-200"
-    And I populate the "Script content" text area with:
-      """
-      npm install
-      npm test
-      """
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}045-npm-install.png"
-
+    And I scroll the "Goals" text box into view offset by "-300"
+    And I highlight outside the "Goals" text box
     And I highlight outside the "Save" button
-    And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-npm-install.png"
+    And I populate the "Goals" text box with "versions:set -DnewVersion=1.0.%build.counter%"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-maven-version.png"
     And I click the "Save" button
 
     And I click the "Got it" button waiting up to "5" seconds if it exists
 
     And I highlight outside the "Add build step" button
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}060-add-build-step.png"
+    And I click the "Add build step" button
+
+    And I click the "Runner type" drop down list
+    And I scroll the "Maven" option into view offset by "-300"
+    And I click the "Maven" option
+    And I sleep for "1" second
+    And I highlight outside the "Runner type container" drop down list
+
+    And I highlight outside the "Step name" text box
+    And I populate the "Step name" text box with "Maven Package"
+
+    And I scroll the "Goals" text box into view offset by "-300"
+    And I highlight outside the "Goals" text box
+    And I highlight outside the "Save" button
+    And I populate the "Goals" text box with "clean test package"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-maven-publish.png"
+    And I click the "Save" button
+
+    And I highlight outside the "Add build step" button
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}080-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
@@ -95,12 +109,12 @@ Feature: Create Docker project
     And I scroll the "Image name:tag" text box into view offset by "-300"
     And I highlight outside the "Image name:tag" text box
     And I highlight outside the "Save" button
-    And I populate the "Image name:tag" text box with "octopusdeploy/randomquotesjs:1.0.%build.counter%"
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-docker-build.png"
+    And I populate the "Image name:tag" text box with "octopusdeploy/randomquotesjava:1.0.%build.counter%"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}090-docker-build.png"
     And I click the "Save" button
 
     And I highlight outside the "Add build step" button
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}080-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}100-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
@@ -117,8 +131,8 @@ Feature: Create Docker project
     And I scroll the "Image name:tag" text box into view offset by "-300"
     And I highlight outside the "Image name:tag" text box
     And I highlight outside the "Save" button
-    And I populate the "Image name:tag" text box with "octopusdeploy/randomquotesjs:1.0.%build.counter%"
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}090-docker-push.png"
+    And I populate the "Image name:tag" text box with "octopusdeploy/randomquotesjava:1.0.%build.counter%"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}110-docker-push.png"
     And I click the "Save" button
 
   Scenario: Add Connection
