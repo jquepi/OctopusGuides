@@ -7,9 +7,7 @@ Feature: Jenkins login
       | Password     | body > div > div > form > div:nth-child(2) > input           |
       | Sign In      | body > div > div > form > div.submit.formRow > input         |
       | Profile Name | #header > div.login > span > a.model-link.inside.inverse > b |
-
-    And I fullscreen the window
-    #And I set the window size to "1024" x "768"
+    
     When I open the URL "http://localhost:8080"
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box
     And I verify the "Username" text box is present waiting up to "900" seconds if it exists
