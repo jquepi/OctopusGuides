@@ -72,6 +72,13 @@ Feature: Configure Bamboo
     And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "Maven package"
 
+  @repositoryspecific @octo-built-in-feed
+  Scenario: Build locally
+    Given I set the following aliases:
+      | Goal             | //textarea[@id='goal']                                                                   |
+      | Build JDK        | //select[@id='buildJdk']                                                                 |
+      | Save             | //input[@id='createTask_save']                                                           |
+
     And I highlight outside the "Goal" text box
     And I scroll the "Goal" text box into view offset by "-300"
     And I clear the "Goal" text box
@@ -91,8 +98,25 @@ Feature: Configure Bamboo
     And I run the feature "shared/bamboo-push-to-octo.feature"
 
   @repositoryspecific @artifactory
-  Scenario: Add Octopus Push
-    And I run the feature "shared/bamboo-push-to-artifactory.feature"
+  Scenario: Build and push to Artifactory
+    Given I set the following aliases:
+      | Goal             | //textarea[@id='goal']                                                                   |
+      | Build JDK        | //select[@id='buildJdk']                                                                 |
+      | Save             | //input[@id='createTask_save']                                                           |
+
+    And I highlight outside the "Goal" text box
+    And I scroll the "Goal" text box into view offset by "-300"
+    And I clear the "Goal" text box
+    And I populate the "Goal" text box with "clean test deploy -Pwar"
+
+    And I scroll the "Build JDK" drop down list into view
+    And I highlight outside the "Build JDK" drop down list
+    And I select the option value "JDK" from the "Build JDK" drop down
+
+    And I highlight outside the "Save" button
+    And I scroll the "Save" button into view
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}150-maven-test.png"
+    And I click the "Save" button
 
   Scenario: Create plan
     Given I set the following aliases:
