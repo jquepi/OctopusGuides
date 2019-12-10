@@ -35,7 +35,6 @@ jobs:
       WISTIA_MEDIA_ID: mo3pt6qaa7
       VIDEO_FILE_NAME: teamcity-java-tomcat-builtin.mp4
       SCREENSHOT_PATH: /java-app/tomcat/builtin/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjava
     steps:
       - uses: actions/checkout@v1
 

@@ -147,7 +147,7 @@ Feature: Configure an Octopus Tomcat project
 
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box
-    And I populate the "Package ID" text box with "randomquotes"
+    And I populate the "Package ID" text box with "com.octopus:randomquotes"
     And I sleep for "2" second
     And I press the escape key from the "Package ID" text box
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-step-package.png"
