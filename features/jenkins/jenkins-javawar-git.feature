@@ -49,7 +49,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
 
     And I scroll the "Goals Two" text box into view offset by "-200"
     And I highlight outside the "Goals Two" text box
-    And I populate the "Goals Two" text box with "clean test package upload -Pwar"
+    And I populate the "Goals Two" text box with "clean test package deploy -Pwar"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}140-maven.png"
     And I remove the highlight from the "Goals Two" text box
 
