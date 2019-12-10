@@ -5,7 +5,7 @@ Feature: Setup Artifactory
   and closes the browser so the next browser is in front of any windows.
     And I open the browser "ExternalBrowserType"
     And I fullscreen the window
-    And I open the URL "http://localhost:8040"
+    And I open the URL "http://localhost:8041"
     And I sleep for "10" seconds
     And I close the browser
 
@@ -29,7 +29,7 @@ Feature: Setup Artifactory
     And I open the shared browser "ExternalBrowserType"
     And I fullscreen the window
     And I set the default explicit wait time to "30" seconds
-    And I open the URL "http://localhost:8040"
+    And I open the URL "http://localhost:8041"
     And I verify the "Spinner" overlay is present waiting up to "60" seconds if it exists
     And I verify the "Spinner" overlay is not present waiting up to "60" seconds
     And I populate the "Username" text box with "admin" waiting up to "300" seconds
@@ -64,7 +64,7 @@ Feature: Setup Artifactory
       | Save & Finish  | //button[@id='repository-save-button']           |
       | Spinner        | //div[contains(@class,'spinner')]                |
 
-    And I open the URL "http://localhost:8040/artifactory/webapp/#/home"
+    And I open the URL "http://localhost:8041/artifactory/webapp/#/home"
     And I verify the "License Key" text box is not present waiting up to "60" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the NuGet repository in Artifactory" for "3" seconds
@@ -76,7 +76,7 @@ Feature: Setup Artifactory
     And I highlight inside the "Local" link
     And I save a screenshot to "#{ExternalMediaPath}/artifactory/nugetrepo/020-nuget-repo.png"
     And I mouse over the "Local" link
-    And I open the URL "http://localhost:8040/artifactory/webapp/#/admin/repositories/local"
+    And I open the URL "http://localhost:8041/artifactory/webapp/#/admin/repositories/local"
 
     And I remove the highlight from the "Admin" link
 
@@ -109,7 +109,7 @@ Feature: Setup Artifactory
       | Save & Finish  | //button[@id='repository-save-button']           |
       | Spinner        | //div[contains(@class,'spinner')]                |
 
-    And I open the URL "http://localhost:8040/artifactory/webapp/#/home"
+    And I open the URL "http://localhost:8041/artifactory/webapp/#/home"
     And I verify the "License Key" text box is not present waiting up to "60" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the Maven repository in Artifactory" for "3" seconds
@@ -121,7 +121,7 @@ Feature: Setup Artifactory
     And I highlight inside the "Local" link
     And I save a screenshot to "#{ExternalMediaPath}/artifactory/mavenrepo/020-maven-repo.png"
     And I mouse over the "Local" link
-    And I open the URL "http://localhost:8040/artifactory/webapp/#/admin/repositories/local"
+    And I open the URL "http://localhost:8041/artifactory/webapp/#/admin/repositories/local"
 
     And I remove the highlight from the "Admin" link
 
