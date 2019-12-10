@@ -6,20 +6,20 @@ Feature: Create Docker project
   @create-project @applicationspecific @java
   Scenario: Create Project
     Given I set the following aliases:
-      | Create project        | //a[contains(.,'Create project')]                        |
-      | Repository URL        | //input[@id='url']                                       |
-      | Proceed               | //input[@name='createProjectFromUrl']                    |
-      | Project name          | //input[@id='projectName']                               |
-      | Proceed Two           | //input[@name='createProject']                           |
-      | Configure manually    | //a[text()='configure build steps manually']             |
-      | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']           |
-      | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']]   |
-      | Command Line          | //li[@data-title='Command Line']                         |
-      | Maven                 | //li[@data-title='Maven']                                |
-      | Step name             | //input[@id='buildStepName']                             |
-      | Goals                 | //input[@id='goals']                                     |
-      | Save                  | (//input[@value='Save'])[1]                              |
-      | Got it                | //button[contains(.,'Got it')]                           |
+      | Create project        | //a[contains(.,'Create project')]                      |
+      | Repository URL        | //input[@id='url']                                     |
+      | Proceed               | //input[@name='createProjectFromUrl']                  |
+      | Project name          | //input[@id='projectName']                             |
+      | Proceed Two           | //input[@name='createProject']                         |
+      | Configure manually    | //a[text()='configure build steps manually']           |
+      | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
+      | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']] |
+      | Command Line          | //li[@data-title='Command Line']                       |
+      | Maven                 | //li[@data-title='Maven']                              |
+      | Step name             | //input[@id='buildStepName']                           |
+      | Goals                 | //input[@id='goals']                                   |
+      | Save                  | (//input[@value='Save'])[1]                            |
+      | Got it                | //button[contains(.,'Got it')]                         |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
@@ -78,8 +78,8 @@ Feature: Create Docker project
   @repositoryspecific @octo-built-in-feed
   Scenario: Package only
     Given I set the following aliases:
-      | Goals                 | //input[@id='goals']                                     |
-      | Save                  | (//input[@value='Save'])[1]                              |
+      | Goals | //input[@id='goals']        |
+      | Save  | (//input[@value='Save'])[1] |
 
     And I scroll the "Goals" text box into view offset by "-300"
     And I highlight outside the "Goals" text box
@@ -91,8 +91,8 @@ Feature: Create Docker project
   @repositoryspecific @artifactory
   Scenario: Publish
     Given I set the following aliases:
-      | Goals                 | //input[@id='goals']                                     |
-      | Save                  | (//input[@value='Save'])[1]                              |
+      | Goals | //input[@id='goals']        |
+      | Save  | (//input[@value='Save'])[1] |
 
     And I scroll the "Goals" text box into view offset by "-300"
     And I highlight outside the "Goals" text box
@@ -103,7 +103,7 @@ Feature: Create Docker project
 
   Scenario: Close popups
     Given I set the following aliases:
-      | Got it                | //button[contains(.,'Got it')]                           |
+      | Got it | //button[contains(.,'Got it')] |
     And I click the "Got it" button waiting up to "5" seconds if it exists
 
   @repositoryspecific @octo-built-in-feed

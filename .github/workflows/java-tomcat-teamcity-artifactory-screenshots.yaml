@@ -1,6 +1,6 @@
 name: Java Teamcity Tomcat Artifectory Feed Screenshots
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 5 * *'

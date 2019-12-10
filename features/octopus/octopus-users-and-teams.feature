@@ -264,7 +264,9 @@ Feature: Create Octopus Users and Teams
     And I click the "Include User Role" button
 
     And I click the "Select user role" drop down list
-    And I click the "Project viewer" option
+    # force click to fix:
+    # org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; color: rgb(51, 51, 51); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;">...</span> is not clickable at point (947, 790). Other element would receive the click: <div>...</div>
+    And I force click the "Project viewer" option
     And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Apply" button with an offset of "2"
     And I sleep for "1" second
@@ -382,7 +384,9 @@ Feature: Create Octopus Users and Teams
     And I click the "Include User Role" button
 
     And I click the "Select user role" drop down list
-    And I click the "Project viewer" option
+    # force click to fix:
+    # org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span role="menuitem" tabindex="0" style="border: 10px; box-sizing: border-box; display: block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: none; font-size: 15px; font-weight: inherit; position: relative; color: rgb(51, 51, 51); line-height: 32px; transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; min-height: 32px; white-space: nowrap; background: none;">...</span> is not clickable at point (947, 790). Other element would receive the click: <div>...</div>
+    And I force click the "Project viewer" option
     And I highlight outside the "Select user role container" element with an offset of "2"
     And I highlight outside the "Apply" button with an offset of "2"
     And I sleep for "1" second
