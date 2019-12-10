@@ -107,7 +107,7 @@ Feature: Configure Bamboo
     And I highlight outside the "Goal" text box
     And I scroll the "Goal" text box into view offset by "-300"
     And I clear the "Goal" text box
-    And I populate the "Goal" text box with "clean test deploy -Pwar"
+    And I populate the "Goal" text box with "clean test deploy -Pwar -s /opt/settings.xml"
 
     And I scroll the "Build JDK" drop down list into view
     And I highlight outside the "Build JDK" drop down list

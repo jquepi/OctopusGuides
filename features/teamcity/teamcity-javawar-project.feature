@@ -97,7 +97,7 @@ Feature: Create Docker project
     And I scroll the "Goals" text box into view offset by "-300"
     And I highlight outside the "Goals" text box
     And I highlight outside the "Save" button
-    And I populate the "Goals" text box with "clean test publish -Pwar"
+    And I populate the "Goals" text box with "clean test publish -Pwar -s /opt/settings.xml"
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-maven-publish.png"
     And I click the "Save" button
 
