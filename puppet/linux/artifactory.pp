@@ -33,6 +33,7 @@ archive { '/opt/jfrog-artifactory-oss-6.15.0.zip':
     chmod +x /opt/artifactory-pro-6.15.0/bin/artifactory.sh
     /opt/artifactory-pro-6.15.0/bin/artifactory.sh &
     touch /opt/ArtifactoryStarted.txt
+    df -h
     | EOT
 }
 -> exec { 'Install Artifactory':
