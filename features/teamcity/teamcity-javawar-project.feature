@@ -75,6 +75,12 @@ Feature: Create Docker project
     And I highlight outside the "Step name" text box
     And I populate the "Step name" text box with "Maven Package"
 
+  @repositoryspecific @octo-built-in-feed
+  Scenario: Package only
+    Given I set the following aliases:
+      | Goals                 | //input[@id='goals']                                     |
+      | Save                  | (//input[@value='Save'])[1]                              |
+
     And I scroll the "Goals" text box into view offset by "-300"
     And I highlight outside the "Goals" text box
     And I highlight outside the "Save" button
@@ -82,8 +88,26 @@ Feature: Create Docker project
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-maven-publish.png"
     And I click the "Save" button
 
+  @repositoryspecific @artifactory
+  Scenario: Publish
+    Given I set the following aliases:
+      | Goals                 | //input[@id='goals']                                     |
+      | Save                  | (//input[@value='Save'])[1]                              |
+
+    And I scroll the "Goals" text box into view offset by "-300"
+    And I highlight outside the "Goals" text box
+    And I highlight outside the "Save" button
+    And I populate the "Goals" text box with "clean test publish -Pwar"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-maven-publish.png"
+    And I click the "Save" button
+
+  Scenario: Close popups
+    Given I set the following aliases:
+      | Got it                | //button[contains(.,'Got it')]                           |
     And I click the "Got it" button waiting up to "5" seconds if it exists
 
+  @repositoryspecific @octo-built-in-feed
+  Scenario: Add Octopus Push
     And I run the feature "shared/teamcity-add-octo-push.feature"
 
   @run-build

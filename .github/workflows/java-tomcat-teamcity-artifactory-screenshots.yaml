@@ -1,15 +1,16 @@
-name: Java Jenkins Tomcat Builtin Feed Screenshots
+name: Java Teamcity Tomcat Artifectory Feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 22 * *'
+    - cron:  '0 0 5 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-javawar-tomcat-screenshots')
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-java-tomcat-screenshots')
     runs-on: ubuntu-latest
     env:
-      SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -22,22 +23,22 @@ jobs:
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       DISPLAY: ":99.0"
       MOUSE_VERTICAL_OFFSET: 74
+      # This is slightly larger than the warning bar presented by Chrome to stop the mouse cursor triggering the menu
+      # next to the administration menu as we try and click the Overview link.
       MOUSE_VERTICAL_OFFSET_CHROME: 125
-      CUCUMBER_TAGS: "(not @browserspecific or @chrome) and (not @destinationspecific or @tomcat) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: "(not @browserspecific or @chrome) and (not @destinationspecific or @tomcat) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
       DISABLE_HIGHLIGHTS: false
       DISABLE_SCREENSHOTS: false
       MOVE_TO_MOUSE_CURSOR: false
       DISABLE_VIDEO: true
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
-      SCREENSHOT_PATH: /java-app/tomcat/builtin/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjava
-      CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
+      SCREENSHOT_PATH: /java-app/tomcat/artifactory/git/
     steps:
       - uses: actions/checkout@v1
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp jenkins.pp tomcat.pp dockercreds.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
+        run: ./install.sh utilities.pp teamcity.pp tomcat.pp dockercreds.pp octopus.pp artifactory.pp octopuscli.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -45,17 +46,26 @@ jobs:
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
 
+      - name: Create artifactory maven repo
+        run: ./scripts/linux/configure-artifactory.sh
+
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
 
-      - name: Create Jenkins project
-        run: ./scripts/linux/create-javawar-jenkinsproject.sh
+      - name: Setup TeamCity
+        run: ./scripts/linux/setup-teamcity.sh
+
+      - name: Create TeamCity project
+        run: ./scripts/linux/create-javawar-teamcityproject.sh
 
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
 
       - name: Create Target
         run: sudo ./scripts/linux/create-target.sh
+
+      - name: Create Maven feed
+        run: ./scripts/linux/create-mavenfeed.sh
 
       - name: Create project
         run: ./scripts/linux/create-tomcatproject.sh
@@ -67,7 +77,7 @@ jobs:
         run: ./scripts/linux/open-tomcatdevwebapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-jenkinscreaterelease.sh
+        run: ./scripts/linux/create-teamcitycreaterelease.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh
