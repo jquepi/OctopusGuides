@@ -131,9 +131,9 @@ Feature: Setup Artifactory
     And I save a screenshot to "#{ExternalMediaPath}/artifactory/mavenrepo/030-maven-repo.png"
     And I click the "New" button
 
-    And I highlight outside the "NuGet Icon" element
+    And I highlight outside the "Maven Icon" element
     And I save a screenshot to "#{ExternalMediaPath}/artifactory/mavenrepo/040-maven-repo.png"
-    And I click the "NuGet Icon" element
+    And I click the "Maven Icon" element
 
     And I highlight outside the "Repository Key" text box with an offset of "5"
     And I highlight outside the "Save & Finish" button
