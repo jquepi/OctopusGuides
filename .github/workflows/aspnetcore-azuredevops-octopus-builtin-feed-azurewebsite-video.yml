@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Octopus Built-in Feed Azure WebSites Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 10 * *'
@@ -42,6 +42,10 @@ jobs:
       - name: Set screen resolution
         shell: powershell
         run: ./scripts/windows/set-lowresolution.ps1
+
+      - name: Compress the drive
+        shell: powershell
+        run: ./scripts/windows/compress-drive.ps1
 
       - name: Disable Windows Defender
         shell: powershell
