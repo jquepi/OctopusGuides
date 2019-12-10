@@ -90,6 +90,9 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I remove the highlight from the "Command" text box
 
   Scenario: Save project
+    Given I set the following aliases:
+      | Save | //button[@type='button'][contains(.,'Save')] |
+
     And I click the "Save" button
     And I stop recording the screen
 
