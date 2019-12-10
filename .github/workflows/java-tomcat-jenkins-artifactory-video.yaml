@@ -1,6 +1,6 @@
 name: Java Jenkins Tomcat Artifactory Feed Video
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 16 * *'
