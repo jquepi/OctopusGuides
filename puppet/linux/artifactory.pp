@@ -43,10 +43,8 @@ archive { '/opt/jfrog-artifactory-oss-6.15.0.zip':
   logoutput => true
 }
 
-file { '/root/.m2':
-  ensure => 'directory',
-}
--> file { '/root/.m2/settings.xml':
+
+file { '/opt/settings.xml':
   ensure  => 'file',
   owner   => 'root',
   group   => 'root',
