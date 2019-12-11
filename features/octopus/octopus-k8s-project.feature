@@ -4,6 +4,12 @@ Feature: Configure an Octopus Kubernetes project
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
     And I run the feature "shared/octopus-login.feature" passing the original arguments
     And I run the feature "shared/octopus-hide-wizard.feature" passing the original arguments
+
+  Scenario: Display banner
+    And I start recording the screen to the directory "ExternalMediaPath"
+    And I display a note with the text "Creating the Kubernetes deployment project in Octopus" for "3" seconds
+
+  Scenario:
     And I run the feature "shared/octopus-create-project.feature" passing the original arguments
     And I run the feature "shared/octopus-define-variables.feature" passing the original arguments
 

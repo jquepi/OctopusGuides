@@ -4,6 +4,12 @@ Feature: Configure an Octopus Kubernetes project
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
     And I run the feature "shared/octopus-login.feature" passing the original arguments
     And I run the feature "shared/octopus-hide-wizard.feature" passing the original arguments
+
+  Scenario: Display banner
+    And I start recording the screen to the directory "ExternalMediaPath"
+    And I display a note with the text "Creating the Nginx deployment project in Octopus" for "3" seconds
+
+  Scenario:
     And I run the feature "shared/octopus-create-project.feature" passing the original arguments
     And I run the feature "shared/octopus-define-variables.feature" passing the original arguments
 
@@ -21,6 +27,7 @@ Feature: Configure an Octopus Kubernetes project
       | New variable value      | //input[contains(@id,'Entervalue')]             |
       | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]        |
       | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]        |
+      | Add to list             | //button[@title='Add To List']                  |
       | Save                    | //button[contains(.,'Save')]                    |
 
     And I populate the "New variable name" text box with "Nginx Port"
@@ -44,6 +51,8 @@ Feature: Configure an Octopus Kubernetes project
     And I force click the "Prod environment" option
     And I force click the "Project Variables Title" element
 
+    And I click the "Add to list" button
+
     And I populate the "New variable name" text box with "Nodejs Port"
     And I populate the "New variable value" text box with "5555"
     And I force click the "Define scope" field
@@ -64,6 +73,8 @@ Feature: Configure an Octopus Kubernetes project
     And I force click the "Select environments" field
     And I force click the "Prod environment" option
     And I force click the "Project Variables Title" element
+
+    And I click the "Add to list" button
 
     And I click the "Save" button
     And I scroll down "10000" px
@@ -118,7 +129,31 @@ Feature: Configure an Octopus Kubernetes project
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-k8s-add-containers.png"
     And I click the "Add" button
 
-  @define-project @destinationspecific @iis
+  @define-project @destinationspecific @nginx
+  Scenario: ASP.NET Core Configure Features
+  Enable the Custom deployment scripts to allow a Systemd service to be created
+
+    Given I set the following aliases:
+      | Configure features                  | (//button[contains(.,'Configure features')])[1]               |
+      | Custom Deployment Scripts           | //input[..//label[text()='Custom Deployment Scripts']]        |
+      | Custom Deployment Scripts Container | //div[./input[..//label[text()='Custom Deployment Scripts']]] |
+      | OK                                  | //button[contains(.,'Ok')]                                    |
+
+    And I highlight outside the "Configure features" button
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}046-octopus-enable-conf-features.png"
+    And I scroll the "Configure features" button into view offset by "-300"
+    And I click the "Configure features" button
+    And I remove the highlight from the "Configure features" button
+
+    And I highlight inside the "Custom Deployment Scripts Container" option
+    And I highlight outside the "OK" button with an offset of "2"
+    And I force click the "Custom Deployment Scripts" option
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}047-octopus-enable-conf-vars.png"
+    And I click the "OK" button
+
+  @define-project @destinationspecific @nginx
   Scenario: Define IIS project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
@@ -128,7 +163,7 @@ Feature: Configure an Octopus Kubernetes project
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
-    And I populate the "Step Name" text box with "Deploy web app to IIS"
+    And I populate the "Step Name" text box with "Deploy web app to Nginx"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-step-name.png"
     And I remove the highlight from the "Step Name" text box
@@ -156,28 +191,58 @@ Feature: Configure an Octopus Kubernetes project
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
 
-  @define-project @destinationspecific @iis
+  @define-project @destinationspecific @nginx
   Scenario: Nginx - Continue to define project
     Given I set the following aliases:
-      | Remove binding | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[1]               |
-      | Add binding    | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
-      | Add location   | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
-      | Port           | //input[contains(@id,'Port')]                                                                               |
-      | Location       | //input[contains(@id,'Location')]                                                                           |
-      | Proxy URL      | //input[contains(@id,'ProxyrequeststothisURL')]                                                             |
-      | Reverse Proxy  | //input[..//label[text()='Reverse Proxy']]                                                                  |
-      | OK             | //button[contains(.,'Ok')]                                                                                  |
-      | Save           | //button[contains(.,'Save')]                                                                                |
+      | Bash                    | (//input[@value='Bash'])[3]                                                                                 |
+      | Bash container          | (//div[./input[@value='Bash']])[3]                                                                          |
+      | Post-deployment script  | (//div[contains(@class, 'ReactCodeMirror')])[3]                                                             |
+      | Remove binding          | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]               |
+      | Add binding             | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
+      | Add location            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
+      | Port                    | //input[contains(@id,'Port')]                                                                               |
+      | Location                | //input[contains(@id,'Location')]                                                                           |
+      | Proxy URL               | //input[contains(@id,'ProxyrequeststothisURL')]                                                             |
+      | Reverse Proxy           | //input[..//label[text()='Reverse Proxy']]                                                                  |
+      | Reverse Proxy Container | //div[./div/div/label[text()='Reverse Proxy']]                                                              |
+      | OK                      | //button[contains(.,'Ok')]                                                                                  |
+      | Save                    | //button[contains(.,'Save')]                                                                                |
+
+    And I scroll the "Post-deployment script" container into view offset by "-300"
+    And I highlight inside the "Bash container" container
+    And I highlight inside the "Post-deployment script" container
+    And I force click the "Bash" radio button
+
+    And I run the following JavaScript:
+    """
+window.findReactComponent = function(el) {
+  for (const key in el) {
+    if (key.startsWith('__reactInternalInstance$')) {
+      const fiberNode = el[key];
+
+      return fiberNode && fiberNode.return && fiberNode.return.stateNode;
+    }
+  }
+  return null;
+};
+
+elements = document.getElementsByClassName("ReactCodeMirror");
+if (elements.length !== 0) {
+  cm = findReactComponent(document.getElementsByClassName("ReactCodeMirror")[2]);
+  cm.props.onChange("SYSTEMD_CONF=\/etc\/systemd\/system\nSERVICE_USER=$(whoami)\nNODEJS=\/usr\/bin\/node\nPORT=#{Nodejs Port}\n\nAPPNAME=#{Octopus.Action[Random Quotes].Package.PackageId | Replace \"[^a-zA-Z0-9]\" -}\nROOTDIR=#{Octopus.Action[Random Quotes].Output.Package.InstallationDirectoryPath | Replace \"%\" \"%%\"}\nSYSTEMD_SERVICE_FILE=${SYSTEMD_CONF}\/${APPNAME}.service\n\n# Application systemd service configuration\necho \"Creating ${APPNAME} systemd service configuration\"\ncat > \"${APPNAME}.service\" <<-EOF\n    [Unit]\n    Description=${APPNAME} service\n    After=network.target\n    \n    [Service]\n    WorkingDirectory=${ROOTDIR}\n    User=${SERVICE_USER}\n    Group=${SERVICE_USER}\n    ExecStart=${NODEJS} ${ROOTDIR}\/source\/server\/index.js\n    Restart=always\n    RestartSec=10\n    SyslogIdentifier=${APPNAME}\n    Environment=PORT=${PORT}\n    \n    [Install]\n    WantedBy=multi-user.target\nEOF\nsudo mv \"${APPNAME}.service\" ${SYSTEMD_CONF}\/${APPNAME}.service\n\nsudo systemctl daemon-reload\nsudo systemctl enable \"${APPNAME}.service\"\nsudo systemctl restart \"${APPNAME}.service\"");
+}
+    """
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-variables-appsettings.png"
 
     And I scroll the "Remove binding" button into view offset by "-300"
     And I highlight outside the "Remove binding" button
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-step-remove-binding.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}120-octopus-step-remove-binding.png"
     And I click the "Remove binding" button
     And I sleep for "1" second
 
     And I highlight outside the "Add binding" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}120-octopus-step-add-binding.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}130-octopus-step-add-binding.png"
     And I force click the "Add binding" button
     And I remove the highlight from the "Add binding" button
 
@@ -186,21 +251,21 @@ Feature: Configure an Octopus Kubernetes project
     And I clear the "Port" text box
     And I populate the "Port" text box with "#{Nginx Port}"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}130-octopus-step-binding-port.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-step-binding-port.png"
     And I click the "OK" button
 
     And I highlight outside the "Add location" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-step-add-binding.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-step-add-binding.png"
     And I force click the "Add location" button
     And I remove the highlight from the "Add location" button
 
-    And I highlight outside the "Location" text box
-    And I highlight outside the "Reverse Proxy" check box
+    And I highlight outside the "Location" text box with an offset of "2"
+    And I highlight outside the "Reverse Proxy Container" check box with an offset of "2"
     And I highlight outside the "OK" button with an offset of "2"
     And I populate the "Location" text box with "/"
-    And I click the "Reverse Proxy" check box
-    And I highlight outside the "Proxy URL" text box
+    And I force click the "Reverse Proxy" check box
+    And I highlight outside the "Proxy URL" text box with an offset of "2"
     And I populate the "Proxy URL" text box with "http://localhost:#{Nodejs Port}"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-step-binding-port.png"

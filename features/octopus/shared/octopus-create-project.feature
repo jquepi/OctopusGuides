@@ -7,9 +7,6 @@ Feature: Create Project
       | New project name | //input[contains(@id, 'Newprojectname')] |
       | Save             | (//div[contains(.,'Save')])[9]           |
 
-    And I start recording the screen to the directory "ExternalMediaPath"
-    And I display a note with the text "Creating the Kubernetes deployment project in Octopus" for "3" seconds
-
     And I highlight outside the "Projects" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}005-octopus-projects.png"
     And I click the "Projects" link
