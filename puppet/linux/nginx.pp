@@ -12,7 +12,7 @@ package { 'nginx':
   line    => '    listen 4444;',
   match   => '^\w*listen 80;',
   replace => true,
-  notify  => Service['tomcat9']
+  notify  => Service['nginx']
 }
 
 service {'nginx':
