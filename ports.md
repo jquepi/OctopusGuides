@@ -3,6 +3,7 @@ These are the ports used by the various apps deployed by Puppet and Octopus.
 | Port | App |
 |-|-|
 | 80   | Octopus      |
+| 4444 | nginx |
 | 8040 | Artifactory  |
 | 8041 | Artifactory  |
 | 8111 | Team City    |

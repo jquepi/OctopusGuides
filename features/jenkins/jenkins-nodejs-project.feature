@@ -28,7 +28,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I run the following JavaScript:
       """
       var textarea = document.evaluate("//div[@class='CodeMirror']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      var editor = textarea.CodeMirror
+      var editor = textarea.CodeMirror;
       editor.setValue("npm install\nnpm test");
       editor.save();
       """
@@ -49,7 +49,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I run the following JavaScript:
       """
       var textarea = document.evaluate("(//div[@class='CodeMirror'])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      var editor = textarea.CodeMirror
+      var editor = textarea.CodeMirror;
       editor.setValue("#!/bin/bash\n/opt/octo/Octo pack -id RandomQuotes -version 1.0.$BUILD_NUMBER -include \"$WORKSPACE\"");
       editor.save();
       """
@@ -70,7 +70,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I run the following JavaScript:
       """
       var textarea = document.evaluate("(//div[@class='CodeMirror'])[3]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      var editor = textarea.CodeMirror
+      var editor = textarea.CodeMirror;
       editor.setValue("#!/bin/bash\n/opt/octo/Octo push --server http://localhost --package \"$WORKSPACE\\RandomQuotes.1.0.$BUILD_NUMBER.nupkg\" --apiKey $OctopusAPIKey");
       editor.save();
       """
