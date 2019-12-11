@@ -32,14 +32,14 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
       editor.setValue("npm install\nnpm test");
       editor.save();
       """
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-dotnet-test.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-npm-test.png"
     And I remove the highlight from the "Command" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute shell" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}260-batch-command.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}260-shell-command.png"
     And I click the "Execute shell" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute shell" option
@@ -53,14 +53,14 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
       editor.setValue("#!/bin/bash\n/opt/octo/Octo pack -id RandomQuotes -version 1.0.$BUILD_NUMBER -include $WORKSPACE");
       editor.save();
       """
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}270-octo-push.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}270-octo-pack.png"
     And I remove the highlight from the "Command" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute shell" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}280-batch-command.png"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}280-shell-command.png"
     And I click the "Execute shell" link
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute shell" option
