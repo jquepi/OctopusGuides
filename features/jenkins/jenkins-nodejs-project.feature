@@ -69,7 +69,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I highlight outside the "Command" text box
     And I run the following JavaScript:
       """
-      var textarea = document.evaluate("(//div[@class='CodeMirror'])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var textarea = document.evaluate("(//div[@class='CodeMirror'])[3]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror
       editor.setValue("#!/bin/bash\n/opt/octo/Octo push --server http://localhost --package \"$WORKSPACE\RandomQuotes.1.0.$BUILD_NUMBER.nupkg\" --apiKey $OctopusAPIKey");
       editor.save();
