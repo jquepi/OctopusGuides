@@ -2,75 +2,10 @@ Feature: Configure an Octopus Kubernetes project
 
   Scenario: Open Browser
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
-
-  @login
-  Scenario: Login
-    Given I set the following aliases:
-      | Username   | //input[@name='userName']                                                                                 |
-      | Password   | //input[@name='password']                                                                                 |
-      | Sign In    | //button[contains(.,'SIGN IN')]                                                                           |
-      | Close help | //div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M11 18h2v-2h-2v2zm1-16C6.48 2 2')]] |
-
-    And I set the default explicit wait time to "30" seconds
-    And I open the URL "http://localhost"
-    And I populate the "Username" text box with "admin"
-    And I populate the "Password" text box with "Password01!"
-    And I click the "Sign In" button
-    And I click the "Close help" button
-
-  @hide-wizard
-  Scenario: Hide wizard
-    Given I set the following aliases:
-      | Hide wizard | //em[contains(@class,'fa fa-minus')] |
-    And I click the "Hide wizard" button
-
-  @create-project
-  Scenario: Create Project
-    Given I set the following aliases:
-      | Projects         | //span[contains(.,'Projects')]           |
-      | Add project      | (//div[contains(.,'Add Project')])[11]   |
-      | New project name | //input[contains(@id, 'Newprojectname')] |
-      | Save             | (//div[contains(.,'Save')])[9]           |
-
-    And I start recording the screen to the directory "ExternalMediaPath"
-    And I display a note with the text "Creating the Kubernetes deployment project in Octopus" for "3" seconds
-
-    And I highlight outside the "Projects" link with an offset of "5"
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}005-octopus-projects.png"
-    And I click the "Projects" link
-    And I sleep for "1" second
-
-    And I highlight outside the "Add project" link with an offset of "1"
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}010-octopus-add-project.png"
-    And I click the "Add project" button
-    And I remove the highlight from the "Add project" link
-    And I remove the highlight from the "Projects" link
-
-    And I highlight outside the "New project name" text box with an offset of "2"
-    And I highlight outside the "Save" button with an offset of "2"
-    And I populate the "New project name" text box with "Random Quotes"
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}015-octopus-new-project-name.png"
-    And I click the "Save" button
-    And I sleep for "2" seconds
-
-  @define-variables
-  Scenario: Open the variables section
-    Given I set the following aliases:
-      | Variables         | //a[contains(.,'Variables')]                                                                                                                                 |
-      | Variables text    | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
-      | Project Variables | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
-
-    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
-    And I sleep for "1" second
-
-    And I highlight outside the "Variables text" link with an offset of "2"
-    And I click the "Variables" link
-    And I highlight inside the "Project Variables" link
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}020-octopus-variables.png"
-    And I force click the "Project Variables" link
-    And I remove the highlight from the "Variables text" link
+    And I run the feature "shared/octopus-login.feature" passing the original arguments
+    And I run the feature "shared/octopus-hide-wizard.feature" passing the original arguments
+    And I run the feature "shared/octopus-create-project.feature" passing the original arguments
+    And I run the feature "shared/octopus-define-variables.feature" passing the original arguments
 
   @define-variables @destinationspecific @k8s
   Scenario: Define project EnvironmentName Variable
@@ -369,47 +304,7 @@ if (elements.length !== 0) {
 
   @deploy-project
   Scenario: Deploy project
-    Given I set the following aliases:
-      | Create Release | //button[@title='Create release']        |
-      | Save           | //button[@title='Save']                  |
-      | Deploy To Dev  | //button[contains(.,'Deploy to Dev...')] |
-      | Deploy         | //button[@title='Deploy']                |
-      | Task Log       | //button[contains(.,'Task Log')]         |
-
-    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
-    And I sleep for "1" second
-
-    And I highlight inside the "Create Release" button
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-create-release.png"
-    And I click the "Create Release" button
-
-    And I highlight outside the "Save" button
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}180-octopus-save-release.png"
-    And I remove the highlight from the "Create Release" button
-    And I force click the "Save" button
-    And I sleep for "1" second
-
-    And I highlight outside the "Deploy To Dev" button with an offset of "2"
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}190-octopus-deploy-to-dev.png"
-    And I click the "Deploy To Dev" button
-
-    And I highlight outside the "Deploy" button
-    And I sleep for "3" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}200-octopus-deploy.png"
-    And I force click the "Deploy" button
-
-    And I stop recording the screen
-    And I sleep for "60" seconds
-
-    And I start recording the screen to the directory "ExternalMediaPath"
-    And I sleep for "2" seconds
-    And I click the "Task Log" button
-    And I sleep for "2" seconds
-
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}210-octopus-deployment.png"
+    And I run the feature "shared/octopus-deploy-project.feature" passing the original arguments
 
   @shutdown
   Scenario: Shutdown
