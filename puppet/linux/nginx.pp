@@ -7,3 +7,7 @@ package { 'nginx':
   after   => '^\w+include /etc/nginx/conf.d/*.conf',
   notify  => Service['nginx']
 }
+
+service {'nginx':
+  ensure => running
+}
