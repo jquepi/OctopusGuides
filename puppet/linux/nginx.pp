@@ -7,10 +7,17 @@ package { 'nginx':
   after   => '^\w+include /etc/nginx/conf.d/*.conf;',
   notify  => Service['nginx']
 }
--> file_line { 'Change default port':
+-> file_line { 'Change default ipv4 port':
   path    => '/etc/nginx/sites-enabled/default',
   line    => '    listen 4444;',
   match   => '^\w*listen 80;',
+  replace => true,
+  notify  => Service['nginx']
+}
+-> file_line { 'Change default ipv6 port':
+  path    => '/etc/nginx/sites-enabled/default',
+  line    => '    listen [::]:4444;',
+  match   => '^\w*listen [::]:80;',
   replace => true,
   notify  => Service['nginx']
 }
