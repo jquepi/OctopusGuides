@@ -11,7 +11,6 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
       | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
       | Execute shell                                | //a[contains(.,'Execute shell')]                       |
       | Command                                      | //div[@class='CodeMirror']                             |
-      | Execute shell                                | //a[contains(.,'Execute shell')]                       |
       | Save                                         | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
