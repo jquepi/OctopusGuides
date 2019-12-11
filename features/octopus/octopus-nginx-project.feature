@@ -249,6 +249,7 @@ if (elements.length !== 0) {
     And I highlight outside the "Port" text box
     And I highlight outside the "OK" button with an offset of "2"
     And I clear the "Port" text box
+    And I force clear the "Port" text box
     And I populate the "Port" text box with "#{Nginx Port}"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-step-binding-port.png"
