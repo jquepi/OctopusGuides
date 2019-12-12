@@ -11,10 +11,10 @@ Feature: Create and deploy a release from Jenkins
     And I set the default explicit wait time to "30" seconds
     And I fullscreen the window
     When I open the URL "http://localhost:8080"
-    And I populate the "Username" text box with the text "jenkinsadmin"
+    And I populate the "Username" text box with the text "admin"
     And I populate the "Password" text box with the text "Password01!"
     And I click the "Sign In" button
-    Then I verify the text from the "Profile Name" element matches the regex "jenkinsadmin"
+    Then I verify the text from the "Profile Name" element matches the regex "admin"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     
   Scenario: Modify the existing project

@@ -12,8 +12,8 @@ Feature: Jenkins login
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box
     And I verify the "Username" text box is present waiting up to "900" seconds if it exists
     And I refresh the page
-    And I populate the "Username" text box with the text "jenkinsadmin"
+    And I populate the "Username" text box with the text "admin"
     And I populate the "Password" text box with the text "Password01!"
     And I click the "Sign In" button
-    Then I verify the text from the "Profile Name" element matches the regex "jenkinsadmin" waiting up to "120" seconds
+    Then I verify the text from the "Profile Name" element matches the regex "admin" waiting up to "120" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"

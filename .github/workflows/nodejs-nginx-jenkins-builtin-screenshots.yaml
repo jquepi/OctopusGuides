@@ -1,6 +1,6 @@
 name: Node.js Jenkins nginx built in feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 27 * *'
