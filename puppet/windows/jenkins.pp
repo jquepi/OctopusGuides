@@ -1,32 +1,6 @@
 file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   ensure => 'directory',
 }
--> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/a.security.groovy':
-  ensure  => 'file',
-  owner   => 'Administrators',
-  group   => 'Administrators',
-  mode    => '0644',
-  content => @(EOT)
-    #!groovy
-    import java.util.logging.Level
-    import java.util.logging.Logger
-    import hudson.security.*
-    import jenkins.model.*
-
-    def instance = Jenkins.getInstance()
-    def logger = Logger.getLogger(Jenkins.class.getName())
-    def hudsonRealm = new HudsonPrivateSecurityRealm(false)
-    hudsonRealm.getAllUsers().findAll {it.toString() == "admin"}.each {it.delete()}
-    hudsonRealm.createAccount("admin", "Password01!")
-    def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
-    strategy.setAllowAnonymousRead(false)
-    instance.setSecurityRealm(hudsonRealm)
-    instance.setAuthorizationStrategy(strategy)
-    instance.save()
-
-
-    | EOT
-}
 -> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/b.plugins.groovy':
   ensure  => 'file',
   owner   => 'Administrators',
@@ -105,6 +79,24 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   line    => '  <installStateName>RUNNING</installStateName>',
   match   => '^\s*<installStateName>NEW</installStateName>',
   replace => true,
+}
+-> file_line { 'jenkins args':
+  path    => 'C:/Program Files (x86)/Jenkins/jenkins.xml',
+  line    => '  <arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=8080 --webroot="%BASE%\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>',
+  match   => '^\s*<arguments>.+?</arguments>',
+  replace => true
+}
+-> file_line { 'Use container security':
+  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
+  line    => '  <authorizationStrategy class="hudson.security.LegacyAuthorizationStrategy"/>',
+  match   => '^\s*<authorizationStrategy.*?/>',
+  replace => true
+}
+-> file_line { 'Legacy realm':
+  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
+  line    => '  <securityRealm class="hudson.security.LegacySecurityRealm"/>',
+  match   => '^\s*<securityRealm.*?/>',
+  replace => true
 }
 -> exec { 'Restart Jenkins':
   command   => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
