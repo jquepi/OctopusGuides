@@ -103,16 +103,20 @@ Feature: Configure Bamboo
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}180-description.png"
 
     And I highlight the "Package ID" text box
-    And I populate the "Package ID" text box with "ArtifactPath"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}190-version.png"
+    And I populate the "Package ID" text box with "RandomQuotes"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}190-packageid.png"
+
+    And I highlight the "Version number" text box
+    And I populate the "Version number" text box with "1.0.${bamboo.buildNumber}"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}200-version.png"
 
     And I highlight the "Nuget" radio button
     And I click the "Nuget" radio button
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}200-nuget.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}210-nuget.png"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}210-octo-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-octo-pack.png"
     And I click the "Save" button
 
   @repositoryspecific @octo-built-in-feed
