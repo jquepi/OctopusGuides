@@ -30,7 +30,7 @@ jobs:
       DISABLE_VIDEO: true
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-JS.git
-      SCREENSHOT_PATH: /node-app/nginx/dockerhub/git/
+      SCREENSHOT_PATH: /node-app/nginx/builtin/git/
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[4]"
     steps:
       - uses: actions/checkout@v1
