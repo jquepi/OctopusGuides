@@ -12,6 +12,8 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
       | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
       | Execute shell                                | //a[contains(.,'Execute shell')]                       |
       | Command                                      | //div[@class='CodeMirror']                             |
+      | Command Two                                     | (//div[@class='CodeMirror'])[2]                             |
+      | Command Three                                     | (//div[@class='CodeMirror'])[3]                             |
       | Save                                         | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
@@ -44,8 +46,8 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute shell" option
 
-    And I scroll the "Command" text box into view offset by "-200"
-    And I highlight outside the "Command" text box
+    And I scroll the "Command Two" text box into view offset by "-200"
+    And I highlight outside the "Command Two" text box
     And I run the following JavaScript:
       """
       var textarea = document.evaluate("(//div[@class='CodeMirror'])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -54,7 +56,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
       editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}270-octo-pack.png"
-    And I remove the highlight from the "Command" text box
+    And I remove the highlight from the "Command Two" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -65,8 +67,9 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute shell" option
 
-    And I scroll the "Command" text box into view offset by "-200"
-    And I highlight outside the "Command" text box
+    And I scroll the "Command Three" text box into view offset by "-200"
+    And I highlight outside the "Command Three" text box
+    And I highlight outside the "Save" button
     And I run the following JavaScript:
       """
       var textarea = document.evaluate("(//div[@class='CodeMirror'])[3]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -75,7 +78,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
       editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}290-octo-push.png"
-    And I remove the highlight from the "Command" text box
+    And I remove the highlight from the "Command Three" text box
 
     And I click the "Save" button
     And I stop recording the screen
