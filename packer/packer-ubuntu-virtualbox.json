@@ -69,12 +69,12 @@
     {
       "type": "file",
       "source": "../puppet",
-      "destination": "/tmp/octopus"
+      "destination": "/tmp/octopus/"
     },
     {
       "type": "file",
       "source": "../scripts",
-      "destination": "/tmp/octopus"
+      "destination": "/tmp/octopus/"
     },
     {
       "type": "file",
