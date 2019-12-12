@@ -57,9 +57,14 @@
   "provisioners": [
     {
       "type": "shell",
+      "execute_command": "echo 'vagrant' | sudo -S env {{ .Vars }} {{ .Path }}",
       "scripts": [
         "./xfce.sh"
-      ],
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": ["mkdir /tmp/octopus"]
     },
     {
       "type": "file",
@@ -78,7 +83,8 @@
     },
     {
       "type": "shell",
-      "inline": ["cd /tmp/octopus; ./install.sh utilities.pp jenkins.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp"]
+      "execute_command": "echo 'vagrant' | sudo -S env {{ .Vars }} {{ .Path }}",
+      "inline": ["/tmp/octopus/install.sh utilities.pp jenkins.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp"]
     }
   ],
   "variables": {

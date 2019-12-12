@@ -17,4 +17,6 @@ if ! grep '\[Seat:\*]' /etc/lightdm/lightdm.conf 2>/dev/null; then
 	[Seat:*]
 	greeter-session=lightdm-gtk-greeter
 EOF
+
+systemctl set-default graphical.target
 fi

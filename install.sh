@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
 wget https://apt.puppetlabs.com/puppet6-release-bionic.deb
 sudo dpkg -i puppet6-release-bionic.deb
 sudo apt-get update
@@ -14,7 +16,7 @@ do
     for i in {1..2}
     do
       # sudo -E is required to get the FACTER_ environment variables
-      sudo -E /opt/puppetlabs/bin/puppet apply puppet/linux/$var --detailed-exitcodes
+      sudo -E /opt/puppetlabs/bin/puppet apply $DIR/puppet/linux/$var --detailed-exitcodes
       if [[ $? -eq 0 ]] || [[ $? -eq 2 ]]
       then
         break
