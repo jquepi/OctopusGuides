@@ -1,12 +1,12 @@
-name: Node.js Jenkins nginx built in feed Video
+name: Node.js Jenkins nginx built in feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 27 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-nodejs-nginx-video')
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-nodejs-nginx-screenshots')
     runs-on: ubuntu-latest
     env:
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
@@ -24,14 +24,12 @@ jobs:
       MOUSE_VERTICAL_OFFSET: 74
       MOUSE_VERTICAL_OFFSET_CHROME: 125
       CUCUMBER_TAGS: "(not @browserspecific or @chrome) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @nodejs) and (not @sourcespecific or @git)"
-      DISABLE_HIGHLIGHTS: true
-      DISABLE_SCREENSHOTS: true
-      MOVE_TO_MOUSE_CURSOR: true
-      DISABLE_VIDEO: false
+      DISABLE_HIGHLIGHTS: false
+      DISABLE_SCREENSHOTS: false
+      MOVE_TO_MOUSE_CURSOR: false
+      DISABLE_VIDEO: true
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-JS.git
-      WISTIA_MEDIA_ID: bxdr2ewigb
-      VIDEO_FILE_NAME: jenkins-nodejs-nginx-dockerhub.mp4
       SCREENSHOT_PATH: /node-app/nginx/dockerhub/git/
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[4]"
     steps:
@@ -91,11 +89,5 @@ jobs:
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
 #
-      - name: Process videos
-        run: ./scripts/linux/convert-video.sh
-
-      - name: Upload videos
-        run: ./scripts/linux/upload-video.sh
-
-      - name: Replace Wistia video
-        run: ./scripts/linux/replace-wistia-video.sh
+      - name: Upload screenshots
+        run: ./scripts/linux/upload-screenshots.sh
