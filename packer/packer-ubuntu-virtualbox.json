@@ -56,6 +56,12 @@
   }],
   "provisioners": [
     {
+      "type": "shell",
+      "scripts": [
+        "./xfce.sh"
+      ],
+    },
+    {
       "type": "file",
       "source": "../puppet",
       "destination": "/tmp/octopus"

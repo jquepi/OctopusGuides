@@ -4,3 +4,4 @@
 \#{ExternalMediaPath}/*
 report/*
 packer/packer_cache/*
+packer/output*/*
