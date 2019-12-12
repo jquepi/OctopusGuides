@@ -16,13 +16,8 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
     def instance = Jenkins.getInstance()
     def logger = Logger.getLogger(Jenkins.class.getName())
     def hudsonRealm = new HudsonPrivateSecurityRealm(false)
-    def users = hudsonRealm.getAllUsers().collect { it.toString() }
-
-    if (! "admin" in users) {
-      hudsonRealm.createAccount("admin", "Password01!")
-    }
-
-    logger.log(Level.INFO, "Resetting the password on the user 'admin'.")
+    hudsonRealm.getAllUsers().findAll {it.toString() == "admin"}.each {it.delete()}
+    hudsonRealm.createAccount("admin", "Password01!")
     def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
     strategy.setAllowAnonymousRead(false)
     instance.setSecurityRealm(hudsonRealm)
