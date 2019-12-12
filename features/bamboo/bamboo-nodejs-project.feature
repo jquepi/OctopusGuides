@@ -119,6 +119,15 @@ Feature: Configure Bamboo
   Scenario: Add Octopus Push
     And I run the feature "shared/bamboo-push-to-octo.feature" passing the original arguments
 
+  Scenario: Create
+    Given I set the following aliases:
+      | Create | //button[@id='createPlan'] |
+
+    And I highlight outside the "Create" button
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-create-project.png"
+    And I click the "Create" button
+    And I sleep for "5" seconds
+
   Scenario: Create plan
     And I run the feature "shared/bamboo-create-plan.feature"
 
