@@ -79,9 +79,7 @@ Feature: Configure an Octopus Kubernetes project
     And I click the "Save" button
     And I scroll down "10000" px
     And I sleep for "7" second
-    And I zoom the browser out
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}030-octopus-variables-populated.png"
-    And I zoom the browser in
 
   @define-project
   Scenario: Open the deployments view
@@ -93,7 +91,6 @@ Feature: Configure an Octopus Kubernetes project
     And I click the "Deployments" link
     And I highlight inside the "Overview" link
     And I click the "Overview" link
-    And I remove the highlight from the "Deployments" link
 
   @define-project @destinationspecific @nginx
   Scenario: Add K8S Containers Step
@@ -107,6 +104,8 @@ Feature: Configure an Octopus Kubernetes project
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}040-octopus-define-process.png"
+    And I remove the highlight from the "Deployments" link
+    And I remove the highlight from the "Overview" link
 
     And I click the "Define your deployment process" button
     And I sleep for "1" second
