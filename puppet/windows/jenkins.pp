@@ -18,17 +18,17 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
     def hudsonRealm = new HudsonPrivateSecurityRealm(false)
     def users = hudsonRealm.getAllUsers().collect { it.toString() }
 
-    if ("jenkinsadmin" in users) {
-      logger.log(Level.INFO, "User 'admin' already exists.")
-    } else {
-      logger.log(Level.INFO, "Creating local admin user 'admin'.")
+    if (! "admin" in users) {
       hudsonRealm.createAccount("admin", "Password01!")
-      def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
-      strategy.setAllowAnonymousRead(false)
-      instance.setSecurityRealm(hudsonRealm)
-      instance.setAuthorizationStrategy(strategy)
-      instance.save()
     }
+
+    logger.log(Level.INFO, "Resetting the password on the user 'admin'.")
+    def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
+    strategy.setAllowAnonymousRead(false)
+    instance.setSecurityRealm(hudsonRealm)
+    instance.setAuthorizationStrategy(strategy)
+    instance.save()
+
 
     | EOT
 }
