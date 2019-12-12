@@ -101,7 +101,7 @@ Feature: Configure an Octopus Kubernetes project
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                      |
       | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                           |
-      | Deploy Kubernetes containers   | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]                            |
+      | Deploy to Nginx                | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]//button[contains(.,'Add')] |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
@@ -113,20 +113,20 @@ Feature: Configure an Octopus Kubernetes project
 
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}050-octopus-k8s-add-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}050-octopus-add-step.png"
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
     And I populate the "Search" text box with "Nginx"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-k8s-search.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-search.png"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
-    And I scroll the "Deploy Kubernetes containers" tile into view offset by "-200"
-    And I highlight outside the "Deploy Kubernetes containers" tile
-    And I mouse over the "Deploy Kubernetes containers" tile
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-k8s-add-containers.png"
+    And I scroll the "Deploy to Nginx" tile into view offset by "-200"
+    And I highlight outside the "Deploy to Nginx" tile
+    And I mouse over the "Deploy to Nginx" tile
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-add-containers.png"
     And I click the "Add" button
 
   @define-project @destinationspecific @nginx
@@ -257,7 +257,7 @@ if (elements.length !== 0) {
 
     And I highlight outside the "Add location" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-step-add-binding.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-step-add-location.png"
     And I force click the "Add location" button
     And I remove the highlight from the "Add location" button
 
@@ -269,9 +269,11 @@ if (elements.length !== 0) {
     And I highlight outside the "Proxy URL" text box with an offset of "2"
     And I populate the "Proxy URL" text box with "http://localhost:#{Nodejs Port}"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-step-binding-port.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-step-location-port.png"
     And I click the "OK" button
 
+    And I highlight outside the "Save" button
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-save.png"
     And I click the "Save" button
     And I sleep for "2" seconds
 
