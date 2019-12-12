@@ -22,6 +22,8 @@ Feature: Configure Bamboo
       | Package ID                   | //input[@id='packId']                                                              |
       | Version number               | //input[@id='packVersion']                                                         |
       | Nuget                        | //input[@id='packFormatnuget']                                                     |
+      | Base folder                  | //input[@id='packBasePath']                                                        |
+      | Output folder                | //input[@id='packOutFolder']                                                       |
       | Save                         | //input[@id='createTask_save']                                                     |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
@@ -114,9 +116,17 @@ Feature: Configure Bamboo
     And I click the "Nuget" radio button
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}210-nuget.png"
 
+    And I highlight the "Base folder" text box
+    And I populate the "Base folder" text box with "${bamboo.build.working.directory}"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}220-base-folder.png"
+
+    And I highlight the "Output folder" text box
+    And I populate the "Output folder" text box with "${bamboo.build.working.directory}"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}230-base-folder.png"
+
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-octo-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}240-octo-pack.png"
     And I click the "Save" button
 
   @repositoryspecific @octo-built-in-feed
