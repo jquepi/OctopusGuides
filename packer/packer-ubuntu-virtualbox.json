@@ -1,0 +1,64 @@
+{
+  "builders": [{
+    "type": "virtualbox-iso",
+    "guest_os_type": "Ubuntu_64",
+    "iso_url": "http://releases.ubuntu.com/18.04.3/ubuntu-18.04.3-desktop-amd64.iso",
+    "iso_checksum": "add4614b6fe3bb8e7dddcaab0ea97c476fbd4ffe288f2a4912cb06f1a47dcfa0",
+    "iso_checksum_type": "sha256",
+    "output_directory": "ubuntu-jenkins-k8s-aspnetcore",
+    "vm_name": "ubuntu-jenkins-k8s-aspnetcore",
+    "disk_size": 60000,
+    "headless": "false",
+    "http_directory": "http",
+    "boot_wait": "5s",
+    "boot_command": [
+      "<enter><wait>",
+      "<f6><esc>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+      "<bs><bs><bs>",
+      "/install/vmlinuz ",
+      "initrd=/install/initrd.gz ",
+      "net.ifnames=0 ",
+      "auto-install/enable=true ",
+      "debconf/priority=critical ",
+      "preseed/url=http://{{.HTTPIP}}:{{.HTTPPort}}/preseed.cfg",
+      "<enter>"
+    ],
+    "ssh_timeout": "60m",
+    "ssh_username": "ubuntu",
+    "ssh_password": "ubuntu",
+    "shutdown_command": "sudo systemctl poweroff",
+    "vboxmanage": [
+      ["modifyvm", "{{.Name}}", "--memory", 512],
+      ["modifyvm", "{{.Name}}", "--cpus", 1]
+    ]
+  }],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "../puppet",
+      "destination": "/app"
+    },
+    {
+      "type": "file",
+      "source": "../scripts",
+      "destination": "/app"
+    },
+    {
+      "type": "file",
+      "source": "../install.sh",
+      "destination": "/app"
+    },
+    {
+      "type": "shell",
+      "inline": ["cd /app; ./install.sh utilities.pp jenkins.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp"]
+    }
+  ]
+}
