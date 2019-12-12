@@ -1,10 +1,10 @@
 Feature: Configure Bamboo
 
   Scenario: Configure Bamboo
-    Given I run the feature "shared/bamboo-login.feature"
-    And I run the feature "shared/bamboo-add-plugin.feature"
-    And I run the feature "shared/bamboo-configure-octopus.feature"
-    And I run the feature "shared/bamboo-add-project.feature"
+    Given I run the feature "shared/bamboo-login.feature" passing the original arguments
+    And I run the feature "shared/bamboo-add-plugin.feature" passing the original arguments
+    And I run the feature "shared/bamboo-configure-octopus.feature" passing the original arguments
+    And I run the feature "shared/bamboo-add-project.feature" passing the original arguments
 
   @applicationspecific @nodejs
   Scenario: Node.js Add tasks
@@ -117,7 +117,7 @@ Feature: Configure Bamboo
 
   @repositoryspecific @octo-built-in-feed
   Scenario: Add Octopus Push
-    And I run the feature "shared/bamboo-push-to-octo.feature"
+    And I run the feature "shared/bamboo-push-to-octo.feature" passing the original arguments
 
   Scenario: Create plan
     And I run the feature "shared/bamboo-create-plan.feature"

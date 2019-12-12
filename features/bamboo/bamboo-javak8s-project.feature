@@ -2,12 +2,12 @@ Feature: Configure Bamboo
 
   Scenario: Configure Bamboo
     Given I run the feature "shared/bamboo-login.feature" passing the original arguments
-    And I run the feature "shared/bamboo-add-plugin.feature"
-    And I run the feature "shared/bamboo-configure-jdk.feature"
-    And I run the feature "shared/bamboo-configure-docker.feature"
-    And I run the feature "shared/bamboo-configure-octopus.feature"
-    And I run the feature "shared/bamboo-configure-maven.feature"
-    And I run the feature "shared/bamboo-add-project.feature"
+    And I run the feature "shared/bamboo-add-plugin.feature" passing the original arguments
+    And I run the feature "shared/bamboo-configure-jdk.feature" passing the original arguments
+    And I run the feature "shared/bamboo-configure-docker.feature" passing the original arguments
+    And I run the feature "shared/bamboo-configure-octopus.feature" passing the original arguments
+    And I run the feature "shared/bamboo-configure-maven.feature" passing the original arguments
+    And I run the feature "shared/bamboo-add-project.feature" passing the original arguments
 
   @applicationspecific @java
   Scenario: Java Add tasks
