@@ -3,3 +3,4 @@
 **/*.nupkg
 \#{ExternalMediaPath}/*
 report/*
+packer/packer_cache/*
