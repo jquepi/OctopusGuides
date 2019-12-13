@@ -36,6 +36,10 @@ jobs:
       shell: powershell
       run: ./scripts/windows/set-lowresolution.ps1
 
+    - name: Free some space
+      shell: powershell
+      run: ./scripts/windows/free-space.ps1
+
     - name: Disable Windows Defender
       shell: powershell
       run: reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection' /v DisableRealtimeMonitoring /t REG_DWORD /d 1
