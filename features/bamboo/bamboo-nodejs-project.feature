@@ -96,7 +96,7 @@ Feature: Configure Bamboo
 
     And I highlight the "Search" box
     And I populate the "Search" box with "Octopus"
-    And I highlight inside the "Octopus Deploy: Create Release Tile" element
+    And I highlight inside the "Octopus Deploy: Pack Package" element
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}170-search.png"
     And I click the "Octopus Deploy: Pack Package" element
 
