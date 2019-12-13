@@ -27,10 +27,10 @@ Feature: Configure an Octopus Tomcat project
   @create-project
   Scenario: Create Project
     Given I set the following aliases:
-      | Projects         | //span[contains(.,'Projects')]           |
-      | Add project      | (//div[contains(.,'Add Project')])[11]   |
-      | New project name | //input[contains(@id, 'Newprojectname')] |
-      | Save             | (//div[contains(.,'Save')])[9]           |
+      | Projects         | //span[contains(.,'Projects')]               |
+      | Add project      | //div[./div/span[contains(.,'Add Project')]] |
+      | New project name | //input[contains(@id, 'Newprojectname')]     |
+      | Save             | (//div[contains(.,'Save')])[9]               |
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Creating the Tomcat deployment project in Octopus" for "3" seconds
