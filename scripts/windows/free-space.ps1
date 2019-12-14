@@ -2,8 +2,14 @@
 cd C:\Windows
 compact /c /s /i
 
-cd C:\Octopus
-compact /c /s /i
+if ( Test-Path -Path 'C:\Octopus' -PathType Container )
+{
+    cd C:\Octopus
+    compact /c /s /i
+}
 
-cd "C:\Program Files\Azure DevOps Server 2019"
-compact /c /s /i
+if ( Test-Path -Path "C:\Program Files\Azure DevOps Server 2019" -PathType Container )
+{
+    cd "C:\Program Files\Azure DevOps Server 2019"
+    compact /c /s /i
+}
