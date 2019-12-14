@@ -2,7 +2,7 @@
 
 $ErrorActionPreference = "SilentlyContinue"
 
-cd C:\Windows
+cd "C:\Program Files"
 compact /c /s /i
 
 if ( Test-Path -Path 'C:\Octopus' -PathType Container )
