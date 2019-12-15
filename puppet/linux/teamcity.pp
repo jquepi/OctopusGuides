@@ -17,6 +17,10 @@ file { '/root/.BuildServer/plugins/Octopus.TeamCity.zip':
   cleanup         => true,
   extract_command => 'tar xfz %s'
 }
+-> download_file { 'Octopus.TeamCity.zip':
+  destination_directory => 'C:/ProgramData/JetBrains/TeamCity/plugins',
+  url                   => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
+}
 -> file { '/opt/start_teamcity.sh':
   ensure  => 'file',
   owner   => 'root',

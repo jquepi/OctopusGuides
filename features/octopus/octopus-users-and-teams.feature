@@ -228,7 +228,9 @@ Feature: Create Octopus Users and Teams
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/095-octopus-add-internal-user.png"
     And I click the "Add" button
 
-    And I click the "User roles" tab
+    # Force click to fix:
+    # element click intercepted: Element <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit jss178" tabindex="0" type="button" role="tab" aria-selected="false">...</button> is not clickable at point (624, 303). Other element would receive the click: <div class="MuiDialog-container MuiDialog-scrollPaper" role="document" tabindex="-1" style="opacity: 0; transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">...</div>
+    And I force click the "User roles" tab
     And I highlight the "Include User Role" button
     And I highlight inside the "User roles" tab
     And I sleep for "1" second
@@ -355,7 +357,9 @@ Feature: Create Octopus Users and Teams
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/150-octopus-add-internal-user.png"
     And I click the "Add" button
 
-    And I click the "User roles" tab
+    # Force click to fix:
+    # element click intercepted: Element <button class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit jss178" tabindex="0" type="button" role="tab" aria-selected="false">...</button> is not clickable at point (624, 303). Other element would receive the click: <div class="MuiDialog-container MuiDialog-scrollPaper" role="document" tabindex="-1" style="opacity: 0; transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">...</div>
+    And I force click the "User roles" tab
     And I highlight the "Include User Role" button
     And I highlight inside the "User roles" tab
     And I sleep for "1" second
