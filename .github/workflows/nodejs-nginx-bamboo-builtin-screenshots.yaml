@@ -1,6 +1,6 @@
 name: Node.js Bamboo Nginx BuiltIn Feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 26 * *'

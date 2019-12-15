@@ -61,10 +61,12 @@ Feature: Create Docker project
 
     And I highlight outside the "Script content" text area
     And I scroll the "Script content" text area into view offset by "-200"
-    And I populate the "Script content" text area with:
+    And I run the following JavaScript:
       """
-      npm install
-      npm test
+      var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var editor = textarea.CodeMirror
+      editor.setValue("npm install\nnpm test");
+      editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}045-npm-install.png"
 

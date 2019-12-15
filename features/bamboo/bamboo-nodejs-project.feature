@@ -90,39 +90,39 @@ Feature: Configure Bamboo
 
     And I highlight the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}160-add-task.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-add-task.png"
     And I click the "Add task" button
     And I remove the highlight from the "Add task" button
 
     And I highlight the "Search" box
     And I populate the "Search" box with "Octopus"
     And I highlight inside the "Octopus Deploy: Pack Package" element
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}170-search.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}170-search.png"
     And I click the "Octopus Deploy: Pack Package" element
 
     And I highlight the "Task description" text box
     And I populate the "Task description" text box with "Create package"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}180-description.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}180-description.png"
 
     And I highlight the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}190-packageid.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}190-packageid.png"
 
     And I highlight the "Version number" text box
     And I populate the "Version number" text box with "1.0.${bamboo.buildNumber}"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}200-version.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}200-version.png"
 
     And I highlight the "Nuget" radio button
     And I click the "Nuget" radio button
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}210-nuget.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}210-nuget.png"
 
     And I highlight the "Base folder" text box
     And I populate the "Base folder" text box with "${bamboo.build.working.directory}"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}220-base-folder.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-base-folder.png"
 
     And I highlight the "Output folder" text box
     And I populate the "Output folder" text box with "${bamboo.build.working.directory}"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}230-base-folder.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}230-base-folder.png"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
