@@ -1,15 +1,15 @@
-name: Node.js Bamboo Nginx BuiltIn Feed Screenshots
+name: NodeJS TeamCity Nginx Builtin feed Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 26 * *'
+    - cron:  '0 0 24 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'bamboo-nodejs-nginx-video')
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-nodejs-nginx-video')
     runs-on: ubuntu-latest
     env:
-      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -24,18 +24,21 @@ jobs:
       MOUSE_VERTICAL_OFFSET: 74
       MOUSE_VERTICAL_OFFSET_CHROME: 125
       CUCUMBER_TAGS: "(not @browserspecific or @chrome) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @nodejs) and (not @sourcespecific or @git)"
-      DISABLE_HIGHLIGHTS: false
-      DISABLE_SCREENSHOTS: false
-      MOVE_TO_MOUSE_CURSOR: false
-      DISABLE_VIDEO: true
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      MOVE_TO_MOUSE_CURSOR: true
+      DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-JS.git
+      WISTIA_MEDIA_ID:
+      VIDEO_FILE_NAME: teamcity-nodejs-nginx-builtin.mp4
       SCREENSHOT_PATH: /node-app/nginx/builtin/git/
+      DOCKER_IMAGE: octopusdeploy/randomquotesjs
     steps:
       - uses: actions/checkout@v1
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp nginx.pp bamboo.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp bamboofinalize.pp
+        run: ./install.sh utilities.pp nginx.pp teamcity.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -46,8 +49,11 @@ jobs:
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
 
-      - name: Create Bamboo project
-        run: ./scripts/linux/create-nodejsnginx-bambooproject.sh
+      - name: Setup TeamCity
+        run: ./scripts/linux/setup-teamcity.sh
+
+      - name: Create Team City project
+        run: ./scripts/linux/create-nodejsnginx-teamcityproject.sh
 
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
@@ -62,7 +68,7 @@ jobs:
         run: ./scripts/linux/open-devnginxapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-bamboocreaterelease.sh
+        run: ./scripts/linux/create-teamcitycreaterelease.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh
@@ -87,6 +93,12 @@ jobs:
 
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
-#
-      - name: Upload screenshots
-        run: ./scripts/linux/upload-screenshots.sh
+
+      - name: Process videos
+        run: ./scripts/linux/convert-video.sh
+
+      - name: Upload videos
+        run: ./scripts/linux/upload-video.sh
+
+      - name: Replace Wistia video
+        run: ./scripts/linux/replace-wistia-video.sh
