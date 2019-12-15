@@ -1,15 +1,15 @@
-name: Node.js Jenkins nginx built in feed Screenshots
+name: NodeJS TeamCity Nginx Builtin feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 27 * *'
+    - cron:  '0 0 20 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-nodejs-nginx-screenshots')
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-nodejs-nginx-screenshots')
     runs-on: ubuntu-latest
     env:
-      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_2 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -31,12 +31,12 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-JS.git
       SCREENSHOT_PATH: /node-app/nginx/builtin/git/
-      CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[4]"
+      DOCKER_IMAGE: octopusdeploy/randomquotesjs
     steps:
       - uses: actions/checkout@v1
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp nginx.pp jenkins.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp
+        run: ./install.sh utilities.pp nginx.pp teamcity.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -47,8 +47,11 @@ jobs:
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
 
-      - name: Create Jenkins project
-        run: ./scripts/linux/create-nodejsnginx-jenkinsproject.sh
+      - name: Setup TeamCity
+        run: ./scripts/linux/setup-teamcity.sh
+
+      - name: Create Team City project
+        run: ./scripts/linux/create-nodejsnginx-teamcityproject.sh
 
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
@@ -63,7 +66,7 @@ jobs:
         run: ./scripts/linux/open-devnginxapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-jenkinscreaterelease.sh
+        run: ./scripts/linux/create-teamcitycreaterelease.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh

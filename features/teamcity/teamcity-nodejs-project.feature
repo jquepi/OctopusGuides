@@ -68,17 +68,17 @@ Feature: Create Docker project
       editor.setValue("npm install\nnpm test");
       editor.save();
       """
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}045-npm-install.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-npm-install.png"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-npm-install.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}060-npm-install.png"
     And I click the "Save" button
 
     And I click the "Got it" button waiting up to "5" seconds if it exists
 
     And I highlight outside the "Add build step" button
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}080-add-build-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-add-build-step.png"
     And I click the "Add build step" button
 
     And I click the "Runner type" drop down list
@@ -103,7 +103,7 @@ Feature: Create Docker project
     And I highlight outside the "Output path" text box
     And I populate the "Output path" text box with "."
 
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}085-octo-pack.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}080-octo-pack.png"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
