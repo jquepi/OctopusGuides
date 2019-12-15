@@ -17,7 +17,11 @@ Feature: Create Docker project
       | Command Line          | //li[@data-title='Command Line']                       |
       | Step name             | //input[@id='buildStepName']                           |
       | Script content        | //textarea[@id='script.content']                       |
-      | Test option           | //li[@data-title='test']                               |
+      | OctopusDeploy: Pack   | //li[@data-title='OctopusDeploy: Pack']                |
+      | Package ID            | //input[@id='octopus_packageid']                       |
+      | Package Version       | //input[@id='octopus_packageversion']                  |
+      | Source path           | //input[@id='octopus_packagesourcepath']               |
+      | Output path           | //input[@id='octopus_packageoutputpath']               |
       | Save                  | (//input[@value='Save'])[1]                            |
       | Got it                | //button[contains(.,'Got it')]                         |
 
