@@ -6,24 +6,20 @@ Feature: Create Docker project
   @create-project @applicationspecific @nodejs
   Scenario: Create Project
     Given I set the following aliases:
-      | Create project        | //a[contains(.,'Create project')]                        |
-      | Repository URL        | //input[@id='url']                                       |
-      | Proceed               | //input[@name='createProjectFromUrl']                    |
-      | Project name          | //input[@id='projectName']                               |
-      | Proceed Two           | //input[@name='createProject']                           |
-      | Configure manually    | //a[text()='configure build steps manually']             |
-      | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']           |
-      | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']]   |
-      | Command Line          | //li[@data-title='Command Line']                         |
-      | Docker                | //li[@data-title='Docker']                               |
-      | Step name             | //input[@id='buildStepName']                             |
-      | Script content        | //textarea[@id='script.content']                            |
-      | Test option           | //li[@data-title='test']                                 |
-      | Path to file          | //input[@id='path']                                      |
-      | Image name:tag        | //textarea[@id='docker.image.namesAndTags']              |
-      | Push                  | //input[@name='prop:docker.command.type'][@value='push'] |
-      | Save                  | (//input[@value='Save'])[1]                              |
-      | Got it                | //button[contains(.,'Got it')]                           |
+      | Create project        | //a[contains(.,'Create project')]                      |
+      | Repository URL        | //input[@id='url']                                     |
+      | Proceed               | //input[@name='createProjectFromUrl']                  |
+      | Project name          | //input[@id='projectName']                             |
+      | Proceed Two           | //input[@name='createProject']                         |
+      | Configure manually    | //a[text()='configure build steps manually']           |
+      | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
+      | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']] |
+      | Command Line          | //li[@data-title='Command Line']                       |
+      | Step name             | //input[@id='buildStepName']                           |
+      | Script content        | //textarea[@id='script.content']                       |
+      | Test option           | //li[@data-title='test']                               |
+      | Save                  | (//input[@value='Save'])[1]                            |
+      | Got it                | //button[contains(.,'Got it')]                         |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
@@ -61,10 +57,12 @@ Feature: Create Docker project
 
     And I highlight outside the "Script content" text area
     And I scroll the "Script content" text area into view offset by "-200"
-    And I populate the "Script content" text area with:
+    And I run the following JavaScript:
       """
-      npm install
-      npm test
+      var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var editor = textarea.CodeMirror
+      editor.setValue("npm install\nnpm test");
+      editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}045-npm-install.png"
 
