@@ -37,7 +37,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Task description" text box
     And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "NPM Install"
+    And I populate the "Task description" text box with "npm Install"
 
     And I highlight outside the "Add new executable" link
     And I click the "Add new executable" link
@@ -72,7 +72,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Task description" text box
     And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "NPM Test"
+    And I populate the "Task description" text box with "npm Test"
 
     And I highlight outside the "Command" text box
     And I scroll the "Command" text box into view offset by "-300"
