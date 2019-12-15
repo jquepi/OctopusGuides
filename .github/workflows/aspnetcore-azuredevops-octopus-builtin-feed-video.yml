@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Octopus Built-in Feed Video
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 13 * *'
@@ -40,9 +40,17 @@ jobs:
         shell: powershell
         run: reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection' /v DisableRealtimeMonitoring /t REG_DWORD /d 1
 
+      - name: Free some space
+        shell: powershell
+        run: ./scripts/windows/free-space.ps1
+
       - name: Execute puppet
         shell: powershell
         run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp
+
+      - name: Free some space
+        shell: powershell
+        run: ./scripts/windows/free-space.ps1
 
       - name: Create API key
         shell: powershell

@@ -1,11 +1,12 @@
 Feature: Create Project
+
   @create-project
   Scenario: Create Project
     Given I set the following aliases:
-      | Projects         | //span[contains(.,'Projects')]           |
-      | Add project      | (//div[contains(.,'Add Project')])[11]   |
-      | New project name | //input[contains(@id, 'Newprojectname')] |
-      | Save             | (//div[contains(.,'Save')])[9]           |
+      | Projects         | //span[contains(.,'Projects')]               |
+      | Add project      | //div[./div/span[contains(.,'Add Project')]] |
+      | New project name | //input[contains(@id, 'Newprojectname')]     |
+      | Save             | (//div[contains(.,'Save')])[9]               |
 
     And I highlight outside the "Projects" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}005-octopus-projects.png"

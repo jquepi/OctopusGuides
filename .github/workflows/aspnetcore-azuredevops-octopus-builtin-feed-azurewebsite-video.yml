@@ -43,10 +43,6 @@ jobs:
         shell: powershell
         run: ./scripts/windows/set-lowresolution.ps1
 
-      - name: Free some space
-        shell: powershell
-        run: ./scripts/windows/free-space.ps1
-
       - name: Disable Windows Defender
         shell: powershell
         run: reg add 'HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection' /v DisableRealtimeMonitoring /t REG_DWORD /d 1
@@ -62,9 +58,17 @@ jobs:
           ./create-azure-web-app "$env:TEST_RES_GROUP"
           ./create-azure-web-app "$env:PROD_RES_GROUP"
 
+      - name: Free some space
+        shell: powershell
+        run: ./scripts/windows/free-space.ps1
+
       - name: Execute puppet
         shell: powershell
         run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp
+
+      - name: Free some space
+        shell: powershell
+        run: ./scripts/windows/free-space.ps1
 
       - name: Create API key
         shell: powershell
