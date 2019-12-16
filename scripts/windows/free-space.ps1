@@ -3,6 +3,11 @@
 
 $ErrorActionPreference = "SilentlyContinue"
 
+# Prepare the install directory to already to compressed
+mkdir C:/install
+cd C:\Windows
+compact /c /s /i
+
 # This gives us enough space to complete the install
 cd C:\Windows
 compact /c /s /i
