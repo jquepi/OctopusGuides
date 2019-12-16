@@ -3,24 +3,19 @@
 
 $ErrorActionPreference = "SilentlyContinue"
 
-# Prepare the install directory to already to compressed
+# Prepare some installation directories to already be compressed
 mkdir C:/install
-cd C:\Windows
+cd C:\install
+compact /c /s /i
+
+mkdir C:/Octopus
+cd C:\Octopus
+compact /c /s /i
+
+mkdir "C:\Program Files\Azure DevOps Server 2019"
+cd "C:\Program Files\Azure DevOps Server 2019"
 compact /c /s /i
 
 # This gives us enough space to complete the install
 cd C:\Windows
 compact /c /s /i
-
-# This gives us enough space to perform the deployments
-if ( Test-Path -Path 'C:\Octopus' -PathType Container )
-{
-    cd C:\Octopus
-    compact /c /s /i
-}
-
-if ( Test-Path -Path "C:\Program Files\Azure DevOps Server 2019" -PathType Container )
-{
-    cd "C:\Program Files\Azure DevOps Server 2019"
-    compact /c /s /i
-}
