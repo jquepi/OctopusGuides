@@ -16,6 +16,10 @@ mkdir "C:\Program Files\Azure DevOps Server 2019"
 cd "C:\Program Files\Azure DevOps Server 2019"
 compact /c /s /i
 
+mkdir "C:\Program Files\dotnet"
+cd "C:\Program Files\dotnet"
+compact /c /s /i
+
 # This gives us enough space to complete the install
 cd C:\Windows
 compact /c /s /i
