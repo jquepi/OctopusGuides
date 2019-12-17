@@ -456,7 +456,7 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll the "Web site name" text box into view offset by "-300"
     And I highlight outside the "Web site name" text box
     # This is to clear any drop downs left over from the package selection
-    And I force press the escape key from the "Web site name" text box
+    And I force focus on the "Web site name" text box if it exists
     And I populate the "Web site name" text box with "RandomQuotes"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}065-octopus-step-website-name.png"
