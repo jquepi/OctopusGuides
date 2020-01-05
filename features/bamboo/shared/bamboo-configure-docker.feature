@@ -23,7 +23,7 @@ Feature: Configure Docker
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}010-administration.png"
         # There were some issues trying to click this link, so we mouse over and then manually redirect
     And I force mouse over the "Overview" link
-    And I open the URL "http://localhost:6990/bamboo/admin/administer.action"
+    And I open the URL "http://#{Hostname}:6990/bamboo/admin/administer.action"
 
     And I highlight outside the "Server capabilities" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}020-server-capabilities.png"

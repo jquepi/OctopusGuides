@@ -20,6 +20,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DslackStepHandlerEnabled=true" \
   "-DCucumberAlias-ExternalOctopusAPIKey=$API_KEY" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+  "-DCucumberAlias-Hostname=$(hostname)" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \

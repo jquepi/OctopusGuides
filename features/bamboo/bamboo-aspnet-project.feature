@@ -10,7 +10,7 @@ Feature: Configure Bamboo
     And I open the shared browser "ExternalBrowserType"
     And I fullscreen the window
     And I set the default explicit wait time to "30" seconds
-    And I open the URL "http://localhost:6990/bamboo"
+    And I open the URL "http://#{Hostname}:6990/bamboo"
     And I click the "Log in" button
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "admin"
@@ -97,7 +97,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}010-administration.png"
         # There were some issues trying to click this link, so we mouse over and then manually redirect
     And I force mouse over the "Overview" link
-    And I open the URL "http://localhost:6990/bamboo/admin/administer.action"
+    And I open the URL "http://#{Hostname}:6990/bamboo/admin/administer.action"
 
     And I highlight outside the "Server capabilities" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/executables/#{GuideSpecificScreenshotDir}020-server-capabilities.png"
