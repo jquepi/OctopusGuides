@@ -20,6 +20,7 @@
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     "-DCucumberAlias-Hostname=$(hostname)" `
+    "-DCucumberAlias-ExternalBambooPlugin=C:\tools\bamboo.jar" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --tags $env:CUCUMBER_TAGS `
     --plugin progress `

@@ -2,7 +2,7 @@ Feature: Configure Bamboo
 
   Scenario: Configure Bamboo
     Given I run the feature "shared/bamboo-login.feature" passing the original arguments
-    And I run the feature "shared/bamboo-add-plugin.feature" passing the original arguments
+    And I run the feature "shared/bamboo-manually-add-plugin.feature" passing the original arguments
     And I run the feature "shared/bamboo-configure-docker.feature" passing the original arguments
     And I run the feature "shared/bamboo-configure-octopus.feature" passing the original arguments
     And I run the feature "shared/bamboo-add-project.feature" passing the original arguments

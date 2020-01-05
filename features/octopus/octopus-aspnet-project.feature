@@ -519,7 +519,10 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Save | //button[contains(.,'Save')] |
 
-    And I click the "Save" button
+    # Sometimes the package selection popover will be fading, resulting in:
+    # Element <button type="submit"> is not clickable at point (1660,96) because another element <div> obscures it
+    # So we force click
+    And I force click the "Save" button
     And I sleep for "2" seconds
 
   @deploy-project
