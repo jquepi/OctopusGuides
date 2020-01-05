@@ -4,7 +4,7 @@ file { '/root/.BuildServer':
 -> file { '/root/.BuildServer/plugins':
   ensure => 'directory'
 }
-file { '/root/.BuildServer/plugins/Octopus.TeamCity.zip':
+-> file { '/root/.BuildServer/plugins/Octopus.TeamCity.zip':
   source => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
   mode   => '0644'
 }

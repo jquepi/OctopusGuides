@@ -1,3 +1,8 @@
+download_file {'bamboo.jar':
+  destination_directory => 'C:/tools',
+  url => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar'
+}
+
 download_file { 'sdk-installer-8.0.16.exe':
   destination_directory => 'C:/tools',
   url                   =>

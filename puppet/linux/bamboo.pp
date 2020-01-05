@@ -1,3 +1,8 @@
+file { '/opt/bamboo.jar':
+  source => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar',
+  mode   => '0644'
+}
+
 apt::key { 'atlassian-repository':
   id     => 'D648E5571A519459EC58F888B56C9565957495B9',
   source => 'https://packages.atlassian.com/api/gpg/key/public',
