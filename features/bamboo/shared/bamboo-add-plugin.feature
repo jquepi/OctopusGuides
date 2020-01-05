@@ -36,6 +36,8 @@ Feature: Add Octopus plugin
     And I refresh the page if the "Search the Marketplace" text box does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
+    And I verify the "Search the Marketplace" text box is present
+    And I sleep for "1" second
     And I populate the "Search the Marketplace" text box with "Octopus"
     And I highlight outside the "Search the Marketplace" text box with an offset of "5"
     And I sleep for "2" second
