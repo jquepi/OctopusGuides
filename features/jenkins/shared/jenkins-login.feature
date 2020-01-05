@@ -8,7 +8,7 @@ Feature: Jenkins login
       | Sign In      | body > div > div > form > div.submit.formRow > input         |
       | Profile Name | #header > div.login > span > a.model-link.inside.inverse > b |
     
-    When I open the URL "http://localhost:8080"
+    When I open the URL "http://localhost:8080/login"
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box
     And I verify the "Username" text box is present waiting up to "900" seconds if it exists
     And I refresh the page
