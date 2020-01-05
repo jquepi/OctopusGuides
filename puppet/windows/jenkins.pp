@@ -118,6 +118,24 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   ensure => absent,
   match_for_absence => true
 }
+-> file_line { 'Remove securityRealm end tag':
+  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  match  => '^\s*</securityRealm>',
+  ensure => absent,
+  match_for_absence => true
+}
+-> file_line { 'Remove securityRealm contents 1':
+  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  match  => '^\s*<disableSignup>true</disableSignup>',
+  ensure => absent,
+  match_for_absence => true
+}
+-> file_line { 'Remove securityRealm contents 2':
+  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  match  => '^\s*<enableCaptcha>false</enableCaptcha>',
+  ensure => absent,
+  match_for_absence => true
+}
 -> exec { 'Restart Jenkins':
   command   => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
   logoutput => true
