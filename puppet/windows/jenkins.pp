@@ -89,8 +89,18 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
 -> file_line { 'Use container security':
   path    => 'C:/Program Files (x86)/Jenkins/config.xml',
   line    => '  <authorizationStrategy class="hudson.security.LegacyAuthorizationStrategy"/>',
-  match   => '^\s*<authorizationStrategy.*?/>',
+  match   => '^\s*<authorizationStrategy.*?/?>',
   replace => true
+}
+-> file_line { 'Remove authorizationStrategy contents':
+  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
+  match   => '^\s*<denyAnonymousReadAccess>true</denyAnonymousReadAccess>',
+  ensure => absent
+}
+-> file_line { 'Remove authorizationStrategy end tag':
+  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
+  match   => '^\s*</authorizationStrategy>',
+  ensure => absent
 }
 -> file_line { 'Legacy realm':
   path    => 'C:/Program Files (x86)/Jenkins/config.xml',
