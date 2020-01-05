@@ -82,7 +82,9 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
 }
 -> file_line { 'jenkins args':
   path    => 'C:/Program Files (x86)/Jenkins/jenkins.xml',
-  line    => '  <arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=8080 --webroot="%BASE%\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>',
+  line    =>
+    '  <arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=8080 --webroot="%BASE%\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>'
+  ,
   match   => '^\s*<arguments>.+?</arguments>',
   replace => true
 }
@@ -93,20 +95,28 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   replace => true
 }
 -> file_line { 'Remove authorizationStrategy contents':
-  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
-  match   => '^\s*<denyAnonymousReadAccess>true</denyAnonymousReadAccess>',
-  ensure => absent
+  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  line   => '^\s*<denyAnonymousReadAccess>true</denyAnonymousReadAccess>',
+  ensure => absent,
+  match_for_absence => true
 }
 -> file_line { 'Remove authorizationStrategy end tag':
-  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
-  match   => '^\s*</authorizationStrategy>',
-  ensure => absent
+  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  match  => '^\s*</authorizationStrategy>',
+  ensure => absent,
+  match_for_absence => true
 }
 -> file_line { 'Legacy realm':
   path    => 'C:/Program Files (x86)/Jenkins/config.xml',
   line    => '  <securityRealm class="hudson.security.LegacySecurityRealm"/>',
-  match   => '^\s*<securityRealm.*?/>',
+  match   => '^\s*<securityRealm.*?/?>',
   replace => true
+}
+-> file_line { 'Remove securityRealm end tag':
+  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  match  => '^\s*</securityRealm>',
+  ensure => absent,
+  match_for_absence => true
 }
 -> exec { 'Restart Jenkins':
   command   => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
