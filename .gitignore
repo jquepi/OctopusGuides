@@ -6,3 +6,4 @@ report/*
 packer/packer_cache/*
 packer/output*/*
 packer/box/*
+amps-standalone-bamboo-LATEST
