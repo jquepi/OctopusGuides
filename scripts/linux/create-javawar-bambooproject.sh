@@ -25,6 +25,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ArtifactPath=target/randomquotes.1.0.\${bamboo.buildNumber}.war" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   "-DCucumberAlias-Hostname=$(hostname)" \
+  "-DCucumberAlias-ExternalBambooPlugin=/opt/bamboo.jar" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \
