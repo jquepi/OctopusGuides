@@ -38,7 +38,7 @@ Feature: Push to built in feed
 
     And I highlight outside the "Package paths" text box with an offset of "5"
     And I highlight outside the "Save" button
-    And I scroll the "Package paths" text box into view offset by "-200"
+    And I scroll the "Package paths" text box into view offset by "-400"
     And I populate the "Package paths" text box with "ArtifactPath"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}175-octo-push.png"
     And I remove the highlight from the "Package paths" text box
