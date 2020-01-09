@@ -37,7 +37,6 @@ jobs:
         "-DscreenshotS3Bucket=octopus-guides-screenshots"
         "-DstepHandlerMessage=TestFeature"
         -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar
-        --monochrome
         features\test\test.feature
       env:
         SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}

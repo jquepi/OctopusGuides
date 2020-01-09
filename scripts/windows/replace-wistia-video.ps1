@@ -24,7 +24,6 @@ if (-not [string]::IsNullOrEmpty($env:WISTIA_MEDIA_ID))
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --plugin progress `
-    --monochrome `
     --tags $env:CUCUMBER_TAGS `
     features\wistia\replace-video.feature
 }

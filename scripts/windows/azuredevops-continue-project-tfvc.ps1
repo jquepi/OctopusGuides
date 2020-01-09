@@ -21,5 +21,4 @@
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --tags "@execute-project or @login" `
     --plugin progress `
-    --monochrome `
     features\azuredevops\azuredevops-aspnet-project.feature

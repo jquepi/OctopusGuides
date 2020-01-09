@@ -23,5 +23,4 @@
     --tags $env:CUCUMBER_TAGS `
     --tags "not @execute-project" `
     --plugin progress `
-    --monochrome `
     features\azuredevops\azuredevops-aspnet-project.feature
