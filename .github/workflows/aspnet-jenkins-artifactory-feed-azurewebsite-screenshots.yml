@@ -1,6 +1,6 @@
 name: ASP.NET Jenkins Artifactory Feed Azure WebSites Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 15 * *'
@@ -13,7 +13,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-      SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
@@ -21,9 +21,9 @@ jobs:
       EXTERNAL_APPLICATION_TENANT_ID: ${{ secrets.ExternalApplicationTenantID }}
       EXTERNAL_AZURE_TENANT_ID: ${{ secrets.ExternalAzureTenantID }}
       EXTERNAL_AZURE_SUBSCRIPTION_ID: ${{ secrets.ExternalAzureSubscriptionID }}
-      DEV_RES_GROUP: jenkinsaspnetbuiltinfeeddevscreenshot
-      TEST_RES_GROUP: jenkinsaspnetbuiltinfeedtestscreenshot
-      PROD_RES_GROUP: jenkinsaspnetbuiltinfeedprodscreenshot
+      DEV_RES_GROUP: jenkinsaspnetartifactorydevscreenshot
+      TEST_RES_GROUP: jenkinsaspnetartifactorytestscreenshot
+      PROD_RES_GROUP: jenkinsaspnetartifactoryprodscreenshot
       MEDIA_PATH: C:\screenshots
       CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
       WISTIA_MEDIA_ID:
