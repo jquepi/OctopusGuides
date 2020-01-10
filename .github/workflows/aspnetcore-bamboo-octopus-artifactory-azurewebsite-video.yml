@@ -22,9 +22,9 @@ jobs:
       EXTERNAL_AZURE_SUBSCRIPTION_ID: ${{ secrets.ExternalAzureSubscriptionID }}
       MEDIA_PATH: C:\screenshots
       CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore)"
-      DEV_RES_GROUP: bambooaspnetcorebuiltinfeedviddev
-      TEST_RES_GROUP: bambooaspnetcorebuiltinfeedvidtest
-      PROD_RES_GROUP: bambooaspnetcorebuiltinfeedvidprod
+      DEV_RES_GROUP: bambooaspnetcoreartifactoryviddev
+      TEST_RES_GROUP: bambooaspnetcoreartifactoryvidtest
+      PROD_RES_GROUP: bambooaspnetcoreartifactoryvidprod
       WISTIA_MEDIA_ID: qowi6gl22q
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
