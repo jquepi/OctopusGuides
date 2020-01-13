@@ -45,6 +45,11 @@ package { 'openjdk13':
   provider => chocolatey
 }
 
+package { 'nodejs.install':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 package { 'firefox':
   ensure   => "69.0.3",
   provider => chocolatey
