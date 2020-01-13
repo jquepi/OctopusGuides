@@ -11,11 +11,11 @@ file { 'C:/ProgramData/JetBrains':
   destination_directory => 'C:/ProgramData/JetBrains/TeamCity/plugins',
   url                   => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
 }
--> archive { 'C:/tools/TeamCity-2019.1.5.tar.gz':
+-> archive { 'C:/tools/TeamCity-2019.2.tar.gz':
   ensure          => present,
   extract         => true,
   extract_path    => 'C:/tools',
-  source          => 'https://octopus-guides.s3.amazonaws.com/teamcity/TeamCity-2019.1.5.tar.gz',
+  source          => 'https://octopus-guides.s3.amazonaws.com/teamcity/TeamCity-2019.2.tar.gz',
   creates         => 'C:/tools/TeamCity/TeamCity-readme.txt',
   cleanup         => true,
   extract_command => 'tar xfz %s'
