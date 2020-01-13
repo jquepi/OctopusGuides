@@ -9,6 +9,7 @@ jobs:
     if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-nodejs-nginx-video')
     runs-on: ubuntu-latest
     env:
+      BUILD_NAME: "node-app-git-jenkins-builtin-nginx"
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -99,3 +100,6 @@ jobs:
 
       - name: Replace Wistia video
         run: ./scripts/linux/replace-wistia-video.sh
+
+      - name: Build badge
+        run: ./scripts/linux/create-badge.sh

@@ -9,6 +9,7 @@ jobs:
     if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'bamboo-java-tomcat-video')
     runs-on: ubuntu-latest
     env:
+      BUILD_NAME: "java-app-git-bamboo-builtin-tomcat"
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -103,3 +104,6 @@ jobs:
 
       - name: Replace Wistia video
         run: ./scripts/linux/replace-wistia-video.sh
+
+      - name: Build badge
+        run: ./scripts/linux/create-badge.sh
