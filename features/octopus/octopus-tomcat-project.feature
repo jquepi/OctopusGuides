@@ -194,6 +194,9 @@ Feature: Configure an Octopus Tomcat project
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-tomcat-manager.png"
 
+    And I remove the highlight from the "Management user" text box
+    And I remove the highlight from the "Management password" text box
+
     And I scroll the "Context path" text box into view offset by "-300"
     And I highlight outside the "Context path" text box
     And I clear the "Context path" text box
