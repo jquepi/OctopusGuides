@@ -459,7 +459,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "OK" button with an offset of "2"
     And I populate the "Connection name" text box with "Artifactory"
     And I populate the "Feed URL" text box with "http://localhost:8041/artifactory/api/nuget/NuGet"
-    And I populate the "ApiKey" text box with "admin:password"
+    And I populate the "ApiKey" text box with "admin:Password01!"
     And I click the "OK" button
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}140-nuget-push.png"
 
