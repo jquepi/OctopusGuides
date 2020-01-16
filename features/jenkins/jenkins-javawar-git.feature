@@ -71,6 +71,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
+    And I sleep for "1" second
     And I highlight outside the "Execute shell" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-batch-command.png"
     And I click the "Execute shell" link
