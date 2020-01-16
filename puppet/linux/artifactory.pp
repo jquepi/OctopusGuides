@@ -21,7 +21,7 @@ file { '/opt/settings.xml':
           <server>
             <id>artifactory</id>
             <username>admin</username>
-            <password>password</password>
+            <password>Password01!</password>
           </server>
           <server>
             <id>artifactorysnapshots</id>
