@@ -22,20 +22,10 @@ Feature: Setup Artifactory
 
   Scenario: Log in
     Given I set the following aliases:
-      | Username       | //input[@id='user']                                     |
-      | Password       | //input[@id='password']                                 |
-      | Login          | //button[@id='login']                                   |
-      | Close Wizard   | //span[@ng-click='$wizardCtrl.cancel()']                |
-      | Admin          | //i[@class='icon icon-admin-new']                       |
-      | License        | //a[@href='#/admin/configuration/artifactory_licenses'] |
-      | License Key    | //textarea[@name='dndtext']                             |
-      | Save           | //button[text()='Save']                                 |
-      | Local          | //a[@href='#/admin/repositories/local']                 |
-      | New            | //a[@id='repositories-new']                             |
-      | NuGet          | //li[@id='repository-select-package-type-nuget']        |
-      | Repository Key | //input[@id='repoKey-new']                              |
-      | Save & Finish  | //button[@id='repository-save-button']                  |
-      | Spinner        | //div[contains(@class,'spinner')]                       |
+      | Username | //input[@id='user']               |
+      | Password | //input[@id='password']           |
+      | Login    | //button[@id='login']             |
+      | Spinner  | //div[contains(@class,'spinner')] |
 
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8041"
@@ -45,26 +35,33 @@ Feature: Setup Artifactory
     And I populate the "Password" text box with "password"
     And I click the "Login" button
     And I sleep for "30" seconds
-    And I click the "Close Wizard" element waiting up to "10" seconds if it exists
+
 
   Scenario: Add license
     Given I set the following aliases:
-      | Admin       | //i[@class='icon icon-admin-new']                       |
-      | License     | //a[@href='#/admin/configuration/artifactory_licenses'] |
-      | License Key | //textarea[@name='dndtext']                             |
-      | Save        | //button[normalize-space(text())='Save']                |
+      | Next                | //button[text()='Next']     |
+      | License             | //textarea                  |
+      | License Key         | //textarea[@name='dndtext'] |
+      | New Password        | //input[@id='newPassword']  |
+      | Retype New Password | //input[@id='password']     |
+      | Skip                | //button[text()='Skip']     |
+      | Finish              | //button[text()='Finish']   |
 
-    And I click the "Admin" icon
-    And I click the "License" link
-    And I clear the "License Key" text box
-    And I populate the "License Key" text box with "ExternalArtifactoryKey"
-    And I click the "Save" button
+    And I click the "Next" button
+    And I clear the "License" text box
+    And I populate the "License" text box with "ExternalArtifactoryKey"
+    And I click the "Next" button
     And I sleep for "60" seconds
+    And I populate the "New Password" text box with "Password01!"
+    And I populate the "Retype New Password" text box with "Password01!"
+    And I click the "Next" button
+    And I click the "Skip" button
+    And I click the "Skip" button
+    And I click the "Finish" button
 
   @applicationspecific @aspnetcore @aspnet
   Scenario: Add NuGet repo
     Given I set the following aliases:
-      | License Key    | //textarea[@name='dndtext']                      |
       | Admin          | //i[@class='icon icon-admin-new']                |
       | Local          | //a[@href='#/admin/repositories/local']          |
       | New            | //a[@id='repositories-new']                      |
@@ -74,7 +71,6 @@ Feature: Setup Artifactory
       | Spinner        | //div[contains(@class,'spinner')]                |
 
     And I open the URL "http://localhost:8041/artifactory/webapp/#/home"
-    And I verify the "License Key" text box is not present waiting up to "60" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the NuGet repository in Artifactory" for "3" seconds
 
