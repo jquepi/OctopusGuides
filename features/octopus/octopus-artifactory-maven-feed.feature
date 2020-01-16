@@ -71,7 +71,7 @@ Feature: Add Artifactory Maven feed
 
     And I scroll the "Feed password" text box into view offset by "-200"
     And I highlight outside the "Feed password" text box with an offset of "0"
-    And I populate the "Feed password" text box with "password"
+    And I populate the "Feed password" text box with "Password01!"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/externalmavenfeeds/070-external-feed.png"
 
     And I highlight outside the "Save" button with an offset of "1"
