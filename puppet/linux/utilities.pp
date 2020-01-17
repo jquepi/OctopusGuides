@@ -65,7 +65,10 @@ package { 'awscli':
 package { 'maven':
   ensure => installed,
 }
--> file { '/opt/settings.xml':
+-> file { '/home/runner/.m2':
+  ensure => 'directory'
+}
+-> file { '/home/runner/.m2/settings.xml':
   ensure  => 'file',
   owner   => 'root',
   group   => 'root',
