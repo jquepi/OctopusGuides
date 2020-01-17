@@ -29,13 +29,14 @@ Feature: Run a build
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
-    # It appears new version of team city take you to the first build when "run" is clicked
+    # Teamcity will open the first build, but in case of an error you can open the
+    # build logs manually.
 
     # And I highlight inside the "Build One" link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-build-one.png"
-    And I click the "Build One" link
-    And I click the "Build log" link
-    And I scroll down "10000" px
+    #And I click the "Build One" link
+    #And I click the "Build log" link
+    #And I scroll down "10000" px
     And I sleep for "20" seconds
     And I stop recording the screen
 
