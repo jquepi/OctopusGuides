@@ -29,10 +29,8 @@ Feature: Run a build
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
-    # Teamcity will open the first build, but in case of an error you can open the
-    # build logs manually.
+    # Teamcity will open the first build, but in case of an error the build one and build logs will be opened
 
-    # And I highlight inside the "Build One" link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-build-one.png"
     And I click the "Build One" link waiting up to "5" seconds if it exists
     And I click the "Build log" link waiting up to "1" seconds if it exists
