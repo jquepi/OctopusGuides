@@ -34,8 +34,8 @@ Feature: Run a build
 
     # And I highlight inside the "Build One" link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-build-one.png"
-    #And I click the "Build One" link
-    #And I click the "Build log" link
+    And I click the "Build One" link if it exists waiting up to "5" seconds
+    And I click the "Build log" link if it exists waiting up to "1" seconds
     And I scroll down "10000" px
     And I sleep for "20" seconds
     And I stop recording the screen
