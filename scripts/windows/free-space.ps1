@@ -8,8 +8,16 @@ mkdir C:/install
 cd C:\install
 compact /c /s /i
 
+mkdir C:/tools
+cd C:\tools
+compact /c /s /i
+
 mkdir C:/Octopus
 cd C:\Octopus
+compact /c /s /i
+
+mkdir C:/i
+cd "C:\Program Files\Amazon"
 compact /c /s /i
 
 mkdir "C:\Program Files\Azure DevOps Server 2019"
