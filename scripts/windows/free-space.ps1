@@ -1,8 +1,17 @@
 # We need more space for our application stack, and the GitHub agents come with a lot of junk we
 # didn't ask for and don't need.
 
+Get-PSDrive C
+
+Write-Host "Deleting C:\Program Files\boost"
 rm -Recurse -Force "C:\Program Files\boost"
+Write-Host "Deleting C:\Program Files\unity"
 rm -Recurse -Force "C:\Program Files\unity"
+Write-Host "c:\Program Files (x86)\Android"
 rm -Recurse -Force "c:\Program Files (x86)\Android"
+Write-Host "c:\Modules"
 rm -Recurse -Force "c:\Modules"
+Write-Host "c:\Microsoft"
 rm -Recurse -Force "c:\Microsoft"
+
+Get-PSDrive C
