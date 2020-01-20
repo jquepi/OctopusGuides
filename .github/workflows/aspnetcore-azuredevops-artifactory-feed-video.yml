@@ -54,10 +54,6 @@ jobs:
         shell: powershell
         run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,artifactory.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp,artifactorywait.pp
 
-      - name: Free some space
-        shell: powershell
-        run: ./scripts/windows/free-space.ps1
-
       - name: Configure Artifactory
         shell: powershell
         run: ./scripts/windows/configure-artifactory.ps1
