@@ -6,4 +6,4 @@ jobs:
     steps:
     - name: Test disk usage
       shell: powershell
-      run: mkdir c:\sysinternals; cd c:\sysinternals; Invoke-WebRequest -Uri https://download.sysinternals.com/files/SysinternalsSuite.zip -OutFile SysinternalsSuite.zip; Expand-Archive -LiteralPath SysinternalsSuite.zip -DestinationPath c:\sysinternals; ./du /accepteula -l 1 c:\
+      run: mkdir c:\sysinternals; cd c:\sysinternals; Invoke-WebRequest -Uri https://download.sysinternals.com/files/SysinternalsSuite.zip -OutFile SysinternalsSuite.zip; Expand-Archive -LiteralPath SysinternalsSuite.zip -DestinationPath c:\sysinternals; ./du /accepteula -l 2 c:\
