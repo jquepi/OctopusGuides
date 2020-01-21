@@ -318,6 +318,7 @@ if (elements.length !== 0) {
     And I populate the "Directive Five" text box with "root"
     And I populate the "Value Five" text box with "#{Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath}/public"
 
+    And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive Six" text box with "fastcgi_param"
     And I populate the "Value Six" text box with "HTTP_PROXY Value"
