@@ -193,6 +193,7 @@ Feature: Configure an Octopus Kubernetes project
       | Value Six              | (//input[contains(@id,'Value')])[6]                                                                         |
       | OK                     | //button[contains(.,'Ok')]                                                                                  |
       | Save                   | //button[contains(.,'Save')]                                                                                |
+      | HTTP_PROXY Value       | HTTP_PROXY ""                                                                                               |
 
     And I scroll the "Post-deployment script" container into view offset by "-300"
     And I highlight inside the "Bash container" container
@@ -292,29 +293,34 @@ if (elements.length !== 0) {
     And I highlight outside the "OK" button with an offset of "2"
     And I populate the "Location" text box with "~ [^/]\.php(/|$)"
 
+    And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive One" text box with "fastcgi_split_path_info"
     And I populate the "Value One" text box with "^(.+?\.php)(/.*)$"
 
+    And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive Two" text box with "fastcgi_pass"
     And I populate the "Value Two" text box with "127.0.0.1:9000"
 
+    And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive Three" text box with "fastcgi_index"
     And I populate the "Value Three" text box with "index.php"
 
+    And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive Four" text box with "include"
     And I populate the "Value Four" text box with "fastcgi_params"
 
+    And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive Five" text box with "root"
     And I populate the "Value Five" text box with "#{Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath}/public"
 
     And I click the "Add Directive" button
     And I populate the "Directive Six" text box with "fastcgi_param"
-    And I populate the "Value Six" text box with "HTTP_PROXY """
+    And I populate the "Value Six" text box with "HTTP_PROXY Value"
 
     # Save changes
 
