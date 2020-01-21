@@ -13,7 +13,5 @@ Write-Host "Deleting c:\Program Files (x86)\Android"
 rm -Recurse -Force "c:\Program Files (x86)\Android"
 Write-Host "Deleting c:\Modules"
 rm -Recurse -Force "c:\Modules"
-Write-Host "Deleting c:\Microsoft"
-rm -Recurse -Force "c:\Microsoft"
 
 Get-PSDrive C
