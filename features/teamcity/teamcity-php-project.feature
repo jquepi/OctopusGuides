@@ -3,7 +3,7 @@ Feature: Create PHP project
   Scenario: Prepare TeamCity
     Given I run the feature "shared/teamcity-login.feature" passing the original arguments
 
-  @create-project @applicationspecific @nodejs
+  @create-project @applicationspecific @php
   Scenario: Create Project
     Given I set the following aliases:
       | Create project        | //a[contains(.,'Create project')]                      |
