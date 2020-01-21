@@ -1,4 +1,10 @@
-package { 'php-fpm':
+package { 'php-cli':
+  ensure => installed,
+}
+-> package { 'php-fpm':
+  ensure => installed,
+}
+-> package { 'php-mbstring':
   ensure => installed,
 }
 -> file { '/opt/install_composer.sh':
@@ -8,6 +14,7 @@ package { 'php-fpm':
   mode    => '0755',
   content => @(EOT)
     sudo php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
     touch /opt/ComposerInstalled.txt
     exit 0
     | EOT
