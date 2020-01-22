@@ -1,4 +1,4 @@
-name: Node.js Jenkins nginx built in feed Video
+name: Node.js Jenkins NGINX Builtin feed Video
 on:
 #  push:
   repository_dispatch:

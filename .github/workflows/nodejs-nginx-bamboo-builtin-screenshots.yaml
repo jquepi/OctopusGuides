@@ -1,4 +1,4 @@
-name: Node.js Bamboo Nginx BuiltIn Feed Screenshots
+name: Node.js Bamboo NGINX Builtin Feed Screenshots
 on:
 #  push:
   repository_dispatch:

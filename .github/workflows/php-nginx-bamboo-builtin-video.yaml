@@ -1,4 +1,4 @@
-name: PHP Bamboo Nginx BuiltIn Feed Video
+name: PHP Bamboo NGINX Builtin Feed Video
 on:
 #  push:
   repository_dispatch:

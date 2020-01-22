@@ -1,4 +1,4 @@
-name: PHP TeamCity Nginx Builtin feed Video
+name: PHP TeamCity NGINX Builtin feed Video
 on:
 #  push:
   repository_dispatch:

@@ -1,4 +1,4 @@
-name: Node.js Bamboo Nginx BuiltIn Feed Video
+name: Node.js Bamboo NGINX Builtin Feed Video
 on:
 #  push:
   repository_dispatch:

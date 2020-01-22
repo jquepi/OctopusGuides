@@ -1,4 +1,4 @@
-name: NodeJS TeamCity Nginx Builtin feed Video
+name: NodeJS TeamCity NGINX Builtin feed Video
 on:
 #  push:
   repository_dispatch:

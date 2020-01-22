@@ -1,4 +1,4 @@
-name: NodeJS TeamCity Nginx Builtin feed Screenshots
+name: NodeJS TeamCity NGINX Builtin feed Screenshots
 on:
 #  push:
   repository_dispatch:

@@ -1,4 +1,4 @@
-name: Node.js Jenkins nginx built in feed Screenshots
+name: Node.js Jenkins NGINX Builtin feed Screenshots
 on:
 #  push:
   repository_dispatch:
