@@ -1,5 +1,5 @@
 attempt_counter=0
-max_attempts=12
+max_attempts=60
 
 until $(curl --max-time 5 --output /dev/null --silent --head --fail http://localhost); do
     if [ ${attempt_counter} -eq ${max_attempts} ];then
