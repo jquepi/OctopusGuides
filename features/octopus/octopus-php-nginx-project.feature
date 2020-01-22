@@ -263,11 +263,15 @@ if (elements.length !== 0) {
     And I populate the "Directive Two" text box with "try_files"
     And I populate the "Value Two" text box with "$uri /index.php$is_args$args"
 
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-step-location-port.png"
+    And I click the "OK" button
+
     # The exact root location
 
     And I highlight outside the "Add location" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-step-add-location.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-step-add-location.png"
     And I force click the "Add location" button
     And I remove the highlight from the "Add location" button
 
@@ -280,11 +284,15 @@ if (elements.length !== 0) {
     And I populate the "Directive One" text box with "index"
     And I populate the "Value One" text box with "index.html"
 
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}180-octopus-step-location-port.png"
+    And I click the "OK" button
+
     # The php files
 
     And I highlight outside the "Add location" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-step-add-location.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}190-octopus-step-add-location.png"
     And I force click the "Add location" button
     And I remove the highlight from the "Add location" button
 
@@ -323,14 +331,14 @@ if (elements.length !== 0) {
     And I populate the "Directive Six" text box with "fastcgi_param"
     And I populate the "Value Six" text box with "HTTP_PROXY Value"
 
-    # Save changes
-
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-step-location-port.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}200-octopus-step-location-port.png"
     And I click the "OK" button
 
+    # Save changes
+
     And I highlight outside the "Save" button
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-save.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}210-save.png"
     And I click the "Save" button
     And I sleep for "2" seconds
 
