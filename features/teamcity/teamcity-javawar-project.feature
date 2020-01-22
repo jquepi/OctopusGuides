@@ -33,8 +33,12 @@ Feature: Create Docker project
     And I populate the "Repository URL" text box with the text "GitUrl"
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}020-repo-url.png"
     And I click the "Proceed" button
+    And I sleep for "3" seconds
+    And I stop recording the screen
 
     And I verify the "Project name" text box is present waiting up to "120" seconds
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I highlight outside the "Project name" text box
     And I highlight outside the "Proceed Two" button
     And I mouse over the "Project name" text box
