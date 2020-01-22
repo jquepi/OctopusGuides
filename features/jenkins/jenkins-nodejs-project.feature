@@ -9,12 +9,12 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
   @configure-project
   Scenario: Node.js - Create the project
     Given I set the following aliases:
-      | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute shell                                | //a[contains(.,'Execute shell')]                       |
-      | Command                                      | //div[@class='CodeMirror']                             |
-      | Command Two                                     | (//div[@class='CodeMirror'])[2]                             |
-      | Command Three                                     | (//div[@class='CodeMirror'])[3]                             |
-      | Save                                         | //button[@type='button'][contains(.,'Save')]           |
+      | Add build step | //button[@type='button'][contains(.,'Add build step')] |
+      | Execute shell  | //a[contains(.,'Execute shell')]                       |
+      | Command        | //div[@class='CodeMirror']                             |
+      | Command Two    | (//div[@class='CodeMirror'])[2]                        |
+      | Command Three  | (//div[@class='CodeMirror'])[3]                        |
+      | Save           | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
