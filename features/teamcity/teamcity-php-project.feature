@@ -12,10 +12,10 @@ Feature: Create PHP project
       | Create                             | //input[@id='createProject']                  |
       | Create build configuration         | //a[contains(.,'Create build configuration')] |
       | Build Configuration Name           | //input[@id='buildTypeName']                  |
-      | Create Two                         | //input[@value='createBuildType']             |
+      | Create Two                         | //input[@name='createBuildType']              |
       | Build Configuration Repository URL | //input[@id='repositoryUrl']                  |
       | Create Three                       | //input[@value='Create']                      |
-      | Build Steps                        | //a[text='Build Steps']                       |
+      | Build Steps                        | //a[text()='Build Steps']                     |
       | Add build step                     | //a[contains(.,'Add build step')]             |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
@@ -61,6 +61,10 @@ Feature: Create PHP project
     And I highlight outside the "Build Steps" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}100-manual-project.png"
     And I click the "Build Steps" link
+
+    And I highlight outside the "Add build step" button
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}110-manual-project.png"
+    And I click the "Add build step" button
 
 #  @create-project @applicationspecific @php @cioptions @automatic
 #  Scenario: Create Project from URL
