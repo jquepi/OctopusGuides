@@ -34,7 +34,7 @@ Feature: Create Docker project
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}020-repo-url.png"
     And I click the "Proceed" button
 
-    And I verify the "Project name" text box is present waiting up to "300" seconds
+    And I verify the "Project name" text box is present waiting up to "120" seconds
     And I highlight outside the "Project name" text box
     And I highlight outside the "Proceed Two" button
     And I mouse over the "Project name" text box
