@@ -217,7 +217,7 @@ window.findReactComponent = function(el) {
 elements = document.getElementsByClassName("ReactCodeMirror");
 if (elements.length !== 0) {
   cm = findReactComponent(document.getElementsByClassName("ReactCodeMirror")[2]);
-  cm.props.onChange("chown -R 644 #{Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath}");
+  cm.props.onChange("chown -R 644 #{Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath}; systemctl reload nginx");
 }
     """
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-variables-appsettings.png"
