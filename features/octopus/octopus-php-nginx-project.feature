@@ -164,7 +164,6 @@ Feature: Configure an Octopus Kubernetes project
     And I highlight outside the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
     And I sleep for "2" second
-    #And I press the escape key from the "Package ID" text box
     And I click the "Random Quotes Suggestion" option
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
