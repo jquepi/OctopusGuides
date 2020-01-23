@@ -31,4 +31,7 @@ service {'php-fpm':
 -> exec { 'Show socket file':
   command   => '/bin/ls -la /run/php',
   logoutput => true
+}-> exec { 'Show config':
+  command   => '/bin/cat /etc/php/7.2/fpm/pool.d/www.conf',
+  logoutput => true
 }
