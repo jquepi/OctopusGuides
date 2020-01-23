@@ -21,6 +21,9 @@ package { 'nginx':
   replace => true,
   notify  => Service['nginx']
 }
+-> file { '/etc/nginx/sites-available/default':
+  ensure => 'absent'
+}
 
 service {'nginx':
   ensure => running
