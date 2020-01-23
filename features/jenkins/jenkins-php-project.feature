@@ -52,7 +52,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
       """
       var textarea = document.evaluate("(//div[@class='CodeMirror'])[2]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror;
-      editor.setValue("#!/bin/bash\n/opt/octo/Octo pack -id RandomQuotes --format zip --version 1.0.$BUILD_NUMBER --include \"$WORKSPACE/**\" --outFolder \"$WORKSPACE\"");
+      editor.setValue("#!/bin/bash\n/opt/octo/Octo pack -id RandomQuotes --format zip --version 1.0.$BUILD_NUMBER --include \"$WORKSPACE/**\" --basePath \"$WORKSPACE\" --outFolder \"$WORKSPACE\"");
       editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}270-octo-pack.png"
