@@ -36,7 +36,7 @@ exec { 'Show config':
   command   => '/bin/cat /etc/php/7.2/fpm/pool.d/www.conf',
   logoutput => true
 }
-exec { 'Show config':
+exec { 'Show status':
   command   => '/bin/systemctl status php72-php-fpm.service',
   logoutput => true
 }
