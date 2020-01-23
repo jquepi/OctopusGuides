@@ -9,10 +9,11 @@ Feature: Define Variables
     And I open the URL "#{OctopusURL:-http://localhost}/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
 
-    And I highlight outside the "Variables text" link with an offset of "2"
     And I click the "Variables" link
+    And I highlight outside the "Variables text" link with an offset of "2"
     And I highlight inside the "Project Variables" link
     And I sleep for "1" second
+    #And I remove the highlight from the "Variables text" link
+    And I remove the highlight from the "Project Variables" link
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}020-octopus-variables.png"
     And I force click the "Project Variables" link
-    And I remove the highlight from the "Variables text" link

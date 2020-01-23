@@ -68,6 +68,8 @@ Feature: Configure an Octopus Kubernetes project
     And I click the "Deployments" link
     And I highlight inside the "Overview" link
     And I click the "Overview" link
+    And I remove the highlight from the "Deployments" link
+    And I remove the highlight from the "Overview" link
 
   @define-project @destinationspecific @nginx
   Scenario: Add K8S Containers Step
@@ -81,8 +83,6 @@ Feature: Configure an Octopus Kubernetes project
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}040-octopus-define-process.png"
-    And I remove the highlight from the "Deployments" link
-    And I remove the highlight from the "Overview" link
 
     And I click the "Define your deployment process" button
     And I sleep for "1" second
@@ -156,16 +156,16 @@ Feature: Configure an Octopus Kubernetes project
   @define-project @destinationspecific @nginx @repositoryspecific @octo-built-in-feed
   Scenario: Select built in feed for the iis deployment
     Given I set the following aliases:
-      | HTML Body  | //body                              |
-      | Package ID | //input[contains(@id, 'PackageID')] |
+      | HTML Body                | //body                                                                                                   |
+      | Package ID               | //input[contains(@id, 'PackageID')]                                                                      |
+      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
     And I sleep for "2" second
     #And I press the escape key from the "Package ID" text box
-    And I press the down arrow key from the "Package ID" text box
-    And I press the enter key from the "Package ID" text box
+    And I click the "Random Quotes Suggestion" option
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-step-package.png"
     And I remove the highlight from the "Package ID" text box
 
@@ -175,7 +175,7 @@ Feature: Configure an Octopus Kubernetes project
       | Bash                   | (//input[@value='Bash'])[3]                                                                                 |
       | Bash container         | (//div[./input[@value='Bash']])[3]                                                                          |
       | Post-deployment script | (//div[contains(@class, 'ReactCodeMirror')])[3]                                                             |
-      | Remove binding         | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]               |
+      | Remove binding         | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[3]               |
       | Add binding            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
       | Add location           | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
       | Port                   | //input[contains(@id,'Port')]                                                                               |
