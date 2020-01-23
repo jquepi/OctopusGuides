@@ -35,3 +35,15 @@ fi
 if [ -f /var/log/nginx/error.log ]; then
   cat /var/log/nginx/error.log
 fi
+
+if [ -f /etc/nginx/conf.d/RandomQuotes.conf ]; then
+  cat /etc/nginx/conf.d/RandomQuotes.conf
+fi
+
+if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf ]; then
+  cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf
+fi
+
+if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.php.conf ]; then
+  cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.php.conf
+fi
