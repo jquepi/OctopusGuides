@@ -106,30 +106,6 @@ Feature: Configure an Octopus Kubernetes project
     And I click the "Add" button
 
   @define-project @destinationspecific @nginx
-  Scenario: ASP.NET Core Configure Features
-  Enable the Custom deployment scripts to allow a Systemd service to be created
-
-    Given I set the following aliases:
-      | Configure features                  | (//button[contains(.,'Configure features')])[1]               |
-      | Custom Deployment Scripts           | //input[..//label[text()='Custom Deployment Scripts']]        |
-      | Custom Deployment Scripts Container | //div[./input[..//label[text()='Custom Deployment Scripts']]] |
-      | OK                                  | //button[contains(.,'Ok')]                                    |
-
-    And I highlight outside the "Configure features" button
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}046-octopus-enable-conf-features.png"
-    And I scroll the "Configure features" button into view offset by "-300"
-    And I click the "Configure features" button
-    And I remove the highlight from the "Configure features" button
-
-    And I highlight inside the "Custom Deployment Scripts Container" option
-    And I highlight outside the "OK" button with an offset of "2"
-    And I force click the "Custom Deployment Scripts" option
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}047-octopus-enable-conf-vars.png"
-    And I click the "OK" button
-
-  @define-project @destinationspecific @nginx
   Scenario: Define IIS project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
@@ -195,33 +171,6 @@ Feature: Configure an Octopus Kubernetes project
       | OK                     | //button[contains(.,'Ok')]                                                                                  |
       | Save                   | //button[contains(.,'Save')]                                                                                |
       | HTTP_PROXY Value       | HTTP_PROXY ""                                                                                               |
-
-    And I scroll the "Post-deployment script" container into view offset by "-300"
-    And I highlight inside the "Bash container" container
-    And I highlight inside the "Post-deployment script" container
-    And I force click the "Bash" radio button
-
-    And I run the following JavaScript:
-    """
-window.findReactComponent = function(el) {
-  for (const key in el) {
-    if (key.startsWith('__reactInternalInstance$')) {
-      const fiberNode = el[key];
-
-      return fiberNode && fiberNode.return && fiberNode.return.stateNode;
-    }
-  }
-  return null;
-};
-
-elements = document.getElementsByClassName("ReactCodeMirror");
-if (elements.length !== 0) {
-  cm = findReactComponent(document.getElementsByClassName("ReactCodeMirror")[2]);
-  cm.props.onChange("systemctl reload nginx");
-}
-    """
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-variables-appsettings.png"
-    And I remove the highlight from the "Bash container" container
 
     And I scroll the "Remove binding" button into view offset by "-300"
     And I highlight outside the "Remove binding" button
