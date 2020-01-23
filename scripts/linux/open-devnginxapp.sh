@@ -52,6 +52,6 @@ if [ -d /home/Octopus/Applications/Dev/RandomQuotes ]; then
   ls -la /home/Octopus/Applications/Dev/RandomQuotes
 fi
 
-if [ -d /home/Octopus/Applications/Dev/RandomQuotes/1.0.0_1 ]; then
-  ls -la /home/Octopus/Applications/Dev/RandomQuotes/1.0.0_1
+if [ -d /home/Octopus/Applications/Dev/RandomQuotes/1.0.1_1 ]; then
+  ls -la /home/Octopus/Applications/Dev/RandomQuotes/1.0.1_1
 fi
