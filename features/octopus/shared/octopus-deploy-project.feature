@@ -8,7 +8,7 @@ Feature: Deploy project
       | Deploy         | //button[@title='Deploy']                |
       | Task Log       | //button[contains(.,'Task Log')]         |
 
-    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
+    And I open the URL "#{OctopusURL:-http://localhost}/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
 
     And I highlight inside the "Create Release" button

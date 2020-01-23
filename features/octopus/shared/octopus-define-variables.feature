@@ -6,7 +6,7 @@ Feature: Define Variables
       | Variables text    | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
       | Project Variables | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
 
-    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
+    And I open the URL "#{OctopusURL:-http://localhost}/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
 
     And I highlight outside the "Variables text" link with an offset of "2"
