@@ -248,7 +248,7 @@ if (elements.length !== 0) {
 
     And I highlight outside the "Add location" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-step-add-location.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-step-add-location.png"
     And I force click the "Add location" button
     And I remove the highlight from the "Add location" button
 
@@ -261,14 +261,14 @@ if (elements.length !== 0) {
     And I populate the "Value One" text box with "index.html"
 
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}180-octopus-step-location-port.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-step-location-port.png"
     And I click the "OK" button
 
     # The root location
 
     And I highlight outside the "Add location" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-step-add-location.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-step-add-location.png"
     And I force click the "Add location" button
     And I remove the highlight from the "Add location" button
 
@@ -285,7 +285,7 @@ if (elements.length !== 0) {
     And I populate the "Value Two" text box with "$uri /index.php$is_args$args"
 
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-step-location-port.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}180-octopus-step-location-port.png"
     And I click the "OK" button
 
     # The php files
