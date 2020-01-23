@@ -308,7 +308,7 @@ if (elements.length !== 0) {
     And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive Two" text box with "fastcgi_pass"
-    And I populate the "Value Two" text box with "127.0.0.1:9000"
+    And I populate the "Value Two" text box with "unix:/var/run/php-fpm.sock"
 
     And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
