@@ -37,6 +37,6 @@ exec { 'Show config':
   logoutput => true
 }
 exec { 'Show status':
-  command   => '/bin/systemctl status php-php-fpm.service',
+  command   => '/bin/systemctl status php-fpm.service',
   logoutput => true
 }
