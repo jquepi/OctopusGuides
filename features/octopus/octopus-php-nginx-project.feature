@@ -308,6 +308,7 @@ if (elements.length !== 0) {
     And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive Two" text box with "fastcgi_pass"
+    # Find this path in the file /etc/php/7.2/fpm/pool.d/www.conf
     And I populate the "Value Two" text box with "unix:/run/php/php7.2-fpm.sock"
 
     And I scroll the "Add Directive" button into view offset by "-300"
