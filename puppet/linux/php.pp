@@ -1,7 +1,7 @@
 file { '/run/php':
   ensure => 'directory'
 }
-package { 'php-cli':
+-> package { 'php-cli':
   ensure => installed,
 }
 -> package { 'php-fpm':
@@ -31,15 +31,18 @@ package { 'php-cli':
 service {'php7.2-fpm':
   ensure => running
 }
+
+exec { 'Show status':
+  command   => '/bin/systemctl status php7.2-fpm.service',
+  logoutput => true
+}
+
 exec { 'Show socket file':
   command   => '/bin/ls -la /run/php',
   logoutput => true
 }
+
 exec { 'Show config':
   command   => '/bin/cat /etc/php/7.2/fpm/pool.d/www.conf',
-  logoutput => true
-}
-exec { 'Show status':
-  command   => '/bin/systemctl status php7.2-fpm.service',
   logoutput => true
 }
