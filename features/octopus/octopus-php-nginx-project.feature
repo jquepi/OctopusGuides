@@ -222,6 +222,7 @@ if (elements.length !== 0) {
 }
     """
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-variables-appsettings.png"
+    And I remove the highlight from the "Bash container" container
 
     And I scroll the "Remove binding" button into view offset by "-300"
     And I highlight outside the "Remove binding" button
@@ -253,7 +254,6 @@ if (elements.length !== 0) {
     And I remove the highlight from the "Add location" button
 
     And I highlight outside the "Location" text box with an offset of "2"
-    And I highlight outside the "Reverse Proxy Container" check box with an offset of "2"
     And I highlight outside the "OK" button with an offset of "2"
     And I populate the "Location" text box with "= /"
 
@@ -274,7 +274,6 @@ if (elements.length !== 0) {
     And I remove the highlight from the "Add location" button
 
     And I highlight outside the "Location" text box with an offset of "2"
-    And I highlight outside the "Reverse Proxy Container" check box with an offset of "2"
     And I highlight outside the "OK" button with an offset of "2"
     And I populate the "Location" text box with "/"
 
@@ -299,7 +298,6 @@ if (elements.length !== 0) {
     And I remove the highlight from the "Add location" button
 
     And I highlight outside the "Location" text box with an offset of "2"
-    And I highlight outside the "Reverse Proxy Container" check box with an offset of "2"
     And I highlight outside the "OK" button with an offset of "2"
     And I populate the "Location" text box with "~ [^/]\.php(/|$)"
 

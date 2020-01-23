@@ -10,10 +10,12 @@ Feature: Define Variables
     And I sleep for "1" second
 
     And I click the "Variables" link
-    And I highlight outside the "Variables text" link with an offset of "2"
+    # This is only used when the variables are in a collapsed menu
+    #And I highlight outside the "Variables text" link with an offset of "2"
     And I highlight inside the "Project Variables" link
     And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}020-octopus-variables.png"
     #And I remove the highlight from the "Variables text" link
     And I remove the highlight from the "Project Variables" link
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}020-octopus-variables.png"
+
     And I force click the "Project Variables" link
