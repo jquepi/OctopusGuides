@@ -29,21 +29,21 @@
   features/octopus/open-randomquotes-generic.feature
 
 if [ -f /var/log/php7.2-fpm.log ]; then
-  cat /var/log/php7.2-fpm.log
+  sudo cat /var/log/php7.2-fpm.log
 fi
 
 if [ -f /var/log/nginx/error.log ]; then
-  cat /var/log/nginx/error.log
+  sudo cat /var/log/nginx/error.log
 fi
 
 if [ -f /etc/nginx/conf.d/RandomQuotes.conf ]; then
-  cat /etc/nginx/conf.d/RandomQuotes.conf
+  sudo cat /etc/nginx/conf.d/RandomQuotes.conf
 fi
 
 if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf ]; then
-  cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf
+  sudo cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf
 fi
 
 if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.php.conf ]; then
-  cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.php.conf
+  sudo cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.php.conf
 fi
