@@ -1,3 +1,6 @@
+file { '/run/php':
+  ensure => 'directory'
+}
 package { 'php-cli':
   ensure => installed,
 }
