@@ -175,7 +175,7 @@ Feature: Configure an Octopus Kubernetes project
       | Bash                   | (//input[@value='Bash'])[3]                                                                                 |
       | Bash container         | (//div[./input[@value='Bash']])[3]                                                                          |
       | Post-deployment script | (//div[contains(@class, 'ReactCodeMirror')])[3]                                                             |
-      | Remove binding         | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[3]               |
+      | Remove binding         | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]               |
       | Add binding            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
       | Add location           | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
       | Port                   | //input[contains(@id,'Port')]                                                                               |
