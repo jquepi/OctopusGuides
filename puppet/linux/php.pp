@@ -28,10 +28,15 @@ package { 'php-cli':
 service {'php-fpm':
   ensure => running
 }
--> exec { 'Show socket file':
+exec { 'Show socket file':
   command   => '/bin/ls -la /run/php',
   logoutput => true
-}-> exec { 'Show config':
+}
+exec { 'Show config':
   command   => '/bin/cat /etc/php/7.2/fpm/pool.d/www.conf',
+  logoutput => true
+}
+exec { 'Show config':
+  command   => '/bin/systemctl status php72-php-fpm.service',
   logoutput => true
 }
