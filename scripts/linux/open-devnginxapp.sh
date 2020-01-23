@@ -48,8 +48,8 @@ if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf ]; then
   sudo cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf
 fi
 
-if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.php.conf ]; then
-  sudo cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.php.conf
+if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.1.conf ]; then
+  sudo cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.1.conf
 fi
 
 if [ -d /home/Octopus/Applications/Dev/RandomQuotes ]; then

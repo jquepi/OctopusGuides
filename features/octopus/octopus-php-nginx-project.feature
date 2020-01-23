@@ -278,7 +278,7 @@ if (elements.length !== 0) {
 
     And I click the "Add Directive" button
     And I populate the "Directive One" text box with "root"
-    And I populate the "Value One" text box with "#{Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath}/public"
+    And I populate the "Value One" text box with "#{Octopus.Action.Package.InstallationDirectoryPath}/public"
 
     And I click the "Add Directive" button
     And I populate the "Directive Two" text box with "try_files"
@@ -324,7 +324,7 @@ if (elements.length !== 0) {
     And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive Five" text box with "root"
-    And I populate the "Value Five" text box with "#{Octopus.Tentacle.PreviousInstallation.OriginalInstalledPath}/public"
+    And I populate the "Value Five" text box with "#{Octopus.Action.Package.InstallationDirectoryPath}/public"
 
     And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
