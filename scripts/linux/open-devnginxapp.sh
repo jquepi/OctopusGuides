@@ -47,3 +47,11 @@ fi
 if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.php.conf ]; then
   sudo cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.php.conf
 fi
+
+if [ -d /home/Octopus/Applications/Dev/RandomQuotes ]; then
+  ls -la /home/Octopus/Applications/Dev/RandomQuotes
+fi
+
+if [ -d /home/Octopus/Applications/Dev/RandomQuotes/1.0.0_1 ]; then
+  ls -la /home/Octopus/Applications/Dev/RandomQuotes/1.0.0_1
+fi
