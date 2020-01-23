@@ -319,7 +319,7 @@ if (elements.length !== 0) {
     And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
     And I populate the "Directive Four" text box with "include"
-    And I populate the "Value Four" text box with "fastcgi_params"
+    And I populate the "Value Four" text box with "fastcgi.conf"
 
     And I scroll the "Add Directive" button into view offset by "-300"
     And I click the "Add Directive" button
