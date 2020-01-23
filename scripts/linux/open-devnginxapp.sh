@@ -40,6 +40,10 @@ if [ -f /etc/nginx/conf.d/RandomQuotes.conf ]; then
   sudo cat /etc/nginx/conf.d/RandomQuotes.conf
 fi
 
+if [ -d /etc/nginx/conf.d/RandomQuotes.conf.d ]; then
+  ls -la /etc/nginx/conf.d/RandomQuotes.conf.d
+fi
+
 if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf ]; then
   sudo cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf
 fi
