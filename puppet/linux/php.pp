@@ -25,7 +25,7 @@ package { 'php-cli':
   logoutput => true
 }
 
-service {'php-fpm':
+service {'php7.2-fpm':
   ensure => running
 }
 exec { 'Show socket file':
