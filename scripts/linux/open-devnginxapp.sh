@@ -27,3 +27,6 @@
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/open-randomquotes-generic.feature
+
+cat /var/log/php7.2-fpm.log
+cat /var/log/nginx/error.log
