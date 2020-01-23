@@ -1,8 +1,5 @@
 #!/bin/bash
 
-MINIKUBE_IP=`cat /tmp/minikubeip.txt`
-echo "Minikube IP: $MINIKUBE_IP"
-
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \
   "-Xmx2g" \

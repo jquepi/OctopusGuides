@@ -16,6 +16,7 @@ package { 'php-cli':
     sudo php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
     touch /opt/ComposerInstalled.txt
+    ls /run/php
     exit 0
     | EOT
 }
