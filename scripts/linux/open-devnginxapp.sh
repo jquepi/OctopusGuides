@@ -28,5 +28,10 @@
   --tags "$CUCUMBER_TAGS" \
   features/octopus/open-randomquotes-generic.feature
 
-cat /var/log/php7.2-fpm.log
-cat /var/log/nginx/error.log
+if [ -f /var/log/php7.2-fpm.log ]; then
+  cat /var/log/php7.2-fpm.log
+fi
+
+if [ -f /var/log/nginx/error.log ]; then
+  cat /var/log/nginx/error.log
+fi
