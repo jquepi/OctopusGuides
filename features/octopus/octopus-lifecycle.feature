@@ -145,6 +145,8 @@ Feature: Create a Lifecycle in Octopus
     And I click the "Save" button
     And I stop recording the screen
 
+    And I sleep for "10" seconds
+
   @assign-lifecycle
   Scenario: Assign the lifecycle
     Given I set the following aliases:
