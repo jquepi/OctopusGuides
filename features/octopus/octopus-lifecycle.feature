@@ -163,7 +163,7 @@ Feature: Create a Lifecycle in Octopus
     # force click to fis:
     # org.openqa.selenium.ElementClickInterceptedException: Element <span> is not clickable at point (300,24) because another element <div class="MuiDialog-container MuiDialog-scrollPaper"> obscures it
     And I force click the "Projects" link
-    And I sleep for "1" second
+    And I sleep for "3" second
 
     And I highlight inside the "Random Quotes" project tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}095-random-quotes-project.png"
