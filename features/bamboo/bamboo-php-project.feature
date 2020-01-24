@@ -53,7 +53,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Environment Variables" text box
     And I scroll the "Environment Variables" text box into view offset by "-300"
-    And I populate the "Environment Variables" text box with "HOME=/home/github"
+    And I populate the "Environment Variables" text box with "HOME=/home/runner"
 
     And I highlight inside the "Script body" text box
     And I scroll the "Script body" text area into view offset by "-300"
