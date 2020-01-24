@@ -14,6 +14,7 @@ Feature: Configure Bamboo
       | Script Tile                  | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']]       |
       | Interpreter                  | //select[@id='interpreter']                                                                 |
       | Script body                  | //div[@id='scriptBody']                                                                     |
+      | Environment Variables        | //input[@id='environmentVariables']                                                         |
       | PHP Tile                     | (//li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='PHPUnit']])[1] |
       | Octopus Deploy: Pack Package | //li[.//h3[normalize-space(text())='Octopus Deploy: Pack Package']]                         |
       | Task description             | //input[@id='createTask_userDescription']                                                   |
@@ -50,9 +51,9 @@ Feature: Configure Bamboo
     And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "Composer Install"
 
-    And I highlight outside the "Interpreter" text box
-    And I scroll the "Interpreter" drop down list into view offset by "-300"
-    And I select the option "Shell" from the "Interpreter" drop down list
+    And I highlight outside the "Environment Variables" text box
+    And I scroll the "Environment Variables" text box into view offset by "-300"
+    And I populate the "Environment Variables" text box with "HOME=/home/github"
 
     And I highlight inside the "Script body" text box
     And I scroll the "Script body" text area into view offset by "-300"
@@ -63,6 +64,10 @@ Feature: Configure Bamboo
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-composer-install.png"
     And I remove the highlight from the "Script body" text box
+
+    And I highlight outside the "Interpreter" text box
+    And I scroll the "Interpreter" drop down list into view offset by "-300"
+    And I select the option "Shell" from the "Interpreter" drop down list
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
