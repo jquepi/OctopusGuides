@@ -168,7 +168,9 @@ Feature: Create a Lifecycle in Octopus
     And I highlight inside the "Random Quotes" project tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}095-random-quotes-project.png"
     And I remove the highlight from the "Projects" link
-    And I click the "Random Quotes" project tile
+    # Force click to fix this:
+    # Element <a class="style_internalLink__hWOg_" target="_self" href="#/Spaces-1/projects/random-quotes"></a> is not clickable at point (114, 312). Other element would receive the click: <div class="MuiDialog-container MuiDialog-scrollPaper" role="document" tabindex="-1" style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">...</div>
+    And I force click the "Random Quotes" project tile
 
     And I highlight inside the "Deployments" link
     And I click the "Deployments" link
