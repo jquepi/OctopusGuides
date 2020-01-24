@@ -145,6 +145,7 @@ Feature: Create a Lifecycle in Octopus
     And I click the "Save" button
     And I stop recording the screen
 
+    # Give the save time to complete
     And I sleep for "10" seconds
 
   @assign-lifecycle
@@ -166,17 +167,13 @@ Feature: Create a Lifecycle in Octopus
     And I display a note with the text "Assign the custom lifecycle to the Octopus project" for "3" seconds
 
     And I highlight outside the "Projects" link
-    # force click to fis:
-    # org.openqa.selenium.ElementClickInterceptedException: Element <span> is not clickable at point (300,24) because another element <div class="MuiDialog-container MuiDialog-scrollPaper"> obscures it
-    And I force click the "Projects" link
+    And I click the "Projects" link
     And I sleep for "1" second
 
     And I highlight inside the "Random Quotes" project tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}095-random-quotes-project.png"
     And I remove the highlight from the "Projects" link
-    # Force click to fix this:
-    # Element <a class="style_internalLink__hWOg_" target="_self" href="#/Spaces-1/projects/random-quotes"></a> is not clickable at point (114, 312). Other element would receive the click: <div class="MuiDialog-container MuiDialog-scrollPaper" role="document" tabindex="-1" style="opacity: 1; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;">...</div>
-    And I force click the "Random Quotes" project tile
+    And I click the "Random Quotes" project tile
 
     And I highlight inside the "Deployments" link
     And I click the "Deployments" link
