@@ -24,6 +24,7 @@ Feature: Configure Bamboo
       | Path                         | //input[@id='addSharedBuilderCapability_builderPath']                                       |
       | Add                          | //input[@id='addSharedBuilderCapability_save']                                              |
       | Arguments                    | //textarea[@id='arguments']                                                                 |
+      | Working subdirectory         | //input[@id='workingSubDirectory']                                                          |
       | Package ID                   | //input[@id='packId']                                                                       |
       | Version number               | //input[@id='packVersion']                                                                  |
       | Nuget                        | //input[@id='packFormatnuget']                                                              |
