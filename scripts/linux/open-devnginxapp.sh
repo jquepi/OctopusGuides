@@ -15,7 +15,7 @@
   "-DscreenshotS3Enabled=$STHREE_SCREENSHOT_ENABLED" \
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
-  "-DslackStepHandlerEnabled=true" \
+  "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
   "-DCucumberAlias-ExternalEnvironmentName=Dev" \
   "-DCucumberAlias-ExternalTargetName=Kubernetes" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \

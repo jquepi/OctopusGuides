@@ -15,7 +15,7 @@
   "-DscreenshotS3Enabled=$STHREE_SCREENSHOT_ENABLED" \
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
-  "-DslackStepHandlerEnabled=true" \
+  "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   "-DCucumberAlias-ExternalArtifactoryKey=$ARTIFACTORY_KEY" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
