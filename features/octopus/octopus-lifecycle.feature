@@ -143,6 +143,7 @@ Feature: Create a Lifecycle in Octopus
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}090-lifecycle-save.png"
     And I click the "Save" button
+    And I stop recording the screen
 
   @assign-lifecycle
   Scenario: Assign the lifecycle
@@ -157,6 +158,9 @@ Feature: Create a Lifecycle in Octopus
       | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]]          |
 
     And I open the URL "http://localhost/app#/Spaces-1/library/lifecycles"
+    And I sleep for "10" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I display a note with the text "Assign the custom lifecycle to the Octopus project" for "3" seconds
 
     And I highlight outside the "Projects" link
@@ -193,6 +197,7 @@ Feature: Create a Lifecycle in Octopus
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}105-random-quotes-select-lifecycle.png"
     And I click the "Save" button
     And I sleep for "5" seconds
+    And I stop recording the screen
 
   @deploy-to-test
   Scenario: Deploy to the test environment
@@ -204,6 +209,9 @@ Feature: Create a Lifecycle in Octopus
       | Save           | //button[contains(.,'Save')]           |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/process"
+    And I sleep for "10" seconds
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Deploy to the Test environment, skipping Dev" for "3" seconds
 
     And I click the "Create Release" button
