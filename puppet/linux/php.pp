@@ -10,6 +10,9 @@ file { '/run/php':
 -> package { 'php-mbstring':
   ensure => installed,
 }
+-> package { 'phpunit':
+  ensure => installed,
+}
 -> file { '/opt/install_composer.sh':
   ensure  => 'file',
   owner   => 'root',
