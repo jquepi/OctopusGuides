@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUILD_NAME: "java-app-git-jenkins-artifactory-tomcat"
+      SLACK_STEP_HANDLER: false
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
