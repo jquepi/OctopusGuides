@@ -96,7 +96,7 @@ Feature: Configure an Octopus Kubernetes project
     And I populate the "Search" text box with "Nginx"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-search.png"
-    And I sleep for "2" seconds
+    And I sleep for "3" seconds
     And I remove the highlight from the "Search" text box
 
     And I scroll the "Deploy to Nginx" tile into view offset by "-200"
