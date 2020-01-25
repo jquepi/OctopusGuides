@@ -20,6 +20,9 @@ Feature: Create and deploy a release from Jenkins
     And I highlight inside the "Configure" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}010-create-release-configure.png"
     And I click the "Configure" link
+    # Try and prevent this when clicking the add build step button
+    # org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button type="button" tabindex="0" id="yui-gen21-button" class="hetero-list-add" suffix="builder">...</button> is not clickable at point (317, 949). Other element would receive the click: <footer>...</footer>
+    And I sleep for "1" second
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I click the "Add build step" button
