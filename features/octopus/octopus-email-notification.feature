@@ -151,7 +151,7 @@ Feature: Add a manual intervention step
     And I highlight outside the "Send an Email" tile with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}035-octopus-add-email.png"
     And I mouse over the "Send an Email" tile
-    And I click the "Add" button
+    And I force click the "Add" button
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box with an offset of "5"
