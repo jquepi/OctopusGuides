@@ -89,6 +89,7 @@ Feature: Create a Lifecycle in Octopus
 
     # Test environment
     And I highlight outside the "Add Phase" button with an offset of "2"
+    And I sleep for "1" second
     And I scroll the "Add Phase" button into view offset by "-300"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}045-lifecycle-add-phase-2.png"
     And I click the "Add Phase" button
@@ -115,6 +116,7 @@ Feature: Create a Lifecycle in Octopus
 
     # Prod environment
     And I highlight outside the "Add Phase" button with an offset of "2"
+    And I sleep for "1" second
     And I scroll the "Add Phase" button into view offset by "-300"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}065-lifecycle-add-phase-3.png"
     And I click the "Add Phase" button
