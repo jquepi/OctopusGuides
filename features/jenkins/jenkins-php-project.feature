@@ -17,6 +17,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
       | Save           | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
+    And I sleep for "1" second
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute shell" link
@@ -38,6 +39,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
     And I remove the highlight from the "Command" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
+    And I sleep for "1" second
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute shell" link
@@ -47,6 +49,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
     And I remove the highlight from the "Execute shell" option
 
     And I scroll the "Command Two" text box into view offset by "-200"
+    And I sleep for "1" second
     And I highlight outside the "Command Two" text box
     And I run the following JavaScript:
       """
@@ -59,6 +62,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
     And I remove the highlight from the "Command Two" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
+    And I sleep for "1" second
     And I highlight outside the "Add build step" button
     And I click the "Add build step" button
     And I highlight outside the "Execute shell" link
@@ -68,6 +72,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
     And I remove the highlight from the "Execute shell" option
 
     And I scroll the "Command Three" text box into view offset by "-200"
+    And I sleep for "1" second
     And I highlight outside the "Command Three" text box
     And I highlight outside the "Save" button
     And I run the following JavaScript:

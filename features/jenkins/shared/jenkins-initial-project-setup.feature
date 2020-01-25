@@ -35,6 +35,7 @@ Feature: Jenkins initial project setup
     And I click the "OK" button
 
     And I scroll the "Git" option into view offset by "-200"
+    And I sleep for "1" second
     And I highlight outside the "Git" option
     And I click the "Git" option
     And I highlight outside the "Repository URL" text box
@@ -42,6 +43,7 @@ Feature: Jenkins initial project setup
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}190-git-settings.png"
 
     And I scroll the "Poll SCM" option into view offset by "-200"
+    And I sleep for "1" second
     And I click the "Poll SCM" option
     And I populate the "Schedule" textarea with "H/5 * * * *"
     And I highlight outside the "Poll SCM" option
@@ -51,6 +53,7 @@ Feature: Jenkins initial project setup
     And I remove the highlight from the "Schedule" textarea
 
     And I scroll the "Use secrets" option into view offset by "-200"
+    And I sleep for "1" second
     And I highlight outside the "Use secrets" option
     And I click the "Use secrets" option
 
