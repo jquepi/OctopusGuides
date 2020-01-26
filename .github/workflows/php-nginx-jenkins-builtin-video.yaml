@@ -11,7 +11,7 @@ jobs:
     env:
       BUILD_NAME: "php-app-git-jenkins-builtin-nginx"
       SLACK_STEP_HANDLER: true
-      STEP_PAUSE: 200
+      STEP_PAUSE: 1000
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

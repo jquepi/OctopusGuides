@@ -11,7 +11,7 @@ jobs:
     env:
       BUILD_NAME: "node-app-git-teamcity-dockerhub-k8s"
       SLACK_STEP_HANDLER: true
-      STEP_PAUSE: 200
+      STEP_PAUSE: 1000
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
