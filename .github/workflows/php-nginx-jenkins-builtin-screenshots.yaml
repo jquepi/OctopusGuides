@@ -9,7 +9,7 @@ jobs:
     if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-php-nginx-screenshots')
     runs-on: ubuntu-latest
     env:
-      SLACK_STEP_HANDLER: false
+      SLACK_STEP_HANDLER: true
       STEP_PAUSE: 200
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}

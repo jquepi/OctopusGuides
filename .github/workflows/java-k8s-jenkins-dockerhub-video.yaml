@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUILD_NAME: "java-app-git-jenkins-dockerhub-k8s"
-      SLACK_STEP_HANDLER: false
+      SLACK_STEP_HANDLER: true
       STEP_PAUSE: 200
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}

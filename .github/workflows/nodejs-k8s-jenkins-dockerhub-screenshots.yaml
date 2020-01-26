@@ -9,7 +9,7 @@ jobs:
     if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-nodejs-k8s-screenshots')
     runs-on: ubuntu-latest
     env:
-      SLACK_STEP_HANDLER: false
+      SLACK_STEP_HANDLER: true
       STEP_PAUSE: 200
       SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}

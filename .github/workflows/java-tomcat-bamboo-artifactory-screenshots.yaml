@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
-      SLACK_STEP_HANDLER: false
+      SLACK_STEP_HANDLER: true
       STEP_PAUSE: 200
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
