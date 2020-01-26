@@ -19,6 +19,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
+  "-DslackStepHandlerErrorOnly=true" \
   "-DCucumberAlias-ExternalOctopusAPIKey=$API_KEY" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   "-DCucumberAlias-Hostname=$(hostname)" \

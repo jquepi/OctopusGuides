@@ -17,6 +17,7 @@
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
+  "-DslackStepHandlerErrorOnly=true" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   "-DCucumberAlias-ExternalArtifactoryKey=$ARTIFACTORY_KEY" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \

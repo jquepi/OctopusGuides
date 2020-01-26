@@ -17,6 +17,7 @@
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
+  "-DslackStepHandlerErrorOnly=true" \
   "-DCucumberAlias-ExternalUrl=http://localhost:9091/randomquotes-test" \
   "-DCucumberAlias-Screenshot=tomcat-random-quotes-test-app.png" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \

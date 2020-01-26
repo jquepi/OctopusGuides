@@ -20,6 +20,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
+  "-DslackStepHandlerErrorOnly=true" \
   "-DCucumberAlias-ExternalEnvironmentName=Dev" \
   "-DCucumberAlias-ExternalTargetName=Kubernetes Dev" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
@@ -48,6 +49,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
+  "-DslackStepHandlerErrorOnly=true" \
   "-DCucumberAlias-ExternalEnvironmentName=Test" \
   "-DCucumberAlias-ExternalTargetName=Kubernetes Test" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]" \
@@ -76,6 +78,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
+  "-DslackStepHandlerErrorOnly=true" \
   "-DCucumberAlias-ExternalEnvironmentName=Prod" \
   "-DCucumberAlias-ExternalTargetName=Kubernetes Prod" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]" \
