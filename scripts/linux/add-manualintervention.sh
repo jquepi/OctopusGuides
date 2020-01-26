@@ -4,6 +4,7 @@
   "--enable-preview" \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
+  "-DstepPause=$STEP_PAUSE" \
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \

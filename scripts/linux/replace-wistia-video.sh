@@ -5,6 +5,7 @@ if [ -n "$WISTIA_MEDIA_ID" ]; then
     "--enable-preview" \
     "-Xmx2g" \
     "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
+  "-DstepPause=$STEP_PAUSE" \
     "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
     "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
     "-DmoveCursorToElement=false" \
