@@ -9,6 +9,7 @@
     "-DdisableVideoRecording=$env:DISABLE_VIDEO" `
     "-DslackHookUrl=$env:SLACK_HOOK_URL" `
     "-DslackStepHandlerEnabled=true" `
+    "-DslackStepHandlerErrorOnly=true" `
     "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED" `
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
     "-DstepHandlerMessage=$env:GITHUB_SHA" `

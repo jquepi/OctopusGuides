@@ -12,6 +12,7 @@ if (-not [string]::IsNullOrEmpty($env:WISTIA_MEDIA_ID))
     "-DdisableVideoRecording=true" `
     "-DslackHookUrl=$env:SLACK_HOOK_URL" `
     "-DslackStepHandlerEnabled=false" `
+    "-DslackStepHandlerErrorOnly=true" `
     "-DscreenshotS3Enabled=true" `
     "-DscreenshotS3Bucket=octopus-guides-screenshots" `
     "-DstepHandlerMessage=$env:GITHUB_SHA" `
