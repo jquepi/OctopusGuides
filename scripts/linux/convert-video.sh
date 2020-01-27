@@ -27,5 +27,5 @@ vlc -I dummy \
    "#gather:std{access=file,mux=mp4,dst=\"$MEDIA_PATH/video.mp4\"}" \
    vlc://quit
 
-ffmpeg -i $MEDIA_PATH/video.mp4 -vf mpdecimate,setpts=N/FRAME_RATE/TB "$MEDIA_PATH/trimmed.mp4"
+ffmpeg -i $MEDIA_PATH/video.mp4 -vf mpdecimate=max=30,setpts=N/FRAME_RATE/TB "$MEDIA_PATH/trimmed.mp4"
 ffmpeg -i $MEDIA_PATH/video.mp4 "-filter:v" "setpts=0.75*PTS" "$MEDIA_PATH/fast.mp4"
