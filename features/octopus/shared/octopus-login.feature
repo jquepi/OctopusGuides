@@ -16,3 +16,5 @@ Feature: Octopus Login
     And I click the "Sign In" button
     And I click the "Close help" button
     And I click the "Close EAP" button waiting up to "5" seconds if it exists
+    # Give the dashboard time to load
+    And I sleep for "10" seconds
