@@ -119,10 +119,12 @@ jobs:
 
     - name: Process video
       shell: powershell
+      if: always()
       run: ./scripts/windows/process-video.ps1
 
     - name: Upload video
       shell: powershell
+      if: always()
       run: ./scripts/windows/upload-video.ps1
 
     - name: Create badge
