@@ -48,7 +48,7 @@ Feature: Create Azure Web App Target
     And I highlight outside the "Azure Web App" tile
     And I mouse over the "Azure Web App" tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/azuretarget/040-target.png"
-    And I click the "Add" button
+    And I force click the "Add" button
 
     And I highlight outside the "Display Name" text box
     And I populate the "Display Name" text box with "ExternalTargetName"

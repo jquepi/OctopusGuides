@@ -126,7 +126,7 @@ Feature: Configure an Octopus Kubernetes project
     And I highlight outside the "Deploy to Nginx" tile
     And I mouse over the "Deploy to Nginx" tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-add-containers.png"
-    And I click the "Add" button
+    And I force click the "Add" button
 
   @define-project @destinationspecific @nginx
   Scenario: ASP.NET Core Configure Features

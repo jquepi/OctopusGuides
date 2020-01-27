@@ -72,7 +72,7 @@ Feature: Configure an Octopus Tomcat project
     And I highlight outside the "Deploy to Tomcat via Manager" tile
     And I mouse over the "Deploy to Tomcat via Manager" tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}045-octopus-tomcat.png"
-    And I click the "Add" button
+    And I force click the "Add" button
 
   @define-project @destinationspecific @tomcat
   Scenario: K8S Define step

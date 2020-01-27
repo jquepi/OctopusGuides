@@ -141,7 +141,7 @@ if (elements.length !== 0) {
     And I highlight outside the "Deploy Kubernetes containers" tile
     And I mouse over the "Deploy Kubernetes containers" tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}045-octopus-k8s-add-containers.png"
-    And I click the "Add" button
+    And I force click the "Add" button
 
   @define-project @destinationspecific @k8s
   Scenario: K8S Define step

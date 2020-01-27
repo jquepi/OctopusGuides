@@ -58,7 +58,7 @@ Feature: Create Azure Web App Target
     And I highlight outside the "Kubernetes Cluster Target" tile
     And I mouse over the "Kubernetes Cluster Target" tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/040-target.png"
-    And I click the "Add" button
+    And I force click the "Add" button
 
     And I highlight outside the "Display Name" text box
     And I populate the "Display Name" text box with "ExternalTargetName"
