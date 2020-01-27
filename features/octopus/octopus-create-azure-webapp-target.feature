@@ -89,6 +89,7 @@ Feature: Create Azure Web App Target
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/azuretarget/090-target.png"
     And I click the "Save" button
+    And I sleep for "10" seconds
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

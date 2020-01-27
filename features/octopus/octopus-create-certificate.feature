@@ -47,7 +47,7 @@ Feature: Create Certificate
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}060-target.png"
     And I click the "Save" button
-    And I sleep for "1" second
+    And I sleep for "10" second
 
   Scenario: Add Minikube CA
     Given I set the following aliases:
@@ -92,7 +92,7 @@ Feature: Create Certificate
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}120-target.png"
     And I click the "Save" button
-    And I sleep for "1" second
+    And I sleep for "10" second
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

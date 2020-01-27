@@ -82,7 +82,7 @@ Feature: Create Octopus Users and Teams
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/035-octopus-password.png"
 
     And I click the "Save" button
-    And I sleep for "2" seconds
+    And I sleep for "10" seconds
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/037-octopus-user-overview.png"
 
     # Click the Users link in the breadcrumb
@@ -131,7 +131,7 @@ Feature: Create Octopus Users and Teams
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/065-octopus-password.png"
 
     And I click the "Save" button
-    And I sleep for "2" second
+    And I sleep for "10" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/067-octopus-user-overview.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
@@ -200,6 +200,7 @@ Feature: Create Octopus Users and Teams
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/085-octopus-new-team.png"
     And I click the "Save" button
+    And I sleep for "10" seconds
 
     And I highlight outside the "Add Member" button
     And I sleep for "1" second
@@ -262,7 +263,7 @@ Feature: Create Octopus Users and Teams
     And I click the "Apply" button
 
     And I click the "Save" button
-    And I sleep for "5" second
+    And I sleep for "10" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/123-octopus-team-roles.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
@@ -329,6 +330,7 @@ Feature: Create Octopus Users and Teams
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/140-octopus-new-team.png"
     And I click the "Save" button
+    And I sleep for "10" seconds
 
     And I highlight outside the "Add Member" button
     And I sleep for "1" second
@@ -384,7 +386,7 @@ Feature: Create Octopus Users and Teams
     And I click the "Apply" button
 
     And I click the "Save" button
-    And I sleep for "5" second
+    And I sleep for "10" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/178-octopus-team-roles.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

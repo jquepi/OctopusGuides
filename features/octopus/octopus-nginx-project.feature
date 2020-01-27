@@ -78,7 +78,7 @@ Feature: Configure an Octopus Kubernetes project
 
     And I click the "Save" button
     And I scroll down "10000" px
-    And I sleep for "7" second
+    And I sleep for "10" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}030-octopus-variables-populated.png"
 
   @define-project
@@ -274,7 +274,7 @@ if (elements.length !== 0) {
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-save.png"
     And I click the "Save" button
-    And I sleep for "2" seconds
+    And I sleep for "10" seconds
 
   @deploy-project
   Scenario: Deploy project

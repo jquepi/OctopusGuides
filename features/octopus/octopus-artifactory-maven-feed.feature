@@ -65,7 +65,7 @@ Feature: Add Artifactory Maven feed
     And I save a screenshot to "#{ExternalMediaPath}/octopus/externalmavenfeeds/080-external-feed.png"
     And I click the "Save" button
 
-    And I sleep for "2" seconds
+    And I sleep for "10" seconds
     And I save a screenshot to "#{ExternalMediaPath}/octopus/externalmavenfeeds/090-external-feed.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

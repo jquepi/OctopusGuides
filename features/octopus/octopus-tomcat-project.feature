@@ -38,7 +38,7 @@ Feature: Configure an Octopus Tomcat project
     And I populate the "New project name" text box with "Random Quotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}015-octopus-new-project-name.png"
     And I click the "Save" button
-    And I sleep for "2" seconds
+    And I sleep for "10" seconds
 
   @define-project @destinationspecific @tomcat
   Scenario: Add K8S Containers Step
@@ -197,7 +197,7 @@ Feature: Configure an Octopus Tomcat project
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-tomcat-filereplacement.png"
 
     And I click the "Save" button
-    And I sleep for "2" seconds
+    And I sleep for "10" seconds
 
   @deploy-project
   Scenario: Deploy project

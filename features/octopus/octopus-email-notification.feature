@@ -84,7 +84,7 @@ Feature: Add a manual intervention step
 
     And I click the "Save" button
     And I remove the highlight from the "Save" button
-    And I sleep for "5" second
+    And I sleep for "10" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}015-octopus-smtp-populated.png"
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
@@ -219,7 +219,7 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}059-octopus-step-skip-dev.png"
     And I click the "Save" button
-    And I sleep for "2" seconds
+    And I sleep for "10" seconds
 
   @deploy-to-test
   Scenario: Deploy to the test environment
@@ -239,6 +239,7 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     And I remove the highlight from the "Create Release" button
     And I click the "Save" button
+    And I sleep for "10" seconds
 
     And I highlight outside the "Deploy To" button
     And I click the "Deploy To" button

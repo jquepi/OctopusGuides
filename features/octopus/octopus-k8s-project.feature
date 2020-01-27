@@ -92,7 +92,7 @@ if (elements.length !== 0) {
 
     And I click the "Save" button
     And I scroll down "10000" px
-    And I sleep for "7" second
+    And I sleep for "10" second
     And I zoom the browser out
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}025-octopus-variables-populated.png"
     And I zoom the browser in
