@@ -59,6 +59,7 @@ Feature: Jenkins initial project setup
 
     And I highlight outside the "Bindings Add" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}210-binding-add.png"
+    And I sleep for "2" seconds
     And I click the "Bindings Add" option
     And I highlight outside the "Secret text" link
     And I sleep for "1" second
