@@ -20,7 +20,7 @@ Feature: Open Random Quotes
     And I populate the "Username" text box with "productiondeployer"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
-    And I click the "Close help" button
+    And I click the "Close help" button waiting up to "2" seconds if it exists
 
   Scenario: View Random Quotes Overview
     Given I set the following aliases:
