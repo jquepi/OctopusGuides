@@ -106,11 +106,13 @@ jobs:
 
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
-#
+
       - name: Process videos
+        if: always()
         run: ./scripts/linux/convert-video.sh
 
       - name: Upload videos
+        if: always()
         run: ./scripts/linux/upload-video.sh
 
       - name: Replace Wistia video
