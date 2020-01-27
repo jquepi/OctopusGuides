@@ -35,6 +35,7 @@ Feature: Create and deploy a release from Jenkins
     And I click the "Configure" link
 
     And I scroll the "Add build step" button into view offset by "-200"
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Add build step" button
     And I highlight outside the "Execute Windows batch command" option

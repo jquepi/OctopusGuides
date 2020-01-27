@@ -16,6 +16,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Invoke top-level Maven targets" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}110-maven.png"
@@ -31,6 +32,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Invoke top-level Maven targets" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-maven.png"
@@ -70,6 +72,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I sleep for "1" second
     And I highlight outside the "Execute shell" link

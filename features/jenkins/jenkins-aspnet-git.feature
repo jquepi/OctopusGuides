@@ -176,6 +176,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}110-batch-command-1.png"
@@ -191,6 +192,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" second
     And I click the "Add build step" button
     And I highlight outside the "Build a Visual Studio project or solution using MSBuild" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}120-msbuild-step-add.png"
@@ -212,6 +214,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}127-batch-command-2.png"
@@ -235,6 +238,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-artifactory-batch-command-1.png"
@@ -261,6 +265,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-batch-command-3.png"
@@ -292,6 +297,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}110-batch-command-1.png"
@@ -307,6 +313,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-batch-command-2.png"
@@ -322,6 +329,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-batch-command-3.png"
@@ -345,6 +353,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}170-artifactory-batch-command-1.png"
@@ -371,6 +380,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Windows batch command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}170-batch-command-4.png"

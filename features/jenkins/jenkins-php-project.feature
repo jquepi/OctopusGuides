@@ -17,8 +17,12 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
       | Save           | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
-    And I sleep for "1" second
+    # Need sleep to fix this:
+    # org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button type="button" tabindex="0" id="yui-gen11-button" class="hetero-list-add" suffix="builder">...</button> is not clickable at point (317, 894). Other element would receive the click: <div class="bottom-sticker-inner">...</div>
+    And I sleep for "5" second
+
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute shell" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}240-shell-command-1.png"
@@ -39,8 +43,8 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
     And I remove the highlight from the "Command" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
-    And I sleep for "1" second
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute shell" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}260-shell-command.png"
@@ -62,8 +66,8 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
     And I remove the highlight from the "Command Two" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
-    And I sleep for "1" second
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute shell" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}280-shell-command.png"

@@ -30,6 +30,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute shell" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}240-shell-command-1.png"
@@ -51,6 +52,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Docker command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}260-execute-docker-command-1.png"
@@ -80,6 +82,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
     And I click the "Add build step" button
     And I highlight outside the "Execute Docker command" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}280-execute-docker-command-1.png"
