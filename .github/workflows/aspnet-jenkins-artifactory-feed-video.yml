@@ -128,13 +128,13 @@ jobs:
       run: ./scripts/windows/view-auditlogs.ps1
 
     - name: Process video
-      shell: powershell
       if: always()
+      shell: powershell
       run: ./scripts/windows/process-video.ps1
 
     - name: Upload video
-      shell: powershell
       if: always()
+      shell: powershell
       run: ./scripts/windows/upload-video.ps1
 
     - name: Create badge
