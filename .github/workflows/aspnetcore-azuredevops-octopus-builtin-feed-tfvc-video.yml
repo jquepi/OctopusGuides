@@ -134,12 +134,12 @@ jobs:
       - name: Process video
         #if: always()
         shell: powershell
-      run: ./scripts/windows/process-video.ps1
+        run: ./scripts/windows/process-video.ps1
 
       - name: Upload video
         #if: always()
         shell: powershell
-      run: ./scripts/windows/upload-video.ps1
+        run: ./scripts/windows/upload-video.ps1
 
       - name: Replace Wistia Video
         shell: powershell
