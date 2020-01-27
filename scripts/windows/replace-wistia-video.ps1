@@ -5,13 +5,14 @@ if (-not [string]::IsNullOrEmpty($env:WISTIA_MEDIA_ID))
     "--enable-preview" `
     "-Xmx2g" `
     "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
+    "-DstepPause=$STEP_PAUSE" `
     "-DmoveCursorToElement=false" `
     "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET" `
     "-DdisableHighlights=true" `
     "-DdisableScreenshots=true" `
     "-DdisableVideoRecording=true" `
     "-DslackHookUrl=$env:SLACK_HOOK_URL" `
-    "-DslackStepHandlerEnabled=false" `
+    "-DslackStepHandlerErrorOnly=$env:SLACK_STEP_HANDLER" `
     "-DslackStepHandlerErrorOnly=true" `
     "-DscreenshotS3Enabled=true" `
     "-DscreenshotS3Bucket=octopus-guides-screenshots" `

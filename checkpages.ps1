@@ -9,7 +9,8 @@ foreach($line in Get-Content .\links.txt)
         & "C:\Program Files\Java\jdk-13\bin\java.exe" `
         --enable-preview `
         "-Dio.netty.leakDetection.level=DISABLED" `
-        "-Dwebdriver.gecko.driver=c:\tools\geckodriver.exe" `
+        "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
+    "-DstepPause=$STEP_PAUSE" `
         "-DCucumberAlias-ExternalBrowserType=FirefoxHeadless" `
         "-DCucumberAlias-ExternalURL=$line" `
         -jar ..\WebDriverTraining\target\webdrivertraining.1.0-SNAPSHOT.jar `

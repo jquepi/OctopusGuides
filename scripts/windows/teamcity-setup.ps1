@@ -2,6 +2,7 @@
     "--enable-preview" `
     "-Xmx2g" `
     "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
+    "-DstepPause=$STEP_PAUSE" `
     "-DCucumberAlias-ExternalArtifactoryKey=$env:ARTIFACTORY_KEY" `
     "-DmoveCursorToElement=false" `
     "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET" `
@@ -9,7 +10,7 @@
     "-DdisableScreenshots=true" `
     "-DdisableVideoRecording=true" `
     "-DslackHookUrl=$env:SLACK_HOOK_URL" `
-    "-DslackStepHandlerEnabled=false" `
+    "-DslackStepHandlerErrorOnly=$env:SLACK_STEP_HANDLER" `
     "-DslackStepHandlerErrorOnly=true" `
     "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED" `
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `

@@ -2,13 +2,14 @@
     "--enable-preview" `
     "-Xmx2g" `
     "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
+    "-DstepPause=$STEP_PAUSE" `
     "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR" `
     "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET" `
     "-DdisableHighlights=$env:DISABLE_HIGHLIGHTS" `
     "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS" `
     "-DdisableVideoRecording=$env:DISABLE_VIDEO" `
     "-DslackHookUrl=$env:SLACK_HOOK_URL" `
-    "-DslackStepHandlerEnabled=true" `
+    "-DslackStepHandlerErrorOnly=$env:SLACK_STEP_HANDLER" `
     "-DslackStepHandlerErrorOnly=true" `
     "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED" `
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
