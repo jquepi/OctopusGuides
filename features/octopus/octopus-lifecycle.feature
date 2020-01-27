@@ -145,9 +145,9 @@ Feature: Create a Lifecycle in Octopus
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}090-lifecycle-save.png"
     And I click the "Save" button
-    And I stop recording the screen
 
-    # Give the save time to complete
+    And I sleep for "1" second
+    And I stop recording the screen
     And I sleep for "10" seconds
 
   @assign-lifecycle
@@ -197,8 +197,10 @@ Feature: Create a Lifecycle in Octopus
     And I click the "Dev, Test and Prod" option
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}105-random-quotes-select-lifecycle.png"
     And I click the "Save" button
-    And I sleep for "10" seconds
+
+    And I sleep for "1" second
     And I stop recording the screen
+    And I sleep for "10" seconds
 
   @deploy-to-test
   Scenario: Deploy to the test environment
@@ -222,7 +224,11 @@ Feature: Create a Lifecycle in Octopus
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}110-random-quotes-create-release.png"
     And I remove the highlight from the "Create Release" button
     And I click the "Save" button
+
+    And I sleep for "1" second
+    And I stop recording the screen
     And I sleep for "10" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Deploy To" button
     And I click the "Deploy To" button

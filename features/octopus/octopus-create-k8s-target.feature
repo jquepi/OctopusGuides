@@ -104,7 +104,7 @@ Feature: Create Azure Web App Target
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/100-target.png"
     And I click the "Save" button
-    And I sleep for "10" seconds
+    And I sleep for "1" seconds
 
     #And I highlight outside the "Connectivity" link
     #And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/110-target.png"

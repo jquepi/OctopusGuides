@@ -55,7 +55,11 @@ Feature: Configure an Octopus Kubernetes project
 
     And I click the "Save" button
     And I scroll down "10000" px
-    And I sleep for "10" second
+
+    And I sleep for "1" second
+    And I stop recording the screen
+    And I sleep for "10" seconds
+
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}030-octopus-variables-populated.png"
 
   @define-project
@@ -64,6 +68,7 @@ Feature: Configure an Octopus Kubernetes project
       | Overview    | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview'] |
       | Deployments | //a[contains(.,'Deployments')]                                     |
 
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I highlight inside the "Deployments" link
     And I click the "Deployments" link
     And I highlight inside the "Overview" link
@@ -340,7 +345,11 @@ if (elements.length !== 0) {
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}210-save.png"
     And I click the "Save" button
+
+    And I sleep for "1" second
+    And I stop recording the screen
     And I sleep for "10" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
   @deploy-project
   Scenario: Deploy project

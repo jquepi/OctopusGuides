@@ -25,4 +25,8 @@ Feature: Create Project
     And I populate the "New project name" text box with "Random Quotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}015-octopus-new-project-name.png"
     And I click the "Save" button
+
+    And I sleep for "1" second
+    And I stop recording the screen
     And I sleep for "10" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"

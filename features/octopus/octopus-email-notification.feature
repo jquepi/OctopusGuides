@@ -84,10 +84,10 @@ Feature: Add a manual intervention step
 
     And I click the "Save" button
     And I remove the highlight from the "Save" button
-    And I sleep for "10" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}015-octopus-smtp-populated.png"
-
+    And I sleep for "1" second
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
+    And I stop recording the screen
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}015-octopus-smtp-populated.png"
 
   @add-email-notification
   Scenario: Add the notification step
@@ -118,6 +118,7 @@ Feature: Add a manual intervention step
 
     And I open the URL "http://localhost/app#"
     And I clear the transition
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I display a note with the text "Add an email notification step" for "3" seconds
 
@@ -219,7 +220,11 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}059-octopus-step-skip-dev.png"
     And I click the "Save" button
+
+    And I sleep for "1" second
+    And I stop recording the screen
     And I sleep for "10" seconds
+
 
   @deploy-to-test
   Scenario: Deploy to the test environment
@@ -231,6 +236,7 @@ Feature: Add a manual intervention step
       | Save           | //button[contains(.,'Save')]           |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/process"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Deploy to the Test environment" for "3" seconds
 
     And I click the "Create Release" button
@@ -239,7 +245,11 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     And I remove the highlight from the "Create Release" button
     And I click the "Save" button
+
+    And I sleep for "1" second
+    And I stop recording the screen
     And I sleep for "10" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Deploy To" button
     And I click the "Deploy To" button

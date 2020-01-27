@@ -39,7 +39,11 @@ Feature: Configure the Octopus environments
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/environments/020-environment-dev.png"
     And I click the "Save" button
-    And I sleep for "10" second
+
+    And I sleep for "1" second
+    And I stop recording the screen
+    And I sleep for "10" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Environments text" link with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/environments/025-environments-2.png"
@@ -55,7 +59,11 @@ Feature: Configure the Octopus environments
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/environments/035-environment-test.png"
     And I click the "Save" button
-    And I sleep for "10" second
+
+    And I sleep for "1" second
+    And I stop recording the screen
+    And I sleep for "10" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Environments text" link with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/environments/040-environments-3.png"
@@ -71,7 +79,7 @@ Feature: Configure the Octopus environments
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/environments/050-environment-prod.png"
     And I click the "Save" button
-    And I sleep for "10" second
+    And I sleep for "1" second
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds

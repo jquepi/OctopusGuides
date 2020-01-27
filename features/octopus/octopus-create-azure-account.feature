@@ -80,7 +80,9 @@ Feature: Create Azure Account
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/azureaccount/090-accounts.png"
     And I click the "Save" button
-    And I sleep for "10" seconds
+
+    And I sleep for "1" second
+
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
