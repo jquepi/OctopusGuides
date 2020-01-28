@@ -191,7 +191,9 @@ Feature: Add a manual intervention step
 
     And I scroll the "Run Condition" section into view offset by "-300"
     And I highlight outside the "Run Condition" element
-    And I click the "Run Condition" element
+    # There have been cases where clicking the Run Element label resulted in the section below it being expanded,
+    # so we force click to make sure the correct section is opened.
+    And I force click the "Run Condition" element
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}057-octopus-step-conditions.png"
     And I remove the highlight from the "Run Condition" element
 
