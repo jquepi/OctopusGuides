@@ -13,6 +13,10 @@ Feature: Configure Octopus
       | Executable path     | //input[@id='addCapability_builderPath']     |
       | Add                 | //input[@id='addCapability_save']            |
 
+    And I stop recording the screen
+    And I click the "Close dialog" button waiting up to "5" seconds if it exists
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I display a note with the text "Configuring the Octopus CLI executable" for "3" seconds
 
     And I scroll the "Administration" button into view
