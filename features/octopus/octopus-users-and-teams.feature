@@ -277,10 +277,7 @@ Feature: Create Octopus Users and Teams
     And I click the "Apply" button
 
     And I click the "Save" button
-    And I sleep for "1" second
-    And I stop recording the screen
-    And I sleep for "30" seconds
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
+    And I sleep for "2" second
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/123-octopus-team-roles.png"
 
@@ -407,10 +404,8 @@ Feature: Create Octopus Users and Teams
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/175-octopus-add-role.png"
     And I click the "Apply" button
 
-    And I sleep for "1" second
-    And I stop recording the screen
-    And I sleep for "30" seconds
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
+    And I click the "Save" button
+    And I sleep for "2" second
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/178-octopus-team-roles.png"
 
