@@ -86,11 +86,11 @@ Feature: Create PHP project
 #      editor.setValue("composer install\n./vendor/bin/phpunit ./tests/quotetest.php");
 #      editor.save();
 #      """
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-npm-install.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-composer-install.png"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}060-npm-install.png"
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}060-composer-install.png"
     And I click the "Save" button
 
     And I click the "Got it" button waiting up to "5" seconds if it exists
