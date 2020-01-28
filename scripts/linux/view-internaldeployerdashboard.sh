@@ -18,7 +18,7 @@
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DstepPause=$STEP_PAUSE" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
-  "-DslackStepHandlerErrorOnly=true" \
+  "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \

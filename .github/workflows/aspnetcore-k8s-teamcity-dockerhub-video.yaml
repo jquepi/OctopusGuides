@@ -11,6 +11,7 @@ jobs:
     env:
       BUILD_NAME: "aspnetcore-docker-app-git-teamcity-dockerhub-k8s"
       SLACK_STEP_HANDLER: true
+      SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}

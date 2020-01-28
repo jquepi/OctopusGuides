@@ -17,7 +17,7 @@
   "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
-  "-DslackStepHandlerErrorOnly=true" \
+  "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
   "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
   "-DCucumberAlias-ExternalDockerImage=$DOCKER_IMAGE" \
   "-DCucumberAlias-ExternalConfigFile=$CONFIG_FILE" \

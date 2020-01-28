@@ -11,6 +11,7 @@ jobs:
     env:
       BUILD_NAME: "java-app-git-teamcity-artifactory-tomcat"
       SLACK_STEP_HANDLER: true
+      SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}

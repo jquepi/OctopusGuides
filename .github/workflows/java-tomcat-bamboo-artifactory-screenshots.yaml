@@ -11,6 +11,7 @@ jobs:
     env:
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_STEP_HANDLER: true
+      SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
