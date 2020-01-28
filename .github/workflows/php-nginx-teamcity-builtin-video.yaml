@@ -34,7 +34,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-PHP.git
-      WISTIA_MEDIA_ID: 0fjacoc6nl
+      WISTIA_MEDIA_ID: zs94p13kau
       VIDEO_FILE_NAME: teamcity-php-nginx-builtin.mp4
       SCREENSHOT_PATH: /node-app/nginx/builtin/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjs
