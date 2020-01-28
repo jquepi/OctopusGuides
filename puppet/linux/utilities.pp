@@ -68,38 +68,6 @@ package { 'maven':
 -> file { '/home/runner/.m2':
   ensure => 'directory'
 }
--> file { '/home/runner/.m2/settings.xml':
-  ensure  => 'file',
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0644',
-  content => @(EOT)
-    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-        <mirrors>
-          <mirror>
-            <id>repo1</id>
-            <name>Mirror 1</name>
-            <url>http://repo1.maven.org/maven2</url>
-            <mirrorOf>central</mirrorOf>
-          </mirror>
-        </mirrors>
-      <servers>
-          <server>
-            <id>artifactory</id>
-            <username>admin</username>
-            <password>Password01!</password>
-          </server>
-          <server>
-            <id>artifactorysnapshots</id>
-            <username>admin</username>
-            <password>Password01!</password>
-          </server>
-        </servers>
-    </settings>
-    | EOT
-}
 
 file { '/opt/google-chrome-stable_current_amd64.deb':
   source => 'https://octopus-guides.s3.amazonaws.com/chrome/google-chrome-stable_current_amd64.deb',
