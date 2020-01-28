@@ -52,9 +52,9 @@ Feature: Configure Bamboo
     And I scroll the "Task description" text box into view offset by "-300"
     And I populate the "Task description" text box with "Composer Install"
 
-    And I highlight outside the "Environment Variables" text box
-    And I scroll the "Environment Variables" text box into view offset by "-300"
-    And I populate the "Environment Variables" text box with "HOME=/home/runner"
+    And I highlight outside the "Interpreter" text box
+    And I scroll the "Interpreter" drop down list into view offset by "-300"
+    And I select the option "Shell" from the "Interpreter" drop down list
 
     And I highlight inside the "Script body" text box
     And I scroll the "Script body" text area into view offset by "-300"
@@ -66,9 +66,9 @@ Feature: Configure Bamboo
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-composer-install.png"
     And I remove the highlight from the "Script body" text box
 
-    And I highlight outside the "Interpreter" text box
-    And I scroll the "Interpreter" drop down list into view offset by "-300"
-    And I select the option "Shell" from the "Interpreter" drop down list
+    And I highlight outside the "Environment Variables" text box
+    And I scroll the "Environment Variables" text box into view offset by "-300"
+    And I populate the "Environment Variables" text box with "HOME=/home/runner"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
@@ -94,13 +94,16 @@ Feature: Configure Bamboo
     And I populate the "Task description" text box with "PHP Unit Tests"
 
     And I highlight outside the "Add new executable" link
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}155-php-executable.png"
     And I click the "Add new executable" link
+
+
     And I highlight outside the "Executable label" text box
     And I highlight outside the "Path" text box
     And I highlight outside the "Add" button with an offset of "5"
     And I populate the "Executable label" text box with "PHPUnit"
     And I populate the "Path" text box with "/usr/bin/phpunit"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-npm-executable.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-php-executable.png"
     And I click the "Add" button
 
     And I highlight outside the "Arguments" text box
@@ -110,7 +113,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}170-npm-install.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}170-php-install.png"
     And I click the "Save" button
 
     # Create package

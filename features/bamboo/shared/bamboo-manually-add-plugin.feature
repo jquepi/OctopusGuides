@@ -34,6 +34,7 @@ Feature: Add Octopus plugin
 
     And I highlight outside the "Upload app" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/manualaddins/#{GuideSpecificScreenshotDir}030-upload-apps.png"
+    And I remove the highlight from the "Upload app" link
     And I click the "Upload app" link
 
     And I populate the "File" file selector with a keystroke delay of "0" with "ExternalBambooPlugin"
