@@ -14,7 +14,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
-      SLACK_HOOK_URL: ${{ secrets.SLACK_HOOK_URL }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       EXTERNAL_APPLICATION_PASSWORD: ${{ secrets.ExternalApplicationPassword }}

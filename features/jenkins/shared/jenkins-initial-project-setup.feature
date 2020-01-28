@@ -1,4 +1,5 @@
 Feature: Jenkins initial project setup
+
   @configure-project
   Scenario: Prepare the project
     Given I set the following aliases:
@@ -6,7 +7,7 @@ Feature: Jenkins initial project setup
       | Project name      | //input[@name='name']                                                             |
       | Freestyle project | .hudson_model_FreeStyleProject                                                    |
       | OK                | //button[@type='submit'][contains(.,'OK')]                                        |
-      | Git               | (//label[contains(.,'Git')])[2]                                                   |
+      | Git               | //label[contains(.,'Git')]                                                        |
       | Repository URL    | //input[contains(@name,'_.url')]                                                  |
       | Poll SCM          | //input[@name='hudson-triggers-SCMTrigger']                                       |
       | Schedule          | //textarea[contains(@checkurl,'checkScmpoll_spec')]                               |
