@@ -62,7 +62,9 @@ Feature: Create a Lifecycle in Octopus
     And I scroll the "Add Phase" button into view
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}025-lifecycle-add-phase-1.png"
-    And I click the "Add Phase" button
+    # Force click to fix:
+    # org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button title="Add phase" class="style_globalActionButton__2mAxn style_secondaryButton__2KOA8" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: rgb(0, 204, 101) solid 5px; font-size: inherit; font-weight: inherit; position: relative; height: 36px; line-height: 36px; min-width: 88px; color: rgb(51, 51, 51); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: rgba(0, 0, 0, 0); text-align: center; outline-offset: 2px;">...</button> is not clickable at point (1489, 18). Other element would receive the click: <ul>...</ul>
+    And I force click the "Add Phase" button
     And I remove the highlight from the "Add Phase" button
 
     And I scroll the "Phase name 1" text box into view offset by "-200"
@@ -92,7 +94,9 @@ Feature: Create a Lifecycle in Octopus
     And I sleep for "1" second
     And I scroll the "Add Phase" button into view offset by "-300"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}045-lifecycle-add-phase-2.png"
-    And I click the "Add Phase" button
+    # Force click to fix:
+    # org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button title="Add phase" class="style_globalActionButton__2mAxn style_secondaryButton__2KOA8" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: rgb(0, 204, 101) solid 5px; font-size: inherit; font-weight: inherit; position: relative; height: 36px; line-height: 36px; min-width: 88px; color: rgb(51, 51, 51); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: rgba(0, 0, 0, 0); text-align: center; outline-offset: 2px;">...</button> is not clickable at point (1489, 18). Other element would receive the click: <ul>...</ul>
+    And I force click the "Add Phase" button
     And I remove the highlight from the "Add Phase" button
 
     And I scroll the "Phase name 2" text box into view offset by "-200"
@@ -119,7 +123,9 @@ Feature: Create a Lifecycle in Octopus
     And I sleep for "1" second
     And I scroll the "Add Phase" button into view offset by "-300"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}065-lifecycle-add-phase-3.png"
-    And I click the "Add Phase" button
+    # Force click to fix:
+    # org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button title="Add phase" class="style_globalActionButton__2mAxn style_secondaryButton__2KOA8" tabindex="0" type="button" style="border: 10px; box-sizing: border-box; display: inline-block; font-family: Roboto, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: pointer; text-decoration: none; margin: 0px; padding: 0px; outline: rgb(0, 204, 101) solid 5px; font-size: inherit; font-weight: inherit; position: relative; height: 36px; line-height: 36px; min-width: 88px; color: rgb(51, 51, 51); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms; border-radius: 2px; user-select: none; overflow: hidden; background-color: rgba(0, 0, 0, 0); text-align: center; outline-offset: 2px;">...</button> is not clickable at point (1489, 18). Other element would receive the click: <ul>...</ul>
+    And I force click the "Add Phase" button
     And I remove the highlight from the "Add Phase" button
 
     And I scroll the "Phase name 3" text box into view offset by "-200"
