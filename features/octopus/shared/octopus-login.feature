@@ -11,6 +11,8 @@ Feature: Octopus Login
 
     And I set the default explicit wait time to "30" seconds
     And I open the URL "#{OctopusURL:-http://localhost}"
+    # Give the form time to load
+    And I sleep for "5" seconds
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
