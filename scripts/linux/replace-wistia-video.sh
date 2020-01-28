@@ -9,7 +9,7 @@ if [ -n "$WISTIA_MEDIA_ID" ]; then
     "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
     "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
     "-DmoveCursorToElement=false" \
-    "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
+    "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
     "-DdisableHighlights=true" \
     "-DdisableScreenshots=true" \
     "-DslackHookUrl=$SLACK_HOOK_URL" \
@@ -20,7 +20,7 @@ if [ -n "$WISTIA_MEDIA_ID" ]; then
     "-DCucumberAlias-ExternalWistiaUsername=$WISTIA_USERNAME" \
     "-DCucumberAlias-ExternalWistiaPassword=$WISTIA_PASSWORD" \
     "-DCucumberAlias-ExternalMediaID=$WISTIA_MEDIA_ID" \
-    "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+    "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
     -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
     --plugin progress \
     --tags "$CUCUMBER_TAGS" \

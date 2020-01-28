@@ -15,10 +15,10 @@ docker_network { 'octopus':
   net   => 'octopus'
 }
 -> docker::image { 'octopusdeploy/linuxoctopus':
-  image_tag => '2019.13.1-ci0058'
+  image_tag => '2019.13.1-ci0067'
 }
 -> docker::run { 'octopusdeploy':
-  image => 'octopusdeploy/linuxoctopus:2019.13.1-ci0058',
+  image => 'octopusdeploy/linuxoctopus:2019.13.1-ci0067',
   env   => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com', 'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'
     , 'CONNSTRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!'],
   ports => ['80:8080', '10943:10943'],

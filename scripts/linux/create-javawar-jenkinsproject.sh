@@ -10,7 +10,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
-  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
+  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
   "-DdisableVideoRecording=$DISABLE_VIDEO" \
@@ -25,7 +25,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
   "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
   "-DCucumberAlias-ArtifactPath=\$WORKSPACE/target/randomquotes.1.0.\$BUILD_NUMBER.war" \
-  "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \

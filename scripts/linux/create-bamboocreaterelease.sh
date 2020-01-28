@@ -10,7 +10,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
-  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
+  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
   "-DdisableVideoRecording=$DISABLE_VIDEO" \
@@ -21,7 +21,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
   "-DCucumberAlias-ExternalOctopusAPIKey=$API_KEY" \
-  "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
   "-DCucumberAlias-Hostname=$(hostname)" \
   "-DCucumberAlias-ExternalBambooPlugin=/opt/bamboo.jar" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \

@@ -11,7 +11,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
-  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
+  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
   "-DdisableVideoRecording=$DISABLE_VIDEO" \
@@ -26,7 +26,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
-  "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \
@@ -40,7 +40,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
-  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
+  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
   "-DdisableVideoRecording=$DISABLE_VIDEO" \
@@ -55,7 +55,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-test" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
-  "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \
@@ -69,7 +69,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
-  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
+  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
   "-DdisableVideoRecording=$DISABLE_VIDEO" \
@@ -84,7 +84,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-prod" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
-  "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \

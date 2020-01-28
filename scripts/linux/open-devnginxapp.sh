@@ -8,7 +8,7 @@
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
   "-DmoveCursorToElement=$MOVE_TO_MOUSE_CURSOR" \
-  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET_CHROME" \
+  "-DmouseMoveVerticalOffset=$MOUSE_VERTICAL_OFFSET" \
   "-DdisableHighlights=$DISABLE_HIGHLIGHTS" \
   "-DdisableScreenshots=$DISABLE_SCREENSHOTS" \
   "-DdisableVideoRecording=$DISABLE_VIDEO" \
@@ -24,7 +24,7 @@
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
   "-DCucumberAlias-ExternalUrl=http://localhost:8081/index.html" \
   "-DCucumberAlias-Screenshot=nginx-random-quotes-dev-app.png" \
-  "-DCucumberAlias-ExternalBrowserType=ChromeNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \
