@@ -29,18 +29,18 @@ Feature: Add Octopus plugin
 
     And I scroll the "Manage apps" link into view offset by "-300"
     And I highlight outside the "Manage apps" link with an offset of "5"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/manualaddins/#{GuideSpecificScreenshotDir}020-find-apps.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/manualaddins/#{GuideSpecificScreenshotDir}020-manage-apps.png"
     And I click the "Manage apps" link
 
     And I highlight outside the "Upload app" link with an offset of "5"
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/manualaddins/#{GuideSpecificScreenshotDir}020-find-apps.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/manualaddins/#{GuideSpecificScreenshotDir}030-upload-apps.png"
     And I click the "Upload app" link
 
     And I populate the "File" file selector with a keystroke delay of "0" with "ExternalBambooPlugin"
     And I highlight outside the "Upload app" file selector with an offset of "5"
 
     And I highlight outside the "Upload" button
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/manualaddins/#{GuideSpecificScreenshotDir}030-octopus-addin.png"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/manualaddins/#{GuideSpecificScreenshotDir}040-octopus-addin.png"
     And I click the "Upload" button
     And I sleep for "5" seconds
 
