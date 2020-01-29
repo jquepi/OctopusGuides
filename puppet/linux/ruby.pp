@@ -12,3 +12,8 @@ package { 'ruby':
   ensure => installed,
   provider => 'gem',
 }
+-> package { 'bundler':
+  ensure => installed,
+  provider => 'gem',
+}
+
