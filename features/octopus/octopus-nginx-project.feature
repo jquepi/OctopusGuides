@@ -1,4 +1,4 @@
-Feature: Configure an Octopus Kubernetes project
+Feature: Configure an Octopus Node.js project
 
   Scenario: Open Browser
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments

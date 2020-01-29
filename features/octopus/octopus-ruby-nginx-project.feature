@@ -1,4 +1,4 @@
-Feature: Configure an Octopus PHP project
+Feature: Configure an Octopus Ruby project
 
   Scenario: Open Browser
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
@@ -69,12 +69,11 @@ Feature: Configure an Octopus PHP project
       | Deployments | //a[contains(.,'Deployments')]                                     |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I highlight inside the "Deployments" link
     And I click the "Deployments" link
     And I highlight inside the "Overview" link
     And I click the "Overview" link
-    And I remove the highlight from the "Deployments" link
-    And I remove the highlight from the "Overview" link
 
   @define-project @destinationspecific @nginx
   Scenario: Add K8S Containers Step
@@ -88,6 +87,8 @@ Feature: Configure an Octopus PHP project
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}040-octopus-define-process.png"
+    And I remove the highlight from the "Deployments" link
+    And I remove the highlight from the "Overview" link
 
     And I click the "Define your deployment process" button
     And I sleep for "1" second
@@ -101,7 +102,7 @@ Feature: Configure an Octopus PHP project
     And I populate the "Search" text box with "Nginx"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-search.png"
-    And I sleep for "3" seconds
+    And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
     And I scroll the "Deploy to Nginx" tile into view offset by "-200"
@@ -176,30 +177,31 @@ Feature: Configure an Octopus PHP project
   @define-project @destinationspecific @nginx
   Scenario: Nginx - Continue to define project
     Given I set the following aliases:
-      | Bash                   | (//input[@value='Bash'])[3]                                                                                 |
-      | Bash container         | (//div[./input[@value='Bash']])[3]                                                                          |
-      | Post-deployment script | (//div[contains(@class, 'ReactCodeMirror')])[3]                                                             |
-      | Remove binding         | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]               |
-      | Add binding            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
-      | Add location           | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
-      | Port                   | //input[contains(@id,'Port')]                                                                               |
-      | Location               | //input[contains(@id,'Location')]                                                                           |
-      | Add Directive          | //button[contains(.,'Add Directive')]                                                                       |
-      | Directive One          | (//input[contains(@id,'Directive')])[1]                                                                     |
-      | Value One              | (//input[contains(@id,'Value')])[1]                                                                         |
-      | Directive Two          | (//input[contains(@id,'Directive')])[2]                                                                     |
-      | Value Two              | (//input[contains(@id,'Value')])[2]                                                                         |
-      | Directive Three        | (//input[contains(@id,'Directive')])[3]                                                                     |
-      | Value Three            | (//input[contains(@id,'Value')])[3]                                                                         |
-      | Directive Four         | (//input[contains(@id,'Directive')])[4]                                                                     |
-      | Value Four             | (//input[contains(@id,'Value')])[4]                                                                         |
-      | Directive Five         | (//input[contains(@id,'Directive')])[5]                                                                     |
-      | Value Five             | (//input[contains(@id,'Value')])[5]                                                                         |
-      | Directive Six          | (//input[contains(@id,'Directive')])[6]                                                                     |
-      | Value Six              | (//input[contains(@id,'Value')])[6]                                                                         |
-      | OK                     | //button[contains(.,'Ok')]                                                                                  |
-      | Save                   | //button[contains(.,'Save')]                                                                                |
-      | HTTP_PROXY Value       | HTTP_PROXY ""                                                                                               |
+      | Bash                    | (//input[@value='Bash'])[3]                                                                                 |
+      | Bash container          | (//div[./input[@value='Bash']])[3]                                                                          |
+      | Post-deployment script  | (//div[contains(@class, 'ReactCodeMirror')])[3]                                                             |
+      | Remove binding          | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]               |
+      | Add binding             | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
+      | Add location            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
+      | Port                    | //input[contains(@id,'Port')]                                                                               |
+      | Location                | //input[contains(@id,'Location')]                                                                           |
+      | Proxy URL               | //input[contains(@id,'ProxyrequeststothisURL')]                                                             |
+      | Reverse Proxy           | //input[..//label[text()='Reverse Proxy']]                                                                  |
+      | Reverse Proxy Container | //div[./div/div/label[text()='Reverse Proxy']]                                                              |
+      | Directive One           | (//input[contains(@id,'Directive')])[1]                                                                     |
+      | Value One               | (//input[contains(@id,'Value')])[1]                                                                         |
+      | Directive Two           | (//input[contains(@id,'Directive')])[2]                                                                     |
+      | Value Two               | (//input[contains(@id,'Value')])[2]                                                                         |
+      | Directive Three         | (//input[contains(@id,'Directive')])[3]                                                                     |
+      | Value Three             | (//input[contains(@id,'Value')])[3]                                                                         |
+      | Directive Four          | (//input[contains(@id,'Directive')])[4]                                                                     |
+      | Value Four              | (//input[contains(@id,'Value')])[4]                                                                         |
+      | Directive Five          | (//input[contains(@id,'Directive')])[5]                                                                     |
+      | Value Five              | (//input[contains(@id,'Value')])[5]                                                                         |
+      | Directive Six           | (//input[contains(@id,'Directive')])[6]                                                                     |
+      | Value Six               | (//input[contains(@id,'Value')])[6]                                                                         |
+      | OK                      | //button[contains(.,'Ok')]                                                                                  |
+      | Save                    | //button[contains(.,'Save')]                                                                                |
 
     And I scroll the "Post-deployment script" container into view offset by "-300"
     And I highlight inside the "Bash container" container
@@ -222,11 +224,10 @@ window.findReactComponent = function(el) {
 elements = document.getElementsByClassName("ReactCodeMirror");
 if (elements.length !== 0) {
   cm = findReactComponent(document.getElementsByClassName("ReactCodeMirror")[2]);
-  cm.props.onChange("nginx -s reload");
+  cm.props.onChange("SYSTEMD_CONF=\/etc\/systemd\/system\r\nSERVICE_USER=$(whoami)\r\nUNICORN=\/usr\/local\/bin\/unicorn\r\nENVIRONMENT=#{Octopus.Environment.Name}\r\n\r\n# This is used to generate the systemd filename, so we remove any chars that might be problematic for filenames\r\nAPPNAME=#{Octopus.Action[Deploy web app to Nginx].Package.PackageId | Replace \"[^a-zA-Z0-9]\" -}\r\n# This path is referenced by the systemd service in multiple places, and systemd treats the % char as special,\r\n# so it is escaped with a second % char\r\nROOTDIR=#{Octopus.Action[Deploy web app to Nginx].Output.Package.InstallationDirectoryPath | Replace \"%\" \"%%\"}\r\nSYSTEMD_SERVICE_FILE=${SYSTEMD_CONF}\/${APPNAME}.service\r\n\r\n# Application systemd service configuration\r\necho \"Creating ${APPNAME} systemd service configuration\"\r\ncat > \"${APPNAME}.service\" <<-EOF\r\n [Unit]\r\n Description=${APPNAME} service\r\n After=network.target\r\n\r\n [Service]\r\n WorkingDirectory=${ROOTDIR}\r\n User=${SERVICE_USER}\r\n Group=${SERVICE_USER}\r\n ExecStart=${UNICORN} -c ${ROOTDIR}\/unicorn.rb -E ${ENVIRONMENT} -D\r\n Restart=always\r\n RestartSec=10\r\n SyslogIdentifier=${APPNAME}\r\n [Install]\r\n WantedBy=multi-user.target\r\nEOF\r\nsudo mv \"${APPNAME}.service\" ${SYSTEMD_CONF}\/${APPNAME}.service\r\n\r\n# Any changes to a system file are picked up by reloading the systemd daemon\r\nsudo systemctl daemon-reload\r\n# Enable the service so it starts on boot\r\nsudo systemctl enable \"${APPNAME}.service\"\r\n# Start or restart the service to pick up any changes\r\nsudo systemctl restart \"${APPNAME}.service\"");
 }
     """
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-variables-appsettings.png"
-    And I remove the highlight from the "Bash container" container
 
     And I scroll the "Remove binding" button into view offset by "-300"
     And I highlight outside the "Remove binding" button
@@ -249,7 +250,7 @@ if (elements.length !== 0) {
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-step-binding-port.png"
     And I click the "OK" button
 
-    # The exact root location
+    # The proxy pass location
 
     And I highlight outside the "Add location" button with an offset of "2"
     And I sleep for "1" second
@@ -258,18 +259,17 @@ if (elements.length !== 0) {
     And I remove the highlight from the "Add location" button
 
     And I highlight outside the "Location" text box with an offset of "2"
+    And I highlight outside the "Reverse Proxy Container" check box with an offset of "2"
     And I highlight outside the "OK" button with an offset of "2"
-    And I populate the "Location" text box with "= /"
-
-    And I click the "Add Directive" button
-    And I populate the "Directive One" text box with "index"
-    And I populate the "Value One" text box with "index.html"
-
+    And I populate the "Location" text box with "@app"
+    And I force click the "Reverse Proxy" check box
+    And I highlight outside the "Proxy URL" text box with an offset of "2"
+    And I populate the "Proxy URL" text box with "http://unix:/path/to/app/tmp/sockets/unicorn.sock"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-step-location-port.png"
     And I click the "OK" button
 
-    # The root location
+   # The root location
 
     And I highlight outside the "Add location" button with an offset of "2"
     And I sleep for "1" second
@@ -287,63 +287,16 @@ if (elements.length !== 0) {
 
     And I click the "Add Directive" button
     And I populate the "Directive Two" text box with "try_files"
-    And I populate the "Value Two" text box with "$uri /index.php$is_args$args"
+    And I populate the "Value Two" text box with "$uri @app"
 
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}180-octopus-step-location-port.png"
     And I click the "OK" button
 
-    # The php files
-
-    And I highlight outside the "Add location" button with an offset of "2"
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}190-octopus-step-add-location.png"
-    And I force click the "Add location" button
-    And I remove the highlight from the "Add location" button
-
-    And I highlight outside the "Location" text box with an offset of "2"
-    And I highlight outside the "OK" button with an offset of "2"
-    And I populate the "Location" text box with "~ [^/]\.php(/|$)"
-
-    And I scroll the "Add Directive" button into view offset by "-300"
-    And I click the "Add Directive" button
-    And I populate the "Directive One" text box with "fastcgi_split_path_info"
-    And I populate the "Value One" text box with "^(.+?\.php)(/.*)$"
-
-    And I scroll the "Add Directive" button into view offset by "-300"
-    And I click the "Add Directive" button
-    And I populate the "Directive Two" text box with "fastcgi_pass"
-    # Find this path in the file /etc/php/7.2/fpm/pool.d/www.conf
-    And I populate the "Value Two" text box with "unix:/run/php/php7.2-fpm.sock"
-
-    And I scroll the "Add Directive" button into view offset by "-300"
-    And I click the "Add Directive" button
-    And I populate the "Directive Three" text box with "fastcgi_index"
-    And I populate the "Value Three" text box with "index.php"
-
-    And I scroll the "Add Directive" button into view offset by "-300"
-    And I click the "Add Directive" button
-    And I populate the "Directive Four" text box with "include"
-    And I populate the "Value Four" text box with "fastcgi.conf"
-
-    And I scroll the "Add Directive" button into view offset by "-300"
-    And I click the "Add Directive" button
-    And I populate the "Directive Five" text box with "root"
-    And I populate the "Value Five" text box with "#{Octopus.Action.Package.InstallationDirectoryPath}/public"
-
-    And I scroll the "Add Directive" button into view offset by "-300"
-    And I click the "Add Directive" button
-    And I populate the "Directive Six" text box with "fastcgi_param"
-    And I populate the "Value Six" text box with "ENVIRONMENT_NAME #{Octopus.Environment.Name}"
-
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}200-octopus-step-location-port.png"
-    And I click the "OK" button
-
-    # Save changes
+    # Save the step
 
     And I highlight outside the "Save" button
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}210-save.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-save.png"
     And I click the "Save" button
 
     And I sleep for "1" second

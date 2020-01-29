@@ -1,14 +1,15 @@
-name: PHP TeamCity NGINX Builtin feed Screenshots
+name: RUBY TeamCity NGINX Builtin feed Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 10 * *'
+    - cron:  '0 0 22 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-php-nginx-screenshots')
+    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-ruby-nginx-video')
     runs-on: ubuntu-latest
     env:
+      BUILD_NAME: "ruby-app-git-teamcity-builtin-nginx"
       SLACK_STEP_HANDLER: true
       SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
@@ -26,19 +27,25 @@ jobs:
       DISPLAY: ":99.0"
       MOUSE_VERTICAL_OFFSET: 74
       MOUSE_VERTICAL_OFFSET_CHROME: 125
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @php) and (not @sourcespecific or @git)"
-      DISABLE_HIGHLIGHTS: false
-      DISABLE_SCREENSHOTS: false
-      MOVE_TO_MOUSE_CURSOR: false
-      DISABLE_VIDEO: true
+      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @ruby) and (not @sourcespecific or @git)"
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      MOVE_TO_MOUSE_CURSOR: true
+      DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
-      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-PHP.git
-      SCREENSHOT_PATH: /php-app/nginx/builtin/git/
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Ruby.git
+      WISTIA_MEDIA_ID:
+      VIDEO_FILE_NAME: teamcity-ruby-nginx-builtin.mp4
+      SCREENSHOT_PATH: /node-app/nginx/builtin/git/
+      DOCKER_IMAGE: octopusdeploy/randomquotesruby
     steps:
       - uses: actions/checkout@v1
 
+      - name: Clean old media
+        run: ./scripts/linux/delete-existingvideo.sh
+
       - name: Install Puppet
-        run: ./install.sh utilities.pp nginx.pp teamcity.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp
+        run: ./install.sh utilities.pp ruby.pp nginx.pp teamcity.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -53,7 +60,7 @@ jobs:
         run: ./scripts/linux/setup-teamcity.sh
 
       - name: Create Team City project
-        run: ./scripts/linux/create-phpnginx-teamcityproject.sh
+        run: ./scripts/linux/create-rubynginx-teamcityproject.sh
 
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
@@ -62,7 +69,7 @@ jobs:
         run: sudo ./scripts/linux/create-target.sh
 
       - name: Create project
-        run: ./scripts/linux/create-php-nginxproject.sh
+        run: ./scripts/linux/create-ruby-nginxproject.sh
 
       - name: Open Dev App
         run: ./scripts/linux/open-devnginxapp.sh
@@ -94,5 +101,16 @@ jobs:
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
 
-      - name: Upload screenshots
-        run: ./scripts/linux/upload-screenshots.sh
+      - name: Process videos
+        if: always()
+        run: ./scripts/linux/convert-video.sh
+
+      - name: Upload videos
+        if: always()
+        run: ./scripts/linux/upload-video.sh
+
+      - name: Replace Wistia video
+        run: ./scripts/linux/replace-wistia-video.sh
+
+      - name: Build badge
+        run: ./scripts/linux/create-badge.sh

@@ -37,7 +37,6 @@ jobs:
       WISTIA_MEDIA_ID: zs94p13kau
       VIDEO_FILE_NAME: teamcity-php-nginx-builtin.mp4
       SCREENSHOT_PATH: /node-app/nginx/builtin/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjs
     steps:
       - uses: actions/checkout@v1
 
