@@ -45,7 +45,7 @@ Feature: Add Octopus plugin
     And I click the "Upload" button
     And I sleep for "5" seconds
 
-    Then I verify the "Installed and ready to go!" title is present
+    Then I verify the "Installed and ready to go!" title is present waiting up to "300" seconds
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/manualaddins/#{GuideSpecificScreenshotDir}050-installed.png"
     And I click the "Close" button
     And I stop recording the screen
