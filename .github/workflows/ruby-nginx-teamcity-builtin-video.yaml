@@ -1,4 +1,4 @@
-name: RUBY TeamCity NGINX Builtin feed Video
+name: Ruby TeamCity NGINX Builtin feed Video
 on:
   push:
   repository_dispatch:
