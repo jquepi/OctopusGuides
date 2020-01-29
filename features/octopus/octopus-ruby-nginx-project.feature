@@ -265,7 +265,7 @@ if (elements.length !== 0) {
     And I populate the "Location" text box with "@app"
     And I force click the "Reverse Proxy" check box
     And I highlight outside the "Proxy URL" text box with an offset of "2"
-    And I populate the "Proxy URL" text box with "http://unix:/path/to/app/tmp/sockets/unicorn.sock"
+    And I populate the "Proxy URL" text box with "http://unix:/#{Octopus.Action.Package.InstallationDirectoryPath}/tmp/sockets/unicorn.sock"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-step-location-port.png"
     And I click the "OK" button
