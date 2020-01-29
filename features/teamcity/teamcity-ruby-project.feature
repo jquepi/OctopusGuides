@@ -3,7 +3,7 @@ Feature: Create Ruby project
   Scenario: Prepare TeamCity
     Given I run the feature "shared/teamcity-login.feature" passing the original arguments
 
-  @create-project @applicationspecific @php
+  @create-project @applicationspecific @ruby
   Scenario: Create Project from URL
     Given I set the following aliases:
       | Create project        | //a[contains(.,'Create project')]                      |
@@ -43,7 +43,7 @@ Feature: Create Ruby project
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}040-configure-manually.png"
     And I click the "Configure manually" link
 
-  @create-project @applicationspecific @php
+  @create-project @applicationspecific @ruby
   Scenario: Create Project
     Given I set the following aliases:
       | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
