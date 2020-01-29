@@ -185,6 +185,7 @@ Feature: Configure an Octopus Ruby project
       | Add location            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
       | Port                    | //input[contains(@id,'Port')]                                                                               |
       | Location                | //input[contains(@id,'Location')]                                                                           |
+      | Add Directive           | //button[contains(.,'Add Directive')]                                                                       |
       | Proxy URL               | //input[contains(@id,'ProxyrequeststothisURL')]                                                             |
       | Reverse Proxy           | //input[..//label[text()='Reverse Proxy']]                                                                  |
       | Reverse Proxy Container | //div[./div/div/label[text()='Reverse Proxy']]                                                              |
