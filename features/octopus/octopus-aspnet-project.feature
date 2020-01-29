@@ -405,7 +405,7 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
-    And I sleep for "2" second
+    And I sleep for "5" second
     And I click the "Random Quotes Suggestion" option
     And I press the escape key from the "Package ID" text box
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-step-package-azure.png"
