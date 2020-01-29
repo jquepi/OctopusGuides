@@ -143,6 +143,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-version.png"
 
     And I highlight the "Nuget" radio button
+    And I scroll the "Nuget" radio button into view offset by "-300"
     And I click the "Nuget" radio button
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}230-nuget.png"
 
