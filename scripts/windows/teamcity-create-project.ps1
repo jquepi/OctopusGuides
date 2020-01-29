@@ -10,7 +10,7 @@
     "-DdisableScreenshots=$env:DISABLE_SCREENSHOTS" `
     "-DdisableVideoRecording=$env:DISABLE_VIDEO" `
     "-DslackHookUrl=$env:SLACK_HOOK_URL" `
-    "-DslackStepHandlerErrorOnly=$env:SLACK_STEP_HANDLER" `
+    "-DslackStepHandlerEnabled=$env:SLACK_STEP_HANDLER" `
     "-DslackStepHandlerErrorOnly=$env:SLACK_ON_ERROR_ONLY" `
     "-DscreenshotS3Enabled=$env:STHREE_SCREENSHOT_ENABLED" `
     "-DscreenshotS3Bucket=$env:SCREENSHOT_BUCKET" `
