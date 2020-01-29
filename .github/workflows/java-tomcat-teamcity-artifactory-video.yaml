@@ -113,11 +113,9 @@ jobs:
         run: ./scripts/linux/view-auditlogs.sh
 
       - name: Process videos
-        if: always()
         run: ./scripts/linux/convert-video.sh
 
       - name: Upload videos
-        if: always()
         run: ./scripts/linux/upload-video.sh
 
       - name: Replace Wistia video
@@ -125,3 +123,7 @@ jobs:
 
       - name: Build badge
         run: ./scripts/linux/create-badge.sh
+
+      - name: Upload failure video
+        if: failure()
+        run: ./scripts/linux/process-failed-video.sh
