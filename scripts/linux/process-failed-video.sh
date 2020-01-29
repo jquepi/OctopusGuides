@@ -13,5 +13,5 @@ vlc -I dummy \
    "#gather:std{access=file,mux=mp4,dst=\"$MEDIA_PATH/video.avi\"}" \
    vlc://quit
 
-aws s3 cp "$MEDIA_PATH/video.avi" "s3://i.octopus.com/guides/${VIDEO_FILE_NAME%.*}" --acl public-read
+aws s3 cp "$MEDIA_PATH/video.avi" "s3://i.octopus.com/guides/${VIDEO_FILE_NAME%.*}.avi" --acl public-read
 
