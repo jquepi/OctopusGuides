@@ -283,7 +283,7 @@ if (elements.length !== 0) {
 
     And I click the "Add Directive" button
     And I populate the "Directive One" text box with "root"
-    And I populate the "Value One" text box with "#{Octopus.Action.Package.InstallationDirectoryPath}/public"
+    And I populate the "Value One" text box with "#{Octopus.Action.Package.InstallationDirectoryPath}"
 
     And I click the "Add Directive" button
     And I populate the "Directive Two" text box with "try_files"
