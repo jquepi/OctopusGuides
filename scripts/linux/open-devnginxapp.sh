@@ -46,13 +46,11 @@ if [ -d /etc/nginx/conf.d/RandomQuotes.conf.d ]; then
   ls -la /etc/nginx/conf.d/RandomQuotes.conf.d
 fi
 
-if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf ]; then
-  sudo cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.0.conf
-fi
-
-if [ -f /etc/nginx/conf.d/RandomQuotes.conf.d/location.1.conf ]; then
-  sudo cat /etc/nginx/conf.d/RandomQuotes.conf.d/location.1.conf
-fi
+FILES=/etc/nginx/conf.d/RandomQuotes.conf.d/*
+for f in $FILES
+do
+  sudo cat "$f"
+done
 
 if [ -d /home/Octopus/Applications/Dev/RandomQuotes ]; then
   ls -la /home/Octopus/Applications/Dev/RandomQuotes
