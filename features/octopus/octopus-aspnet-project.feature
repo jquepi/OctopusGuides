@@ -374,10 +374,11 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the azure web app deployment
     Given I set the following aliases:
-      | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
-      | Artifactory  | //div[./div/div[text()='Artifactory']]           |
-      | HTML Body    | //body                                           |
-      | Package ID   | //input[contains(@id, 'PackageID')]              |
+      | Package feed             | (//div[./div[text()='Package feed']]/div)[2]/div                                                         |
+      | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
+      | HTML Body                | //body                                                                                                   |
+      | Package ID               | //input[contains(@id, 'PackageID')]                                                                      |
+      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
     And I click the "Package feed" drop down list
@@ -390,7 +391,8 @@ Feature: Configure an Octopus ASP.NET project
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box
     And I populate the "Package ID" text box with "RandomQuotes"
-    And I sleep for "2" second
+    And I sleep for "5" second
+    And I click the "Random Quotes Suggestion" option
     And I press the escape key from the "Package ID" text box
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-step-package-artifactory-azure.png"
     And I remove the highlight from the "Package ID" text box
