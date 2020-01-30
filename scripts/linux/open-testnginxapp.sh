@@ -32,3 +32,42 @@ echo "Minikube IP: $MINIKUBE_IP"
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/open-randomquotes-generic.feature
+
+if [ -f /var/log/php7.2-fpm.log ]; then
+  sudo cat /var/log/php7.2-fpm.log
+fi
+
+if [ -f /var/log/nginx/error.log ]; then
+  sudo cat /var/log/nginx/error.log
+fi
+
+if [ -f /etc/nginx/conf.d/RandomQuotes.conf ]; then
+  sudo cat /etc/nginx/conf.d/RandomQuotes.conf
+fi
+
+if [ -d /etc/nginx/conf.d/RandomQuotes.conf.d ]; then
+  ls -la /etc/nginx/conf.d/RandomQuotes.conf.d
+fi
+
+FILES=/etc/nginx/conf.d/RandomQuotes.conf.d/*
+for f in $FILES
+do
+  sudo cat "$f"
+done
+
+if [ -d /home/Octopus/Applications ]; then
+  ls -Rla /home/Octopus/Applications
+fi
+
+if [ -d /etc/systemd/system ]; then
+  ls -Rla /etc/systemd/system
+fi
+
+if [ -f /etc/systemd/system/RandomQuotes.service ]; then
+  sudo cat /etc/systemd/system/RandomQuotes.service
+  sudo systemctl status RandomQuotes.service
+fi
+
+if [ -f /home/Octopus/Applications/Dev/RandomQuotes/1.0.1/log/unicorn.stderr.log ]; then
+  sudo cat /home/Octopus/Applications/Dev/RandomQuotes/1.0.1/log/unicorn.stderr.log
+fi
