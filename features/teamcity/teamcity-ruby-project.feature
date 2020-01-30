@@ -75,6 +75,7 @@ Feature: Create Ruby project
     And I populate the "Script content" text area with:
     """
     bundle install
+    rspec spec/index_spec.rb
     """
 
     # TeamCity 2019.2 introduced rich script editors that have to be populated with javascript
