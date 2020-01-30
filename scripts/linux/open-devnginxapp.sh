@@ -52,10 +52,10 @@ do
   sudo cat "$f"
 done
 
-if [ -d /home/Octopus/Applications/Dev/RandomQuotes ]; then
-  ls -la /home/Octopus/Applications/Dev/RandomQuotes
+if [ -d /home/Octopus/Applications ]; then
+  ls -Rla /home/Octopus/Applications
 fi
 
-if [ -d /home/Octopus/Applications/Dev/RandomQuotes/1.0.1 ]; then
-  ls -la /home/Octopus/Applications/Dev/RandomQuotes/1.0.1
-fi
+sudo cat /etc/systemd/system/RandomQuotes.service
+sudo systemctl status RandomQuotes.service
+sudo cat /home/Octopus/Applications/Dev/RandomQuotes/1.0.1/log/unicorn.stderr.log
