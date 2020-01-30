@@ -25,7 +25,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalTargetName=Kubernetes" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-test" \
-  "-DCucumberAlias-ExternalUrl=http://localhost:8082" \
+  "-DCucumberAlias-ExternalUrl=http://localhost:8082/index.html" \
   "-DCucumberAlias-Screenshot=nginx-random-quotes-test-app.png" \
   "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
