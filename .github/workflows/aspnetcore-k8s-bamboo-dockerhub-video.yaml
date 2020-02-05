@@ -1,6 +1,6 @@
 name: ASP.NET Core Bamboo Kubernetes DockerHub Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 5 * *'
@@ -43,10 +43,6 @@ jobs:
       CONFIG_FILE_NAME: "appsettings.json"
     steps:
       - uses: actions/checkout@v1
-
-      - name: Clean up old files
-        shell: powershell
-        run: ./scripts/windows/delete-videofiles.ps1
 
       - name: Install Puppet
         run: ./install.sh utilities.pp bamboo.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp bamboofinalize.pp
