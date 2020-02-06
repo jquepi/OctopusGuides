@@ -5,8 +5,8 @@
 
 Get-PSDrive C
 
-Write-Host "Deleting C:\Program Files\boost"
-rm -Recurse -Force "C:\Program Files\boost"
+#Write-Host "Deleting C:\Program Files\boost"
+#rm -Recurse -Force "C:\Program Files\boost"
 Write-Host "Deleting C:\Program Files\unity"
 rm -Recurse -Force "C:\Program Files\unity"
 Write-Host "Deleting c:\Program Files (x86)\Android"
