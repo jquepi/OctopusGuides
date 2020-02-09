@@ -6,7 +6,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I set the default explicit wait time to "30" seconds
     And I fullscreen the window
     #And I set the window size to "1024" x "768"
-    When I open the URL "http://localhost:9090/"
+    When I open the URL "#{AZURE_URL}"
 
   @install-extensions
   Scenario: Install Extensions
@@ -38,7 +38,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight inside the "Extensions" button
     And I mouse over the "Extensions" button
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}015-extensions.png"
-    And I open the URL "http://localhost:9090/DefaultCollection/_settings/extensions?tab=Manage&status=active"
+    And I open the URL "#{AZURE_URL}DefaultCollection/_settings/extensions?tab=Manage&status=active"
 
     # This might not be needed in the new version of Azure Devops
     And I click the "Close" button waiting up to "1" seconds if it exists
@@ -64,7 +64,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/extensions/#{GuideSpecificScreenshotDir}040-octopus-extension-getit.png"
     # This is a workaround to the fact that we don't have a public url, so we don't click the button but instead
     # open the internal URL that allows us to add the extension.
-    And I open the URL "http://localhost:9090/_gallery/acquisition?itemName=octopusdeploy.octopus-deploy-build-release-tasks&installContext=eyJpdGVtTmFtZSI6Im9jdG9wdXNkZXBsb3kub2N0b3B1cy1kZXBsb3ktYnVpbGQtcmVsZWFzZS10YXNrcyIsIml0ZW1VcmwiOiJodHRwczovL21hcmtldHBsYWNlLnZpc3VhbHN0dWRpby5jb20vaXRlbXM%2FaXRlbU5hbWU9b2N0b3B1c2RlcGxveS5vY3RvcHVzLWRlcGxveS1idWlsZC1yZWxlYXNlLXRhc2tzIiwiY29sbGVjdGlvbklkIjoiOGFmMWNhYzktYjU1Yi00ODY5LWE0ZGItY2UxODEwZTQ1NmY5In0%3D"
+    And I open the URL "#{AZURE_URL}_gallery/acquisition?itemName=octopusdeploy.octopus-deploy-build-release-tasks&installContext=eyJpdGVtTmFtZSI6Im9jdG9wdXNkZXBsb3kub2N0b3B1cy1kZXBsb3ktYnVpbGQtcmVsZWFzZS10YXNrcyIsIml0ZW1VcmwiOiJodHRwczovL21hcmtldHBsYWNlLnZpc3VhbHN0dWRpby5jb20vaXRlbXM%2FaXRlbU5hbWU9b2N0b3B1c2RlcGxveS5vY3RvcHVzLWRlcGxveS1idWlsZC1yZWxlYXNlLXRhc2tzIiwiY29sbGVjdGlvbklkIjoiOGFmMWNhYzktYjU1Yi00ODY5LWE0ZGItY2UxODEwZTQ1NmY5In0%3D"
     And I sleep for "10" seconds
 
     And I highlight outside the "Install" button
@@ -144,7 +144,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | TFVC                            | //input[../div[contains(., 'TFVC')]]                 |
       | Continue                        | //button[contains(.,'Continue')]                     |
 
-    And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
+    And I open the URL "#{AZURE_URL}DefaultCollection/Random%20Quotes/"
     And I refresh the page if the "Pipelines" menu item does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}debug1-tfvc.png"
@@ -185,7 +185,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | OK                     | //button[contains(., 'OK')]                   |
       | Continue               | //button[contains(.,'Continue')]              |
 
-    And I open the URL "http://localhost:9090/DefaultCollection/Random%20Quotes/"
+    And I open the URL "#{AZURE_URL}DefaultCollection/Random%20Quotes/"
     And I refresh the page if the "Pipelines" menu item does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}debug1.png"
@@ -561,7 +561,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Edit | //a[contains(.,'Edit')] |
 
-    And I open the URL "http://localhost:9090/DefaultCollection/Random Quotes/_build"
+    And I open the URL "#{AZURE_URL}DefaultCollection/Random Quotes/_build"
     And I click the "Edit" button
 
   @execute-project

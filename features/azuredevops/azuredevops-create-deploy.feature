@@ -6,7 +6,7 @@ Feature: Create and deploy a release
     And I set the default explicit wait time to "30" seconds
     And I fullscreen the window
     #And I set the window size to "1024" x "768"
-    When I open the URL "http://localhost:9090/DefaultCollection"
+    When I open the URL "#{AZURE_URL}DefaultCollection"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
   @add-step
