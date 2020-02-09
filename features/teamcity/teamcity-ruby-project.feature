@@ -66,7 +66,7 @@ Feature: Create Ruby project
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
-    And I populate the "Step name" text box with "Bundle install"
+    And I populate the "Step name" text box with "Bundle install and test"
 
     And I highlight outside the "Script content" text area
     And I scroll the "Script content" text area into view offset by "-200"
@@ -75,6 +75,7 @@ Feature: Create Ruby project
     And I populate the "Script content" text area with:
     """
     bundle install
+    rspec spec/index_spec.rb
     """
 
     # TeamCity 2019.2 introduced rich script editors that have to be populated with javascript
@@ -82,7 +83,7 @@ Feature: Create Ruby project
 #      """
 #      var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 #      var editor = textarea.CodeMirror
-#      editor.setValue("bundle install");
+#      editor.setValue("bundle install\nrspec spec/index_spec.rb");
 #      editor.save();
 #      """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-composer-install.png"

@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Artifactory Feed TFVC Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 6 * *'

@@ -10,7 +10,7 @@ vlc -I dummy \
    --no-sout-all \
    --sout-keep \
    --sout \
-   "#gather:std{access=file,mux=mp4,dst=\"$MEDIA_PATH/video.avi\"}" \
+   "#gather:std{access=file,mux=avi,dst=\"$MEDIA_PATH/video.avi\"}" \
    vlc://quit
 
 aws s3 cp "$MEDIA_PATH/video.avi" "s3://i.octopus.com/guides/failed-${VIDEO_FILE_NAME%.*}.avi" --acl public-read
