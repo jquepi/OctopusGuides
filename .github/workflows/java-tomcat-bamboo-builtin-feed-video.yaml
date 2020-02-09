@@ -42,9 +42,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Clean old media
-        run: ./scripts/linux/delete-existingvideo.sh
-
       - name: Install Puppet
         run: ./install.sh utilities.pp bamboo.pp tomcat.pp dockercreds.pp octopus.pp octopuscli.pp bamboofinalize.pp
         env:

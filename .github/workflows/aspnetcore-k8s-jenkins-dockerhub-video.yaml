@@ -45,10 +45,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Clean up old files
-        shell: powershell
-        run: ./scripts/windows/delete-videofiles.ps1
-
       - name: Install Puppet
         run: ./install.sh utilities.pp jenkins.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp
         env:
