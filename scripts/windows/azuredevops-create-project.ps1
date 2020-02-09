@@ -3,6 +3,7 @@
     "-Xmx2g" `
     "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
     "-DstepPause=$STEP_PAUSE" `
+    "-DCucumberAlias-AZURE_URL=$env:AZURE_URL" `
     "-DCucumberAlias-ExternalArtifactoryKey=$env:ARTIFACTORY_KEY" `
     "-DmoveCursorToElement=$env:MOVE_TO_MOUSE_CUSROR" `
     "-DmouseMoveVerticalOffset=$env:MOUSE_VERTICAL_OFFSET" `
