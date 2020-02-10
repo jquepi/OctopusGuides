@@ -5,7 +5,7 @@ package { 'ruby':
   ensure => 'latest'
 }
 -> exec { 'Install gems':
-  command   => '/usr/bin/gem install --no-document rspec sinatra unicorn bundler rack',
+  command   => '/usr/bin/gem install --no-document rspec sinatra unicorn bundler:2.1.4 rack',
   logoutput => true
 }
 -> exec { 'Install rvm keys':
