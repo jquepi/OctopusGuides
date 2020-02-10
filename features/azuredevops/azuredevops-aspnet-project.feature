@@ -26,7 +26,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Extensions            | //a[@href='/DefaultCollection/_settings/extensions']                          |
       | Close                 | //button[contains(@class,'bolt-teaching-pane-close-button')]                  |
-      | Browse Marketplace    | //a[contains(.,'Browse marketplace')]                                         |
+      | Browse Marketplace    | //a[contains(.,'Browse Marketplace')]                                         |
       | Search                | //input[@aria-label='Search Azure DevOps extensions']                         |
       | Search button         | //span[@title='search']                                                       |
       | Octopus tile          | //a[@href='/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks'] |
