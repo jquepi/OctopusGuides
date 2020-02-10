@@ -7,10 +7,10 @@ exec { 'Install rvm keys':
   logoutput => true
 }
 -> exec { 'Install ruby':
-  command   => '/usr/local/rvm/bin/rvm install ruby',
+  command   => '/usr/local/rvm/bin/rvm install ruby-2.6.3',
   logoutput => true
 }
 -> exec { 'Default ruby':
-  command   => '/usr/local/rvm/bin/rvm --default use ruby',
+  command   => '/usr/local/rvm/bin/rvm alias create default ruby-2.6.3',
   logoutput => true
 }
