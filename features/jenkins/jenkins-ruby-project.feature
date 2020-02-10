@@ -36,7 +36,7 @@ Feature: Build and deploy a Ruby application hosted in Git on a local Octopus in
       """
       var textarea = document.evaluate("//div[@class='CodeMirror']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror;
-      editor.setValue("/usr/bin/bundle install\nrspec spec/index_spec.rb");
+      editor.setValue("bundle install\nrspec spec/index_spec.rb");
       editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-npm-test.png"
