@@ -1,23 +1,23 @@
 package { 'ruby':
-  ensure => installed
+  ensure => 'latest'
 }
 -> package { 'ruby-dev':
-  ensure => installed
+  ensure => 'latest'
 }
 -> package { 'rspec':
-  ensure => installed,
+  ensure => 'latest',
   provider => 'gem'
 }
 -> package { 'sinatra':
-  ensure => installed,
+  ensure => 'latest',
   provider => 'gem'
 }
 -> package { 'unicorn':
-  ensure => installed,
+  ensure => 'latest',
   provider => 'gem'
 }
 -> package { 'bundler':
-  ensure => installed,
+  ensure => 'latest',
   provider => 'gem'
 }
 
