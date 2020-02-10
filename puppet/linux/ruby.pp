@@ -7,21 +7,21 @@ package { 'ruby':
 -> package { 'rspec':
   ensure   => 'latest',
   provider => 'gem',
-  source   => 'https://rubygems.org'
+  install_options   => ['--no-document', '--no-ri']
 }
 -> package { 'sinatra':
   ensure   => 'latest',
   provider => 'gem',
-  source   => 'https://rubygems.org'
+  install_options   => ['--no-document', '--no-ri']
 }
 -> package { 'unicorn':
   ensure   => 'latest',
   provider => 'gem',
-  source   => 'https://rubygems.org'
+  install_options   => ['--no-document', '--no-ri']
 }
 -> package { 'bundler':
   ensure   => 'latest',
   provider => 'gem',
-  source   => 'https://rubygems.org'
+  install_options   => ['--no-document', '--no-ri']
 }
 
