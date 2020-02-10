@@ -1,5 +1,3 @@
-# We need more space for our application stack, and the GitHub agents come with a lot of junk we
-# didn't ask for and don't need.
 # https://gist.github.com/mcasperson/d5abf6990185f0d74bca748f530f43d7 is a break down of the folders and their
 # sizes in a Windows VM
 
