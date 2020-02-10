@@ -12,7 +12,7 @@ package { 'ruby':
   command   => '/usr/bin/curl -sSL https://get.rvm.io | bash -s stable',
   logoutput => true
 }
--> exec { 'Install gems':
-  command   => '/usr/bin/gem install --no-document rspec sinatra unicorn bundler:2.1.4 rack',
-  logoutput => true
-}
+# -> exec { 'Install gems':
+#   command   => '/usr/bin/gem install --no-document rspec sinatra unicorn bundler:2.1.4 rack',
+#   logoutput => true
+# }
