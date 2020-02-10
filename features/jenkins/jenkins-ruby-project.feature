@@ -36,7 +36,7 @@ Feature: Build and deploy a Ruby application hosted in Git on a local Octopus in
       """
       var textarea = document.evaluate("//div[@class='CodeMirror']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror;
-      editor.setValue("#!/bin/bash -l\nrvm use default\nrvm user gemsets\nrvm gemset use randomquotes --create\ngem install bundler -v \"$(grep -A 1 \"BUNDLED WITH\" Gemfile.lock | tail -n 1)\"\nbundle install\nrspec spec/index_spec.rb");
+      editor.setValue("#!\/bin\/bash -l\r\n# Set the default gem installation path\r\nexport GEM_HOME=\"$WORKSPACE\/vendor\"\r\nexport GEM_PATH=\"$WORKSPACE\/vendor\"\r\nexport PATH=\"$PATH:$WORKSPACE\/vendor\"\r\n# Install the specific version of Bundler defined in the Gemfile.lock file\r\ngem install bundler -v \"$(grep -A 1 \"BUNDLED WITH\" Gemfile.lock | tail -n 1)\"\r\n# Use bundler to install the other dependencies\r\nbundle install\r\n# Run the tests\r\nrspec spec\/index_spec.rb");
       editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-npm-test.png"
