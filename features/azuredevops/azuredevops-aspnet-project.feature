@@ -158,10 +158,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}030-new-pipeline-tfvc.png"
     And I click the "New pipeline" button
 
-    And I highlight the "Team Foundation Version Control" row
-    And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}035-source-control-tfvc.png"
-    And I click the "Team Foundation Version Control" row
-
     And I highlight outside the "TFVC Container" element
     And I click the "TFVC Container" element
 
