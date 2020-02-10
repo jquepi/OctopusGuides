@@ -91,7 +91,7 @@ Feature: Create Ruby project
 #      """
 #      var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 #      var editor = textarea.CodeMirror
-#      editor.setValue("# Set the default gem installation path\nexport GEM_HOME=\"%system.teamcity.build.workingDir%\/vendor\"\nexport GEM_PATH=\"%system.teamcity.build.workingDir%\/vendor\"\nexport PATH=\"$PATH:%system.teamcity.build.workingDir%\/vendor\"\n# Install the specific version of Bundler defined in the Gemfile.lock file\ngem install bundler -v \"$(grep -A 1 \"BUNDLED WITH\" Gemfile.lock | tail -n 1)\"\n# Use bundler to install the other dependencies\nbundle install\n# Run the tests\nrspec spec\/index_spec.rb");
+#      editor.setValue("# Set the default gem installation path\nexport GEM_HOME=\"%system.teamcity.build.workingDir%\/vendor\"\nexport GEM_PATH=\"%system.teamcity.build.workingDir%\/vendor\"\nexport PATH=\"$PATH:%system.teamcity.build.workingDir%\/vendor\"\nmkdir ${GEM_HOME}\n# Install the specific version of Bundler defined in the Gemfile.lock file\ngem install bundler -v \"$(grep -A 1 \"BUNDLED WITH\" Gemfile.lock | tail -n 1)\"\n# Use bundler to install the other dependencies\nbundle install\n# Run the tests\nrspec spec\/index_spec.rb");
 #      editor.save();
 #      """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-composer-install.png"

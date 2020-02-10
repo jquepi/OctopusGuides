@@ -60,7 +60,7 @@ Feature: Configure Bamboo
     And I scroll the "Script body" text area into view offset by "-300"
     And I run the following JavaScript:
       """
-      ace.edit(scriptBody).setValue("# Set the default gem installation path\nexport GEM_HOME=\"${bamboo.agentWorkingDirectory}\/vendor\"\nexport GEM_PATH=\"${bamboo.agentWorkingDirectory}\/vendor\"\nexport PATH=\"$PATH:${bamboo.agentWorkingDirectory}\/vendor\"\n# Install the specific version of Bundler defined in the Gemfile.lock file\ngem install bundler -v \"$(grep -A 1 \"BUNDLED WITH\" Gemfile.lock | tail -n 1)\"\n# Use bundler to install the other dependencies\nbundle install\n# Run the tests\nrspec spec\/index_spec.rb")
+      ace.edit(scriptBody).setValue("# Set the default gem installation path\nexport GEM_HOME=\"${bamboo.agentWorkingDirectory}\/vendor\"\nexport GEM_PATH=\"${bamboo.agentWorkingDirectory}\/vendor\"\nexport PATH=\"$PATH:${bamboo.agentWorkingDirectory}\/vendor\"\nmkdir ${GEM_HOME}\n# Install the specific version of Bundler defined in the Gemfile.lock file\ngem install bundler -v \"$(grep -A 1 \"BUNDLED WITH\" Gemfile.lock | tail -n 1)\"\n# Use bundler to install the other dependencies\nbundle install\n# Run the tests\nrspec spec\/index_spec.rb")
       """
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-composer-install.png"
