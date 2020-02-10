@@ -13,7 +13,7 @@ package { 'ruby':
   logoutput => true
 }
 -> exec { 'Install rvm':
-  command   => '/usr/bin/curl -sSL https://get.rvm.io | bash -s stable --ruby',
+  command   => '/usr/bin/curl -sSL https://get.rvm.io | bash -s stable',
   logoutput => true
 }
 
