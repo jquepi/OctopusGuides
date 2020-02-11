@@ -77,7 +77,7 @@ Feature: Create Ruby project
     # Set the default gem installation path
     export GEM_HOME="%system.teamcity.build.workingDir%/vendor"
     export GEM_PATH="%system.teamcity.build.workingDir%/vendor"
-    export PATH="$PATH:%system.teamcity.build.workingDir%/vendor"
+    export PATH="$PATH:%system.teamcity.build.workingDir%/vendor/bin"
     # Install the specific version of Bundler defined in the Gemfile.lock file
     gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
     # Use bundler to install the other dependencies
