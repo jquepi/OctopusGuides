@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 22 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-ruby-nginx-video')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'teamcity-ruby-nginx-video')
     runs-on: ubuntu-latest
     env:
       BUILD_NAME: "ruby-app-git-teamcity-builtin-nginx"
@@ -27,7 +31,12 @@ jobs:
       DISPLAY: ":99.0"
       MOUSE_VERTICAL_OFFSET: 74
       MOUSE_VERTICAL_OFFSET_CHROME: 125
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @ruby) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @nginx) and
+        (not @repositoryspecific or @octo-built-in-feed) and
+        (not @applicationspecific or @ruby) and
+        (not @sourcespecific or @git)
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
       MOVE_TO_MOUSE_CURSOR: true
