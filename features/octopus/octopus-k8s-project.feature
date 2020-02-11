@@ -153,35 +153,6 @@ if (elements.length !== 0) {
       | On behalf of               | //input[@title='On behalf of target roles (type to add new)']                                   |
       | K8s role                   | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
       | Deployment name            | //input[contains(@id,'Deploymentname')]                                                         |
-      | Add Volume                 | (//button[@title='Add Volume'])[1]                                                              |
-      | Linked ConfigMap           | //input[@value='LinkedResource']                                                                |
-      | Linked ConfigMap Container | //div[./input[@value='LinkedResource']]                                                         |
-      | Volume Name                | (//input[contains(@id,'Name')])[2]                                                              |
-      | Add Container              | (//button[@title='Add Container'])[1]                                                           |
-      | Image name                 | (//input[contains(@id,'Name')])[2]                                                              |
-      | Package Id                 | //input[contains(@id,'PackageID')]                                                              |
-      | Package Id label           | //label[contains(@for,'PackageID')]                                                             |
-      | Add Port                   | (//button[@title='Add Port'])[3]                                                                |
-      | Port name                  | (//input[contains(@id,'Name')])[3]                                                              |
-      | Port number                | (//input[contains(@id,'Port')])[1]                                                              |
-      | Add Volume Mount           | (//button[@title='Add Volume Mount'])[1]                                                        |
-      | Container Volume name      | (//input[contains(@id,'Name')])[4]                                                              |
-      | Mount path                 | (//input[contains(@id,'Mountpath')])[1]                                                         |
-      | Sub path                   | (//input[contains(@id,'Subpath')])[1]                                                           |
-      | appsettings volume         | //span[./div/div/div[text()='appsettings-volume']]                                              |
-      | OK                         | (//button[@title='Ok'])[1]                                                                      |
-      | Save                       | //button[@title='Save']                                                                         |
-      | Service name               | //input[contains(@id,'Servicename')]                                                            |
-      | Add Service Port           | (//button[@title='Add Port'])[1]                                                                |
-      | Service Port Name          | (//input[contains(@id,'Name')])[2]                                                              |
-      | Port 80                    | //span[./div/div/div[text()='80']]                                                              |
-      | Service Port               | (//input[contains(@id,'Port')])[1]                                                              |
-      | Node Port                  | //input[contains(@id,'NodePort')]                                                               |
-      | ConfigMap name             | //input[contains(@id,'ConfigMapname')]                                                          |
-      | Add Config Map Item        | (//button[contains(.,'Add Config map item')])[1]                                                |
-      | Key                        | //input[../label[text()='Key']]                                                                 |
-      | Value                      | //textarea[contains(@id,'Value')]                                                               |
-      | Value container            | //div[./textarea[contains(@id,'Value')]]                                                        |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -204,6 +175,15 @@ if (elements.length !== 0) {
     And I populate the "Deployment name" text box with "randomquotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-k8s.png"
 
+  @define-project @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
+  Scenario: Add the config map volume. This is only valid for some docker images.
+    Given I set the following aliases:
+      | Add Volume                 | (//button[@title='Add Volume'])[1]      |
+      | Linked ConfigMap           | //input[@value='LinkedResource']        |
+      | Linked ConfigMap Container | //div[./input[@value='LinkedResource']] |
+      | Volume Name                | (//input[contains(@id,'Name')])[2]      |
+      | OK                         | (//button[@title='Ok'])[1]              |
+
     And I highlight outside the "Add Volume" button
     And I scroll the "Add Volume" button into view offset by "-300"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}061-octopus-k8s.png"
@@ -216,6 +196,15 @@ if (elements.length !== 0) {
     And I force click the "Linked ConfigMap" option
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}062-octopus-k8s.png"
     And I click the "OK" button
+
+  @define-project @destinationspecific @k8s
+  Scenario: Add the container and ports.
+    Given I set the following aliases:
+      | Add Container | (//button[@title='Add Container'])[1] |
+      | Image name    | (//input[contains(@id,'Name')])[2]    |
+      | Add Port      | (//button[@title='Add Port'])[3]      |
+      | Port name     | (//input[contains(@id,'Name')])[3]    |
+      | Port number   | (//input[contains(@id,'Port')])[1]    |
 
     And I highlight outside the "Add Container" button
     And I scroll the "Add Container" button into view offset by "-300"
@@ -244,6 +233,16 @@ if (elements.length !== 0) {
     And I populate the "Port number" text box with "#{DockerPort:-80}"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}091-octopus-k8s.png"
 
+  @define-project @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
+  Scenario: Add the config map volume mounting. This is only valid for some docker images.
+    Given I set the following aliases:
+      | Add Volume Mount      | (//button[@title='Add Volume Mount'])[1]           |
+      | Container Volume name | (//input[contains(@id,'Name')])[4]                 |
+      | Mount path            | (//input[contains(@id,'Mountpath')])[1]            |
+      | Sub path              | (//input[contains(@id,'Subpath')])[1]              |
+      | appsettings volume    | //span[./div/div/div[text()='appsettings-volume']] |
+      | OK                    | (//button[@title='Ok'])[1]                         |
+
     And I scroll the "Add Volume Mount" button into view offset by "-200"
     And I highlight outside the "Add Volume Mount" button with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}092-octopus-k8s.png"
@@ -262,6 +261,20 @@ if (elements.length !== 0) {
     And I highlight outside the "OK" button with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-k8s.png"
     And I remove the highlight from the "OK" button
+
+  @define-project @destinationspecific @k8s
+  Scenario: Add the package and service
+    Given I set the following aliases:
+      | Package Id        | //input[contains(@id,'PackageID')]   |
+      | Package Id label  | //label[contains(@for,'PackageID')]  |
+      | OK                | (//button[@title='Ok'])[1]           |
+      | Save              | //button[@title='Save']              |
+      | Service name      | //input[contains(@id,'Servicename')] |
+      | Add Service Port  | (//button[@title='Add Port'])[1]     |
+      | Service Port Name | (//input[contains(@id,'Name')])[2]   |
+      | Port 80           | //span[./div/div/div[text()='80']]   |
+      | Service Port      | (//input[contains(@id,'Port')])[1]   |
+      | Node Port         | //input[contains(@id,'NodePort')]    |
 
     And I highlight outside the "Package Id" text box
     And I scroll the "Package Id" text box into view offset by "-300"
@@ -294,6 +307,15 @@ if (elements.length !== 0) {
     And I click the "OK" button
     And I remove the highlight from the "Add Service Port" button
 
+  @define-project @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
+  Scenario: Add the config map that holds the configuration file. This is only valid for some docker images.
+    Given I set the following aliases:
+      | ConfigMap name      | //input[contains(@id,'ConfigMapname')]           |
+      | Add Config Map Item | (//button[contains(.,'Add Config map item')])[1] |
+      | Key                 | //input[../label[text()='Key']]                  |
+      | Value               | //textarea[contains(@id,'Value')]                |
+      | Value container     | //div[./textarea[contains(@id,'Value')]]         |
+
     And I scroll the "ConfigMap name" text box into view offset by "-300"
     And I highlight outside the "ConfigMap name" text box with an offset of "2"
     And I populate the "ConfigMap name" text box with "randomquotes"
@@ -305,6 +327,11 @@ if (elements.length !== 0) {
     And I highlight outside the "Value container" element with an offset of "2"
     And I populate the "Key" text box with "ExternalConfigFileName"
     And I populate the "Value" text box with "#{appsettings}"
+
+  @define-project @destinationspecific @k8s
+  Scenario: Save the step
+    Given I set the following aliases:
+      | Save | //button[@title='Save'] |
 
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-k8s.png"

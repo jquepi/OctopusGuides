@@ -45,7 +45,6 @@ jobs:
       WISTIA_MEDIA_ID:
       SCREENSHOT_PATH: /php-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesphp
-      CONFIG_FILE: "{\\n  \\\"Logging\\\": {\\n    \\\"IncludeScopes\\\": false,\\n    \\\"LogLevel\\\": {\\n      \\\"Default\\\": \\\"Warning\\\"\\n    }\\n  },\\n  \\\"AppSettings\\\": {\\n    \\\"AppVersion\\\": \\\"0.0.0\\\",\\n    \\\"EnvironmentName\\\": \\\"#{Octopus.Environment.Name}\\\"\\n  }\\n}"
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
     steps:
       - uses: actions/checkout@v1

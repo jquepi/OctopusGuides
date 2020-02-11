@@ -1,22 +1,23 @@
-name: Ruby TeamCity NGINX Builtin feed Screenshots
+name: PHP Jenkins Kubernetes DockerHub Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 20 * *'
+    - cron:  '0 0 9 * *'
 jobs:
   build:
     if: >-
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
-      (github.event.client_payload.workflow == 'teamcity-ruby-nginx-screenshots')
+      (github.event.client_payload.workflow == 'jenkins-php-k8s-video')
     runs-on: ubuntu-latest
     env:
+      BUILD_NAME: "php-docker-app-git-jenkins-dockerhub-k8s"
       SLACK_STEP_HANDLER: true
-      SLACK_ON_ERROR_ONLY: false
+      SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
-      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -32,22 +33,26 @@ jobs:
       MOUSE_VERTICAL_OFFSET_CHROME: 125
       CUCUMBER_TAGS: >-
         (not @browserspecific or @firefox) and
-        (not @destinationspecific or @nginx) and
-        (not @repositoryspecific or @octo-built-in-feed) and
-        (not @applicationspecific or @ruby) and
+        (not @destinationspecific or @k8s) and
+        (not @repositoryspecific or @dockerhub) and
+        (not @applicationspecific or @aspnetcore) and
         (not @sourcespecific or @git)
-      DISABLE_HIGHLIGHTS: false
-      DISABLE_SCREENSHOTS: false
-      MOVE_TO_MOUSE_CURSOR: false
-      DISABLE_VIDEO: true
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      MOVE_TO_MOUSE_CURSOR: true
+      DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
-      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Ruby.git
-      SCREENSHOT_PATH: /ruby-app/nginx/builtin/git/
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-PHP.git
+      WISTIA_MEDIA_ID: qerza61a2j
+      VIDEO_FILE_NAME: jenkins-php-k8s-dockerhub.mp4
+      SCREENSHOT_PATH: /php-app/k8s/dockerhub/git/
+      DOCKER_IMAGE: octopusdeploy/randomquotesphp
+      CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
     steps:
       - uses: actions/checkout@v1
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp ruby.pp nginx.pp teamcity.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp
+        run: ./install.sh utilities.pp jenkins.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -58,32 +63,38 @@ jobs:
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
 
-      - name: Setup TeamCity
-        run: ./scripts/linux/setup-teamcity.sh
+      - name: Create Jenkins project
+        run: ./scripts/linux/create-php-docker-jenkinsproject.sh
 
-      - name: Create Team City project
-        run: ./scripts/linux/create-rubynginx-teamcityproject.sh
+      - name: Create Worker
+        run: sudo ./scripts/linux/create-worker.sh
 
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
 
-      - name: Create Target
-        run: sudo ./scripts/linux/create-target.sh
+      - name: Create certificates
+        run: ./scripts/linux/create-certificates.sh
+
+      - name: Create target
+        run: ./scripts/linux/create-k8starget-video.sh
+
+      - name: Create docker feed
+        run: ./scripts/linux/create-dockerfeed.sh
 
       - name: Create project
-        run: ./scripts/linux/create-ruby-nginxproject.sh
+        run: ./scripts/linux/create-k8sproject.sh
 
-      - name: Open Dev App
-        run: ./scripts/linux/open-devnginxapp.sh
+      - name: Open App in Dev
+        run: ./scripts/linux/open-devwebapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-teamcitycreaterelease.sh
+        run: ./scripts/linux/create-jenkinscreaterelease.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh
 
-      - name: Open Test App
-        run: ./scripts/linux/open-testnginxapp.sh
+      - name: Open App in Test
+        run: ./scripts/linux/open-testwebapp.sh
 
       - name: Add Manual Intervention
         run: ./scripts/linux/add-manualintervention.sh
@@ -103,5 +114,16 @@ jobs:
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
 
-      - name: Upload screenshots
-        run: ./scripts/linux/upload-screenshots.sh
+      - name: Process videos
+        if: always()
+        run: ./scripts/linux/convert-video.sh
+
+      - name: Upload videos
+        if: always()
+        run: ./scripts/linux/upload-video.sh
+
+      - name: Replace Wistia video
+        run: ./scripts/linux/replace-wistia-video.sh
+
+      - name: Build badge
+        run: ./scripts/linux/create-badge.sh
