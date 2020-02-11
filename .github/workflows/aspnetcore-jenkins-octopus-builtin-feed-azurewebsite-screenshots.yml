@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 25 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-aspnetcore-screenshots')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'jenkins-aspnetcore-screenshots')
     runs-on: windows-2019
     env:
       STEP_PAUSE: 1000
@@ -28,7 +32,12 @@ jobs:
       TEST_RES_GROUP: jenkinsaspnetcorebuiltinfeedtest
       PROD_RES_GROUP: jenkinsaspnetcorebuiltinfeedprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @azure-web-app) and
+        (not @repositoryspecific or @octo-built-in-feed) and
+        (not @applicationspecific or @aspnetcore) and
+        (not @sourcespecific or @git)
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME:
       DISABLE_HIGHLIGHTS: false

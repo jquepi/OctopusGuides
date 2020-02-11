@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 2 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-aspnetcore-video')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'jenkins-aspnetcore-video')
     runs-on: windows-2019
     env:
       STEP_PAUSE: 1000
@@ -28,7 +32,12 @@ jobs:
       TEST_RES_GROUP: jenkinsaspnetcorebuiltinfeedvidtest
       PROD_RES_GROUP: jenkinsaspnetcorebuiltinfeedvidprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @azure-web-app) and
+        (not @repositoryspecific or @octo-built-in-feed) and
+        (not @applicationspecific or @aspnetcore) and
+        (not @sourcespecific or @git)
       WISTIA_MEDIA_ID: aj5asq70qt
       VIDEO_FILE_NAME: aspnetcore-jenkins-octopus-builtin-feed-azure.mp4
       DISABLE_HIGHLIGHTS: true

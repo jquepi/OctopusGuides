@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 13 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-aspnetcore-video')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'teamcity-aspnetcore-video')
     runs-on: windows-2019
     env:
       STEP_PAUSE: 1000
@@ -21,7 +25,11 @@ jobs:
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @iis) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @aspnetcore)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @iis) and
+        (not @repositoryspecific or @octo-built-in-feed) and
+        (not @applicationspecific or @aspnetcore)
       WISTIA_MEDIA_ID: f925nu08uc
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

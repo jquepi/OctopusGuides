@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 16 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'azuredevops-aspnetcore-screenshot')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'azuredevops-aspnetcore-screenshot')
     runs-on: windows-2019
     env:
       AZURE_URL: http://localhost:9090/
@@ -22,7 +26,12 @@ jobs:
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @iis) and
+        (not @repositoryspecific or @artifactory) and
+        (not @applicationspecific or @aspnetcore) and
+        (not @sourcespecific or @git)
       WISTIA_MEDIA_ID:
       DISABLE_HIGHLIGHTS: false
       DISABLE_SCREENSHOTS: false

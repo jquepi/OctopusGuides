@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 5 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-nodejs-k8s-screenshots')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'jenkins-nodejs-k8s-screenshots')
     runs-on: ubuntu-latest
     env:
       SLACK_STEP_HANDLER: true
@@ -26,7 +30,12 @@ jobs:
       DISPLAY: ":99.0"
       MOUSE_VERTICAL_OFFSET: 74
       MOUSE_VERTICAL_OFFSET_CHROME: 125
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @k8s) and (not @repositoryspecific or @dockerhub) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @k8s) and
+        (not @repositoryspecific or @dockerhub) and
+        (not @applicationspecific or @java) and
+        (not @sourcespecific or @git)
       DISABLE_HIGHLIGHTS: false
       DISABLE_SCREENSHOTS: false
       MOVE_TO_MOUSE_CUSROR: false

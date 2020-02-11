@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 2 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'teamcity-aspnet-video')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'teamcity-aspnet-video')
     runs-on: windows-2019
     env:
       STEP_PAUSE: 1000
@@ -29,7 +33,11 @@ jobs:
       DEV_RES_GROUP: teamcityaspnetartifactoryfeedviddev
       TEST_RES_GROUP: teamcityaspnetartifactoryfeedvidtest
       PROD_RES_GROUP: teamcityaspnetartifactoryfeedvidprod
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @azure-web-app) and
+        (not @repositoryspecific or @artifactory) and
+        (not @applicationspecific or @aspnet)
       WISTIA_MEDIA_ID: polk4sa82t
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

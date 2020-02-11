@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 25 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'jenkins-aspnet-video')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'jenkins-aspnet-video')
     runs-on: windows-2019
     env:
       STEP_PAUSE: 1000
@@ -29,7 +33,12 @@ jobs:
       TEST_RES_GROUP: jenkinsaspnetartifactoryfeedvidtest
       PROD_RES_GROUP: jenkinsaspnetartifactoryfeedvidprod
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @azure-web-app) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnet) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @azure-web-app) and
+        (not @repositoryspecific or @artifactory) and
+        (not @applicationspecific or @aspnet) and
+        (not @sourcespecific or @git)
       WISTIA_MEDIA_ID: l79187lpox
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

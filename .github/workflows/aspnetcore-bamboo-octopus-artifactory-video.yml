@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 29 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'bamboo-aspnetcore-video')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'bamboo-aspnetcore-video')
     env:
       BUILD_NAME: "aspnetcore-app-git-bamboo-artifactory-iis"
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
@@ -18,7 +22,11 @@ jobs:
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       MEDIA_PATH: C:\screenshots
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @iis) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @aspnetcore)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @iis) and
+        (not @repositoryspecific or @artifactory) and
+        (not @applicationspecific or @aspnetcore)
       WISTIA_MEDIA_ID: gw47z05nd3
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true

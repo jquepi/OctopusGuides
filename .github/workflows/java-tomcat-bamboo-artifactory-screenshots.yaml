@@ -6,7 +6,11 @@ on:
     - cron:  '0 0 1 * *'
 jobs:
   build:
-    if: (github.event_name != 'repository_dispatch') || (github.event.client_payload.workflow == github.workflow) || (github.event.client_payload.workflow == 'all') || (github.event.client_payload.workflow == 'bamboo-java-tomcat-screenshots')
+    if: >-
+      (github.event_name != 'repository_dispatch') ||
+      (github.event.client_payload.workflow == github.workflow) ||
+      (github.event.client_payload.workflow == 'all') ||
+      (github.event.client_payload.workflow == 'bamboo-java-tomcat-screenshots')
     runs-on: ubuntu-latest
     env:
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
@@ -29,7 +33,12 @@ jobs:
       # This is slightly larger than the warning bar presented by Chrome to stop the mouse cursor triggering the menu
       # next to the administration menu as we try and click the Overview link.
       MOUSE_VERTICAL_OFFSET_CHROME: 125
-      CUCUMBER_TAGS: "(not @browserspecific or @firefox) and (not @destinationspecific or @tomcat) and (not @repositoryspecific or @artifactory) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
+      CUCUMBER_TAGS: >-
+        (not @browserspecific or @firefox) and
+        (not @destinationspecific or @tomcat) and
+        (not @repositoryspecific or @artifactory) and
+        (not @applicationspecific or @java) and
+        (not @sourcespecific or @git)
       DISABLE_HIGHLIGHTS: false
       DISABLE_SCREENSHOTS: false
       MOVE_TO_MOUSE_CURSOR: false
