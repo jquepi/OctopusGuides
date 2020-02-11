@@ -241,7 +241,7 @@ if (elements.length !== 0) {
     And I populate the "Port name" text box with "web"
 
     And I scroll the "Port number" text box into view offset by "-300"
-    And I populate the "Port number" text box with "80"
+    And I populate the "Port number" text box with "#{DockerPort:-80}"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}091-octopus-k8s.png"
 
     And I scroll the "Add Volume Mount" button into view offset by "-200"
