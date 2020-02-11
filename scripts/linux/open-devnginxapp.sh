@@ -63,6 +63,7 @@ fi
 if [ -f /etc/systemd/system/RandomQuotes.service ]; then
   sudo cat /etc/systemd/system/RandomQuotes.service
   sudo systemctl status RandomQuotes.service
+  sudo journalctl -u RandomQuotes.service
 fi
 
 if [ -f /home/Octopus/Applications/Dev/RandomQuotes/1.0.1/log/unicorn.stderr.log ]; then
