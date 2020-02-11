@@ -68,3 +68,7 @@ fi
 if [ -f /home/Octopus/Applications/Dev/RandomQuotes/1.0.1/log/unicorn.stderr.log ]; then
   sudo cat /home/Octopus/Applications/Dev/RandomQuotes/1.0.1/log/unicorn.stderr.log
 fi
+
+if [ -f /home/Octopus/Applications/Dev/RandomQuotes/1.0.1/log/unicorn.stdout.log ]; then
+  sudo cat /home/Octopus/Applications/Dev/RandomQuotes/1.0.1/log/unicorn.stdout.log
+fi
