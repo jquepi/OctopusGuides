@@ -17,3 +17,6 @@ file { '/opt/packages-microsoft-prod.deb':
 -> package { 'dotnet-sdk-3.0':
   ensure => installed,
 }
+-> package { 'dotnet-runtime-2.2':
+  ensure => installed,
+}
