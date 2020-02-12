@@ -54,6 +54,10 @@ package { 'firefox':
   ensure => installed,
 }
 
+package { 'curl':
+  ensure => installed,
+}
+
 package { 'vlc':
   ensure => installed,
 }
