@@ -18,10 +18,6 @@ docker_network { 'octopus':
   remove_container_on_stop  => true,
   remove_volume_on_stop     => false,
 }
--> service { 'docker-mssql':
-  ensure => 'running',
-  enable => true,
-}
 -> exec { 'enable service docker-mssql':
   command   => '/bin/systemctl enable docker-mssql',
   logoutput => true
