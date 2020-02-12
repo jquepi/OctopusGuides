@@ -251,6 +251,7 @@ if (elements.length !== 0) {
     And I highlight outside the "Name" text box with an offset of "2"
     And I highlight outside the "Value" text box with an offset of "2"
 
+    And I scroll the "Name" text box into view offset by "-300"
     And I populate the "Name" text box with "ENVIRONMENT_NAME"
     And I populate the "Value" text box with "#{Octopus.Environment.Name}"
 
