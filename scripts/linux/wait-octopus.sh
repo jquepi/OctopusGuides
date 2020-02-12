@@ -1,6 +1,8 @@
 attempt_counter=0
 max_attempts=120
 
+echo "Waiting for the Octopus server"
+
 until $(curl --max-time 5 --output /dev/null --silent --head --fail http://localhost); do
     if [ ${attempt_counter} -eq ${max_attempts} ];then
       echo "Max attempts reached"
