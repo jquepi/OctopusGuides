@@ -60,13 +60,13 @@ sudo -u guides ./scripts/linux/create-tomcatproject.sh
 sudo -u guides ./scripts/linux/create-jenkinscreaterelease.sh
 
 # Create Lifecycle
-sudo -u admin ./scripts/linux/create-lifecycle.sh
+sudo -u guides ./scripts/linux/create-lifecycle.sh
 
 # Add Manual Intervention
-sudo -u admin ./scripts/linux/add-manualintervention.sh
+sudo -u guides ./scripts/linux/add-manualintervention.sh
 
 # Add Notification
-sudo -u admin ./scripts/linux/add-notification.sh
+sudo -u guides ./scripts/linux/add-notification.sh
 
 # Add Users and Teams
-sudo -u admin ./scripts/linux/add-usersandteams.sh
+sudo -u guides ./scripts/linux/add-usersandteams.sh
