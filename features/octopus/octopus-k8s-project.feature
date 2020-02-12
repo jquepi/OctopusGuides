@@ -13,8 +13,8 @@ Feature: Configure an Octopus Kubernetes project
     And I run the feature "shared/octopus-create-project.feature" passing the original arguments
     And I run the feature "shared/octopus-define-variables.feature" passing the original arguments
 
-  @define-variables @destinationspecific @k8s
-  Scenario: Define project EnvironmentName Variable
+  @define-variables @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
+  Scenario: Define project config file variable. This is only valid for some docker images.
   Define the contents of the appsettings JSON file
     Given I set the following aliases:
       | New variable name       | //input[contains(@id,'Enternewvariable')] |
