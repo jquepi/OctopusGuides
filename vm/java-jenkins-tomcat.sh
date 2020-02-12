@@ -36,36 +36,36 @@ cd ..
 ./install.sh docker.pp dotnetutilities.pp utilities.pp jenkins.pp tomcat.pp dockercreds.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
 
 # Wait for Octopus
-sudo -u admin ./scripts/linux/wait-octopus.sh
+sudo -u octopus ./scripts/linux/wait-octopus.sh
 
 # Create Api Key
-sudo -u admin ./scripts/linux/create-apikey.sh
+sudo -u octopus ./scripts/linux/create-apikey.sh
 
 # Create Jenkins project
-sudo -u admin ./scripts/linux/create-javawar-jenkinsproject.sh
+sudo -u octopus ./scripts/linux/create-javawar-jenkinsproject.sh
 
 # Create environments
-sudo -u admin ./scripts/linux/create-environments.sh
+sudo -u octopus ./scripts/linux/create-environments.sh
 
 # Create Target
-sudo -u admin ./scripts/linux/create-target.sh
+sudo -u octopus ./scripts/linux/create-target.sh
 
 # Create project
-sudo -u admin ./scripts/linux/create-tomcatproject.sh
+sudo -u octopus ./scripts/linux/create-tomcatproject.sh
 
 # Create release
-sudo -u admin ./scripts/linux/create-jenkinscreaterelease.sh
+sudo -u octopus ./scripts/linux/create-jenkinscreaterelease.sh
 
 # Create Lifecycle
-sudo -u admin ./scripts/linux/create-lifecycle.sh
+sudo -u octopus ./scripts/linux/create-lifecycle.sh
 
 # Add Manual Intervention
-sudo -u admin ./scripts/linux/add-manualintervention.sh
+sudo -u octopus ./scripts/linux/add-manualintervention.sh
 
 # Add Notification
-sudo -u admin ./scripts/linux/add-notification.sh
+sudo -u octopus ./scripts/linux/add-notification.sh
 
 # Add Users and Teams
-sudo -u admin ./scripts/linux/add-usersandteams.sh
+sudo -u octopus ./scripts/linux/add-usersandteams.sh
 
 exit 0
