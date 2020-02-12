@@ -13,6 +13,8 @@
 export FACTER_dockerhub_user=$DOCKER_USERNAME
 export FACTER_dockerhub_password=$DOCKER_PASSWORD
 
+DISPLAY=":99.0"
+
 export SLACK_STEP_HANDLER=false
 export DISABLE_HIGHLIGHTS=true
 export DISABLE_SCREENSHOTS=true
