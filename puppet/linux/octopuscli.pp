@@ -9,15 +9,15 @@ file { '/opt/octo':
   creates      => '/opt/octo/Octo',
   cleanup      => true,
 }
--> file { '/opt/query-octopus.sh':
-  ensure  => 'file',
-  mode    => '0744',
-  content => @(EOT)
-    #!/bin/bash
-    /opt/octo/Octo list-machines --server http://localhost --user admin --pass Password01!
-    | EOT
-}
--> exec { 'Query Octopus':
-  command   => '/opt/query-octopus.sh',
-  logoutput => true
-}
+# -> file { '/opt/query-octopus.sh':
+#   ensure  => 'file',
+#   mode    => '0744',
+#   content => @(EOT)
+#     #!/bin/bash
+#     /opt/octo/Octo list-machines --server http://localhost --user admin --pass Password01!
+#     | EOT
+# }
+# -> exec { 'Query Octopus':
+#   command   => '/opt/query-octopus.sh',
+#   logoutput => true
+# }
