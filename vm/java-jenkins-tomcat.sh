@@ -60,10 +60,12 @@ sudo -u admin ./scripts/linux/create-jenkinscreaterelease.sh
 sudo -u admin ./scripts/linux/create-lifecycle.sh
 
 # Add Manual Intervention
-./scripts/linux/add-manualintervention.sh
+sudo -u admin ./scripts/linux/add-manualintervention.sh
 
 # Add Notification
-./scripts/linux/add-notification.sh
+sudo -u admin ./scripts/linux/add-notification.sh
 
 # Add Users and Teams
-./scripts/linux/add-usersandteams.sh
+sudo -u admin ./scripts/linux/add-usersandteams.sh
+
+exit 0
