@@ -35,7 +35,7 @@ jobs:
         (not @browserspecific or @firefox) and
         (not @destinationspecific or @k8s) and
         (not @repositoryspecific or @dockerhub) and
-        (not @applicationspecific or @aspnetcore) and
+        (not @applicationspecific or @php) and
         (not @sourcespecific or @git)
       DISABLE_HIGHLIGHTS: true
       DISABLE_SCREENSHOTS: true
