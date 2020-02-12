@@ -1,6 +1,6 @@
 name: PHP Jenkins Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 13 * *'
@@ -46,6 +46,7 @@ jobs:
       SCREENSHOT_PATH: /php-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesphp
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
+      DOCKER_PORT: 8080
     steps:
       - uses: actions/checkout@v1
 

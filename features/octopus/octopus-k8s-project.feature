@@ -149,10 +149,10 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Step Name                  | //input[contains(@id, 'Stepname')]                                                              |
-      | On behalf of               | //input[@title='On behalf of target roles (type to add new)']                                   |
-      | K8s role                   | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
-      | Deployment name            | //input[contains(@id,'Deploymentname')]                                                         |
+      | Step Name       | //input[contains(@id, 'Stepname')]                                                              |
+      | On behalf of    | //input[@title='On behalf of target roles (type to add new)']                                   |
+      | K8s role        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
+      | Deployment name | //input[contains(@id,'Deploymentname')]                                                         |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -265,16 +265,16 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s
   Scenario: Add the package and service
     Given I set the following aliases:
-      | Package Id        | //input[contains(@id,'PackageID')]   |
-      | Package Id label  | //label[contains(@for,'PackageID')]  |
-      | OK                | (//button[@title='Ok'])[1]           |
-      | Save              | //button[@title='Save']              |
-      | Service name      | //input[contains(@id,'Servicename')] |
-      | Add Service Port  | (//button[@title='Add Port'])[1]     |
-      | Service Port Name | (//input[contains(@id,'Name')])[2]   |
-      | Port 80           | //span[./div/div/div[text()='80']]   |
-      | Service Port      | (//input[contains(@id,'Port')])[1]   |
-      | Node Port         | //input[contains(@id,'NodePort')]    |
+      | Package Id        | //input[contains(@id,'PackageID')]                |
+      | Package Id label  | //label[contains(@for,'PackageID')]               |
+      | OK                | (//button[@title='Ok'])[1]                        |
+      | Save              | //button[@title='Save']                           |
+      | Service name      | //input[contains(@id,'Servicename')]              |
+      | Add Service Port  | (//button[@title='Add Port'])[1]                  |
+      | Service Port Name | (//input[contains(@id,'Name')])[2]                |
+      | Port Suggestion   | //span[./div/div/div[text()='#{DockerPort:-80}']] |
+      | Service Port      | (//input[contains(@id,'Port')])[1]                |
+      | Node Port         | //input[contains(@id,'NodePort')]                 |
 
     And I highlight outside the "Package Id" text box
     And I scroll the "Package Id" text box into view offset by "-300"
@@ -300,8 +300,8 @@ if (elements.length !== 0) {
     And I highlight outside the "Node Port" text box with an offset of "2"
     And I highlight outside the "OK" button with an offset of "2"
     And I populate the "Service Port Name" text box with "web"
-    And I populate the "Service Port" text box with "80"
-    And I click the "Port 80" option
+    And I populate the "Service Port" text box with "#{DockerPort:-80}"
+    And I click the "Port Suggestion" option
     And I populate the "Node Port" text box with "#{K8S Node Port}"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-k8s.png"
     And I click the "OK" button

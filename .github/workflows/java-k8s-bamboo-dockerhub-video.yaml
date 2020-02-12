@@ -50,6 +50,7 @@ jobs:
       CONFIG_FILE: "spring:\\n  profiles:\\n    active: \\\"#{Octopus.Environment.Name}\\\"\\nserver:\\n  port : \\\"80\\\""
       CONFIG_FILE_MOUNT_PATH: "/app/docker-application.yml"
       CONFIG_FILE_NAME: "docker-application.yml"
+      DOCKER_PORT: 80
     steps:
       - uses: actions/checkout@v1
 

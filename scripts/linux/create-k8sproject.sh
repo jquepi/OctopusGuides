@@ -23,6 +23,7 @@
   "-DCucumberAlias-ExternalConfigFile=$CONFIG_FILE" \
   "-DCucumberAlias-ExternalConfigMountPath=$CONFIG_FILE_MOUNT_PATH" \
   "-DCucumberAlias-ExternalConfigFileName=$CONFIG_FILE_NAME" \
+  "-DCucumberAlias-DockerPort=$DOCKER_PORT" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \
