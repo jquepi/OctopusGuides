@@ -18,11 +18,13 @@ docker_network { 'octopus':
   remove_container_on_stop  => true,
   remove_volume_on_stop     => false,
 }
--> docker::image { 'octopusdeploy/linuxoctopus':
+
+docker::image { 'octopusdeploy/linuxoctopus':
   image_tag => '2019.13.4'
 }
 -> docker::run { 'octopusdeploy':
   image                     => 'octopusdeploy/linuxoctopus:2019.13.4',
+  depends                   => 'mssql',
   env                       => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com',
     'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'
     , 'CONNSTRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!'],
