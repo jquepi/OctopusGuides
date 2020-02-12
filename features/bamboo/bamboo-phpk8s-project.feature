@@ -7,7 +7,7 @@ Feature: Configure Bamboo
     And I run the feature "shared/bamboo-configure-octopus.feature" passing the original arguments
     And I run the feature "shared/bamboo-add-project.feature" passing the original arguments
 
-  @applicationspecific @aspnetcore
+  @applicationspecific @php
   Scenario: ASP.NET Core Add tasks
     Given I set the following aliases:
       | Add task                          | //a[@id='addTask']                                                                                          |

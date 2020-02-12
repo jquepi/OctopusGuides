@@ -1,19 +1,18 @@
-name: PHP Bamboo Kubernetes DockerHub Video
+name: PHP TeamCity Kubernetes DockerHub Screenshots
 on:
 #  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 5 * *'
+    - cron:  '0 0 29 * *'
 jobs:
   build:
     if: >-
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
-      (github.event.client_payload.workflow == 'bamboo-php-k8s-video')
+      (github.event.client_payload.workflow == 'teamcity-php-k8s-screenshots')
     runs-on: ubuntu-latest
     env:
-      BUILD_NAME: "php-docker-app-git-bamboo-dockerhub-k8s"
       SLACK_STEP_HANDLER: true
       SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
@@ -24,9 +23,9 @@ jobs:
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
+      MEDIA_PATH: /tmp/screenshots
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      MEDIA_PATH: /tmp/screenshots
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       DISPLAY: ":99.0"
       BROWSER_TYPE: FirefoxNoImplicitWait
@@ -38,22 +37,22 @@ jobs:
         (not @repositoryspecific or @dockerhub) and
         (not @applicationspecific or @php) and
         (not @sourcespecific or @git)
-      DISABLE_HIGHLIGHTS: true
-      DISABLE_SCREENSHOTS: true
-      MOVE_TO_MOUSE_CURSOR: true
-      DISABLE_VIDEO: false
+      DISABLE_HIGHLIGHTS: false
+      DISABLE_SCREENSHOTS: false
+      MOVE_TO_MOUSE_CUSROR: false
+      DISABLE_VIDEO: true
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-PHP.git
       WISTIA_MEDIA_ID:
-      VIDEO_FILE_NAME: bamboo-php-k8s-dockerhub.mp4
+      VIDEO_FILE_NAME: php-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /php-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesphp
-      DOCKER_PORT: 8080
+      DOCKER_PORT: 80
     steps:
       - uses: actions/checkout@v1
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp bamboo.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp bamboofinalize.pp
+        run: ./install.sh utilities.pp teamcity.pp minikube.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
           FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -64,8 +63,11 @@ jobs:
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
 
-      - name: Create Bamboo project
-        run: ./scripts/linux/create-php-docker-bambooproject.sh
+      - name: Setup TeamCity
+        run: ./scripts/linux/setup-teamcity.sh
+
+      - name: Create Team City project
+        run: ./scripts/linux/create-php-docker-teamcityproject.sh
 
       - name: Create Worker
         run: sudo ./scripts/linux/create-worker.sh
@@ -77,7 +79,7 @@ jobs:
         run: ./scripts/linux/create-certificates.sh
 
       - name: Create target
-        run: ./scripts/linux/create-k8starget-video.sh
+        run: ./scripts/linux/create-k8starget-screenshots.sh
 
       - name: Create docker feed
         run: ./scripts/linux/create-dockerfeed.sh
@@ -85,16 +87,16 @@ jobs:
       - name: Create project
         run: ./scripts/linux/create-k8sproject.sh
 
-      - name: Open Dev App
+      - name: Open App in Dev
         run: ./scripts/linux/open-devwebapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-bamboocreaterelease.sh
+        run: ./scripts/linux/create-teamcitycreaterelease.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh
 
-      - name: Open Test App
+      - name: Open App in Test
         run: ./scripts/linux/open-testwebapp.sh
 
       - name: Add Manual Intervention
@@ -103,29 +105,5 @@ jobs:
       - name: Add Notification
         run: ./scripts/linux/add-notification.sh
 
-      - name: Add Users and Teams
-        run: ./scripts/linux/add-usersandteams.sh
-
-      - name: View Internal Deployer Dashboard
-        run: ./scripts/linux/view-internaldeployerdashboard.sh
-
-      - name: View Production Deployer Dashboard
-        run: ./scripts/linux/view-productiondeployerdashboard.sh
-
-      - name: View Audit Logs
-        run: ./scripts/linux/view-auditlogs.sh
-#
-      - name: Process videos
-        if: always()
-        run: ./scripts/linux/convert-video.sh
-
-
-      - name: Upload videos
-        if: always()
-        run: ./scripts/linux/upload-video.sh
-
-      - name: Replace Wistia video
-        run: ./scripts/linux/replace-wistia-video.sh
-
-      - name: Build badge
-        run: ./scripts/linux/create-badge.sh
+      - name: Upload screenshots
+        run: ./scripts/linux/upload-screenshots.sh
