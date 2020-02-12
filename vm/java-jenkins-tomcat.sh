@@ -30,43 +30,40 @@ export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
 export DOCKER_IMAGE=octopusdeploy/randomquotesjava
 export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[2]"
 
-# Firefox can not be run as root, so create a user to run the webdriver scripts
-useradd guides -s /bin/bash -p '*'
-
 cd ..
 
 # Install Puppet
 ./install.sh docker.pp dotnetutilities.pp utilities.pp jenkins.pp tomcat.pp dockercreds.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
 
 # Wait for Octopus
-sudo -u guides ./scripts/linux/wait-octopus.sh
+./scripts/linux/wait-octopus.sh
 
 # Create Api Key
-sudo -u guides ./scripts/linux/create-apikey.sh
+./scripts/linux/create-apikey.sh
 
 # Create Jenkins project
-sudo -u guides ./scripts/linux/create-javawar-jenkinsproject.sh
+./scripts/linux/create-javawar-jenkinsproject.sh
 
 # Create environments
-sudo -u guides ./scripts/linux/create-environments.sh
+./scripts/linux/create-environments.sh
 
 # Create Target
-sudo -u guides ./scripts/linux/create-target.sh
+./scripts/linux/create-target.sh
 
 # Create project
-sudo -u guides ./scripts/linux/create-tomcatproject.sh
+./scripts/linux/create-tomcatproject.sh
 
 # Create release
-sudo -u guides ./scripts/linux/create-jenkinscreaterelease.sh
+./scripts/linux/create-jenkinscreaterelease.sh
 
 # Create Lifecycle
-sudo -u guides ./scripts/linux/create-lifecycle.sh
+./scripts/linux/create-lifecycle.sh
 
 # Add Manual Intervention
-sudo -u guides ./scripts/linux/add-manualintervention.sh
+./scripts/linux/add-manualintervention.sh
 
 # Add Notification
-sudo -u guides ./scripts/linux/add-notification.sh
+./scripts/linux/add-notification.sh
 
 # Add Users and Teams
-sudo -u guides ./scripts/linux/add-usersandteams.sh
+./scripts/linux/add-usersandteams.sh
