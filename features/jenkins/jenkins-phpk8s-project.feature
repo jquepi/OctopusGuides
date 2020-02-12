@@ -96,7 +96,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
 
     And I scroll the "Name of the image to push (repository/image)" text box into view offset by "-300"
     And I highlight outside the "Name of the image to push (repository/image)" text box with an offset of "2"
-    And I populate the "Name of the image to push (repository/image)" text box with "randomquotes"
+    And I populate the "Name of the image to push (repository/image)" text box with "randomquotesphp"
 
     And I scroll the "Tag" text box into view offset by "-300"
     And I highlight outside the "Tag" text box with an offset of "2"
