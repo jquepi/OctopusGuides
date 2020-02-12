@@ -43,7 +43,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-PHP.git
-      WISTIA_MEDIA_ID: qerza61a2j
+      WISTIA_MEDIA_ID: oxfmzyseip
       VIDEO_FILE_NAME: jenkins-php-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /php-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesphp

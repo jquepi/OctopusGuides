@@ -241,7 +241,6 @@ if (elements.length !== 0) {
       | Mount path            | (//input[contains(@id,'Mountpath')])[1]            |
       | Sub path              | (//input[contains(@id,'Subpath')])[1]              |
       | appsettings volume    | //span[./div/div/div[text()='appsettings-volume']] |
-      | OK                    | (//button[@title='Ok'])[1]                         |
 
     And I scroll the "Add Volume Mount" button into view offset by "-200"
     And I highlight outside the "Add Volume Mount" button with an offset of "2"
@@ -258,10 +257,6 @@ if (elements.length !== 0) {
     And I populate the "Sub path" text box with "ExternalConfigFileName"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}093-octopus-k8s.png"
 
-    And I highlight outside the "OK" button with an offset of "2"
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-k8s.png"
-    And I remove the highlight from the "OK" button
-
   @define-project @destinationspecific @k8s
   Scenario: Add the package and service
     Given I set the following aliases:
@@ -275,6 +270,10 @@ if (elements.length !== 0) {
       | Port Suggestion   | //span[./div/div/div[text()='#{DockerPort:-80}']] |
       | Service Port      | (//input[contains(@id,'Port')])[1]                |
       | Node Port         | //input[contains(@id,'NodePort')]                 |
+
+    And I highlight outside the "OK" button with an offset of "2"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-k8s.png"
+    And I remove the highlight from the "OK" button
 
     And I highlight outside the "Package Id" text box
     And I scroll the "Package Id" text box into view offset by "-300"
