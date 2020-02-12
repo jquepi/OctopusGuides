@@ -58,6 +58,11 @@ package { 'curl':
   ensure => installed,
 }
 
+package { 'git':
+  ensure => installed,
+}
+
+
 package { 'vlc':
   ensure => installed,
 }
