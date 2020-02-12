@@ -1,5 +1,9 @@
 include apt
 
+package {'apt-transport-https':
+  ensure => installed,
+}
+
 apt::ppa { 'ppa:openjdk-r/ppa': }
 -> package { 'openjdk-8-jdk':
   ensure => installed,
