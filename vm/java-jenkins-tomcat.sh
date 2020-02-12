@@ -30,6 +30,7 @@ export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
 export DOCKER_IMAGE=octopusdeploy/randomquotesjava
 export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[2]"
 
+# Firefox can not be run as root, so create a user to run the webdriver scripts
 useradd guides -s /bin/bash -p '*'
 
 cd ..
