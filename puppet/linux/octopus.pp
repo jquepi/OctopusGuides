@@ -18,6 +18,10 @@ docker_network { 'octopus':
   remove_container_on_stop  => true,
   remove_volume_on_stop     => false,
 }
+-> service { 'docker-mssql':
+  ensure => 'running',
+  enable => true,
+}
 
 docker::image { 'octopusdeploy/linuxoctopus':
   image_tag => '2019.13.4'
@@ -34,4 +38,8 @@ docker::image { 'octopusdeploy/linuxoctopus':
   remove_volume_on_start    => false,
   remove_container_on_stop  => true,
   remove_volume_on_stop     => false,
+}
+-> service { 'docker-octopusdeploy':
+  ensure => 'running',
+  enable => true,
 }
