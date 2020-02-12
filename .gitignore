@@ -3,7 +3,7 @@
 **/*.nupkg
 \#{ExternalMediaPath}/*
 report/*
-packer/packer_cache/*
-packer/output*/*
-packer/box/*
+vm/packer_cache/*
+vm/output*/*
+vm/box/*
 amps-standalone-bamboo-LATEST
