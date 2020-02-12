@@ -281,6 +281,11 @@ if (elements.length !== 0) {
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}110-octopus-k8s.png"
     And I sleep for "1" second
 
+    # Give the package suggestion box some time to drop down
+    And I stop recording the screen
+    And I sleep for "60" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I force click the "OK" button
 
     And I highlight outside the "Service name" text box
