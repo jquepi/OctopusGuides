@@ -233,6 +233,32 @@ if (elements.length !== 0) {
     And I populate the "Port number" text box with "#{DockerPort:-80}"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}091-octopus-k8s.png"
 
+  @define-project @destinationspecific @k8s @applicationspecific @php @ruby
+  Scenario: Define environment variable. This is only valid for some docker images.
+    Given I set the following aliases:
+      | Environment Variables    | //div[./div/span[text()='Environment Variables']]                                                                      |
+      | Add Environment Variable | //button[@title='Add Environment Variable']                                                                            |
+      | Name                    | //input[contains(@id, 'Name')][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']] |
+      | Value                    | //input[contains(@id, 'Value')][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']] |
+
+    And I click the "Environment Variables" section
+
+    And I highlight outside the "Add Environment Variable" button with an offset of "2"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}093-octopus-k8s.png"
+    And I click the "Add Environment Variable" button
+    And I remove the highlight from the "Add Environment Variable" button
+
+    And I highlight outside the "Name" text box with an offset of "2"
+    And I highlight outside the "Value" text box with an offset of "2"
+
+    And I populate the "Name" text box with "ENVIRONMENT_NAME"
+    And I populate the "Value" text box with "#{Octopus.Environment.Name}"
+
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}093-octopus-k8s.png"
+
+    And I remove the highlight from the "Name" text box
+    And I remove the highlight from the "Value" text box
+
   @define-project @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
   Scenario: Add the config map volume mounting. This is only valid for some docker images.
     Given I set the following aliases:
