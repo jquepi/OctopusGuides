@@ -36,34 +36,34 @@ cd ..
 ./install.sh docker.pp dotnetutilities.pp utilities.pp jenkins.pp tomcat.pp dockercreds.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
 
 # Wait for Octopus
-./scripts/linux/wait-octopus.sh
+sudo -u admin ./scripts/linux/wait-octopus.sh
 
 # Create Api Key
-./scripts/linux/create-apikey.sh
+sudo -u admin ./scripts/linux/create-apikey.sh
 
 # Create Jenkins project
-./scripts/linux/create-javawar-jenkinsproject.sh
+sudo -u admin ./scripts/linux/create-javawar-jenkinsproject.sh
 
 # Create environments
-./scripts/linux/create-environments.sh
+sudo -u admin ./scripts/linux/create-environments.sh
 
 # Create Target
-./scripts/linux/create-target.sh
+sudo -u admin ./scripts/linux/create-target.sh
 
 # Create project
-./scripts/linux/create-tomcatproject.sh
+sudo -u admin ./scripts/linux/create-tomcatproject.sh
 
 # Create release
-./scripts/linux/create-jenkinscreaterelease.sh
+sudo -u admin ./scripts/linux/create-jenkinscreaterelease.sh
 
 # Create Lifecycle
-./scripts/linux/create-lifecycle.sh
+sudo -u admin ./scripts/linux/create-lifecycle.sh
 
 # Add Manual Intervention
-./scripts/linux/add-manualintervention.sh
+sudo -u admin ./scripts/linux/add-manualintervention.sh
 
 # Add Notification
-./scripts/linux/add-notification.sh
+sudo -u admin ./scripts/linux/add-notification.sh
 
 # Add Users and Teams
-./scripts/linux/add-usersandteams.sh
+sudo -u admin ./scripts/linux/add-usersandteams.sh
