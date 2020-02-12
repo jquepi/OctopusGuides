@@ -22,6 +22,10 @@ docker_network { 'octopus':
   ensure => 'running',
   enable => true,
 }
+-> exec { 'enable service docker-mssql':
+  command   => '/bin/systemctl enable docker-mssql',
+  logoutput => true
+}
 
 docker::image { 'octopusdeploy/linuxoctopus':
   image_tag => '2019.13.4'
@@ -39,7 +43,7 @@ docker::image { 'octopusdeploy/linuxoctopus':
   remove_container_on_stop  => true,
   remove_volume_on_stop     => false,
 }
--> service { 'docker-octopusdeploy':
-  ensure => 'running',
-  enable => true,
+-> exec { 'enable service octopus':
+  command   => '/bin/systemctl enable docker-octopusdeploy',
+  logoutput => true
 }
