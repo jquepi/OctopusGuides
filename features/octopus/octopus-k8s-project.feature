@@ -257,9 +257,6 @@ if (elements.length !== 0) {
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}094-octopus-k8s.png"
 
-    And I remove the highlight from the "Name" text box
-    And I remove the highlight from the "Value" text box
-
   @define-project @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
   Scenario: Add the config map volume mounting. This is only valid for some docker images.
     Given I set the following aliases:
