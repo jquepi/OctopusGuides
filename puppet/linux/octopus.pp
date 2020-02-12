@@ -13,9 +13,9 @@ docker_network { 'octopus':
   env                       => ['ACCEPT_EULA=Y', 'SA_PASSWORD=Password01!', 'MSSQL_PID=Express'],
   ports                     => ['1433:1433'],
   net                       => 'octopus',
-  remove_container_on_start => false,
+  remove_container_on_start => true,
   remove_volume_on_start    => false,
-  remove_container_on_stop  => false,
+  remove_container_on_stop  => true,
   remove_volume_on_stop     => false,
 }
 -> docker::image { 'octopusdeploy/linuxoctopus':
@@ -28,8 +28,8 @@ docker_network { 'octopus':
     , 'CONNSTRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!'],
   ports                     => ['80:8080', '10943:10943'],
   net                       => 'octopus',
-  remove_container_on_start => false,
+  remove_container_on_start => true,
   remove_volume_on_start    => false,
-  remove_container_on_stop  => false,
+  remove_container_on_stop  => true,
   remove_volume_on_stop     => false,
 }
