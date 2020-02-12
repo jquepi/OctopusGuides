@@ -24,7 +24,7 @@
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
   "-DCucumberAlias-ExternalUrl=http://localhost:8081/index.html" \
   "-DCucumberAlias-Screenshot=nginx-random-quotes-dev-app.png" \
-  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \

@@ -18,7 +18,7 @@
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
-  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   "-DCucumberAlias-ExternalDockerImage=$DOCKER_IMAGE" \
   "-DCucumberAlias-ExternalConfigFile=$CONFIG_FILE" \
   "-DCucumberAlias-ExternalConfigMountPath=$CONFIG_FILE_MOUNT_PATH" \

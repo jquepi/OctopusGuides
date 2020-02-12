@@ -27,7 +27,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalNamespace=randomquotes-test" \
   "-DCucumberAlias-ExternalUrl=http://localhost:8082/index.html" \
   "-DCucumberAlias-Screenshot=nginx-random-quotes-test-app.png" \
-  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \

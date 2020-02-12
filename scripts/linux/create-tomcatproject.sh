@@ -18,7 +18,7 @@
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
-  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin progress \

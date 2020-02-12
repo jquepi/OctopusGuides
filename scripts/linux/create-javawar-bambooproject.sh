@@ -25,7 +25,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
   "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
   "-DCucumberAlias-ArtifactPath=target/randomquotes.1.0.\${bamboo.buildNumber}.war" \
-  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   "-DCucumberAlias-Hostname=$(hostname)" \
   "-DCucumberAlias-ExternalBambooPlugin=/opt/bamboo.jar" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \

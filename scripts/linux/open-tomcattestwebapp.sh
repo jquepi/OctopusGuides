@@ -20,7 +20,7 @@
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
   "-DCucumberAlias-ExternalUrl=http://localhost:9091/randomquotes-test" \
   "-DCucumberAlias-Screenshot=tomcat-random-quotes-test-app.png" \
-  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \

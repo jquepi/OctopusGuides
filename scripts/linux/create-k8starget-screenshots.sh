@@ -26,7 +26,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-prod" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
-  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \
@@ -55,7 +55,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-test" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
-  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \
@@ -84,7 +84,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
   "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
-  "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" \
+  "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin progress \
   --tags "$CUCUMBER_TAGS" \

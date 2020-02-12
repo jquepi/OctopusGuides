@@ -29,6 +29,7 @@ jobs:
       MEDIA_PATH: /tmp/screenshots
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       DISPLAY: ":99.0"
+      BROWSER_TYPE: FirefoxNoImplicitWait
       MOUSE_VERTICAL_OFFSET: 74
       MOUSE_VERTICAL_OFFSET_CHROME: 125
       CUCUMBER_TAGS: >-
