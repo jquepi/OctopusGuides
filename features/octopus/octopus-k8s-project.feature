@@ -254,7 +254,7 @@ if (elements.length !== 0) {
     And I populate the "Name" text box with "ENVIRONMENT_NAME"
     And I populate the "Value" text box with "#{Octopus.Environment.Name}"
 
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}093-octopus-k8s.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}094-octopus-k8s.png"
 
     And I remove the highlight from the "Name" text box
     And I remove the highlight from the "Value" text box
