@@ -35,35 +35,35 @@ cd ..
 # Install Puppet
 ./install.sh docker.pp dotnetutilities.pp utilities.pp jenkins.pp tomcat.pp dockercreds.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
 
-# Wait for Octopus
-./scripts/linux/wait-octopus.sh
-
-# Create Api Key
-./scripts/linux/create-apikey.sh
-
-# Create Jenkins project
-./scripts/linux/create-javawar-jenkinsproject.sh
-
-# Create environments
-./scripts/linux/create-environments.sh
-
-# Create Target
-./scripts/linux/create-target.sh
-
-# Create project
-./scripts/linux/create-tomcatproject.sh
-
-# Create release
-./scripts/linux/create-jenkinscreaterelease.sh
-
-# Create Lifecycle
-./scripts/linux/create-lifecycle.sh
-
-# Add Manual Intervention
-./scripts/linux/add-manualintervention.sh
-
-# Add Notification
-./scripts/linux/add-notification.sh
-
-# Add Users and Teams
-./scripts/linux/add-usersandteams.sh
+## Wait for Octopus
+#./scripts/linux/wait-octopus.sh
+#
+## Create Api Key
+#./scripts/linux/create-apikey.sh
+#
+## Create Jenkins project
+#./scripts/linux/create-javawar-jenkinsproject.sh
+#
+## Create environments
+#./scripts/linux/create-environments.sh
+#
+## Create Target
+#./scripts/linux/create-target.sh
+#
+## Create project
+#./scripts/linux/create-tomcatproject.sh
+#
+## Create release
+#./scripts/linux/create-jenkinscreaterelease.sh
+#
+## Create Lifecycle
+#./scripts/linux/create-lifecycle.sh
+#
+## Add Manual Intervention
+#./scripts/linux/add-manualintervention.sh
+#
+## Add Notification
+#./scripts/linux/add-notification.sh
+#
+## Add Users and Teams
+#./scripts/linux/add-usersandteams.sh
