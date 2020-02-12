@@ -30,31 +30,33 @@ export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
 export DOCKER_IMAGE=octopusdeploy/randomquotesjava
 export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[2]"
 
+useradd guides -s /bin/bash -p '*'
+
 cd ..
 
 # Install Puppet
 ./install.sh docker.pp dotnetutilities.pp utilities.pp jenkins.pp tomcat.pp dockercreds.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
 
 # Wait for Octopus
-sudo -u admin ./scripts/linux/wait-octopus.sh
+sudo -u guides ./scripts/linux/wait-octopus.sh
 
 # Create Api Key
-sudo -u admin ./scripts/linux/create-apikey.sh
+sudo -u guides ./scripts/linux/create-apikey.sh
 
 # Create Jenkins project
-sudo -u admin ./scripts/linux/create-javawar-jenkinsproject.sh
+sudo -u guides ./scripts/linux/create-javawar-jenkinsproject.sh
 
 # Create environments
-sudo -u admin ./scripts/linux/create-environments.sh
+sudo -u guides ./scripts/linux/create-environments.sh
 
 # Create Target
-sudo -u admin ./scripts/linux/create-target.sh
+sudo -u guides ./scripts/linux/create-target.sh
 
 # Create project
-sudo -u admin ./scripts/linux/create-tomcatproject.sh
+sudo -u guides ./scripts/linux/create-tomcatproject.sh
 
 # Create release
-sudo -u admin ./scripts/linux/create-jenkinscreaterelease.sh
+sudo -u guides ./scripts/linux/create-jenkinscreaterelease.sh
 
 # Create Lifecycle
 sudo -u admin ./scripts/linux/create-lifecycle.sh
