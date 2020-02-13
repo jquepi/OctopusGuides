@@ -52,10 +52,8 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Install Puppet
-        run: ./install.sh jenkins.pp php.pp utilities.pp nginx.pp dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp
-        env:
-          FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: ./install.sh jenkins.pp php.pp utilities.pp nginx.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp
+
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh

@@ -51,11 +51,9 @@ jobs:
       - name: Install Puppet
         run: >-
           ./install.sh jenkins.pp ruby.pp utilities.pp nginx.pp
-          dockercreds.pp octopus.pp dotnetutilities.pp octopuscli.pp
+          octopus.pp dotnetutilities.pp octopuscli.pp
           jenkinsfinalize.pp
-        env:
-          FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
-          FACTER_dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
