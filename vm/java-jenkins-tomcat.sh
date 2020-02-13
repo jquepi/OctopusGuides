@@ -17,7 +17,7 @@ export DISABLE_VIDEO=true
 export SCREENSHOT_BUCKET=octopus-guides-screenshots
 export STEP_PAUSE=1000
 
-export BROWSER_TYPE=ChromeHeadlessNoImplicitWaitLambda
+export BROWSER_TYPE=ChromeHeadless
 
 export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @tomcat) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
 
