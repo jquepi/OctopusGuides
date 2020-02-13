@@ -24,10 +24,10 @@ docker_network { 'octopus':
 }
 
 docker::image { 'octopusdeploy/linuxoctopus':
-  image_tag => '2019.13.4'
+  image_tag => '2019.13.5'
 }
 -> docker::run { 'octopusdeploy':
-  image                     => 'octopusdeploy/linuxoctopus:2019.13.4',
+  image                     => 'octopusdeploy/linuxoctopus:2019.13.5',
   depends                   => 'mssql',
   env                       => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com',
     'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'
