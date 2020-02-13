@@ -52,7 +52,7 @@ jobs:
 
       - name: Install Puppet
         run: >-
-          ./install.sh utilities.pp ruby.pp nginx.pp bamboo.pp dockercreds.pp
+          ./install.sh utilities.pp headless.pp ruby.pp nginx.pp bamboo.pp dockercreds.pp
           octopus.pp dotnetutilities.pp octopuscli.pp bamboofinalize.pp
         env:
           FACTER_dockerhub_user: ${{ secrets.DOCKERHUB_USER }}
