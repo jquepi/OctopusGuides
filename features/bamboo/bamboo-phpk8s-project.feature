@@ -42,7 +42,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Task description" text box
     And I scroll the "Task description" text box into view offset by "-300"
-    And I populate the "Task description" text box with "Dotnet Test"
+    And I populate the "Task description" text box with "PHPUnit Test"
 
     And I highlight outside the "Interpreter" text box
     And I scroll the "Interpreter" drop down list into view offset by "-300"
