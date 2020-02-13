@@ -16,7 +16,7 @@ Feature: Octopus Login
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "Password01!"
     And I click the "Sign In" button
-    And I click the "Close help" button
+    And I click the "Close help" button waiting up to "5" seconds if it exists
     And I click the "Close EAP" button waiting up to "5" seconds if it exists
     # Give the dashboard time to load
     And I sleep for "10" seconds
