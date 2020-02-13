@@ -29,7 +29,7 @@ export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[2]"
 cd ..
 
 # Install Puppet
-./install.sh docker.pp dotnetutilities.pp utilities.pp jenkins.pp tomcat.pp octopus.pp octopuscli.pp jenkinsfinalize.pp octopusicon.pp jenkinsicon.pp tomcaticon.pp
+./install.sh jenkins.pp tomcat.pp jenkinsfinalize.pp jenkinsicon.pp tomcaticon.pp
 
 # Wait for Octopus
 ./scripts/linux/wait-octopus.sh

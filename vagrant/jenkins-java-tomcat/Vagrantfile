@@ -28,8 +28,8 @@ cd OctopusGuides-master/vm
 SCRIPT
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "hashicorp/bionic64"
-  config.vm.box_version = "1.0.282"
+  config.vm.box = "mcasperson/common-guides-base"
+  #config.vm.box_url = "file://c:/Code/java-tomcat-jenkins.box"
   config.vm.network 'public_network', bridge: 'Default Switch'
   config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.provider "hyperv" do |v|
