@@ -19,6 +19,7 @@ Feature: Configure Bamboo
       | Save                              | //input[@id='createTask_save']                                                                              |
       | Interpreter                       | //select[@id='interpreter']                                                                                 |
       | Script body                       | //div[@id='scriptBody']                                                                                     |
+      | Environment Variables             | //input[@id='environmentVariables']                                                                         |
       | Octopus Deploy: Pack Package Tile | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Octopus Deploy: Pack Package']] |
       | Package ID                        | //input[@id='packId']                                                                                       |
       | Version number                    | //input[@id='packVersion']                                                                                  |
@@ -57,6 +58,10 @@ Feature: Configure Bamboo
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-dotnet-test.png"
     And I remove the highlight from the "Script body" text box
+
+    And I highlight outside the "Environment Variables" text box
+    And I scroll the "Environment Variables" text box into view offset by "-300"
+    And I populate the "Environment Variables" text box with "HOME=/home/runner"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view
