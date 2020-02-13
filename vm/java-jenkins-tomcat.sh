@@ -2,19 +2,6 @@
 
 # Java Jenkins Tomcat Builtin Feed
 
-# Set the following environment variables before calling this script:
-# DOCKER_USERNAME
-# DOCKER_PASSWORD
-# SMTP_PASSWORD
-
-# For example:
-# DOCKER_USERNAME=username DOCKER_PASSWORD=password SMTP_PASSWORD=password ./java-jenkins-tomcat.sh
-
-export FACTER_dockerhub_user=$DOCKER_USERNAME
-export FACTER_dockerhub_password=$DOCKER_PASSWORD
-
-export DISPLAY=":99.0"
-
 export STHREE_SCREENSHOT_ENABLED=true
 export SLACK_STEP_HANDLER=true
 export SLACK_ON_ERROR_ONLY=false
@@ -65,9 +52,6 @@ cd ..
 
 # Add Manual Intervention
 ./scripts/linux/add-manualintervention.sh
-
-# Add Notification
-./scripts/linux/add-notification.sh
 
 # Add Users and Teams
 ./scripts/linux/add-usersandteams.sh
