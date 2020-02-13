@@ -21,6 +21,6 @@
   "-DCucumberAlias-ExternalApiKeyFile=/tmp/api_key.txt" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
-  --plugin progress \
+  --plugin "$CUCUMBER_PLUGIN" \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-api-key.feature

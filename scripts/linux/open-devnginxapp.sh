@@ -26,7 +26,7 @@
   "-DCucumberAlias-Screenshot=nginx-random-quotes-dev-app.png" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
-  --plugin progress \
+  --plugin "$CUCUMBER_PLUGIN" \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/open-randomquotes-generic.feature
 

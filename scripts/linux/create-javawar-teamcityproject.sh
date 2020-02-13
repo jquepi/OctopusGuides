@@ -28,5 +28,5 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ArtifactPath=target/randomquotes.1.0.%build.counter%.war" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
-  --plugin progress \
+  --plugin "$CUCUMBER_PLUGIN" \
   features/teamcity/teamcity-javawar-project.feature

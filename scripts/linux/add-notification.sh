@@ -21,6 +21,6 @@
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   "-DCucumberAlias-SMTPPassword=$SMTP_PASSWORD" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
-  --plugin progress \
+  --plugin "$CUCUMBER_PLUGIN" \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-email-notification.feature

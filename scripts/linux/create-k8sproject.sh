@@ -26,5 +26,5 @@
   "-DCucumberAlias-DockerPort=$DOCKER_PORT" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
-  --plugin progress \
+  --plugin "$CUCUMBER_PLUGIN" \
   features/octopus/octopus-k8s-project.feature
