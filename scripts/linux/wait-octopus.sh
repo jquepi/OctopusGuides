@@ -9,7 +9,7 @@ until $(curl --max-time 5 --output /dev/null --silent --head --fail http://local
       exit 1
     fi
 
-    printf '.'
+    printf 'Sleeping...'
     attempt_counter=$(($attempt_counter+1))
     sleep 5
 done
