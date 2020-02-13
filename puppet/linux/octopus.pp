@@ -31,7 +31,8 @@ docker::image { 'octopusdeploy/octopusdeploy':
   depends                   => 'mssql',
   env                       => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com',
     'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'
-    , 'DB_CONNECTION_STRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!'],
+    , 'DB_CONNECTION_STRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!',
+  'MASTER_KEY=6EdU6IWsCtMEwk0kPKflQQ=='],
   ports                     => ['80:8080', '10943:10943'],
   net                       => 'octopus',
   remove_container_on_start => true,
