@@ -1,7 +1,8 @@
 # https://gist.github.com/mcasperson/d5abf6990185f0d74bca748f530f43d7 is a break down of the folders and their
 # sizes in a Windows VM
 
-# Note that VMs now appear to have plenty of free space, so we keep the free space check only rather
+# It used to be the case that the VMs had very little free space, and installing our infrastructure failed
+# because there was no room. VMs now appear to have plenty of free space, so we keep the free space check only rather
 # then delete files
 
 Get-PSDrive C

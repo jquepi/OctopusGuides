@@ -1,51 +1,84 @@
 name: ASP.NET Azure DevOps Artifactory Feed Azure Website TFVC Video
 on:
 #  push:
+  # This is used to manually trigger a build without editing a file
   repository_dispatch:
+  # Each workflow is scheduled to run on a random day of the month
   schedule:
     - cron:  '0 0 13 * *'
 jobs:
   build:
+    # This is used to limit the scope of a rebuild with the repository_dispatch event
     if: >-
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
       (github.event.client_payload.workflow == 'azuredevops-aspnet-video')
     env:
+      # The URL of the Azure Devops instance. Useful to tweak if you need to debug locally on a different port
       AZURE_URL: http://localhost:9090/
+      # This is used to build the badges displayed on the guides. The format is:
+      # appname-sourcerepo-ci-packagerepo-destination
+      # The values match those in the URL of the guides
       BUILD_NAME: "aspnet-app-tfvc-azure-devops-artifactory-azurewebapp"
+      # This is used to populate the SMTP settings in Octopus. The value is found in lastpass under "octopusguides"
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+      # AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_DEFAULT_REGION are used to upload images to an S3 bucket,
+      # typically to be viewed in Slack
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      # The artifactory key. This value can be found in Confluence under "Software licenses"
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
+      # A slack web hook used with the slack step handler for debugging
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
+      # WISTIA_USERNAME and WISTIA_PASSWORD are used when replacing videos
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
+      # EXTERNAL_APPLICATION_PASSWORD, EXTERNAL_APPLICATION_TENANT_ID, EXTERNAL_AZURE_TENANT_ID and EXTERNAL_AZURE_SUBSCRIPTION_ID
+      # are the Azure credentials used to create web apps
       EXTERNAL_APPLICATION_PASSWORD: ${{ secrets.ExternalApplicationPassword }}
       EXTERNAL_APPLICATION_TENANT_ID: ${{ secrets.ExternalApplicationTenantID }}
       EXTERNAL_AZURE_TENANT_ID: ${{ secrets.ExternalAzureTenantID }}
       EXTERNAL_AZURE_SUBSCRIPTION_ID: ${{ secrets.ExternalAzureSubscriptionID }}
+      # DEV_RES_GROUP, TEST_RES_GROUP and PROD_RES_GROUP are the Azure resource groups used by this guide
       DEV_RES_GROUP: azuredevopsaspnetartifactoryfeedviddev
       TEST_RES_GROUP: azuredeopsaspnetartifactoryfeedvidtest
       PROD_RES_GROUP: azuredevopsaspnetartifactoryfeedvidprod
+      # The location where screenshots will be saved
       MEDIA_PATH: C:\screenshots
+      # The cucumber tags. The tagging scheme assigns a "group" tag to scenarios that are specific to a single guide,
+      # and then an "instance" tag to allow a group to be selected. So scenarios that are specific for a given browser
+      # are given a group tag of @browserspecific, and scenarios specific to Firefox are given a tag of @firefox.
       CUCUMBER_TAGS: >-
         (not @browserspecific or @firefox) and
         (not @destinationspecific or @azure-web-app) and
         (not @repositoryspecific or @artifactory) and
         (not @applicationspecific or @aspnet) and
         (not @sourcespecific or @tfvc)
+      # The ID of the wistia video this guide produces.
       WISTIA_MEDIA_ID: 38vactpj5y
+      # This is set to true for workflows generating videos, and false to workflows generating screenshots
       DISABLE_HIGHLIGHTS: true
+      # This is set to true for workflows generating videos, and false to workflows generating screenshots
       DISABLE_SCREENSHOTS: true
+      # This is set to true for workflows generating videos, and false to workflows generating screenshots
       MOVE_TO_MOUSE_CUSROR: true
+      # This is the number of pixels the top UI of the browser takes up. HTML elements are then found by adding this
+      # number to the position of an element in the browser window. Note this only works for a maximized browser.
       MOUSE_VERTICAL_OFFSET: 74
+      # The S3 bucket holding the temporary screenshots used by the slack step handler
       SCREENSHOT_BUCKET: octopus-guides-screenshots
+      # Set this to true to enable the slack step handler to send screenshots to S3
       STHREE_SCREENSHOT_ENABLED: true
+      # The URL holding the sample application source code
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-aspmvc4.git
+      # This is used to make scenarios between ASP.NET and ASP.NET Core generic. ASP.NET creates nuget files with
+      # Octopack, while ASP.NET Core uses the OctoCLI
       NUGET_PATH: 'RandomQuotes\obj\octopacked\'
+      # The filename of the resulting video
       VIDEO_FILE_NAME: aspnet-azuredevops-artifactory-feed-tfvc-azure.mp4
+      # A prefix used for any screenshots to ensure they are guide specific. This is not used with video generation workflows.
       SCREENSHOT_PATH:
     runs-on: windows-2019
     steps:
