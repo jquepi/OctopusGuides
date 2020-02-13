@@ -30,7 +30,9 @@ export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
 export DOCKER_IMAGE=octopusdeploy/randomquotesjava
 export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[2]"
 
-useradd -p '*' guides
+GUIDES_USER=guides
+
+useradd -p '*' ${GUIDES_USER}
 
 cd ..
 
@@ -38,36 +40,36 @@ cd ..
 ./install.sh docker.pp dotnetutilities.pp utilities.pp jenkins.pp tomcat.pp dockercreds.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
 
 # Wait for Octopus
-sudo -u guides ./scripts/linux/wait-octopus.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/wait-octopus.sh
 
 # Create Api Key
-sudo -u guides ./scripts/linux/create-apikey.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/create-apikey.sh
 
 # Create Jenkins project
-sudo -u guides ./scripts/linux/create-javawar-jenkinsproject.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/create-javawar-jenkinsproject.sh
 
 # Create environments
-sudo -u guides ./scripts/linux/create-environments.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/create-environments.sh
 
 # Create Target
-sudo -u guides ./scripts/linux/create-target.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/create-target.sh
 
 # Create project
-sudo -u guides ./scripts/linux/create-tomcatproject.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/create-tomcatproject.sh
 
 # Create release
-sudo -u guides ./scripts/linux/create-jenkinscreaterelease.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/create-jenkinscreaterelease.sh
 
 # Create Lifecycle
-sudo -u guides ./scripts/linux/create-lifecycle.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/create-lifecycle.sh
 
 # Add Manual Intervention
-sudo -u guides ./scripts/linux/add-manualintervention.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/add-manualintervention.sh
 
 # Add Notification
-sudo -u guides ./scripts/linux/add-notification.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/add-notification.sh
 
 # Add Users and Teams
-sudo -u guides ./scripts/linux/add-usersandteams.sh
+sudo -u ${GUIDES_USER} ./scripts/linux/add-usersandteams.sh
 
 exit 0
