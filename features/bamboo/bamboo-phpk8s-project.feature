@@ -28,7 +28,6 @@ Feature: Configure Bamboo
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
-    # dotnet test script task
     And I highlight outside the "Add task" button with an offset of "2"
     And I scroll the "Add task" button into view
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}100-add-task.png"
