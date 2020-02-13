@@ -15,6 +15,7 @@ export FACTER_dockerhub_password=$DOCKER_PASSWORD
 
 export DISPLAY=":99.0"
 
+export SLACK_HOOK_URL=
 export SLACK_STEP_HANDLER=false
 export DISABLE_HIGHLIGHTS=true
 export DISABLE_SCREENSHOTS=true
