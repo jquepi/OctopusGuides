@@ -1,0 +1,26 @@
+# The Vagrantfile is expected to be run like:
+# vagrant up --provider hyperv
+
+$script = <<-'SCRIPT'
+apt-get install -y unzip wget
+cd /tmp
+wget https://github.com/OctopusDeploy/OctopusGuides/archive/master.zip
+unzip master.zip
+chmod 777 -R OctopusGuides-master
+cd OctopusGuides-master/vm
+
+./common-base.sh
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "hashicorp/bionic64"
+  config.vm.box_version = "1.0.282"
+  config.vm.network 'public_network', bridge: 'Default Switch'
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+    config.vm.provider "hyperv" do |v|
+        v.vmname = "Common guides base"
+        v.memory = 4096
+        v.cpus = 2
+    end
+  config.vm.provision "shell", inline: $script
+end
