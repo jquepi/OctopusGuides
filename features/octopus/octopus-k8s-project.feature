@@ -247,6 +247,7 @@ if (elements.length !== 0) {
     And I click the "Environment Variables" section
 
     And I highlight outside the "Add Environment Variable" button with an offset of "2"
+    And I scroll the "Add Environment Variable" button into view offset by "-300"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}093-octopus-k8s.png"
     And I click the "Add Environment Variable" button
     And I remove the highlight from the "Add Environment Variable" button
@@ -259,6 +260,9 @@ if (elements.length !== 0) {
     And I populate the "Value" text box with "#{Octopus.Environment.Name}"
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}094-octopus-k8s.png"
+
+    And I remove the highlight from the "Name" text box
+    And I remove the highlight from the "Value" text box
 
   @define-project @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
   Scenario: Add the config map volume mounting. This is only valid for some docker images.
