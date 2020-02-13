@@ -241,7 +241,7 @@ if (elements.length !== 0) {
     Given I set the following aliases:
       | Environment Variables    | //div[./div/span[text()='Environment Variables']]                                                                      |
       | Add Environment Variable | //button[@title='Add Environment Variable']                                                                            |
-      | Name                    | //input[contains(@id, 'Name')][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']] |
+      | Name                     | //input[contains(@id, 'Name')][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']]  |
       | Value                    | //input[contains(@id, 'Value')][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']] |
 
     And I click the "Environment Variables" section
