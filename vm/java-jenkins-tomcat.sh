@@ -2,6 +2,10 @@
 
 # Java Jenkins Tomcat Builtin Feed
 
+# This script is intentded to be run as a Vagrant previder to populate a Ubuntu image with a similar configuration
+# as described in the guides documentation. Note that the SMTP notification step is not included so as not to
+# expose the SMTP password.
+
 export STHREE_SCREENSHOT_ENABLED=true
 export SLACK_STEP_HANDLER=true
 export SLACK_ON_ERROR_ONLY=false
