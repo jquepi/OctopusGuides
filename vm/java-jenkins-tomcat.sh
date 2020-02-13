@@ -15,14 +15,16 @@ export FACTER_dockerhub_password=$DOCKER_PASSWORD
 
 export DISPLAY=":99.0"
 
-export SLACK_HOOK_URL=
-export SLACK_STEP_HANDLER=false
+export STHREE_SCREENSHOT_ENABLED=true
+export SLACK_STEP_HANDLER=true
+
 export DISABLE_HIGHLIGHTS=true
 export DISABLE_SCREENSHOTS=true
 export MOVE_TO_MOUSE_CURSOR=false
 export DISABLE_VIDEO=true
-export STHREE_SCREENSHOT_ENABLED=false
+export SCREENSHOT_BUCKET=octopus-guides-screenshots
 export STEP_PAUSE=1000
+
 export BROWSER_TYPE=ChromeHeadlessNoImplicitWaitLambda
 
 export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @tomcat) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
