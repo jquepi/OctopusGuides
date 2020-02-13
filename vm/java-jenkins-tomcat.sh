@@ -17,6 +17,7 @@ export DISPLAY=":99.0"
 
 export STHREE_SCREENSHOT_ENABLED=true
 export SLACK_STEP_HANDLER=true
+export SLACK_ON_ERROR_ONLY=false
 
 export DISABLE_HIGHLIGHTS=true
 export DISABLE_SCREENSHOTS=true
