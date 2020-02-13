@@ -13,9 +13,9 @@ docker_network { 'octopus':
   env                       => ['ACCEPT_EULA=Y', 'SA_PASSWORD=Password01!', 'MSSQL_PID=Express'],
   ports                     => ['1433:1433'],
   net                       => 'octopus',
-  remove_container_on_start => true,
+  remove_container_on_start => false,
   remove_volume_on_start    => false,
-  remove_container_on_stop  => true,
+  remove_container_on_stop  => false,
   remove_volume_on_stop     => false,
 }
 -> exec { 'enable service docker-mssql':
@@ -32,12 +32,12 @@ docker::image { 'octopusdeploy/octopusdeploy':
   env                       => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com',
     'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'
     , 'DB_CONNECTION_STRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!',
-  'MASTER_KEY=6EdU6IWsCtMEwk0kPKflQQ=='],
+    'MASTER_KEY=6EdU6IWsCtMEwk0kPKflQQ=='],
   ports                     => ['80:8080', '10943:10943'],
   net                       => 'octopus',
-  remove_container_on_start => true,
+  remove_container_on_start => false,
   remove_volume_on_start    => false,
-  remove_container_on_stop  => true,
+  remove_container_on_stop  => false,
   remove_volume_on_stop     => false,
 }
 -> exec { 'enable service octopus':
