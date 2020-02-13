@@ -233,6 +233,9 @@ if (elements.length !== 0) {
     And I populate the "Port number" text box with "#{DockerPort:-80}"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}091-octopus-k8s.png"
 
+    And I remove the highlight from the "Port name" text box
+    And I remove the highlight from the "Port number" text box
+
   @define-project @destinationspecific @k8s @applicationspecific @php @ruby
   Scenario: Define environment variable. This is only valid for some docker images.
     Given I set the following aliases:
