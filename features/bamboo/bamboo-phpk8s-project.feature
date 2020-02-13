@@ -61,6 +61,8 @@ Feature: Configure Bamboo
     And I highlight outside the "Environment Variables" text box
     And I scroll the "Environment Variables" text box into view offset by "-300"
     And I populate the "Environment Variables" text box with "HOME=/home/runner"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}125-dotnet-test.png"
+    And I remove the highlight from the "Environment Variables" text box
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view

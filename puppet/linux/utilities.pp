@@ -48,7 +48,7 @@ package { 'maven':
 package { 'libappindicator3-1':
   ensure => installed,
 }
--> package { 'fonts-liberation':
+-> package { 'fonts-liberation':v
   ensure => installed,
 }
 -> file { '/opt/google-chrome-stable_current_amd64.deb':
