@@ -18,7 +18,7 @@ cd OctopusGuides-master/vm
 
 ./java-jenkins-tomcat.sh
 
-sudo -u vagrant dbus-launch dconf write /org/gnome/shell/favorite-apps "['Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'Tomcat.desktop']"
+sudo -u vagrant dbus-launch dconf write /org/gnome/shell/favorite-apps "['Passwords.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'Tomcat.desktop']"
 SCRIPT
 
 Vagrant.configure("2") do |config|
