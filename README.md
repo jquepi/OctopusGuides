@@ -1,6 +1,8 @@
 This repository contains the scripts used to generate the media for the Octopus guides. The blog at 
 https://octopus.com/blog/devops-documentation explains the process.
 
+The custom WebDriver tool is documented at https://octopus.com/blog/selenium/0-toc/webdriver-toc.
+
 See the [aspnet-azuredevops-artifactory-feed-azurewebsite-tfvc-video.yml](https://github.com/OctopusDeploy/OctopusGuides/blob/master/.github/workflows/aspnet-azuredevops-artifactory-feed-azurewebsite-tfvc-video.yml) 
 file for a commented example.
 
