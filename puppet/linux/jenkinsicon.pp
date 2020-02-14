@@ -1,10 +1,4 @@
-file { '/etc/skel':
-  ensure => 'directory'
-}
--> file { '/etc/skel/Desktop':
-  ensure => 'directory'
-}
--> file { '/etc/skel/Desktop/Jenkins.desktop':
+file { '/usr/share/applications/Jenkins.desktop':
   content => @("EOL"/L)
     [Desktop Entry]
     Version=1.0
