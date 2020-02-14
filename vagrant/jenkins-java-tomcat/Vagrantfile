@@ -17,6 +17,8 @@ chmod 777 -R OctopusGuides-master
 cd OctopusGuides-master/vm
 
 ./java-jenkins-tomcat.sh
+
+sudo -E -u vagrant dconf write /org/gnome/shell/favorite-apps "['Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'Tomcat.desktop']"
 SCRIPT
 
 Vagrant.configure("2") do |config|
