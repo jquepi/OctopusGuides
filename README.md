@@ -1,4 +1,5 @@
-This repository contains the scripts used to generate the media for the Octopus guides. 
+This repository contains the scripts used to generate the media for the Octopus guides. The blog at 
+https://octopus.com/blog/devops-documentation explains the process.
 
 See the `aspnet-azuredevops-artifactory-feed-azurewebsite-tfvc-video.yml` file for a commented example.
 
