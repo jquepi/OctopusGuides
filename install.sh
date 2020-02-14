@@ -12,6 +12,7 @@ sudo apt-get install puppet-agent
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs/apt
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs/docker
 sudo /opt/puppetlabs/bin/puppet module install puppet/archive
+sudo /opt/puppetlabs/bin/puppet module install puppetlabs/inifile
 
 for var in "$@"
 do

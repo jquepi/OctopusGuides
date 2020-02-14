@@ -17,14 +17,6 @@ chmod 777 -R OctopusGuides-master
 cd OctopusGuides-master/vm
 
 ./java-jenkins-tomcat.sh
-
-#apt-get install -y ubuntu-desktop
-#echo "==> Configuring gdm for automatic login"
-#GDM_CUSTOM_CONFIG=/etc/gdm3/custom.conf
-#echo "[daemon]" >> $GDM_CUSTOM_CONFIG
-#echo "# Enabling automatic login" >> $GDM_CUSTOM_CONFIG
-#echo "AutomaticLoginEnable=True" >> $GDM_CUSTOM_CONFIG
-#echo "AutomaticLoginEnable=vagrant" >> $GDM_CUSTOM_CONFIG
 SCRIPT
 
 Vagrant.configure("2") do |config|
