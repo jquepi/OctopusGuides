@@ -39,7 +39,7 @@ Feature: Run a build
     And I click the "Build One" link
     And I click the "Build log" link
     And I scroll down "10000" px
-    And I sleep for "60" seconds
+    And I sleep for "20" seconds
     And I stop recording the screen
 
     And I sleep for "150" seconds
