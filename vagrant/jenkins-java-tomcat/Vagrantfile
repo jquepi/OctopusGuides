@@ -22,7 +22,7 @@ sudo -Hu vagrant dbus-launch dconf write /org/gnome/shell/favorite-apps "['Passw
 SCRIPT
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "mcasperson/common-guides-base"
+  config.vm.box = "octopusdeploy/guide-common-base"
   config.vm.network 'public_network', bridge: 'Default Switch'
   config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.provider "hyperv" do |v|
