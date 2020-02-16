@@ -1,19 +1,18 @@
-name: Ruby TeamCity Kubernetes DockerHub Video
+name: Ruby Bamboo Kubernetes DockerHub Screenshots
 on:
 #  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 9 * *'
+    - cron:  '0 0 21 * *'
 jobs:
   build:
     if: >-
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
-      (github.event.client_payload.workflow == 'teamcity-ruby-k8s-video')
+      (github.event.client_payload.workflow == 'bamboo-ruby-k8s-screenshots')
     runs-on: ubuntu-latest
     env:
-      BUILD_NAME: "ruby-docker-app-git-teamcity-dockerhub-k8s"
       SLACK_STEP_HANDLER: true
       SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
@@ -39,14 +38,14 @@ jobs:
         (not @repositoryspecific or @dockerhub) and
         (not @applicationspecific or @ruby) and
         (not @sourcespecific or @git)
-      DISABLE_HIGHLIGHTS: true
-      DISABLE_SCREENSHOTS: true
-      MOVE_TO_MOUSE_CURSOR: true
-      DISABLE_VIDEO: false
+      DISABLE_HIGHLIGHTS: false
+      DISABLE_SCREENSHOTS: false
+      MOVE_TO_MOUSE_CURSOR: false
+      DISABLE_VIDEO: true
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Ruby.git
-      WISTIA_MEDIA_ID: fvla73w6go
-      VIDEO_FILE_NAME: teamcity-ruby-k8s-dockerhub.mp4
+      WISTIA_MEDIA_ID:
+      VIDEO_FILE_NAME:
       SCREENSHOT_PATH: /ruby-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesruby
       DOCKER_PORT: 8080
@@ -55,8 +54,8 @@ jobs:
 
       - name: Install Puppet
         run: >-
-          ./install.sh utilities.pp headless.pp teamcity.pp minikube.pp octopus.pp
-          dotnetutilities.pp octopuscli.pp
+          ./install.sh utilities.pp headless.pp bamboo.pp minikube.pp octopus.pp
+          dotnetutilities.pp octopuscli.pp bamboofinalize.pp
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
@@ -64,11 +63,8 @@ jobs:
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
 
-      - name: Setup TeamCity
-        run: ./scripts/linux/setup-teamcity.sh
-
-      - name: Create Team City project
-        run: ./scripts/linux/create-ruby-docker-teamcityproject.sh
+      - name: Create Bamboo project
+        run: ./scripts/linux/create-ruby-docker-bambooproject.sh
 
       - name: Create Worker
         run: sudo ./scripts/linux/create-worker.sh
@@ -92,7 +88,7 @@ jobs:
         run: ./scripts/linux/open-devwebapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-teamcitycreaterelease.sh
+        run: ./scripts/linux/create-bamboocreaterelease.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh
@@ -105,29 +101,6 @@ jobs:
 
       - name: Add Notification
         run: ./scripts/linux/add-notification.sh
-
-      - name: Add Users and Teams
-        run: ./scripts/linux/add-usersandteams.sh
-
-      - name: View Internal Deployer Dashboard
-        run: ./scripts/linux/view-internaldeployerdashboard.sh
-
-      - name: View Production Deployer Dashboard
-        run: ./scripts/linux/view-productiondeployerdashboard.sh
-
-      - name: View Audit Logs
-        run: ./scripts/linux/view-auditlogs.sh
-
-      - name: Process videos
-        if: always()
-        run: ./scripts/linux/convert-video.sh
-
-      - name: Upload videos
-        if: always()
-        run: ./scripts/linux/upload-video.sh
-
-      - name: Replace Wistia video
-        run: ./scripts/linux/replace-wistia-video.sh
-
-      - name: Build badge
-        run: ./scripts/linux/create-badge.sh
+#
+      - name: Upload screenshots
+        run: ./scripts/linux/upload-screenshots.sh
