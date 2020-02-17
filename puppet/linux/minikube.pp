@@ -64,4 +64,26 @@ apt::key { 'kubernetes-repository':
   logoutput => true
 }
 
+file {'etc/systemd/system/minikube.service':
+  content => @("EOL"/L)
+  [Unit]
+  Description=Minikube
+  After=network.target
+
+  [Service]
+  Type=simple
+  ExecStart=minikube start --vm-driver=none --extra-config=kubeadm.ignore-preflight-errors=SystemVerification
+
+  [Install]
+  WantedBy=multi-user.target
+  | EOL
+}
+-> exec { 'Reload daemon':
+  command   => '/bin/systemctl daemon-reload',
+  logoutput => true
+}
+-> service { 'minikube':
+  enable => true,
+}
+
 
