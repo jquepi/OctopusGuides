@@ -25,6 +25,10 @@ package { 'curl':
   ensure => installed,
 }
 
+package { 'jq':
+  ensure => installed,
+}
+
 package { 'git':
   ensure => installed,
 }
