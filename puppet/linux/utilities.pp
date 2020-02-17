@@ -16,7 +16,8 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
   logoutput => true
 }
 
-package { 'firefox':
+apt::ppa { 'ppa:mozillateam/ppa': }
+-> package { 'firefox-esr':
   ensure => installed,
 }
 
