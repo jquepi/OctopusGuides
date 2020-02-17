@@ -10,7 +10,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
 
 
   @configure-project
-  Scenario: Node.js - Create the project
+  Scenario: Create the project
     Given I set the following aliases:
       | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
       | Invoke top-level Maven targets               | //a[contains(.,'Invoke top-level Maven targets')]      |
@@ -122,6 +122,12 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I scroll the "Docker registry URL" text box into view offset by "-300"
     And I highlight outside the "Docker registry URL" text box with an offset of "2"
     And I populate the "Docker registry URL" text box with "https://index.docker.io/v1/"
+
+  @configure-project @repositoryspecific @dockerhub
+  Scenario: Set the credentials for a public repsoitory
+    Given I set the following aliases:
+      | Registry credentials                         | (//select[@name='_.credentialsId'])[3]                 |
+      | Save                                         | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Registry credentials" drop down list into view offset by "-200"
     And I highlight outside the "Registry credentials" drop down list with an offset of "2"

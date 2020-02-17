@@ -4,7 +4,7 @@ Feature: Create Azure Web App Target
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
     And I run the feature "shared/octopus-login.feature" passing the original arguments
 
-  @define-lifecycle
+  @define-feed
   Scenario: Add docker feed
     Given I set the following aliases:
       | More                      | //span[contains(.,'More')]                                                     |
@@ -15,11 +15,9 @@ Feature: Create Azure Web App Target
       | Feed type                 | //div[../../div[text()='Feed type']]                                           |
       | Docker Container Registry | //div[./div/div[text()='Docker Container Registry']]                           |
       | Feed name                 | //input[contains(@id,'Feedname')]                                              |
-      | Save                      | //button[@title='Save']                                                        |
-
 
     And I start recording the screen to the directory "ExternalMediaPath"
-    And I display a note with the text "Create a lifecycle in Octopus" for "3" seconds
+    And I display a note with the text "Create a Docker feed" for "3" seconds
 
     And I click the "More" link waiting up to "1" seconds if the "Library" link does not exist
 
@@ -43,6 +41,19 @@ Feature: Create Azure Web App Target
     And I highlight outside the "Feed name" text box
     And I scroll the "Feed name" text box into view offset by "-300"
     And I populate the "Feed name" text box with "Docker"
+
+  @define-feed @repositoryspecific @localdockerrepo
+  Scenario: Define the local feed url
+    Given I set the following aliases:
+      | URL | //input[contains(@id,'Feedurl')] |
+
+    And I clear the "URL" text box
+    And I populate the "URL" text box with "http://registry:5000"
+
+  @define-feed
+  Scenario: Add docker feed
+    Given I set the following aliases:
+      | Save | //button[@title='Save'] |
 
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/docker/040-feed-add-feed.png"
