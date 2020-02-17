@@ -63,4 +63,7 @@ apt::key { 'kubernetes-repository':
   timeout   => 3600,
   logoutput => true
 }
+-> service { 'kubelet':
+  enable => true,
+}
 
