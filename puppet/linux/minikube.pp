@@ -64,7 +64,7 @@ apt::key { 'kubernetes-repository':
   logoutput => true
 }
 
-file {'etc/systemd/system/minikube.service':
+file {'/etc/systemd/system/minikube.service':
   content => @("EOL"/L)
   [Unit]
   Description=Minikube
