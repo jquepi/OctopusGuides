@@ -45,7 +45,7 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-PHP.git
       WISTIA_MEDIA_ID:
-      VIDEO_FILE_NAME: php-k8s-dockerhub.mp4
+      VIDEO_FILE_NAME:
       SCREENSHOT_PATH: /php-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesphp
       OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesphp
