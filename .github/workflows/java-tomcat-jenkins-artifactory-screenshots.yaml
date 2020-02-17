@@ -47,6 +47,7 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
       SCREENSHOT_PATH: /java-app/tomcat/artifactory/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjava
+      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[1]"
     steps:
       - uses: actions/checkout@v1

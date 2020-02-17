@@ -48,6 +48,7 @@ jobs:
       VIDEO_FILE_NAME:
       SCREENSHOT_PATH: /php-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesphp
+      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesphp
       DOCKER_PORT: 8080
     steps:
       - uses: actions/checkout@v1

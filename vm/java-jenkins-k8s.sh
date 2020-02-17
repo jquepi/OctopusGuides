@@ -23,7 +23,10 @@ export CUCUMBER_TAGS="(not @browserspecific or @firefox) and (not @destinationsp
 export CUCUMBER_PLUGIN=pretty
 
 export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
-export DOCKER_IMAGE=octopusdeploy/randomquotesjava
+# From the CI server ponit of view, the registry is on localhost
+export DOCKER_IMAGE=localhost:5000/randomquotesjava
+# From Octopus' point of view, the registry has the hostname "registry"
+export OCTOPUS_DOCKER_IMAGE=registry:5000/randomquotesjava
 export CONFIG_FILE="spring:\\n  profiles:\\n    active: \\\"#{Octopus.Environment.Name}\\\"\\nserver:\\n  port : \\\"80\\\""
 export CONFIG_FILE_MOUNT_PATH="/app/docker-application.yml"
 export CONFIG_FILE_NAME="docker-application.yml"
@@ -33,7 +36,7 @@ export DOCKER_PORT=80
 cd ..
 
 # Install Puppet
-./install.sh jenkins.pp minikube.pp jenkinsfinalize.pp jenkinsicon.pp passwords.pp
+./install.sh dockerregistry.pp jenkins.pp minikube.pp jenkinsfinalize.pp jenkinsicon.pp passwords.pp
 
 # Wait for Octopus
 ./scripts/linux/wait-octopus.sh

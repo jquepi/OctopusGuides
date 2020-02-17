@@ -49,6 +49,7 @@ jobs:
       VIDEO_FILE_NAME: teamcity-ruby-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /ruby-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesruby
+      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesruby
       DOCKER_PORT: 8080
     steps:
       - uses: actions/checkout@v1

@@ -46,6 +46,7 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-JS.git
       SCREENSHOT_PATH: /node-app/nginx/builtin/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjs
+      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjs
     steps:
       - uses: actions/checkout@v1
 

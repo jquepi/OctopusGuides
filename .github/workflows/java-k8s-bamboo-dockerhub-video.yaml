@@ -49,6 +49,7 @@ jobs:
       VIDEO_FILE_NAME: bamboo-java-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /java-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjava
+      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
       CONFIG_FILE: "spring:\\n  profiles:\\n    active: \\\"#{Octopus.Environment.Name}\\\"\\nserver:\\n  port : \\\"80\\\""
       CONFIG_FILE_MOUNT_PATH: "/app/docker-application.yml"
       CONFIG_FILE_NAME: "docker-application.yml"

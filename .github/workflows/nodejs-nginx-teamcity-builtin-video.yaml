@@ -49,6 +49,7 @@ jobs:
       VIDEO_FILE_NAME: teamcity-nodejs-nginx-builtin.mp4
       SCREENSHOT_PATH: /node-app/nginx/builtin/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjs
+      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjs
     steps:
       - uses: actions/checkout@v1
 

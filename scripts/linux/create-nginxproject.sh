@@ -20,6 +20,7 @@
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   "-DCucumberAlias-ExternalDockerImage=$DOCKER_IMAGE" \
+  "-DCucumberAlias-ExternalOctopusDockerImage=$OCTOPUS_DOCKER_IMAGE" \
   "-DCucumberAlias-ExternalConfigFile=$CONFIG_FILE" \
   "-DCucumberAlias-ExternalConfigMountPath=$CONFIG_FILE_MOUNT_PATH" \
   "-DCucumberAlias-ExternalConfigFileName=$CONFIG_FILE_NAME" \
