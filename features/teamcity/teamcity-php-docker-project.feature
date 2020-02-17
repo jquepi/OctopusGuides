@@ -62,7 +62,7 @@ Feature: Create Docker project
     And I highlight outside the "Runner type container" drop down list
 
     And I highlight outside the "Step name" text box
-    And I populate the "Step name" text box with "npm Install and Test"
+    And I populate the "Step name" text box with "Dependency Install and Test"
 
     And I highlight outside the "Script content" text area
     And I scroll the "Script content" text area into view offset by "-200"
