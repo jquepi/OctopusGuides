@@ -45,7 +45,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Ruby.git
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: wb20563jrk
       VIDEO_FILE_NAME: bamboo-ruby-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /ruby-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesruby
