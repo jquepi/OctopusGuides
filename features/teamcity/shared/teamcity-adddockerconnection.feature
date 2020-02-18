@@ -16,10 +16,10 @@ Feature: Add Docker connection
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}100-connections.png"
     And I click the "Random Quotes" project link
 
-    And I highlight outside the "Show more" link
+    And I highlight outside the "Show more" link if it exists
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}110-connections.png"
-    And I remove the highlight from the "Show more" link
-    And I click the "Show more" link
+    And I remove the highlight from the "Show more" link if it exists
+    And I click the "Show more" link if it exists
 
     And I highlight outside the "Connections" link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}120-connections.png"
