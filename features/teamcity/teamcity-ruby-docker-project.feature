@@ -146,6 +146,7 @@ Feature: Create Docker project
     And I click the "Save" button
 
   Scenario: Add Connection
+    And I run the feature "shared/teamcity-docker-build-feature.feature"
     And I run the feature "shared/teamcity-adddockerconnection.feature"
 
   @run-build
