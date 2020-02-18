@@ -9,7 +9,7 @@ file { '/home/vagrant/.kube':
   ensure => 'directory',
 }
 -> exec { 'Create config file':
-  command   => '/usr/bin/kubectl get config view --flatten > /home/vagrant/.kube/config',
+  command   => '/usr/bin/kubectl --kubeconfig /root/.kube/config config view --flatten > /home/vagrant/.kube/config',
   logoutput => true
 }
 -> file { '/home/vagrant/.kube/config':
