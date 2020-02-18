@@ -45,6 +45,7 @@ Feature: Add a manual intervention step
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/intervention/#{GuideSpecificScreenshotDir}010-add-step.png"
     And I remove the highlight from the "Deployments" link
+    And I remove the highlight from the "Process" link
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
