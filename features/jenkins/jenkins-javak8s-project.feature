@@ -126,14 +126,18 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
   @configure-project @repositoryspecific @dockerhub
   Scenario: Set the credentials for a public repsoitory
     Given I set the following aliases:
-      | Registry credentials                         | (//select[@name='_.credentialsId'])[3]                 |
-      | Save                                         | //button[@type='button'][contains(.,'Save')]           |
+      | Registry credentials | (//select[@name='_.credentialsId'])[3] |
 
     And I scroll the "Registry credentials" drop down list into view offset by "-200"
     And I highlight outside the "Registry credentials" drop down list with an offset of "2"
     And I highlight outside the "Save" button
     And I select the option value "DockerCredentials" from the "Registry credentials" drop down list
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}310-execute-docker-command-1.png"
+
+  @configure-project
+  Scenario: Set the credentials for a public repsoitory
+    Given I set the following aliases:
+      | Save | //button[@type='button'][contains(.,'Save')] |
 
     And I click the "Save" button
     And I stop recording the screen

@@ -47,7 +47,7 @@ Feature: Create Azure Web App Target
     Given I set the following aliases:
       | URL | //input[contains(@id,'Feedurl')] |
 
-    And I clear the "URL" text box
+    And I force clear the "URL" text box
     And I populate the "URL" text box with "http://registry:5000"
 
   @define-feed
