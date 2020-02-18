@@ -14,6 +14,9 @@ file { '/opt/packages-microsoft-prod.deb':
 -> package { 'apt-transport-https':
   ensure => installed,
 }
+-> package { 'libicu-dev':
+  ensure => installed,
+}
 -> package { 'dotnet-sdk-3.0':
   ensure => installed,
 }
