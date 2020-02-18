@@ -41,6 +41,7 @@ Feature: Add Docker build feature
 
     And I highlight the "Add build feature" button
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}140-docker-feature.png"
+    And I remove the highlight from the "Add build feature" button
     And I click the "Add build feature" button
 
     And I highlight the "Features" drop down list
