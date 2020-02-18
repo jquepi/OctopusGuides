@@ -57,7 +57,7 @@ cd ..
 ./scripts/linux/create-certificates.sh
 
 # Create Target
-./scripts/linux/create-k8starget-video.sh
+./scripts/linux/create-k8starget-vagrant.sh
 
 # Create docker feed
 ./scripts/linux/create-dockerfeed.sh

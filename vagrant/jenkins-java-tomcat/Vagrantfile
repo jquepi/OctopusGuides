@@ -16,9 +16,9 @@ unzip master.zip
 chmod 777 -R OctopusGuides-master
 cd OctopusGuides-master/vm
 
-./java-jenkins-tomcat.sh
-
 sudo -Hu vagrant dbus-launch dconf write /org/gnome/shell/favorite-apps "['Passwords.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'Tomcat.desktop']"
+
+./java-jenkins-tomcat.sh
 SCRIPT
 
 Vagrant.configure("2") do |config|
