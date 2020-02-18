@@ -85,7 +85,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I scroll the "Tag of the resulting docker image" text box into view offset by "-300"
     And I highlight outside the "Tag of the resulting docker image" text box with an offset of "2"
     And I clear the "Tag of the resulting docker image" text box
-    And I populate the "Tag of the resulting docker image" text box with "octopusdeploy/randomquotesjava:1.0.$BUILD_NUMBER"
+    And I populate the "Tag of the resulting docker image" text box with "#{ExternalDockerImage}:1.0.$BUILD_NUMBER"
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}290-execute-docker-command-1.png"
 
