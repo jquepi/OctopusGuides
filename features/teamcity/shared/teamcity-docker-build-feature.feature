@@ -3,8 +3,9 @@ Feature: Add Docker build feature
   @add-build-feature
   Scenario: Run a build
     Given I set the following aliases:
+      | No thanks                                      | //button[contains(.,'No, thanks')]                                                |
       | Build                                          | //a[@href='/viewType.html?buildTypeId=RandomQuotes_Build']                        |
-      | Edit Configuration Settings              | //a[@title='Edit build configuration settings']                                   |
+      | Edit Configuration Settings                    | //a[@title='Edit build configuration settings']                                   |
       | Build Features                                 | //a[@href='/admin/editBuildFeatures.html?init=1&id=buildType:RandomQuotes_Build'] |
       | Add build feature                              | //a[contains(.,'Add build feature')]                                              |
       | Features                                       | //input[@ID='-ufd-teamcity-ui-featureTypeSelector']                               |
@@ -12,6 +13,12 @@ Feature: Add Docker build feature
       | Log in to the Docker registry before the build | //input[@id='loginCheckbox']                                                      |
       | Docker registries                              | //select[@id='login2registry']                                                    |
       | Save                                           | //input[@id='submitBuildFeatureId']                                               |
+
+    And I stop recording the screen
+    And I click the "No thanks" button if it exists
+    And I sleep for "1" second
+
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight the "Build" link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}100-docker-feature.png"
