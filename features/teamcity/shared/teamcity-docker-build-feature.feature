@@ -14,15 +14,16 @@ Feature: Add Docker build feature
       | Docker registries                              | //select[@id='login2registry']                                                    |
       | Save                                           | //input[@id='submitBuildFeatureId']                                               |
 
+
+    And I highlight the "Build" link
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}100-docker-feature.png"
+    And I click the "Build" link
+
     And I stop recording the screen
     And I click the "No thanks" button if it exists
     And I sleep for "1" second
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-
-    And I highlight the "Build" link
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}100-docker-feature.png"
-    And I click the "Build" link
 
     And I highlight the "Edit Configuration Settings" link
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}110-docker-feature.png"
