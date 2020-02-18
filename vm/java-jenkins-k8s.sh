@@ -26,7 +26,7 @@ export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
 # From the CI server ponit of view, the registry is on localhost
 export DOCKER_IMAGE=localhost:5000/randomquotesjava
 # From Octopus' point of view, the registry has the hostname "registry"
-export OCTOPUS_DOCKER_IMAGE=registry:5000/randomquotesjava
+export OCTOPUS_DOCKER_IMAGE=randomquotesjava
 export CONFIG_FILE="spring:\\n  profiles:\\n    active: \\\"#{Octopus.Environment.Name}\\\"\\nserver:\\n  port : \\\"80\\\""
 export CONFIG_FILE_MOUNT_PATH="/app/docker-application.yml"
 export CONFIG_FILE_NAME="docker-application.yml"
