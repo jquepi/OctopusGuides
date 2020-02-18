@@ -46,9 +46,12 @@ Feature: Create Azure Web App Target
   Scenario: Define the local feed url
     Given I set the following aliases:
       | URL | //input[contains(@id,'Feedurl')] |
+      | Registry path | //input[contains(@id,'Registrypath')] |
 
     And I force clear the "URL" text box
     And I populate the "URL" text box with "http://registry:5000"
+
+    And I populate the "Registry path" text box with "localhost:5000"
 
   @define-feed
   Scenario: Add docker feed

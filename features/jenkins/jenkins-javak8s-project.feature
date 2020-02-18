@@ -26,10 +26,6 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
       | Push image                                   | 7                                                      |
       | Name of the image to push (repository/image) | //input[@name='_.image']                               |
       | Tag                                          | (//input[@name='_.tag'])[3]                            |
-      | Registry                                     | //input[@name='_.registry']                            |
-      | Docker registry URL                          | (//input[@name='_.url'])[2]                            |
-      | Registry credentials                         | (//select[@name='_.credentialsId'])[3]                 |
-      | Save                                         | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -114,6 +110,26 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I scroll the "Tag" text box into view offset by "-300"
     And I highlight outside the "Tag" text box with an offset of "2"
     And I populate the "Tag" text box with "1.0.$BUILD_NUMBER"
+
+  @configure-project @repositoryspecific @localdockerrepo
+  Scenario: Set the docker registry
+    Given I set the following aliases:
+      | Registry                                     | //input[@name='_.registry']                            |
+      | Docker registry URL                          | (//input[@name='_.url'])[2]                            |
+
+    And I scroll the "Registry" text box into view offset by "-300"
+    And I highlight outside the "Registry" text box with an offset of "2"
+    And I populate the "Registry" text box with "localhost:5000"
+
+    And I scroll the "Docker registry URL" text box into view offset by "-300"
+    And I highlight outside the "Docker registry URL" text box with an offset of "2"
+    And I populate the "Docker registry URL" text box with "http://localhost:5000"
+
+  @configure-project @repositoryspecific @dockerhub
+  Scenario: Set the docker registry
+    Given I set the following aliases:
+      | Registry                                     | //input[@name='_.registry']                            |
+      | Docker registry URL                          | (//input[@name='_.url'])[2]                            |
 
     And I scroll the "Registry" text box into view offset by "-300"
     And I highlight outside the "Registry" text box with an offset of "2"
