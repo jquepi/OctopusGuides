@@ -16,7 +16,7 @@ unzip master.zip
 chmod 777 -R OctopusGuides-master
 cd OctopusGuides-master/vm
 
-sudo -Hu vagrant dbus-launch dconf write /org/gnome/shell/favorite-apps "['Passwords.desktop', 'Octopus.desktop', 'Jenkins.desktop']"
+sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps "['Passwords.desktop', 'Octopus.desktop', 'Jenkins.desktop']"
 
 ./java-jenkins-k8s.sh
 SCRIPT
