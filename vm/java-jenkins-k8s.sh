@@ -19,7 +19,7 @@ export STEP_PAUSE=1000
 
 export BROWSER_TYPE=ChromeHeadlessNoImplicitWaitLambda
 
-export CUCUMBER_TAGS="(not @browserspecific or @firefox) and (not @destinationspecific or @k8s) and (not @repositoryspecific or @localdockerrepo) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
+export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @k8s) and (not @repositoryspecific or @localdockerrepo) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
 export CUCUMBER_PLUGIN=pretty
 
 export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
