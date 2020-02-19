@@ -15,3 +15,4 @@ package { 'ubuntu-desktop':
   setting => 'AutomaticLogin',
   value   => 'vagrant',
 }
+
