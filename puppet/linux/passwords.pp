@@ -11,10 +11,17 @@ file { '/usr/share/doc/guidescreds.txt':
     Useful Commands
     ===============
 
-    Minikube IP:        sudo -H minikube ip                           This IP exposes the Kubernetes deployments (e.g. http://172.29.74.77:30001)
-    List K8S Pods:      kubectl get pods --all-namespaces             This lists all the pods deployed to minikube
-    Show Octopus logs:  docker logs -f octopusdeploy                  Octopus is deployed as a Docker container, and this command will tail the log output
-    Restart Octopus:    sudo systemctl restart docker-octopusdeploy   The Octopus Docker container is managed as a systemd service
+    sudo -H minikube ip
+    This IP is where the Kubernetes deployments can be accessed (e.g. http://172.29.74.77:30001).
+
+    kubectl get pods --all-namespaces
+    This lists all the pods deployed to minikube.
+
+    docker logs -f octopusdeploy
+    Octopus is deployed as a Docker container, and this command will tail the log output.
+
+    sudo systemctl restart docker-octopusdeploy
+    The Octopus Docker container is managed as a systemd service, and can be controlled with systemctl.
     | EOL
 }
 
