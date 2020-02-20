@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -e
 
 # Installs a common base set of applications to allow other images to be quickly spun up
 cd ..

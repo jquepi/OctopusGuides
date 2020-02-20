@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -e
 
 # Java Jenkins Tomcat Builtin Feed
 
