@@ -19,7 +19,7 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu1804"
-  config.vm.box_version = "1.0.282"
+  config.vm.box_version = "2.0.6"
   config.vm.network 'public_network', bridge: 'Default Switch'
   config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.provider "hyperv" do |v|
