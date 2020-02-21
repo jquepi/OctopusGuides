@@ -9,12 +9,11 @@ export AWS_ACCESS_KEY_ID=
 export AWS_SECRET_ACCESS_KEY=
 export AWS_DEFAULT_REGION=us-east-1
 
-apt-get install -y unzip wget
+apt-get install -y unzip wget git
 cd /tmp
-wget --no-check-certificate https://github.com/OctopusDeploy/OctopusGuides/archive/master.zip
-unzip master.zip
-chmod 777 -R OctopusGuides-master
-cd OctopusGuides-master/vm
+git clone https://github.com/OctopusDeploy/OctopusGuides.git
+chmod 777 -R OctopusGuides
+cd OctopusGuides/vm
 
 sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps "['Passwords.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'gnome-terminal.desktop']"
 
