@@ -2,12 +2,11 @@
 # vagrant up --provider hyperv
 
 $script = <<-'SCRIPT'
-apt-get install -y unzip wget
+apt-get install -y unzip wget git
 cd /tmp
-wget --no-check-certificate https://github.com/OctopusDeploy/OctopusGuides/archive/master.zip
-unzip master.zip
-chmod 777 -R OctopusGuides-master
-cd OctopusGuides-master/vm
+git clone https://github.com/OctopusDeploy/OctopusGuides.git
+chmod 777 -R OctopusGuides
+cd OctopusGuides/vm
 
 ./common-base.sh
 
