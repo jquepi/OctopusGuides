@@ -20,7 +20,7 @@ SCRIPT
 Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/bionic64"
   config.vm.box_version = "1.0.282"
-  config.vm.network 'public_network', bridge: 'Default Switch'
+  config.vm.network 'public_network', bridge: 'nat'
   config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.provider "hyperv" do |v|
         v.vmname = "Common guides base"
