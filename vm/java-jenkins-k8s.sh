@@ -38,9 +38,6 @@ cd ..
 # Install Puppet
 ./install.sh update.pp dockerregistry.pp jenkins.pp minikube.pp jenkinsdocker.pp jenkinsfinalize.pp jenkinsicon.pp passwords.pp vagrantuser.pp
 
-# Wait for Octopus
-./scripts/linux/wait-octopus.sh
-
 # Create Api Key
 ./scripts/linux/create-apikey.sh
 
