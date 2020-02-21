@@ -11,7 +11,7 @@ export AWS_DEFAULT_REGION=us-east-1
 
 apt-get install -y unzip wget
 cd /tmp
-wget https://github.com/OctopusDeploy/OctopusGuides/archive/master.zip
+wget --no-check-certificate https://github.com/OctopusDeploy/OctopusGuides/archive/master.zip
 unzip master.zip
 chmod 777 -R OctopusGuides-master
 cd OctopusGuides-master/vm
