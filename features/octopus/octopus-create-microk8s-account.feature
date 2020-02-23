@@ -15,10 +15,10 @@ Feature: Create MicroK8s Account
       | Account name      | //input[contains(@id,'Accountname')]                          |
       | Username          | //input[contains(@id,'Username')]                             |
       | Password          | //input[contains(@id,'Password')]                             |
-      | Save              | (//button[contains(.,'Save')])[2]                             |
+      | Save              | //button[contains(.,'Save')]                                  |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I display a note with the text "Creating Azure account" for "3" seconds
+    And I display a note with the text "Creating MicroK8S account" for "3" seconds
 
     And I highlight outside the "Infrastructure" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/microk8saccount/010-infrastructure.png"
