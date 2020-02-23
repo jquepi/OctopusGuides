@@ -36,7 +36,17 @@ export DOCKER_PORT=80
 cd ..
 
 # Install Puppet
-./install.sh jenkins.pp update.pp dockerregistry.pp microk8s.pp vagrantmicrok8s.pp jenkinsdocker.pp jenkinsfinalize.pp jenkinsicon.pp passwords.pp vagrantuser.pp
+./install.sh \
+  jenkins.pp \
+  update.pp \
+  dockerregistry.pp \
+  microk8s.pp \
+  vagrantmicrok8s.pp \
+  jenkinsdocker.pp \
+  jenkinsfinalize.pp \
+  jenkinsicon.pp \
+  passwords.pp \
+  vagrantuser.pp
 
 # Wait for Octopus
 ./scripts/linux/wait-octopus.sh
