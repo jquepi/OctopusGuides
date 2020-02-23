@@ -1,5 +1,5 @@
 Feature: Install Docker Plugin
-  @plugin-install @destinationspecific @k8s
+  @plugin-install @destinationspecific @k8s @microk8s
   Scenario: Install plugins
     Given I set the following aliases:
       | Manage Jenkins          | //a[@class='task-link' and contains(.,'Manage Jenkins')] |

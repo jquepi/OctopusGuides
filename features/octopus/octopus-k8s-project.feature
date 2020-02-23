@@ -13,7 +13,7 @@ Feature: Configure an Octopus Kubernetes project
     And I run the feature "shared/octopus-create-project.feature" passing the original arguments
     And I run the feature "shared/octopus-define-variables.feature" passing the original arguments
 
-  @define-variables @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
+  @define-variables @destinationspecific @k8s @microk8s @applicationspecific @java @nodejs @aspnetcore
   Scenario: Define project config file variable. This is only valid for some docker images.
   Define the contents of the appsettings JSON file
     Given I set the following aliases:
@@ -53,7 +53,7 @@ if (elements.length !== 0) {
     And I click the "Add to list" button
     And I force click the "Project Variables Title" element
 
-  @define-project @destinationspecific @k8s
+  @define-project @destinationspecific @k8s @microk8s
   Scenario: Define node ports
     Given I set the following aliases:
       | Define scope            | //div[@title='Define scope']                    |
@@ -112,7 +112,7 @@ if (elements.length !== 0) {
     And I click the "Overview" link
     And I remove the highlight from the "Deployments" link
 
-  @define-project @destinationspecific @k8s
+  @define-project @destinationspecific @k8s @microk8s
   Scenario: Add K8S Containers Step
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                             |
@@ -146,7 +146,7 @@ if (elements.length !== 0) {
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}045-octopus-k8s-add-containers.png"
     And I force click the "Add" button
 
-  @define-project @destinationspecific @k8s
+  @define-project @destinationspecific @k8s @microk8s
   Scenario: K8S Define step
     Given I set the following aliases:
       | Step Name       | //input[contains(@id, 'Stepname')]                                                              |
@@ -175,7 +175,7 @@ if (elements.length !== 0) {
     And I populate the "Deployment name" text box with "randomquotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-k8s.png"
 
-  @define-project @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
+  @define-project @destinationspecific @k8s @microk8s @applicationspecific @java @nodejs @aspnetcore
   Scenario: Add the config map volume. This is only valid for some docker images.
     Given I set the following aliases:
       | Add Volume                 | (//button[@title='Add Volume'])[1]      |
@@ -197,7 +197,7 @@ if (elements.length !== 0) {
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}062-octopus-k8s.png"
     And I click the "OK" button
 
-  @define-project @destinationspecific @k8s
+  @define-project @destinationspecific @k8s @microk8s
   Scenario: Add the container and ports.
     Given I set the following aliases:
       | Add Container | (//button[@title='Add Container'])[1] |
@@ -236,7 +236,7 @@ if (elements.length !== 0) {
     And I remove the highlight from the "Port name" text box
     And I remove the highlight from the "Port number" text box
 
-  @define-project @destinationspecific @k8s @applicationspecific @php @ruby
+  @define-project @destinationspecific @k8s @microk8s @applicationspecific @php @ruby
   Scenario: Define environment variable. This is only valid for some docker images.
     Given I set the following aliases:
       | Environment Variables    | //div[./div/span[text()='Environment Variables']]                                                                      |
@@ -264,7 +264,7 @@ if (elements.length !== 0) {
     And I remove the highlight from the "Name" text box
     And I remove the highlight from the "Value" text box
 
-  @define-project @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
+  @define-project @destinationspecific @k8s @microk8s @applicationspecific @java @nodejs @aspnetcore
   Scenario: Add the config map volume mounting. This is only valid for some docker images.
     Given I set the following aliases:
       | Add Volume Mount      | (//button[@title='Add Volume Mount'])[1]           |
@@ -288,7 +288,7 @@ if (elements.length !== 0) {
     And I populate the "Sub path" text box with "ExternalConfigFileName"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}093-octopus-k8s.png"
 
-  @define-project @destinationspecific @k8s
+  @define-project @destinationspecific @k8s @microk8s
   Scenario: Add the package and service
     Given I set the following aliases:
       | Package Id        | //input[contains(@id,'PackageID')]                |
@@ -342,7 +342,7 @@ if (elements.length !== 0) {
     And I click the "OK" button
     And I remove the highlight from the "Add Service Port" button
 
-  @define-project @destinationspecific @k8s @applicationspecific @java @nodejs @aspnetcore
+  @define-project @destinationspecific @k8s @microk8s @applicationspecific @java @nodejs @aspnetcore
   Scenario: Add the config map that holds the configuration file. This is only valid for some docker images.
     Given I set the following aliases:
       | ConfigMap name      | //input[contains(@id,'ConfigMapname')]           |
@@ -363,7 +363,7 @@ if (elements.length !== 0) {
     And I populate the "Key" text box with "ExternalConfigFileName"
     And I populate the "Value" text box with "#{appsettings}"
 
-  @define-project @destinationspecific @k8s
+  @define-project @destinationspecific @k8s @microk8s
   Scenario: Save the step
     Given I set the following aliases:
       | Save | //button[@title='Save'] |

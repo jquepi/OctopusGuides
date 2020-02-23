@@ -83,7 +83,7 @@ Feature: Configure Bamboo
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}150-npm-test.png"
     And I click the "Save" button
 
-  @destinationspecific @k8s
+  @destinationspecific @k8s @microk8s
   Scenario: Docker Add tasks
     Given I set the following aliases:
       | Add task                                                  | //a[@id='addTask']                                                                         |
