@@ -4,6 +4,7 @@ Feature: Create Certificate
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
     And I run the feature "shared/octopus-login.feature" passing the original arguments
 
+  @destinationspecific @k8s
   Scenario: Add Client PFX
     Given I set the following aliases:
       | More             | //a[contains(.,'More')]                                                         |

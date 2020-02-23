@@ -19,7 +19,7 @@ export STEP_PAUSE=1000
 
 export BROWSER_TYPE=ChromeHeadlessNoImplicitWaitLambda
 
-export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @k8s) and (not @repositoryspecific or @localdockerrepo) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
+export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @microk8s) and (not @repositoryspecific or @localdockerrepo) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
 export CUCUMBER_PLUGIN=pretty
 
 export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
@@ -36,7 +36,7 @@ export DOCKER_PORT=80
 cd ..
 
 # Install Puppet
-./install.sh jenkins.pp update.pp dockerregistry.pp minikube.pp jenkinsdocker.pp jenkinsfinalize.pp jenkinsicon.pp passwords.pp vagrantuser.pp
+./install.sh jenkins.pp update.pp dockerregistry.pp microk8s.pp jenkinsdocker.pp jenkinsfinalize.pp jenkinsicon.pp passwords.pp vagrantuser.pp
 
 # Wait for Octopus
 ./scripts/linux/wait-octopus.sh
@@ -55,6 +55,9 @@ cd ..
 
 # Create certificates
 ./scripts/linux/create-certificates.sh
+
+# Create k8s account
+./scripts/linux/create-microk8saccount.sh
 
 # Create Target
 ./scripts/linux/create-k8starget-vagrant.sh
