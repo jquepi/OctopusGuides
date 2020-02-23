@@ -106,25 +106,44 @@ Feature: Create Azure Web App Target
 
   Scenario: Add target
     Given I set the following aliases:
-      | Kubernetes cluster URL        | //input[contains(@id,'KubernetesclusterURL')]                            |
-      | Minikube CA                   | (//span[./div/div/div[text()='Minikube CA']])[1]                         |
-      | Select cluster certificate    | (//button[../../../../div[text()='Select certificate']])[3]              |
-      | Cluster certificate container | (//div[./div[text()='Select certificate']])[2]                           |
-      | Kubernetes namespace          | //input[contains(@id,'Kubernetesnamespace')]                             |
-      | Save                          | //button[contains(.,'Save')]                                             |
-      | Connectivity                  | //a[./span[text()='Connectivity']] \| //a[text()='Connectivity'][not(*)] |
-      | Check Health                  | //button[contains(.,'Check health')]                                     |
-      | Task Log                      | //button[contains(.,'Task Log')]                                         |
+      | Kubernetes cluster URL | //input[contains(@id,'KubernetesclusterURL')] |
 
     And I highlight outside the "Kubernetes cluster URL" text box
     And I scroll the "Kubernetes cluster URL" text box into view offset by "-200"
     And I populate the "Kubernetes cluster URL" text box with "https://#{ExternalMinikubeIP}:8443"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/080-target.png"
 
+  @destinationspecific @k8s
+  Scenario: Add certificate
+    Given I set the following aliases:
+      | Select cluster certificate    | (//button[../../../../div[text()='Select certificate']])[3] |
+      | Minikube CA                   | (//span[./div/div/div[text()='Minikube CA']])[1]            |
+      | Cluster certificate container | (//div[./div[text()='Select certificate']])[2]              |
+
     And I click the "Select cluster certificate" drop down list
     And I click the "Minikube CA" option
     And I highlight outside the "Cluster certificate container" element
     And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/090-target.png"
+
+  @destinationspecific @microk8s
+  Scenario: Add certificate
+    Given I set the following aliases:
+      | Select cluster certificate    | //button[../../../../div[text()='Select certificate']] |
+      | Minikube CA                   | (//span[./div/div/div[text()='Minikube CA']])[1]       |
+      | Cluster certificate container | //div[./div[text()='Select certificate']]              |
+
+    And I click the "Select cluster certificate" drop down list
+    And I click the "Minikube CA" option
+    And I highlight outside the "Cluster certificate container" element
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/090-target.png"
+
+  Scenario: Add namespace
+    Given I set the following aliases:
+      | Kubernetes namespace | //input[contains(@id,'Kubernetesnamespace')]                             |
+      | Save                 | //button[contains(.,'Save')]                                             |
+      | Connectivity         | //a[./span[text()='Connectivity']] \| //a[text()='Connectivity'][not(*)] |
+      | Check Health         | //button[contains(.,'Check health')]                                     |
+      | Task Log             | //button[contains(.,'Task Log')]                                         |
 
     And I scroll the "Kubernetes namespace" text box into view offset by "-200"
     And I highlight outside the "Kubernetes namespace" text box
