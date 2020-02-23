@@ -26,11 +26,11 @@ docker_network { 'octopus':
 docker::image { 'octopusdeploy/octopusdeploy':
   image_tag => '2019.13.7-linux'
 }
--> docker::run { 'initdb':
-  image   => 'octopusdeploy/octopusdeploy:2019.13.7-linux',
-  restart => 'always',
+-> exec { 'Initialise the database (this can take a few mins)':
   command =>
-    'dotnet Octopus.Server.dll database --instance OctopusServer --masterKey "6EdU6IWsCtMEwk0kPKflQQ==" --connectionString "mssql,1433;Database=Octopus;User Id=SA;Password=Password01!"  --create'
+    '/usr/bin/docker run --network=octopus -e ACCEPT_EULA=Y octopusdeploy/octopusdeploy:2019.13.7-linux dotnet Octopus.Server.dll database --instance OctopusServer --masterKey "6EdU6IWsCtMEwk0kPKflQQ==" --connectionString "mssql,1433;Database=Octopus;User Id=SA;Password=Password01!"  --create'
+  ,
+  timeout => 600
 }
 -> docker::run { 'octopusdeploy':
   image                     => 'octopusdeploy/octopusdeploy:2019.13.7-linux',
