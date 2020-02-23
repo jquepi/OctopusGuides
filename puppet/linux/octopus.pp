@@ -26,6 +26,12 @@ docker_network { 'octopus':
 docker::image { 'octopusdeploy/octopusdeploy':
   image_tag => '2019.13.7-linux'
 }
+-> docker::run { 'initdb':
+  image   => 'octopusdeploy/octopusdeploy:2019.13.7-linux',
+  restart => 'always',
+  command =>
+    'dotnet Octopus.Server.dll database --instance OctopusServer --masterKey "6EdU6IWsCtMEwk0kPKflQQ==" --connectionString "mssql,1433;Database=Octopus;User Id=SA;Password=Password01!"  --create'
+}
 -> docker::run { 'octopusdeploy':
   image                     => 'octopusdeploy/octopusdeploy:2019.13.7-linux',
   depends                   => 'mssql',
@@ -36,6 +42,7 @@ docker::image { 'octopusdeploy/octopusdeploy':
   ports                     => ['80:8080', '10943:10943'],
   net                       => 'octopus',
   extra_parameters          => [ '--restart=on-failure' ],
+  restart_on_unhealthy      => true,
   remove_container_on_start => false,
   remove_volume_on_start    => false,
   remove_container_on_stop  => false,
