@@ -25,7 +25,7 @@ apt::key { 'kubernetes-repository':
   command   => '/usr/bin/snap install microk8s --classic',
   logoutput => true
 } -> exec { 'Extract cert':
-  command   => 'microk8s.kubectl config view --raw -o json | jq -r \'.clusters[0].cluster."certificate-authority-data"\' | tr -d \'"\' | base64 --decode > /tmp/ca.crt',
+  command   => '/snap/bin/microk8s.kubectl config view --raw -o json | jq -r \'.clusters[0].cluster."certificate-authority-data"\' | tr -d \'"\' | base64 --decode > /tmp/ca.crt',
   logoutput => true
 }
 
