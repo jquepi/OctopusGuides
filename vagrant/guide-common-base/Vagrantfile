@@ -2,12 +2,11 @@
 # vagrant up --provider hyperv
 
 $script = <<-'SCRIPT'
-apt-get install -y unzip wget
+apt-get install -y unzip wget git
 cd /tmp
-wget --no-check-certificate https://github.com/OctopusDeploy/OctopusGuides/archive/master.zip
-unzip master.zip
-chmod 777 -R OctopusGuides-master
-cd OctopusGuides-master/vm
+git clone https://github.com/OctopusDeploy/OctopusGuides.git
+chmod 777 -R OctopusGuides
+cd OctopusGuides/vm
 
 ./common-base.sh
 
@@ -20,7 +19,7 @@ SCRIPT
 Vagrant.configure("2") do |config|
   config.vm.box = "hashicorp/bionic64"
   config.vm.box_version = "1.0.282"
-  config.vm.network 'public_network', bridge: 'nat'
+  config.vm.network 'public_network', bridge: 'InternalNAT'
   config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.provider "hyperv" do |v|
         v.vmname = "Common guides base"
