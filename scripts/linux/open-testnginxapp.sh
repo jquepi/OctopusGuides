@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MINIKUBE_IP=`cat /tmp/minikubeip.txt`
-echo "Minikube IP: $MINIKUBE_IP"
+echo "Minikube IP: $MINIKUBE_IP:8443"
 
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \

@@ -110,7 +110,7 @@ Feature: Create Azure Web App Target
 
     And I highlight outside the "Kubernetes cluster URL" text box
     And I scroll the "Kubernetes cluster URL" text box into view offset by "-200"
-    And I populate the "Kubernetes cluster URL" text box with "https://#{ExternalMinikubeIP}:8443"
+    And I populate the "Kubernetes cluster URL" text box with "https://#{ExternalK8SIP}"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/080-target.png"
 
   @destinationspecific @k8s

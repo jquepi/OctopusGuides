@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MINIKUBE_IP=`cat /tmp/minikubeip.txt`
-echo "Minikube IP: $MINIKUBE_IP"
+echo "Minikube IP: $MINIKUBE_IP:8443"
 
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \
@@ -25,7 +25,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalTargetName=Kubernetes Dev" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
-  "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
+  "-DCucumberAlias-ExternalK8SIP=$MINIKUBE_IP:8443" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin "$CUCUMBER_PLUGIN" \
@@ -54,7 +54,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalTargetName=Kubernetes Test" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-test" \
-  "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
+  "-DCucumberAlias-ExternalK8SIP=$MINIKUBE_IP:8443" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin "$CUCUMBER_PLUGIN" \
@@ -83,7 +83,7 @@ echo "Minikube IP: $MINIKUBE_IP"
   "-DCucumberAlias-ExternalTargetName=Kubernetes Prod" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-prod" \
-  "-DCucumberAlias-ExternalMinikubeIP=$MINIKUBE_IP" \
+  "-DCucumberAlias-ExternalK8SIP=$MINIKUBE_IP:8443" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --plugin "$CUCUMBER_PLUGIN" \
