@@ -42,6 +42,7 @@ docker::image { 'octopusdeploy/octopusdeploy':
   ports                     => ['80:8080', '10943:10943'],
   net                       => 'octopus',
   extra_parameters          => [ '--restart=on-failure' ],
+  health_check_cmd          => '/usr/bin/curl --silent --fail http://localhost:8080/api/octopusservernodes/ping || exit 1',
   restart_on_unhealthy      => true,
   remove_container_on_start => false,
   remove_volume_on_start    => false,
