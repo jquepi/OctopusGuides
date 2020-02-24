@@ -13,3 +13,5 @@ until $(curl --max-time 5 --output /dev/null --silent --head --fail http://local
     attempt_counter=$(($attempt_counter+1))
     sleep 5
 done
+
+exit 0
