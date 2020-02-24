@@ -11,6 +11,7 @@ cd OctopusGuides/vm
 ./common-base.sh
 
 if [[ $? -ne 0 ]]; then
+    echo "Install script failed with $?"
     exit 1
 fi
 
