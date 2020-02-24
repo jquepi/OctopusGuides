@@ -43,6 +43,7 @@ cd ..
   microk8s.pp \
   vagrantmicrok8s.pp \
   jenkinsdocker.pp \
+  sleep.pp \
   jenkinsfinalize.pp \
   jenkinsicon.pp \
   passwords.pp \

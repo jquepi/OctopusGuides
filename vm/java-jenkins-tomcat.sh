@@ -33,6 +33,7 @@ cd ..
   jenkins.pp \
   update.pp \
   tomcat.pp \
+  sleep.pp \
   jenkinsfinalize.pp \
   jenkinsicon.pp \
   tomcaticon.pp \
