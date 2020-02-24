@@ -16,3 +16,5 @@ cd ..
 
 # Wait for Octopus
 ./scripts/linux/wait-octopus.sh
+
+exit 0
