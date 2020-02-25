@@ -7,20 +7,7 @@ cd /tmp
 git clone https://github.com/OctopusDeploy/OctopusGuides.git
 chmod 777 -R OctopusGuides
 cd OctopusGuides/vm
-
 ./common-base.sh
-
-if [[ $? -ne 0 ]]; then
-    echo "Install script failed with $?"
-    exit 1
-fi
-
-sudo -Hu vagrant dbus-launch dconf write /org/gnome/desktop/screensaver/lock-enabled false
-sudo -Hu vagrant dbus-launch dconf write /org/gnome/desktop/session/idle-delay 'uint32 0'
-sudo -Hu vagrant dbus-launch dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-ac 0
-sudo -Hu vagrant dbus-launch dconf write /org/gnome/settings-daemon/plugins/power/sleep-display-battery 0
-
-exit 0
 SCRIPT
 
 Vagrant.configure("2") do |config|

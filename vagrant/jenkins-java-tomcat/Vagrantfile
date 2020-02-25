@@ -14,7 +14,6 @@ cd /tmp
 git clone https://github.com/OctopusDeploy/OctopusGuides.git
 chmod 777 -R OctopusGuides
 cd OctopusGuides/vm
-
 ./java-jenkins-tomcat.sh
 SCRIPT
 
