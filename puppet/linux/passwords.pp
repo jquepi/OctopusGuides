@@ -11,11 +11,8 @@ file { '/usr/share/doc/guidescreds.txt':
     Useful Commands
     ===============
 
-    sudo -H minikube ip
-    This IP is where the Kubernetes deployments can be accessed (e.g. http://172.29.74.77:30001).
-
-    kubectl get pods --all-namespaces
-    This lists all the pods deployed to minikube.
+    microk8s.kubectl get pods --all-namespaces
+    This lists all the pods deployed to microk8s.
 
     docker logs -f octopusdeploy
     Octopus is deployed as a Docker container, and this command will tail the log output.

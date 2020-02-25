@@ -46,6 +46,7 @@ cd ..
   sleep.pp \
   jenkinsfinalize.pp \
   jenkinsicon.pp \
+  microk8sicon.pp \
   passwords.pp \
   vagrantuser.pp
 
