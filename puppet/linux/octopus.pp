@@ -42,6 +42,7 @@ docker::image { 'octopusdeploy/octopusdeploy':
   ports                     => ['80:8080', '10943:10943'],
   net                       => 'octopus',
   extra_parameters          => [ '--restart=always' ],
+  labels                    => ['autoheal=true'],
   remove_container_on_start => false,
   remove_volume_on_start    => false,
   remove_container_on_stop  => false,
@@ -50,4 +51,14 @@ docker::image { 'octopusdeploy/octopusdeploy':
 -> exec { 'enable service octopus':
   command   => '/bin/systemctl enable docker-octopusdeploy',
   logoutput => true
+}
+
+# Watch for unhealthy Octopus container and restart automatically
+docker::image { 'willfarrell/autoheal':
+  image_tag => 'latest'
+}
+-> docker::run { 'autoheal':
+  image            => 'willfarrell/autoheal:latest',
+  extra_parameters => [ '--restart=always' ],
+  volumes          => ['/var/run/docker.sock:/var/run/docker.sock'],
 }
