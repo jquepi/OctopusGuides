@@ -62,3 +62,7 @@ docker::image { 'willfarrell/autoheal':
   extra_parameters => [ '--restart=always' ],
   volumes          => ['/var/run/docker.sock:/var/run/docker.sock'],
 }
+-> exec { 'enable service autoheal':
+  command   => '/bin/systemctl enable docker-autoheal',
+  logoutput => true
+}
