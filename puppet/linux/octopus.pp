@@ -22,6 +22,12 @@ docker_network { 'octopus':
   command   => '/bin/systemctl enable docker-mssql',
   logoutput => true
 }
+-> file_line { 'MSSQL always restart':
+  path    => '/etc/systemd/system/docker-mssql.service',
+  line    => 'Restart=always',
+  match   => 'Restart=on-failure',
+  replace => true,
+}
 
 docker::image { 'octopusdeploy/octopusdeploy':
   image_tag => '2019.13.7-linux'
@@ -52,6 +58,12 @@ docker::image { 'octopusdeploy/octopusdeploy':
   command   => '/bin/systemctl enable docker-octopusdeploy',
   logoutput => true
 }
+-> file_line { 'Octopus always restart':
+  path    => '/etc/systemd/system/docker-octopusdeploy.service',
+  line    => 'Restart=always',
+  match   => 'Restart=on-failure',
+  replace => true,
+}
 
 # Watch for unhealthy Octopus container and restart automatically
 docker::image { 'willfarrell/autoheal':
@@ -65,4 +77,10 @@ docker::image { 'willfarrell/autoheal':
 -> exec { 'enable service autoheal':
   command   => '/bin/systemctl enable docker-autoheal',
   logoutput => true
+}
+-> file_line { 'Autoheal always restart':
+  path    => '/etc/systemd/system/docker-autoheal.service',
+  line    => 'Restart=always',
+  match   => 'Restart=on-failure',
+  replace => true,
 }
