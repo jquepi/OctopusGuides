@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
         v.cpus = 2
         v.customize ["modifyvm", :id, "--vram", "128"]
         v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]
-        config.vm.provision "shell", inline: "apt-get install virtualbox-guest-x11"
+        config.vm.provision "shell", inline: "apt-get install virtualbox-guest-x11 -y --force-confnew"
     end
   config.vm.provision "shell", inline: $script
 end
