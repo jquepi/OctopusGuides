@@ -15,7 +15,7 @@ git clone https://github.com/OctopusDeploy/OctopusGuides.git
 chmod 777 -R OctopusGuides
 cd OctopusGuides/vm
 
-sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps "['Passwords.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'gnome-terminal.desktop']"
+sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps "['Passwords.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'gnome-terminal.desktop']"
 
 ./java-jenkins-k8s.sh
 SCRIPT
