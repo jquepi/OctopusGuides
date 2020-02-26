@@ -9,3 +9,7 @@ exec { "add dkms":
   command => "/usr/bin/apt-get update; /usr/bin/apt-get upgrade -y; /usr/bin/apt-get dist-upgrade -y",
   timeout => 3600
 }
+-> exec { "Disable the existing virtualbox service":
+  command => "/bin/systemctl disable vboxadd-service",
+  onlyif => "/usr/bin/test -f /lib/systemd/system/vboxadd-service.service"
+}
