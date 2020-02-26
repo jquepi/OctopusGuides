@@ -2,13 +2,6 @@
 # vagrant up --provider hyperv
 
 $script = <<-'SCRIPT'
-
-# Set these values to make use of the Slack step handler for debugging
-export SLACK_HOOK_URL=
-export AWS_ACCESS_KEY_ID=
-export AWS_SECRET_ACCESS_KEY=
-export AWS_DEFAULT_REGION=us-east-1
-
 apt-get install -y unzip wget git
 cd /tmp
 git clone https://github.com/OctopusDeploy/OctopusGuides.git
