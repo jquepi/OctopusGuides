@@ -35,9 +35,7 @@ file {'/usr/share/icons/octopus.svg':
 
 file {'/usr/share/icons/book.svg':
   content => @("EOL"/L)
-    <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <path style="fill:#1B4145;" d="M512,429.932v34.133c-42.928,0-101.831-38.286-164.068-38.286c-36.671,0-59.654,15.132-73.466,30.254
 	H256l-22.756-106.018L512,429.932z"/>
