@@ -17,7 +17,7 @@ export STEP_PAUSE=1000
 
 export BROWSER_TYPE=ChromeHeadlessNoImplicitWaitLambda
 
-export CUCUMBER_TAGS="(not @browserspecific or @firefox) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @nodejs) and (not @sourcespecific or @git)"
+export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @nodejs) and (not @sourcespecific or @git)"
 export CUCUMBER_PLUGIN=pretty
 
 export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-JS.git
