@@ -21,6 +21,7 @@ export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspe
 export CUCUMBER_PLUGIN=pretty
 
 export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-JS.git
+export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[4]"
 
 cd ..
 
