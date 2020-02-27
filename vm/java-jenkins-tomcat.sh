@@ -7,7 +7,7 @@
 # expose the SMTP password.
 
 export STHREE_SCREENSHOT_ENABLED=true
-export SLACK_STEP_HANDLER=false
+export SLACK_STEP_HANDLER=true
 export SLACK_ON_ERROR_ONLY=false
 
 export DISABLE_HIGHLIGHTS=true
