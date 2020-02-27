@@ -1,5 +1,5 @@
 exec { "add dkms":
-  command => "/usr/bin/apt-get update; /usr/bin/apt-get install module-assistant build-essential dkms linux-headers-$(uname -r) -y",
+  command => "/usr/bin/apt-get update; /usr/bin/apt-get install build-essential module-assistant virtualbox-guest-dkms dkms linux-headers-$(uname -r) -y",
   timeout => 3600
 }
 -> exec { "add virtualbox x11 driver":
