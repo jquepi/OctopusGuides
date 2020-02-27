@@ -17,10 +17,10 @@ export STEP_PAUSE=1000
 
 export BROWSER_TYPE=ChromeHeadlessNoImplicitWaitLambda
 
-export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @nodejs) and (not @sourcespecific or @git)"
+export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @php) and (not @sourcespecific or @git)"
 export CUCUMBER_PLUGIN=pretty
 
-export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-JS.git
+export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-PHP.git
 export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[4]"
 
 cd ..
@@ -28,6 +28,7 @@ cd ..
 # Install Puppet
 ./install.sh \
   jenkins.pp \
+  php.pp \
   update.pp \
   nginx.pp \
   sleep.pp \
@@ -44,7 +45,7 @@ cd ..
 ./scripts/linux/create-apikey.sh
 
 # Create Jenkins project
-./scripts/linux/create-nodejsnginx-jenkinsproject.sh
+./scripts/linux/create-phpnginx-jenkinsproject.sh
 
 # Create environments
 ./scripts/linux/create-environments.sh
@@ -53,7 +54,7 @@ cd ..
 ./scripts/linux/create-target.sh
 
 # Create project
-./scripts/linux/create-nginxproject.sh
+./scripts/linux/create-php-nginxproject.sh
 
 # Create release
 ./scripts/linux/create-jenkinscreaterelease.sh
