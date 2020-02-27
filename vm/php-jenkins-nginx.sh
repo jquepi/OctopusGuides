@@ -29,8 +29,8 @@ cd ..
 ./install.sh \
   jenkins.pp \
   php.pp \
-  update.pp \
   nginx.pp \
+  update.pp \
   sleep.pp \
   jenkinsfinalize.pp \
   jenkinsicon.pp \
