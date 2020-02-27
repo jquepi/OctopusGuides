@@ -17,7 +17,7 @@ file { '/usr/share/applications/Guides.desktop':
   content => @("EOL"/L)
     [Desktop Entry]
     Version=1.0
-    Name=Octopus Deploy
+    Name=Octopus Guides
     Exec=firefox https://octopus.com/docs/guides
     Terminal=false
     X-MultipleArgs=false
