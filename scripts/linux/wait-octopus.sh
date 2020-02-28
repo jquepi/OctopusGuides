@@ -6,6 +6,7 @@ echo "Waiting for the Octopus server"
 until $(curl --max-time 5 --output /dev/null --silent --head --fail http://localhost); do
     if [ ${attempt_counter} -eq ${max_attempts} ];then
       echo "Max attempts reached"
+      docker logs octopusdeploy
       exit 1
     fi
 
