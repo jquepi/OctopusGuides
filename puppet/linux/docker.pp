@@ -10,7 +10,7 @@ package { 'docker.io':
   match   => 'RestartSec=\d+',
   replace => true,
 }
--> file_line { 'Increase docker restart delay':
+-> file_line { 'Increase docker start burst':
   path    => '/lib/systemd/system/docker.service',
   line    => 'StartLimitBurst=10',
   match   => 'StartLimitBurst=\d+',
