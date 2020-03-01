@@ -15,7 +15,7 @@ the YAML files perform in GitHub Actions.
 This project has a pom.xml file referencing the WebDriverTraining GitHub Maven repository at https://github.com/OctopusDeploy/WebDriverTraining/packages/66445.
 The IntelliJ cucumber plugin will scan the JAR file for step annotations to provide a rich Gherkin editor.
 
-To have IntelliJ download the JAR file, your GitHub credentials need to be defined in the ~/.m2/settings.xml file:
+To have Maven download the JAR file, your GitHub credentials need to be defined in the ~/.m2/settings.xml file:
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
