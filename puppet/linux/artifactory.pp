@@ -1,8 +1,8 @@
 docker::image { 'docker.bintray.io/jfrog/artifactory-pro':
-  image_tag => 'latest'
+  image_tag => '6.17.0'
 }
 -> docker::run { 'artifactory':
-  image => 'docker.bintray.io/jfrog/artifactory-pro:latest',
+  image => 'docker.bintray.io/jfrog/artifactory-pro:6.17.0',
   env   => ['EXTRA_JAVA_OPTIONS=-Xms384m -Xmx768m'],
   ports => ['8041:8081'],
   net   => 'octopus'
