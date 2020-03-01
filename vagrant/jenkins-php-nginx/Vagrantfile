@@ -7,7 +7,7 @@ cd /tmp
 git clone https://github.com/OctopusDeploy/OctopusGuides.git
 chmod 777 -R OctopusGuides
 cd OctopusGuides/vm
-./java-jenkins-tomcat.sh
+./php-jenkins-nginx.sh
 SCRIPT
 
 Vagrant.configure("2") do |config|
@@ -15,12 +15,12 @@ Vagrant.configure("2") do |config|
   config.vm.network 'public_network', bridge: 'InternalNAT'
   config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.provider "hyperv" do |v|
-        v.vmname = "Jenkins, Tomcat and Octopus"
+        v.vmname = "PHP, NGINX and Octopus"
         v.memory = 4096
         v.cpus = 2
     end
     config.vm.provider "virtualbox" do |v|
-        v.name = "Jenkins, Tomcat and Octopus"
+        v.name = "PHP, NGINX and Octopus"
         v.memory = 4096
         v.cpus = 2
         v.customize ["modifyvm", :id, "--vram", "128"]

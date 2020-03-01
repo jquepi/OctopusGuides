@@ -103,7 +103,7 @@ archive { '/opt/chromedriver_linux64.zip':
   ensure       => present,
   extract      => true,
   extract_path => '/usr/bin',
-  source       => 'https://chromedriver.storage.googleapis.com/79.0.3945.36/chromedriver_linux64.zip',
+  source       => 'https://chromedriver.storage.googleapis.com/80.0.3987.106/chromedriver_linux64.zip',
   creates      => '/usr/bin/chromedriver',
   cleanup      => true,
 }

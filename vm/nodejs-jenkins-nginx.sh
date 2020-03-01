@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-# Java Jenkins Tomcat Builtin Feed
-
 # This script is intentded to be run as a Vagrant previder to populate a Ubuntu image with a similar configuration
 # as described in the guides documentation. Note that the SMTP notification step is not included so as not to
 # expose the SMTP password.
@@ -19,12 +17,11 @@ export STEP_PAUSE=1000
 
 export BROWSER_TYPE=ChromeHeadlessNoImplicitWaitLambda
 
-export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @tomcat) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @java) and (not @sourcespecific or @git)"
+export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspecific or @nginx) and (not @repositoryspecific or @octo-built-in-feed) and (not @applicationspecific or @nodejs) and (not @sourcespecific or @git)"
 export CUCUMBER_PLUGIN=pretty
 
-export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
-export DOCKER_IMAGE=octopusdeploy/randomquotesjava
-export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[2]"
+export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-JS.git
+export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[4]"
 
 cd ..
 
@@ -32,11 +29,11 @@ cd ..
 ./install.sh \
   jenkins.pp \
   update.pp \
-  tomcat.pp \
+  nginx.pp \
   sleep.pp \
   jenkinsfinalize.pp \
   jenkinsicon.pp \
-  tomcaticon.pp \
+  nginxicon.pp \
   octopusicon.pp \
   passwords.pp
 
@@ -47,7 +44,7 @@ cd ..
 ./scripts/linux/create-apikey.sh
 
 # Create Jenkins project
-./scripts/linux/create-javawar-jenkinsproject.sh
+./scripts/linux/create-nodejsnginx-jenkinsproject.sh
 
 # Create environments
 ./scripts/linux/create-environments.sh
@@ -56,7 +53,7 @@ cd ..
 ./scripts/linux/create-target.sh
 
 # Create project
-./scripts/linux/create-tomcatproject.sh
+./scripts/linux/create-nginxproject.sh
 
 # Create release
 ./scripts/linux/create-jenkinscreaterelease.sh
@@ -72,6 +69,6 @@ cd ..
 
 # Add desktop shortcuts
 sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps \
-  "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'Tomcat.desktop', 'gnome-terminal.desktop']"
+  "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'gnome-terminal.desktop']"
 
 exit 0

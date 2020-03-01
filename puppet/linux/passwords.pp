@@ -3,6 +3,12 @@ file { '/usr/share/doc/guidescreds.txt':
     Credentials
     ===========
 
+    Note: Not all VMs have all the applications listed below installed. Use the icons on the
+    launcher to open the services available on your VM.
+
+    See https://app.vagrantup.com/octopusdeploy for other Vagrant boxes with different
+    configurations.
+
     System                                            vagrant   vagrant
     Octopus         http://localhost                  admin     Password01!
     Jenkins         http://localhost:8080             admin     Password01!
@@ -11,11 +17,8 @@ file { '/usr/share/doc/guidescreds.txt':
     Useful Commands
     ===============
 
-    sudo -H minikube ip
-    This IP is where the Kubernetes deployments can be accessed (e.g. http://172.29.74.77:30001).
-
-    kubectl get pods --all-namespaces
-    This lists all the pods deployed to minikube.
+    microk8s.kubectl get pods --all-namespaces
+    For VMs with Kubernetes installed, this lists all the pods deployed to microk8s.
 
     docker logs -f octopusdeploy
     Octopus is deployed as a Docker container, and this command will tail the log output.

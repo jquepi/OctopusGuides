@@ -22,6 +22,12 @@ docker_network { 'octopus':
   command   => '/bin/systemctl enable docker-mssql',
   logoutput => true
 }
+-> file_line { 'MSSQL always restart':
+  path    => '/etc/systemd/system/docker-mssql.service',
+  line    => 'Restart=always',
+  match   => 'Restart=on-failure',
+  replace => true,
+}
 
 docker::image { 'octopusdeploy/octopusdeploy':
   image_tag => '2019.13.7-linux'
@@ -37,12 +43,12 @@ docker::image { 'octopusdeploy/octopusdeploy':
   depends                   => 'mssql',
   env                       => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com',
     'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'
-    , 'DB_CONNECTION_STRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!',
+    , 'DB_CONNECTION_STRING=Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!;ConnectRetryCount=6',
     'MASTER_KEY=6EdU6IWsCtMEwk0kPKflQQ=='],
   ports                     => ['80:8080', '10943:10943'],
   net                       => 'octopus',
-  extra_parameters          => [ '--restart=on-failure' ],
-  restart_on_unhealthy      => true,
+  extra_parameters          => [ '--restart=always' ],
+  labels                    => ['autoheal=true'],
   remove_container_on_start => false,
   remove_volume_on_start    => false,
   remove_container_on_stop  => false,
@@ -51,4 +57,30 @@ docker::image { 'octopusdeploy/octopusdeploy':
 -> exec { 'enable service octopus':
   command   => '/bin/systemctl enable docker-octopusdeploy',
   logoutput => true
+}
+-> file_line { 'Octopus always restart':
+  path    => '/etc/systemd/system/docker-octopusdeploy.service',
+  line    => 'Restart=always',
+  match   => 'Restart=on-failure',
+  replace => true,
+}
+
+# Watch for unhealthy Octopus container and restart automatically
+docker::image { 'willfarrell/autoheal':
+  image_tag => 'latest'
+}
+-> docker::run { 'autoheal':
+  image            => 'willfarrell/autoheal:latest',
+  extra_parameters => [ '--restart=always' ],
+  volumes          => ['/var/run/docker.sock:/var/run/docker.sock'],
+}
+-> exec { 'enable service autoheal':
+  command   => '/bin/systemctl enable docker-autoheal',
+  logoutput => true
+}
+-> file_line { 'Autoheal always restart':
+  path    => '/etc/systemd/system/docker-autoheal.service',
+  line    => 'Restart=always',
+  match   => 'Restart=on-failure',
+  replace => true,
 }

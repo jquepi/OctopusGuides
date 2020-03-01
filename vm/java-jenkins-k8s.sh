@@ -7,7 +7,7 @@
 # expose the SMTP password.
 
 export STHREE_SCREENSHOT_ENABLED=true
-export SLACK_STEP_HANDLER=false
+export SLACK_STEP_HANDLER=true
 export SLACK_ON_ERROR_ONLY=false
 
 export DISABLE_HIGHLIGHTS=true
@@ -46,6 +46,7 @@ cd ..
   sleep.pp \
   jenkinsfinalize.pp \
   jenkinsicon.pp \
+  microk8sicon.pp \
   passwords.pp \
   vagrantuser.pp
 
@@ -90,5 +91,9 @@ cd ..
 
 # Add Users and Teams
 ./scripts/linux/add-usersandteams.sh
+
+# Add desktop shortcuts
+sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps \
+  "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'gnome-terminal.desktop']"
 
 exit 0
