@@ -1,4 +1,7 @@
-archive { '/opt/wildfly-18.0.1.Final.tar.gz':
+user { 'wildfly':
+  ensure => present,
+}
+-> archive { '/opt/wildfly-18.0.1.Final.tar.gz':
   ensure          => present,
   extract         => true,
   extract_path    => '/opt',
