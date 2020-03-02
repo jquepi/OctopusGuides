@@ -10,7 +10,7 @@
             <groupId>com.octopus</groupId>
             <artifactId>webdrivertraining</artifactId>
             <version>0.1.412</version>
-            <scope>runtime</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
