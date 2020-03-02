@@ -102,27 +102,5 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
     And I highlight outside the "Tag" text box with an offset of "2"
     And I populate the "Tag" text box with "1.0.$BUILD_NUMBER"
 
-    And I scroll the "Registry" text box into view offset by "-300"
-    And I highlight outside the "Registry" text box with an offset of "2"
-    And I populate the "Registry" text box with "octopusdeploy"
-
-    And I scroll the "Docker registry URL" text box into view offset by "-300"
-    And I highlight outside the "Docker registry URL" text box with an offset of "2"
-    And I populate the "Docker registry URL" text box with "https://index.docker.io/v1/"
-
-    And I scroll the "Registry credentials" drop down list into view offset by "-200"
-    And I highlight outside the "Registry credentials" drop down list with an offset of "2"
-    And I highlight outside the "Save" button
-    And I select the option value "DockerCredentials" from the "Registry credentials" drop down list
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}290-execute-docker-command-1.png"
-
-    And I click the "Save" button
-    And I stop recording the screen
-
   Scenario: Build project
-    And I run the feature "shared/jenkins-build.feature"
-
-  Scenario: Shutdown
-    Then I fade the screen to "1" "1" "1" over "3000" milliseconds
-    And I stop recording the screen
-    And I close the browser
+    And I run the feature "shared/push-and-build-docker.feature"
