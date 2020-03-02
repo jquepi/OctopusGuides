@@ -25,6 +25,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
   "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
+  "-DCucumberAlias-ExternalDockerImage=$DOCKER_IMAGE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin "$CUCUMBER_PLUGIN" \
