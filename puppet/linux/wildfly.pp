@@ -19,7 +19,7 @@ archive { '/opt/wildfly-18.0.1.Final.tar.gz':
   source => "/opt/wildfly-18.0.1.Final/docs/contrib/scripts/systemd/wildfly.conf",
 }
 -> file_line { 'Fix ExecStart':
-  path    => '/etc/tomcat9/tomcat-users.xml',
+  path    => '/etc/systemd/system/wildfly.service',
   line    => 'ExecStart=/opt/wildfly-18.0.1.Final/bin/launch.sh $WILDFLY_MODE $WILDFLY_CONFIG $WILDFLY_BIND',
   match   => 'ExecStart=/opt/wildfly/bin/launch.sh \$WILDFLY_MODE \$WILDFLY_CONFIG \$WILDFLY_BIND',
   replace => true
