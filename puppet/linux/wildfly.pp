@@ -21,6 +21,10 @@ user { 'wildfly':
   ensure => present,
   source => "/opt/wildfly-18.0.1.Final/docs/contrib/scripts/systemd/wildfly.conf",
 }
+-> file { '/opt/wildfly-18.0.1.Final/bin/launch.sh':
+  ensure => present,
+  source => "/opt/wildfly-18.0.1.Final/docs/contrib/scripts/systemd/launch.sh",
+}
 -> file_line { 'Fix ExecStart':
   path    => '/etc/systemd/system/wildfly.service',
   line    => 'ExecStart=/opt/wildfly-18.0.1.Final/bin/launch.sh $WILDFLY_MODE $WILDFLY_CONFIG $WILDFLY_BIND',
