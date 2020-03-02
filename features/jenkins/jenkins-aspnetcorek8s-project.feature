@@ -72,7 +72,7 @@ Feature: Build and deploy a ASP.NET Core application hosted in Git on a local Oc
     And I scroll the "Tag of the resulting docker image" text box into view offset by "-300"
     And I highlight outside the "Tag of the resulting docker image" text box with an offset of "2"
     And I clear the "Tag of the resulting docker image" text box
-    And I populate the "Tag of the resulting docker image" text box with "octopusdeploy/randomquotes:1.0.$BUILD_NUMBER"
+    And I populate the "Tag of the resulting docker image" text box with "#{ExternalDockerImage}:1.0.$BUILD_NUMBER"
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}270-execute-docker-command-1.png"
 
