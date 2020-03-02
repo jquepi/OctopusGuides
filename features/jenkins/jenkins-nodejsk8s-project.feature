@@ -103,4 +103,4 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
     And I populate the "Tag" text box with "1.0.$BUILD_NUMBER"
 
   Scenario: Build project
-    And I run the feature "shared/push-and-build-docker.feature"
+    And I run the feature "shared/push-and-build-docker.feature" passing the original arguments
