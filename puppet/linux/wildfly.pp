@@ -2,7 +2,9 @@ user { 'wildfly':
   ensure => present,
 }
 -> file { '/opt/wildfly':
-  ensure => 'directory'
+  ensure => 'directory',
+  owner   => 'wildfly',
+  group   => 'wildfly'
 }
 -> archive { '/opt/wildfly-18.0.1.Final.tar.gz':
   ensure          => present,
@@ -12,12 +14,6 @@ user { 'wildfly':
   creates         => '/opt/wildfly/README.txt',
   cleanup         => true,
   extract_command => 'tar xfz %s --strip-components=1'
-}
--> file { '/opt/wildfly':
-  ensure  => directory,
-  recurse => true,
-  owner   => 'wildfly',
-  group   => 'wildfly'
 }
 -> file { '/etc/systemd/system/wildfly.service':
   ensure => present,
