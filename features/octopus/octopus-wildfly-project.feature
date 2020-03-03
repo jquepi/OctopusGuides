@@ -175,7 +175,7 @@ Feature: Configure an Octopus Wildfly project
     And I highlight outside the "Target files" text box
     And I populate the "Target files" text box with "**/deployed-application.yml"
 
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-tomcat-filereplacement.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-wildfly-filereplacement.png"
 
     And I click the "Save" button
 
