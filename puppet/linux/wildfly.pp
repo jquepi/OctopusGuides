@@ -43,12 +43,12 @@ user { 'wildfly':
 -> file_line { 'Configure HTTP port':
   path    => '/opt/wildfly/standalone/configuration/standalone.xml',
   line    => '        <socket-binding name="http" port="${jboss.http.port:7070}"/>',
-  match   => '\s*<socket-binding name="http" port="${jboss.http.port:8080}"/>',
+  match   => '\s*<socket-binding name="http" port="\${jboss.http.port:8080}"/>',
   replace => true,
 }
 -> file_line { 'Configure HTTPS port':
   path    => '/opt/wildfly/standalone/configuration/standalone.xml',
-  line    => '        <socket-binding name="https" port="\${jboss.https.port:7443}"/>',
+  line    => '        <socket-binding name="https" port="${jboss.https.port:7443}"/>',
   match   => '\s*<socket-binding name="https" port="\${jboss.https.port:8443}"/>',
   replace => true,
 }
