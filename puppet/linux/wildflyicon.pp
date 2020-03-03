@@ -2,7 +2,7 @@ file { '/usr/share/applications/Wildfly.desktop':
   content => @("EOL"/L)
     [Desktop Entry]
     Version=1.0
-    Name=Tomcat
+    Name=Wildfly Admin Console
     Comment=Username: admin Password: Password01!
     Exec=firefox http://localhost:9990
     Terminal=false
