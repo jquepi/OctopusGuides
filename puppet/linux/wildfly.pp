@@ -11,7 +11,7 @@ user { 'wildfly':
   source          => 'https://octopus-guides.s3.amazonaws.com/wildfly/wildfly-18.0.1.Final.tar.gz',
   creates         => '/opt/wildfly/README.txt',
   cleanup         => true,
-  extract_command => 'tar xfz --strip-components=1 %s'
+  extract_command => 'tar --strip-components=1 xfz %s'
 }
 -> file { '/etc/systemd/system/wildfly.service':
   ensure => present,
