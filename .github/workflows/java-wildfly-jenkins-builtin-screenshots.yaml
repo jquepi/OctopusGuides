@@ -77,7 +77,7 @@ jobs:
         run: ./scripts/linux/view-tomcatmanager.sh
 
       - name: Open Dev App
-        run: ./scripts/linux/open-tomcatdevwebapp.sh
+        run: ./scripts/linux/open-wildflydevwebapp.sh
 
       - name: Create release
         run: ./scripts/linux/create-jenkinscreaterelease.sh
@@ -86,7 +86,7 @@ jobs:
         run: ./scripts/linux/create-lifecycle.sh
 
       - name: Open Test App
-        run: ./scripts/linux/open-tomcattestwebapp.sh
+        run: ./scripts/linux/open-wildflytestwebapp.sh
 
       - name: Add Manual Intervention
         run: ./scripts/linux/add-manualintervention.sh
