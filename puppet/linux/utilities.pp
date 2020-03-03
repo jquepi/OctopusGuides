@@ -1,6 +1,6 @@
 include apt
 
-package {'apt-transport-https':
+package { 'apt-transport-https':
   ensure => installed,
 }
 
@@ -47,7 +47,9 @@ package { 'awscli':
 }
 
 package { 'maven':
-  ensure => installed,
+  ensure          => installed,
+  # On 03 March 2020 the checksums were failing, so force the install anyway
+  install_options => '--ignore-checksums'
 }
 
 package { 'libappindicator3-1':
