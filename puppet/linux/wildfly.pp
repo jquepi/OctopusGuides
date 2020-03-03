@@ -1,36 +1,33 @@
 user { 'wildfly':
   ensure => present,
 }
+-> file { '/opt/wildfly':
+  ensure => 'directory'
+}
 -> archive { '/opt/wildfly-18.0.1.Final.tar.gz':
   ensure          => present,
   extract         => true,
-  extract_path    => '/opt',
+  extract_path    => '/opt/wildfly',
   source          => 'https://octopus-guides.s3.amazonaws.com/wildfly/wildfly-18.0.1.Final.tar.gz',
-  creates         => '/opt/wildfly-18.0.1.Final/README.txt',
+  creates         => '/opt/wildfly/README.txt',
   cleanup         => true,
-  extract_command => 'tar xfz %s'
+  extract_command => 'tar xfz --strip-components=1 %s'
 }
 -> file { '/etc/systemd/system/wildfly.service':
   ensure => present,
-  source => "/opt/wildfly-18.0.1.Final/docs/contrib/scripts/systemd/wildfly.service",
+  source => "/opt/wildfly/docs/contrib/scripts/systemd/wildfly.service",
 }
 -> file { '/etc/wildfly':
   ensure => 'directory'
 }
 -> file { '/etc/wildfly/wildfly.conf':
   ensure => present,
-  source => "/opt/wildfly-18.0.1.Final/docs/contrib/scripts/systemd/wildfly.conf",
+  source => "/opt/wildfly/docs/contrib/scripts/systemd/wildfly.conf",
 }
--> file { '/opt/wildfly-18.0.1.Final/bin/launch.sh':
+-> file { '/opt/wildfly/bin/launch.sh':
   ensure => present,
   mode   => '0755',
-  source => "/opt/wildfly-18.0.1.Final/docs/contrib/scripts/systemd/launch.sh",
-}
--> file_line { 'Fix ExecStart':
-  path    => '/etc/systemd/system/wildfly.service',
-  line    => 'ExecStart=/opt/wildfly-18.0.1.Final/bin/launch.sh $WILDFLY_MODE $WILDFLY_CONFIG $WILDFLY_BIND',
-  match   => 'ExecStart=/opt/wildfly/bin/launch.sh \$WILDFLY_MODE \$WILDFLY_CONFIG \$WILDFLY_BIND',
-  replace => true
+  source => "/opt/wildfly/docs/contrib/scripts/systemd/launch.sh",
 }
 -> exec { 'Reload daemon':
   command   => '/bin/systemctl daemon-reload',
