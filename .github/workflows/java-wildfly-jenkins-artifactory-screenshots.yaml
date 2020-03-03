@@ -1,6 +1,6 @@
 name: Java Jenkins WildFly Artifactory Feed Screenshots
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 22 * *'

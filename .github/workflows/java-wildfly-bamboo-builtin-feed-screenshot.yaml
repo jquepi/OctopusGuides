@@ -1,6 +1,6 @@
 name: Java Bamboo WildFly BuiltIn Feed Screenshot
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 28 * *'
