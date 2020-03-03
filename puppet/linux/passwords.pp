@@ -10,9 +10,10 @@ file { '/usr/share/doc/guidescreds.txt':
     configurations.
 
     System                                            vagrant   vagrant
-    Octopus         http://localhost                  admin     Password01!
-    Jenkins         http://localhost:8080             admin     Password01!
-    Tomcat Manager  https://localhost:9091/manager    tomcat    Password01!
+    Octopus          http://localhost                  admin     Password01!
+    Jenkins          http://localhost:8080             admin     Password01!
+    Tomcat Manager   https://localhost:9091/manager    tomcat    Password01!
+    WildFly Manager  https://localhost:9990/manager    admin     Password01!
 
     Useful Commands
     ===============
