@@ -52,6 +52,10 @@ user { 'wildfly':
   match   => '\s*<socket-binding name="https" port="\${jboss.https.port:8443}"/>',
   replace => true,
 }
+-> exec { "add management user":
+  command   => "/opt/wildfly/bin/add-user.sh admin Password01!",
+  logoutput => true
+}
 -> service { 'wildfly':
   ensure => 'running',
   enable => true,

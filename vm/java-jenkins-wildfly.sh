@@ -30,6 +30,14 @@ cd ..
 
 # Install Puppet
 ./install.sh \
-  wildfly.pp
+  wildfly.pp \
+  jenkins.pp \
+  update.pp \
+  sleep.pp \
+  jenkinsfinalize.pp \
+  jenkinsicon.pp \
+  wildflyicon.pp \
+  octopusicon.pp \
+  passwords.pp
 
 exit 0
