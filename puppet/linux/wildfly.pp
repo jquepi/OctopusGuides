@@ -24,6 +24,11 @@ user { 'wildfly':
   ensure => present,
   source => "/opt/wildfly/docs/contrib/scripts/systemd/wildfly.service",
 }
+-> file_line { 'Define config name':
+  path    => '/etc/systemd/system/wildfly.service',
+  line    => 'Environment="SPRING_CONFIG_NAME=deployed-application"',
+  after   => 'Environment=LAUNCH_JBOSS_IN_BACKGROUND=1'
+}
 -> file { '/etc/wildfly':
   ensure => 'directory'
 }
