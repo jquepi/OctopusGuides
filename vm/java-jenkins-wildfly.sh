@@ -40,4 +40,38 @@ cd ..
   octopusicon.pp \
   passwords.pp
 
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
+
+# Create Api Key
+./scripts/linux/create-apikey.sh
+
+# Create Jenkins project
+./scripts/linux/create-javawar-jenkinsproject.sh
+
+# Create environments
+./scripts/linux/create-environments.sh
+
+# Create Target
+./scripts/linux/create-target.sh
+
+# Create project
+./scripts/linux/create-wildflyproject.sh
+
+# Create release
+./scripts/linux/create-jenkinscreaterelease.sh
+
+# Create Lifecycle
+./scripts/linux/create-lifecycle.sh
+
+# Add Manual Intervention
+./scripts/linux/add-manualintervention.sh
+
+# Add Users and Teams
+./scripts/linux/add-usersandteams.sh
+
+# Add desktop shortcuts
+sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps \
+  "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'Tomcat.desktop', 'gnome-terminal.desktop']"
+
 exit 0
