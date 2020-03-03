@@ -13,6 +13,12 @@ user { 'wildfly':
   cleanup         => true,
   extract_command => 'tar xfz %s --strip-components=1'
 }
+-> file { '/opt/wildfly':
+  ensure  => directory,
+  recurse => true,
+  owner   => 'wildfly',
+  group   => 'wildfly'
+}
 -> file { '/etc/systemd/system/wildfly.service':
   ensure => present,
   source => "/opt/wildfly/docs/contrib/scripts/systemd/wildfly.service",
