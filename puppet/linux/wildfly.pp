@@ -15,6 +15,11 @@ user { 'wildfly':
   cleanup         => true,
   extract_command => 'tar xfz %s --strip-components=1'
 }
+-> exec { "fix permissions":
+  command   => "/bin/chown -R wildfly:wildfly /opt/wildfly",
+  logoutput => true,
+  timeout   => 3600
+}
 -> file { '/etc/systemd/system/wildfly.service':
   ensure => present,
   source => "/opt/wildfly/docs/contrib/scripts/systemd/wildfly.service",
