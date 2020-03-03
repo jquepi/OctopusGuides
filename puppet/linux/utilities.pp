@@ -44,12 +44,12 @@ package { 'ffmpeg':
 
 package { 'awscli':
   ensure => installed,
+  # On 03 March 2020 the checksums were failing, so force the install anyway
+  install_options => ['--ignore-checksums']
 }
 
 package { 'maven':
-  ensure          => installed,
-  # On 03 March 2020 the checksums were failing, so force the install anyway
-  install_options => ['--ignore-checksums']
+  ensure => installed
 }
 
 package { 'libappindicator3-1':
