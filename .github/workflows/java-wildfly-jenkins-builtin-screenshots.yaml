@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp headless.pp jenkins.pp tomcat.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
+        run: ./install.sh utilities.pp headless.pp jenkins.pp wildfly.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
 
 
       - name: Wait for Octopus
