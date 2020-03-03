@@ -57,7 +57,9 @@ package { 'firefox':
 
 package { 'awscli':
   ensure   => installed,
-  provider => chocolatey
+  provider => chocolatey,
+  # On 03 March 2020 the checksums were failing, so force the install anyway
+  install_options => ['--ignore-checksums']
 }
 
 file { 'C:/screenshots':
