@@ -1,6 +1,6 @@
 name: Java Jenkins Wildfly Builtin Feed Video
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 23 * *'
@@ -45,7 +45,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: y59wxobhqi
       VIDEO_FILE_NAME: jenkins-javawar-wildfly-builtin.mp4
       SCREENSHOT_PATH: /java-app/wildfly/builtin/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjava
