@@ -8,7 +8,7 @@ Feature: Configure an Octopus Wildfly project
   Scenario: Hide wizard
     Given I set the following aliases:
       | Hide wizard | //em[contains(@class,'fa fa-minus')] |
-    And I click the "Hide wizard" button if it exists
+    And I click the "Hide wizard" button waiting up to "10" seconds if it exists
 
   @create-project
   Scenario: Create Project
