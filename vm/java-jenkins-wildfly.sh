@@ -30,8 +30,8 @@ cd ..
 
 # Install Puppet
 ./install.sh \
-  wildfly.pp \
   jenkins.pp \
+  wildfly.pp \
   update.pp \
   sleep.pp \
   jenkinsfinalize.pp \
