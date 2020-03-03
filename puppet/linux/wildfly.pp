@@ -23,6 +23,7 @@ user { 'wildfly':
 }
 -> file { '/opt/wildfly-18.0.1.Final/bin/launch.sh':
   ensure => present,
+  mode   => '0755',
   source => "/opt/wildfly-18.0.1.Final/docs/contrib/scripts/systemd/launch.sh",
 }
 -> file_line { 'Fix ExecStart':
