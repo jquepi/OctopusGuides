@@ -1,6 +1,6 @@
 name: Ruby Jenkins NGINX Builtin feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 4 * *'
@@ -51,7 +51,7 @@ jobs:
 
       - name: Install Puppet
         run: >-
-          ./install.sh jenkins.pp ruby.pp utilities.pp nginx.pp
+          ./install.sh jenkins.pp ruby.pp utilities.pp headless.pp nginx.pp
           octopus.pp dotnetutilities.pp octopuscli.pp
           jenkinsfinalize.pp
 
