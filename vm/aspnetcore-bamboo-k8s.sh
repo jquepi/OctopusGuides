@@ -31,8 +31,6 @@ export CONFIG_FILE="{\\n  \\\"Logging\\\": {\\n    \\\"IncludeScopes\\\": false,
 export CONFIG_FILE_MOUNT_PATH="/app/appsettings.json"
 export CONFIG_FILE_NAME="appsettings.json"
 export DOCKER_PORT=80
-export DOCKER_USERNAME=""
-export DOCKER_PASSWORD=""
 
 cd ..
 
