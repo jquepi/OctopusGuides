@@ -83,10 +83,14 @@ Feature: Create deployment
     And I click the "Run plan" link
 
     And I scroll down "10000" px
+    And I sleep for "20" seconds
 
     And I stop recording the screen
+    And I sleep for "120" seconds
+
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I sleep for "60" seconds
+    And I sleep for "10" seconds
+    And I scroll down "10000" px
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}120-build-results.png"
 
   Scenario: Shutdown
