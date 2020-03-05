@@ -24,8 +24,13 @@ apt::key { 'kubernetes-repository':
 -> exec { 'Install MicroK8s':
   command   => '/usr/bin/snap install microk8s --classic',
   logoutput => true
-} -> exec { 'Extract cert':
+}
+-> exec { 'Extract cert':
   command   => '/snap/bin/microk8s.kubectl config view --raw -o json | jq -r \'.clusters[0].cluster."certificate-authority-data"\' | tr -d \'"\' | base64 --decode > /tmp/ca.crt',
+  logoutput => true
+}
+-> exec { 'Enable DNS':
+  command   => '/snap/bin/microk8s.enable dns',
   logoutput => true
 }
 
