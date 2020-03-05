@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.network 'public_network', bridge: 'InternalNAT'
   config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.provider "hyperv" do |v|
-        v.vmname = "Kubernetes, Kubernetes and Octopus"
+        v.vmname = "Bamboo, Kubernetes and Octopus"
         v.memory = 4096
         v.cpus = 2
     end

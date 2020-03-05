@@ -43,8 +43,7 @@ cd ..
   dockerregistry.pp \
   microk8s.pp \
   vagrantmicrok8s.pp \
-  jenkinsdocker.pp \
-  sleep.pp \
+  dotnetutilities.pp \
   bamboofinalize.pp \
   microk8sicon.pp \
   passwords.pp \
