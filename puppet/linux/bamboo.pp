@@ -44,5 +44,6 @@ apt::key { 'atlassian-repository':
     | EOT
 }
 -> service {'bamboo':
-  ensure => running
+  ensure => running,
+  enable  => true
 }
