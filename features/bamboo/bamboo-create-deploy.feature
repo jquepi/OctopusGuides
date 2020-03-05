@@ -89,7 +89,7 @@ Feature: Create deployment
     And I sleep for "120" seconds
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I sleep for "10" seconds
+    And I sleep for "5" seconds
     And I scroll down "10000" px
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}120-build-results.png"
 
