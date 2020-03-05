@@ -56,7 +56,7 @@ cd ..
 ./scripts/linux/create-apikey.sh
 
 # Create Jenkins project
-./scripts/linux/create-jenkinsproject.sh
+./scripts/linux/create-bambooproject.sh
 
 # Create worker
 ./scripts/linux/create-worker.sh
@@ -80,7 +80,7 @@ cd ..
 ./scripts/linux/create-k8sproject.sh
 
 # Create release
-./scripts/linux/create-jenkinscreaterelease.sh
+./scripts/linux/create-bamboocreaterelease.sh
 
 # Create Lifecycle
 ./scripts/linux/create-lifecycle.sh
@@ -93,6 +93,6 @@ cd ..
 
 # Add desktop shortcuts
 sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps \
-  "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'gnome-terminal.desktop']"
+  "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'gnome-terminal.desktop']"
 
 exit 0
