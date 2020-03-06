@@ -3,6 +3,15 @@
 MINIKUBE_IP=`cat /tmp/minikubeip.txt`
 echo "Minikube IP: $MINIKUBE_IP:8443"
 
+echo "PODS"
+sudo kubectl get pods --all-namespaces
+
+echo "SERVICES"
+sudo kubectl get services --all-namespaces
+
+echo "SERVICES"
+sudo kubectl describe service randomquotes -n randomquotes-test
+
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \
   "-Xmx2g" \
