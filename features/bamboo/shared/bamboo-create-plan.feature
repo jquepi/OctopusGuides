@@ -13,6 +13,6 @@ Feature: Create plan
     And I scroll down "10000" px
     And I sleep for "50" seconds
     And I stop recording the screen
-    And I sleep for "120" seconds
+    And I sleep for "300" seconds
     And I scroll down "10000" px
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}240-build-results.png"
