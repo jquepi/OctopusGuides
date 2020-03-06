@@ -1,5 +1,9 @@
 #!/bin/bash
 
+K8S_DEV_NDOEPORT=30000
+K8S_TEST_NDOEPORT=30001
+K8S_PROD_NDOEPORT=30002
+
 MINIKUBE_IP=`cat /tmp/minikubeip.txt`
 echo "Minikube IP: $MINIKUBE_IP:8443"
 
@@ -34,7 +38,7 @@ sudo kubectl describe service randomquotes -n randomquotes-dev
   "-DCucumberAlias-ExternalTargetName=Kubernetes" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
-  "-DCucumberAlias-ExternalUrl=http://$MINIKUBE_IP:30000" \
+  "-DCucumberAlias-ExternalUrl=http://$MINIKUBE_IP:$K8S_DEV_NDOEPORT" \
   "-DCucumberAlias-Screenshot=k8s-random-quotes-dev-app.png" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
