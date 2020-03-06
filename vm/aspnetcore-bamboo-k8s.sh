@@ -59,20 +59,38 @@ cd ..
 # Create worker
 ./scripts/linux/create-worker.sh
 
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
+
 # Create environments
 ./scripts/linux/create-environments.sh
+
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
 
 # Create certificates
 ./scripts/linux/create-certificates.sh
 
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
+
 # Create k8s account
 ./scripts/linux/create-microk8saccount.sh
+
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
 
 # Create Target
 ./scripts/linux/create-k8starget-vagrant.sh
 
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
+
 # Create docker feed
 ./scripts/linux/create-dockerfeed.sh
+
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
 
 # Create project
 ./scripts/linux/create-k8sproject.sh
@@ -80,11 +98,20 @@ cd ..
 # Create release
 ./scripts/linux/create-bamboocreaterelease.sh
 
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
+
 # Create Lifecycle
 ./scripts/linux/create-lifecycle.sh
 
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
+
 # Add Manual Intervention
 ./scripts/linux/add-manualintervention.sh
+
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
 
 # Add Users and Teams
 ./scripts/linux/add-usersandteams.sh
