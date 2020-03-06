@@ -77,7 +77,7 @@ if (elements.length !== 0) {
     And I force click the "Project Variables Title" element
 
     And I click the "Add Another Value" button
-    And I populate the "New variable value 2" text box with "#{K8STestNodePort:-30001}"
+    And I populate the "New variable value 2" text box with "#{K8STestNodePort:-31001}"
     And I force click the "Define scope" field
     And I force click the "Select environments" field
     And I force click the "Test environment" option
