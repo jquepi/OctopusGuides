@@ -15,7 +15,7 @@ export DISABLE_SCREENSHOTS=true
 export MOVE_TO_MOUSE_CURSOR=false
 export DISABLE_VIDEO=true
 export SCREENSHOT_BUCKET=octopus-guides-screenshots
-export STEP_PAUSE=1000
+export STEP_PAUSE=2000
 
 export BROWSER_TYPE=ChromeHeadlessNoImplicitWaitLambda
 
