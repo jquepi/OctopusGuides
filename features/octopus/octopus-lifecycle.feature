@@ -216,6 +216,7 @@ Feature: Create a Lifecycle in Octopus
       | Test           | //li[text()='Test']                    |
       | Deploy         | //button[contains(.,'Deploy')]         |
       | Save           | //button[contains(.,'Save')]           |
+      | Task Log       | //button[contains(.,'Task Log')]       |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/process"
     And I sleep for "10" seconds
@@ -249,10 +250,15 @@ Feature: Create a Lifecycle in Octopus
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}120-random-quotes-deploy-test.png"
     And I click the "Deploy" button
 
-    And I sleep for "20" seconds
+    And I sleep for "10" seconds
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}125-random-quotes-deployed-test.png"
+
+    And I click the "Task Log" button
+    And I sleep for "10" seconds
+
+    And I stop recording the screen
+    And I sleep for "60" seconds
 
   Scenario: Shutdown
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
-    And I stop recording the screen
     And I close the browser
