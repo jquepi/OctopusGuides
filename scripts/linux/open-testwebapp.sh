@@ -9,7 +9,7 @@ sudo kubectl get pods --all-namespaces
 echo "SERVICES"
 sudo kubectl get services --all-namespaces
 
-echo "SERVICES"
+echo "TEST SERVICES"
 sudo kubectl describe service randomquotes -n randomquotes-test
 
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
