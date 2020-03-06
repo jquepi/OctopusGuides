@@ -70,21 +70,21 @@ if (elements.length !== 0) {
       | Save                    | //button[contains(.,'Save')]                    |
 
     And I populate the "New variable name" text box with "K8S Node Port"
-    And I populate the "New variable value" text box with "30000"
+    And I populate the "New variable value" text box with "#{K8SDevNodePort:-30000}"
     And I force click the "Define scope" field
     And I force click the "Select environments" field
     And I force click the "Dev environment" option
     And I force click the "Project Variables Title" element
 
     And I click the "Add Another Value" button
-    And I populate the "New variable value 2" text box with "30001"
+    And I populate the "New variable value 2" text box with "#{K8STestNodePort:-31001}"
     And I force click the "Define scope" field
     And I force click the "Select environments" field
     And I force click the "Test environment" option
     And I force click the "Project Variables Title" element
 
     And I click the "Add Another Value" button
-    And I populate the "New variable value 3" text box with "30002"
+    And I populate the "New variable value 3" text box with "#{K8SProdNodePort:-30002}"
     And I force click the "Define scope" field
     And I force click the "Select environments" field
     And I force click the "Prod environment" option
