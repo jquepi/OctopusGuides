@@ -48,7 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-       - name: Install Puppet
+      - name: Install Puppet
         run: >-
           ./install.sh php.pp utilities.pp headless.pp nginx.pp bamboo.pp octopus.pp dotnetutilities.pp
           octopuscli.pp bamboofinalize.pp

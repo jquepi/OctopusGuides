@@ -49,7 +49,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-       - name: Install Puppet
+      - name: Install Puppet
         run: >-
           ./install.sh jenkins.pp ruby.pp utilities.pp headless.pp nginx.pp
           octopus.pp dotnetutilities.pp octopuscli.pp
