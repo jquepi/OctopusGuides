@@ -6,6 +6,9 @@ echo "Minikube IP: $MINIKUBE_IP:8443"
 echo "PODS"
 sudo kubectl get pods --all-namespaces
 
+echo "DEPLOYMENT"
+sudo kubectl describe deployment randomquotes -n randomquotes-test
+
 echo "SERVICES"
 sudo kubectl get services --all-namespaces
 
