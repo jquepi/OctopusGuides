@@ -52,9 +52,9 @@ jobs:
       OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesruby
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
       DOCKER_PORT: 80
-      K8S_DEV_NDOEPORT: 30000
-      K8S_TEST_NDOEPORT: 30001
-      K8S_PROD_NDOEPORT: 3000280
+      K8S_DEV_NODEPORT: 30000
+      K8S_TEST_NODEPORT: 30001
+      K8S_PROD_NODEPORT: 30002
     steps:
       - uses: actions/checkout@v1
 

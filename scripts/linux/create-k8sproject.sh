@@ -1,9 +1,5 @@
 #!/bin/bash
 
-K8S_DEV_NDOEPORT=30000
-K8S_TEST_NDOEPORT=30001
-K8S_PROD_NDOEPORT=30002
-
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \
   "-Xmx2g" \
@@ -29,9 +25,9 @@ K8S_PROD_NDOEPORT=30002
   "-DCucumberAlias-ExternalConfigMountPath=$CONFIG_FILE_MOUNT_PATH" \
   "-DCucumberAlias-ExternalConfigFileName=$CONFIG_FILE_NAME" \
   "-DCucumberAlias-DockerPort=$DOCKER_PORT" \
-  "-DCucumberAlias-K8SDevNodePort=$K8S_DEV_NDOEPORT" \
-  "-DCucumberAlias-K8STestNodePort=$K8S_TEST_NDOEPORT" \
-  "-DCucumberAlias-K8SProdNodePort=$K8S_PROD_NDOEPORT" \
+  "-DCucumberAlias-K8SDevNodePort=$K8S_DEV_NODEPORT" \
+  "-DCucumberAlias-K8STestNodePort=$K8S_TEST_NODEPORT" \
+  "-DCucumberAlias-K8SProdNodePort=$K8S_PROD_NODEPORT" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   --plugin "$CUCUMBER_PLUGIN" \

@@ -34,7 +34,7 @@ sudo kubectl describe service randomquotes -n randomquotes-dev
   "-DCucumberAlias-ExternalTargetName=Kubernetes" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-dev" \
-  "-DCucumberAlias-ExternalUrl=http://$MINIKUBE_IP:$K8S_DEV_NDOEPORT" \
+  "-DCucumberAlias-ExternalUrl=http://$MINIKUBE_IP:$K8S_DEV_NODEPORT" \
   "-DCucumberAlias-Screenshot=k8s-random-quotes-dev-app.png" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
