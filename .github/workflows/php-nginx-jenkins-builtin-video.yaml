@@ -55,7 +55,7 @@ jobs:
       - name: Disk usage
         run: ./scripts/linux/disk-usage.sh
 
-     - name: Install Puppet
+      - name: Install Puppet
         run: ./install.sh jenkins.pp php.pp utilities.pp nginx.pp octopus.pp dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp
 
 

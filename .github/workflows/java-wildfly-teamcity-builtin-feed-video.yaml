@@ -56,7 +56,7 @@ jobs:
       - name: Disk usage
         run: ./scripts/linux/disk-usage.sh
 
-     - name: Install Puppet
+      - name: Install Puppet
         run: ./install.sh utilities.pp headless.pp teamcity.pp wildfly.pp octopus.pp octopuscli.pp
 
 
