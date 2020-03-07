@@ -65,6 +65,9 @@ apt::key { 'kubernetes-repository':
     sudo cp ~/.kube/config /home/runner/.kube
     sudo chown -R runner:runner /home/runner/.kube
 
+    # Describe the nodes
+    sudo kubectl describe nodes
+
     touch /opt/minikube-started
     | EOT
 }

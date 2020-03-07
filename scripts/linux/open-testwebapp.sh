@@ -3,6 +3,9 @@
 MINIKUBE_IP=`cat /tmp/minikubeip.txt`
 echo "Minikube IP: $MINIKUBE_IP:8443"
 
+echo "NODES"
+sudo kubectl describe nodes
+
 echo "PODS"
 sudo kubectl get pods --all-namespaces
 sudo kubectl describe pods -n randomquotes-test
