@@ -54,6 +54,11 @@ apt::key { 'kubernetes-repository':
     sudo minikube ip > /tmp/minikubeip.txt
     cat /tmp/minikubeip.txt
 
+    # Copy config file to user
+    sudo mkdir /home/runner/.kube
+    sudo cp ~/.kube/config /home/runner/.kube
+    sudo chown -R runner:runner /home/runner/.kube
+
     touch /opt/minikube-started
     | EOT
 }

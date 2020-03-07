@@ -53,6 +53,9 @@ jobs:
       CONFIG_FILE_MOUNT_PATH: "/app/appsettings.json"
       CONFIG_FILE_NAME: "appsettings.json"
       DOCKER_PORT: 80
+      K8S_DEV_NDOEPORT: 30000
+      K8S_TEST_NDOEPORT: 30001
+      K8S_PROD_NDOEPORT: 30002
     steps:
       - uses: actions/checkout@v1
 

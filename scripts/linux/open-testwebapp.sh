@@ -1,9 +1,5 @@
 #!/bin/bash
 
-K8S_DEV_NDOEPORT=30000
-K8S_TEST_NDOEPORT=30001
-K8S_PROD_NDOEPORT=30002
-
 MINIKUBE_IP=`cat /tmp/minikubeip.txt`
 echo "Minikube IP: $MINIKUBE_IP:8443"
 
