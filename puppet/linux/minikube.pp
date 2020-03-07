@@ -64,7 +64,7 @@ apt::key { 'kubernetes-repository':
 
     # fix the coredns pods crashing
     # https://github.com/kubernetes/kubeadm/issues/998#issuecomment-412099190
-    sudo kubectl -n kube-system get deployment coredns -o yaml | sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | kubectl apply -f -
+    sudo kubectl -n kube-system get deployment coredns -o yaml | sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | sudo kubectl apply -f -
 
     touch /opt/minikube-started
     | EOT
