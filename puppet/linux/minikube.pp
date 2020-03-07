@@ -1,9 +1,3 @@
-# https://github.com/kubernetes/minikube/issues/4350
-exec { 'Stop firewall':
-  command   => '/bin/systemctl stop firewalld',
-  logoutput => true
-}
-
 apt::key { 'kubernetes-repository':
   id     => '54A647F9048D5688D7DA2ABE6A030B21BA07F4FB',
   source => 'https://packages.cloud.google.com/apt/doc/apt-key.gpg',
@@ -67,6 +61,10 @@ apt::key { 'kubernetes-repository':
 
     # Describe the nodes
     sudo kubectl describe nodes
+
+    # fix the coredns pods crashing
+    # https://github.com/kubernetes/kubeadm/issues/998#issuecomment-412099190
+    sudo kubectl -n kube-system get deployment coredns -o yaml | sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | kubectl apply -f -
 
     touch /opt/minikube-started
     | EOT
