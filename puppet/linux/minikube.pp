@@ -1,3 +1,9 @@
+# https://github.com/kubernetes/minikube/issues/4350
+exec { 'Stop firewall':
+  command   => '/bin/systemctl stop firewalld',
+  logoutput => true
+}
+
 apt::key { 'kubernetes-repository':
   id     => '54A647F9048D5688D7DA2ABE6A030B21BA07F4FB',
   source => 'https://packages.cloud.google.com/apt/doc/apt-key.gpg',
