@@ -32,6 +32,9 @@ export CONFIG_FILE_MOUNT_PATH="/app/docker-application.yml"
 export CONFIG_FILE_NAME="docker-application.yml"
 export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[1]"
 export DOCKER_PORT=80
+export K8S_DEV_NODEPORT=30000
+export K8S_TEST_NODEPORT=30001
+export K8S_PROD_NODEPORT=30002
 
 cd ..
 

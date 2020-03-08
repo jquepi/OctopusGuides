@@ -32,6 +32,9 @@ export CONFIG_FILE_MOUNT_PATH="/app/appsettings.json"
 export CONFIG_FILE_NAME="appsettings.json"
 export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[2]"
 export DOCKER_PORT=80
+export K8S_DEV_NODEPORT=30000
+export K8S_TEST_NODEPORT=30001
+export K8S_PROD_NODEPORT=30002
 
 cd ..
 
