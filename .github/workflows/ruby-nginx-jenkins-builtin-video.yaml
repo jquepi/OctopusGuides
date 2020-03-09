@@ -52,12 +52,14 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Disk usage
+        run: ./scripts/linux/disk-usage.sh
+
       - name: Install Puppet
         run: >-
           ./install.sh jenkins.pp ruby.pp utilities.pp nginx.pp
           octopus.pp dotnetutilities.pp octopuscli.pp
           jenkinsfinalize.pp
-
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh

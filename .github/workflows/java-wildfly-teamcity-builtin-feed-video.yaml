@@ -59,7 +59,6 @@ jobs:
       - name: Install Puppet
         run: ./install.sh utilities.pp headless.pp teamcity.pp wildfly.pp octopus.pp octopuscli.pp
 
-
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
 

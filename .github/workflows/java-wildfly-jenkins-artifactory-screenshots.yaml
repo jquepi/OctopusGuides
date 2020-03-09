@@ -56,8 +56,9 @@ jobs:
         run: ./scripts/linux/disk-usage.sh
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp headless.pp jenkins.pp wildfly.pp octopus.pp artifactory.pp octopuscli.pp jenkinsfinalize.pp
-
+        run: >-
+          ./install.sh utilities.pp headless.pp jenkins.pp wildfly.pp octopus.pp
+          artifactory.pp octopuscli.pp jenkinsfinalize.pp
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh

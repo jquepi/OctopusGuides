@@ -56,6 +56,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Disk usage
+        run: ./scripts/linux/disk-usage.sh
+
       - name: Install Puppet
         run: >-
           ./install.sh utilities.pp headless.pp jenkins.pp minikube.pp octopus.pp
