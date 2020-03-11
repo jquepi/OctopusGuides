@@ -16,7 +16,10 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
   logoutput => true
 }
 
-apt::ppa { 'ppa:mozillateam/ppa': }
+apt::ppa {
+  'ppa:mozillateam/ppa':
+
+}
 -> package { 'firefox-esr':
   ensure => installed,
 }
@@ -92,12 +95,6 @@ archive { '/opt/setup_13.x':
 -> package { 'nodejs':
   ensure => installed,
 }
-
-# file { '/usr/bin/umoci':
-#   ensure => 'file',
-#   source => 'https://github.com/openSUSE/umoci/releases/download/v0.4.4/umoci.amd64',
-#   mode   => '0755'
-# }
 
 archive { '/opt/geckodriver-v0.26.0-linux64.tar.gz':
   ensure       => present,

@@ -1,6 +1,6 @@
 name: PHP Jenkins NGINX Builtin feed Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 11 * *'
@@ -119,6 +119,10 @@ jobs:
 
       - name: Build badge
         run: ./scripts/linux/create-badge.sh
+
+      - name: Get Firefox Log files
+        if: failure()
+        run: ./scripts/linux/get-log-files.sh
 
       - name: Upload failure video
         if: failure()
