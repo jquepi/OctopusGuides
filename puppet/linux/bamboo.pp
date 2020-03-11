@@ -1,6 +1,8 @@
-file { '/opt/bamboo.jar':
-  source => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar',
-  mode   => '0644'
+archive { '/opt/bamboo.jar':
+  ensure         => present,
+  extract        => false,
+  source         => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar',
+  allow_insecure => true
 }
 
 apt::key { 'atlassian-repository':

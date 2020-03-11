@@ -21,8 +21,13 @@ apt::key { 'kubernetes-repository':
 -> package { 'openssl':
   ensure => installed,
 }
+-> archive { '/usr/local/bin/minikube':
+  ensure         => present,
+  extract        => false,
+  source         => 'https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64',
+  allow_insecure => true
+}
 -> file { '/usr/local/bin/minikube':
-  source => 'https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64',
   mode   => '0755'
 }
 -> file { '/opt/start-minikube.sh':

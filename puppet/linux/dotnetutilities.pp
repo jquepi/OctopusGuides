@@ -1,6 +1,8 @@
-file { '/opt/packages-microsoft-prod.deb':
-  source => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb',
-  mode   => '0644'
+archive { '/opt/packages-microsoft-prod.deb':
+  ensure         => present,
+  extract        => false,
+  source         => 'https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb',
+  allow_insecure => true
 }
 -> package { 'packages-microsoft-prod':
   ensure   => installed,
