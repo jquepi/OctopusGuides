@@ -4,6 +4,7 @@
   "--enable-preview" \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
+  "-Dwebdriver.firefox.logfile=/tmp/firefox.log" \
   "-DstepPause=$STEP_PAUSE" \
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
