@@ -56,9 +56,12 @@ package { 'libappindicator3-1':
 -> package { 'fonts-liberation':
   ensure => installed,
 }
--> file { '/opt/google-chrome-stable_current_amd64.deb':
-  source => 'https://octopus-guides.s3.amazonaws.com/chrome/google-chrome-stable_current_amd64.deb',
-  mode   => '0644'
+-> archive { '/opt/google-chrome-stable_current_amd64.deb':
+  ensure         => present,
+  extract        => false,
+  source         => 'https://octopus-guides.s3.amazonaws.com/chrome/google-chrome-stable_current_amd64.deb',
+  allow_insecure => true,
+  mode           => '0644'
 }
 -> package { 'Google Chrome':
   ensure   => installed,
@@ -66,9 +69,12 @@ package { 'libappindicator3-1':
   source   => '/opt/google-chrome-stable_current_amd64.deb'
 }
 
-file { '/opt/webdrivertraining.1.0-SNAPSHOT.jar':
-  ensure => 'file',
-  source => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining.1.0-SNAPSHOT.jar'
+archive { '/opt/webdrivertraining.1.0-SNAPSHOT.jar':
+  ensure         => present,
+  extract        => false,
+  source         => 'https://octopus-guides.s3.amazonaws.com/webdrivertraining.1.0-SNAPSHOT.jar',
+  allow_insecure => true,
+  mode           => '0644'
 }
 
 file { '/opt/setup_13.x':
