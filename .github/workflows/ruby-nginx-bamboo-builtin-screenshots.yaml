@@ -53,7 +53,7 @@ jobs:
 
       - name: Install Puppet
         run: >-
-          ./install.sh ruby.pp utilities.pp nginx.pp bamboo.pp dockercreds.pp
+          ./install.sh ruby.pp utilities.pp headless.pp nginx.pp bamboo.pp dockercreds.pp
           octopus.pp dotnetutilities.pp octopuscli.pp bamboofinalize.pp
 
       - name: Wait for Octopus
