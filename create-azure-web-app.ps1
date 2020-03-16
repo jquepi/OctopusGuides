@@ -2,6 +2,9 @@ param(
     [String] $name
 )
 
+# Print the version info
+az --version
+
 $exists = & az group exists --name $name
 if ($exists -eq "true") {
     Write-Host "Resource group $name already exists. Deleting."
