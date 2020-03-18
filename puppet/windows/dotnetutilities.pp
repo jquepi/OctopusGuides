@@ -34,7 +34,7 @@ download_file { 'dotnet-hosting-2.2.7-win.exe':
 }
 
 package { 'NuGet.CommandLine':
-  ensure   => installed,
+  ensure   => '5.4.0',
   provider => chocolatey
 }
 -> file { 'C:/add_nuget_repo.ps1':
