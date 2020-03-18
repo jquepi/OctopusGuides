@@ -32,6 +32,8 @@ jobs:
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       # A slack web hook used with the slack step handler for debugging
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
+      # This setting is set to true to only report to slack when there is an error. Set to false to see a screenshot after every step posted to slack.
+      SLACK_ON_ERROR_ONLY: true
       # WISTIA_USERNAME and WISTIA_PASSWORD are used when replacing videos
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
