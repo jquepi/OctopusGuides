@@ -263,13 +263,22 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @applicationspecific @aspnet
   Scenario: Configure project
     Given I set the following aliases:
-      | Test Assemblies            | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Test Assemblies']] |
-      | Build solution             | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Build solution']]  |
-      | Specific location          | //input[../label/span[text()='Specific location']]                                                    |
-      | Path to vstest.console.exe | //textarea[./../../../../../../../../div/label[text()='Path to vstest.console.exe']]                  |
-      | MSBuild Arguments          | //textarea[./../../../../../../../../div/label[text()='MSBuild Arguments']]                           |
-      | Add task                   | //button[@aria-label='Add a task to Agent job 1']                                                     |
-      | Search                     | (//input[@aria-label='Search'])[2]                                                                    |
+      | Test Assemblies                 | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Test Assemblies']] |
+      | Use NuGet                       | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Use NuGet 4.4.1']] |
+      | Display name                    | //input[../../../../../../div/label[text()='Display name']]                                           |
+      | Version of NuGet.exe to install | //textarea[../../../../../../../../div/label[text()='Version of NuGet.exe to install']]               |
+      | Build solution                  | //div[@data-list-index]/div/div/div/div[./div/div/div/div[normalize-space(text())='Build solution']]  |
+      | Specific location               | //input[../label/span[text()='Specific location']]                                                    |
+      | Path to vstest.console.exe      | //textarea[./../../../../../../../../div/label[text()='Path to vstest.console.exe']]                  |
+      | MSBuild Arguments               | //textarea[./../../../../../../../../div/label[text()='MSBuild Arguments']]                           |
+      | Add task                        | //button[@aria-label='Add a task to Agent job 1']                                                     |
+      | Search                          | (//input[@aria-label='Search'])[2]                                                                    |
+
+    And I click the "Use NuGet" row
+    And I clear the "Display name" text box
+    And I populate the "Display name" text box with "Use NuGet 5.4.0"
+    And I clear the "Version of NuGet.exe to install" text box
+    And I populate the "Version of NuGet.exe to install" text box with "5.4.0"
 
     And I highlight inside the "Build solution" row
     And I click the "Build solution" row
