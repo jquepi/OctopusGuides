@@ -30,11 +30,11 @@ docker_network { 'octopus':
 }
 
 docker::image { 'octopusdeploy/octopusdeploy':
-  image_tag => '2019.13.7-linux'
+  image_tag => '2020.1.4'
 }
 -> exec { 'Initialise the database (this can take a few mins)':
   command =>
-    "/usr/bin/docker run -e ACCEPT_EULA=Y --entrypoint /bin/bash octopusdeploy/octopusdeploy:2019.13.7-linux -al -c 'dotnet Octopus.Server.dll create-instance --instance OctopusServer --config \'/home/octopus/.octopus/OctopusServer/Server/Server.linux.config\' --serverNodeName=test; dotnet Octopus.Server.dll database --instance OctopusServer --connectionString \'Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!\' --masterKey \'6EdU6IWsCtMEwk0kPKflQQ==\' --create'"
+    "/usr/bin/docker run -e ACCEPT_EULA=Y --entrypoint /bin/bash octopusdeploy/octopusdeploy:2020.1.4 -al -c 'dotnet Octopus.Server.dll create-instance --instance OctopusServer --config \'/home/octopus/.octopus/OctopusServer/Server/Server.linux.config\' --serverNodeName=test; dotnet Octopus.Server.dll database --instance OctopusServer --connectionString \'Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!\' --masterKey \'6EdU6IWsCtMEwk0kPKflQQ==\' --create'"
   ,
   timeout => 600
 }
