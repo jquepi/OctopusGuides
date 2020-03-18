@@ -32,9 +32,10 @@ download_file { 'dotnet-hosting-2.2.7-win.exe':
   provider  => powershell,
   logoutput => true
 }
-
+# It may be necessary to match NuGet to the MSBuild tooling:
+# https://developercommunity.visualstudio.com/comments/933077/view.html
 package { 'NuGet.CommandLine':
-  ensure   => '5.4.0',
+  ensure   => '4.9.4',
   provider => chocolatey
 }
 -> file { 'C:/add_nuget_repo.ps1':
