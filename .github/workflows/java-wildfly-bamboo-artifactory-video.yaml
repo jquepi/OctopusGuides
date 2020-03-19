@@ -1,6 +1,6 @@
 name: Java Bamboo WildFly Artifactory Feed Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 19 * *'
@@ -15,7 +15,7 @@ jobs:
     env:
       BUILD_NAME: "java-app-git-bamboo-artifactory-wildfly"
       SLACK_STEP_HANDLER: true
-      SLACK_ON_ERROR_ONLY: false
+      SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
