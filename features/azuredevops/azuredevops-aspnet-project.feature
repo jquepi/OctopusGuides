@@ -278,7 +278,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I clear the "Display name" text box
     And I populate the "Display name" text box with "Use NuGet 5.4.0"
     And I force clear the "Version of NuGet.exe to install" text box
-    And I populate the "Version of NuGet.exe to install" text box with "5.4.0"
+    And I force populate the "Version of NuGet.exe to install" text box with "5.4.0"
 
     And I highlight inside the "Build solution" row
     And I click the "Build solution" row
