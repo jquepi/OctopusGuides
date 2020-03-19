@@ -39,7 +39,7 @@ docker::image { 'octopusdeploy/octopusdeploy':
   timeout => 600
 }
 -> docker::run { 'octopusdeploy':
-  image                     => 'octopusdeploy/octopusdeploy:2019.13.7-linux',
+  image                     => 'octopusdeploy/octopusdeploy:2020.1.4',
   depends                   => 'mssql',
   env                       => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com',
     'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'
