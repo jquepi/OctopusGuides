@@ -162,7 +162,7 @@ Feature: Create Octopus Users and Teams
       | Select users                   | //input[@title='Select users']                                  |
       | Select users container         | //div[./div/div/div/input[@title='Select users']]               |
       | Add                            | //button[@title='Add']                                          |
-      | Internal Deployer User         | //div[./div/div[text()='internaldeployer@example.org']]         |
+      | Internal Deployer User         | //div[./div/span[text()='internaldeployer@example.org']]        |
       | User roles                     | //button[contains(.,'User Roles')]                              |
       | Include User Role              | //button[contains(.,'Include User Role')]                       |
       | Select user role               | (//div[../div[text()='Select a user role']])[2]                 |
@@ -299,7 +299,7 @@ Feature: Create Octopus Users and Teams
       | Select users                   | //input[@title='Select users']                                  |
       | Select users container         | //div[./div/div/div/input[@title='Select users']]               |
       | Add                            | //button[@title='Add']                                          |
-      | Production Deployer User       | //div[./div/div[text()='productiondeployer@example.org']]       |
+      | Production Deployer User       | //div[./div/span[text()='productiondeployer@example.org']]      |
       | User roles                     | //button[contains(.,'User Roles')]                              |
       | Include User Role              | //button[contains(.,'Include User Role')]                       |
       | Select user role               | (//div[../div[text()='Select a user role']])[2]                 |
