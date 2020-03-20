@@ -1,6 +1,6 @@
 name: Java Jenkins Wildfly Builtin Feed Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 23 * *'
@@ -15,7 +15,7 @@ jobs:
     env:
       BUILD_NAME: "java-app-git-jenkins-builtin-wildfly"
       SLACK_STEP_HANDLER: true
-      SLACK_ON_ERROR_ONLY: true
+      SLACK_ON_ERROR_ONLY: false
       STEP_PAUSE: 1000
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
@@ -112,6 +112,7 @@ jobs:
         run: ./scripts/linux/convert-video.sh
 
       - name: Upload videos
+        if: always()
         run: ./scripts/linux/upload-video.sh
 
       - name: Replace Wistia video
@@ -119,7 +120,3 @@ jobs:
 
       - name: Build badge
         run: ./scripts/linux/create-badge.sh
-
-      - name: Upload failure video
-        if: failure()
-        run: ./scripts/linux/process-failed-video.sh
