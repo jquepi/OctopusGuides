@@ -191,6 +191,7 @@ Feature: Configure an Octopus Wildfly project
       | Save           | //button[@title='Save']                  |
       | Deploy To Dev  | //button[contains(.,'Deploy to Dev...')] |
       | Deploy         | //button[@title='Deploy']                |
+      | Task Log       | //button[contains(.,'Task Log')]         |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
@@ -218,10 +219,12 @@ Feature: Configure an Octopus Wildfly project
     And I force click the "Deploy" button
 
     And I stop recording the screen
-    And I sleep for "60" seconds
+    And I sleep for "300" seconds
 
     And I start recording the screen to the directory "ExternalMediaPath"
-    And I sleep for "5" seconds
+    And I sleep for "2" seconds
+    And I click the "Task Log" button
+    And I sleep for "2" seconds
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}210-octopus-deployment.png"
 
