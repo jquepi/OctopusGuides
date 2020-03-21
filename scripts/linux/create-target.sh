@@ -17,5 +17,13 @@ apt-get install tentacle
 /opt/octopus/tentacle/Tentacle new-certificate --if-blank
 /opt/octopus/tentacle/Tentacle configure --noListen True --reset-trust --app "$applicationPath"
 echo "Registering the Tentacle $name with server $serverUrl in environment $environment with role $role"
-/opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" --apiKey "$apiKey" --name "$name"  --environment "Dev" --environment "Test" --environment "Prod" --role "$role" --comms-style "TentacleActive" --server-comms-port $serverCommsPort
+/opt/octopus/tentacle/Tentacle register-with --server "$serverUrl" \
+  --apiKey "$apiKey" \
+  --name "$name"  \
+  --environment "Dev" \
+  --environment "Test" \
+  --environment "Prod" \
+  --role "$role" \
+  --comms-style "TentacleActive" \
+  --server-comms-port $serverCommsPort
 /opt/octopus/tentacle/Tentacle service --install --start
