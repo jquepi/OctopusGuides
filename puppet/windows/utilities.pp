@@ -62,11 +62,6 @@ package { 'awscli':
   install_options => ['--ignore-checksums']
 }
 
-package { 'azure-cli':
-  ensure   => installed,
-  provider => chocolatey,
-}
-
 file { 'C:/screenshots':
   ensure => 'directory'
 }
