@@ -27,3 +27,8 @@ echo "Registering the Tentacle $name with server $serverUrl in environment $envi
   --comms-style "TentacleActive" \
   --server-comms-port $serverCommsPort
 /opt/octopus/tentacle/Tentacle service --install --start
+
+echo "Finding Java executable"
+which java
+ls /usr/bin/java
+java -version
