@@ -180,6 +180,7 @@ jobs:
 
       - name: Delete resource groups
         shell: powershell
+        if: always()
         run: |
           ./delete-resource-group.ps1 "$env:DEV_RES_GROUP"
           ./delete-resource-group.ps1 "$env:TEST_RES_GROUP"

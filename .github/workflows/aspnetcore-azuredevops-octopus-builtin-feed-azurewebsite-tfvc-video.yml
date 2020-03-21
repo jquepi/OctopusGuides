@@ -187,6 +187,7 @@ jobs:
         run: ./scripts/windows/create-badge.ps1
 
       - name: Delete resource groups
+        if: always()
         shell: powershell
         run: |
           ./delete-resource-group.ps1 $env:DEV_RES_GROUP
