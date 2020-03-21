@@ -75,6 +75,9 @@ jobs:
       - name: Create Target
         run: sudo ./scripts/linux/create-target.sh
 
+      - name: Fix JAVA_HOME for Tentacle
+        run: ./install.sh tentacleenvvars.pp
+
       - name: Create project
         run: ./scripts/linux/create-wildflyproject.sh
 
@@ -109,6 +112,7 @@ jobs:
         run: ./scripts/linux/view-auditlogs.sh
 
       - name: Process videos
+        if: always()
         run: ./scripts/linux/convert-video.sh
 
       - name: Upload videos
