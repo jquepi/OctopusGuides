@@ -65,6 +65,10 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Execute puppet
+        shell: powershell
+        run: ./install.ps1 -Scripts azurecli.pp
+
       - name: Create Web App
         shell: powershell
         run: |
