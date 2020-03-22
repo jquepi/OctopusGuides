@@ -65,6 +65,10 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+    - name: Execute puppet
+      shell: powershell
+      run: ./install.ps1 -Scripts azurecli.pp
+
     - name: Create Web App
       shell: powershell
       run: |
@@ -179,6 +183,7 @@ jobs:
       run: ./scripts/windows/create-badge.ps1
 
     - name: Delete resource groups
+      if: always()
       shell: powershell
       run: |
         ./delete-resource-group.ps1 $env:DEV_RES_GROUP
