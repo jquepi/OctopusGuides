@@ -2,10 +2,10 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Log into Jenkins
     Given I set the following aliases:
-      | Username     | #j_username                                                  |
-      | Password     | body > div > div > form > div:nth-child(2) > input           |
-      | Sign In      | body > div > div > form > div.submit.formRow > input         |
-      | Profile Name | #header > div.login > span > a.model-link.inside.inverse > b |
+      | Username     | #j_username                                          |
+      | Password     | body > div > div > form > div:nth-child(2) > input   |
+      | Sign In      | body > div > div > form > div.submit.formRow > input |
+      | Profile Name | /html/body/div[2]/header/div[3]/a[1]/span            |
 
     And I open the shared browser "ExternalBrowserType"
     And I set the default explicit wait time to "30" seconds
@@ -16,7 +16,7 @@ Feature: Create and deploy a release from Jenkins
     And I click the "Sign In" button
     Then I verify the text from the "Profile Name" element matches the regex "admin"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    
+
   Scenario: Modify the existing project
     Given I set the following aliases:
       | Random Quotes Project         | //a[contains(.,'Random Quotes')]                       |
