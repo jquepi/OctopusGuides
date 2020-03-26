@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# curl -s -L https://raw.githubusercontent.com/OctopusDeploy/OctopusGuides/master/install.sh | bash
+
 # https://stackoverflow.com/questions/59895/get-the-source-directory-of-a-bash-script-from-within-the-script-itself
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -13,6 +15,7 @@ sudo /opt/puppetlabs/bin/puppet module install puppetlabs/apt
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs/docker
 sudo /opt/puppetlabs/bin/puppet module install puppet/archive
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs/inifile
+sudo /opt/puppetlabs/bin/puppet module install puppetlabs/tomcat
 
 for var in "$@"
 do
