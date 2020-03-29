@@ -21,6 +21,9 @@ apt::key { 'kubernetes-repository':
 -> package { 'openssl':
   ensure => installed,
 }
+-> package { 'conntrack':
+  ensure => installed,
+}
 -> archive { '/usr/local/bin/minikube':
   ensure         => present,
   extract        => false,
