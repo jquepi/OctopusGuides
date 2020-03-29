@@ -21,6 +21,9 @@ apt::key { 'kubernetes-repository':
 -> package { 'openssl':
   ensure => installed,
 }
+-> package { 'conntrack':
+  ensure => installed,
+}
 -> exec { 'Install MicroK8s':
   command   => '/usr/bin/snap install microk8s --classic',
   logoutput => true
