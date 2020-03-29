@@ -45,12 +45,12 @@ apt::key { 'kubernetes-repository':
     sudo kubectl get nodes
 
     # Create a pfx file with the client certificate and key
-    sudo openssl pkcs12 -passout pass: -export -out /tmp/client.pfx -in /root/.minikube/client.crt -inkey /root/.minikube/client.key
+    sudo openssl pkcs12 -passout pass: -export -out /tmp/client.pfx -in /root/.minikube/profiles/minikube/client.crt -inkey /root/.minikube/profiles/minikube/client.key
     sudo cp /root/.minikube/ca.crt /tmp/ca.crt
     sudo chmod 644 /tmp/ca.crt
     sudo chmod 644 /tmp/client.pfx
-    sudo chmod 644 /root/.minikube/client.crt
-    sudo chmod 644 /root/.minikube/client.key
+    sudo chmod 644 /root/.minikube/profiles/minikube/client.crt
+    sudo chmod 644 /root/.minikube/profiles/minikube/client.key
     sudo chmod 644 /root/.minikube/ca.crt
     echo "Listing /tmp"k
     sudo ls -la /tmp
