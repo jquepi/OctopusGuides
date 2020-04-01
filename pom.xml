@@ -9,7 +9,7 @@
         <dependency>
             <groupId>com.octopus</groupId>
             <artifactId>webdrivertraining</artifactId>
-            <version>0.1.412</version>
+            <version>0.1.423</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
