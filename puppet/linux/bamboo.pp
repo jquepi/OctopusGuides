@@ -5,25 +5,36 @@ archive { '/opt/bamboo.jar':
   allow_insecure => true
 }
 
-apt::key { 'atlassian-repository':
-  id     => 'D648E5571A519459EC58F888B56C9565957495B9',
-  source => 'https://packages.atlassian.com/api/gpg/key/public',
-  server  => 'pgp.mit.edu'
-}
--> apt::source { 'atlassian':
-  comment  => 'This is the atlassian repository',
-  location => 'https://packages.atlassian.com/debian/atlassian-sdk-deb/',
-  release  => '',
-  repos    => 'stable contrib',
-  key      => {
-    'id' => 'D648E5571A519459EC58F888B56C9565957495B9',
-  },
-  include  => {
-    'deb' => true,
-  },
+# apt::key { 'atlassian-repository':
+#   id     => 'D648E5571A519459EC58F888B56C9565957495B9',
+#   source => 'https://packages.atlassian.com/api/gpg/key/public',
+#   server  => 'pgp.mit.edu'
+# }
+# -> apt::source { 'atlassian':
+#   comment  => 'This is the atlassian repository',
+#   location => 'https://packages.atlassian.com/debian/atlassian-sdk-deb/',
+#   release  => '',
+#   repos    => 'stable contrib',
+#   key      => {
+#     'id' => 'D648E5571A519459EC58F888B56C9565957495B9',
+#   },
+#   include  => {
+#     'deb' => true,
+#   },
+# }
+# -> package { 'atlassian-plugin-sdk':
+#   ensure => installed,
+# }
+archive { '/opt/atlassian-plugin-sdk_8.0.16_all.deb':
+  ensure         => present,
+  extract        => false,
+  source         => 'https://packages.atlassian.com/atlassian-sdk-deb/debian/pool/contrib/a/atlassian-plugin-sdk/atlassian-plugin-sdk_8.0.16_all.deb',
+  allow_insecure => true
 }
 -> package { 'atlassian-plugin-sdk':
-  ensure => installed,
+  provider => dpkg,
+  ensure   => installed,
+  source   => "/opt/atlassian-plugin-sdk_8.0.16_all.deb"
 }
 -> file { '/lib/systemd/system/bamboo.service':
   ensure  => 'file',
@@ -45,7 +56,7 @@ apt::key { 'atlassian-repository':
     Environment=DOTNET_CLI_HOME=/root
     | EOT
 }
--> service {'bamboo':
+-> service { 'bamboo':
   ensure => running,
-  enable  => true
+  enable => true
 }
