@@ -281,6 +281,7 @@ Feature: Add a manual intervention step
 
     # If the button does not exist, look at the logs
     And I click the "Task Log" button if the "Assign to me" button does not exist
+    And I scroll down "10000" px
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
