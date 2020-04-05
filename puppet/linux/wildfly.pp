@@ -61,6 +61,12 @@ user { 'wildfly':
   command   => "/opt/wildfly/bin/add-user.sh admin Password01!",
   logoutput => true
 }
+-> file_line { 'Increase memory':
+  path    => '/opt/wildfly/bin/standalone.conf',
+  line    => '   JAVA_OPTS="-Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true"',
+  match   => '\s*JAVA_OPTS="-Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true"',
+  replace => true,
+}
 -> service { 'wildfly':
   ensure => 'running',
   enable => true,
