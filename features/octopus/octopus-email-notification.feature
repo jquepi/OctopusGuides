@@ -275,8 +275,13 @@ Feature: Add a manual intervention step
       | Proceed         | //button[contains(.,'Proceed')]          |
       | Notes           | //textarea[contains(@id,'Notes')]        |
       | Notes container | //div[./textarea[contains(@id,'Notes')]] |
+      | Task Log        | //button[contains(.,'Task Log')]         |
 
-    And I verify the "Assign to me" button is present waiting up to "1200" seconds
+    And I verify the "Assign to me" button is present waiting up to "1200" seconds if it exists
+
+    # If the button does not exist, look at the logs
+    And I click the "Task Log" button if the "Assign to me" button does not exist
+
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Assign to me" button
