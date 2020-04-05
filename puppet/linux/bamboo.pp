@@ -25,11 +25,16 @@ archive { '/opt/bamboo.jar':
 # -> package { 'atlassian-plugin-sdk':
 #   ensure => installed,
 # }
-package { 'atlassian-plugin-sdk':
+archive { '/opt/atlassian-plugin-sdk_8.0.16_all.deb':
+  ensure         => present,
+  extract        => false,
+  source         => 'https://packages.atlassian.com/atlassian-sdk-deb/debian/pool/contrib/a/atlassian-plugin-sdk/atlassian-plugin-sdk_8.0.16_all.deb',
+  allow_insecure => true
+}
+-> package { 'atlassian-plugin-sdk':
   provider => dpkg,
   ensure   => installed,
-  source   =>
-    "https://packages.atlassian.com/atlassian-sdk-deb/debian/pool/contrib/a/atlassian-plugin-sdk/atlassian-plugin-sdk_8.0.16_all.deb"
+  source   => "/opt/atlassian-plugin-sdk_8.0.16_all.deb"
 }
 -> file { '/lib/systemd/system/bamboo.service':
   ensure  => 'file',
