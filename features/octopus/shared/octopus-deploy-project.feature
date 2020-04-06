@@ -19,7 +19,7 @@ Feature: Deploy project
     And I highlight outside the "Save" button
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}180-octopus-save-release.png"
-    And I remove the highlight from the "Create Release" button
+    And I remove the highlight from the "Save" button
     And I force click the "Save" button
     And I sleep for "1" second
 
