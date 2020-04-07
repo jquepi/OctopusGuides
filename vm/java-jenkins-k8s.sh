@@ -27,7 +27,7 @@ export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
 export DOCKER_IMAGE=localhost:5000/randomquotesjava
 # From Octopus' point of view, the registry has the hostname "registry"
 export OCTOPUS_DOCKER_IMAGE=randomquotesjava
-export CONFIG_FILE="spring:\\n  profiles:\\n    active: \\\"Docker\\\"\\n  h2:\\n    console:\\n      enabled: true\\n  jpa:\\n    database-platform: org.hibernate.dialect.H2Dialect\\n  datasource:\\n    url: jdbc:h2:mem:testdb\\n    dbcp2:\\n      driver-class-name: org.h2.Driver\\n  flyway:\\n    locations: classpath:db\/migration\/{vendor}\\nserver:\\n  port : \\\"80\\\""
+export CONFIG_FILE="spring:\\n  profiles:\\n    active: \\\"Docker\\\"\\n  h2:\\n    console:\\n      enabled: true\\n  jpa:\\n    database-platform: org.hibernate.dialect.H2Dialect\\n  datasource:\\n    url: jdbc:h2:mem:testdb\\n    dbcp2:\\n      driver-class-name: org.h2.Driver\\n  flyway:\\n    locations: classpath:db/migration/{vendor}\\nserver:\\n  port : \\\"80\\\""
 export CONFIG_FILE_MOUNT_PATH="/app/docker-application.yml"
 export CONFIG_FILE_NAME="docker-application.yml"
 export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[1]"
