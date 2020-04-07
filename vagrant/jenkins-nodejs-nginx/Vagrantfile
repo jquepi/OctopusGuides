@@ -12,7 +12,7 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
   config.vm.box = "octopusdeploy/guide-common-base"
-  config.vm.network 'public_network', bridge: 'InternalNAT'
+  config.vm.network 'public_network', bridge: 'Default Switch'
   config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.provider "hyperv" do |v|
         v.vmname = "Node.JS, NGINX and Octopus"
