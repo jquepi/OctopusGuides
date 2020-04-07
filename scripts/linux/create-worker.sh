@@ -8,6 +8,9 @@ workerPool="Default Worker Pool"    # The worker pool to register the Tentacle i
 configFilePath="/etc/octopus/default/tentacle-default.config"
 applicationPath="/home/Octopus/Applications/"
 
+# grab a backup copy of the key to prevent these errors:
+# GPG error: https://apt.octopus.com stretch Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 896C79DABCE1F8D1
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 896C79DABCE1F8D1
 apt-key adv --fetch-keys https://apt.octopus.com/public.key
 add-apt-repository "deb https://apt.octopus.com/ stretch main"
 apt-get update

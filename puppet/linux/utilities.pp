@@ -53,6 +53,14 @@ package { 'maven':
   ensure => installed
 }
 
+# Fixes this error:
+# gpg: requesting key from 'https://apt.octopus.com/public.key'
+# gpg: connecting dirmngr at '/tmp/apt-key-gpghome.IXhzaPEb24/S.dirmngr' failed: IPC connect call failed
+# gpg: WARNING: unable to fetch URI https://apt.octopus.com/public.key: No dirmngr
+package { 'dirmngr':
+  ensure => installed
+}
+
 package { 'libappindicator3-1':
   ensure => installed,
 }
