@@ -10,6 +10,7 @@ applicationPath="/home/Octopus/Applications/"
 
 # grab a backup copy of the key to prevent these errors:
 # GPG error: https://apt.octopus.com stretch Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 896C79DABCE1F8D1
+curl -sL "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x896C79DABCE1F8D1" | sudo apt-key add
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 896C79DABCE1F8D1
 apt-key adv --fetch-keys https://apt.octopus.com/public.key
 add-apt-repository "deb https://apt.octopus.com/ stretch main"
