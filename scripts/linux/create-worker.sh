@@ -14,7 +14,8 @@ curl -sL "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x896C79DABCE1F8D
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 896C79DABCE1F8D1
 apt-key adv --fetch-keys https://apt.octopus.com/public.key
 add-apt-repository "deb https://apt.octopus.com/ stretch main"
-apt-get update
+# --allow-unauthenticated because keys are hard
+apt-get update --allow-unauthenticated
 apt-get install tentacle
 
 /opt/octopus/tentacle/Tentacle create-instance --config "$configFilePath"
