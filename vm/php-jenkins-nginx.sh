@@ -72,4 +72,8 @@ cd ..
 sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps \
   "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'gnome-terminal.desktop']"
 
+# Configure autoheal to allow the Octopus docker container to restart in the client VM.
+# Do this last because it looked like this feature was restarting the container during configuration steps above.
+./install.sh autoheal.pp
+
 exit 0
