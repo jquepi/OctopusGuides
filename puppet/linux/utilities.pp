@@ -127,7 +127,3 @@ archive { '/opt/chromedriver_linux64.zip':
   ensure => file,
   mode   => '0755'
 }
-
-exec { 'Generate root ssh key':
-  command => '/usr/bin/ssh-keygen -b 2048 -t rsa -f /root/.ssh/id_rsa -q -N ""'
-}
