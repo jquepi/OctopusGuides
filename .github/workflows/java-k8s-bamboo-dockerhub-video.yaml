@@ -13,7 +13,7 @@ jobs:
       (github.event.client_payload.workflow == 'bamboo-nodejs-k8s-video')
     runs-on: ubuntu-latest
     env:
-      BUILD_NAME: \"java-app-git-bamboo-dockerhub-k8s\"
+      BUILD_NAME: "java-app-git-bamboo-dockerhub-k8s"
       SLACK_STEP_HANDLER: true
       SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
@@ -28,7 +28,7 @@ jobs:
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       MEDIA_PATH: /tmp/screenshots
       SCREENSHOT_BUCKET: octopus-guides-screenshots
-      DISPLAY: \":99.0\"
+      DISPLAY: ":99.0"
       BROWSER_TYPE: FirefoxNoImplicitWait
       CUCUMBER_PLUGIN: progress
       MOUSE_VERTICAL_OFFSET: 74
@@ -51,8 +51,8 @@ jobs:
       DOCKER_IMAGE: octopusdeploy/randomquotesjava
       OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
       CONFIG_FILE: "spring:\\n          profiles:\\n            active: \\\"Docker\\\"\\n          h2:\\n            console:\\n              enabled: true\\n          jpa:\\n            database-platform: org.hibernate.dialect.H2Dialect\\n          datasource:\\n            url: jdbc:h2:mem:testdb\\n            dbcp2:\\n              driver-class-name: org.h2.Driver\\n          flyway:\\n            locations: classpath:db\\/migration\\/{vendor}\\n        server:\\n          port : \\\"80\\\""
-      CONFIG_FILE_MOUNT_PATH: \"/app/docker-application.yml\"
-      CONFIG_FILE_NAME: \"docker-application.yml\"
+      CONFIG_FILE_MOUNT_PATH: "/app/docker-application.yml"
+      CONFIG_FILE_NAME: "docker-application.yml"
       DOCKER_PORT: 80
       K8S_DEV_NODEPORT: 30000
       K8S_TEST_NODEPORT: 30001
