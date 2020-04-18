@@ -1,6 +1,6 @@
 name: Java Bamboo Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 17 * *'
