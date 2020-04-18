@@ -47,23 +47,7 @@ jobs:
       SCREENSHOT_PATH: /java-app/k8s/dockerhub/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjava
       OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
-      CONFIG_FILE: >-
-        spring:
-          profiles:
-            active: "Docker"
-          h2:
-            console:
-              enabled: true
-          jpa:
-            database-platform: org.hibernate.dialect.H2Dialect
-          datasource:
-            url: jdbc:h2:mem:testdb
-            dbcp2:
-              driver-class-name: org.h2.Driver
-          flyway:
-            locations: classpath:db/migration/{vendor}
-        server:
-          port : "80"
+      CONFIG_FILE: "spring:\\n          profiles:\\n            active: \\\"Docker\\\"\\n          h2:\\n            console:\\n              enabled: true\\n          jpa:\\n            database-platform: org.hibernate.dialect.H2Dialect\\n          datasource:\\n            url: jdbc:h2:mem:testdb\\n            dbcp2:\\n              driver-class-name: org.h2.Driver\\n          flyway:\\n            locations: classpath:db\\/migration\\/{vendor}\\n        server:\\n          port : \\\"80\\\""
       CONFIG_FILE_MOUNT_PATH: "/app/docker-application.yml"
       CONFIG_FILE_NAME: "docker-application.yml"
       DOCKER_PORT: 80
