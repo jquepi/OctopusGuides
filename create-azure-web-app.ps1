@@ -3,7 +3,7 @@ param(
 )
 
 # Print the version info
-& "az" --version 2>&1
+& "az" --version 2>&1 | %{ "$_" }
 
 $exists = & "az" group exists --name $name
 if ($exists -eq "true") {
