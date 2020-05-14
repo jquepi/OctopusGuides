@@ -24,6 +24,9 @@ apt::key { 'kubernetes-repository':
 -> package { 'conntrack':
   ensure => installed,
 }
+-> package { 'iptables-persistent':
+  ensure => installed,
+}
 -> exec { 'Install MicroK8s':
   command   => '/usr/bin/snap install microk8s --classic',
   logoutput => true
@@ -34,6 +37,10 @@ apt::key { 'kubernetes-repository':
 }
 -> exec { 'Enable DNS':
   command   => '/snap/bin/microk8s.enable dns',
+  logoutput => true
+}
+-> exec { 'Enable iptables forwarding':
+  command   => '/sbin/iptables -P FORWARD ACCEPT',
   logoutput => true
 }
 # see https://github.com/ubuntu/microk8s/issues/1150
