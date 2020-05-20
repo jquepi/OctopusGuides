@@ -11,12 +11,13 @@ Feature: Add Artifactory Maven feed
       | External Feeds text | //a[contains(.,'External Feeds')][not(*)] \| //a/span[text()='External Feeds'] |
       | Add Feed            | //button[contains(.,'Add feed')]                                               |
       | Feed Type           | //div[../../div[text()='Feed type']]                                           |
-      | Maven Feed          | //span[./div/div/div[text()='Maven Feed']]                                       |
+      | Maven Feed          | //span[./div/div/div[text()='Maven Feed']]                                     |
       | Feed name           | //input[contains(@id, 'Feedname')]                                             |
       | Feed url            | //input[contains(@id, 'Feedurl')]                                              |
       | Feed username       | //input[contains(@id, 'Feedusername')]                                         |
       | Feed password       | //input[contains(@id, 'Feedpassword')]                                         |
       | Save                | //button[@title='Save']                                                        |
+      | Expand All          | //a[text()='EXPAND ALL']                                                       |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Adding an external feed in Octopus" for "3" seconds
@@ -40,6 +41,10 @@ Feature: Add Artifactory Maven feed
     And I click the "Feed Type" drop down list
     And I click the "Maven Feed" option
     And I save a screenshot to "#{ExternalMediaPath}/octopus/externalmavenfeeds/035-maven-feed.png"
+
+    And I stop recording the screen
+    And I click the "Expand All" link if the "Feed name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I scroll the "Feed name" text box into view offset by "-200"
     And I highlight outside the "Feed name" text box with an offset of "1"
