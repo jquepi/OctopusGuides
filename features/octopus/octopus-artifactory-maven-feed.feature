@@ -43,6 +43,7 @@ Feature: Add Artifactory Maven feed
     And I save a screenshot to "#{ExternalMediaPath}/octopus/externalmavenfeeds/035-maven-feed.png"
 
     And I stop recording the screen
+    And I sleep for "5" seconds
     And I click the "Expand All" link if the "Feed name" text box does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 

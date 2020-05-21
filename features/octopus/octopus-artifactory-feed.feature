@@ -35,6 +35,7 @@ Feature: Add Artifactory NuGet feed
     And I click the "Add Feed" button
 
     And I stop recording the screen
+    And I sleep for "5" seconds
     And I click the "Expand All" link if the "Feed name" text box does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
