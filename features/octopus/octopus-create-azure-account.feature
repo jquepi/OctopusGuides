@@ -18,6 +18,7 @@ Feature: Create Azure Account
       | Application ID       | //input[contains(@id,'ActiveDirectoryAppicationID')]          |
       | Application Password | //input[contains(@id,'ActiveDirectoryPasswordKey')]           |
       | Save                 | (//button[contains(.,'Save')])[2]                             |
+      | Expand All           | //a[text()='EXPAND ALL']                                      |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating Azure account" for "3" seconds
@@ -44,6 +45,11 @@ Feature: Create Azure Account
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/azureaccount/040-accounts.png"
     And I click the "Azure Subscription" option
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Feed name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Account name" link
     And I populate the "Account name" text box with "Azure"
