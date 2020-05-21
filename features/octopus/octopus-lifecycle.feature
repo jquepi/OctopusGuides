@@ -30,6 +30,7 @@ Feature: Create a Lifecycle in Octopus
       | Save                            | //button[@title='Save']                                                |
       | Optional phase                  | //input[..//label[text()='Optional phase']]                            |
       | Required to progress            | //div[./h4[text()='Required to progress']]                             |
+      | Expand All                      | //a[text()='EXPAND ALL']                                               |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create a lifecycle in Octopus" for "3" seconds
