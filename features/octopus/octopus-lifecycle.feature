@@ -49,6 +49,11 @@ Feature: Create a Lifecycle in Octopus
     And I remove the highlight from the "Library" link if it exists
     And I click the "Add Lifecycle" button
 
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Feed name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I populate the "Lifecycle name" text box with "Dev, Test and Prod"
     And I populate the "Lifecycle description" text box with "Progression from the Dev to the Prod environments"
     And I highlight outside the "Lifecycle name" text box with an offset of "2"
