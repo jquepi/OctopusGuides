@@ -3,12 +3,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Open Browser
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
     And I run the feature "shared/octopus-login.feature" passing the original arguments
-
-  @hide-wizard
-  Scenario: Hide wizard
-    Given I set the following aliases:
-      | Hide wizard | //em[contains(@class,'fa fa-minus')] |
-    And I click the "Hide wizard" button waiting up to "10" seconds if it exists
+    And I run the feature "shared/octopus-hide-wizard.feature" passing the original arguments
 
   @create-project @destinationspecific @iis
   Scenario: IIS - Display annotation

@@ -36,42 +36,43 @@ cd ..
   sleep.pp \
   jenkinsfinalize.pp \
   jenkinsicon.pp \
+  websphereicon.pp \
   octopusicon.pp \
   passwords.pp
 
-## Wait for Octopus
-#./scripts/linux/wait-octopus.sh
-#
-## Create Api Key
-#./scripts/linux/create-apikey.sh
-#
-## Create Jenkins project
-#./scripts/linux/create-javawar-jenkinsproject.sh
-#
-## Create environments
-#./scripts/linux/create-environments.sh
-#
-## Create Target
-#./scripts/linux/create-target.sh
-#
-## Create project
-#./scripts/linux/create-tomcatproject.sh
-#
-## Create release
-#./scripts/linux/create-jenkinscreaterelease.sh
-#
-## Create Lifecycle
-#./scripts/linux/create-lifecycle.sh
-#
-## Add Manual Intervention
-#./scripts/linux/add-manualintervention.sh
-#
-## Add Users and Teams
-#./scripts/linux/add-usersandteams.sh
+# Wait for Octopus
+./scripts/linux/wait-octopus.sh
+
+# Create Api Key
+./scripts/linux/create-apikey.sh
+
+# Create Jenkins project
+./scripts/linux/create-javawar-jenkinsproject.sh
+
+# Create environments
+./scripts/linux/create-environments.sh
+
+# Create Target
+./scripts/linux/create-target.sh
+
+# Create project
+./scripts/linux/create-websphereproject.sh
+
+# Create release
+./scripts/linux/create-jenkinscreaterelease.sh
+
+# Create Lifecycle
+./scripts/linux/create-lifecycle.sh
+
+# Add Manual Intervention
+./scripts/linux/add-manualintervention.sh
+
+# Add Users and Teams
+./scripts/linux/add-usersandteams.sh
 
 # Add desktop shortcuts
 sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps \
-  "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'Tomcat.desktop', 'gnome-terminal.desktop']"
+  "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'gnome-terminal.desktop']"
 
 # Configure autoheal to allow the Octopus docker container to restart in the client VM.
 # Do this last because it looked like this feature was restarting the container during configuration steps above.
