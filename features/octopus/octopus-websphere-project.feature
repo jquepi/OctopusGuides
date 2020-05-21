@@ -122,10 +122,11 @@ Feature: Configure an Octopus Websphere project
   @define-project @destinationspecific @websphere
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Deployed package file name      | //input[contains(@id, 'Deployedpackagefilename')]                                |
-      | Use custom deployment directory | //input[../div/label[normalize-space(text())='Use custom deployment directory']] |
-      | Deploy Directory                | //input[contains(@id, 'DeployDirectory')]                                        |
-      | Save                            | //button[contains(.,'Save')]                                                     |
+      | Deployed package file name                | //input[contains(@id, 'Deployedpackagefilename')]                                     |
+      | Use custom deployment directory           | //input[../div/label[normalize-space(text())='Use custom deployment directory']]      |
+      | Use custom deployment directory container | //div[./div/div/div/label[normalize-space(text())='Use custom deployment directory']] |
+      | Deploy Directory                          | //input[contains(@id, 'DeployDirectory')]                                             |
+      | Save                                      | //button[contains(.,'Save')]                                                          |
 
     And I scroll the "Deployed package file name" text box into view offset by "-300"
     And I highlight outside the "Deployed package file name" text box
@@ -134,8 +135,8 @@ Feature: Configure an Octopus Websphere project
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-websphere-deployedpackagefilename.png"
 
     And I scroll the "Use custom deployment directory" text box into view offset by "-300"
-    And I highlight outside the "Use custom deployment directory" text box
-    And I click the "Use custom deployment directory" check box
+    And I highlight outside the "Use custom deployment directory container" element
+    And I force click the "Use custom deployment directory" check box
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-websphere-usecustomdirectory.png"
 
     And I scroll the "Deploy Directory" text box into view offset by "-300"
