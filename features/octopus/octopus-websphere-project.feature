@@ -24,20 +24,20 @@ Feature: Configure an Octopus Websphere project
 
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}040-octopus-wildfly-add-step.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}040-octopus-websphere-add-step.png"
     And I click the "Add Step" button
 
     And I highlight outside the "Search" text box with an offset of "3"
     And I populate the "Search" text box with "Deploy java archive"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}050-octopus-wildfly-search.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}050-octopus-websphere-search.png"
     And I sleep for "2" seconds
     And I remove the highlight from the "Search" text box
 
-    And I scroll the "Deploy to WildFly or EAP" tile into view offset by "-200"
-    And I highlight outside the "Deploy to WildFly or EAP" tile
-    And I mouse over the "Deploy to WildFly or EAP" tile
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-wildfly.png"
+    And I scroll the "Deploy Java Archive" tile into view offset by "-200"
+    And I highlight outside the "Deploy Java Archive" tile
+    And I mouse over the "Deploy Java Archive" tile
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}060-octopus-websphere.png"
     And I force click the "Add" button
 
   @define-project @destinationspecific @websphere
@@ -69,7 +69,7 @@ Feature: Configure an Octopus Websphere project
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy to Wildfly"
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-wildfly-step-name.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-websphere-step-name.png"
     And I remove the highlight from the "Step Name" text box
 
     And I scroll the "On target roles" text box into view offset by "-300"
@@ -77,7 +77,7 @@ Feature: Configure an Octopus Websphere project
     And I populate the "On target roles" text box with "web"
     And I sleep for "1" second
     And I highlight outside the "On target roles" text box
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-wildfly-step-role.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-websphere-step-role.png"
     And I click the "Web role" option
     And I remove the highlight from the "On target roles" text box
 
