@@ -133,17 +133,20 @@ Feature: Configure an Octopus Websphere project
     And I clear the "Deployed package file name" text box
     And I populate the "Deployed package file name" text box with "randomquotes-#{Octopus.Environment.Name | ToLower}.war"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}140-octopus-websphere-deployedpackagefilename.png"
+    And I remove the highlight from the "Deployed package file name" text box
 
     And I scroll the "Use custom deployment directory" text box into view offset by "-300"
     And I highlight outside the "Use custom deployment directory container" element
     And I force click the "Use custom deployment directory" check box
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-websphere-usecustomdirectory.png"
+    And I remove the highlight from the "Use custom deployment directory container" element
 
     And I scroll the "Deploy Directory" text box into view offset by "-300"
     And I highlight outside the "Deploy Directory" text box
     And I clear the "Deploy Directory" text box
     And I populate the "Deploy Directory" text box with "/opt/wlp/usr/servers/defaultServer/dropins"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-websphere-customdirectory.png"
+    And I remove the highlight from the "Deploy Directory" text box
 
     And I click the "Save" button
 
