@@ -1,6 +1,6 @@
-name: Java Jenkins Websphere Builtin Feed Screenshots
+name: Java Jenkins Websphere Artifactory Feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 22 * *'
@@ -13,6 +13,7 @@ jobs:
       (github.event.client_payload.workflow == 'jenkins-javawar-websphere-screenshots')
     runs-on: ubuntu-latest
     env:
+      ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_STEP_HANDLER: true
       SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
@@ -35,7 +36,7 @@ jobs:
       CUCUMBER_TAGS: >-
         (not @browserspecific or @firefox) and
         (not @destinationspecific or @websphere) and
-        (not @repositoryspecific or @octo-built-in-feed) and
+        (not @repositoryspecific or @artifactory) and
         (not @applicationspecific or @java) and
         (not @sourcespecific or @git)
       DISABLE_HIGHLIGHTS: false
@@ -44,10 +45,10 @@ jobs:
       DISABLE_VIDEO: true
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
-      SCREENSHOT_PATH: /java-app/websphere/builtin/git/
+      SCREENSHOT_PATH: /java-app/websphere/artifactory/git/
       DOCKER_IMAGE: octopusdeploy/randomquotesjava
       OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
-      CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
+      CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[1]"
     steps:
       - uses: actions/checkout@v1
 
@@ -55,10 +56,15 @@ jobs:
         run: ./scripts/linux/disk-usage.sh
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp headless.pp jenkins.pp websphere.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
+        run: >-
+          ./install.sh utilities.pp headless.pp jenkins.pp websphere.pp octopus.pp
+          artifactory.pp octopuscli.pp jenkinsfinalize.pp
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
+
+      - name: Create artifactory maven repo
+        run: ./scripts/linux/configure-artifactory.sh
 
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
@@ -71,6 +77,9 @@ jobs:
 
       - name: Create Target
         run: sudo ./scripts/linux/create-target.sh
+
+      - name: Create Maven feed
+        run: ./scripts/linux/create-mavenfeed.sh
 
       - name: Create project
         run: ./scripts/linux/create-websphereproject.sh
@@ -104,6 +113,6 @@ jobs:
 
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
-
+#
       - name: Upload screenshots
         run: ./scripts/linux/upload-screenshots.sh

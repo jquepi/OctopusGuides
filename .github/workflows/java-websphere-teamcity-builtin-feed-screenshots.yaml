@@ -1,16 +1,16 @@
-name: Java Jenkins Websphere Builtin Feed Screenshots
+name: Java Teamcity Websphere BuiltIn Feed Screenshots
 on:
 #  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 22 * *'
+    - cron:  '0 0 4 * *'
 jobs:
   build:
     if: >-
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
-      (github.event.client_payload.workflow == 'jenkins-javawar-websphere-screenshots')
+      (github.event.client_payload.workflow == 'teamcity-java-websphere-screenshots')
     runs-on: ubuntu-latest
     env:
       SLACK_STEP_HANDLER: true
@@ -31,6 +31,8 @@ jobs:
       BROWSER_TYPE: FirefoxNoImplicitWait
       CUCUMBER_PLUGIN: progress
       MOUSE_VERTICAL_OFFSET: 74
+      # This is slightly larger than the warning bar presented by Chrome to stop the mouse cursor triggering the menu
+      # next to the administration menu as we try and click the Overview link.
       MOUSE_VERTICAL_OFFSET_CHROME: 125
       CUCUMBER_TAGS: >-
         (not @browserspecific or @firefox) and
@@ -45,17 +47,17 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
       SCREENSHOT_PATH: /java-app/websphere/builtin/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjava
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
-      CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
     steps:
       - uses: actions/checkout@v1
 
       - name: Disk usage
         run: ./scripts/linux/disk-usage.sh
 
+      - name: Disk usage
+        run: ./scripts/linux/disk-usage.sh
+
       - name: Install Puppet
-        run: ./install.sh utilities.pp headless.pp jenkins.pp websphere.pp octopus.pp octopuscli.pp jenkinsfinalize.pp
+        run: ./install.sh utilities.pp headless.pp teamcity.pp websphere.pp octopus.pp octopuscli.pp
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
@@ -63,8 +65,11 @@ jobs:
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
 
-      - name: Create Jenkins project
-        run: ./scripts/linux/create-javawar-jenkinsproject.sh
+      - name: Setup TeamCity
+        run: ./scripts/linux/setup-teamcity.sh
+
+      - name: Create TeamCity project
+        run: ./scripts/linux/create-javawar-teamcityproject.sh
 
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
@@ -79,7 +84,7 @@ jobs:
         run: ./scripts/linux/open-webspheredevwebapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-jenkinscreaterelease.sh
+        run: ./scripts/linux/create-teamcitycreaterelease.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh
@@ -104,6 +109,6 @@ jobs:
 
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
-
+#
       - name: Upload screenshots
         run: ./scripts/linux/upload-screenshots.sh
