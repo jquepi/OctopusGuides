@@ -52,7 +52,7 @@ Feature: Create a Lifecycle in Octopus
 
     And I stop recording the screen
     And I sleep for "5" seconds
-    And I click the "Expand All" link if the "Feed name" text box does not exist
+    And I click the "Expand All" link if the "Lifecycle name" text box does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I populate the "Lifecycle name" text box with "Dev, Test and Prod"
