@@ -571,7 +571,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Create Release" button
 
     And I highlight outside the "Save" button
-    And I sleep for "1" second
+    And I sleep for "2" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-save-release.png"
     And I remove the highlight from the "Create Release" button
     And I click the "Save" button
