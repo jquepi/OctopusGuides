@@ -24,6 +24,7 @@ Feature: Create Azure Web App Target
       | Select account certificate | (//button[../../../../div[text()='Select certificate']])[1]                                                  |
       | Cluster account container  | (//div[./div[text()='Select certificate']])[1]                                                               |
       | Minikube certificate       | (//span[./div/div/div[text()='Minikube Client Certificate']])[1]                                             |
+      | Expand All                 | //a[text()='EXPAND ALL']                                                                                     |
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Creating Kubernetes deployment targets" for "3" seconds
@@ -49,6 +50,11 @@ Feature: Create Azure Web App Target
     And I mouse over the "Kubernetes Cluster Target" tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/k8starget/040-target.png"
     And I force click the "Add" button
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Display name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Display Name" text box
     And I populate the "Display Name" text box with "ExternalTargetName"

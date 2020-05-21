@@ -24,6 +24,7 @@ Feature: Create Azure Web App Target
       | Account                 | //div[../../div[text()='Select account']]                                                               |
       | Azure account           | //span[./div/div/div[text()='Azure']]                                                                   |
       | Azure Web App List      | //div[../../div[text()='Web app']]                                                                      |
+      | Expand All              | //a[text()='EXPAND ALL']                                                                                |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating Azure deployment targets" for "3" seconds
@@ -49,6 +50,11 @@ Feature: Create Azure Web App Target
     And I mouse over the "Azure Web App" tile
     And I save a screenshot to "#{ExternalMediaPath}/octopus/azuretarget/040-target.png"
     And I force click the "Add" button
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Display name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Display Name" text box
     And I populate the "Display Name" text box with "ExternalTargetName"
