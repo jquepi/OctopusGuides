@@ -18,6 +18,7 @@ Feature: Create Octopus Users and Teams
       | Password         | //input[contains(@id,'Password')]                                         |
       | Confirm password | //input[contains(@id,'Confirmpassword')]                                  |
       | Save             | //button[contains(.,'Save')]                                              |
+      | Expand All       | //a[text()='EXPAND ALL']                                                  |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create users for internal and production deployments" for "3" seconds
@@ -44,6 +45,11 @@ Feature: Create Octopus Users and Teams
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/015-octopus-add-user.png"
     And I click the "Add user" button
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Feed name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I scroll the "Username" text box into view offset by "-200"
     And I highlight outside the "Username" text box with an offset of "5"
@@ -101,6 +107,11 @@ Feature: Create Octopus Users and Teams
     And I highlight outside the "Add user" buttonl
     And I save a screenshot to "#{ExternalMediaPath}/octopus/permissions/045-octopus-add-user.png"
     And I click the "Add user" button
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Feed name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I scroll the "Username" text box into view offset by "-200"
     And I highlight outside the "Username" text box with an offset of "5"
