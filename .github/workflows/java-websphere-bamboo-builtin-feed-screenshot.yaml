@@ -1,6 +1,6 @@
 name: Java Bamboo Websphere BuiltIn Feed Screenshot
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 28 * *'

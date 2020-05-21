@@ -70,6 +70,10 @@ cd ..
 # Add Users and Teams
 ./scripts/linux/add-usersandteams.sh
 
+# Open the app as a final check
+./scripts/linux/open-webspheredevwebapp.sh
+./scripts/linux/open-webspheretestwebapp.sh
+
 # Add desktop shortcuts
 sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps \
   "['Passwords.desktop', 'Guides.desktop', 'Octopus.desktop', 'Jenkins.desktop', 'Random Quotes Dev.desktop', 'Random Quotes Test.desktop', 'gnome-terminal.desktop']"
