@@ -12,7 +12,7 @@ Feature: Configure an Octopus Websphere project
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                    |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                          |
       | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                               |
-      | Deploy to WildFly or EAP       | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Java Archive')]                            |
+      | Deploy Java Archive            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Java Archive')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Java Archive')]//button[contains(.,'Add')] |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
