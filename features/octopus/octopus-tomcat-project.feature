@@ -84,20 +84,6 @@ Feature: Configure an Octopus Tomcat project
       | On target roles                         | //input[@title='Runs on targets in roles (type to add new)']                                    |
       | Web role                                | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
-    And I highlight outside the "Configure features" button
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}046-octopus-java-enable-conf-features.png"
-    And I scroll the "Configure features" button into view offset by "-300"
-    And I click the "Configure features" button
-    And I remove the highlight from the "Configure features" button
-
-    And I highlight inside the "Substitute Variables in Files Container" option
-    And I highlight outside the "OK" button with an offset of "2"
-    And I force click the "Substitute Variables in Files" option
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}047-octopus-java-enable-conf-vars.png"
-    And I click the "OK" button
-
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy to Tomcat"
