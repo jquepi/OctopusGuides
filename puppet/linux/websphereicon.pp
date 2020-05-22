@@ -3,7 +3,7 @@ file { '/usr/share/applications/Random Quotes Dev.desktop':
     [Desktop Entry]
     Version=1.0
     Name=Random Quotes Dev
-    Exec=firefox http://localhost:9080/randomquotes-dev
+    Exec=firefox http://localhost:9080/randomquotes-dev/index.html
     Terminal=false
     X-MultipleArgs=false
     Type=Application
@@ -17,7 +17,7 @@ file { '/usr/share/applications/Random Quotes Test.desktop':
     [Desktop Entry]
     Version=1.0
     Name=Random Quotes Test
-    Exec=firefox http://localhost:9080/randomquotes-test
+    Exec=firefox http://localhost:9080/randomquotes-test/index.html
     Terminal=false
     X-MultipleArgs=false
     Type=Application

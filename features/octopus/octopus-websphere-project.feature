@@ -53,7 +53,7 @@ Feature: Configure an Octopus Websphere project
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
-    And I populate the "Step Name" text box with "Deploy to Wildfly"
+    And I populate the "Step Name" text box with "Deploy to Websphere"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-websphere-step-name.png"
     And I remove the highlight from the "Step Name" text box
@@ -68,7 +68,7 @@ Feature: Configure an Octopus Websphere project
     And I remove the highlight from the "On target roles" text box
 
   @define-project @destinationspecific @websphere @repositoryspecific @artifactory
-  Scenario: Select artifactory feed for the Wildfly deployment
+  Scenario: Select artifactory feed for the Websphere deployment
     Given I set the following aliases:
       | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
       | Artifactory  | //div[./div/div[text()='Artifactory']]           |
@@ -92,7 +92,7 @@ Feature: Configure an Octopus Websphere project
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @websphere @repositoryspecific @octo-built-in-feed
-  Scenario: Select built in feed for the Wildfly deployment
+  Scenario: Select built in feed for the Websphere deployment
     Given I set the following aliases:
       | HTML Body  | //body                              |
       | Package ID | //input[contains(@id, 'PackageID')] |

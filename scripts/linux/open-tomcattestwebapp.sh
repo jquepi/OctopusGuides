@@ -18,7 +18,7 @@
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
-  "-DCucumberAlias-ExternalUrl=http://localhost:9091/randomquotes-test" \
+  "-DCucumberAlias-ExternalUrl=http://localhost:9091/randomquotes-test/index.html" \
   "-DCucumberAlias-Screenshot=tomcat-random-quotes-test-app.png" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
