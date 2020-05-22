@@ -126,6 +126,7 @@ Feature: Configure an Octopus Websphere project
       | Use custom deployment directory           | //input[../div/label[normalize-space(text())='Use custom deployment directory']]      |
       | Use custom deployment directory container | //div[./div/div/div/label[normalize-space(text())='Use custom deployment directory']] |
       | Deploy Directory                          | //input[contains(@id, 'DeployDirectory')]                                             |
+      | Target files                              | //textarea[contains(@id, 'Targetfiles')]                                              |
       | Save                                      | //button[contains(.,'Save')]                                                          |
 
     And I scroll the "Deployed package file name" text box into view offset by "-300"
@@ -148,12 +149,19 @@ Feature: Configure an Octopus Websphere project
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-websphere-customdirectory.png"
     And I remove the highlight from the "Deploy Directory" text box
 
+    And I scroll the "Target files" text box into view offset by "-300"
+    And I highlight outside the "Target files" text box
+    And I populate the "Target files" text box with "**/deployed-application.yml"
+
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-websphere-filereplacement.png"
+
     And I click the "Save" button
 
     And I sleep for "1" second
     And I stop recording the screen
     And I sleep for "10" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
+
 
   @deploy-project
   Scenario: Deploy project
