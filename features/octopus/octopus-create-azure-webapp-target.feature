@@ -53,7 +53,7 @@ Feature: Create Azure Web App Target
 
     And I stop recording the screen
     And I sleep for "5" seconds
-    And I click the "Expand All" link if the "Display name" text box does not exist
+    And I click the "Expand All" link if the "Display Name" text box does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Display Name" text box
