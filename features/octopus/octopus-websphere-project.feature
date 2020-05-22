@@ -41,7 +41,7 @@ Feature: Configure an Octopus Websphere project
     And I force click the "Add" button
 
   @define-project @destinationspecific @websphere
-  Scenario: K8S Define step
+  Scenario: Java Define step
     Given I set the following aliases:
       | Configure features                      | (//button[contains(.,'Configure features')])[1]                                                 |
       | Substitute Variables in Files           | //input[..//label[text()='Substitute Variables in Files']]                                      |
@@ -50,20 +50,6 @@ Feature: Configure an Octopus Websphere project
       | Step Name                               | //input[contains(@id, 'Stepname')]                                                              |
       | On target roles                         | //input[@title='Runs on targets in roles (type to add new)']                                    |
       | Web role                                | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
-
-    And I highlight outside the "Configure features" button
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-java-enable-conf-features.png"
-    And I scroll the "Configure features" button into view offset by "-300"
-    And I click the "Configure features" button
-    And I remove the highlight from the "Configure features" button
-
-    And I highlight inside the "Substitute Variables in Files Container" option
-    And I highlight outside the "OK" button with an offset of "2"
-    And I force click the "Substitute Variables in Files" option
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-java-enable-conf-vars.png"
-    And I click the "OK" button
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -120,7 +106,7 @@ Feature: Configure an Octopus Websphere project
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @websphere
-  Scenario: K8S Define step
+  Scenario: Java Define step
     Given I set the following aliases:
       | Deployed package file name                | //input[contains(@id, 'Deployedpackagefilename')]                                     |
       | Use custom deployment directory           | //input[../div/label[normalize-space(text())='Use custom deployment directory']]      |
