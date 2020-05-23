@@ -1,6 +1,6 @@
 name: Java Teamcity Websphere BuiltIn Feed Video
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 17 * *'
@@ -52,9 +52,6 @@ jobs:
       SCREENSHOT_PATH: /java-app/websphere/builtin/git/
     steps:
       - uses: actions/checkout@v1
-
-      - name: Disk usage
-        run: ./scripts/linux/disk-usage.sh
 
       - name: Disk usage
         run: ./scripts/linux/disk-usage.sh
