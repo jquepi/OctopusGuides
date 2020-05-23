@@ -48,7 +48,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: m9eqwe9slk
       VIDEO_FILE_NAME: bamboo-java-websphere-artifactory.mp4
       SCREENSHOT_PATH: /java-app/websphere/artifactory/git/
     steps:

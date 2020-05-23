@@ -47,7 +47,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
-      WISTIA_MEDIA_ID:
+      WISTIA_MEDIA_ID: 5z8r0jxq34
       VIDEO_FILE_NAME: teamcity-java-websphere-builtin.mp4
       SCREENSHOT_PATH: /java-app/websphere/builtin/git/
     steps:
