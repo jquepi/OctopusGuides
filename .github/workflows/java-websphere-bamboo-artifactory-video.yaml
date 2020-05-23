@@ -1,23 +1,24 @@
-name: Java Teamcity Websphere Artifectory Feed Screenshots
+name: Java Bamboo Websphere Artifactory Feed Video
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 5 * *'
+    - cron:  '0 0 19 * *'
 jobs:
   build:
     if: >-
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
-      (github.event.client_payload.workflow == 'teamcity-java-websphere-screenshots')
+      (github.event.client_payload.workflow == 'bamboo-java-websphere-video')
     runs-on: ubuntu-latest
     env:
+      BUILD_NAME: "java-app-git-bamboo-artifactory-websphere"
       SLACK_STEP_HANDLER: true
       SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
-      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -41,12 +42,14 @@ jobs:
         (not @repositoryspecific or @artifactory) and
         (not @applicationspecific or @java) and
         (not @sourcespecific or @git)
-      DISABLE_HIGHLIGHTS: false
-      DISABLE_SCREENSHOTS: false
-      MOVE_TO_MOUSE_CURSOR: false
-      DISABLE_VIDEO: true
+      DISABLE_HIGHLIGHTS: true
+      DISABLE_SCREENSHOTS: true
+      MOVE_TO_MOUSE_CURSOR: true
+      DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
+      WISTIA_MEDIA_ID:
+      VIDEO_FILE_NAME: bamboo-java-websphere-artifactory.mp4
       SCREENSHOT_PATH: /java-app/websphere/artifactory/git/
     steps:
       - uses: actions/checkout@v1
@@ -55,7 +58,9 @@ jobs:
         run: ./scripts/linux/disk-usage.sh
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp headless.pp teamcity.pp websphere.pp octopus.pp artifactory.pp octopuscli.pp
+        run: >-
+          ./install.sh utilities.pp headless.pp bamboo.pp websphere.pp octopus.pp artifactory.pp
+          octopuscli.pp bamboofinalize.pp
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
@@ -66,11 +71,8 @@ jobs:
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
 
-      - name: Setup TeamCity
-        run: ./scripts/linux/setup-teamcity.sh
-
-      - name: Create TeamCity project
-        run: ./scripts/linux/create-javawar-teamcityproject.sh
+      - name: Create Bamboo project
+        run: ./scripts/linux/create-javawar-bambooproject.sh
 
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
@@ -88,7 +90,7 @@ jobs:
         run: ./scripts/linux/open-webspheredevwebapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-teamcitycreaterelease.sh
+        run: ./scripts/linux/create-bamboocreaterelease.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh
@@ -114,5 +116,18 @@ jobs:
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
 
-      - name: Upload screenshots
-        run: ./scripts/linux/upload-screenshots.sh
+      - name: Process videos
+        run: ./scripts/linux/convert-video.sh
+
+      - name: Upload videos
+        run: ./scripts/linux/upload-video.sh
+
+      - name: Replace Wistia video
+        run: ./scripts/linux/replace-wistia-video.sh
+
+      - name: Build badge
+        run: ./scripts/linux/create-badge.sh
+
+      - name: Upload failure video
+        if: failure()
+        run: ./scripts/linux/process-failed-video.sh
