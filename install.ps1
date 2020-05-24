@@ -27,6 +27,7 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
                 break
             } else {
                 Get-Content C:\puppet.log
+                Get-Content C:\ProgramData\chocolatey\logs\chocolatey.log
             }
         }
 
