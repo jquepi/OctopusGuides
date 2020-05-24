@@ -1,5 +1,5 @@
 package { 'visualstudio2019teamexplorer':
-  ensure   => '16.5.4.0',
+  ensure   => '16.4.5.0',
   provider => chocolatey
 }
 
