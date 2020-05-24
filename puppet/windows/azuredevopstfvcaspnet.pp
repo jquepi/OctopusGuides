@@ -31,7 +31,7 @@ file { 'C:/temp':
     cd ..
 
     Write-Host "Copy the files from GitHub into the workspace"
-    xcopy /s /Y RandomQuotesGit\RandomQuotes\RandomQuotes-aspmvc4-master\*.* "RandomQuotes\Random Quotes"
+    xcopy /s /Y RandomQuotesGit\RandomQuotes\RandomQuotes-aspmvc4-master\*.* "RandomQuotes\Random Quotes\"
     cd "RandomQuotes/Random Quotes"
 
     Write-Host "Add the new files and check them in"
