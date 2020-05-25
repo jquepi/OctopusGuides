@@ -1,5 +1,10 @@
 include chocolatey
 
+package { 'visualstudio2019teamexplorer':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 package { 'gnuwin32-coreutils.install':
   ensure   => installed,
   provider => chocolatey
