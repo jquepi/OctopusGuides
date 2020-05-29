@@ -34,6 +34,11 @@ Feature: Create Azure Web App Target
     And I remove the highlight from the "Library" link if it exists
     And I click the "Add Feed" button
 
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Feed type" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I highlight outside the "Feed type" drop down list
     And I click the "Feed type" drop down list
     And I click the "Docker Container Registry" option
