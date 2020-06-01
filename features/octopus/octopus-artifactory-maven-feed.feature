@@ -59,6 +59,7 @@ Feature: Add Artifactory Maven feed
 
     And I scroll the "Feed url" text box into view offset by "-200"
     And I highlight outside the "Feed url" text box with an offset of "1"
+    And I clear the "Feed url" text box
     And I populate the "Feed url" text box with "http://artifactory:8081/artifactory/Maven"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/externalmavenfeeds/050-external-feed.png"
 
