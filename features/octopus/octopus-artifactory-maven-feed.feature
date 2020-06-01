@@ -36,6 +36,11 @@ Feature: Add Artifactory Maven feed
     And I remove the highlight from the "Library" link if it exists
     And I click the "Add Feed" button
 
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Feed type" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I scroll the "Feed Type" drop down list into view offset by "-200"
     And I highlight outside the "Feed Type" text box with an offset of "1"
     And I click the "Feed Type" drop down list
