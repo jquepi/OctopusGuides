@@ -16,6 +16,7 @@ Feature: Create Certificate
       | Certificate File | //input[contains(@id,'CertificateFile')]                                        |
       | Upload a File    | //label[text()='Upload a File']                                                 |
       | Save             | //button[contains(.,'Save')]                                                    |
+      | Expand All       | //a[text()='EXPAND ALL']                                                        |
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Upload Certificates" for "3" seconds
@@ -34,6 +35,11 @@ Feature: Create Certificate
     And I highlight outside the "Add Certificate" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}030-target.png"
     And I click the "Add Certificate" button
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Name" text box
     And I populate the "Name" text box with "Minikube Client Certificate"
@@ -63,6 +69,7 @@ Feature: Create Certificate
       | Certificate File | //input[contains(@id,'CertificateFile')]                                        |
       | Upload a File    | //label[text()='Upload a File']                                                 |
       | Save             | //button[contains(.,'Save')]                                                    |
+      | Expand All       | //a[text()='EXPAND ALL']                                                        |
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Upload Certificates" for "3" seconds
@@ -81,6 +88,11 @@ Feature: Create Certificate
     And I highlight outside the "Add Certificate" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/target/#{GuideSpecificScreenshotDir}090-target.png"
     And I click the "Add Certificate" button
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Name" text box
     And I populate the "Name" text box with "Minikube CA"

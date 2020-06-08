@@ -1,22 +1,22 @@
-name: Ruby TeamCity NGINX Builtin feed Video
+name: Java Teamcity Websphere Artifectory Feed Screenshots
 on:
 #  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 22,7 * *'
+    - cron:  '0 0 5 * *'
 jobs:
   build:
     if: >-
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
-      (github.event.client_payload.workflow == 'teamcity-ruby-nginx-video')
+      (github.event.client_payload.workflow == 'teamcity-java-websphere-screenshots')
     runs-on: ubuntu-latest
     env:
-      BUILD_NAME: "ruby-app-git-teamcity-builtin-nginx"
       SLACK_STEP_HANDLER: true
       SLACK_ON_ERROR_ONLY: true
       STEP_PAUSE: 1000
+      ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -32,24 +32,22 @@ jobs:
       BROWSER_TYPE: FirefoxNoImplicitWait
       CUCUMBER_PLUGIN: progress
       MOUSE_VERTICAL_OFFSET: 74
+      # This is slightly larger than the warning bar presented by Chrome to stop the mouse cursor triggering the menu
+      # next to the administration menu as we try and click the Overview link.
       MOUSE_VERTICAL_OFFSET_CHROME: 125
       CUCUMBER_TAGS: >-
         (not @browserspecific or @firefox) and
-        (not @destinationspecific or @nginx) and
-        (not @repositoryspecific or @octo-built-in-feed) and
-        (not @applicationspecific or @ruby) and
+        (not @destinationspecific or @websphere) and
+        (not @repositoryspecific or @artifactory) and
+        (not @applicationspecific or @java) and
         (not @sourcespecific or @git)
-      DISABLE_HIGHLIGHTS: true
-      DISABLE_SCREENSHOTS: true
-      MOVE_TO_MOUSE_CURSOR: true
-      DISABLE_VIDEO: false
+      DISABLE_HIGHLIGHTS: false
+      DISABLE_SCREENSHOTS: false
+      MOVE_TO_MOUSE_CURSOR: false
+      DISABLE_VIDEO: true
       STHREE_SCREENSHOT_ENABLED: true
-      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Ruby.git
-      WISTIA_MEDIA_ID: 73o6v3knc6
-      VIDEO_FILE_NAME: teamcity-ruby-nginx-builtin.mp4
-      SCREENSHOT_PATH: /node-app/nginx/builtin/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesruby
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesruby
+      GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
+      SCREENSHOT_PATH: /java-app/websphere/artifactory/git/
     steps:
       - uses: actions/checkout@v1
 
@@ -57,12 +55,13 @@ jobs:
         run: ./scripts/linux/disk-usage.sh
 
       - name: Install Puppet
-        run: >-
-          ./install.sh utilities.pp headless.pp ruby.pp nginx.pp teamcity.pp minikube.pp
-          octopus.pp dotnetutilities.pp octopuscli.pp
+        run: ./install.sh utilities.pp headless.pp teamcity.pp websphere.pp octopus.pp artifactory.pp octopuscli.pp
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
+
+      - name: Create artifactory maven repo
+        run: ./scripts/linux/configure-artifactory.sh
 
       - name: Create Api Key
         run: ./scripts/linux/create-apikey.sh
@@ -70,8 +69,8 @@ jobs:
       - name: Setup TeamCity
         run: ./scripts/linux/setup-teamcity.sh
 
-      - name: Create Team City project
-        run: ./scripts/linux/create-rubynginx-teamcityproject.sh
+      - name: Create TeamCity project
+        run: ./scripts/linux/create-javawar-teamcityproject.sh
 
       - name: Create environments
         run: ./scripts/linux/create-environments.sh
@@ -79,11 +78,14 @@ jobs:
       - name: Create Target
         run: sudo ./scripts/linux/create-target.sh
 
+      - name: Create Maven feed
+        run: ./scripts/linux/create-mavenfeed.sh
+
       - name: Create project
-        run: ./scripts/linux/create-ruby-nginxproject.sh
+        run: ./scripts/linux/create-websphereproject.sh
 
       - name: Open Dev App
-        run: ./scripts/linux/open-devnginxapp.sh
+        run: ./scripts/linux/open-webspheredevwebapp.sh
 
       - name: Create release
         run: ./scripts/linux/create-teamcitycreaterelease.sh
@@ -92,7 +94,7 @@ jobs:
         run: ./scripts/linux/create-lifecycle.sh
 
       - name: Open Test App
-        run: ./scripts/linux/open-testnginxapp.sh
+        run: ./scripts/linux/open-webspheretestwebapp.sh
 
       - name: Add Manual Intervention
         run: ./scripts/linux/add-manualintervention.sh
@@ -112,18 +114,5 @@ jobs:
       - name: View Audit Logs
         run: ./scripts/linux/view-auditlogs.sh
 
-      - name: Process videos
-        run: ./scripts/linux/convert-video.sh
-
-      - name: Upload videos
-        run: ./scripts/linux/upload-video.sh
-
-      - name: Replace Wistia video
-        run: ./scripts/linux/replace-wistia-video.sh
-
-      - name: Build badge
-        run: ./scripts/linux/create-badge.sh
-
-      - name: Upload failure video
-        if: failure()
-        run: ./scripts/linux/process-failed-video.sh
+      - name: Upload screenshots
+        run: ./scripts/linux/upload-screenshots.sh

@@ -15,6 +15,7 @@ Feature: Add Artifactory NuGet feed
       | Feed username       | //input[contains(@id, 'Feedusername')]                                         |
       | Feed password       | //input[contains(@id, 'Feedpassword')]                                         |
       | Save                | //button[@title='Save']                                                        |
+      | Expand All          | //a[text()='EXPAND ALL']                                                       |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Adding an external feed in Octopus" for "3" seconds
@@ -32,6 +33,11 @@ Feature: Add Artifactory NuGet feed
     And I save a screenshot to "#{ExternalMediaPath}/octopus/externalfeeds/030-add-feed.png"
     And I remove the highlight from the "Library" link if it exists
     And I click the "Add Feed" button
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Feed name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I scroll the "Feed name" text box into view offset by "-200"
     And I highlight outside the "Feed name" text box with an offset of "1"

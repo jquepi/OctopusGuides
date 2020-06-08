@@ -18,10 +18,8 @@
   "-DstepHandlerMessage=$GITHUB_SHA" \
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
-  "-DCucumberAlias-ExternalUrl=http://localhost:9091/randomquotes-test/index.html" \
-  "-DCucumberAlias-Screenshot=tomcat-random-quotes-test-app.png" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
-  --plugin "$CUCUMBER_PLUGIN" \
   --tags "$CUCUMBER_TAGS" \
-  features/octopus/open-randomquotes-generic.feature
+  --plugin "$CUCUMBER_PLUGIN" \
+  features/octopus/octopus-websphere-project.feature

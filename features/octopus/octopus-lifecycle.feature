@@ -30,6 +30,7 @@ Feature: Create a Lifecycle in Octopus
       | Save                            | //button[@title='Save']                                                |
       | Optional phase                  | //input[..//label[text()='Optional phase']]                            |
       | Required to progress            | //div[./h4[text()='Required to progress']]                             |
+      | Expand All                      | //a[text()='EXPAND ALL']                                               |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create a lifecycle in Octopus" for "3" seconds
@@ -48,6 +49,11 @@ Feature: Create a Lifecycle in Octopus
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}015-lifecycle-add-lifecycle.png"
     And I remove the highlight from the "Library" link if it exists
     And I click the "Add Lifecycle" button
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Lifecycle name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I populate the "Lifecycle name" text box with "Dev, Test and Prod"
     And I populate the "Lifecycle description" text box with "Progression from the Dev to the Prod environments"

@@ -1,4 +1,4 @@
-name: Java Bamboo WildFly Artifactory Feed Screenshots
+name:  Java Bamboo WildFly Artifactory Feed Screenshots
 on:
 #  push:
   repository_dispatch:
@@ -15,7 +15,7 @@ jobs:
     env:
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_STEP_HANDLER: true
-      SLACK_ON_ERROR_ONLY: true
+      SLACK_ON_ERROR_ONLY: false
       STEP_PAUSE: 1000
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}

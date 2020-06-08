@@ -1,8 +1,3 @@
-package { 'visualstudio2019teamexplorer':
-  ensure   => installed,
-  provider => chocolatey
-}
-
 file { 'C:/temp':
   ensure => 'directory'
 }

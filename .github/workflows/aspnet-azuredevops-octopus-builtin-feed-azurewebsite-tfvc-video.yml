@@ -98,7 +98,7 @@ jobs:
 
     - name: Populate TFVC repo
       shell: powershell
-      run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevopstfvcaspnet.pp
+      run: ./install.ps1 -Scripts azuredevopstfvcaspnet.pp
 
     - name: Run the build
       shell: powershell

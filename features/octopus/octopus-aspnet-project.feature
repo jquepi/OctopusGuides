@@ -3,12 +3,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Open Browser
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
     And I run the feature "shared/octopus-login.feature" passing the original arguments
-
-  @hide-wizard
-  Scenario: Hide wizard
-    Given I set the following aliases:
-      | Hide wizard | //em[contains(@class,'fa fa-minus')] |
-    And I click the "Hide wizard" button
+    And I run the feature "shared/octopus-hide-wizard.feature" passing the original arguments
 
   @create-project @destinationspecific @iis
   Scenario: IIS - Display annotation
@@ -571,7 +566,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Create Release" button
 
     And I highlight outside the "Save" button
-    And I sleep for "1" second
+    And I sleep for "2" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-save-release.png"
     And I remove the highlight from the "Create Release" button
     And I click the "Save" button

@@ -6,7 +6,7 @@ service { 'jenkins':
 file_line { 'jenkins args':
   path    => '/etc/default/jenkins',
   line    =>
-    'JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=$HTTP_PORT" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin'
+    'JENKINS_ARGS="--webroot=/var/cache/$NAME/war --httpPort=$HTTP_PORT --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin"'
   ,
   match   => 'JENKINS_ARGS="--webroot=/var/cache/\$NAME/war --httpPort=\$HTTP_PORT"',
   replace => true

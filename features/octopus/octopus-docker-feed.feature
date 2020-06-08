@@ -15,10 +15,10 @@ Feature: Create Azure Web App Target
       | Feed type                 | //div[../../div[text()='Feed type']]                                           |
       | Docker Container Registry | //div[./div/div[text()='Docker Container Registry']]                           |
       | Feed name                 | //input[contains(@id,'Feedname')]                                              |
+      | Expand All                | //a[text()='EXPAND ALL']                                                       |
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Create a Docker feed" for "3" seconds
-
     And I click the "More" link waiting up to "1" seconds if the "Library" link does not exist
 
     And I highlight outside the "Library" link
@@ -34,9 +34,19 @@ Feature: Create Azure Web App Target
     And I remove the highlight from the "Library" link if it exists
     And I click the "Add Feed" button
 
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Feed type" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
+
     And I highlight outside the "Feed type" drop down list
     And I click the "Feed type" drop down list
     And I click the "Docker Container Registry" option
+
+    And I stop recording the screen
+    And I sleep for "5" seconds
+    And I click the "Expand All" link if the "Feed name" text box does not exist
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Feed name" text box
     And I scroll the "Feed name" text box into view offset by "-300"
@@ -45,7 +55,7 @@ Feature: Create Azure Web App Target
   @define-feed @repositoryspecific @localdockerrepo
   Scenario: Define the local feed url
     Given I set the following aliases:
-      | URL | //input[contains(@id,'Feedurl')] |
+      | URL           | //input[contains(@id,'Feedurl')]      |
       | Registry path | //input[contains(@id,'Registrypath')] |
 
     And I force clear the "URL" text box
