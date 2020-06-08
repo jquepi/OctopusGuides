@@ -5,7 +5,7 @@ on:
   repository_dispatch:
   # Each workflow is scheduled to run on a random day of the month
   schedule:
-    - cron:  '0 0 13 * *'
+    - cron:  '0 0 13,28 * *'
 jobs:
   build:
     # This is used to limit the scope of a rebuild with the repository_dispatch event

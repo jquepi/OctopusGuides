@@ -3,7 +3,7 @@ on:
 #  push:
   repository_dispatch:
   schedule:
-    - cron:  '0 0 29 * *'
+    - cron:  '0 0 29,14 * *'
 jobs:
   build:
     if: >-
