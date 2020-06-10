@@ -13,6 +13,8 @@ docker_network { 'octopus':
   env                       => ['ACCEPT_EULA=Y', 'SA_PASSWORD=Password01!', 'MSSQL_PID=Express'],
   ports                     => ['1433:1433'],
   net                       => 'octopus',
+  extra_parameters          => [ '--restart=always' ],
+  labels                    => ['autoheal=true'],
   remove_container_on_start => false,
   remove_volume_on_start    => false,
   remove_container_on_stop  => false,
