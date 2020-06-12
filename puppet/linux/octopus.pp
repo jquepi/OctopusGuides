@@ -25,10 +25,13 @@ docker_network { 'octopus':
   logoutput => true
 }
 -> file_line { 'MSSQL always restart':
-  path    => '/etc/systemd/system/docker-mssql.service',
-  line    => 'Restart=always',
-  match   => 'Restart=on-failure',
-  replace => true,
+  path                  => '/etc/systemd/system/docker-mssql.service',
+  line                  => 'Restart=always',
+  match                 => 'Restart=on-failure',
+  health_check_cmd      => '/opt/mssql-tools/bin/sqlcmd -U sa -P Password01! -Q select 1',
+  restart_on_unhealthy  => true,
+  health_check_interval => 60,
+  replace               => true,
 }
 
 docker::image { 'octopusdeploy/octopusdeploy':
