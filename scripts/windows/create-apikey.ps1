@@ -20,6 +20,5 @@
     "-DCucumberAlias-ExternalApiKeyFile=C:\apikey.txt" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
-    --plugin progress `
     --tags $env:CUCUMBER_TAGS `
     features\octopus\octopus-api-key.feature

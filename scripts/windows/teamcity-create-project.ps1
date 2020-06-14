@@ -23,5 +23,4 @@
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --tags $env:CUCUMBER_TAGS `
-    --plugin progress `
     features\teamcity\teamcity-aspnet-project.feature

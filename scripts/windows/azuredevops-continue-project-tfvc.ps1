@@ -23,5 +23,4 @@
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --tags "@execute-project or @login" `
-    --plugin progress `
     features\azuredevops\azuredevops-aspnet-project.feature

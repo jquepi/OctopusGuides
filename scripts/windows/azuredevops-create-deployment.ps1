@@ -22,5 +22,4 @@
     "-DCucumberAlias-ExternalOctopusAPIKey=$((cat C:\octopus_api.txt).Trim())" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --tags $env:CUCUMBER_TAGS `
-    --plugin progress `
     features\azuredevops\azuredevops-create-deploy.feature

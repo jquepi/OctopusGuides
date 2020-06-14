@@ -20,6 +20,5 @@
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     "-DCucumberAlias-SMTPPassword=$env:SMTP_PASSWORD" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
-    --plugin progress `
     --tags $env:CUCUMBER_TAGS `
     features\octopus\octopus-email-notification.feature
