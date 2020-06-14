@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo "Plugins: $CUCUMBER_PLUGIN"
-echo "Tags: $CUCUMBER_TAGS"
-
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \
   "-Xmx2g" \
