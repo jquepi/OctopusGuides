@@ -30,7 +30,7 @@ jobs:
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       DISPLAY: ":99.0"
       BROWSER_TYPE: FirefoxNoImplicitWait
-      CUCUMBER_PLUGIN: progress
+      CUCUMBER_PLUGIN: pretty
       MOUSE_VERTICAL_OFFSET: 74
       MOUSE_VERTICAL_OFFSET_CHROME: 125
       CUCUMBER_TAGS: >-
