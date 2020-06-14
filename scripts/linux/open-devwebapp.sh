@@ -45,6 +45,5 @@ sudo kubectl describe service randomquotes -n randomquotes-dev
   "-DCucumberAlias-Screenshot=k8s-random-quotes-dev-app.png" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
-  --plugin "$CUCUMBER_PLUGIN" \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/open-randomquotes-generic.feature

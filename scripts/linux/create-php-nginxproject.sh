@@ -26,5 +26,4 @@
   "-DCucumberAlias-ExternalConfigFileName=$CONFIG_FILE_NAME" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
-  --plugin "$CUCUMBER_PLUGIN" \
   features/octopus/octopus-php-nginx-project.feature

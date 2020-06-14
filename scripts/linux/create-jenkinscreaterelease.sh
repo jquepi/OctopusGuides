@@ -28,5 +28,4 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ExternalShellLocator=$CREATE_RELEASE_SHELL_LOCATOR" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
-  --plugin "$CUCUMBER_PLUGIN" \
   features/jenkins/jenkins-k8s-create-deploy.feature

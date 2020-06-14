@@ -30,5 +30,4 @@
   "-DCucumberAlias-K8SProdNodePort=$K8S_PROD_NODEPORT" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
-  --plugin "$CUCUMBER_PLUGIN" \
   features/octopus/octopus-k8s-project.feature

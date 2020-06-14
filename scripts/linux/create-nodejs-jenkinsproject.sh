@@ -27,5 +27,4 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
-  --plugin "$CUCUMBER_PLUGIN" \
   features/jenkins/jenkins-nodejsk8s-project.feature
