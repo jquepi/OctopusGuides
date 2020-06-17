@@ -1,3 +1,6 @@
+# This is a script designed to loop over a list of links, load the web page, and then load all the links found
+# in the page looking for HTTP errors that indicate dead links.
+
 $errorPages = @()
 
 foreach($line in Get-Content .\links.txt)
