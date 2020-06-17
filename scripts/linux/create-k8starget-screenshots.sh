@@ -28,7 +28,6 @@ echo "Minikube IP: $MINIKUBE_IP:8443"
   "-DCucumberAlias-ExternalK8SIP=$MINIKUBE_IP:8443" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
-  --plugin "$CUCUMBER_PLUGIN" \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-k8s-target.feature
 
@@ -57,7 +56,6 @@ echo "Minikube IP: $MINIKUBE_IP:8443"
   "-DCucumberAlias-ExternalK8SIP=$MINIKUBE_IP:8443" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
-  --plugin "$CUCUMBER_PLUGIN" \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-k8s-target.feature
 
@@ -86,7 +84,6 @@ echo "Minikube IP: $MINIKUBE_IP:8443"
   "-DCucumberAlias-ExternalK8SIP=$MINIKUBE_IP:8443" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
-  --plugin "$CUCUMBER_PLUGIN" \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-k8s-target.feature
 

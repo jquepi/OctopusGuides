@@ -29,5 +29,4 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ExternalBambooPlugin=/opt/bamboo.jar" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
-  --plugin "$CUCUMBER_PLUGIN" \
   features/bamboo/bamboo-javak8s-project.feature

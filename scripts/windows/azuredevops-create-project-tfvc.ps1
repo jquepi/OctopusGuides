@@ -25,5 +25,4 @@
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --tags $env:CUCUMBER_TAGS `
     --tags "not @execute-project" `
-    --plugin progress `
     features\azuredevops\azuredevops-aspnet-project.feature

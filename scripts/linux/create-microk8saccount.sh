@@ -23,6 +23,5 @@ MICROK8S_PASSWORD=$(microk8s.kubectl config view --raw -o json | jq -r '.users[0
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   "-DCucumberAlias-ExternalMicroK8SPassword=$MICROK8S_PASSWORD" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
-  --plugin "$CUCUMBER_PLUGIN" \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-microk8s-account.feature

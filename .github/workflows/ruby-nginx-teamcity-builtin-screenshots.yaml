@@ -1,6 +1,6 @@
 name: Ruby TeamCity NGINX Builtin feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 20,5 * *'
@@ -29,7 +29,6 @@ jobs:
       SCREENSHOT_BUCKET: octopus-guides-screenshots
       DISPLAY: ":99.0"
       BROWSER_TYPE: FirefoxNoImplicitWait
-      CUCUMBER_PLUGIN: progress
       MOUSE_VERTICAL_OFFSET: 74
       MOUSE_VERTICAL_OFFSET_CHROME: 125
       CUCUMBER_TAGS: >-

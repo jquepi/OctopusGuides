@@ -19,5 +19,4 @@
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
-    --plugin progress `
     features\test\test.feature

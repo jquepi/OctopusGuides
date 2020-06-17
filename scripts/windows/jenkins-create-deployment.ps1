@@ -22,5 +22,4 @@
     "-DCucumberAlias-ExternalShellLocator=$env:CREATE_RELEASE_SHELL_LOCATOR" `
     -jar c:\tools\webdrivertraining.1.0-SNAPSHOT.jar `
     --tags $env:CUCUMBER_TAGS `
-    --plugin progress `
     features\jenkins\jenkins-create-deploy.feature

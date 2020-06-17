@@ -21,5 +21,4 @@
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
-  --plugin "$CUCUMBER_PLUGIN" \
   features/octopus/octopus-tomcat-project.feature

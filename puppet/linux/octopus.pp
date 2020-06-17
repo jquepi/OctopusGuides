@@ -6,7 +6,7 @@ docker_network { 'octopus':
   ip_range => '192.168.1.0/24',
 }
 -> docker::image { 'mcr.microsoft.com/mssql/server':
-  image_tag => '2017-latest-ubuntu'
+  image_tag => '2019-latest'
 }
 -> docker::run { 'mssql':
   image                     => 'mcr.microsoft.com/mssql/server:2017-latest-ubuntu',
@@ -25,10 +25,9 @@ docker_network { 'octopus':
   logoutput => true
 }
 -> file_line { 'MSSQL always restart':
-  path    => '/etc/systemd/system/docker-mssql.service',
-  line    => 'Restart=always',
-  match   => 'Restart=on-failure',
-  replace => true,
+  path                  => '/etc/systemd/system/docker-mssql.service',
+  line                  => 'Restart=always',
+  match                 => 'Restart=on-failure',
 }
 
 docker::image { 'octopusdeploy/octopusdeploy':
