@@ -4,9 +4,8 @@ Feature: COnfigure docker creds
   Scenario: Configure credentials
     Given I set the following aliases:
       | Manage Jenkins          | //a[@class='task-link' and contains(.,'Manage Jenkins')]               |
-      | Configure Credentials   | //a[@href='configureCredentials']                                      |
-      | Credentials             | //a[@href='/credentials'][contains(.,'Credentials')]                   |
-      | System                  | //a[@href='/credentials/store/system'][contains(.,'System')]           |
+      | Manage Credentials      | //a[@href='credentials']                                               |
+      | System                  | //a[@href='/credentials/store/system']                                 |
       | Global credentials      | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
       | Global credentials cell | .sortable > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2)     |
 
@@ -19,16 +18,12 @@ Feature: COnfigure docker creds
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}050-manage-jenkins.png"
     And I click the "Manage Jenkins" link
 
-    And I scroll the "Configure Credentials" link into view offset by "-100"
+    And I scroll the "Manage Credentials" link into view offset by "-100"
     # Give the top toolbar a change to realign itself
     And I wait for "1" seconds
-    And I highlight outside the "Configure Credentials" link
+    And I highlight outside the "Manage Credentials" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}060-configure-credentials.png"
-    And I click the "Configure Credentials" link
-
-    And I highlight inside the "Credentials" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}070-credentials-parent.png"
-    And I click the "Credentials" link
+    And I click the "Manage Credentials" link
 
     And I highlight inside the "System" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}080-credentials-system.png"
