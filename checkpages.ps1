@@ -13,7 +13,7 @@ foreach($line in Get-Content .\links.txt)
         --enable-preview `
         "-Dio.netty.leakDetection.level=DISABLED" `
         "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
-    "-DstepPause=$STEP_PAUSE" `
+        "-DstepPause=$STEP_PAUSE" `
         "-DCucumberAlias-ExternalBrowserType=FirefoxHeadless" `
         "-DCucumberAlias-ExternalURL=$line" `
         -jar ..\WebDriverTraining\target\webdrivertraining.1.0-SNAPSHOT.jar `
