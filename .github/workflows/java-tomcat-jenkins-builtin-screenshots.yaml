@@ -10,7 +10,7 @@ jobs:
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
-      (github.event.client_payload.workflow == 'jenkins-javawar-tomcat-screenshots')
+      (github.event.client_payload.workflow == 'jenkins-javawar-tomcat-screenshots') || (github.event.client_payload.workflow == 'jenkins')
     runs-on: ubuntu-latest
     env:
       SLACK_STEP_HANDLER: true
