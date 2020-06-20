@@ -10,7 +10,7 @@ jobs:
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
-      (github.event.client_payload.workflow == 'jenkins-aspnetcore-k8s-video')
+      (github.event.client_payload.workflow == 'jenkins-aspnetcore-k8s-video') || (github.event.client_payload.workflow == 'jenkins')
     runs-on: ubuntu-latest
     env:
       BUILD_NAME: "aspnetcore-docker-app-git-jenkins-dockerhub-k8s"
