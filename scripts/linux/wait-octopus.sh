@@ -8,6 +8,8 @@ until $(curl --max-time 5 --output /dev/null --silent --head --fail http://local
       echo "Max attempts reached"
       docker logs octopusdeploy
       docker logs mssql
+      journalctl -u docker-octopusdeploy.service
+      journalctl -u docker-mssql.service
       exit 1
     fi
 
