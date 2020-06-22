@@ -6,10 +6,10 @@ docker_network { 'octopus':
   ip_range => '192.168.1.0/24',
 }
 -> docker::image { 'mcr.microsoft.com/mssql/server':
-  image_tag => '2019-latest-ubuntu'
+  image_tag => '2019-latest'
 }
 -> docker::run { 'mssql':
-  image                     => 'mcr.microsoft.com/mssql/server:2019-latest-ubuntu',
+  image                     => 'mcr.microsoft.com/mssql/server:2019-latest',
   env                       => ['ACCEPT_EULA=Y', 'SA_PASSWORD=Password01!', 'MSSQL_PID=Express', 'MSSQL_MEMORY_LIMIT_MB=2048'],
   ports                     => ['1433:1433'],
   net                       => 'octopus',
