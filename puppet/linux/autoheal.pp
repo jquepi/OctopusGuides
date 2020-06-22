@@ -6,7 +6,7 @@ docker::image { 'willfarrell/autoheal':
   image            => 'willfarrell/autoheal:latest',
   extra_parameters => [ '--restart=always' ],
   volumes          => ['/var/run/docker.sock:/var/run/docker.sock'],
-  env              => ['AUTOHEAL_START_PERIOD=120', 'MSSQL_MEMORY_LIMIT_MB=2048'],
+  env              => ['AUTOHEAL_START_PERIOD=120'],
 }
 -> exec { 'enable service autoheal':
   command   => '/bin/systemctl enable docker-autoheal',
