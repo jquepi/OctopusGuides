@@ -53,15 +53,16 @@ Feature: Create Azure Web App Target
     And I populate the "Feed name" text box with "Docker"
 
   @define-feed @repositoryspecific @localdockerrepo
-  Scenario: Define the local feed url
+  Scenario: Define the local feed url, clearing the defaults for Docker Hub
     Given I set the following aliases:
       | URL           | //input[contains(@id,'Feedurl')]      |
       | Registry path | //input[contains(@id,'Registrypath')] |
 
     And I force clear the "URL" text box
-    And I populate the "URL" text box with "http://registry:5000"
+    # https://stackoverflow.com/a/48547074/157605 has details on this IP address
+    And I populate the "URL" text box with "http://172.17.0.1:32000"
 
-    And I populate the "Registry path" text box with "localhost:5000"
+    And I populate the "Registry path" text box with "localhost:32000"
 
   @define-feed
   Scenario: Add docker feed

@@ -9,8 +9,8 @@ docker_network { 'octopus':
   image_tag => '2019-latest'
 }
 -> docker::run { 'mssql':
-  image                     => 'mcr.microsoft.com/mssql/server:2017-latest-ubuntu',
-  env                       => ['ACCEPT_EULA=Y', 'SA_PASSWORD=Password01!', 'MSSQL_PID=Express'],
+  image                     => 'mcr.microsoft.com/mssql/server:2019-latest',
+  env                       => ['ACCEPT_EULA=Y', 'SA_PASSWORD=Password01!', 'MSSQL_PID=Express', 'MSSQL_MEMORY_LIMIT_MB=2048'],
   ports                     => ['1433:1433'],
   net                       => 'octopus',
   extra_parameters          => [ '--restart=always' ],
@@ -31,16 +31,10 @@ docker_network { 'octopus':
 }
 
 docker::image { 'octopusdeploy/octopusdeploy':
-  image_tag => '2020.2.10'
-}
--> exec { 'Initialise the database (this can take a few mins)':
-  command =>
-    "/usr/bin/docker run -e ACCEPT_EULA=Y --entrypoint /bin/bash octopusdeploy/octopusdeploy:2020.2.10 -al -c 'dotnet Octopus.Server.dll create-instance --instance OctopusServer --config \'/home/octopus/.octopus/OctopusServer/Server/Server.linux.config\' --serverNodeName=test; dotnet Octopus.Server.dll database --instance OctopusServer --connectionString \'Server=mssql,1433;Database=Octopus;User Id=SA;Password=Password01!\' --masterKey \'6EdU6IWsCtMEwk0kPKflQQ==\' --create'"
-  ,
-  timeout => 600
+  image_tag => '2020.2.14'
 }
 -> docker::run { 'octopusdeploy':
-  image                     => 'octopusdeploy/octopusdeploy:2020.2.10',
+  image                     => 'octopusdeploy/octopusdeploy:2020.2.14',
   depends                   => 'mssql',
   env                       => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com',
     'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'

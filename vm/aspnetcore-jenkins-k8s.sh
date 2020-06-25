@@ -24,7 +24,7 @@ export CUCUMBER_PLUGIN=pretty
 
 export GIT_URL=https://github.com/OctopusSamples/RandomQuotes.git
 # From the CI server ponit of view, the registry is on localhost
-export DOCKER_IMAGE=localhost:5000/randomquotes
+export DOCKER_IMAGE=localhost:32000/randomquotes
 # From Octopus' point of view, the registry has the hostname "registry"
 export OCTOPUS_DOCKER_IMAGE=randomquotes
 export CONFIG_FILE="{\\n  \\\"Logging\\\": {\\n    \\\"IncludeScopes\\\": false,\\n    \\\"LogLevel\\\": {\\n      \\\"Default\\\": \\\"Warning\\\"\\n    }\\n  },\\n  \\\"AppSettings\\\": {\\n    \\\"AppVersion\\\": \\\"0.0.0\\\",\\n    \\\"EnvironmentName\\\": \\\"#{Octopus.Environment.Name}\\\"\\n  }\\n}"
@@ -42,7 +42,6 @@ cd ..
 ./install.sh \
   jenkins.pp \
   update.pp \
-  dockerregistry.pp \
   microk8s.pp \
   vagrantmicrok8s.pp \
   jenkinsdocker.pp \

@@ -23,8 +23,8 @@ export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspe
 export CUCUMBER_PLUGIN=pretty
 
 export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
-# From the CI server ponit of view, the registry is on localhost
-export DOCKER_IMAGE=localhost:5000/randomquotesjava
+# From the CI server point of view, the registry is on localhost
+export DOCKER_IMAGE=localhost:32000/randomquotesjava
 # From Octopus' point of view, the registry has the hostname "registry"
 export OCTOPUS_DOCKER_IMAGE=randomquotesjava
 export CONFIG_FILE="spring:\\n  profiles:\\n    active: \\\"#{Octopus.Environment.Name}\\\"\\n  h2:\\n    console:\\n      enabled: true\\n  jpa:\\n    database-platform: org.hibernate.dialect.H2Dialect\\n  datasource:\\n    url: jdbc:h2:mem:testdb\\n    dbcp2:\\n      driver-class-name: org.h2.Driver\\n  flyway:\\n    locations: classpath:db/migration/{vendor}\\nserver:\\n  port : \\\"80\\\""
@@ -42,7 +42,6 @@ cd ..
 ./install.sh \
   jenkins.pp \
   update.pp \
-  dockerregistry.pp \
   microk8s.pp \
   vagrantmicrok8s.pp \
   jenkinsdocker.pp \

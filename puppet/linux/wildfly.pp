@@ -6,11 +6,11 @@ user { 'wildfly':
   owner   => 'wildfly',
   group   => 'wildfly'
 }
--> archive { '/opt/wildfly-19.0.0.Final.tar.gz':
+-> archive { '/opt/wildfly-20.0.0.Final.tar.gz':
   ensure          => present,
   extract         => true,
   extract_path    => '/opt/wildfly',
-  source          => 'https://download.jboss.org/wildfly/19.0.0.Final/wildfly-19.0.0.Final.tar.gz',
+  source          => 'https://download.jboss.org/wildfly/20.0.0.Final/wildfly-20.0.0.Final.tar.gz',
   creates         => '/opt/wildfly/README.txt',
   cleanup         => true,
   extract_command => 'tar xfz %s --strip-components=1'
