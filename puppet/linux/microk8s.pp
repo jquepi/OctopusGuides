@@ -39,7 +39,22 @@ apt::key { 'kubernetes-repository':
   command   => '/snap/bin/microk8s.enable dns',
   logoutput => true
 }
+-> exec { 'Enable registry':
+  command   => '/snap/bin/microk8s.enable registry',
+  logoutput => true
+}
 -> exec { 'Enable iptables forwarding':
   command   => '/sbin/iptables -P FORWARD ACCEPT',
+  logoutput => true
+}
+-> file { '/etc/docker/daemon.json':
+  content => @("EOL"/L)
+    {
+      "insecure-registries" : ["localhost:32000"]
+    }
+    | EOL
+}
+-> exec { 'Restart docker':
+  command => '/bin/systemctl restart docker',
   logoutput => true
 }

@@ -59,9 +59,9 @@ Feature: Create Azure Web App Target
       | Registry path | //input[contains(@id,'Registrypath')] |
 
     And I force clear the "URL" text box
-    And I populate the "URL" text box with "http://registry:5000"
+    And I populate the "URL" text box with "https://host.docker.internal:32000"
 
-    And I populate the "Registry path" text box with "localhost:5000"
+    And I populate the "Registry path" text box with "localhost:32000"
 
   @define-feed
   Scenario: Add docker feed

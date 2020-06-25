@@ -8,11 +8,11 @@ Feature: Push and build docker image
 
     And I scroll the "Registry" text box into view offset by "-300"
     And I highlight outside the "Registry" text box with an offset of "2"
-    And I populate the "Registry" text box with "localhost:5000"
+    And I populate the "Registry" text box with "localhost:32000"
 
     And I scroll the "Docker registry URL" text box into view offset by "-300"
     And I highlight outside the "Docker registry URL" text box with an offset of "2"
-    And I populate the "Docker registry URL" text box with "http://localhost:5000"
+    And I populate the "Docker registry URL" text box with "https://localhost:32000"
 
   @configure-project @repositoryspecific @dockerhub
   Scenario: Set the docker registry

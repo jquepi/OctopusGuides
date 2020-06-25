@@ -27,7 +27,7 @@ file { '/usr/share/doc/guidescreds.txt':
     sudo systemctl restart docker-octopusdeploy
     The Octopus Docker container is managed as a systemd service, and can be controlled with systemctl.
 
-    curl -X GET http://localhost:5000/v2/_catalog
+    curl -X GET http://localhost:32000/v2/_catalog
     For VMs with the local Docker registry installed, this curl command will list the avilable images.
     | EOL
 }
