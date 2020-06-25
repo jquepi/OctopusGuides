@@ -94,7 +94,7 @@ Feature: Create Azure Web App Target
   @destinationspecific @microk8s
   Scenario: Add target password
     Given I set the following aliases:
-      | Token          | //input[@value='Token']                      |
+      | Token                     | //input[@value='Token']                                 |
       | Select account            | (//button[../../../../div[text()='Select account']])[1] |
       | Cluster account container | (//div[./div[text()='Select account']])[1]              |
       | MicroK8S account          | (//span[./div/div/div[text()='MicroK8S Account']])[1]   |
