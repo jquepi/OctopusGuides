@@ -94,14 +94,14 @@ Feature: Create Azure Web App Target
   @destinationspecific @microk8s
   Scenario: Add target password
     Given I set the following aliases:
-      | UsernamePassword          | //input[@value='UsernamePassword']                      |
+      | Token          | //input[@value='Token']                      |
       | Select account            | (//button[../../../../div[text()='Select account']])[1] |
       | Cluster account container | (//div[./div[text()='Select account']])[1]              |
       | MicroK8S account          | (//span[./div/div/div[text()='MicroK8S Account']])[1]   |
 
-    And I highlight outside the "UsernamePassword" option
-    And I scroll the "UsernamePassword" option into view offset by "-200"
-    And I force click the "UsernamePassword" option
+    And I highlight outside the "Token" option
+    And I scroll the "Token" option into view offset by "-200"
+    And I force click the "Token" option
     And I sleep for "1" second
 
     And I scroll the "Select account" drop down list into view offset by "-200"

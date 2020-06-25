@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MICROK8S_PASSWORD=$(microk8s.kubectl config view --raw -o json | jq -r '.users[0].user.password' | tr -d '"')
+MICROK8S_TOKEN=$(microk8s.kubectl config view --raw -o json | jq -r '.users[0].user.token' | tr -d '"')
 
 /usr/lib/jvm/java-13-openjdk-amd64/bin/java \
   "--enable-preview" \
@@ -21,7 +21,7 @@ MICROK8S_PASSWORD=$(microk8s.kubectl config view --raw -o json | jq -r '.users[0
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
-  "-DCucumberAlias-ExternalMicroK8SPassword=$MICROK8S_PASSWORD" \
+  "-DCucumberAlias-ExternalMicroK8SToken=$MICROK8S_TOKEN" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-microk8s-account.feature
