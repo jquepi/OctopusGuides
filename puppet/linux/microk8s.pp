@@ -143,7 +143,7 @@ $SNAP/microk8s-stop.wrapper || true
 $SNAP/microk8s-start.wrapper
     | EOT
 }
--> exec { 'Fix certs':
-  command   => '/opt/fix-microk8s-certs.sh',
-  logoutput => true
-}
+#-> exec { 'Fix certs':
+#  command   => '/opt/fix-microk8s-certs.sh',
+#  logoutput => true
+#}
