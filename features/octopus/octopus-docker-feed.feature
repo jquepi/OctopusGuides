@@ -59,7 +59,8 @@ Feature: Create Azure Web App Target
       | Registry path | //input[contains(@id,'Registrypath')] |
 
     And I force clear the "URL" text box
-    And I populate the "URL" text box with "https://host.docker.internal:32000"
+    # https://stackoverflow.com/a/48547074/157605 has details on this IP address
+    And I populate the "URL" text box with "https://172.17.0.1:32000"
 
     And I populate the "Registry path" text box with "localhost:32000"
 
