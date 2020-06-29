@@ -8,14 +8,10 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I run the feature "shared/jenkins-configure-docker.feature" passing the original arguments
     And I run the feature "shared/jenkins-initial-project-setup.feature" passing the original arguments
 
-
   @configure-project
   Scenario: Create the project
     Given I set the following aliases:
       | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
-      | Invoke top-level Maven targets               | //a[contains(.,'Invoke top-level Maven targets')]      |
-      | Goals One                                    | (//input[@id='textarea._.targets'])[1]                 |
-      | Goals Two                                    | (//input[@id='textarea._.targets'])[2]                 |
       | Command                                      | //div[@class='CodeMirror']                             |
       | Execute Docker command                       | //a[contains(.,'Execute Docker command')]              |
       | Docker command one                           | (//select[../../td[text()='Docker command']])[1]       |
@@ -26,38 +22,6 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
       | Push image                                   | 7                                                      |
       | Name of the image to push (repository/image) | //input[@name='_.image']                               |
       | Tag                                          | (//input[@name='_.tag'])[3]                            |
-
-    And I scroll the "Add build step" button into view offset by "-200"
-    And I highlight outside the "Add build step" button
-    And I sleep for "2" seconds
-    And I click the "Add build step" button
-    And I highlight outside the "Invoke top-level Maven targets" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}240-maven.png"
-    And I click the "Invoke top-level Maven targets" link
-    And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Invoke top-level Maven targets" option
-
-    And I scroll the "Goals One" text box into view offset by "-200"
-    And I highlight outside the "Goals One" text box
-    And I populate the "Goals One" text box with "versions:set -DnewVersion=1.0.$BUILD_NUMBER"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-maven.png"
-    And I remove the highlight from the "Goals One" text box
-
-    And I scroll the "Add build step" button into view offset by "-200"
-    And I highlight outside the "Add build step" button
-    And I sleep for "2" seconds
-    And I click the "Add build step" button
-    And I highlight outside the "Invoke top-level Maven targets" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}260-maven.png"
-    And I click the "Invoke top-level Maven targets" link
-    And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Invoke top-level Maven targets" option
-
-    And I scroll the "Goals Two" text box into view offset by "-200"
-    And I highlight outside the "Goals Two" text box
-    And I populate the "Goals Two" text box with "clean test package"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}270-maven.png"
-    And I remove the highlight from the "Goals Two" text box
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
