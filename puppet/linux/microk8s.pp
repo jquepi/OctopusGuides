@@ -58,3 +58,12 @@ apt::key { 'kubernetes-repository':
   command => '/bin/systemctl restart docker',
   logoutput => true
 }
+-> file { '/home/vagrant/.kube':
+  ensure => 'directory',
+  owner   => 'vagrant',
+  group   => 'vagrant',
+}
+-> exec { 'Make config generally available':
+  command   => '/snap/bin/microk8s.kubectl config view --raw > /home/vagrant/.kube/config',
+  logoutput => true
+}
