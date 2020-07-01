@@ -1,6 +1,6 @@
 name: Java Bamboo Tomcat Artifactory Feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 1,16 * *'
