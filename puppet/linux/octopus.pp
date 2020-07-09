@@ -31,10 +31,10 @@ docker_network { 'octopus':
 }
 
 docker::image { 'octopusdeploy/octopusdeploy':
-  image_tag => '2020.2.14'
+  image_tag => '2020.2.16'
 }
 -> docker::run { 'octopusdeploy':
-  image                     => 'octopusdeploy/octopusdeploy:2020.2.14',
+  image                     => 'octopusdeploy/octopusdeploy:2020.2.16',
   depends                   => 'mssql',
   env                       => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com',
     'ADMIN_PASSWORD=Password01!', 'ACCEPT_EULA=Y'
