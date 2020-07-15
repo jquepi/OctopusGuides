@@ -11,8 +11,8 @@ user { 'payara':
 }
 -> file_line { 'Configure HTTP port':
   path    => '/opt/payara5/glassfish/domains/domain1/config/domain.xml',
-  line    => '                    <network-listener port="9092" protocol="http-listener-1" transport="tcp" name="http-listener-1"',
-  match   => '                    <network-listener port="8080" protocol="http-listener-1" transport="tcp" name="http-listener-1"',
+  line    => '                    <network-listener port="9092" protocol="http-listener-1" transport="tcp" name="http-listener-1" thread-pool="http-thread-pool"></network-listener>',
+  match   => '                    <network-listener port="8080" protocol="http-listener-1" transport="tcp" name="http-listener-1" thread-pool="http-thread-pool"></network-listener>',
   replace => true,
 }
 -> file { '/opt/payara5/glassfish/domains/domain1/autodeploy':
