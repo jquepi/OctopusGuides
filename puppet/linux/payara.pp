@@ -19,7 +19,7 @@ user { 'payara':
   ensure => 'directory'
 }
 -> exec { "fix permissions":
-  command   => "/bin/chown -R payara:payara /opt/wlp",
+  command   => "/bin/chown -R payara:payara /opt/payara5",
   logoutput => true,
   timeout   => 3600
 }
