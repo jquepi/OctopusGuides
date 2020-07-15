@@ -14,6 +14,7 @@ These are the ports used by the various apps deployed by Puppet and Octopus.
 | 6990 | Bamboo        |
 | 9090 | Azure DevOps  | 
 | 9091 | Tomcat        |
+| 9092 | Payara        |
 | 7070 | WildFly HTTP  |
 | 7443 | WildFly HTTPS | 
 | 9990 | WildFly Admin |
