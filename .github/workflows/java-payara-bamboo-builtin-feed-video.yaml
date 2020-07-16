@@ -1,6 +1,6 @@
 name: Java Bamboo payara BuiltIn Feed Video
 on:
-  push:
+#  push:
   repository_dispatch:
   schedule:
     - cron:  '0 0 17 * *'
@@ -46,7 +46,7 @@ jobs:
       DISABLE_VIDEO: false
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
-      WISTIA_MEDIA_ID: 
+      WISTIA_MEDIA_ID: mgnyaz5y84
       VIDEO_FILE_NAME: bamboo-java-payara-builtin.mp4
       SCREENSHOT_PATH: /java-app/payara/builtin/git/
     steps:
