@@ -224,7 +224,7 @@ Feature: Create a Lifecycle in Octopus
       | Save           | //button[contains(.,'Save')]           |
       | Task Log       | //button[contains(.,'Task Log')]       |
 
-    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/process"
+    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/deployments/process"
     And I sleep for "10" seconds
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
