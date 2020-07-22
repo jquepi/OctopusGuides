@@ -206,7 +206,7 @@ Feature: Add a manual intervention step
 
     And I scroll the "Environments" section into view offset by "-300"
     And I highlight outside the "Environments" element
-    And I click the "Environments" element
+    And I click the "Environments" element if the "Skip specific environment" radio button does not exist
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}059-octopus-step-conditions.png"
 
     And I scroll the "Skip specific environment" radio button into view offset by "-300"
