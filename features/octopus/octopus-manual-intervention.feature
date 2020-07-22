@@ -107,7 +107,7 @@ Feature: Add a manual intervention step
       | Deploy         | //button[contains(.,'Deploy')]         |
       | Save           | //button[contains(.,'Save')]           |
 
-    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/process"
+    And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/deployments/process"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Deploy to the Test environment" for "3" seconds
 
