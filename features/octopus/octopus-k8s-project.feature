@@ -181,7 +181,7 @@ if (elements.length !== 0) {
       | Add Volume                 | (//button[@title='Add Volume'])[1]      |
       | Linked ConfigMap           | //input[@value='LinkedResource']        |
       | Linked ConfigMap Container | //div[./input[@value='LinkedResource']] |
-      | Volume Name                | (//input[contains(@id,'Name')])[2]      |
+      | Volume Name                | //input[contains(@id,'Name')]           |
       | OK                         | (//button[@title='Ok'])[1]              |
 
     And I highlight outside the "Add Volume" button
