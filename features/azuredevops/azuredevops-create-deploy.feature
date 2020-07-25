@@ -159,7 +159,7 @@ Feature: Create and deploy a release
       | Octopus Deploy Space         | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]   |
       | Octopus Deploy Space Input   | //input[../../../../../../../../../../div/div/label[contains(.,'Space')]]                    |
       | Octopus Deploy Project       | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]] |
-      | Octopus Deploy Project Input | //input[../../../../../../../../../../div/div/label[contains(.,'Project')]]                  |
+      | Octopus Deploy Project Input | //input[../../../../../../../../../../div/div/label[text()='Project']]                  |
       | Deployment Section           | //div[@aria-label='Deployment']                                                              |
       | Environment                  | //input[../../../../../../../../../div/label[text()='To Environment']]                       |
 
