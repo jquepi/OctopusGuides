@@ -53,7 +53,8 @@ Feature: Configure an Octopus payara project
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
-    And I populate the "Step Name" text box with "Deploy to payara"
+    And I force clear the "Step Name" text box
+    And I populate the "Step Name" text box with "Deploy to Payara"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-payara-step-name.png"
     And I remove the highlight from the "Step Name" text box

@@ -53,6 +53,7 @@ Feature: Configure an Octopus Websphere project
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
+    And I force clear the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy to Websphere"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-websphere-step-name.png"

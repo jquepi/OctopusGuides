@@ -168,6 +168,7 @@ Feature: Configure an Octopus Node.js project
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
+    And I force clear the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy web app to Nginx"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-step-name.png"

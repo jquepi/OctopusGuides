@@ -62,6 +62,7 @@ Feature: Add a manual intervention step
     And I force click the "Add" button
 
     And I highlight outside the "Step Name" text box
+    And I force clear the "Step Name" text box
     And I populate the "Step Name" text box with "Deployment Sign Off"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/intervention/#{GuideSpecificScreenshotDir}025-octopus-step-name.png"

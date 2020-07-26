@@ -100,6 +100,7 @@ Feature: Configure an Octopus Tomcat project
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
+    And I force clear the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy to Tomcat"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}050-octopus-tomcat-step-name.png"
