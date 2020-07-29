@@ -297,6 +297,8 @@ if (elements.length !== 0) {
       | OK                | (//button[@title='Ok'])[1]                        |
       | Save              | //button[@title='Save']                           |
       | Service name      | //input[contains(@id,'Servicename')]              |
+      | Node port option  | //input[@value='NodePort']                        |
+      | Node port parent  | //div[./input[@value='NodePort']]                        |
       | Add Service Port  | (//button[@title='Add Port'])[1]                  |
       | Service Port Name | (//input[contains(@id,'Name')])[2]                |
       | Port Suggestion   | //span[./div/div/div[text()='#{DockerPort:-80}']] |
@@ -324,6 +326,11 @@ if (elements.length !== 0) {
     And I scroll the "Service name" text box into view offset by "-300"
     And I populate the "Service name" text box with "randomquotes"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}120-octopus-k8s.png"
+
+    And I highlight outside the "Node port parent" element
+    And I scroll the "Node port option" element into view offset by "-300"
+    And I click the "Node port option" element
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}125-octopus-k8s.png"
 
     And I highlight outside the "Add Service Port" button
     And I scroll the "Add Service Port" button into view offset by "-300"
