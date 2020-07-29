@@ -329,7 +329,7 @@ if (elements.length !== 0) {
 
     And I highlight outside the "Node port parent" element
     And I scroll the "Node port option" element into view offset by "-300"
-    And I click the "Node port option" element
+    And I force click the "Node port option" element
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}125-octopus-k8s.png"
 
     And I highlight outside the "Add Service Port" button
