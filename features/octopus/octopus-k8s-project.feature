@@ -182,7 +182,7 @@ if (elements.length !== 0) {
       | Add Volume                 | (//button[@title='Add Volume'])[1]      |
       | Linked ConfigMap           | //input[@value='LinkedResource']        |
       | Linked ConfigMap Container | //div[./input[@value='LinkedResource']] |
-      | Volume Name                | //input[contains(@id,'Name')]           |
+      | Volume Name                | (//input[contains(@id,'Name')])[3]      |
       | OK                         | (//button[@title='Ok'])[1]              |
 
     And I highlight outside the "Add Volume" button
@@ -269,7 +269,7 @@ if (elements.length !== 0) {
   Scenario: Add the config map volume mounting. This is only valid for some docker images.
     Given I set the following aliases:
       | Add Volume Mount      | (//button[@title='Add Volume Mount'])[1]           |
-      | Container Volume name | (//input[contains(@id,'Name')])[4]                 |
+      | Container Volume name | (//input[contains(@id,'Name')])[5]                 |
       | Mount path            | (//input[contains(@id,'Mountpath')])[1]            |
       | Sub path              | (//input[contains(@id,'Subpath')])[1]              |
       | appsettings volume    | //span[./div/div/div[text()='appsettings-volume']] |
@@ -300,7 +300,7 @@ if (elements.length !== 0) {
       | Node port option  | //input[@value='NodePort']                        |
       | Node port parent  | //div[./input[@value='NodePort']]                        |
       | Add Service Port  | (//button[@title='Add Port'])[1]                  |
-      | Service Port Name | (//input[contains(@id,'Name')])[2]                |
+      | Service Port Name | (//input[contains(@id,'Name')])[3]                |
       | Port Suggestion   | //span[./div/div/div[text()='#{DockerPort:-80}']] |
       | Service Port      | (//input[contains(@id,'Port')])[1]                |
       | Node Port         | //input[contains(@id,'NodePort')]                 |

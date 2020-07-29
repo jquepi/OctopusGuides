@@ -125,8 +125,8 @@ file { '/var/lib/jenkins':
     | EOT
 }
 -> apt::key { 'jenkins-repository':
-  id     => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
-  source => 'https://pkg.jenkins.io/debian/jenkins-ci.org.key',
+  id     => '62A9756BFD780C377CF24BA8FCEF32E745F2C3D5',
+  source => 'https://pkg.jenkins.io/debian-stable/jenkins.io.key',
   server  => 'pgp.mit.edu'
 }
 -> apt::source { 'jenkins':
@@ -135,7 +135,7 @@ file { '/var/lib/jenkins':
   release  => '',
   repos    => 'binary/',
   key      => {
-    'id' => '150FDE3F7787E7D11EF4E12A9B7D32F2D50582E6',
+    'id' => '62A9756BFD780C377CF24BA8FCEF32E745F2C3D5',
   },
   include  => {
     'deb' => true,
