@@ -2,6 +2,7 @@ name: NodeJS TeamCity NGINX Builtin feed Screenshots
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 20,5 * *'
 jobs:

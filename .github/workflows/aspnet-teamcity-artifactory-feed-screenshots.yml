@@ -2,6 +2,7 @@ name: ASP.NET TeamCity Artifactory Feed Screenshots
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 26,11 * *'
 jobs:

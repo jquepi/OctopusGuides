@@ -2,6 +2,7 @@ name: PHP TeamCity NGINX Builtin feed Screenshots
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 10,25 * *'
 jobs:

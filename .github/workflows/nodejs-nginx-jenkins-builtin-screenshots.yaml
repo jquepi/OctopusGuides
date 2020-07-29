@@ -2,6 +2,7 @@ name: Node.js Jenkins NGINX Builtin feed Screenshots
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 27,12 * *'
 jobs:

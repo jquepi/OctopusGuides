@@ -2,6 +2,7 @@ name: Java Bamboo Websphere Artifactory Feed Screenshots
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 1 * *'
 jobs:

@@ -2,6 +2,7 @@ name: Java TeamCity Kubernetes DockerHub Video
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 22,7 * *'
 jobs:
