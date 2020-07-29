@@ -298,7 +298,7 @@ if (elements.length !== 0) {
       | Save              | //button[@title='Save']                           |
       | Service name      | //input[contains(@id,'Servicename')]              |
       | Node port option  | //input[@value='NodePort']                        |
-      | Node port parent  | //div[./input[@value='NodePort']]                        |
+      | Node port parent  | //div[./input[@value='NodePort']]                 |
       | Add Service Port  | (//button[@title='Add Port'])[1]                  |
       | Service Port Name | (//input[contains(@id,'Name')])[3]                |
       | Port Suggestion   | //span[./div/div/div[text()='#{DockerPort:-80}']] |
