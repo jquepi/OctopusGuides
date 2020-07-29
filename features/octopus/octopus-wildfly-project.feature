@@ -100,6 +100,7 @@ Feature: Configure an Octopus Wildfly project
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
+    And I force clear the "Step Name" text box
     And I populate the "Step Name" text box with "Deploy to Wildfly"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-wildfly-step-name.png"

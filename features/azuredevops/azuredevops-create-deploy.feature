@@ -146,22 +146,22 @@ Feature: Create and deploy a release
   @add-step
   Scenario: Continue adding step
     Given I set the following aliases:
-      | Space Refresh                | //button[./div/span[text()='Refresh Space']]                                                 |
-      | Project Refresh              | //button[./div/span[text()='Refresh Project']]                                               |
-      | Default Space                | //li[text()='Default']                                                                       |
-      | Random Quotes Project        | //li[text()='Random Quotes']                                                                 |
-      | Save and queue               | //button[@name='Save & queue']                                                               |
-      | Save and queue two           | (//button[@name='Save & queue'])[2]                                                          |
-      | Save and queue three         | //button[@aria-label='Save & queue']                                                         |
-      | Comment                      | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                           |
-      | Build link                   | //a[contains(@class, 'ci-queued-build-link')]                                                |
-      | Post job Checkout            | //div[text()='Post-job: Checkout']                                                           |
-      | Octopus Deploy Space         | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]]   |
-      | Octopus Deploy Space Input   | //input[../../../../../../../../../../div/div/label[contains(.,'Space')]]                    |
-      | Octopus Deploy Project       | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Project')]] |
-      | Octopus Deploy Project Input | //input[../../../../../../../../../../div/div/label[contains(.,'Project')]]                  |
-      | Deployment Section           | //div[@aria-label='Deployment']                                                              |
-      | Environment                  | //input[../../../../../../../../../div/label[text()='To Environment']]                       |
+      | Space Refresh                | //button[./div/span[text()='Refresh Space']]                                               |
+      | Project Refresh              | //button[./div/span[text()='Refresh Project']]                                             |
+      | Default Space                | //li[text()='Default']                                                                     |
+      | Random Quotes Project        | //li[text()='Random Quotes']                                                               |
+      | Save and queue               | //button[@name='Save & queue']                                                             |
+      | Save and queue two           | (//button[@name='Save & queue'])[2]                                                        |
+      | Save and queue three         | //button[@aria-label='Save & queue']                                                       |
+      | Comment                      | //textarea[../../../../../../../../div//label[contains(.,'Save')]]                         |
+      | Build link                   | //a[contains(@class, 'ci-queued-build-link')]                                              |
+      | Post job Checkout            | //div[text()='Post-job: Checkout']                                                         |
+      | Octopus Deploy Space         | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[contains(.,'Space')]] |
+      | Octopus Deploy Space Input   | //input[../../../../../../../../../../div/div/label[contains(.,'Space')]]                  |
+      | Octopus Deploy Project       | //div[@aria-label='Expand'][../../../../../../../../../div/div/label[text()='Project']]    |
+      | Octopus Deploy Project Input | //input[../../../../../../../../../../div/div/label[text()='Project']]                     |
+      | Deployment Section           | //div[@aria-label='Deployment']                                                            |
+      | Environment                  | //input[../../../../../../../../../div/label[text()='To Environment']]                     |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 

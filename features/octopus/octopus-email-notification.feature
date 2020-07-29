@@ -157,6 +157,7 @@ Feature: Add a manual intervention step
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box with an offset of "5"
+    And I force clear the "Step Name" text box
     And I populate the "Step Name" text box with "Random quotes deployment status"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}040-octopus-step-name.png"
