@@ -269,7 +269,7 @@ if (elements.length !== 0) {
   Scenario: Add the config map volume mounting. This is only valid for some docker images.
     Given I set the following aliases:
       | Add Volume Mount      | (//button[@title='Add Volume Mount'])[1]           |
-      | Container Volume name | (//input[contains(@id,'Name')])[4]                 |
+      | Container Volume name | (//input[contains(@id,'Name')])[5]                 |
       | Mount path            | (//input[contains(@id,'Mountpath')])[1]            |
       | Sub path              | (//input[contains(@id,'Subpath')])[1]              |
       | appsettings volume    | //span[./div/div/div[text()='appsettings-volume']] |
