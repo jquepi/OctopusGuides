@@ -3,6 +3,7 @@ on:
 #  push:
   # This is used to manually trigger a build without editing a file
   repository_dispatch:
+  workflow_dispatch:
   # Each workflow is scheduled to run on a random day of the month
   schedule:
     - cron:  '0 0 13,28 * *'

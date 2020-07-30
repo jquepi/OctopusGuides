@@ -2,6 +2,7 @@ name: ASP.NET Azure DevOps Artifactory Feed TFVC Video
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 13,28 * *'
 jobs:

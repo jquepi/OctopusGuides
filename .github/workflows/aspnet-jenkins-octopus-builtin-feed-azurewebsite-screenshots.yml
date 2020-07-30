@@ -2,6 +2,7 @@ name: ASP.NET Jenkins Octopus Built-in Feed Azure WebSites Screenshots
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 4,19 * *'
 jobs:

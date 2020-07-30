@@ -2,6 +2,7 @@ name: PHP Jenkins Kubernetes DockerHub Screenshots
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 13,28 * *'
 jobs:

@@ -2,6 +2,7 @@ name: ASP.NET Azure DevOps Artifactory Feed Azure Website Video
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 1,16 * *'
 jobs:

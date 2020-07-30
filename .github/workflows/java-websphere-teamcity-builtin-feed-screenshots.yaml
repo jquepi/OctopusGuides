@@ -2,6 +2,7 @@ name: Java Teamcity Websphere BuiltIn Feed Screenshots
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 4 * *'
 jobs:

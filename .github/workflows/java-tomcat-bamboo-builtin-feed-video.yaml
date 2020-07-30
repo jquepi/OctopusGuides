@@ -2,6 +2,7 @@ name: Java Bamboo Tomcat BuiltIn Feed Video
 on:
 #  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 17,2 * *'
 jobs:

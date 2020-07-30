@@ -1,7 +1,8 @@
 name: Java Jenkins Kubernetes DockerHub Video
 on:
-  push:
+#  push:
   repository_dispatch:
+  workflow_dispatch:
   schedule:
     - cron:  '0 0 29,14 * *'
 jobs:
