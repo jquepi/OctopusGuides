@@ -45,7 +45,7 @@ file { '/var/lib/jenkins':
 
     // The list of plugins to install
     Set<String> plugins_to_install = [
-        "git", "github", "credentials", "credentials-binding", "plain-credentials", "blue-ocean"
+        "git", "github", "credentials", "credentials-binding", "plain-credentials", "blueocean"
     ]
 
     /*
