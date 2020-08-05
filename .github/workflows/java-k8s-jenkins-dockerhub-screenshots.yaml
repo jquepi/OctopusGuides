@@ -1,6 +1,6 @@
 name: Java Jenkins Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SLACK_STEP_HANDLER: true
-      SLACK_ON_ERROR_ONLY: true
+      SLACK_ON_ERROR_ONLY: false
       STEP_PAUSE: 1000
       SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
