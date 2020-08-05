@@ -29,9 +29,9 @@ Feature: Push and build docker image
     And I populate the "Docker registry URL" text box with "https://index.docker.io/v1/"
 
   @configure-project @repositoryspecific @dockerhub
-  Scenario: Set the credentials for a public repsoitory
+  Scenario: Set the credentials for a public repository
     Given I set the following aliases:
-      | Registry credentials | (//select[@name='_.credentialsId'])[3]       |
+      | Registry credentials | (//select[@name='_.credentialsId'])[4]       |
       | Save                 | //button[@type='button'][contains(.,'Save')] |
 
     And I scroll the "Registry credentials" drop down list into view offset by "-200"
