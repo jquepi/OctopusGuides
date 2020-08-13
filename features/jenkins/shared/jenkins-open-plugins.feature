@@ -1,4 +1,6 @@
-@plugin-install
+Feature: Open plugins  
+  
+  @plugin-install
   Scenario: Open plugins
     Given I set the following aliases:
       | Manage Jenkins           | //a[@class='task-link' and contains(.,'Manage Jenkins')] |
