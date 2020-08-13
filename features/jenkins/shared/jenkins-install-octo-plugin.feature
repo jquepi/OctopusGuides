@@ -1,6 +1,6 @@
 Feature: Install the octopus plugin
 
-@plugin-install
+  @plugin-install
   Scenario: Install Octopus plugins
     Given I set the following aliases:
       | Available                | //a[contains(@href,'available')]                         |
