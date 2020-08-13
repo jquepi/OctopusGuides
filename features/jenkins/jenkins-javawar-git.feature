@@ -94,6 +94,38 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-octo-push.png"
     And I remove the highlight from the "Command" text box
 
+  @repositoryspecific @thisdoesntexist
+  Scenario: Java - Add Octopus Plugin Push Step
+    Given I set the following aliases:
+      | Goals Two      | (//input[@id='textarea._.targets'])[2]                 |
+      | Add build step | //button[@type='button'][contains(.,'Add build step')] |
+      | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]       |
+      | Package paths  | //textarea[@name='_.packagePaths']                     |
+      | Save           | //button[@type='button'][contains(.,'Save')]           |
+
+    And I scroll the "Goals Two" text box into view offset by "-200"
+    And I highlight outside the "Goals Two" text box
+    And I populate the "Goals Two" text box with "clean test package -Pwar"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}140-maven.png"
+    And I remove the highlight from the "Goals Two" text box
+
+    And I scroll the "Add build step" button into view offset by "-200"
+    And I highlight outside the "Add build step" button
+    And I sleep for "2" seconds
+    And I click the "Add build step" button
+    And I sleep for "1" second
+    And I highlight outside the "Push packages" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-octo-plugin-push-package.png"
+    And I click the "Push packages" link
+    And I remove the highlight from the "Add build step" option
+    And I remove the highlight from the "Push packages" option
+
+    And I scroll the "Package paths" text box into view offset by "-200"
+    And I highlight outside the "Package paths" text box
+    And I populate the "Package paths" text box with "#{ArtifactPath}"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-octo-plugin-push.png"
+    And I remove the highlight from the "Package paths" text box
+
   Scenario: Save project
     Given I set the following aliases:
       | Save | //button[@type='button'][contains(.,'Save')] |
