@@ -10,7 +10,7 @@ Feature: Install the octopus plugin
       | Install without restart  | //button[text()='Install without restart']          |
       | Back to top              | //a[contains(.,'Go back to the top page')]          |
 
-    Given I run the feature "shared/jenkins-open-plugins.feature"
+    Given I run the feature "shared/jenkins-open-plugins.feature" passing the original arguments
 
     And I click the "Available" tab
     And I populate the "Filter" text box with the text "Octopus"
