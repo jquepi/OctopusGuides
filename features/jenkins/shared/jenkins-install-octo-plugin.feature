@@ -1,10 +1,12 @@
+Feature: Install the octopus plugin
+
 @plugin-install
   Scenario: Install Octopus plugins
     Given I set the following aliases:
       | Available                | //a[contains(@href,'available')]                         |
       | Filter                   | #filter-box                                              |
-      | Octopus Plugin           | //input[@name='plugin.octopusdeploy.default']                  |
-      | Octopus Plugin Container | //td[./input[@name='plugin.octopusdeploy.default']]            |
+      | Octopus Plugin           | //input[@name='plugin.octopusdeploy.default']            | 
+      | Octopus Plugin Container | //td[./input[@name='plugin.octopusdeploy.default']]      |
       | Install without restart  | //button[text()='Install without restart']               |
       | Back to top              | //a[contains(.,'Go back to the top page')]               |
 
