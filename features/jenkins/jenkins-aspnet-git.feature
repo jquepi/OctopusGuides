@@ -1,14 +1,13 @@
 Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus instance
 
-  Scenario: Open Browser
+  Scenario: Initial setup
     Given I run the feature "shared/jenkins-open-browser.feature" passing the original arguments
-    Given I run the feature "shared/jenkins-login.feature"
+    And I run the feature "shared/jenkins-login.feature" passing the original arguments
+    And I run the feature "shared/jenkins-install-octo-plugin.feature" passing the original arguments
 
   @plugin-install @applicationspecific @aspnet
   Scenario: Install plugins
     Given I set the following aliases:
-      | Manage Jenkins           | //a[@class='task-link' and contains(.,'Manage Jenkins')] |
-      | Manage Plugins           | //a[@href='pluginManager']                               |
       | Available                | //a[contains(@href,'available')]                         |
       | Filter                   | #filter-box                                              |
       | MSBuild Plugin           | //input[@name='plugin.msbuild.default']                  |
@@ -16,17 +15,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Install without restart  | //button[text()='Install without restart']               |
       | Back to top              | //a[contains(.,'Go back to the top page')]               |
 
-    And I display a note with the text "Installing the Jenkins plugins" for "3" seconds
+    Given I run the feature "shared/jenkins-open-plugins.feature"
 
-    And I highlight inside the "Manage Jenkins" text box
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}005-manage-jenkins.png"
-    And I click the "Manage Jenkins" link
-    And I scroll the "Manage Plugins" link into view offset by "-100"
-    # Give the top toolbar a change to realign itself
-    And I wait for "1" seconds
-    And I highlight outside the "Manage Plugins" text box
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}010-manage-plugins.png"
-    And I click the "Manage Plugins" link
     And I click the "Available" tab
     And I populate the "Filter" text box with the text "MSBuild"
     And I click the "MSBuild Plugin" checkbox
