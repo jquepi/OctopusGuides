@@ -1,4 +1,7 @@
 Feature: Create and deploy a release from Jenkins
+  This feature calls Octopus CLI directly as a script step. This was implemented before the
+  Octopus plugin was available. This feature is used by the Kubernetes steps, but also any
+  other non-ASP guide like Ruby, PHP and Node.js.s
 
   Scenario: Initial Setup
     Given I run the feature "shared/jenkins-open-browser.feature" passing the original arguments
