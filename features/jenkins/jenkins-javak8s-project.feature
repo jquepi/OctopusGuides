@@ -8,6 +8,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I run the feature "shared/jenkins-docker-creds.feature" passing the original arguments
     And I run the feature "shared/jenkins-configure-docker.feature" passing the original arguments
     And I run the feature "shared/jenkins-initial-project-setup.feature" passing the original arguments
+    And I run the feature "shared/jenkins-add-apikey.feature" passing the original arguments
 
   @configure-project
   Scenario: Create the project
