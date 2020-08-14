@@ -19,6 +19,7 @@ docker_network { 'octopus':
   remove_volume_on_start    => false,
   remove_container_on_stop  => false,
   remove_volume_on_stop     => false,
+  privileged                => false
 }
 -> exec { 'enable service docker-mssql':
   command   => '/bin/systemctl enable docker-mssql',
@@ -48,6 +49,7 @@ docker::image { 'octopusdeploy/octopusdeploy':
   remove_volume_on_start    => false,
   remove_container_on_stop  => false,
   remove_volume_on_stop     => false,
+  privileged                => false
 }
 -> exec { 'enable service octopus':
   command   => '/bin/systemctl enable docker-octopusdeploy',
