@@ -38,7 +38,7 @@ Feature: Install the octopus plugin
       | Manage Jenkins   | //a[@class='task-link' and contains(.,'Manage Jenkins')] |
       | Configure System | //a[@href='configure']                                   |
       | Server Id        | //input[@name='_.serverId']                              |
-      | URL              | //input[@name='_.url']                                   |
+      | URL              | (//input[@name='_.url'])[3]                              |
       | API Key          | //input[@name='_.apiKey']                                |
       | Save             | //button[@type='button'][contains(.,'Save')]             |
 
