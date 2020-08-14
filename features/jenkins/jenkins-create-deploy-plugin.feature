@@ -1,4 +1,6 @@
 Feature: Create and deploy a release from Jenkins
+  This feature uses the Octopus plugin to create and deploy a release. This is an upgrade from
+  the previous guides which called the Octopus CLI directly as a script step.
 
   Scenario: Initial Setup
     Given I run the feature "shared/jenkins-open-browser.feature" passing the original arguments

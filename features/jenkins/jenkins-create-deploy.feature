@@ -1,4 +1,6 @@
 Feature: Create and deploy a release from Jenkins
+  This feature calls Octopus CLI directly as a script step. This was implemented before the
+  Octopus plugin was available.
 
   Scenario: Log into Jenkins
     Given I set the following aliases:
