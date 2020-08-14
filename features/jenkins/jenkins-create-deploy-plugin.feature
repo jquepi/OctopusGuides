@@ -10,6 +10,10 @@ Feature: Create and deploy a release from Jenkins
       | Configure             | //a[contains(.,'Configure')]                                  |
       | Add post-build action | //button[@type='button'][contains(.,'Add post-build action')] |
       | Create Release        | //a[contains(.,'Octopus Deploy: Create Release')]             |
+      | Project name          | //input[@name='_.project']                                    |
+      | Environment           | //input[@name='_.environment']                                |
+      | Deploy after create   | //input[@name='deployThisRelease']                            |
+      | Save                  | //button[@type='button'][contains(.,'Save')]                  |
 
     And I display a note with the text "Deploying an Octopus release from Jenkins" for "3" seconds
 
@@ -34,13 +38,6 @@ Feature: Create and deploy a release from Jenkins
     And I click the "Create Release" option
     And I remove the highlight from the "Add post-build action" button
 
-  Scenario: Modify the existing project
-    Given I set the following aliases:
-      | Project name        | //input[@name='_.project']                   |
-      | Environment         | //input[@name='_.environment']               |
-      | Deploy after create | //input[@name='deployThisRelease']           |
-      | Save                | //button[@type='button'][contains(.,'Save')] |
-
     And I scroll the "Project name" text box into view offset by "-200"
     And I highlight the "Project name" text box
     And I populate the "Project name" text box with "Random Quotes"
@@ -53,7 +50,7 @@ Feature: Create and deploy a release from Jenkins
 
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-octo-plugin-create-release-command.png"
-    
+
     And I remove the highlight from the "Project name" text box
     And I remove the highlight from the "Deploy after create" check box
     And I remove the highlight from the "Environment" text box
