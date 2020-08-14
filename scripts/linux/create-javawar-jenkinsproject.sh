@@ -24,7 +24,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-GitUrl=$GIT_URL" \
   "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
   "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
-  "-DCucumberAlias-ArtifactPath=\${WORKSPACE}/target/randomquotes.1.0.\$BUILD_NUMBER.war" \
+  "-DCucumberAlias-ArtifactPath=\${WORKSPACE}/target/randomquotes.1.0.\${BUILD_NUMBER}.war" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
