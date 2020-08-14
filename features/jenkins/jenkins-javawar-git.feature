@@ -56,7 +56,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}140-maven.png"
     And I remove the highlight from the "Goals Two" text box
 
-  @repositoryspecific @octo-built-in-feed
+  @repositoryspecific @oldrawscripts
   Scenario: Java - Add Octopus Push Step
     Given I set the following aliases:
       | Goals Two      | (//input[@id='textarea._.targets'])[2]                 |
@@ -94,7 +94,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-octo-push.png"
     And I remove the highlight from the "Command" text box
 
-  @repositoryspecific @thisdoesntexist
+  @repositoryspecific @octo-built-in-feed
   Scenario: Java - Add Octopus Plugin Push Step
     Given I set the following aliases:
       | Goals Two      | (//input[@id='textarea._.targets'])[2]                 |
