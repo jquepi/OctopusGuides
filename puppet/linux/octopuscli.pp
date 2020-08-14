@@ -1,11 +1,11 @@
 file { '/opt/octo':
   ensure => 'directory'
 }
--> archive { '/opt/OctopusTools.7.1.0.linux-x64.tar.gz':
+-> archive { '/opt/OctopusTools.7.4.1.linux-x64.tar.gz':
   ensure       => present,
   extract      => true,
   extract_path => '/opt/octo',
-  source       => 'https://download.octopusdeploy.com/octopus-tools/7.1.0/OctopusTools.7.1.0.linux-x64.tar.gz',
+  source       => 'https://download.octopusdeploy.com/octopus-tools/7.4.1/OctopusTools.7.4.1.linux-x64.tar.gz',
   creates      => '/opt/octo/Octo',
   cleanup      => true,
 }
