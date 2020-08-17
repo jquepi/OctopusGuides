@@ -45,6 +45,8 @@ Feature: Create and deploy a release from Jenkins
     And I highlight the "Project name" text box
     And I populate the "Project name" text box with "Random Quotes"
 
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}017-octo-plugin-create-release-command.png"
+
     And I highlight the "Deploy after create" check box
     And I click the "Deploy after create" check box
 
