@@ -61,7 +61,7 @@ jobs:
 
       - name: Execute puppet
         shell: powershell
-        run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp
+        run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,utilities.pp,dotnetutilities.pp,mssql-cleanstart.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp
 
       - name: Create API key
         shell: powershell

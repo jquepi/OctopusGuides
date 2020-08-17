@@ -62,7 +62,7 @@ jobs:
 
       - name: Execute puppet
         shell: powershell
-        run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,utilities.pp,dotnetutilities.pp,artifactory.pp,octopus.pp,iis.pp,azurewait.pp,artifactorywait.pp
+        run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,utilities.pp,dotnetutilities.pp,artifactory.pp,mssql-cleanstart.pp,octopus.pp,iis.pp,azurewait.pp,artifactorywait.pp
 
       - name: Configure Artifactory
         shell: powershell
