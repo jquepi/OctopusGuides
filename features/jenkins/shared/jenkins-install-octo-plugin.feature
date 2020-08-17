@@ -64,6 +64,8 @@ Feature: Install the octopus plugin
     And I highlight the "API Key" text box
     And I populate the "API Key" text box with "#{ExternalOctopusAPIKey}"
 
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}020-configure-octopus.png"
+
     And I click the "Save" button
 
   @plugin-install
@@ -90,5 +92,7 @@ Feature: Install the octopus plugin
     And I highlight the "Path" text box
     And I clear the "Path" text box
     And I populate the "Path" text box with "/opt/octo/Octo"
+
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}020-configured-tools.png"
 
     And I click the "Save" button
