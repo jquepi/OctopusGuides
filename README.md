@@ -63,4 +63,4 @@ To have Maven download the JAR file, your GitHub credentials need to be defined 
     </server>
   </servers>
 </settings>
-``` 
+```
