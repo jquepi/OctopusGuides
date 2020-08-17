@@ -8,7 +8,7 @@ cd ..
   dotnetutilities.pp \
   utilities.pp \
   mssql.pp \
-  mssql-cleanstart.pp octopus.pp \
+  octopus.pp \
   octopuscli.pp \
   octopusicon.pp \
   bookicon.pp \
