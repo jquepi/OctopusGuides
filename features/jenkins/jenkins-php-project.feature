@@ -65,7 +65,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
     And I scroll the "Package ID" text box into view offset by "-200"
     And I highlight outside the "Package ID" text box
     And I highlight outside the "Version number" text box
-    And I highlight outside the "include paths" text box
+    And I highlight outside the "Package include paths" text box
     And I highlight outside the "Package output folder" text box
 
     And I populate the "Package ID" text box with "RandomQuotes"
