@@ -6,7 +6,6 @@ Feature: Build and deploy a Ruby application hosted in Git on a local Octopus in
     And I run the feature "shared/jenkins-install-octo-plugin.feature" passing the original arguments
     And I run the feature "shared/jenkins-add-octo-creds.feature" passing the original arguments
     And I run the feature "shared/jenkins-initial-project-setup.feature" passing the original arguments
-    And I run the feature "shared/jenkins-add-apikey.feature" passing the original arguments
 
   @configure-project
   Scenario: Node.js - Create the project
