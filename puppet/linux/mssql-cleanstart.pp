@@ -15,6 +15,7 @@ docker_network { 'octopus':
   net                       => 'octopus',
   extra_parameters          => [ '--restart=always' ],
   labels                    => ['autoheal=true'],
+  # Remove everything before restarting. This gives a failed sql boot a chance to start fresh.
   remove_container_on_start => true,
   remove_volume_on_start    => true,
   remove_container_on_stop  => true,
