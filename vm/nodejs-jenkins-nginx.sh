@@ -56,7 +56,7 @@ cd ..
 ./scripts/linux/create-nginxproject.sh
 
 # Create release
-./scripts/linux/create-jenkinscreaterelease.sh
+./scripts/linux/create-jenkinscreatereleaseplugin.sh
 
 # Create Lifecycle
 ./scripts/linux/create-lifecycle.sh

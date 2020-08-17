@@ -59,7 +59,7 @@ cd ..
 ./scripts/linux/create-websphereproject.sh
 
 # Create release
-./scripts/linux/create-jenkinscreaterelease.sh
+./scripts/linux/create-jenkinscreatereleaseplugin.sh
 
 # Create Lifecycle
 ./scripts/linux/create-lifecycle.sh

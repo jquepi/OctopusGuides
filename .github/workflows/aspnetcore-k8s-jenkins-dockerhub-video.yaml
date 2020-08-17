@@ -99,7 +99,7 @@ jobs:
         run: ./scripts/linux/open-devwebapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-jenkinscreaterelease.sh
+        run: ./scripts/linux/create-jenkinscreatereleaseplugin.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh

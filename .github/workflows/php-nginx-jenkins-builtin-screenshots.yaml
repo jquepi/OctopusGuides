@@ -1,6 +1,6 @@
 name: PHP Jenkins NGINX Builtin feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:
@@ -79,7 +79,7 @@ jobs:
         run: ./scripts/linux/open-devnginxapp.sh
 
       - name: Create release
-        run: ./scripts/linux/create-jenkinscreaterelease.sh
+        run: ./scripts/linux/create-jenkinscreatereleaseplugin.sh
 
       - name: Create Lifecycle
         run: ./scripts/linux/create-lifecycle.sh
