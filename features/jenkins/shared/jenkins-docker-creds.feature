@@ -64,36 +64,4 @@ Feature: COnfigure docker creds
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}110-octopus-credentials.png"
     And I click the "OK" button
 
-  @configure-credentials
-  Scenario: Configure Octopus credentials
-    Given I set the following aliases:
-      | Add Credentials         | //a[@href='newCredentials'][contains(.,'Add Credentials')]             |
-      | Username                | //input[@name='_.username']                                            |
-      | Password                | //input[@name='_.password']                                            |
-      | ID                      | //input[@name='_.id']                                                  |
-      | Description             | //input[@name='_.description']                                         |
-      | Kind                    | //select[@class='setting-input dropdownList']                          |
-      | Secret                  | //input[@name='_.secret']                                              |
-      | OK                      | //button[@type='button'][contains(.,'OK')]                             |
-      | ID Two                  | (//input[@name='_.id'])[2]                                             |
-      | Description Two         | (//input[contains(@name,'_.description')])[2]                          |
-
-    And I highlight inside the "Add Credentials" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}120-add-credentials.png"
-    And I click the "Add Credentials" link
-
-    And I highlight outside the "Kind" drop down list
-    And I select the option "Secret text" from the "Kind" drop down list
-
-    And I highlight outside the "Secret" text box with an offset of "0"
-    And I highlight outside the "ID Two" text box with an offset of "0"
-    And I highlight outside the "Description Two" text box with an offset of "0"
-    And I highlight outside the "OK" button
-
-    And I populate the "Secret" text box with "ExternalOctopusAPIKey"
-    And I populate the "ID Two" text box with "OctopusAPIKey"
-    And I populate the "Description Two" text box with "The Octopus API Key"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-octopus-credentials.png"
-    And I click the "OK" button
-
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
