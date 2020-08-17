@@ -55,7 +55,7 @@ jobs:
         run: ./scripts/linux/disk-usage.sh
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp headless.pp teamcity.pp tomcat.pp octopus.pp artifactory.pp octopuscli.pp
+        run: ./install.sh utilities.pp headless.pp teamcity.pp tomcat.pp mssql-cleanstart.pp octopus.pp artifactory.pp octopuscli.pp
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh

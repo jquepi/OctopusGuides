@@ -57,7 +57,7 @@ jobs:
         run: ./scripts/linux/disk-usage.sh
 
       - name: Install Puppet
-        run: ./install.sh utilities.pp headless.pp bamboo.pp payara.pp octopus.pp octopuscli.pp bamboofinalize.pp
+        run: ./install.sh utilities.pp headless.pp bamboo.pp payara.pp mssql-cleanstart.pp octopus.pp octopuscli.pp bamboofinalize.pp
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh

@@ -55,7 +55,7 @@ jobs:
 
       - name: Install Puppet
         run: >-
-          ./install.sh utilities.pp headless.pp nginx.pp jenkins.pp octopus.pp
+          ./install.sh utilities.pp headless.pp nginx.pp jenkins.pp mssql-cleanstart.pp octopus.pp
           dotnetutilities.pp octopuscli.pp jenkinsfinalize.pp
 
       - name: Wait for Octopus

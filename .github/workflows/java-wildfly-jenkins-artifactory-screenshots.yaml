@@ -58,7 +58,7 @@ jobs:
 
       - name: Install Puppet
         run: >-
-          ./install.sh utilities.pp headless.pp jenkins.pp wildfly.pp octopus.pp
+          ./install.sh utilities.pp headless.pp jenkins.pp wildfly.pp mssql-cleanstart.pp octopus.pp
           artifactory.pp octopuscli.pp jenkinsfinalize.pp
 
       - name: Wait for Octopus
