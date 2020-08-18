@@ -35,6 +35,7 @@ export DOCKER_PORT=80
 export K8S_DEV_NODEPORT=30000
 export K8S_TEST_NODEPORT=30001
 export K8S_PROD_NODEPORT=30002
+export ExternalUrl
 
 cd ..
 
@@ -95,8 +96,8 @@ cd ..
 ./scripts/linux/add-usersandteams.sh
 
 # Open the test app
-./scripts/linux/open-devwebapp.sh
-./scripts/linux/open-testwebapp.sh
+./scripts/linux/open-microk8s-devwebapp.sh
+./scripts/linux/open-microk8s-testwebapp.sh
 
 # Add desktop shortcuts
 sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf write /org/gnome/shell/favorite-apps \
