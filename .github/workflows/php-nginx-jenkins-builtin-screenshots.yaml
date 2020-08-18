@@ -1,6 +1,6 @@
 name: PHP Jenkins NGINX Builtin feed Screenshots
 on:
-  push:
+#  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:
