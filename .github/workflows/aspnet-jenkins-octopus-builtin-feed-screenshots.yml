@@ -1,6 +1,6 @@
 name: ASP.NET Jenkins Octopus Built-in Feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:
@@ -17,14 +17,14 @@ jobs:
     env:
       STEP_PAUSE: 1000
       SLACK_STEP_HANDLER: true
-      SLACK_ON_ERROR_ONLY: true
+      SLACK_ON_ERROR_ONLY: false
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
-      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
       MEDIA_PATH: C:\screenshots
       CUCUMBER_TAGS: >-
         (not @browserspecific or @firefox) and

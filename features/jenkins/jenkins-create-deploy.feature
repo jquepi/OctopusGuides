@@ -1,6 +1,5 @@
 Feature: Create and deploy a release from Jenkins
-  This feature calls Octopus CLI directly as a script step. This was implemented before the
-  Octopus plugin was available.
+  This feature is used by the asp.net and asp.net core guides to create and deploy a release.
 
   Scenario: Log into Jenkins
     Given I set the following aliases:
@@ -21,10 +20,10 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Random Quotes Project         | //a[contains(.,'Random Quotes')]                       |
-      | Configure                     | //a[contains(.,'Configure')]                           |
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
+      | Random Quotes Project | //a[contains(.,'Random Quotes')]                              |
+      | Configure             | //a[contains(.,'Configure')]                                  |
+      | Add post-build action | //button[@type='button'][contains(.,'Add post-build action')] |
+      | Create Release        | //a[contains(.,'Octopus Deploy: Create Release')]             |
 
     And I display a note with the text "Deploying an Octopus release from Jenkins" for "3" seconds
 
@@ -36,69 +35,101 @@ Feature: Create and deploy a release from Jenkins
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}010-create-release-configure.png"
     And I click the "Configure" link
 
-    And I scroll the "Add build step" button into view offset by "-200"
+    And I scroll the "Add post-build action" button into view offset by "-200"
     And I sleep for "2" seconds
-    And I click the "Add build step" button
-    And I highlight outside the "Add build step" button
-    And I highlight outside the "Execute Windows batch command" option
+    And I click the "Add post-build action" button
+    And I highlight outside the "Add post-build action" button
+    And I highlight outside the "Create Release" option
 
   @repositoryspecific @octo-built-in-feed
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
+      | Add post-build action | //button[@type='button'][contains(.,'Add post-build action')] |
+      | Create Release        | //a[contains(.,'Octopus Deploy: Create Release')]             |
 
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}015-create-release-build-step.png"
-    And I click the "Execute Windows batch command" option
-    And I remove the highlight from the "Add build step" button
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}015-octo-plugin-create-release-build-step.png"
+    And I click the "Create Release" option
+    And I remove the highlight from the "Add post-build action" button
+
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}015-create-release-build-step.png"
+#    And I click the "Execute Windows batch command" option
+#    And I remove the highlight from the "Add post-build action" button
 
   @repositoryspecific @artifactory
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
+      | Add post-build action | //button[@type='button'][contains(.,'Add post-build action')] |
+      | Create Release        | //a[contains(.,'Octopus Deploy: Create Release')]             |
 
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}015-create-release-build-step-artifactory.png"
-    And I click the "Execute Windows batch command" option
-    And I remove the highlight from the "Add build step" button
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}015-octo-plugin-create-release-build-step-artifactory.png"
+    And I click the "Create Release" option
+    And I remove the highlight from the "Add post-build action" button
 
-  @applicationspecific @aspnet
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}015-create-release-build-step-artifactory.png"
+#    And I click the "Execute Windows batch command" option
+#    And I remove the highlight from the "Add build step" button
+
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Command Four           | (//textarea[contains(@name,'command')])[4]                                                                                     |
-      | Save                   | //button[@type='button'][contains(.,'Save')]                                                                                   |
-      | Create Release Command | Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project "Random Quotes" --progress --deployto Dev |
+      | Project name             | //input[@name='_.project']                   |
+      | Environment              | //input[@name='_.environment']               |
+      | Deploy after create      | //input[@name='deployThisRelease']           |
+      | Show deployment progress | //input[@name='waitForDeployment']           |
+      | Save                     | //button[@type='button'][contains(.,'Save')] |
 
-    And I scroll the "Command Four" text box into view offset by "-200"
-    And I populate the "Command Four" text box with "Create Release Command"
-    And I highlight outside the "Command Four" text box
+    And I scroll the "Project name" text box into view offset by "-200"
+    And I highlight the "Project name" text box
+    And I populate the "Project name" text box with "Random Quotes"
+
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-octo-plugin-create-release-command.png"
+
+    And I highlight the "Deploy after create" check box
+    And I click the "Deploy after create" check box
+
+    And I highlight the "Show deployment progress" check box
+    And I click the "Show deployment progress" check box
+
+    And I highlight the "Environment" text box
+    And I populate the "Environment" text box with "Dev"
+
     And I highlight outside the "Save" button
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-create-release-command.png"
-    And I remove the highlight from the "Command Four" text box
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}025-octo-plugin-create-release-command.png"
 
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}025-create-release-save.png"
+    And I remove the highlight from the "Project name" text box
+    And I remove the highlight from the "Deploy after create" check box
+    And I remove the highlight from the "Environment" text box
+
+#    And I scroll the "Command Four" text box into view offset by "-200"
+#    And I populate the "Command Four" text box with "Create Release Command"
+#    And I highlight outside the "Command Four" text box
+#    And I highlight outside the "Save" button
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-create-release-command.png"
+#    And I remove the highlight from the "Command Four" text box
+#
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}025-create-release-save.png"
+
     And I click the "Save" button
 
     And I stop recording the screen
 
-  @applicationspecific @aspnetcore
-  Scenario: Modify the existing project
-    Given I set the following aliases:
-      | Command Five           | (//textarea[contains(@name,'command')])[5]                                                                                     |
-      | Save                   | //button[@type='button'][contains(.,'Save')]                                                                                   |
-      | Create Release Command | Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project "Random Quotes" --progress --deployto Dev |
-
-    And I scroll the "Command Five" text box into view offset by "-200"
-    And I populate the "Command Five" text box with "Create Release Command"
-    And I highlight outside the "Command Five" text box
-    And I highlight outside the "Save" button
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-create-release-command.png"
-    And I remove the highlight from the "Command Five" text box
-
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}025-create-release-save.png"
-    And I click the "Save" button
-
-    And I stop recording the screen
+#  @applicationspecific @aspnetcore
+#  Scenario: Modify the existing project
+#    Given I set the following aliases:
+#      | Command Five           | (//textarea[contains(@name,'command')])[5]                                                                                     |
+#      | Save                   | //button[@type='button'][contains(.,'Save')]                                                                                   |
+#      | Create Release Command | Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project "Random Quotes" --progress --deployto Dev |
+#
+#    And I scroll the "Command Five" text box into view offset by "-200"
+#    And I populate the "Command Five" text box with "Create Release Command"
+#    And I highlight outside the "Command Five" text box
+#    And I highlight outside the "Save" button
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-create-release-command.png"
+#    And I remove the highlight from the "Command Five" text box
+#
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}025-create-release-save.png"
+#    And I click the "Save" button
+#
+#    And I stop recording the screen
 
   @build-now
   Scenario: Run build

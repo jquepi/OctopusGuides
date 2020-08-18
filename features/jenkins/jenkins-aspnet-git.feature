@@ -8,12 +8,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @plugin-install @applicationspecific @aspnet
   Scenario: Install plugins
     Given I set the following aliases:
-      | Available                | //a[contains(@href,'available')]                         |
-      | Filter                   | #filter-box                                              |
-      | MSBuild Plugin           | //input[@name='plugin.msbuild.default']                  |
-      | MSBuild Plugin Container | //td[./input[@name='plugin.msbuild.default']]            |
-      | Install without restart  | //button[text()='Install without restart']               |
-      | Back to top              | //a[contains(.,'Go back to the top page')]               |
+      | Available                | //a[contains(@href,'available')]              |
+      | Filter                   | #filter-box                                   |
+      | MSBuild Plugin           | //input[@name='plugin.msbuild.default']       |
+      | MSBuild Plugin Container | //td[./input[@name='plugin.msbuild.default']] |
+      | Install without restart  | //button[text()='Install without restart']    |
+      | Back to top              | //a[contains(.,'Go back to the top page')]    |
 
     Given I run the feature "shared/jenkins-open-plugins.feature"
 
@@ -131,27 +131,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I remove the highlight from the "Poll SCM" option
     And I remove the highlight from the "Schedule" textarea
 
-    And I scroll the "Use secrets" option into view offset by "-200"
-    And I highlight outside the "Use secrets" option
-    And I click the "Use secrets" option
-
-    And I highlight outside the "Bindings Add" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}095-binding-add.png"
-    And I click the "Bindings Add" option
-    And I highlight outside the "Secret text" link
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}100-secret-text.png"
-    And I remove the highlight from the "Bindings Add" option
-    And I remove the highlight from the "Use secrets" option
-    And I click the "Secret text" link
-
-    And I highlight outside the "Variable" text box
-    And I highlight outside the "Credentials" drop down list
-    And I populate the "Variable" text box with "OctopusAPIKey"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}105-credentials-octopusapikey.png"
-    And I remove the highlight from the "Variable" text box
-    And I remove the highlight from the "Credentials" drop down list
-
   @configure-project @applicationspecific @aspnet
   Scenario: ASP.NET - Create the project
     Given I set the following aliases:
@@ -248,26 +227,43 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnet
   Scenario: ASP.NET - Add Octopus Push Step
     Given I set the following aliases:
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
-      | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
-      | Save                          | //button[@type='button'][contains(.,'Save')]           |
+      | Add build step | //button[@type='button'][contains(.,'Add build step')] |
+      | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]       |
+      | Package paths  | //textarea[@name='_.packagePaths']                     |
+      | Save           | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I sleep for "2" seconds
     And I click the "Add build step" button
-    And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-batch-command-3.png"
-    And I click the "Execute Windows batch command" link
+    And I sleep for "1" second
+    And I highlight outside the "Push packages" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-octo-plugin-push-package.png"
+    And I click the "Push packages" link
     And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Execute Windows batch command" option
+    And I remove the highlight from the "Push packages" option
 
-    And I scroll the "Command Three" text box into view offset by "-200"
-    And I highlight outside the "Command Three" text box
-    And I highlight outside the "Save" button
-    And I populate the "Command Three" text box with "Octo.exe push --server http://localhost --package .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}135-octo-push.png"
+    And I scroll the "Package paths" text box into view offset by "-200"
+    And I highlight outside the "Package paths" text box
+    And I populate the "Package paths" text box with ".\RandomQuotes\obj\octopacked\RandomQuotes.1.0.${BUILD_NUMBER}.nupkg"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}135-octo-plugin-push.png"
+    And I remove the highlight from the "Package paths" text box
+
+#    And I scroll the "Add build step" button into view offset by "-200"
+#    And I highlight outside the "Add build step" button
+#    And I sleep for "2" seconds
+#    And I click the "Add build step" button
+#    And I highlight outside the "Execute Windows batch command" link
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-batch-command-3.png"
+#    And I click the "Execute Windows batch command" link
+#    And I remove the highlight from the "Add build step" option
+#    And I remove the highlight from the "Execute Windows batch command" option
+#
+#    And I scroll the "Command Three" text box into view offset by "-200"
+#    And I highlight outside the "Command Three" text box
+#    And I highlight outside the "Save" button
+#    And I populate the "Command Three" text box with "Octo.exe push --server http://localhost --package .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}135-octo-push.png"
 
     And I click the "Save" button
     And I stop recording the screen
@@ -321,17 +317,41 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Add build step" button
     And I sleep for "2" seconds
     And I click the "Add build step" button
-    And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-batch-command-3.png"
-    And I click the "Execute Windows batch command" link
+    And I sleep for "1" second
+    And I highlight outside the "Package application" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-pack-command.png"
+    And I click the "Package application" link
     And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Execute Windows batch command" option
+    And I remove the highlight from the "Package application" option
 
-    And I scroll the "Command Three" text box into view offset by "-200"
-    And I highlight outside the "Command Three" text box
-    And I populate the "Command Three" text box with "Octo.exe pack -id RandomQuotes -version 1.0.%BUILD_NUMBER% -include RandomQuotes\bin\Release\netcoreapp2.2\publish\"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-octo-pack.png"
-    And I remove the highlight from the "Command Three" text box
+    And I scroll the "Package ID" text box into view offset by "-200"
+    And I highlight outside the "Package ID" text box
+    And I highlight outside the "Version number" text box
+    And I highlight outside the "Package include paths" text box
+    And I highlight outside the "Package output folder" text box
+
+    And I populate the "Package ID" text box with "RandomQuotes"
+    And I populate the "Version number" text box with "1.0.${BUILD_NUMBER}"
+    And I populate the "Package include paths" text box with "${WORKSPACE}\RandomQuotes\bin\Release\netcoreapp2.2\publish\"
+    And I populate the "Package output folder" text box with "${WORKSPACE}"
+
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}165-octo-plugin-pack.png"
+
+#    And I scroll the "Add build step" button into view offset by "-200"
+#    And I highlight outside the "Add build step" button
+#    And I sleep for "2" seconds
+#    And I click the "Add build step" button
+#    And I highlight outside the "Execute Windows batch command" link
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-batch-command-3.png"
+#    And I click the "Execute Windows batch command" link
+#    And I remove the highlight from the "Add build step" option
+#    And I remove the highlight from the "Execute Windows batch command" option
+#
+#    And I scroll the "Command Three" text box into view offset by "-200"
+#    And I highlight outside the "Command Three" text box
+#    And I populate the "Command Three" text box with "Octo.exe pack -id RandomQuotes -version 1.0.%BUILD_NUMBER% -include RandomQuotes\bin\Release\netcoreapp2.2\publish\"
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-octo-pack.png"
+#    And I remove the highlight from the "Command Three" text box
 
   @configure-project @repositoryspecific @artifactory @applicationspecific @aspnetcore
   Scenario: ASP.NET Core - Add Artifactory Push Step
@@ -363,26 +383,43 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnetcore
   Scenario: ASP.NET Core - Add Octopus Push Step
     Given I set the following aliases:
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
-      | Command Four                  | (//textarea[contains(@name,'command')])[4]             |
-      | Save                          | //button[@type='button'][contains(.,'Save')]           |
+      | Add build step | //button[@type='button'][contains(.,'Add build step')] |
+      | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]       |
+      | Package paths  | //textarea[@name='_.packagePaths']                     |
+      | Save           | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
     And I sleep for "2" seconds
     And I click the "Add build step" button
-    And I highlight outside the "Execute Windows batch command" link
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}170-batch-command-4.png"
-    And I click the "Execute Windows batch command" link
+    And I sleep for "1" second
+    And I highlight outside the "Push packages" link
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}170-octo-plugin-push-package.png"
+    And I click the "Push packages" link
     And I remove the highlight from the "Add build step" option
-    And I remove the highlight from the "Execute Windows batch command" option
+    And I remove the highlight from the "Push packages" option
 
-    And I scroll the "Command Four" text box into view offset by "-200"
-    And I highlight outside the "Command Four" text box
-    And I highlight outside the "Save" button
-    And I populate the "Command Four" text box with "Octo.exe push --server http://localhost --package RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
-    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}180-octo-push.png"
+    And I scroll the "Package paths" text box into view offset by "-200"
+    And I highlight outside the "Package paths" text box
+    And I populate the "Package paths" text box with ".\RandomQuotes\obj\octopacked\RandomQuotes.1.0.${BUILD_NUMBER}.nupkg"
+    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}180-octo-plugin-push.png"
+    And I remove the highlight from the "Package paths" text box
+
+#    And I scroll the "Add build step" button into view offset by "-200"
+#    And I highlight outside the "Add build step" button
+#    And I sleep for "2" seconds
+#    And I click the "Add build step" button
+#    And I highlight outside the "Execute Windows batch command" link
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}170-batch-command-4.png"
+#    And I click the "Execute Windows batch command" link
+#    And I remove the highlight from the "Add build step" option
+#    And I remove the highlight from the "Execute Windows batch command" option
+#
+#    And I scroll the "Command Four" text box into view offset by "-200"
+#    And I highlight outside the "Command Four" text box
+#    And I highlight outside the "Save" button
+#    And I populate the "Command Four" text box with "Octo.exe push --server http://localhost --package RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
+#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}180-octo-push.png"
 
     And I click the "Save" button
     And I stop recording the screen

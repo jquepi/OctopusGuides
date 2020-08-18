@@ -4,6 +4,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
     Given I run the feature "shared/jenkins-open-browser.feature" passing the original arguments
     And I run the feature "shared/jenkins-login.feature" passing the original arguments
     And I run the feature "shared/jenkins-install-octo-plugin.feature" passing the original arguments
+    And I run the feature "shared/jenkins-configure-octo-cli.feature" passing the original arguments
     And I run the feature "shared/jenkins-initial-project-setup.feature" passing the original arguments
 
   @configure-project
