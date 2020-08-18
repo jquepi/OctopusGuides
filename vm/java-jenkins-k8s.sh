@@ -35,7 +35,6 @@ export DOCKER_PORT=80
 export K8S_DEV_NODEPORT=30000
 export K8S_TEST_NODEPORT=30001
 export K8S_PROD_NODEPORT=30002
-export ExternalUrl
 
 cd ..
 

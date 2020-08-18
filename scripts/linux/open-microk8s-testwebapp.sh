@@ -22,7 +22,7 @@
   "-DCucumberAlias-ExternalTargetName=Kubernetes" \
   "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Test']]" \
   "-DCucumberAlias-ExternalNamespace=randomquotes-test" \
-  "-DCucumberAlias-ExternalUrl=http://localhost:30001" \
+  "-DCucumberAlias-ExternalUrl=http://127.0.0.1:30001" \
   "-DCucumberAlias-Screenshot=k8s-random-quotes-test-app.png" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
