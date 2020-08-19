@@ -276,6 +276,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Command Line Arguments                                  | //textarea[@name='msBuildBuilder.cmdLineArgs']                             |
       | Command Two                                             | (//textarea[contains(@name,'command')])[2]                                 |
       | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                 |
+      | Package application                                     | //a[contains(.,'Octopus Deploy: Package application')]                     |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
