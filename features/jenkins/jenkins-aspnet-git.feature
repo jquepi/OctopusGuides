@@ -76,10 +76,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
 
-  @configure-credentials
-  Scenario: Configure credentials
-    And I run the feature "shared/jenkins-add-octo-creds.feature"
-
   @configure-project
   Scenario: Prepare the project
     Given I set the following aliases:
