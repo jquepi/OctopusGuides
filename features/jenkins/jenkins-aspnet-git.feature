@@ -277,6 +277,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Command Two                                             | (//textarea[contains(@name,'command')])[2]                                 |
       | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                 |
       | Package application                                     | //a[contains(.,'Octopus Deploy: Package application')]                     |
+      | Package ID                                              | //input[@name='_.packageId']                                               |
+      | Version number                                          | //input[@name='_.packageVersion']                                          |
+      | Package output folder                                   | //input[@name='_.outputPath']                                              |
+      | Package include paths                                   | //textarea[@name='_.includePaths']                                         |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
