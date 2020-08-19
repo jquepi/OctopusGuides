@@ -241,7 +241,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Package paths" text box into view offset by "-200"
     And I highlight outside the "Package paths" text box
-    And I populate the "Package paths" text box with ".\RandomQuotes\obj\octopacked\RandomQuotes.1.0.$BUILD_NUMBER.nupkg"
+    And I populate the "Package paths" text box with ".\RandomQuotes\obj\octopacked\RandomQuotes.1.0.${BUILD_NUMBER}.nupkg"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}135-octo-plugin-push.png"
     And I remove the highlight from the "Package paths" text box
 
