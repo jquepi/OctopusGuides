@@ -333,7 +333,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I populate the "Package ID" text box with "RandomQuotes"
     And I populate the "Version number" text box with "1.0.${BUILD_NUMBER}"
-    And I populate the "Package include paths" text box with "${WORKSPACE}\RandomQuotes\bin\Release\netcoreapp2.2\publish\**"
+    And I populate the "Package include paths" text box with "RandomQuotes\bin\Release\netcoreapp2.2\publish\**"
     And I populate the "Package output folder" text box with "${WORKSPACE}"
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}165-octo-plugin-pack.png"
