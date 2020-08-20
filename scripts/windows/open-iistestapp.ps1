@@ -1,5 +1,3 @@
-ls "C:\Octopus\Application\RandomQuotes\Dev\1.0.1"
-
 & "C:\Program Files\OpenJDK\$((Get-ChildItem "C:\Program Files\OpenJDK\")[0])\bin\java" `
     "--enable-preview" `
     "-Xmx2g" `
