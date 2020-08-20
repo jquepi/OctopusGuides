@@ -1,6 +1,6 @@
 name: ASP.NET Jenkins Octopus Built-in Feed Video
 on:
-  push:
+#  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:

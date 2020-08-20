@@ -362,7 +362,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     Given I set the following aliases:
       | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
       | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
-      | Command Four                  | (//textarea[contains(@name,'command')])[4]             |
+      | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
       | Save                          | //button[@type='button'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
@@ -375,11 +375,11 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I remove the highlight from the "Add build step" option
     And I remove the highlight from the "Execute Windows batch command" option
 
-    And I scroll the "Command Four" text box into view offset by "-200"
-    And I highlight outside the "Command Four" text box
-    And I populate the "Command Four" text box with "C:\ProgramData\chocolatey\bin\nuget.exe push -Source Artifactory RandomQuotes.1.0.%BUILD_NUMBER%.nupkg"
+    And I scroll the "Command Three" text box into view offset by "-200"
+    And I highlight outside the "Command Three" text box
+    And I populate the "Command Three" text box with "C:\ProgramData\chocolatey\bin\nuget.exe push -Source Artifactory RandomQuotes.1.0.%BUILD_NUMBER%.nupkg"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}180-nuget-push.png"
-    And I remove the highlight from the "Command Four" text box
+    And I remove the highlight from the "Command Three" text box
 
     And I click the "Save" button
     And I stop recording the screen
