@@ -241,7 +241,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Package paths" text box into view offset by "-200"
     And I highlight outside the "Package paths" text box
-    And I populate the "Package paths" text box with ".\RandomQuotes\obj\octopacked\RandomQuotes.1.0.$BUILD_NUMBER.nupkg"
+    And I populate the "Package paths" text box with "${WORKSPACE}\RandomQuotes\obj\octopacked\RandomQuotes.1.0.${BUILD_NUMBER}.nupkg"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}135-octo-plugin-push.png"
     And I remove the highlight from the "Package paths" text box
 
@@ -276,6 +276,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Command Line Arguments                                  | //textarea[@name='msBuildBuilder.cmdLineArgs']                             |
       | Command Two                                             | (//textarea[contains(@name,'command')])[2]                                 |
       | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                 |
+      | Package application                                     | //a[contains(.,'Octopus Deploy: Package application')]                     |
+      | Package ID                                              | //input[@name='_.packageId']                                               |
+      | Version number                                          | //input[@name='_.packageVersion']                                          |
+      | Package output folder                                   | //input[@name='_.outputPath']                                              |
+      | Package include paths                                   | //textarea[@name='_.includePaths']                                         |
+      | Package base path                                       | //input[@name='_.sourcePath']                                              |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -323,13 +329,15 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I scroll the "Package ID" text box into view offset by "-200"
     And I highlight outside the "Package ID" text box
     And I highlight outside the "Version number" text box
+    And I highlight outside the "Package base path" text box
     And I highlight outside the "Package include paths" text box
     And I highlight outside the "Package output folder" text box
 
     And I populate the "Package ID" text box with "RandomQuotes"
-    And I populate the "Version number" text box with "1.0.$BUILD_NUMBER"
-    And I populate the "Package include paths" text box with "$WORKSPACE\RandomQuotes\bin\Release\netcoreapp2.2\publish\"
-    And I populate the "Package output folder" text box with "$WORKSPACE"
+    And I populate the "Version number" text box with "1.0.${BUILD_NUMBER}"
+    And I populate the "Package base path" text box with "${WORKSPACE}\RandomQuotes\bin\Release\netcoreapp2.2\publish"
+    And I populate the "Package include paths" text box with "**"
+    And I populate the "Package output folder" text box with "${WORKSPACE}"
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}165-octo-plugin-pack.png"
 
@@ -397,7 +405,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I scroll the "Package paths" text box into view offset by "-200"
     And I highlight outside the "Package paths" text box
-    And I populate the "Package paths" text box with ".\RandomQuotes\obj\octopacked\RandomQuotes.1.0.$BUILD_NUMBER.nupkg"
+    And I populate the "Package paths" text box with "${WORKSPACE}\RandomQuotes.1.0.${BUILD_NUMBER}.zip"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}180-octo-plugin-push.png"
     And I remove the highlight from the "Package paths" text box
 
