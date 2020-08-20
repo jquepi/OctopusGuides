@@ -202,9 +202,9 @@ if (elements.length !== 0) {
   Scenario: Add the container and ports.
     Given I set the following aliases:
       | Add Container | (//button[@title='Add Container'])[1] |
-      | Image name    | (//input[contains(@id,'Name')])[2]    |
+      | Image name    | (//input[contains(@id,'Name')])[3]    |
       | Add Port      | (//button[@title='Add Port'])[3]      |
-      | Port name     | (//input[contains(@id,'Name')])[3]    |
+      | Port name     | (//input[contains(@id,'Name')])[4]    |
       | Port number   | (//input[contains(@id,'Port')])[1]    |
 
     And I highlight outside the "Add Container" button
