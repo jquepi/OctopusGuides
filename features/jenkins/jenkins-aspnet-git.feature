@@ -245,22 +245,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}135-octo-plugin-push.png"
     And I remove the highlight from the "Package paths" text box
 
-#    And I scroll the "Add build step" button into view offset by "-200"
-#    And I highlight outside the "Add build step" button
-#    And I sleep for "2" seconds
-#    And I click the "Add build step" button
-#    And I highlight outside the "Execute Windows batch command" link
-#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}130-batch-command-3.png"
-#    And I click the "Execute Windows batch command" link
-#    And I remove the highlight from the "Add build step" option
-#    And I remove the highlight from the "Execute Windows batch command" option
-#
-#    And I scroll the "Command Three" text box into view offset by "-200"
-#    And I highlight outside the "Command Three" text box
-#    And I highlight outside the "Save" button
-#    And I populate the "Command Three" text box with "Octo.exe push --server http://localhost --package .\RandomQuotes\obj\octopacked\RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
-#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}135-octo-push.png"
-
     And I click the "Save" button
     And I stop recording the screen
 
@@ -275,13 +259,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | MSBuild Build File                                      | //input[@name='msBuildBuilder.msBuildFile']                                |
       | Command Line Arguments                                  | //textarea[@name='msBuildBuilder.cmdLineArgs']                             |
       | Command Two                                             | (//textarea[contains(@name,'command')])[2]                                 |
-      | Command Three                                           | (//textarea[contains(@name,'command')])[3]                                 |
       | Package application                                     | //a[contains(.,'Octopus Deploy: Package application')]                     |
       | Package ID                                              | //input[@name='_.packageId']                                               |
       | Version number                                          | //input[@name='_.packageVersion']                                          |
       | Package output folder                                   | //input[@name='_.outputPath']                                              |
       | Package include paths                                   | //textarea[@name='_.includePaths']                                         |
       | Package base path                                       | //input[@name='_.sourcePath']                                              |
+      | Nuget                                                   | //input[@value='nuget']                                                    |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -332,33 +316,19 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Package base path" text box
     And I highlight outside the "Package include paths" text box
     And I highlight outside the "Package output folder" text box
+    And I highlight outside the "Nuget" text box
 
     And I populate the "Package ID" text box with "RandomQuotes"
     And I populate the "Version number" text box with "1.0.${BUILD_NUMBER}"
     And I populate the "Package base path" text box with "${WORKSPACE}\RandomQuotes\bin\Release\netcoreapp2.2\publish"
     And I populate the "Package include paths" text box with "**"
     And I populate the "Package output folder" text box with "${WORKSPACE}"
+    And I click the "Nuget" check box
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}165-octo-plugin-pack.png"
 
-#    And I scroll the "Add build step" button into view offset by "-200"
-#    And I highlight outside the "Add build step" button
-#    And I sleep for "2" seconds
-#    And I click the "Add build step" button
-#    And I highlight outside the "Execute Windows batch command" link
-#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}150-batch-command-3.png"
-#    And I click the "Execute Windows batch command" link
-#    And I remove the highlight from the "Add build step" option
-#    And I remove the highlight from the "Execute Windows batch command" option
-#
-#    And I scroll the "Command Three" text box into view offset by "-200"
-#    And I highlight outside the "Command Three" text box
-#    And I populate the "Command Three" text box with "Octo.exe pack -id RandomQuotes -version 1.0.%BUILD_NUMBER% -include RandomQuotes\bin\Release\netcoreapp2.2\publish\"
-#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}160-octo-pack.png"
-#    And I remove the highlight from the "Command Three" text box
-
   @configure-project @repositoryspecific @artifactory @applicationspecific @aspnetcore
-  Scenario: ASP.NET Core - Add Artifactory Push Step
+  Scenario: ASP.NET Core Artifactory - Add Artifactory Push Step
     Given I set the following aliases:
       | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
       | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
@@ -385,7 +355,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I stop recording the screen
 
   @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnetcore
-  Scenario: ASP.NET Core - Add Octopus Push Step
+  Scenario: ASP.NET Core Built-in Feed - Add Octopus Push Step
     Given I set the following aliases:
       | Add build step | //button[@type='button'][contains(.,'Add build step')] |
       | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]       |
@@ -408,22 +378,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Package paths" text box with "${WORKSPACE}\RandomQuotes.1.0.${BUILD_NUMBER}.zip"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}180-octo-plugin-push.png"
     And I remove the highlight from the "Package paths" text box
-
-#    And I scroll the "Add build step" button into view offset by "-200"
-#    And I highlight outside the "Add build step" button
-#    And I sleep for "2" seconds
-#    And I click the "Add build step" button
-#    And I highlight outside the "Execute Windows batch command" link
-#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}170-batch-command-4.png"
-#    And I click the "Execute Windows batch command" link
-#    And I remove the highlight from the "Add build step" option
-#    And I remove the highlight from the "Execute Windows batch command" option
-#
-#    And I scroll the "Command Four" text box into view offset by "-200"
-#    And I highlight outside the "Command Four" text box
-#    And I highlight outside the "Save" button
-#    And I populate the "Command Four" text box with "Octo.exe push --server http://localhost --package RandomQuotes.1.0.%BUILD_NUMBER%.nupkg --apiKey %OctopusAPIKey%"
-#    And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}180-octo-push.png"
 
     And I click the "Save" button
     And I stop recording the screen
