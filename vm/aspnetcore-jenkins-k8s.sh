@@ -95,6 +95,7 @@ cd ..
 ./scripts/linux/add-usersandteams.sh
 
 # View the app
+./scripts/linux/open-microk8s-devwebapp.sh
 ./scripts/linux/open-microk8s-testwebapp.sh
 
 # Add desktop shortcuts
