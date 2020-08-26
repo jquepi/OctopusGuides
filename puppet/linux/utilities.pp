@@ -104,11 +104,11 @@ archive { '/opt/setup_13.x':
   ensure => installed,
 }
 
-archive { '/opt/geckodriver-v0.26.0-linux64.tar.gz':
+archive { '/opt/geckodriver-v0.27.0-linux64.tar.gz':
   ensure       => present,
   extract      => true,
   extract_path => '/usr/bin',
-  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz',
+  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-linux64.tar.gz',
   creates      => '/usr/bin/geckodriver',
   cleanup      => true,
 }

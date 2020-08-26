@@ -97,11 +97,11 @@ archive { 'C:/tools/chromedriver_win32.zip':
   cleanup      => true,
 }
 
-archive { 'C:/tools/geckodriver-v0.26.0-win64.zip':
+archive { 'C:/tools/geckodriver-v0.27.0-win64.zip':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/tools',
-  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-win64.zip',
+  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-win64.zip',
   creates      => 'C:/tools/geckodriver.exe',
   cleanup      => true,
 }
