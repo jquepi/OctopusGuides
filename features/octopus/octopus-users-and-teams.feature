@@ -48,7 +48,9 @@ Feature: Create Octopus Users and Teams
 
     And I stop recording the screen
     And I sleep for "5" seconds
-    And I click the "Expand All" link if the "Username" text box does not exist
+    # Force click to fix the issue:
+    # Element <a class="style_expandLink__1iKhk" href="#"> is not clickable at point (1342,147) because another element <div class="style_container__C3zvD style_title__3dtC6 style_stickied__mFxEA"> obscures it
+    And I force click the "Expand All" link if the "Username" text box does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I scroll the "Username" text box into view offset by "-200"
@@ -110,7 +112,9 @@ Feature: Create Octopus Users and Teams
 
     And I stop recording the screen
     And I sleep for "5" seconds
-    And I click the "Expand All" link if the "Username" text box does not exist
+    # Force click to fix the issue:
+    # Element <a class="style_expandLink__1iKhk" href="#"> is not clickable at point (1342,147) because another element <div class="style_container__C3zvD style_title__3dtC6 style_stickied__mFxEA"> obscures it
+    And I force click the "Expand All" link if the "Username" text box does not exist
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I scroll the "Username" text box into view offset by "-200"
