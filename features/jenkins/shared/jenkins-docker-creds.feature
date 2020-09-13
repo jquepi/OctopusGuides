@@ -3,7 +3,7 @@ Feature: COnfigure docker creds
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
-      | Manage Jenkins          | //a[@class='task-link' and contains(.,'Manage Jenkins')]               |
+      | Manage Jenkins          | //a[@class='task-link-text' and contains(.,'Manage Jenkins')]          |
       | Manage Credentials      | //a[@href='credentials']                                               |
       | System                  | //a[@href='/credentials/store/system']                                 |
       | Global credentials      | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
@@ -36,16 +36,16 @@ Feature: COnfigure docker creds
   @configure-credentials @repositoryspecific @dockerhub
   Scenario: Configure Dockerhub credentials
     Given I set the following aliases:
-      | Add Credentials         | //a[@href='newCredentials'][contains(.,'Add Credentials')]             |
-      | Username                | //input[@name='_.username']                                            |
-      | Password                | //input[@name='_.password']                                            |
-      | ID                      | //input[@name='_.id']                                                  |
-      | Description             | //input[@name='_.description']                                         |
-      | Kind                    | //select[@class='setting-input dropdownList']                          |
-      | Secret                  | //input[@name='_.secret']                                              |
-      | OK                      | //button[@type='button'][contains(.,'OK')]                             |
-      | ID Two                  | (//input[@name='_.id'])[2]                                             |
-      | Description Two         | (//input[contains(@name,'_.description')])[2]                          |
+      | Add Credentials | //a[@href='newCredentials'][contains(.,'Add Credentials')] |
+      | Username        | //input[@name='_.username']                                |
+      | Password        | //input[@name='_.password']                                |
+      | ID              | //input[@name='_.id']                                      |
+      | Description     | //input[@name='_.description']                             |
+      | Kind            | //select[@class='setting-input dropdownList']              |
+      | Secret          | //input[@name='_.secret']                                  |
+      | OK              | //button[@type='button'][contains(.,'OK')]                 |
+      | ID Two          | (//input[@name='_.id'])[2]                                 |
+      | Description Two | (//input[contains(@name,'_.description')])[2]              |
 
     And I highlight inside the "Add Credentials" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}100-add-credentials.png"

@@ -1,11 +1,11 @@
-Feature: Open plugins  
-  
+Feature: Open plugins
+
   @plugin-install
   Scenario: Open plugins
     Given I set the following aliases:
-      | Manage Jenkins           | //a[@class='task-link' and contains(.,'Manage Jenkins')] |
-      | Manage Plugins           | //a[@href='pluginManager']                               |
-      | Available                | //a[contains(@href,'available')]                         |
+      | Manage Jenkins | //a[@class='task-link-text' and contains(.,'Manage Jenkins')] |
+      | Manage Plugins | //a[@href='pluginManager']                                    |
+      | Available      | //a[contains(@href,'available')]                              |
 
     And I display a note with the text "Installing the Jenkins plugins" for "3" seconds
 
