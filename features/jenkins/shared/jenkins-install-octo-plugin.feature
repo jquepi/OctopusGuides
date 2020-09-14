@@ -35,12 +35,12 @@ Feature: Install the octopus plugin
   @plugin-install
   Scenario: Configure server
     Given I set the following aliases:
-      | Manage Jenkins   | //a[@class='task-link-text' and contains(.,'Manage Jenkins')] |
-      | Configure System | //a[@href='configure']                                        |
-      | Server Id        | //input[@name='_.serverId']                                   |
-      | URL              | (//input[@name='_.url'])[3]                                   |
-      | API Key          | //input[@name='_.apiKey']                                     |
-      | Save             | //button[@type='button'][contains(.,'Save')]                  |
+      | Manage Jenkins   | //a[@href="/manage"]                         |
+      | Configure System | //a[@href='configure']                       |
+      | Server Id        | //input[@name='_.serverId']                  |
+      | URL              | (//input[@name='_.url'])[3]                  |
+      | API Key          | //input[@name='_.apiKey']                    |
+      | Save             | //button[@type='button'][contains(.,'Save')] |
 
     And I display a note with the text "Configuring the Octopus server" for "3" seconds
 

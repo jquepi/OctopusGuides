@@ -3,10 +3,10 @@ Feature: Configure docker
   @configure-docker
   Scenario: Configure Docker
     Given I set the following aliases:
-      | Manage Jenkins   | //a[@class='task-link-text' and contains(.,'Manage Jenkins')] |
-      | Configure System | //a[@href='configure']                                        |
-      | Docker URL       | //input[@name='_.dockerUrl']                                  |
-      | Save             | //button[text()='Save']                                       |
+      | Manage Jenkins   | //a[@href="/manage"]         |
+      | Configure System | //a[@href='configure']       |
+      | Docker URL       | //input[@name='_.dockerUrl'] |
+      | Save             | //button[text()='Save']      |
 
     And I open the URL "http://localhost:8080/"
     And I clear the transition

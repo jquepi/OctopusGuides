@@ -3,7 +3,7 @@ Feature: COnfigure docker creds
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
-      | Manage Jenkins          | //a[@class='task-link-text' and contains(.,'Manage Jenkins')]          |
+      | Manage Jenkins          | //a[@href="/manage"]                                                   |
       | Manage Credentials      | //a[@href='credentials']                                               |
       | System                  | //a[@href='/credentials/store/system']                                 |
       | Global credentials      | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
