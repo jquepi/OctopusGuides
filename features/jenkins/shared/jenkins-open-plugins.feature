@@ -3,7 +3,7 @@ Feature: Open plugins
   @plugin-install
   Scenario: Open plugins
     Given I set the following aliases:
-      | Manage Jenkins | //a[@href="/manage"]             |
+      | Manage Jenkins | (//a[@href="/manage"])[2]             |
       | Manage Plugins | //a[@href='pluginManager']       |
       | Available      | //a[contains(@href,'available')] |
 
