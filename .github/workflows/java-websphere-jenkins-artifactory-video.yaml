@@ -1,6 +1,6 @@
 name: Java Jenkins Websphere Artifactory Feed Video
 on:
-#  push:
+  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:

@@ -1,6 +1,6 @@
 name: Java Jenkins WildFly Artifactory Feed Video
 on:
-#  push:
+  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:
