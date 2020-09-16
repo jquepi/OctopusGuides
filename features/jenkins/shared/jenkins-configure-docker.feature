@@ -3,7 +3,7 @@ Feature: Configure docker
   @configure-docker
   Scenario: Configure Docker
     Given I set the following aliases:
-      | Manage Jenkins   | (//a[@href="/manage"])[2]         |
+      | Manage Jenkins   | //div[contains(@class, 'task')][.//a[@href="/manage"]]           |
       | Configure System | //a[@href='configure']       |
       | Docker URL       | //input[@name='_.dockerUrl'] |
       | Save             | //button[text()='Save']      |

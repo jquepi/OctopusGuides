@@ -3,10 +3,10 @@ Feature: Install the octopus plugin
   @plugin-install
   Scenario: Configure global tools
     Given I set the following aliases:
-      | Manage Jenkins            | (//a[@href="/manage"])[2]                         |
-      | Global Tool Configuration | //a[@href='configureTools']                  |
-      | Path                      | (//input[@name='_.home'])[2]                 |
-      | Save                      | //button[@type='button'][contains(.,'Save')] |
+      | Manage Jenkins            | //div[contains(@class, 'task')][.//a[@href="/manage"]] |
+      | Global Tool Configuration | //a[@href='configureTools']                            |
+      | Path                      | (//input[@name='_.home'])[2]                           |
+      | Save                      | //button[@type='button'][contains(.,'Save')]           |
 
     And I display a note with the text "Configuring the Octopus server" for "3" seconds
 

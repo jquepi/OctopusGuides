@@ -40,7 +40,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-tools @applicationspecific @aspnet
   Scenario: Configure tools
     Given I set the following aliases:
-      | Manage Jenkins            | (//a[@href="/manage"])[2]                                                                                  |
+      | Manage Jenkins            | //div[contains(@class, 'task')][.//a[@href="/manage"]]                                                                                    |
       | Global Tool Configuration | //a[@href='configureTools']                                                                           |
       | MSBuild Tool              | //button[contains(.,'Add MSBuild')]                                                                   |
       | MSBuild Name              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkName')] |

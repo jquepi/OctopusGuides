@@ -35,7 +35,7 @@ Feature: Install the octopus plugin
   @plugin-install
   Scenario: Configure server
     Given I set the following aliases:
-      | Manage Jenkins   | (//a[@href="/manage"])[2]                         |
+      | Manage Jenkins   | //div[contains(@class, 'task')][.//a[@href="/manage"]]                           |
       | Configure System | //a[@href='configure']                       |
       | Server Id        | //input[@name='_.serverId']                  |
       | URL              | (//input[@name='_.url'])[3]                  |
