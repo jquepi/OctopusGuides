@@ -10,7 +10,7 @@ Feature: Configure the Octopus environments
       | Environments         | (//a[contains(.,'Environments')])[1]                                                 |
       | Environments text    | (//a/span[contains(.,'Environments')])[1] \| //a[contains(.,'Environments')][not(*)] |
       | Add Environment      | //button[contains(.,'Add Environment')]                                              |
-      | New environment name | //input[contains(@id, 'Newenvironmentname')]                                         |
+      | New environment name | //input[@name='New environment name']                                                |
       | Save                 | //button[contains(.,'Save')]                                                         |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
