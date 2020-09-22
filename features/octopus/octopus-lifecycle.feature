@@ -12,17 +12,17 @@ Feature: Create a Lifecycle in Octopus
       | Lifecycles                      | //a[contains(.,'Lifecycles')]                                          |
       | Lifecycles text                 | //a[contains(.,'Lifecycles')][not(*)] \| //a/span[text()='Lifecycles'] |
       | Add Lifecycle                   | //button[contains(.,'Add Lifecycle')]                                  |
-      | Lifecycle name                  | //input[@name='Lifecycle name']                                 |
-      | Lifecycle description           | //textarea[@name='Lifecycle description']                       |
-      | Lifecycle description container | //div[./textarea[@name='Lifecycle description']]                |
+      | Lifecycle name                  | //input[@name='Lifecycle name']                                        |
+      | Lifecycle description           | //textarea[@name='Lifecycle description']                              |
+      | Lifecycle description container | //div[./textarea[@name='Lifecycle description']]                       |
       | Add Phase                       | (//button[@title='Add phase'])[1]                                      |
-      | Phase name 1                    | (//input[../../label[contains(.,'Phase name')]])[1]                       |
+      | Phase name 1                    | (//input[../../label[contains(.,'Phase name')]])[1]                    |
       | Add Environment 1               | (//button[@title='Add Environment'])[1]                                |
-      | Phase name 2                    | (//input[../../label[contains(.,'Phase name')]])[2]                       |
+      | Phase name 2                    | (//input[../../label[contains(.,'Phase name')]])[2]                    |
       | Add Environment 2               | (//button[@title='Add Environment'])[2]                                |
-      | Phase name 3                    | (//input[../../label[contains(.,'Phase name')]])[3]                       |
+      | Phase name 3                    | (//input[../../label[contains(.,'Phase name')]])[3]                    |
       | Add Environment 3               | (//button[@title='Add Environment'])[3]                                |
-      | Environment list                | //div[./label[text() = 'Environment']]//button                           |
+      | Environment list                | //div[./label[text() = 'Environment']]//button                         |
       | Dev environment                 | //div[./div/div[text() = 'Dev']]                                       |
       | Test environment                | //div[./div/div[text() = 'Test']]                                      |
       | Prod environment                | //div[./div/div[text() = 'Prod']]                                      |
@@ -170,7 +170,7 @@ Feature: Create a Lifecycle in Octopus
       | Deployments        | //a[contains(.,'Deployments')]                                   |
       | Process            | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process'] |
       | Change             | //button[contains(.,'CHANGE')]                                   |
-      | Lifecycle list     | //button[../../../../div[text()='Lifecycle']]                    |
+      | Lifecycle list     | //button[../../../../label[text()='Lifecycle']]                  |
       | Save               | //button[contains(.,'Save')]                                     |
       | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]]          |
 
