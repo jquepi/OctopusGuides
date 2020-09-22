@@ -76,13 +76,13 @@ Feature: Configure an Octopus Wildfly project
   @define-project @destinationspecific @wildfly
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Configure features                      | (//button[contains(.,'Configure features')])[1]                                                 |
-      | Substitute Variables in Files           | //input[..//label[text()='Substitute Variables in Files']]                                      |
-      | Substitute Variables in Files Container | //div[./input[..//label[text()='Substitute Variables in Files']]]                               |
-      | OK                                      | //button[contains(.,'Ok')]                                                                      |
-      | Step Name                               | //input[@name='Step name']                                                                      |
-      | On target roles                         | //input[@title='Runs on targets in roles (type to add new)']                                    |
-      | Web role                                | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Configure features                          | (//button[contains(.,'Configure features')])[1]                                                 |
+      | Substitute Variables in Templates           | //input[..//label[text()='Substitute Variables in Templates']]                                  |
+      | Substitute Variables in Templates Container | //div[./input[..//label[text()='Substitute Variables in Templates']]]                           |
+      | OK                                          | //button[contains(.,'Ok')]                                                                      |
+      | Step Name                                   | //input[@name='Step name']                                                                      |
+      | On target roles                             | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | Web role                                    | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
@@ -91,9 +91,9 @@ Feature: Configure an Octopus Wildfly project
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
-    And I highlight inside the "Substitute Variables in Files Container" option
+    And I highlight inside the "Substitute Variables in Templates Container" option
     And I highlight outside the "OK" button with an offset of "2"
-    And I force click the "Substitute Variables in Files" option
+    And I force click the "Substitute Variables in Templates" option
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-java-enable-conf-vars.png"
     And I click the "OK" button

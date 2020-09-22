@@ -43,13 +43,11 @@ Feature: Configure an Octopus Websphere project
   @define-project @destinationspecific @websphere
   Scenario: Java Define step
     Given I set the following aliases:
-      | Configure features                      | (//button[contains(.,'Configure features')])[1]                                                 |
-      | Substitute Variables in Files           | //input[..//label[text()='Substitute Variables in Files']]                                      |
-      | Substitute Variables in Files Container | //div[./input[..//label[text()='Substitute Variables in Files']]]                               |
-      | OK                                      | //button[contains(.,'Ok')]                                                                      |
-      | Step Name                               | //input[@name='Step name']                                                                      |
-      | On target roles                         | //input[@title='Runs on targets in roles (type to add new)']                                    |
-      | Web role                                | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Configure features | (//button[contains(.,'Configure features')])[1]                                                 |
+      | OK                 | //button[contains(.,'Ok')]                                                                      |
+      | Step Name          | //input[@name='Step name']                                                                      |
+      | On target roles    | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | Web role           | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
