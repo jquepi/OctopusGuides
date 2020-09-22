@@ -16,13 +16,13 @@ Feature: Create a Lifecycle in Octopus
       | Lifecycle description           | //textarea[@name='Lifecycle description']                       |
       | Lifecycle description container | //div[./textarea[@name='Lifecycle description']]                |
       | Add Phase                       | (//button[@title='Add phase'])[1]                                      |
-      | Phase name 1                    | (//input[../label[contains(.,'Phase name')]])[1]                       |
+      | Phase name 1                    | (//input[../../label[contains(.,'Phase name')]])[1]                       |
       | Add Environment 1               | (//button[@title='Add Environment'])[1]                                |
-      | Phase name 2                    | (//input[../label[contains(.,'Phase name')]])[2]                       |
+      | Phase name 2                    | (//input[../../label[contains(.,'Phase name')]])[2]                       |
       | Add Environment 2               | (//button[@title='Add Environment'])[2]                                |
-      | Phase name 3                    | (//input[../label[contains(.,'Phase name')]])[3]                       |
+      | Phase name 3                    | (//input[../../label[contains(.,'Phase name')]])[3]                       |
       | Add Environment 3               | (//button[@title='Add Environment'])[3]                                |
-      | Environment list                | //div[./div[text() = 'Environment']]//button                           |
+      | Environment list                | //div[./label[text() = 'Environment']]//button                           |
       | Dev environment                 | //div[./div/div[text() = 'Dev']]                                       |
       | Test environment                | //div[./div/div[text() = 'Test']]                                      |
       | Prod environment                | //div[./div/div[text() = 'Prod']]                                      |
