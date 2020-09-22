@@ -10,7 +10,7 @@ Feature: Add Artifactory Maven feed
       | External Feeds      | //a[contains(.,'External Feeds')]                                              |
       | External Feeds text | //a[contains(.,'External Feeds')][not(*)] \| //a/span[text()='External Feeds'] |
       | Add Feed            | //button[contains(.,'Add feed')]                                               |
-      | Feed Type           | //div[../../div[text()='Feed type']]                                           |
+      | Feed Type           | //div[../../label[text()='Feed type']]                                           |
       | Maven Feed          | //span[./div/div/div[text()='Maven Feed']]                                     |
       | Feed name           | //input[contains(@id, 'Feedname')]                                             |
       | Feed url            | //input[contains(@id, 'Feedurl')]                                              |
