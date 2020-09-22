@@ -1,6 +1,6 @@
 name: Java Jenkins payara Artifactory Feed Screenshots
 on:
-  push:
+#  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:

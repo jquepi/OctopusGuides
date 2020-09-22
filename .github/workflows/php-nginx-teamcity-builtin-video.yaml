@@ -1,6 +1,6 @@
 name: PHP TeamCity NGINX Builtin feed Video
 on:
-  push:
+#  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:
