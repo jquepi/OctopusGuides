@@ -25,8 +25,8 @@ Feature: Configure an Octopus Node.js project
       | Project Variables Title | //h2[contains(.,'Project Variables')]           |
       | New variable name       | //input[@name='Enter new variable']      |
       | New variable value      | //input[@name='Enter value']                   |
-      | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]        |
-      | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]        |
+      | New variable value 2    | (//input[@name='Enter value'])[2]        |
+      | New variable value 3    | (//input[@name='Enter value'])[3]        |
       | Add to list             | //button[@title='Add To List']                  |
       | Save                    | //button[contains(.,'Save')]                    |
 

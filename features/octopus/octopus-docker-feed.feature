@@ -14,7 +14,7 @@ Feature: Create Azure Web App Target
       | Add Feed                  | //button[contains(.,'Add feed')]                                               |
       | Feed type                 | //div[../../div[text()='Feed type']]                                           |
       | Docker Container Registry | //div[./div/div[text()='Docker Container Registry']]                           |
-      | Feed name                 | //input[contains(@id,'Feedname')]                                              |
+      | Feed name                 | //input[@name='Feed name']                                                     |
       | Expand All                | //a[text()='EXPAND ALL']                                                       |
 
     And I start recording the screen to the directory "ExternalMediaPath"
@@ -55,8 +55,8 @@ Feature: Create Azure Web App Target
   @define-feed @repositoryspecific @localdockerrepo
   Scenario: Define the local feed url, clearing the defaults for Docker Hub
     Given I set the following aliases:
-      | URL           | //input[contains(@id,'Feedurl')]      |
-      | Registry path | //input[contains(@id,'Registrypath')] |
+      | URL           | //input[@name='Feed url']      |
+      | Registry path | //input[@name='Registry path'] |
 
     And I force clear the "URL" text box
     # https://stackoverflow.com/a/48547074/157605 has details on this IP address

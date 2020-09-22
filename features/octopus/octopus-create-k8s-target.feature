@@ -13,7 +13,7 @@ Feature: Create Azure Web App Target
       | Kubernetes Cluster         | //button[contains(.,'Kubernetes Cluster')]                                                                   |
       | Kubernetes Cluster Target  | //div[contains(@class, 'EndpointCard_card') and contains(.,'Kubernetes Cluster')]                            |
       | Add                        | //div[contains(@class, 'EndpointCard_card') and contains(.,'Kubernetes Cluster')]//button[contains(.,'Add')] |
-      | Display Name               | //input[contains(@id,'Displayname')]                                                                         |
+      | Display Name               | //input[@name='Display name']                                                                                |
       | Environments               | //input[@title='Select environments']                                                                        |
       | Environments Container     | //div[./div/div/div/input[@title='Select environments']]                                                     |
       | Dev environment            | //span[./div/div/div[text()='Dev']]                                                                          |
@@ -112,7 +112,7 @@ Feature: Create Azure Web App Target
 
   Scenario: Add target
     Given I set the following aliases:
-      | Kubernetes cluster URL | //input[contains(@id,'KubernetesclusterURL')] |
+      | Kubernetes cluster URL | //input[@name='Kubernetes cluster URL'] |
 
     And I highlight outside the "Kubernetes cluster URL" text box
     And I scroll the "Kubernetes cluster URL" text box into view offset by "-200"
@@ -145,7 +145,7 @@ Feature: Create Azure Web App Target
 
   Scenario: Add namespace
     Given I set the following aliases:
-      | Kubernetes namespace | //input[contains(@id,'Kubernetesnamespace')]                             |
+      | Kubernetes namespace | //input[@name='Kubernetes namespace']                                    |
       | Save                 | //button[contains(.,'Save')]                                             |
       | Connectivity         | //a[./span[text()='Connectivity']] \| //a[text()='Connectivity'][not(*)] |
       | Check Health         | //button[contains(.,'Check health')]                                     |

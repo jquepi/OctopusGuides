@@ -23,10 +23,10 @@ Feature: Configure an Octopus Ruby project
       | Prod environment        | //div[./div/div[text() = 'Prod']]               |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
       | Project Variables Title | //h2[contains(.,'Project Variables')]           |
-      | New variable name       | //input[@name='Enter new variable']      |
-      | New variable value      | //input[@name='Enter value']                   |
-      | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]        |
-      | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]        |
+      | New variable name       | //input[@name='Enter new variable']             |
+      | New variable value      | //input[@name='Enter value']                    |
+      | New variable value 2    | (//input[@name='Enter value'])[2]               |
+      | New variable value 3    | (//input[@name='Enter value'])[3]               |
       | Add to list             | //button[@title='Add To List']                  |
       | Save                    | //button[contains(.,'Save')]                    |
 
@@ -80,7 +80,7 @@ Feature: Configure an Octopus Ruby project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                      |
-      | Search                         | //input[@name='Filter by name, category or description...']                                              |
+      | Search                         | //input[@name='Filter by name, category or description...']                                           |
       | Deploy to Nginx                | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]//button[contains(.,'Add')] |
 
@@ -139,7 +139,7 @@ Feature: Configure an Octopus Ruby project
   Scenario: Define IIS project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
-      | Step Name                | //input[@name='Step name']                                                                   |
+      | Step Name                | //input[@name='Step name']                                                                          |
       | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
       | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
@@ -164,7 +164,7 @@ Feature: Configure an Octopus Ruby project
   Scenario: Select built in feed for the iis deployment
     Given I set the following aliases:
       | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[@name='PackageID']                                                                      |
+      | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package ID" text box into view offset by "-300"

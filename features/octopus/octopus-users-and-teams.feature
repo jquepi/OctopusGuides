@@ -12,8 +12,8 @@ Feature: Create Octopus Users and Teams
       | Configuration    | //span[contains(.,'Configuration')]                                       |
       | Users            | //span[./div/div/div[text()='Users']] \| //a[contains(.,'Users')][not(*)] |
       | Add user         | //button[contains(.,'Add user')]                                          |
-      | Username         | //input[contains(@id,'Username')]                                         |
-      | Display name     | //input[contains(@id,'Displayname')]                                      |
+      | Username         | //input[@name='Username']                                         |
+      | Display name     | //input[@name='Display name']                                      |
       | Email address    | //input[contains(@id,'Emailaddress')]                                     |
       | Password         | //input[contains(@id,'Password')]                                         |
       | Confirm password | //input[contains(@id,'Confirmpassword')]                                  |

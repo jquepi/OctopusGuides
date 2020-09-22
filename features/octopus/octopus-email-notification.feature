@@ -16,11 +16,11 @@ Feature: Add a manual intervention step
       | SMTP SSL Section     | //span[contains(.,'Use SSL/TLS')]                             |
       | From Address Section | //span[contains(.,'From Address')]                            |
       | Credentials Section  | //span[contains(.,'Credentials')]                             |
-      | SMTP Host            | //input[contains(@id,'SMTPhost')]                             |
-      | SMTP Port            | //input[contains(@id,'SMTPport')]                             |
-      | From Address         | //input[contains(@id,'Fromaddress')]                          |
-      | SMTP login           | //input[contains(@id,'SMTPlogin')]                            |
-      | SMTP password        | //input[contains(@id,'SMTPpassword')]                         |
+      | SMTP Host            | //input[@name='SMTP host']                                    |
+      | SMTP Port            | //input[@name='SMTP port']                                    |
+      | From Address         | //input[@name='From address']                                 |
+      | SMTP login           | //input[@name='SMTPlogin']                                    |
+      | SMTP password        | //input[@name='SMTP password']                                |
       | Use SSL              | //input[../div[contains(.,'Use SSL/TLS')]]                    |
       | Save                 | //button[@title='Save']                                       |
 
@@ -97,10 +97,10 @@ Feature: Add a manual intervention step
       | Deployments                   | //a[contains(.,'Deployments')]                                                                      |
       | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                    |
       | Add Step                      | //button[contains(.,'Add Step')]                                                                    |
-      | Search                        | //input[@name='Filter by name, category or description...']                                            |
+      | Search                        | //input[@name='Filter by name, category or description...']                                         |
       | Send an Email                 | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]                            |
       | Add                           | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]//button[contains(.,'Add')] |
-      | Step Name                     | //input[@name='Step name']                                                                   |
+      | Step Name                     | //input[@name='Step name']                                                                          |
       | To                            | //input[contains(@id, 'Separatemultipleemailaddresseswithor')]                                      |
       | To container                  | //div[./input[contains(@id, 'Separatemultipleemailaddresseswithor')]]                               |
       | Subject                       | //input[contains(@id, 'Subject')]                                                                   |

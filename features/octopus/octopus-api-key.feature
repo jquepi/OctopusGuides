@@ -10,7 +10,7 @@ Feature: Generate an API key
       | Profile      | //div[text()='Profile']                                                  |
       | My API Keys  | //a[contains(.,'My API Keys')][not(*)] \| //a/span[text()='My API Keys'] |
       | New API Key  | (//button[contains(.,'New API Key')])[1]                                 |
-      | Purpose      | //input[contains(@id,'Purpose')]                                         |
+      | Purpose      | //input[@name='Purpose']                                                 |
       | Generate New | //button[contains(.,'Generate New')]                                     |
       | Api Key      | //strong                                                                 |
 

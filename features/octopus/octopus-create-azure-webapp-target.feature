@@ -14,7 +14,7 @@ Feature: Create Azure Web App Target
       | Azure Web App           | //div[contains(@class, 'EndpointCard_card') and contains(.,'Azure Web App')]                            |
       | Add                     | //div[contains(@class, 'EndpointCard_card') and contains(.,'Azure Web App')]//button[contains(.,'Add')] |
       | Save                    | //button[contains(.,'Save')]                                                                            |
-      | Display Name            | //input[contains(@id,'Displayname')]                                                                    |
+      | Display Name            | //input[@name='Display name']                                                                    |
       | Environments            | //input[@title='Select environments']                                                                   |
       | Environments Container  | //div[./div/div/div/input[@title='Select environments']]                                                |
       | Dev environment         | //span[./div/div/div[text()='Dev']]                                                                     |

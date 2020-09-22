@@ -12,11 +12,11 @@ Feature: Create Azure Account
       | Accounts             | //span[contains(.,'Accounts')] \| //a[contains(.,'Accounts')] |
       | Add Account          | //button[contains(.,'Add Account')]                           |
       | Azure Subscription   | //li[normalize-space(text())='Azure Subscription']            |
-      | Account name         | //input[contains(@id,'Accountname')]                          |
-      | Subscription ID      | //input[contains(@id,'Subscription')]                         |
-      | Tenant ID            | //input[contains(@id,'ActiveDirectoryTenantID')]              |
-      | Application ID       | //input[contains(@id,'ActiveDirectoryAppicationID')]          |
-      | Application Password | //input[contains(@id,'ActiveDirectoryPasswordKey')]           |
+      | Account name         | //input[@name='Account name']                                 |
+      | Subscription ID      | //input[@name='Subscription']                                 |
+      | Tenant ID            | //input[@name='Active Directory Tenant ID']                   |
+      | Application ID       | //input[@name='Active Directory Appication ID']               |
+      | Application Password | //input[@name='Active Directory Password Key']                |
       | Save                 | (//button[contains(.,'Save')])[2]                             |
       | Expand All           | //a[text()='EXPAND ALL']                                      |
 

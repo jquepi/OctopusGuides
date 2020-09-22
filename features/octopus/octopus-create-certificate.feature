@@ -11,9 +11,9 @@ Feature: Create Certificate
       | Library          | //span[./div/div/div[contains(.,'Library')]] \| //a[@href='#/Spaces-1/library'] |
       | Certificates     | //a[contains(.,'Certificates')]                                                 |
       | Add Certificate  | //button[contains(.,'Add certificate')]                                         |
-      | Name             | //input[contains(@id,'Name')]                                                   |
+      | Name             | //input[@name='Name']                                                           |
       | File             | //input[@type='file']                                                           |
-      | Certificate File | //input[contains(@id,'CertificateFile')]                                        |
+      | Certificate File | //input[@name='Certificate File']                                               |
       | Upload a File    | //label[text()='Upload a File']                                                 |
       | Save             | //button[contains(.,'Save')]                                                    |
       | Expand All       | //a[text()='EXPAND ALL']                                                        |
@@ -64,9 +64,9 @@ Feature: Create Certificate
       | Library          | //span[./div/div/div[contains(.,'Library')]] \| //a[@href='#/Spaces-1/library'] |
       | Certificates     | //a[contains(.,'Certificates')]                                                 |
       | Add Certificate  | //button[contains(.,'Add certificate')]                                         |
-      | Name             | //input[contains(@id,'Name')]                                                   |
+      | Name             | //input[@name='Name']                                                           |
       | File             | //input[@type='file']                                                           |
-      | Certificate File | //input[contains(@id,'CertificateFile')]                                        |
+      | Certificate File | //input[@name='Certificate File']                                               |
       | Upload a File    | //label[text()='Upload a File']                                                 |
       | Save             | //button[contains(.,'Save')]                                                    |
       | Expand All       | //a[text()='EXPAND ALL']                                                        |

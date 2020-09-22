@@ -109,11 +109,11 @@ Feature: Configure an Octopus payara project
   @define-project @destinationspecific @payara
   Scenario: Java Define step
     Given I set the following aliases:
-      | Deployed package file name                | //input[contains(@id, 'Deployedpackagefilename')]                                     |
+      | Deployed package file name                | //input[@name='Deployed package file name']                                     |
       | Use custom deployment directory           | //input[../div/label[normalize-space(text())='Use custom deployment directory']]      |
       | Use custom deployment directory container | //div[./div/div/div/label[normalize-space(text())='Use custom deployment directory']] |
-      | Deploy Directory                          | //input[contains(@id, 'DeployDirectory')]                                             |
-      | Target files                              | //textarea[contains(@id, 'Targetfiles')]                                              |
+      | Deploy Directory                          | //input[@name='Deploy Directory']                                             |
+      | Target files                              | //textarea[@name='Target files']                                              |
       | Save                                      | //button[contains(.,'Save')]                                                          |
 
     And I scroll the "Deployed package file name" text box into view offset by "-300"

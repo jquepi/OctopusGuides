@@ -11,7 +11,7 @@ Feature: Configure an Octopus Websphere project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                    |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                          |
-      | Search                         | //input[@name='Filter by name, category or description...']                                                  |
+      | Search                         | //input[@name='Filter by name, category or description...']                                               |
       | Deploy Java Archive            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Java Archive')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Java Archive')]//button[contains(.,'Add')] |
 
@@ -47,7 +47,7 @@ Feature: Configure an Octopus Websphere project
       | Substitute Variables in Files           | //input[..//label[text()='Substitute Variables in Files']]                                      |
       | Substitute Variables in Files Container | //div[./input[..//label[text()='Substitute Variables in Files']]]                               |
       | OK                                      | //button[contains(.,'Ok')]                                                                      |
-      | Step Name                               | //input[@name='Step name']                                                               |
+      | Step Name                               | //input[@name='Step name']                                                                      |
       | On target roles                         | //input[@title='Runs on targets in roles (type to add new)']                                    |
       | Web role                                | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
@@ -74,7 +74,7 @@ Feature: Configure an Octopus Websphere project
       | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
       | Artifactory  | //div[./div/div[text()='Artifactory']]           |
       | HTML Body    | //body                                           |
-      | Package ID   | //input[@name='PackageID']              |
+      | Package ID   | //input[@name='PackageID']                       |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
     And I click the "Package feed" drop down list
@@ -95,7 +95,7 @@ Feature: Configure an Octopus Websphere project
   @define-project @destinationspecific @websphere @repositoryspecific @octo-built-in-feed
   Scenario: Select built in feed for the Websphere deployment
     Given I set the following aliases:
-      | HTML Body  | //body                              |
+      | HTML Body  | //body                     |
       | Package ID | //input[@name='PackageID'] |
 
     And I scroll the "Package ID" text box into view offset by "-300"
@@ -109,11 +109,11 @@ Feature: Configure an Octopus Websphere project
   @define-project @destinationspecific @websphere
   Scenario: Java Define step
     Given I set the following aliases:
-      | Deployed package file name                | //input[contains(@id, 'Deployedpackagefilename')]                                     |
+      | Deployed package file name                | //input[@name='Deployed package file name']                                           |
       | Use custom deployment directory           | //input[../div/label[normalize-space(text())='Use custom deployment directory']]      |
       | Use custom deployment directory container | //div[./div/div/div/label[normalize-space(text())='Use custom deployment directory']] |
-      | Deploy Directory                          | //input[contains(@id, 'DeployDirectory')]                                             |
-      | Target files                              | //textarea[contains(@id, 'Targetfiles')]                                              |
+      | Deploy Directory                          | //input[@name='Deploy Directory']                                                     |
+      | Target files                              | //textarea[@name='Target files']                                                      |
       | Save                                      | //button[contains(.,'Save')]                                                          |
 
     And I scroll the "Deployed package file name" text box into view offset by "-300"

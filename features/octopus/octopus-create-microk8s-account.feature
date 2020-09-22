@@ -15,7 +15,7 @@ Feature: Create MicroK8s Account
       | Token             | //li[normalize-space(text())='Token']                         |
       | Account name      | //input[contains(@id,'Accountname')]                          |
       | Token value       | //input[contains(@id,'Token')]                                |
-      | Username          | //input[contains(@id,'Username')]                             |
+      | Username          | //input[@name='Username']                             |
       | Password          | //input[contains(@id,'Password')]                             |
       | Save              | //button[contains(.,'Save')]                                  |
 

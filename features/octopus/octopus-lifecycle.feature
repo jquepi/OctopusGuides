@@ -12,9 +12,9 @@ Feature: Create a Lifecycle in Octopus
       | Lifecycles                      | //a[contains(.,'Lifecycles')]                                          |
       | Lifecycles text                 | //a[contains(.,'Lifecycles')][not(*)] \| //a/span[text()='Lifecycles'] |
       | Add Lifecycle                   | //button[contains(.,'Add Lifecycle')]                                  |
-      | Lifecycle name                  | //input[contains(@id,'Lifecyclename')]                                 |
-      | Lifecycle description           | //textarea[contains(@id,'Lifecycledescription')]                       |
-      | Lifecycle description container | //div[./textarea[contains(@id,'Lifecycledescription')]]                |
+      | Lifecycle name                  | //input[@name='Lifecycle name']                                 |
+      | Lifecycle description           | //textarea[@name='Lifecycle description']                       |
+      | Lifecycle description container | //div[./textarea[@name='Lifecycle description']]                |
       | Add Phase                       | (//button[@title='Add phase'])[1]                                      |
       | Phase name 1                    | (//input[../label[contains(.,'Phase name')]])[1]                       |
       | Add Environment 1               | (//button[@title='Add Environment'])[1]                                |

@@ -17,12 +17,12 @@ Feature: Configure an Octopus Kubernetes project
   Scenario: Define project config file variable. This is only valid for some docker images.
   Define the contents of the appsettings JSON file
     Given I set the following aliases:
-      | New variable name       | //input[@name='Enter new variable']|
-      | New variable value      | //input[@name='Enter value']             |
-      | Open Editor             | //span[text()='Open Editor']              |
-      | Project Variables Title | //h2[contains(.,'Project Variables')]     |
-      | Done                    | //button[contains(.,'Done')]              |
-      | Add to list             | //button[@title='Add To List']            |
+      | New variable name       | //input[@name='Enter new variable']   |
+      | New variable value      | //input[@name='Enter value']          |
+      | Open Editor             | //span[text()='Open Editor']          |
+      | Project Variables Title | //h2[contains(.,'Project Variables')] |
+      | Done                    | //button[contains(.,'Done')]          |
+      | Add to list             | //button[@title='Add To List']        |
 
     And I populate the "New variable name" text box with "appsettings"
     And I click the "New variable value" text box
@@ -63,10 +63,10 @@ if (elements.length !== 0) {
       | Prod environment        | //div[./div/div[text() = 'Prod']]               |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
       | Project Variables Title | //h2[contains(.,'Project Variables')]           |
-      | New variable name       | //input[@name='Enter new variable']      |
-      | New variable value      | //input[@name='Enter value']                   |
-      | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]        |
-      | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]        |
+      | New variable name       | //input[@name='Enter new variable']             |
+      | New variable value      | //input[@name='Enter value']                    |
+      | New variable value 2    | (//input[@name='Enter value'])[2]               |
+      | New variable value 3    | (//input[@name='Enter value'])[3]               |
       | Save                    | //button[contains(.,'Save')]                    |
 
     And I populate the "New variable name" text box with "K8S Node Port"
@@ -117,7 +117,7 @@ if (elements.length !== 0) {
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                             |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                                   |
-      | Search                         | //input[@name='Filter by name, category or description...']                                                           |
+      | Search                         | //input[@name='Filter by name, category or description...']                                                        |
       | Deploy Kubernetes containers   | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Kubernetes containers')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Kubernetes containers')]//button[contains(.,'Add')] |
 
@@ -149,7 +149,7 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s @microk8s
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Step Name       | //input[@name='Step name']                                                               |
+      | Step Name       | //input[@name='Step name']                                                                      |
       | On behalf of    | //input[@title='On behalf of target roles (type to add new)']                                   |
       | K8s role        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
       | Deployment name | //input[contains(@id,'Deploymentname')]                                                         |

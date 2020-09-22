@@ -5,7 +5,7 @@ Feature: Create Project
     Given I set the following aliases:
       | Projects         | //span[contains(.,'Projects')]               |
       | Add project      | //div[./div/span[contains(.,'Add Project')]] |
-      | New project name | //input[@name, 'New project name']           |
+      | New project name | //input[@name='New project name']            |
       | Save             | (//div[contains(.,'Save')])[9]               |
 
     And I highlight outside the "Projects" link with an offset of "5"
