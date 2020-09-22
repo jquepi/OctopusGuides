@@ -112,8 +112,8 @@ Feature: Add a manual intervention step
       | Save                          | //button[contains(.,'Save')]                                                                        |
       | Environments                  | //span[contains(.,'Environments')]                                                                  |
       | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                           |
-      | Select environments           | //input[@title='Select environments']                                                               |
-      | Select environments container | //div[./div/div/div/div/div/input[@title='Select environments']]                                    |
+      | Select environments           | //input[../../label[text()='Select environments']]                                                  |
+      | Select environments container | //div[./div/div/div/label[text()='Select environments']]                                            |
       | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'Dev')]//span     |
 
     And I open the URL "http://localhost/app#"
