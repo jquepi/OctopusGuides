@@ -69,7 +69,7 @@ Feature: Configure an Octopus payara project
   @define-project @destinationspecific @payara @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the payara deployment
     Given I set the following aliases:
-      | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
+      | Package feed | //div[./label[text()='Package feed']]/div/div  |
       | Artifactory  | //div[./div/div[text()='Artifactory']]           |
       | HTML Body    | //body                                           |
       | Package ID   | //input[@name='PackageID']                       |

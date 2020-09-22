@@ -333,7 +333,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the iis deployment
     Given I set the following aliases:
-      | Package feed             | (//div[./div[text()='Package feed']]/div)[2]/div                                                         |
+      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                          |
       | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
@@ -388,7 +388,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the azure web app deployment
     Given I set the following aliases:
-      | Package feed             | (//div[./div[text()='Package feed']]/div)[2]/div                                                         |
+      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                          |
       | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
