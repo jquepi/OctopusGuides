@@ -140,7 +140,7 @@ Feature: Configure an Octopus Ruby project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
       | Step Name                | //input[@name='Step name']                                                                          |
-      | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
+      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]                |
       | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
     And I scroll the "Step Name" text box into view offset by "-300"

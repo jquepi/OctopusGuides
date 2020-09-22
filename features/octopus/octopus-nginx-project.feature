@@ -23,10 +23,10 @@ Feature: Configure an Octopus Node.js project
       | Prod environment        | //div[./div/div[text() = 'Prod']]               |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
       | Project Variables Title | //h2[contains(.,'Project Variables')]           |
-      | New variable name       | //input[@name='Enter new variable']      |
-      | New variable value      | //input[@name='Enter value']                   |
-      | New variable value 2    | (//input[@name='Enter value'])[2]        |
-      | New variable value 3    | (//input[@name='Enter value'])[3]        |
+      | New variable name       | //input[@name='Enter new variable']             |
+      | New variable value      | //input[@name='Enter value']                    |
+      | New variable value 2    | (//input[@name='Enter value'])[2]               |
+      | New variable value 3    | (//input[@name='Enter value'])[3]               |
       | Add to list             | //button[@title='Add To List']                  |
       | Save                    | //button[contains(.,'Save')]                    |
 
@@ -103,7 +103,7 @@ Feature: Configure an Octopus Node.js project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                      |
-      | Search                         | //input[@name='Filter by name, category or description...']                                              |
+      | Search                         | //input[@name='Filter by name, category or description...']                                           |
       | Deploy to Nginx                | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]//button[contains(.,'Add')] |
 
@@ -162,8 +162,8 @@ Feature: Configure an Octopus Node.js project
   Scenario: Define IIS project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
-      | Step Name                | //input[@name='Step name']                                                                   |
-      | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
+      | Step Name                | //input[@name='Step name']                                                                          |
+      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]                |
       | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -186,7 +186,7 @@ Feature: Configure an Octopus Node.js project
   @define-project @destinationspecific @nginx @repositoryspecific @octo-built-in-feed
   Scenario: Select built in feed for the iis deployment
     Given I set the following aliases:
-      | HTML Body  | //body                              |
+      | HTML Body  | //body                     |
       | Package ID | //input[@name='PackageID'] |
 
     And I scroll the "Package ID" text box into view offset by "-300"
@@ -206,9 +206,9 @@ Feature: Configure an Octopus Node.js project
       | Remove binding          | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]               |
       | Add binding             | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
       | Add location            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
-      | Port                    | //input[@name='Port']                                                                               |
-      | Location                | //input[@name='Location']                                                                           |
-      | Proxy URL               | //input[@name='Proxy requests to this URL']                                                             |
+      | Port                    | //input[@name='Port']                                                                                       |
+      | Location                | //input[@name='Location']                                                                                   |
+      | Proxy URL               | //input[@name='Proxy requests to this URL']                                                                 |
       | Reverse Proxy           | //input[..//label[text()='Reverse Proxy']]                                                                  |
       | Reverse Proxy Container | //div[./div/div/label[text()='Reverse Proxy']]                                                              |
       | OK                      | //button[contains(.,'Ok')]                                                                                  |

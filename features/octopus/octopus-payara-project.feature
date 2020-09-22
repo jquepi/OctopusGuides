@@ -11,7 +11,7 @@ Feature: Configure an Octopus payara project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                    |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                          |
-      | Search                         | //input[@name='Filter by name, category or description...']                                                  |
+      | Search                         | //input[@name='Filter by name, category or description...']                                               |
       | Deploy Java Archive            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Java Archive')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Java Archive')]//button[contains(.,'Add')] |
 
@@ -43,11 +43,11 @@ Feature: Configure an Octopus payara project
   @define-project @destinationspecific @payara
   Scenario: Java Define step
     Given I set the following aliases:
-      | Configure features                      | (//button[contains(.,'Configure features')])[1]                                                 |
-      | OK                                      | //button[contains(.,'Ok')]                                                                      |
-      | Step Name                               | //input[@name='Step name']                                                               |
-      | On target roles                         | //input[@title='Runs on targets in roles (type to add new)']                                    |
-      | Web role                                | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Configure features | (//button[contains(.,'Configure features')])[1]                                                 |
+      | OK                 | //button[contains(.,'Ok')]                                                                      |
+      | Step Name          | //input[@name='Step name']                                                                      |
+      | On target roles    | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
+      | Web role           | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -72,7 +72,7 @@ Feature: Configure an Octopus payara project
       | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
       | Artifactory  | //div[./div/div[text()='Artifactory']]           |
       | HTML Body    | //body                                           |
-      | Package ID   | //input[@name='PackageID']              |
+      | Package ID   | //input[@name='PackageID']                       |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
     And I click the "Package feed" drop down list
@@ -93,7 +93,7 @@ Feature: Configure an Octopus payara project
   @define-project @destinationspecific @payara @repositoryspecific @octo-built-in-feed
   Scenario: Select built in feed for the payara deployment
     Given I set the following aliases:
-      | HTML Body  | //body                              |
+      | HTML Body  | //body                     |
       | Package ID | //input[@name='PackageID'] |
 
     And I scroll the "Package ID" text box into view offset by "-300"
@@ -107,11 +107,11 @@ Feature: Configure an Octopus payara project
   @define-project @destinationspecific @payara
   Scenario: Java Define step
     Given I set the following aliases:
-      | Deployed package file name                | //input[@name='Deployed package file name']                                     |
+      | Deployed package file name                | //input[@name='Deployed package file name']                                           |
       | Use custom deployment directory           | //input[../div/label[normalize-space(text())='Use custom deployment directory']]      |
       | Use custom deployment directory container | //div[./div/div/div/label[normalize-space(text())='Use custom deployment directory']] |
-      | Deploy Directory                          | //input[@name='Deploy Directory']                                             |
-      | Target files                              | //textarea[@name='Target files']                                              |
+      | Deploy Directory                          | //input[@name='Deploy Directory']                                                     |
+      | Target files                              | //textarea[@name='Target files']                                                      |
       | Save                                      | //button[contains(.,'Save')]                                                          |
 
     And I scroll the "Deployed package file name" text box into view offset by "-300"

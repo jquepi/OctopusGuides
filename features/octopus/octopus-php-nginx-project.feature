@@ -23,10 +23,10 @@ Feature: Configure an Octopus PHP project
       | Prod environment        | //div[./div/div[text() = 'Prod']]               |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
       | Project Variables Title | //h2[contains(.,'Project Variables')]           |
-      | New variable name       | //input[@name='Enter new variable']      |
-      | New variable value      | //input[@name='Enter value']                   |
-      | New variable value 2    | (//input[@name='Enter value'])[2]        |
-      | New variable value 3    | (//input[@name='Enter value'])[3]        |
+      | New variable name       | //input[@name='Enter new variable']             |
+      | New variable value      | //input[@name='Enter value']                    |
+      | New variable value 2    | (//input[@name='Enter value'])[2]               |
+      | New variable value 3    | (//input[@name='Enter value'])[3]               |
       | Add to list             | //button[@title='Add To List']                  |
       | Save                    | //button[contains(.,'Save')]                    |
 
@@ -81,7 +81,7 @@ Feature: Configure an Octopus PHP project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                      |
-      | Search                         | //input[@name='Filter by name, category or description...']                                              |
+      | Search                         | //input[@name='Filter by name, category or description...']                                           |
       | Deploy to Nginx                | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]//button[contains(.,'Add')] |
 
@@ -138,8 +138,8 @@ Feature: Configure an Octopus PHP project
   Scenario: Define IIS project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
-      | Step Name                | //input[@name='Step name']                                                                   |
-      | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
+      | Step Name                | //input[@name='Step name']                                                                          |
+      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]                |
       | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -163,7 +163,7 @@ Feature: Configure an Octopus PHP project
   Scenario: Select built in feed for the iis deployment
     Given I set the following aliases:
       | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[@name='PackageID']                                                                      |
+      | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package ID" text box into view offset by "-300"
@@ -183,21 +183,21 @@ Feature: Configure an Octopus PHP project
       | Remove binding         | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]               |
       | Add binding            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
       | Add location           | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
-      | Port                   | //input[@name='Port']                                                                               |
-      | Location               | //input[@name='Location']                                                                           |
+      | Port                   | //input[@name='Port']                                                                                       |
+      | Location               | //input[@name='Location']                                                                                   |
       | Add Directive          | //button[contains(.,'Add Directive')]                                                                       |
-      | Directive One          | (//input[@name='Directive'])[1]                                                                     |
-      | Value One              | (//input[@name='Value'])[1]                                                                         |
-      | Directive Two          | (//input[@name='Directive'])[2]                                                                     |
-      | Value Two              | (//input[@name='Value'])[2]                                                                         |
-      | Directive Three        | (//input[@name='Directive'])[3]                                                                     |
-      | Value Three            | (//input[@name='Value'])[3]                                                                         |
-      | Directive Four         | (//input[@name='Directive'])[4]                                                                     |
-      | Value Four             | (//input[@name='Value'])[4]                                                                         |
-      | Directive Five         | (//input[@name='Directive'])[5]                                                                     |
-      | Value Five             | (//input[@name='Value'])[5]                                                                         |
-      | Directive Six          | (//input[@name='Directive'])[6]                                                                     |
-      | Value Six              | (//input[@name='Value'])[6]                                                                         |
+      | Directive One          | (//input[@name='Directive'])[1]                                                                             |
+      | Value One              | (//input[@name='Value'])[1]                                                                                 |
+      | Directive Two          | (//input[@name='Directive'])[2]                                                                             |
+      | Value Two              | (//input[@name='Value'])[2]                                                                                 |
+      | Directive Three        | (//input[@name='Directive'])[3]                                                                             |
+      | Value Three            | (//input[@name='Value'])[3]                                                                                 |
+      | Directive Four         | (//input[@name='Directive'])[4]                                                                             |
+      | Value Four             | (//input[@name='Value'])[4]                                                                                 |
+      | Directive Five         | (//input[@name='Directive'])[5]                                                                             |
+      | Value Five             | (//input[@name='Value'])[5]                                                                                 |
+      | Directive Six          | (//input[@name='Directive'])[6]                                                                             |
+      | Value Six              | (//input[@name='Value'])[6]                                                                                 |
       | OK                     | //button[contains(.,'Ok')]                                                                                  |
       | Save                   | //button[contains(.,'Save')]                                                                                |
       | HTTP_PROXY Value       | HTTP_PROXY ""                                                                                               |

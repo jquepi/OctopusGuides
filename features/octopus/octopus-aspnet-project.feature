@@ -20,7 +20,7 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Projects         | //span[contains(.,'Projects')]               |
       | Add project      | //div[./div/span[contains(.,'Add Project')]] |
-      | New project name | //input[@name='New project name']           |
+      | New project name | //input[@name='New project name']            |
       | Save             | (//div[contains(.,'Save')])[9]               |
 
     And I highlight outside the "Projects" link with an offset of "5"
@@ -310,7 +310,7 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
       | Step Name                | //input[@name='Step name']                                                                          |
-      | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
+      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]                |
       | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
     And I scroll the "Step Name" text box into view offset by "-300"

@@ -46,7 +46,7 @@ Feature: Configure an Octopus Websphere project
       | Configure features | (//button[contains(.,'Configure features')])[1]                                                 |
       | OK                 | //button[contains(.,'Ok')]                                                                      |
       | Step Name          | //input[@name='Step name']                                                                      |
-      | On target roles    | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | On target roles    | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
       | Web role           | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
     And I scroll the "Step Name" text box into view offset by "-300"
