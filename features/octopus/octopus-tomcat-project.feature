@@ -154,12 +154,12 @@ Feature: Configure an Octopus Tomcat project
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @tomcat
-  Scenario: K8S Define step
+  Scenario: Java Define step
     Given I set the following aliases:
       | Tomcat Manager URL  | //input[@name='Tomcat Manager URL']  |
       | Management user     | //input[@name='Management user']     |
       | Management password | //input[@name='Management password'] |
-      | Context path        | //input[@name='Contextpath']         |
+      | Context path        | //input[@name='Context path']         |
       | Target files        | //textarea[@name='Target files']     |
       | Save                | //button[contains(.,'Save')]         |
 
