@@ -97,10 +97,10 @@ Feature: Add a manual intervention step
       | Deployments                   | //a[contains(.,'Deployments')]                                                                      |
       | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                    |
       | Add Step                      | //button[contains(.,'Add Step')]                                                                    |
-      | Search                        | //input[contains(@id, 'Filterbynamecategoryordescription')]                                         |
+      | Search                        | //input[@name='Filter by name, category or description...']                                            |
       | Send an Email                 | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]                            |
       | Add                           | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]//button[contains(.,'Add')] |
-      | Step Name                     | //input[contains(@id, 'Stepname')]                                                                  |
+      | Step Name                     | //input[@name='Step name']                                                                   |
       | To                            | //input[contains(@id, 'Separatemultipleemailaddresseswithor')]                                      |
       | To container                  | //div[./input[contains(@id, 'Separatemultipleemailaddresseswithor')]]                               |
       | Subject                       | //input[contains(@id, 'Subject')]                                                                   |

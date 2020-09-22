@@ -44,7 +44,7 @@ Feature: Configure an Octopus Wildfly project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                         |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                               |
-      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                    |
+      | Search                         | //input[@name='Filter by name, category or description...']                                                       |
       | Deploy to WildFly or EAP       | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to WildFly or EAP')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to WildFly or EAP')]//button[contains(.,'Add')] |
 
@@ -80,7 +80,7 @@ Feature: Configure an Octopus Wildfly project
       | Substitute Variables in Files           | //input[..//label[text()='Substitute Variables in Files']]                                      |
       | Substitute Variables in Files Container | //div[./input[..//label[text()='Substitute Variables in Files']]]                               |
       | OK                                      | //button[contains(.,'Ok')]                                                                      |
-      | Step Name                               | //input[contains(@id, 'Stepname')]                                                              |
+      | Step Name                               | //input[@name='Step name']                                                               |
       | On target roles                         | //input[@title='Runs on targets in roles (type to add new)']                                    |
       | Web role                                | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
@@ -121,7 +121,7 @@ Feature: Configure an Octopus Wildfly project
       | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
       | Artifactory  | //div[./div/div[text()='Artifactory']]           |
       | HTML Body    | //body                                           |
-      | Package ID   | //input[contains(@id, 'PackageID')]              |
+      | Package ID   | //input[@name='PackageID']              |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
     And I click the "Package feed" drop down list
@@ -143,7 +143,7 @@ Feature: Configure an Octopus Wildfly project
   Scenario: Select built in feed for the Wildfly deployment
     Given I set the following aliases:
       | HTML Body  | //body                              |
-      | Package ID | //input[contains(@id, 'PackageID')] |
+      | Package ID | //input[@name='PackageID'] |
 
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box

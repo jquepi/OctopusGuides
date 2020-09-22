@@ -67,10 +67,10 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: ASP.NET - Define project EnvironmentName Variable
   ASP.NET apps use the Configuration Variables feature, which matches variables to those in the .config files
     Given I set the following aliases:
-      | New variable name       | //input[contains(@id,'Enternewvariable')] |
-      | New variable value      | //input[contains(@id,'Entervalue')]       |
-      | Project Variables Title | //h2[contains(.,'Project Variables')]     |
-      | Add to list             | //button[@title='Add To List']            |
+      | New variable name       | //input[@name='Enter new variable']   |
+      | New variable value      | //input[@name='Enter value']          |
+      | Project Variables Title | //h2[contains(.,'Project Variables')] |
+      | Add to list             | //button[@title='Add To List']        |
 
     And I populate the "New variable name" text box with "EnvironmentName"
     And I populate the "New variable value" text box with "#{Octopus.Environment.Name}"
@@ -82,8 +82,8 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: ASP.NET Core - Define project EnvironmentName Variable
   ASP.NET Core apps use the JSON Configuration Variables feature, which uses the parent:child syntax for variables.
     Given I set the following aliases:
-      | New variable name       | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
-      | New variable value      | //input[contains(@id,'Entervalue')]                                                                                                                          |
+      | New variable name       | //input[@name='Enter new variable']                                                                                                                          |
+      | New variable value      | //input[@name='Enter value']                                                                                                                                 |
       | Project Variables       | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
       | Project Variables Title | //h2[contains(.,'Project Variables')]                                                                                                                        |
       | Add to list             | //button[@title='Add To List']                                                                                                                               |
@@ -104,10 +104,10 @@ Feature: Configure an Octopus ASP.NET project
       | Prod environment        | //div[./div/div[text() = 'Prod']]               |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
       | Project Variables Title | //h2[contains(.,'Project Variables')]           |
-      | New variable name       | //input[contains(@id,'Enternewvariable')]       |
-      | New variable value      | //input[contains(@id,'Entervalue')]             |
-      | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]        |
-      | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]        |
+      | New variable name       | //input[@name='Enter new variable']             |
+      | New variable value      | //input[@name='Enter value']                    |
+      | New variable value 2    | (//input[@name='Enter value'])[2]               |
+      | New variable value 3    | (//input[@name='Enter value'])[3]               |
       | Save                    | //button[contains(.,'Save')]                    |
 
     And I populate the "New variable name" text box with "IIS Port"
@@ -171,7 +171,7 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                        |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                              |
-      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                   |
+      | Search                         | //input[@name='Filter by name, category or description...']                                                   |
       | Deploy an Azure Web App        | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]//button[contains(.,'Add')] |
 
@@ -205,7 +205,7 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                              |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                    |
-      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                         |
+      | Search                         | //input[@name='Filter by name, category or description...']                                         |
       | Deploy to IIS                  | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
 
@@ -284,7 +284,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app
   Scenario: Azure Define step
     Given I set the following aliases:
-      | Step Name    | //input[contains(@id, 'Stepname')]                                                                      |
+      | Step Name    | //input[@name='Step name']                                                                              |
       | On behalf of | //input[@title='On behalf of target roles (type to add new)']                                           |
       | Azure role   | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'azurewebapp')]//span |
 
@@ -309,7 +309,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Define IIS project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
-      | Step Name                | //input[contains(@id, 'Stepname')]                                                                  |
+      | Step Name                | //input[@name='Step name']                                                                          |
       | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
       | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
@@ -336,7 +336,7 @@ Feature: Configure an Octopus ASP.NET project
       | Package feed             | (//div[./div[text()='Package feed']]/div)[2]/div                                                         |
       | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
       | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[contains(@id, 'PackageID')]                                                                      |
+      | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
@@ -366,7 +366,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Select built in feed for the iis deployment
     Given I set the following aliases:
       | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[contains(@id, 'PackageID')]                                                                      |
+      | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package ID" text box into view offset by "-300"
@@ -391,7 +391,7 @@ Feature: Configure an Octopus ASP.NET project
       | Package feed             | (//div[./div[text()='Package feed']]/div)[2]/div                                                         |
       | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
       | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[contains(@id, 'PackageID')]                                                                      |
+      | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
@@ -421,7 +421,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Select built in feed for the azure web app deployment
     Given I set the following aliases:
       | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[contains(@id, 'PackageID')]                                                                      |
+      | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package ID" text box into view offset by "-300"
@@ -451,31 +451,31 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis
   Scenario: IIS - Continue to define project
     Given I set the following aliases:
-      | Web site name                             | //input[contains(@id, 'Websitename')]                                                                                                                        |
+      | Web site name                             | //input[@name='Web site name']                                                                                                                               |
       | Enable Anonymous authentication           | //input[@type='checkbox'][../div[contains(.,'Enable Anonymous authentication')]]                                                                             |
       | Enable Anonymous authentication container | //div[./div/div/label[contains(.,'Enable Anonymous authentication')]]                                                                                        |
       | Enable Windows authentication             | //input[@type='checkbox'][../div[contains(.,'Enable Windows authentication')]]                                                                               |
       | Enable Windows authentication container   | //div[./div/div/label[contains(.,'Enable Windows authentication')]]                                                                                          |
-      | Application Pool name                     | //input[contains(@id, 'ApplicationPoolname')]                                                                                                                |
+      | Application Pool name                     | //input[@name='Application Pool name']                                                                                                                       |
       | Remove binding                            | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]                                                                |
       | Add binding                               | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add')]                                                           |
-      | Port                                      | //input[contains(@id, 'Port')]                                                                                                                               |
+      | Port                                      | //input[@name='Port']                                                                                                                                        |
       | OK                                        | //button[contains(.,'Ok')]                                                                                                                                   |
       | Save                                      | //button[contains(.,'Save')]                                                                                                                                 |
       | Process                                   | //a[contains(.,'Process')]                                                                                                                                   |
       | Variables                                 | //a[contains(.,'Variables')]                                                                                                                                 |
       | Variables text                            | //a[contains(.,'Variables')][not(*)] \| //a/span[text()='Variables']                                                                                         |
       | Project Variables                         | //a[@href='#/Spaces-1/projects/random-quotes/variables']/div/span[contains(.,'Project')] \| //a[@href='#/Spaces-1/projects/random-quotes/variables'][not(*)] |
-      | New variable name                         | //input[contains(@id,'Enternewvariable')]                                                                                                                    |
-      | New variable value                        | //input[contains(@id,'Entervalue')]                                                                                                                          |
+      | New variable name                         | //input[@name='Enter new variable']                                                                                                                          |
+      | New variable value                        | //input[@name='Enter value']                                                                                                                                 |
       | Define scope                              | //div[@title='Define scope']                                                                                                                                 |
       | Select environments                       | //input[@title='Select environments']                                                                                                                        |
       | Dev environment                           | //div[./div/div[text() = 'Dev']]                                                                                                                             |
       | Test environment                          | //div[./div/div[text() = 'Test']]                                                                                                                            |
       | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                                                                            |
       | Add Another Value                         | //button[.//span[text() = 'Add Another Value']]                                                                                                              |
-      | New variable value 2                      | (//input[contains(@id,'Entervalue')])[2]                                                                                                                     |
-      | New variable value 3                      | (//input[contains(@id,'Entervalue')])[3]                                                                                                                     |
+      | New variable value 2                      | (//input[@name='Enter value'])[2]                                                                                                                            |
+      | New variable value 3                      | (//input[@name='Entervalue'])[3]                                                                                                                             |
       | Project Variables Title                   | //h2[contains(.,'Project Variables')]                                                                                                                        |
       | Add to list                               | //button[@title='Add To List']                                                                                                                               |
 
@@ -530,8 +530,8 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: ASP.NET Core Configure Features
   Configure the JSON Configuration variables section
     Given I set the following aliases:
-      | Target files           | //textarea[contains(@id,'Targetfiles')]        |
-      | Target files container | //div[./textarea[contains(@id,'Targetfiles')]] |
+      | Target files           | //textarea[@name='Target files']        |
+      | Target files container | //div[./textarea[@name='Target files']] |
 
     And I scroll the "Target files" text box into view offset by "-200"
     And I highlight outside the "Target files container" element

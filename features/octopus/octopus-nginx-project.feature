@@ -23,8 +23,8 @@ Feature: Configure an Octopus Node.js project
       | Prod environment        | //div[./div/div[text() = 'Prod']]               |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
       | Project Variables Title | //h2[contains(.,'Project Variables')]           |
-      | New variable name       | //input[contains(@id,'Enternewvariable')]       |
-      | New variable value      | //input[contains(@id,'Entervalue')]             |
+      | New variable name       | //input[@name='Enter new variable']      |
+      | New variable value      | //input[@name='Enter value']                   |
       | New variable value 2    | (//input[contains(@id,'Entervalue')])[2]        |
       | New variable value 3    | (//input[contains(@id,'Entervalue')])[3]        |
       | Add to list             | //button[@title='Add To List']                  |
@@ -103,7 +103,7 @@ Feature: Configure an Octopus Node.js project
     Given I set the following aliases:
       | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                |
       | Add Step                       | //button[contains(.,'Add Step')]                                                                      |
-      | Search                         | //input[contains(@id, 'Filterbynamecategoryordescription')]                                           |
+      | Search                         | //input[@name='Filter by name, category or description...']                                              |
       | Deploy to Nginx                | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]                            |
       | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]//button[contains(.,'Add')] |
 
@@ -162,7 +162,7 @@ Feature: Configure an Octopus Node.js project
   Scenario: Define IIS project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
-      | Step Name                | //input[contains(@id, 'Stepname')]                                                                  |
+      | Step Name                | //input[@name='Step name']                                                                   |
       | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
       | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
@@ -187,7 +187,7 @@ Feature: Configure an Octopus Node.js project
   Scenario: Select built in feed for the iis deployment
     Given I set the following aliases:
       | HTML Body  | //body                              |
-      | Package ID | //input[contains(@id, 'PackageID')] |
+      | Package ID | //input[@name='PackageID'] |
 
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box

@@ -12,10 +12,10 @@ Feature: Add a manual intervention step
       | Deployments                   | //a[contains(.,'Deployments')]                                                                                     |
       | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                                   |
       | Add Step                      | //button[contains(.,'Add Step')]                                                                                   |
-      | Search                        | //input[contains(@id, 'Filterbynamecategoryordescription')]                                                        |
+      | Search                        | //input[@name='Filter by name, category or description...']                                                           |
       | Manual Intervention           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]                            |
       | Add                           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]//button[contains(.,'Add')] |
-      | Step Name                     | //input[contains(@id, 'Stepname')]                                                                                 |
+      | Step Name                     | //input[@name='Step name']                                                                                  |
       | Instructions                  | //textarea[contains(@id, 'Instructions')]                                                                          |
       | Instructions container        | //div[./textarea[contains(@id, 'Instructions')]]                                                                   |
       | Environments                  | //span[contains(.,'Environments')]                                                                                 |
