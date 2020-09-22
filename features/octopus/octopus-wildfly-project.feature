@@ -10,7 +10,7 @@ Feature: Configure an Octopus Wildfly project
     Given I set the following aliases:
       | Projects         | //span[contains(.,'Projects')]               |
       | Add project      | //div[./div/span[contains(.,'Add Project')]] |
-      | New project name | //input[contains(@id, 'Newprojectname')]     |
+      | New project name | //input[@name, 'New project name']           |
       | Save             | (//div[contains(.,'Save')])[9]               |
 
     And I start recording the screen to the directory "ExternalMediaPath"
