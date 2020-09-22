@@ -152,7 +152,7 @@ if (elements.length !== 0) {
       | Step Name       | //input[@name='Step name']                                                                      |
       | On behalf of    | //input[@title='On behalf of target roles (type to add new)']                                   |
       | K8s role        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
-      | Deployment name | //input[contains(@id,'Deploymentname')]                                                         |
+      | Deployment name | //input[@name='Deployment name']                                                                |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -182,7 +182,7 @@ if (elements.length !== 0) {
       | Add Volume                 | (//button[@title='Add Volume'])[1]      |
       | Linked ConfigMap           | //input[@value='LinkedResource']        |
       | Linked ConfigMap Container | //div[./input[@value='LinkedResource']] |
-      | Volume Name                | (//input[contains(@id,'Name')])[3]      |
+      | Volume Name                | (//input[@name='Name'])[3]              |
       | OK                         | (//button[@title='Ok'])[1]              |
 
     And I highlight outside the "Add Volume" button
@@ -202,10 +202,10 @@ if (elements.length !== 0) {
   Scenario: Add the container and ports.
     Given I set the following aliases:
       | Add Container | (//button[@title='Add Container'])[1] |
-      | Image name    | (//input[contains(@id,'Name')])[3]    |
+      | Image name    | (//input[@name='Name'])[3]            |
       | Add Port      | (//button[@title='Add Port'])[3]      |
-      | Port name     | (//input[contains(@id,'Name')])[4]    |
-      | Port number   | (//input[contains(@id,'Port')])[1]    |
+      | Port name     | (//input[@name='Name'])[4]            |
+      | Port number   | (//input[@name='Port'])[1]            |
 
     And I highlight outside the "Add Container" button
     And I scroll the "Add Container" button into view offset by "-300"
@@ -240,10 +240,10 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s @microk8s @applicationspecific @php @ruby
   Scenario: Define environment variable. This is only valid for some docker images.
     Given I set the following aliases:
-      | Environment Variables    | //div[./div/span[text()='Environment Variables']]                                                                      |
-      | Add Environment Variable | //button[@title='Add Environment Variable']                                                                            |
-      | Name                     | //input[contains(@id, 'Name')][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']]  |
-      | Value                    | //input[contains(@id, 'Value')][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']] |
+      | Environment Variables    | //div[./div/span[text()='Environment Variables']]                                                             |
+      | Add Environment Variable | //button[@title='Add Environment Variable']                                                                   |
+      | Name                     | //input[@name='Name'][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']]  |
+      | Value                    | //input[@name='Value'][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']] |
 
     And I click the "Environment Variables" section
 
@@ -269,9 +269,9 @@ if (elements.length !== 0) {
   Scenario: Add the config map volume mounting. This is only valid for some docker images.
     Given I set the following aliases:
       | Add Volume Mount      | (//button[@title='Add Volume Mount'])[1]           |
-      | Container Volume name | (//input[contains(@id,'Name')])[5]                 |
-      | Mount path            | (//input[contains(@id,'Mountpath')])[1]            |
-      | Sub path              | (//input[contains(@id,'Subpath')])[1]              |
+      | Container Volume name | (//input[@name='Name'])[5]                         |
+      | Mount path            | (//input[@name='Mount path'])[1]                   |
+      | Sub path              | (//input[@name='Sub path'])[1]                     |
       | appsettings volume    | //span[./div/div/div[text()='appsettings-volume']] |
 
     And I scroll the "Add Volume Mount" button into view offset by "-200"
@@ -292,18 +292,18 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s @microk8s
   Scenario: Add the package and service
     Given I set the following aliases:
-      | Package Id        | //input[contains(@id,'PackageID')]                |
+      | Package Id        | //input[@name='PackageID']                        |
       | Package Id label  | //label[contains(@for,'PackageID')]               |
       | OK                | (//button[@title='Ok'])[1]                        |
       | Save              | //button[@title='Save']                           |
-      | Service name      | //input[contains(@id,'Servicename')]              |
+      | Service name      | //input[@name='Service name']                     |
       | Node port option  | //input[@value='NodePort']                        |
       | Node port parent  | //div[./input[@value='NodePort']]                 |
       | Add Service Port  | (//button[@title='Add Port'])[1]                  |
-      | Service Port Name | (//input[contains(@id,'Name')])[3]                |
+      | Service Port Name | (//input[@name='Name'])[3]                        |
       | Port Suggestion   | //span[./div/div/div[text()='#{DockerPort:-80}']] |
-      | Service Port      | (//input[contains(@id,'Port')])[1]                |
-      | Node Port         | //input[contains(@id,'NodePort')]                 |
+      | Service Port      | (//input[@name='Port'])[1]                        |
+      | Node Port         | //input[@name='NodePort']                         |
 
     And I highlight outside the "OK" button with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-k8s.png"
@@ -353,11 +353,11 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s @microk8s @applicationspecific @java @nodejs @aspnetcore
   Scenario: Add the config map that holds the configuration file. This is only valid for some docker images.
     Given I set the following aliases:
-      | ConfigMap name      | //input[contains(@id,'ConfigMapname')]           |
+      | ConfigMap name      | //input[@name='ConfigMap name']                  |
       | Add Config Map Item | (//button[contains(.,'Add Config map item')])[1] |
       | Key                 | //input[../label[text()='Key']]                  |
-      | Value               | //textarea[contains(@id,'Value')]                |
-      | Value container     | //div[./textarea[contains(@id,'Value')]]         |
+      | Value               | //textarea[@name='Value']                        |
+      | Value container     | //div[./textarea[@name='Value']]                 |
 
     And I scroll the "ConfigMap name" text box into view offset by "-300"
     And I highlight outside the "ConfigMap name" text box with an offset of "2"

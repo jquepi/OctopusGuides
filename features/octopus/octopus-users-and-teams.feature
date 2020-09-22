@@ -12,11 +12,11 @@ Feature: Create Octopus Users and Teams
       | Configuration    | //span[contains(.,'Configuration')]                                       |
       | Users            | //span[./div/div/div[text()='Users']] \| //a[contains(.,'Users')][not(*)] |
       | Add user         | //button[contains(.,'Add user')]                                          |
-      | Username         | //input[@name='Username']                                         |
-      | Display name     | //input[@name='Display name']                                      |
-      | Email address    | //input[contains(@id,'Emailaddress')]                                     |
-      | Password         | //input[contains(@id,'Password')]                                         |
-      | Confirm password | //input[contains(@id,'Confirmpassword')]                                  |
+      | Username         | //input[@name='Username']                                                 |
+      | Display name     | //input[@name='Display name']                                             |
+      | Email address    | //input[@name='Email address']                                            |
+      | Password         | //input[@name='Password']                                                 |
+      | Confirm password | //input[@name='Confirm password']                                         |
       | Save             | //button[contains(.,'Save')]                                              |
       | Expand All       | //a[text()='EXPAND ALL']                                                  |
 
@@ -169,9 +169,9 @@ Feature: Create Octopus Users and Teams
       | Configuration                  | //span[contains(.,'Configuration')]                             |
       | Teams                          | //span[contains(.,'Teams')] \| //a[contains(.,'Teams')][not(*)] |
       | Add Team                       | //button[contains(.,'Add Team')]                                |
-      | New team name                  | //input[contains(@id,'Newteamname')]                            |
-      | New team description           | //textarea[contains(@id,'Teamdescription')]                     |
-      | New team description container | //div[./textarea[contains(@id,'Teamdescription')]]              |
+      | New team name                  | //input[@name='New team name']                                  |
+      | New team description           | //textarea[@name='Team description']                            |
+      | New team description container | //div[./textarea[@name='Team description']]                     |
       | Save                           | //button[@title='Save']                                         |
       | Add Member                     | //button[@title='Add Member']                                   |
       | Select users                   | //input[@title='Select users']                                  |
@@ -306,9 +306,9 @@ Feature: Create Octopus Users and Teams
       | Configuration                  | //span[contains(.,'Configuration')]                             |
       | Teams                          | //span[contains(.,'Teams')] \| //a[contains(.,'Teams')][not(*)] |
       | Add Team                       | //button[contains(.,'Add Team')]                                |
-      | New team name                  | //input[contains(@id,'Newteamname')]                            |
-      | New team description           | //textarea[contains(@id,'Teamdescription')]                     |
-      | New team description container | //div[./textarea[contains(@id,'Teamdescription')]]              |
+      | New team name                  | //input[@name='New team name']                                  |
+      | New team description           | //textarea[@name='Team description']                            |
+      | New team description container | //div[./textarea[@name='Team description']]                     |
       | Save                           | //button[@title='Save']                                         |
       | Add Member                     | //button[@title='Add Member']                                   |
       | Select users                   | //input[@title='Select users']                                  |

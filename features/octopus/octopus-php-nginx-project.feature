@@ -183,21 +183,21 @@ Feature: Configure an Octopus PHP project
       | Remove binding         | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]               |
       | Add binding            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
       | Add location           | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
-      | Port                   | //input[contains(@id,'Port')]                                                                               |
-      | Location               | //input[contains(@id,'Location')]                                                                           |
+      | Port                   | //input[@name='Port']                                                                               |
+      | Location               | //input[@name='Location']                                                                           |
       | Add Directive          | //button[contains(.,'Add Directive')]                                                                       |
-      | Directive One          | (//input[contains(@id,'Directive')])[1]                                                                     |
-      | Value One              | (//input[contains(@id,'Value')])[1]                                                                         |
-      | Directive Two          | (//input[contains(@id,'Directive')])[2]                                                                     |
-      | Value Two              | (//input[contains(@id,'Value')])[2]                                                                         |
-      | Directive Three        | (//input[contains(@id,'Directive')])[3]                                                                     |
-      | Value Three            | (//input[contains(@id,'Value')])[3]                                                                         |
-      | Directive Four         | (//input[contains(@id,'Directive')])[4]                                                                     |
-      | Value Four             | (//input[contains(@id,'Value')])[4]                                                                         |
-      | Directive Five         | (//input[contains(@id,'Directive')])[5]                                                                     |
-      | Value Five             | (//input[contains(@id,'Value')])[5]                                                                         |
-      | Directive Six          | (//input[contains(@id,'Directive')])[6]                                                                     |
-      | Value Six              | (//input[contains(@id,'Value')])[6]                                                                         |
+      | Directive One          | (//input[@name='Directive'])[1]                                                                     |
+      | Value One              | (//input[@name='Value'])[1]                                                                         |
+      | Directive Two          | (//input[@name='Directive'])[2]                                                                     |
+      | Value Two              | (//input[@name='Value'])[2]                                                                         |
+      | Directive Three        | (//input[@name='Directive'])[3]                                                                     |
+      | Value Three            | (//input[@name='Value'])[3]                                                                         |
+      | Directive Four         | (//input[@name='Directive'])[4]                                                                     |
+      | Value Four             | (//input[@name='Value'])[4]                                                                         |
+      | Directive Five         | (//input[@name='Directive'])[5]                                                                     |
+      | Value Five             | (//input[@name='Value'])[5]                                                                         |
+      | Directive Six          | (//input[@name='Directive'])[6]                                                                     |
+      | Value Six              | (//input[@name='Value'])[6]                                                                         |
       | OK                     | //button[contains(.,'Ok')]                                                                                  |
       | Save                   | //button[contains(.,'Save')]                                                                                |
       | HTTP_PROXY Value       | HTTP_PROXY ""                                                                                               |

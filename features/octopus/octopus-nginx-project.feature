@@ -206,9 +206,9 @@ Feature: Configure an Octopus Node.js project
       | Remove binding          | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[2]               |
       | Add binding             | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add binding')]  |
       | Add location            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
-      | Port                    | //input[contains(@id,'Port')]                                                                               |
-      | Location                | //input[contains(@id,'Location')]                                                                           |
-      | Proxy URL               | //input[contains(@id,'ProxyrequeststothisURL')]                                                             |
+      | Port                    | //input[@name='Port']                                                                               |
+      | Location                | //input[@name='Location']                                                                           |
+      | Proxy URL               | //input[@name='Proxy requests to this URL']                                                             |
       | Reverse Proxy           | //input[..//label[text()='Reverse Proxy']]                                                                  |
       | Reverse Proxy Container | //div[./div/div/label[text()='Reverse Proxy']]                                                              |
       | OK                      | //button[contains(.,'Ok')]                                                                                  |

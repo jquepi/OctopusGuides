@@ -101,12 +101,12 @@ Feature: Add a manual intervention step
       | Send an Email                 | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]                            |
       | Add                           | //div[contains(@class, 'add-step-card') and contains(.,'Send an Email')]//button[contains(.,'Add')] |
       | Step Name                     | //input[@name='Step name']                                                                          |
-      | To                            | //input[contains(@id, 'Separatemultipleemailaddresseswithor')]                                      |
-      | To container                  | //div[./input[contains(@id, 'Separatemultipleemailaddresseswithor')]]                               |
-      | Subject                       | //input[contains(@id, 'Subject')]                                                                   |
-      | Subject container             | //div[./input[contains(@id, 'Subject')]]                                                            |
-      | Body                          | //textarea[contains(@id, 'Body')]                                                                   |
-      | Body container                | //div[./textarea[contains(@id, 'Body')]]                                                            |
+      | To                            | //input[@name='To']                                                                                 |
+      | To container                  | //div[./input[@name='To']]                                                                          |
+      | Subject                       | //input[@name='Subject']                                                                            |
+      | Subject container             | //div[./input[@name='Subject']]                                                                     |
+      | Body                          | //textarea[@name='Body']                                                                            |
+      | Body container                | //div[./textarea[@name='Body']]                                                                     |
       | Run Condition                 | //span[contains(.,'Run Condition')]                                                                 |
       | Always run                    | //input[@value='Always']                                                                            |
       | Save                          | //button[contains(.,'Save')]                                                                        |
@@ -272,11 +272,11 @@ Feature: Add a manual intervention step
   @approve-deployment
   Scenario: Approve manual intervention
     Given I set the following aliases:
-      | Assign to me    | //button[contains(.,'Assign to me')]     |
-      | Proceed         | //button[contains(.,'Proceed')]          |
-      | Notes           | //textarea[contains(@id,'Notes')]        |
-      | Notes container | //div[./textarea[contains(@id,'Notes')]] |
-      | Task Log        | //button[contains(.,'Task Log')]         |
+      | Assign to me    | //button[contains(.,'Assign to me')] |
+      | Proceed         | //button[contains(.,'Proceed')]      |
+      | Notes           | //textarea[@name='Notes']            |
+      | Notes container | //div[./textarea[@name='Notes']]     |
+      | Task Log        | //button[contains(.,'Task Log')]     |
 
     And I verify the "Assign to me" button is present waiting up to "1200" seconds if it exists
 

@@ -156,12 +156,12 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Tomcat Manager URL  | //input[contains(@id, 'TomcatManagerURL')]   |
-      | Management user     | //input[contains(@id, 'Managementuser')]     |
-      | Management password | //input[contains(@id, 'Managementpassword')] |
-      | Context path        | //input[contains(@id, 'Contextpath')]        |
-      | Target files        | //textarea[@name='Target files']             |
-      | Save                | //button[contains(.,'Save')]                 |
+      | Tomcat Manager URL  | //input[@name='Tomcat Manager URL']  |
+      | Management user     | //input[@name='Management user']     |
+      | Management password | //input[@name='Management password'] |
+      | Context path        | //input[@name='Contextpath']         |
+      | Target files        | //textarea[@name='Target files']     |
+      | Save                | //button[contains(.,'Save')]         |
 
     And I scroll the "Tomcat Manager URL" text box into view offset by "-300"
     And I highlight outside the "Tomcat Manager URL" text box

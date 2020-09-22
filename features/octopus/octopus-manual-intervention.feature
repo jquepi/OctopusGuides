@@ -12,12 +12,12 @@ Feature: Add a manual intervention step
       | Deployments                   | //a[contains(.,'Deployments')]                                                                                     |
       | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                                   |
       | Add Step                      | //button[contains(.,'Add Step')]                                                                                   |
-      | Search                        | //input[@name='Filter by name, category or description...']                                                           |
+      | Search                        | //input[@name='Filter by name, category or description...']                                                        |
       | Manual Intervention           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]                            |
       | Add                           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]//button[contains(.,'Add')] |
-      | Step Name                     | //input[@name='Step name']                                                                                  |
-      | Instructions                  | //textarea[contains(@id, 'Instructions')]                                                                          |
-      | Instructions container        | //div[./textarea[contains(@id, 'Instructions')]]                                                                   |
+      | Step Name                     | //input[@name='Step name']                                                                                         |
+      | Instructions                  | //textarea[@name='Instructions']                                                                                   |
+      | Instructions container        | //div[./textarea[@name='Instructions']]                                                                            |
       | Environments                  | //span[contains(.,'Environments')]                                                                                 |
       | Save                          | //button[contains(.,'Save')]                                                                                       |
       | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                                          |
@@ -141,10 +141,10 @@ Feature: Add a manual intervention step
   @approve-deployment
   Scenario: Approve manual intervention
     Given I set the following aliases:
-      | Assign to me    | //button[contains(.,'Assign to me')]     |
-      | Proceed         | //button[contains(.,'Proceed')]          |
-      | Notes           | //textarea[contains(@id,'Notes')]        |
-      | Notes container | //div[./textarea[contains(@id,'Notes')]] |
+      | Assign to me    | //button[contains(.,'Assign to me')] |
+      | Proceed         | //button[contains(.,'Proceed')]      |
+      | Notes           | //textarea[@name='Notes']            |
+      | Notes container | //div[./textarea[@name='Notes']]     |
 
     And I verify the "Assign to me" button is present waiting up to "1200" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"

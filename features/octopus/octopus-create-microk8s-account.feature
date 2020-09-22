@@ -13,10 +13,10 @@ Feature: Create MicroK8s Account
       | Add Account       | //button[contains(.,'Add Account')]                           |
       | Username/Password | //li[normalize-space(text())='Username/Password']             |
       | Token             | //li[normalize-space(text())='Token']                         |
-      | Account name      | //input[contains(@id,'Accountname')]                          |
-      | Token value       | //input[contains(@id,'Token')]                                |
-      | Username          | //input[@name='Username']                             |
-      | Password          | //input[contains(@id,'Password')]                             |
+      | Account name      | //input[@name='Account name']                                 |
+      | Token value       | //input[@name='Token']                                        |
+      | Username          | //input[@name='Username']                                     |
+      | Password          | //input[@name='Password']                                     |
       | Save              | //button[contains(.,'Save')]                                  |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
