@@ -3,8 +3,8 @@ Feature: Octopus Login
   @login
   Scenario: Login
     Given I set the following aliases:
-      | Username   | //input[@name='userName']                                                                                 |
-      | Password   | //input[@name='password']                                                                                 |
+      | Username   | //input[@id='userName']                                                                                   |
+      | Password   | //input[@id='password']                                                                                   |
       | Sign In    | //button[contains(.,'SIGN IN')]                                                                           |
       | Close help | //div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M11 18h2v-2h-2v2zm1-16C6.48 2 2')]] |
       | Close EAP  | (//div[*[local-name() = 'svg']/*[local-name()='path'][starts-with(@d, 'M19 6.41L17.59')]])[1]             |
