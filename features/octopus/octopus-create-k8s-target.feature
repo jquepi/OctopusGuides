@@ -21,8 +21,8 @@ Feature: Create Azure Web App Target
       | Target Roles Container     | //div[./div/div/div/input[@title='Roles (type to add new)']]                                                 |
       | K8S web app role           | //span[./div/div/div[contains(.,'k8s')]]                                                                     |
       | Client Certificate         | //input[@value='KubernetesCertificate']                                                                      |
-      | Select account certificate | (//button[../../../../div[text()='Select certificate']])[1]                                                  |
-      | Cluster account container  | (//div[./div[text()='Select certificate']])[1]                                                               |
+      | Select account certificate | (//button[../../../../label[text()='Select certificate']])[1]                                                  |
+      | Cluster account container  | (//div[./label[text()='Select certificate']])[1]                                                               |
       | Minikube certificate       | (//span[./div/div/div[text()='Minikube Client Certificate']])[1]                                             |
       | Expand All                 | //a[text()='EXPAND ALL']                                                                                     |
 
@@ -76,8 +76,8 @@ Feature: Create Azure Web App Target
   Scenario: Add target client certificate
     Given I set the following aliases:
       | Client Certificate         | //input[@value='KubernetesCertificate']                          |
-      | Select account certificate | (//button[../../../../div[text()='Select certificate']])[1]      |
-      | Cluster account container  | (//div[./div[text()='Select certificate']])[1]                   |
+      | Select account certificate | (//button[../../../../label[text()='Select certificate']])[1]      |
+      | Cluster account container  | (//div[./label[text()='Select certificate']])[1]                   |
       | Minikube certificate       | (//span[./div/div/div[text()='Minikube Client Certificate']])[1] |
 
     And I highlight outside the "Client Certificate" option
