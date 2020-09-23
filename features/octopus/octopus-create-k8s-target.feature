@@ -122,9 +122,9 @@ Feature: Create Azure Web App Target
   @destinationspecific @k8s
   Scenario: Add certificate
     Given I set the following aliases:
-      | Select cluster certificate    | (//button[../../../../div[text()='Select certificate']])[3] |
+      | Select cluster certificate    | (//button[../../../../label[text()='Select certificate']])[3] |
       | Minikube CA                   | (//span[./div/div/div[text()='Minikube CA']])[1]            |
-      | Cluster certificate container | (//div[./div[text()='Select certificate']])[2]              |
+      | Cluster certificate container | (//div[./label[text()='Select certificate']])[2]              |
 
     And I click the "Select cluster certificate" drop down list
     And I click the "Minikube CA" option
@@ -134,9 +134,9 @@ Feature: Create Azure Web App Target
   @destinationspecific @microk8s
   Scenario: Add certificate
     Given I set the following aliases:
-      | Select cluster certificate    | //button[../../../../div[text()='Select certificate']] |
+      | Select cluster certificate    | //button[../../../../label[text()='Select certificate']] |
       | Minikube CA                   | (//span[./div/div/div[text()='Minikube CA']])[1]       |
-      | Cluster certificate container | //div[./div[text()='Select certificate']]              |
+      | Cluster certificate container | //div[./label[text()='Select certificate']]              |
 
     And I click the "Select cluster certificate" drop down list
     And I click the "Minikube CA" option
