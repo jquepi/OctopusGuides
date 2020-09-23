@@ -81,7 +81,7 @@ Feature: Configure an Octopus Tomcat project
       | Substitute Variables in Templates Container | //div[./input[..//label[text()='Substitute Variables in Templates']]]                           |
       | OK                                          | //button[contains(.,'Ok')]                                                                      |
       | Step Name                                   | //input[@name='Step name']                                                                      |
-      | On target roles                             | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | On target roles                             | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
       | Web role                                    | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
     And I highlight outside the "Configure features" button
@@ -118,7 +118,7 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the tomcat deployment
     Given I set the following aliases:
-      | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
+      | Package feed | //div[./label[text()='Package feed']]/div/div  |
       | Artifactory  | //div[./div/div[text()='Artifactory']]           |
       | HTML Body    | //body                                           |
       | Package ID   | //input[@name='PackageID']                       |
@@ -154,12 +154,12 @@ Feature: Configure an Octopus Tomcat project
     And I remove the highlight from the "Package ID" text box
 
   @define-project @destinationspecific @tomcat
-  Scenario: K8S Define step
+  Scenario: Java Define step
     Given I set the following aliases:
       | Tomcat Manager URL  | //input[@name='Tomcat Manager URL']  |
       | Management user     | //input[@name='Management user']     |
       | Management password | //input[@name='Management password'] |
-      | Context path        | //input[@name='Contextpath']         |
+      | Context path        | //input[@name='Context path']         |
       | Target files        | //textarea[@name='Target files']     |
       | Save                | //button[contains(.,'Save')]         |
 

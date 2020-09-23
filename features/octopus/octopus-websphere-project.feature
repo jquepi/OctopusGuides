@@ -46,7 +46,7 @@ Feature: Configure an Octopus Websphere project
       | Configure features | (//button[contains(.,'Configure features')])[1]                                                 |
       | OK                 | //button[contains(.,'Ok')]                                                                      |
       | Step Name          | //input[@name='Step name']                                                                      |
-      | On target roles    | //input[@title='Runs on targets in roles (type to add new)']                                    |
+      | On target roles    | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
       | Web role           | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -69,7 +69,7 @@ Feature: Configure an Octopus Websphere project
   @define-project @destinationspecific @websphere @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the Websphere deployment
     Given I set the following aliases:
-      | Package feed | (//div[./div[text()='Package feed']]/div)[2]/div |
+      | Package feed | //div[./label[text()='Package feed']]/div/div  |
       | Artifactory  | //div[./div/div[text()='Artifactory']]           |
       | HTML Body    | //body                                           |
       | Package ID   | //input[@name='PackageID']                       |

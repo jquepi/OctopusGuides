@@ -19,7 +19,7 @@ Feature: Add a manual intervention step
       | SMTP Host            | //input[@name='SMTP host']                                    |
       | SMTP Port            | //input[@name='SMTP port']                                    |
       | From Address         | //input[@name='From address']                                 |
-      | SMTP login           | //input[@name='SMTPlogin']                                    |
+      | SMTP login           | //input[@name='SMTP login']                                    |
       | SMTP password        | //input[@name='SMTP password']                                |
       | Use SSL              | //input[../div[contains(.,'Use SSL/TLS')]]                    |
       | Save                 | //button[@title='Save']                                       |
@@ -112,8 +112,8 @@ Feature: Add a manual intervention step
       | Save                          | //button[contains(.,'Save')]                                                                        |
       | Environments                  | //span[contains(.,'Environments')]                                                                  |
       | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                           |
-      | Select environments           | //input[@title='Select environments']                                                               |
-      | Select environments container | //div[./div/div/div/div/div/input[@title='Select environments']]                                    |
+      | Select environments           | //input[../../label[text()='Select environments']]                                                  |
+      | Select environments container | //div[./div/div/div/label[text()='Select environments']]                                            |
       | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'Dev')]//span     |
 
     And I open the URL "http://localhost/app#"

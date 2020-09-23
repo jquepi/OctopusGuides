@@ -20,7 +20,7 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Projects         | //span[contains(.,'Projects')]               |
       | Add project      | //div[./div/span[contains(.,'Add Project')]] |
-      | New project name | //input[@name='New project name']           |
+      | New project name | //input[@name='New project name']            |
       | Save             | (//div[contains(.,'Save')])[9]               |
 
     And I highlight outside the "Projects" link with an offset of "5"
@@ -98,7 +98,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Define iis ports
     Given I set the following aliases:
       | Define scope            | //div[@title='Define scope']                    |
-      | Select environments     | //input[@title='Select environments']           |
+      | Select environments     | //input[../../label[text()='Select environments']]           |
       | Dev environment         | //div[./div/div[text() = 'Dev']]                |
       | Test environment        | //div[./div/div[text() = 'Test']]               |
       | Prod environment        | //div[./div/div[text() = 'Prod']]               |
@@ -310,7 +310,7 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
       | Step Name                | //input[@name='Step name']                                                                          |
-      | Runs on targets in roles | //input[@title='Runs on targets in roles (type to add new)']                                        |
+      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]                |
       | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -333,7 +333,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the iis deployment
     Given I set the following aliases:
-      | Package feed             | (//div[./div[text()='Package feed']]/div)[2]/div                                                         |
+      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                          |
       | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
@@ -388,7 +388,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the azure web app deployment
     Given I set the following aliases:
-      | Package feed             | (//div[./div[text()='Package feed']]/div)[2]/div                                                         |
+      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                          |
       | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
@@ -469,7 +469,7 @@ Feature: Configure an Octopus ASP.NET project
       | New variable name                         | //input[@name='Enter new variable']                                                                                                                          |
       | New variable value                        | //input[@name='Enter value']                                                                                                                                 |
       | Define scope                              | //div[@title='Define scope']                                                                                                                                 |
-      | Select environments                       | //input[@title='Select environments']                                                                                                                        |
+      | Select environments                       | //input[../../label[text()='Select environments']]                                                                                                                        |
       | Dev environment                           | //div[./div/div[text() = 'Dev']]                                                                                                                             |
       | Test environment                          | //div[./div/div[text() = 'Test']]                                                                                                                            |
       | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                                                                            |

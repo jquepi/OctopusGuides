@@ -174,19 +174,19 @@ Feature: Create Octopus Users and Teams
       | New team description container | //div[./textarea[@name='Team description']]                     |
       | Save                           | //button[@title='Save']                                         |
       | Add Member                     | //button[@title='Add Member']                                   |
-      | Select users                   | //input[@title='Select users']                                  |
-      | Select users container         | //div[./div/div/div/input[@title='Select users']]               |
+      | Select users                   | //input[../../label[text()='Select users']]                     |
+      | Select users container         | //div[./div/div/div/input[../../label[text()='Select users']]]  |
       | Add                            | //button[@title='Add']                                          |
       | Internal Deployer User         | //div[./div/span[text()='internaldeployer@example.org']]        |
       | User roles                     | //button[contains(.,'User Roles')]                              |
       | Include User Role              | //button[contains(.,'Include User Role')]                       |
-      | Select user role               | (//div[../div[text()='Select a user role']])[2]                 |
-      | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]           |
+      | Select user role               | //div[../../label[text()='Select a user role']]                 |
+      | Select user role container     | //div[./div/div[../label[text()='Select a user role']]]         |
       | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]                 |
       | Project viewer                 | //span[./div[contains(.,'Project viewer')]]                     |
       | Apply                          | //button[contains(.,'Apply')]                                   |
       | Define Scope                   | //button[contains(.,'Define Scope')]                            |
-      | Select environments            | //input[@title='Select environments']                           |
+      | Select environments            | //input[../../label[text()='Select environments']]              |
       | Dev environment                | //span[./div/div/div[text()='Dev']]                             |
       | Test environment               | //span[./div/div/div[text()='Test']]                            |
 
@@ -311,19 +311,19 @@ Feature: Create Octopus Users and Teams
       | New team description container | //div[./textarea[@name='Team description']]                     |
       | Save                           | //button[@title='Save']                                         |
       | Add Member                     | //button[@title='Add Member']                                   |
-      | Select users                   | //input[@title='Select users']                                  |
-      | Select users container         | //div[./div/div/div/input[@title='Select users']]               |
+      | Select users                   | //input[../../label[text()='Select users']]                     |
+      | Select users container         | //div[./div/div/div/input[../../label[text()='Select users']]]  |
       | Add                            | //button[@title='Add']                                          |
       | Production Deployer User       | //div[./div/span[text()='productiondeployer@example.org']]      |
       | User roles                     | //button[contains(.,'User Roles')]                              |
       | Include User Role              | //button[contains(.,'Include User Role')]                       |
-      | Select user role               | (//div[../div[text()='Select a user role']])[2]                 |
-      | Select user role container     | //div[./div/div[../div[text()='Select a user role']]]           |
+      | Select user role               | //div[../../label[text()='Select a user role']]                 |
+      | Select user role container     | //div[./div/div[../label[text()='Select a user role']]]         |
       | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]                 |
       | Project viewer                 | //span[./div[contains(.,'Project viewer')]]                     |
       | Apply                          | //button[contains(.,'Apply')]                                   |
       | Define Scope                   | //button[contains(.,'Define Scope')]                            |
-      | Select environments            | //input[@title='Select environments']                           |
+      | Select environments            | //input[../../label[text()='Select environments']]              |
       | Prod environment               | //span[./div/div/div[text()='Prod']]                            |
 
     And I open the URL "http://localhost"
