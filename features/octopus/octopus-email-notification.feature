@@ -19,7 +19,7 @@ Feature: Add a manual intervention step
       | SMTP Host            | //input[@name='SMTP host']                                    |
       | SMTP Port            | //input[@name='SMTP port']                                    |
       | From Address         | //input[@name='From address']                                 |
-      | SMTP login           | //input[@name='SMTPlogin']                                    |
+      | SMTP login           | //input[@name='SMTP login']                                    |
       | SMTP password        | //input[@name='SMTP password']                                |
       | Use SSL              | //input[../div[contains(.,'Use SSL/TLS')]]                    |
       | Save                 | //button[@title='Save']                                       |
