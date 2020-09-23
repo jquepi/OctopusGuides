@@ -12,7 +12,7 @@ Feature: Create Azure Web App Target
       | External Feeds            | //a[contains(.,'External Feeds')]                                              |
       | External Feeds text       | //a[contains(.,'External Feeds')][not(*)] \| //a/span[text()='External Feeds'] |
       | Add Feed                  | //button[contains(.,'Add feed')]                                               |
-      | Feed type                 | //div[../../div[text()='Feed type']]                                           |
+      | Feed type                 | //div[../../label[text()='Feed type']]                                           |
       | Docker Container Registry | //div[./div/div[text()='Docker Container Registry']]                           |
       | Feed name                 | //input[@name='Feed name']                                                     |
       | Expand All                | //a[text()='EXPAND ALL']                                                       |
