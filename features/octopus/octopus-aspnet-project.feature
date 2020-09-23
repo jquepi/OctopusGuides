@@ -98,7 +98,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Define iis ports
     Given I set the following aliases:
       | Define scope            | //div[@title='Define scope']                    |
-      | Select environments     | //input[@title='Select environments']           |
+      | Select environments     | //input[../../label[text()='Select environments']]           |
       | Dev environment         | //div[./div/div[text() = 'Dev']]                |
       | Test environment        | //div[./div/div[text() = 'Test']]               |
       | Prod environment        | //div[./div/div[text() = 'Prod']]               |
@@ -469,7 +469,7 @@ Feature: Configure an Octopus ASP.NET project
       | New variable name                         | //input[@name='Enter new variable']                                                                                                                          |
       | New variable value                        | //input[@name='Enter value']                                                                                                                                 |
       | Define scope                              | //div[@title='Define scope']                                                                                                                                 |
-      | Select environments                       | //input[@title='Select environments']                                                                                                                        |
+      | Select environments                       | //input[../../label[text()='Select environments']]                                                                                                                        |
       | Dev environment                           | //div[./div/div[text() = 'Dev']]                                                                                                                             |
       | Test environment                          | //div[./div/div[text() = 'Test']]                                                                                                                            |
       | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                                                                            |

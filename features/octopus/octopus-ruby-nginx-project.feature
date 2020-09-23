@@ -16,19 +16,19 @@ Feature: Configure an Octopus Ruby project
   @define-project @destinationspecific @nginx
   Scenario: Define node ports
     Given I set the following aliases:
-      | Define scope            | //div[@title='Define scope']                    |
-      | Select environments     | //input[@title='Select environments']           |
-      | Dev environment         | //div[./div/div[text() = 'Dev']]                |
-      | Test environment        | //div[./div/div[text() = 'Test']]               |
-      | Prod environment        | //div[./div/div[text() = 'Prod']]               |
-      | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
-      | Project Variables Title | //h2[contains(.,'Project Variables')]           |
-      | New variable name       | //input[@name='Enter new variable']             |
-      | New variable value      | //input[@name='Enter value']                    |
-      | New variable value 2    | (//input[@name='Enter value'])[2]               |
-      | New variable value 3    | (//input[@name='Enter value'])[3]               |
-      | Add to list             | //button[@title='Add To List']                  |
-      | Save                    | //button[contains(.,'Save')]                    |
+      | Define scope            | //div[@title='Define scope']                       |
+      | Select environments     | //input[../../label[text()='Select environments']] |
+      | Dev environment         | //div[./div/div[text() = 'Dev']]                   |
+      | Test environment        | //div[./div/div[text() = 'Test']]                  |
+      | Prod environment        | //div[./div/div[text() = 'Prod']]                  |
+      | Add Another Value       | //button[.//span[text() = 'Add Another Value']]    |
+      | Project Variables Title | //h2[contains(.,'Project Variables')]              |
+      | New variable name       | //input[@name='Enter new variable']                |
+      | New variable value      | //input[@name='Enter value']                       |
+      | New variable value 2    | (//input[@name='Enter value'])[2]                  |
+      | New variable value 3    | (//input[@name='Enter value'])[3]                  |
+      | Add to list             | //button[@title='Add To List']                     |
+      | Save                    | //button[contains(.,'Save')]                       |
 
     And I populate the "New variable name" text box with "Nginx Port"
     And I populate the "New variable value" text box with "8081"
