@@ -17,8 +17,8 @@ Feature: Create Azure Web App Target
       | Environments               | //input[../../label[text()='Select environments']]                                                           |
       | Environments Container     | //div[./div/div/div/label[text()='Select environments']]                                                     |
       | Dev environment            | //span[./div/div/div[text()='Dev']]                                                                          |
-      | Target Roles               | //input[@title='Roles (type to add new)']                                                                    |
-      | Target Roles Container     | //div[./div/div/div/input[@title='Roles (type to add new)']]                                                 |
+      | Target Roles               | //input[../../label[text()='Roles (type to add new)']]                                                       |
+      | Target Roles Container     | //div[./div/div/label[text()='Roles (type to add new)']]                                                     |
       | K8S web app role           | //span[./div/div/div[contains(.,'k8s')]]                                                                     |
       | Client Certificate         | //input[@value='KubernetesCertificate']                                                                      |
       | Select account certificate | (//button[../../../../div[text()='Select certificate']])[1]                                                  |
