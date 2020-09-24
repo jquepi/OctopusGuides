@@ -150,7 +150,7 @@ if (elements.length !== 0) {
   Scenario: K8S Define step
     Given I set the following aliases:
       | Step Name       | //input[@name='Step name']                                                                      |
-      | On behalf of    | //input[@title='On behalf of target roles (type to add new)']                                   |
+      | On behalf of    | //input[../../label[text()='On behalf of target roles (type to add new)']]                                   |
       | K8s role        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
       | Deployment name | //input[@name='Deployment name']                                                                |
 

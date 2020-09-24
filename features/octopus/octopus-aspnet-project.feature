@@ -97,18 +97,18 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis
   Scenario: Define iis ports
     Given I set the following aliases:
-      | Define scope            | //div[@title='Define scope']                    |
-      | Select environments     | //input[../../label[text()='Select environments']]           |
-      | Dev environment         | //div[./div/div[text() = 'Dev']]                |
-      | Test environment        | //div[./div/div[text() = 'Test']]               |
-      | Prod environment        | //div[./div/div[text() = 'Prod']]               |
-      | Add Another Value       | //button[.//span[text() = 'Add Another Value']] |
-      | Project Variables Title | //h2[contains(.,'Project Variables')]           |
-      | New variable name       | //input[@name='Enter new variable']             |
-      | New variable value      | //input[@name='Enter value']                    |
-      | New variable value 2    | (//input[@name='Enter value'])[2]               |
-      | New variable value 3    | (//input[@name='Enter value'])[3]               |
-      | Save                    | //button[contains(.,'Save')]                    |
+      | Define scope            | //div[@title='Define scope']                       |
+      | Select environments     | //input[../../label[text()='Select environments']] |
+      | Dev environment         | //div[./div/div[text() = 'Dev']]                   |
+      | Test environment        | //div[./div/div[text() = 'Test']]                  |
+      | Prod environment        | //div[./div/div[text() = 'Prod']]                  |
+      | Add Another Value       | //button[.//span[text() = 'Add Another Value']]    |
+      | Project Variables Title | //h2[contains(.,'Project Variables')]              |
+      | New variable name       | //input[@name='Enter new variable']                |
+      | New variable value      | //input[@name='Enter value']                       |
+      | New variable value 2    | (//input[@name='Enter value'])[2]                  |
+      | New variable value 3    | (//input[@name='Enter value'])[3]                  |
+      | Save                    | //button[contains(.,'Save')]                       |
 
     And I populate the "New variable name" text box with "IIS Port"
     And I populate the "New variable value" text box with "8081"
@@ -285,7 +285,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Azure Define step
     Given I set the following aliases:
       | Step Name    | //input[@name='Step name']                                                                              |
-      | On behalf of | //input[@title='On behalf of target roles (type to add new)']                                           |
+      | On behalf of | //input[../../label[text()='On behalf of target roles (type to add new)']]                              |
       | Azure role   | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'azurewebapp')]//span |
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -333,7 +333,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the iis deployment
     Given I set the following aliases:
-      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                          |
+      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                            |
       | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
@@ -388,7 +388,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the azure web app deployment
     Given I set the following aliases:
-      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                          |
+      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                            |
       | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
@@ -469,7 +469,7 @@ Feature: Configure an Octopus ASP.NET project
       | New variable name                         | //input[@name='Enter new variable']                                                                                                                          |
       | New variable value                        | //input[@name='Enter value']                                                                                                                                 |
       | Define scope                              | //div[@title='Define scope']                                                                                                                                 |
-      | Select environments                       | //input[../../label[text()='Select environments']]                                                                                                                        |
+      | Select environments                       | //input[../../label[text()='Select environments']]                                                                                                           |
       | Dev environment                           | //div[./div/div[text() = 'Dev']]                                                                                                                             |
       | Test environment                          | //div[./div/div[text() = 'Test']]                                                                                                                            |
       | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                                                                            |
