@@ -1,6 +1,6 @@
 name: ASP.NET Azure Devops Artifactory Feed TFVC Screenshots
 on:
-  push:
+#  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:

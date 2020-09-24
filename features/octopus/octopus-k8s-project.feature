@@ -202,10 +202,10 @@ if (elements.length !== 0) {
   Scenario: Add the container and ports.
     Given I set the following aliases:
       | Add Container | (//button[@title='Add Container'])[1] |
-      | Image name    | (//input[@name='Name'])[3]            |
+      | Image name    | //input[@name='Name']                 |
       | Add Port      | (//button[@title='Add Port'])[3]      |
-      | Port name     | (//input[@name='Name'])[4]            |
-      | Port number   | (//input[@name='Port'])[1]            |
+      | Port name     | (//input[@name='Name'])[2]            |
+      | Port number   | //input[@name='Port']                 |
 
     And I highlight outside the "Add Container" button
     And I scroll the "Add Container" button into view offset by "-300"
