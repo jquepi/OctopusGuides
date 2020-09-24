@@ -13,7 +13,7 @@ Feature: Add Artifactory NuGet feed
       | Feed name           | //input[@name='Feed name']                                                     |
       | Feed url            | //input[@name='Feed url']                                                      |
       | Feed username       | //input[@name='Feed username']                                                 |
-      | Feed password       | //input[@name='Feed password')]                                                |
+      | Feed password       | //input[@name='Feed password']                                                 |
       | Save                | //button[@title='Save']                                                        |
       | Expand All          | //a[text()='EXPAND ALL']                                                       |
 
