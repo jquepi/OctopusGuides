@@ -302,8 +302,8 @@ if (elements.length !== 0) {
       | Add Service Port  | (//button[@title='Add Port'])[1]                  |
       | Service Port Name | //input[@name='Name']                             |
       | Port Suggestion   | //span[./div/div/div[text()='#{DockerPort:-80}']] |
-      | Service Port      | (//input[@name='Port'])[1]                        |
-      | Node Port         | //input[@name='NodePort']                         |
+      | Service Port      | //input[@name='KubernetesServicePortPort']        |
+      | Node Port         | //input[@name='Node Port']                        |
 
     And I highlight outside the "OK" button with an offset of "2"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}100-octopus-k8s.png"
