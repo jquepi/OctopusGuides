@@ -1,6 +1,6 @@
 name: ASP.NET Core Jenkins Kubernetes DockerHub Video
 on:
-  push:
+#  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:

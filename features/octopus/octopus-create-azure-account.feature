@@ -5,7 +5,7 @@ Feature: Create Azure Account
     And I run the feature "shared/octopus-login.feature" passing the original arguments
 
 
-  Scenario: Add target
+  Scenario: Add account
     Given I set the following aliases:
       | Infrastructure       | //span[contains(.,'Infrastructure')]                          |
       | More                 | (//span[contains(.,'More')])[2]                               |
@@ -16,7 +16,7 @@ Feature: Create Azure Account
       | Subscription ID      | //input[@name='Subscription']                                 |
       | Tenant ID            | //input[@name='Active Directory Tenant ID']                   |
       | Application ID       | //input[@name='Active Directory Appication ID']               |
-      | Application Password | //input[@name='Active Directory Password Key']                |
+      | Application Password | //input[@name='AActive Directory Password\\\\Key']            |
       | Save                 | (//button[contains(.,'Save')])[2]                             |
       | Expand All           | //a[text()='EXPAND ALL']                                      |
 
