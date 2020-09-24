@@ -240,10 +240,10 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s @microk8s @applicationspecific @php @ruby
   Scenario: Define environment variable. This is only valid for some docker images.
     Given I set the following aliases:
-      | Environment Variables    | //div[./div/span[text()='Environment Variables']]                                                             |
-      | Add Environment Variable | //button[@title='Add Environment Variable']                                                                   |
-      | Name                     | //input[@name='Name'][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']]  |
-      | Value                    | //input[@name='Value'][../../../../../../../../../../../../../../../div/span[text()='Environment Variables']] |
+      | Environment Variables    | //div[./div/span[text()='Environment Variables']]                                                                    |
+      | Add Environment Variable | //button[@title='Add Environment Variable']                                                                          |
+      | Name                     | //input[@name='Name'][../../../../../../../../../../../../../../../../div/div/span[text()='Environment Variables']]  |
+      | Value                    | //input[@name='Value'][../../../../../../../../../../../../../../../../div/div/span[text()='Environment Variables']] |
 
     And I click the "Environment Variables" section
 
@@ -269,7 +269,7 @@ if (elements.length !== 0) {
   Scenario: Add the config map volume mounting. This is only valid for some docker images.
     Given I set the following aliases:
       | Add Volume Mount      | (//button[@title='Add Volume Mount'])[1]           |
-      | Container Volume name | (//input[@name='Name'])[5]                         |
+      | Container Volume name | (//input[@name='Name'])[3]                |
       | Mount path            | (//input[@name='Mount path'])[1]                   |
       | Sub path              | (//input[@name='Sub path'])[1]                     |
       | appsettings volume    | //span[./div/div/div[text()='appsettings-volume']] |
@@ -300,7 +300,7 @@ if (elements.length !== 0) {
       | Node port option  | //input[@value='NodePort']                        |
       | Node port parent  | //div[./input[@value='NodePort']]                 |
       | Add Service Port  | (//button[@title='Add Port'])[1]                  |
-      | Service Port Name | (//input[@name='Name'])[3]                        |
+      | Service Port Name | (//input[@name='Name'])[2]                        |
       | Port Suggestion   | //span[./div/div/div[text()='#{DockerPort:-80}']] |
       | Service Port      | (//input[@name='Port'])[1]                        |
       | Node Port         | //input[@name='NodePort']                         |
