@@ -300,7 +300,7 @@ if (elements.length !== 0) {
       | Node port option  | //input[@value='NodePort']                        |
       | Node port parent  | //div[./input[@value='NodePort']]                 |
       | Add Service Port  | (//button[@title='Add Port'])[1]                  |
-      | Service Port Name | (//input[@name='Name'])[2]                        |
+      | Service Port Name | //input[@name='Name']                             |
       | Port Suggestion   | //span[./div/div/div[text()='#{DockerPort:-80}']] |
       | Service Port      | (//input[@name='Port'])[1]                        |
       | Node Port         | //input[@name='NodePort']                         |
