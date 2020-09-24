@@ -353,9 +353,9 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s @microk8s @applicationspecific @java @nodejs @aspnetcore
   Scenario: Add the config map that holds the configuration file. This is only valid for some docker images.
     Given I set the following aliases:
-      | ConfigMap name      | //input[@name='ConfigMap name']                  |
+      | ConfigMap name      | //input[@name='Config Map name']                 |
       | Add Config Map Item | (//button[contains(.,'Add Config map item')])[1] |
-      | Key                 | //input[../label[text()='Key']]                  |
+      | Key                 | //input[../../label[text()='Key']]               |
       | Value               | //textarea[@name='Value']                        |
       | Value container     | //div[./textarea[@name='Value']]                 |
 
