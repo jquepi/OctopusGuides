@@ -23,7 +23,7 @@ Feature: Create Azure Web App Target
       | Azure web app role      | //span[./div/div/div[contains(.,'azurewebapp')]]                                                        |
       | Account                 | //div[../../div[text()='Select account']]                                                               |
       | Azure account           | //span[./div/div/div[text()='Azure']]                                                                   |
-      | Azure Web App List      | //div[../../div[text()='Web app']]                                                                      |
+      | Azure Web App List      | //div[../../label[text()='Web app']]                                                                    |
       | Expand All              | //a[text()='EXPAND ALL']                                                                                |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
