@@ -1,6 +1,6 @@
 name: ASP.NET Core Azure DevOps Octopus Built-in Feed Azure WebSites Video
 on:
-  push:
+#  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:

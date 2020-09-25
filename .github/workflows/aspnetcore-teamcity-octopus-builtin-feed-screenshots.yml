@@ -6,7 +6,7 @@ on:
   schedule:
     - cron:  '0 0 25,10 * *'
 jobs:
-  build:p
+  build:
     if: >-
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
