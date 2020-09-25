@@ -1,12 +1,12 @@
 name: ASP.NET Core TeamCity Octopus Built-in Feed Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:
     - cron:  '0 0 25,10 * *'
 jobs:
-  build:
+  build:p
     if: >-
       (github.event_name != 'repository_dispatch') ||
       (github.event.client_payload.workflow == github.workflow) ||
