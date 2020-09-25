@@ -238,10 +238,10 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: ASP.NET Azure Configure Features
 
     Given I set the following aliases:
-      | Configure features                | (//button[contains(.,'Configure features')])[1]             |
-      | Configuration Variables           | //input[..//label[text()='Configuration Variables']]        |
-      | Configuration Variables Container | //div[./input[..//label[text()='Configuration Variables']]] |
-      | OK                                | //button[contains(.,'Ok')]                                  |
+      | Configure features                | (//button[contains(.,'Configure features')])[1]                        |
+      | Configuration Variables           | //input[..//label[text()='Structured Configuration Variables']]        |
+      | Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]] |
+      | OK                                | //button[contains(.,'Ok')]                                             |
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
@@ -262,10 +262,10 @@ Feature: Configure an Octopus ASP.NET project
   Enable the JSON Configuration Variables feature for ASP.NET Core apps
 
     Given I set the following aliases:
-      | Configure features                | (//button[contains(.,'Configure features')])[1]                  |
-      | Configuration Variables           | //input[..//label[text()='JSON Configuration Variables']]        |
-      | Configuration Variables Container | //div[./input[..//label[text()='JSON Configuration Variables']]] |
-      | OK                                | //button[contains(.,'Ok')]                                       |
+      | Configure features                | (//button[contains(.,'Configure features')])[1]                        |
+      | Configuration Variables           | //input[..//label[text()='Structured Configuration Variables']]        |
+      | Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]] |
+      | OK                                | //button[contains(.,'Ok')]                                             |
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
