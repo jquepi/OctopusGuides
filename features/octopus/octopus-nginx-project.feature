@@ -208,7 +208,7 @@ Feature: Configure an Octopus Node.js project
       | Add location            | //div[contains(@class, 'actionsMenu')][not(contains(@class, 'hidden'))]//button[contains(.,'Add location')] |
       | Port                    | //input[@name='Port']                                                                                       |
       | Location                | //input[@name='Location']                                                                                   |
-      | Proxy URL               | //input[@name='Proxy requests to this URL']                                                                 |
+      | Proxy URL               | //input[@name='URL']                                                                 |
       | Reverse Proxy           | //input[..//label[text()='Reverse Proxy']]                                                                  |
       | Reverse Proxy Container | //div[./div/div/label[text()='Reverse Proxy']]                                                              |
       | OK                      | //button[contains(.,'Ok')]                                                                                  |

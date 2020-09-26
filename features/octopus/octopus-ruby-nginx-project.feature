@@ -187,7 +187,7 @@ Feature: Configure an Octopus Ruby project
       | Port                    | //input[@name='Port']                                                                                       |
       | Location                | //input[@name='Location']                                                                                   |
       | Add Directive           | //button[contains(.,'Add Directive')]                                                                       |
-      | Proxy URL               | //input[@name='Proxy requests to this URL']                                                                 |
+      | Proxy URL               | //input[@name='URL']                                                                                        |
       | Reverse Proxy           | //input[..//label[text()='Reverse Proxy']]                                                                  |
       | Reverse Proxy Container | //div[./div/div/label[text()='Reverse Proxy']]                                                              |
       | Directive One           | (//input[@name='Directive'])[1]                                                                             |
