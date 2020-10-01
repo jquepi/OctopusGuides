@@ -8,7 +8,7 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
 -> package { 'openjdk-8-jdk':
   ensure => installed,
 }
--> package { 'openjdk-14-jdk':
+-> package { 'openjdk-15-jdk':
   ensure => installed,
 }
 -> exec { 'Set default jdk':

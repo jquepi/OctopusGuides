@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/usr/lib/jvm/java-14-openjdk-amd64/bin/java \
+/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
   "--enable-preview" \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \

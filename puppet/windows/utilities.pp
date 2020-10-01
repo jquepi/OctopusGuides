@@ -45,7 +45,7 @@ package { 'jdk8':
   provider => chocolatey
 }
 
-package { 'openjdk14':
+package { 'openjdk':
   ensure   => installed,
   provider => chocolatey
 }

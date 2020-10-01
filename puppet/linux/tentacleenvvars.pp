@@ -1,6 +1,6 @@
 file_line { 'Add JAVA_HOME env var to tentacle service':
   path    => '/etc/systemd/system/Tentacle.service',
-  line    => 'Environment="JAVA_HOME=\usr\lib\jvm\java-13-openjdk-amd64"',
+  line    => 'Environment="JAVA_HOME=\usr\lib\jvm\java-15-openjdk-amd64"',
   after   => '\[Service\]"',
   notify  => Service['Tentacle']
 }

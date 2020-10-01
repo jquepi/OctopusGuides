@@ -19,7 +19,7 @@ sudo kubectl get services --all-namespaces
 echo "TEST SERVICES"
 sudo kubectl describe service randomquotes -n randomquotes-dev
 
-/usr/lib/jvm/java-14-openjdk-amd64/bin/java \
+/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
   "--enable-preview" \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
