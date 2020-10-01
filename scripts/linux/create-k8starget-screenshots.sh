@@ -3,8 +3,7 @@
 MINIKUBE_IP=`cat /tmp/minikubeip.txt`
 echo "Minikube IP: $MINIKUBE_IP:8443"
 
-/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
-  "--enable-preview" \
+/opt/jdk-15/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \
@@ -31,8 +30,7 @@ echo "Minikube IP: $MINIKUBE_IP:8443"
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-k8s-target.feature
 
-/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
-  "--enable-preview" \
+/opt/jdk-15/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \
@@ -59,8 +57,7 @@ echo "Minikube IP: $MINIKUBE_IP:8443"
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-k8s-target.feature
 
-/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
-  "--enable-preview" \
+/opt/jdk-15/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \

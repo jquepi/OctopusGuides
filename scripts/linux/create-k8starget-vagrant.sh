@@ -1,7 +1,6 @@
 #!/bin/bash
 
-/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
-  "--enable-preview" \
+/opt/jdk-15/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \
@@ -28,8 +27,7 @@
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-k8s-target.feature
 
-/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
-  "--enable-preview" \
+/opt/jdk-15/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \
@@ -56,8 +54,7 @@
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-k8s-target.feature
 
-/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
-  "--enable-preview" \
+/opt/jdk-15/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \

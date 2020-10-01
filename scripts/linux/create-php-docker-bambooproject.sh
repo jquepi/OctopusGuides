@@ -2,8 +2,7 @@
 
 API_KEY=`cat /tmp/api_key.txt`
 
-/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
-  "--enable-preview" \
+/opt/jdk-15/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \

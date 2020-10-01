@@ -8,12 +8,19 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
 -> package { 'openjdk-8-jdk':
   ensure => installed,
 }
--> package { 'openjdk-15':
-  ensure => installed,
-}
 -> exec { 'Set default jdk':
   command   => '/usr/sbin/update-java-alternatives --set java-1.8.0-openjdk-amd64',
   logoutput => true
+}
+
+archive { '/opt/openjdk.tar.gz':
+  ensure          => present,
+  extract         => true,
+  extract_path    => '/opt',
+  source          => 'https://download.java.net/java/GA/jdk15/779bf45e88a44cbd9ea6621d33e33db1/36/GPL/openjdk-15_linux-x64_bin.tar.gz',
+  creates         => '/opt/jdk-15/release',
+  cleanup         => true,
+  extract_command => 'tar xfz %s'
 }
 
 apt::ppa {

@@ -2,8 +2,7 @@
 
 MICROK8S_TOKEN=$(microk8s.kubectl config view --raw -o json | jq -r '.users[0].user.token' | tr -d '"')
 
-/usr/lib/jvm/java-15-openjdk-amd64/bin/java \
-  "--enable-preview" \
+/opt/jdk-15/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \
