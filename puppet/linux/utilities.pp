@@ -43,7 +43,6 @@ package { 'git':
   ensure => installed,
 }
 
-
 package { 'vlc':
   ensure => installed,
 }
@@ -93,18 +92,18 @@ archive { '/opt/webdrivertraining.1.0-SNAPSHOT.jar':
   allow_insecure => true
 }
 
-archive { '/opt/setup_13.x':
+archive { '/opt/setup_14.x':
   ensure         => present,
   extract        => false,
-  source         => 'https://deb.nodesource.com/setup_13.x',
+  source         => 'https://deb.nodesource.com/setup_14.x',
   allow_insecure => true
 }
--> file { '/opt/setup_13.x':
+-> file { '/opt/setup_14.x':
   ensure => 'file',
   mode   => '0755'
 }
 -> exec { 'Install Node.js repo':
-  command   => '/opt/setup_13.x',
+  command   => '/opt/setup_14.x',
   logoutput => true
 }
 -> package { 'nodejs':

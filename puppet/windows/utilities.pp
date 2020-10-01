@@ -55,8 +55,8 @@ package { 'nodejs.install':
   provider => chocolatey
 }
 
-package { 'firefox':
-  ensure   => "69.0.3",
+package { 'firefoxesr':
+  ensure   => installed,
   provider => chocolatey
 }
 

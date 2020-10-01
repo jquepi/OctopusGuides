@@ -1,6 +1,5 @@
 if (-not [string]::IsNullOrEmpty($env:WISTIA_MEDIA_ID))
 {
-
     & "C:\Program Files\OpenJDK\$( (Get-ChildItem "C:\Program Files\OpenJDK\")[0] )\bin\java" `
     "-Xmx2g" `
     "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
