@@ -7,7 +7,7 @@ cd /tmp
 git clone https://github.com/OctopusDeploy/OctopusGuides.git
 chmod 777 -R OctopusGuides
 cd OctopusGuides/vm
-./java-jenkins-k8s.sh
+./java-jenkins-k8s.sh > /tmp/cucumber.logs
 SCRIPT
 
 Vagrant.configure("2") do |config|
