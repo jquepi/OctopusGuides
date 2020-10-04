@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-# Java Jenkins Tomcat Builtin Feed
+# Java Jenkins K8s Docker Feed
 
 # This script is intended to be run as a Vagrant provider to populate a Ubuntu image with a similar configuration
 # as described in the guides documentation. Note that the SMTP notification step is not included so as not to
