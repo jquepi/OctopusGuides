@@ -19,7 +19,7 @@ archive { '/opt/packages-microsoft-prod.deb':
 -> package { 'libicu-dev':
   ensure => installed,
 }
--> package { 'dotnet-sdk-3.0':
+-> package { 'dotnet-sdk-3.1':
   ensure => installed,
 }
 -> package { 'dotnet-runtime-2.2':
