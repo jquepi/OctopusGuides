@@ -50,7 +50,8 @@ cd ..
   jenkinsicon.pp \
   microk8sicon.pp \
   passwords.pp \
-  vagrantuser.pp
+  vagrantuser.pp \
+  webdriver.pp
 
 # Wait for Octopus
 ./scripts/linux/wait-octopus.sh
