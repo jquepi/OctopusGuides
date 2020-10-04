@@ -196,7 +196,7 @@ Feature: Configure an Octopus Tomcat project
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-tomcat-filereplacement.png"
 
-    And I click the "Save" button
+    And I force click the "Save" button
 
     And I sleep for "3" seconds
 
