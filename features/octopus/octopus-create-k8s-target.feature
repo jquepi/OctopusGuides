@@ -96,7 +96,7 @@ Feature: Create Azure Web App Target
     Given I set the following aliases:
       | Token                     | //input[@value='Token']                                   |
       | Select account            | (//button[../../../../label[text()='Select account']])[1] |
-      | Cluster account container | (//div[./div[text()='Select account']])[1]                |
+      | Cluster account container | (//div[./label[text()='Select account']])[1]              |
       | MicroK8S account          | (//span[./div/div/div[text()='MicroK8S Account']])[1]     |
 
     And I highlight outside the "Token" option
