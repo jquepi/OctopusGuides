@@ -549,7 +549,12 @@ Feature: Configure an Octopus ASP.NET project
     # Element <button type="submit"> is not clickable at point (1660,96) because another element <div> obscures it
     # So we force click
     And I force click the "Save" button
-    And I sleep for "2" seconds
+    And I sleep for "3" seconds
+
+    # Give the step time to save
+    And I stop recording the screen
+    And I sleep for "60" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
   @deploy-project
   Scenario: Deploy project

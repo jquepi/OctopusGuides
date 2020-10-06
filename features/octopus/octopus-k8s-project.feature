@@ -379,7 +379,12 @@ if (elements.length !== 0) {
     And I highlight outside the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}160-octopus-k8s.png"
     And I force click the "Save" button
-    And I sleep for "10" seconds
+    And I sleep for "3" seconds
+
+    # Give the step time to save
+    And I stop recording the screen
+    And I sleep for "60" seconds
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
   @deploy-project
   Scenario: Deploy project
