@@ -9,11 +9,11 @@ archive { '/opt/packages-microsoft-prod.deb':
   ensure   => installed,
   source   => "/opt/packages-microsoft-prod.deb"
 }
--> exec { 'Update apt repo':
+-> exec { 'Update apt repo 1':
   command   => '/usr/bin/apt-get update',
   logoutput => false
 }
--> exec { 'Update apt repo':
+-> exec { 'Update apt repo 3':
   command   => '/usr/bin/add-apt-repository universe',
   logoutput => false
 }

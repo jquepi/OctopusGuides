@@ -9,7 +9,7 @@ archive { '/opt/packages-microsoft-prod.deb':
   provider => dpkg,
   source   => '/opt/packages-microsoft-prod.deb'
 }
--> exec { 'Update apt repo':
+-> exec { 'Update apt repo 2':
   command   => '/usr/bin/apt-get update',
   logoutput => false
 }
