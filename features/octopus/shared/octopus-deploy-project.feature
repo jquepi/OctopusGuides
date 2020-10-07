@@ -21,7 +21,7 @@ Feature: Deploy project
 
     # Give the release some time to get the data
     And I stop recording the screen
-    And I sleep for "10" seconds
+    And I sleep for "60" seconds
     And I start recording the screen to the directory "ExternalMediaPath"
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}180-octopus-save-release.png"
