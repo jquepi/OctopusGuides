@@ -58,7 +58,7 @@ Feature: Configure an Octopus Ruby project
 
     And I sleep for "1" second
     And I stop recording the screen
-    And I sleep for "10" seconds
+    And I sleep for "120" seconds
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}030-octopus-variables-populated.png"
 
