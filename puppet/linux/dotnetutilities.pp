@@ -22,6 +22,3 @@ archive { '/opt/packages-microsoft-prod.deb':
 -> package { 'dotnet-sdk-3.1':
   ensure => installed,
 }
--> package { 'dotnet-runtime-2.1':
-  ensure => installed,
-}
