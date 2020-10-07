@@ -2,7 +2,7 @@ name: Test Workflow
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Test disk usage
       run: echo $HOME

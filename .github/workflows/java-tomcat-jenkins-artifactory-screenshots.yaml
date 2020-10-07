@@ -13,7 +13,7 @@ jobs:
       (github.event.client_payload.workflow == 'all') ||
       (github.event.client_payload.workflow == 'jenkins-javawar-tomcat-screenshots') || 
       (github.event.client_payload.workflow == 'jenkins')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_STEP_HANDLER: true

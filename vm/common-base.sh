@@ -13,7 +13,6 @@ cd ..
   octopusicon.pp \
   bookicon.pp \
   desktop.pp \
-  powershell.pp \
   networkwait.pp
 
 # Wait for Octopus
