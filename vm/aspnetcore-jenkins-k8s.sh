@@ -40,7 +40,6 @@ cd ..
 
 # Install Puppet
 ./install.sh \
-  dotnetutilities.pp \
   jenkins.pp \
   update.pp \
   microk8s.pp \
