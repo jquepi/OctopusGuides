@@ -13,6 +13,7 @@ cd ..
   octopusicon.pp \
   bookicon.pp \
   desktop.pp \
+  vagrantuser.pp \
   networkwait.pp
 
 # Wait for Octopus

@@ -49,8 +49,7 @@ cd ..
   jenkinsfinalize.pp \
   jenkinsicon.pp \
   microk8sicon.pp \
-  passwords.pp \
-  vagrantuser.pp
+  passwords.pp
 
 # Wait for Octopus
 ./scripts/linux/wait-octopus.sh
