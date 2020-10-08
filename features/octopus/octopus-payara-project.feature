@@ -54,7 +54,6 @@ Feature: Configure an Octopus payara project
       | Structured Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]]                          |
       | Substitute Variables in Templates            | //input[..//label[text()='Substitute Variables in Templates']]                                  |
       | Substitute Variables in Templates Container  | //div[./input[..//label[text()='Substitute Variables in Templates']]]                           |
-      | OK                                           | //button[contains(.,'Ok')]                                                                      |
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
