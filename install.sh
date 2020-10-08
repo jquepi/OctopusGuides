@@ -31,6 +31,7 @@ do
 
     if [[ $? -ne 0 ]] && [[ $? -ne 2 ]]
     then
+      echo "Puppet return code was $?"
       exit 100
     fi
 done
