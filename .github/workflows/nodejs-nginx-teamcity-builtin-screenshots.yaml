@@ -12,7 +12,7 @@ jobs:
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
       (github.event.client_payload.workflow == 'teamcity-nodejs-nginx-screenshots')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       SLACK_STEP_HANDLER: true
       SLACK_ON_ERROR_ONLY: true

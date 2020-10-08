@@ -13,7 +13,7 @@ jobs:
       (github.event.client_payload.workflow == 'all') ||
       (github.event.client_payload.workflow == 'jenkins-php-k8s-video') ||
       (github.event.client_payload.workflow == 'jenkins')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       BUILD_NAME: "php-docker-app-git-jenkins-dockerhub-k8s"
       SLACK_STEP_HANDLER: true

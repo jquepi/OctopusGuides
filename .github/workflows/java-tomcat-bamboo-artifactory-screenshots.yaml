@@ -12,7 +12,7 @@ jobs:
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
       (github.event.client_payload.workflow == 'bamboo-java-tomcat-screenshots')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
       SLACK_STEP_HANDLER: true

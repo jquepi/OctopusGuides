@@ -1,6 +1,6 @@
 name: Node.js Jenkins Kubernetes DockerHub Screenshots
 on:
-#  push:
+  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:
@@ -13,7 +13,7 @@ jobs:
       (github.event.client_payload.workflow == 'all') ||
       (github.event.client_payload.workflow == 'jenkins-nodejs-k8s-screenshots') ||
       (github.event.client_payload.workflow == 'jenkins')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       SLACK_STEP_HANDLER: true
       SLACK_ON_ERROR_ONLY: true

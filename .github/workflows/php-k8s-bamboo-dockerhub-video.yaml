@@ -12,7 +12,7 @@ jobs:
       (github.event.client_payload.workflow == github.workflow) ||
       (github.event.client_payload.workflow == 'all') ||
       (github.event.client_payload.workflow == 'bamboo-php-k8s-video')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       BUILD_NAME: "php-docker-app-git-bamboo-dockerhub-k8s"
       SLACK_STEP_HANDLER: true

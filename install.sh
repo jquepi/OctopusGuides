@@ -5,8 +5,8 @@
 # https://stackoverflow.com/questions/59895/get-the-source-directory-of-a-bash-script-from-within-the-script-itself
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-wget https://apt.puppetlabs.com/puppet6-release-bionic.deb
-sudo dpkg -i puppet6-release-bionic.deb
+wget https://apt.puppetlabs.com/puppet6-release-focal.deb
+sudo dpkg -i puppet6-release-focal.deb
 sudo apt-get update
 sudo apt-get install puppet-agent
 /opt/puppetlabs/bin/puppet --version

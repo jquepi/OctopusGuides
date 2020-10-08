@@ -13,7 +13,7 @@ jobs:
       (github.event.client_payload.workflow == 'all') ||
       (github.event.client_payload.workflow == 'jenkins-javawar-websphere-video') ||
       (github.event.client_payload.workflow == 'jenkins')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       BUILD_NAME: "java-app-git-jenkins-artifactory-websphere"
       SLACK_STEP_HANDLER: true

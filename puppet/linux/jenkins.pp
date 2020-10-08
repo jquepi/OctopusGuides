@@ -141,7 +141,7 @@ file { '/var/lib/jenkins':
     'deb' => true,
   },
 }
--> exec { 'Update apt repo':
+-> exec { 'Update apt repo 4':
   command   => '/usr/bin/apt-get update',
   logoutput => false
 }
