@@ -50,7 +50,6 @@ Feature: Configure an Octopus Websphere project
       | Step Name                                    | //input[@name='Step name']                                                                      |
       | On target roles                              | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
       | Web role                                     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
-      | Configure features                           | (//button[contains(.,'Configure features')])[1]                                                 |
       | Structured Configuration Variables           | //input[..//label[text()='Structured Configuration Variables']]                                 |
       | Structured Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]]                          |
       | Substitute Variables in Templates            | //input[..//label[text()='Substitute Variables in Templates']]                                  |
