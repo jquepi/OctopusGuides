@@ -34,7 +34,6 @@ user { 'payara':
     [Service]
     ExecStart=/opt/payara5/bin/asadmin start-domain domain1
     ExecStop=/opt/payara5/bin/asadmin stop-domains domain1
-    Environment="SPRING_CONFIG_NAME=deployed-application"
     User=payara
     Type=forking
     Restart = always

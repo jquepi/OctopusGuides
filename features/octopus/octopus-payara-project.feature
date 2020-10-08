@@ -5,6 +5,8 @@ Feature: Configure an Octopus payara project
     And I run the feature "shared/octopus-login.feature" passing the original arguments
     And I run the feature "shared/octopus-hide-wizard.feature" passing the original arguments
     And I run the feature "shared/octopus-create-project.feature" passing the original arguments
+    And I run the feature "shared/octopus-define-variables.feature" passing the original arguments
+    And I run the feature "shared/octopus-define-java-variables.feature" passing the original arguments
 
   @define-project @destinationspecific @payara
   Scenario: Add Java Archive Step
@@ -43,11 +45,33 @@ Feature: Configure an Octopus payara project
   @define-project @destinationspecific @payara
   Scenario: Java Define step
     Given I set the following aliases:
-      | Configure features | (//button[contains(.,'Configure features')])[1]                                                 |
-      | OK                 | //button[contains(.,'Ok')]                                                                      |
-      | Step Name          | //input[@name='Step name']                                                                      |
-      | On target roles    | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
-      | Web role           | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Configure features                           | (//button[contains(.,'Configure features')])[1]                                                 |
+      | OK                                           | //button[contains(.,'Ok')]                                                                      |
+      | Step Name                                    | //input[@name='Step name']                                                                      |
+      | On target roles                              | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
+      | Web role                                     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Configure features                           | (//button[contains(.,'Configure features')])[1]                                                 |
+      | Structured Configuration Variables           | //input[..//label[text()='Structured Configuration Variables']]                                 |
+      | Structured Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]]                          |
+      | Substitute Variables in Templates            | //input[..//label[text()='Substitute Variables in Templates']]                                  |
+      | Substitute Variables in Templates Container  | //div[./input[..//label[text()='Substitute Variables in Templates']]]                           |
+      | OK                                           | //button[contains(.,'Ok')]                                                                      |
+
+    And I highlight outside the "Configure features" button
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}070-octopus-java-enable-conf-features.png"
+    And I scroll the "Configure features" button into view offset by "-300"
+    And I click the "Configure features" button
+    And I remove the highlight from the "Configure features" button
+
+    And I force click the "Substitute Variables in Templates" option
+
+    And I highlight inside the "Structured Configuration Variables Container" option
+    And I highlight outside the "OK" button with an offset of "2"
+    And I force click the "Structured Configuration Variables" option
+    And I sleep for "1" second
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-java-enable-conf-vars.png"
+    And I click the "OK" button
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -69,10 +93,10 @@ Feature: Configure an Octopus payara project
   @define-project @destinationspecific @payara @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the payara deployment
     Given I set the following aliases:
-      | Package feed | //div[./label[text()='Package feed']]/div/div  |
-      | Artifactory  | //div[./div/div[text()='Artifactory']]           |
-      | HTML Body    | //body                                           |
-      | Package ID   | //input[@name='PackageID']                       |
+      | Package feed | //div[./label[text()='Package feed']]/div/div |
+      | Artifactory  | //div[./div/div[text()='Artifactory']]        |
+      | HTML Body    | //body                                        |
+      | Package ID   | //input[@name='PackageID']                    |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
     And I click the "Package feed" drop down list
@@ -136,7 +160,7 @@ Feature: Configure an Octopus payara project
 
     And I scroll the "Target files" text box into view offset by "-300"
     And I highlight outside the "Target files" text box
-    And I populate the "Target files" text box with "**/deployed-application.yml"
+    And I populate the "Target files" text box with "**/application.yml"
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-payara-filereplacement.png"
 

@@ -25,7 +25,6 @@ user { 'websphere':
     [Service]
     ExecStart=/opt/wlp/bin/server start
     ExecStop=/opt/wlp/bin/server stop
-    Environment="SPRING_CONFIG_NAME=deployed-application"
     User=websphere
     Type=forking
     Restart = always

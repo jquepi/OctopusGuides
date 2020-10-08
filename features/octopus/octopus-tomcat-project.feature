@@ -4,40 +4,9 @@ Feature: Configure an Octopus Tomcat project
     Given I run the feature "shared/octopus-open-browser.feature" passing the original arguments
     And I run the feature "shared/octopus-login.feature" passing the original arguments
     And I run the feature "shared/octopus-hide-wizard.feature" passing the original arguments
-
-  @create-project
-  Scenario: Create Project
-    Given I set the following aliases:
-      | Projects         | //span[contains(.,'Projects')]               |
-      | Add project      | //div[./div/span[contains(.,'Add Project')]] |
-      | New project name | //input[@name='New project name']            |
-      | Save             | (//div[contains(.,'Save')])[9]               |
-
-    And I start recording the screen to the directory "ExternalMediaPath"
-    And I display a note with the text "Creating the Tomcat deployment project in Octopus" for "3" seconds
-
-    And I highlight outside the "Projects" link with an offset of "5"
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}005-octopus-projects.png"
-    And I click the "Projects" link
-    And I sleep for "1" second
-
-    And I highlight outside the "Add project" link with an offset of "1"
-    And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}010-octopus-add-project.png"
-    And I click the "Add project" button
-    And I remove the highlight from the "Add project" link
-    And I remove the highlight from the "Projects" link
-
-    And I highlight outside the "New project name" text box with an offset of "2"
-    And I highlight outside the "Save" button with an offset of "2"
-    And I populate the "New project name" text box with "Random Quotes"
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}015-octopus-new-project-name.png"
-    And I click the "Save" button
-
-    And I sleep for "1" second
-    And I stop recording the screen
-    And I sleep for "10" seconds
-    And I start recording the screen to the directory "#{ExternalMediaPath}"
+    And I run the feature "shared/octopus-create-project.feature" passing the original arguments
+    And I run the feature "shared/octopus-define-variables.feature" passing the original arguments
+    And I run the feature "shared/octopus-define-java-variables.feature" passing the original arguments
 
   @define-project @destinationspecific @tomcat
   Scenario: Add K8S Containers Step
@@ -76,13 +45,13 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Configure features                          | (//button[contains(.,'Configure features')])[1]                                                 |
-      | Substitute Variables in Templates           | //input[..//label[text()='Substitute Variables in Templates']]                                  |
-      | Substitute Variables in Templates Container | //div[./input[..//label[text()='Substitute Variables in Templates']]]                           |
-      | OK                                          | //button[contains(.,'Ok')]                                                                      |
-      | Step Name                                   | //input[@name='Step name']                                                                      |
-      | On target roles                             | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
-      | Web role                                    | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Configure features                           | (//button[contains(.,'Configure features')])[1]                                                 |
+      | Structured Configuration Variables           | //input[..//label[text()='Structured Configuration Variables']]                                 |
+      | Structured Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]]                          |
+      | OK                                           | //button[contains(.,'Ok')]                                                                      |
+      | Step Name                                    | //input[@name='Step name']                                                                      |
+      | On target roles                              | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
+      | Web role                                     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second
@@ -91,9 +60,9 @@ Feature: Configure an Octopus Tomcat project
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
-    And I highlight inside the "Substitute Variables in Templates Container" option
+    And I highlight inside the "Structured Configuration Variables Container" option
     And I highlight outside the "OK" button with an offset of "2"
-    And I force click the "Substitute Variables in Templates" option
+    And I force click the "Structured Configuration Variables" option
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}047-octopus-java-enable-conf-vars.png"
     And I click the "OK" button
@@ -118,10 +87,10 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the tomcat deployment
     Given I set the following aliases:
-      | Package feed | //div[./label[text()='Package feed']]/div/div  |
-      | Artifactory  | //div[./div/div[text()='Artifactory']]           |
-      | HTML Body    | //body                                           |
-      | Package ID   | //input[@name='PackageID']                       |
+      | Package feed | //div[./label[text()='Package feed']]/div/div |
+      | Artifactory  | //div[./div/div[text()='Artifactory']]        |
+      | HTML Body    | //body                                        |
+      | Package ID   | //input[@name='PackageID']                    |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
     And I click the "Package feed" drop down list
@@ -159,7 +128,7 @@ Feature: Configure an Octopus Tomcat project
       | Tomcat Manager URL  | //input[@name='Tomcat Manager URL']  |
       | Management user     | //input[@name='Management user']     |
       | Management password | //input[@name='Management password'] |
-      | Context path        | //input[@name='Context path']         |
+      | Context path        | //input[@name='Context path']        |
       | Target files        | //textarea[@name='Target files']     |
       | Save                | //button[contains(.,'Save')]         |
 
@@ -192,7 +161,7 @@ Feature: Configure an Octopus Tomcat project
 
     And I scroll the "Target files" text box into view offset by "-300"
     And I highlight outside the "Target files" text box
-    And I populate the "Target files" text box with "**/deployed-application.yml"
+    And I populate the "Target files" text box with "**/application.yml"
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-tomcat-filereplacement.png"
 

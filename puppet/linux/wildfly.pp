@@ -26,7 +26,6 @@ user { 'wildfly':
 }
 -> file_line { 'Define config name':
   path    => '/etc/systemd/system/wildfly.service',
-  line    => 'Environment="SPRING_CONFIG_NAME=deployed-application"',
   after   => 'Environment=LAUNCH_JBOSS_IN_BACKGROUND=1'
 }
 -> file { '/etc/wildfly':
