@@ -1,10 +1,10 @@
-Scenario: Define Java Project Variables
+Feature: Define Java Project Variables
   @define-project
   Scenario: Define spring profile ports
     Given I set the following aliases:
-    | New variable name       | //input[@name='Enter new variable']                |
-    | New variable value      | //input[@name='Enter value']                       |
-    | Save                    | //button[contains(.,'Save')]                       |
+      | New variable name       | //input[@name='Enter new variable']                |
+      | New variable value      | //input[@name='Enter value']                       |
+      | Save                    | //button[contains(.,'Save')]                       |
 
     And I populate the "New variable name" text box with "spring:profiles:active"
     And I populate the "New variable value" text box with "#{Octopus.Environment.Name}"
@@ -21,8 +21,8 @@ Scenario: Define Java Project Variables
   @define-project
   Scenario: Open the deployments view
     Given I set the following aliases:
-    | Overview    | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview'] |
-    | Deployments | //a[contains(.,'Deployments')]                                     |
+      | Overview    | //a[contains(.,'Overview')][not(*)] \| //a//div[text()='Overview'] |
+      | Deployments | //a[contains(.,'Deployments')]                                     |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I highlight inside the "Deployments" link
