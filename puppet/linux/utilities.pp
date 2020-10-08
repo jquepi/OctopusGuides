@@ -59,6 +59,10 @@ package { 'maven':
   ensure => installed
 }
 
+package { 'net-tools':
+  ensure => installed
+}
+
 # Fixes this error:
 # gpg: requesting key from 'https://apt.octopus.com/public.key'
 # gpg: connecting dirmngr at '/tmp/apt-key-gpghome.IXhzaPEb24/S.dirmngr' failed: IPC connect call failed
