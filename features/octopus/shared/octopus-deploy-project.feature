@@ -39,7 +39,13 @@ Feature: Deploy project
     And I click the "Deploy To Dev" button
 
     And I highlight outside the "Deploy" button
-    And I sleep for "3" second
+    And I sleep for "1" second
+
+    # Give the release some time save
+    And I stop recording the screen
+    And I sleep for "120" seconds
+    And I start recording the screen to the directory "ExternalMediaPath"
+
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}200-octopus-deploy.png"
     And I force click the "Deploy" button
 
