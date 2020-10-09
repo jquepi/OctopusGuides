@@ -18,11 +18,6 @@ package { 'tomcat9':
   replace => true,
   notify  => Service['tomcat9']
 }
--> file_line { 'Define config name':
-  path    => '/lib/systemd/system/tomcat9.service',
-  after   => 'Environment\="JAVA_OPTS\=-Djava.awt.headless=true"',
-  notify  => Service['tomcat9']
-}
 -> exec { 'Reload daemon':
   command   => '/bin/systemctl daemon-reload',
   logoutput => true
