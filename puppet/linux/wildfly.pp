@@ -24,10 +24,6 @@ user { 'wildfly':
   ensure => present,
   source => "/opt/wildfly/docs/contrib/scripts/systemd/wildfly.service",
 }
--> file_line { 'Define config name':
-  path    => '/etc/systemd/system/wildfly.service',
-  after   => 'Environment=LAUNCH_JBOSS_IN_BACKGROUND=1'
-}
 -> file { '/etc/wildfly':
   ensure => 'directory'
 }
