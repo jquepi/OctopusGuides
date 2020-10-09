@@ -60,11 +60,11 @@ Feature: Configure an Octopus Wildfly project
     And I click the "Configure features" button
     And I remove the highlight from the "Configure features" button
 
-    And I highlight inside the "Substitute Variables in Templates Container" option
+    And I highlight inside the "Structured Configuration Variables Container" option
     And I highlight outside the "OK" button with an offset of "2"
-    And I force click the "Substitute Variables in Templates" option
+    And I force click the "Structured Configuration Variables" option
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-java-enable-conf-vars.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}080-octopus-java-enable-structured-vars.png"
     And I click the "OK" button
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -140,7 +140,7 @@ Feature: Configure an Octopus Wildfly project
     And I highlight outside the "Target files" text box
     And I populate the "Target files" text box with "**/application.yml"
 
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-wildfly-filereplacement.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}150-octopus-wildfly-varinjection.png"
 
     And I click the "Save" button
 

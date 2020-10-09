@@ -64,7 +64,7 @@ Feature: Configure an Octopus Tomcat project
     And I highlight outside the "OK" button with an offset of "2"
     And I force click the "Structured Configuration Variables" option
     And I sleep for "1" second
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}047-octopus-java-enable-conf-vars.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}047-octopus-java-enable-structured-vars.png"
     And I click the "OK" button
 
     And I scroll the "Step Name" text box into view offset by "-300"
@@ -163,7 +163,7 @@ Feature: Configure an Octopus Tomcat project
     And I highlight outside the "Target files" text box
     And I populate the "Target files" text box with "**/application.yml"
 
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-tomcat-filereplacement.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}090-octopus-tomcat-varinjection.png"
 
     And I click the "Save" button
 
