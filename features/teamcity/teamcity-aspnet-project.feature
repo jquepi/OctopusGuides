@@ -133,7 +133,7 @@ Feature: Create ASP.NET project
     And I populate the "Package Version" text box with "1.0.%build.counter%"
 
     And I highlight outside the "Source path" text box
-    And I populate the "Source path" text box with "RandomQuotes\bin\Release\netcoreapp2.2\publish\"
+    And I populate the "Source path" text box with "RandomQuotes\bin\Release\netcoreapp3.1\publish\"
 
     And I highlight outside the "Output path" text box
     And I populate the "Output path" text box with "."

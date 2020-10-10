@@ -297,7 +297,7 @@ Feature: Configure Bamboo
 
     And I scroll the "Package include paths" text box into view offset by "-300"
     And I highlight outside the "Package include paths" text box
-    And I populate the "Package include paths" text box with "RandomQuotes\bin\Release\netcoreapp2.2\publish\"
+    And I populate the "Package include paths" text box with "RandomQuotes\bin\Release\netcoreapp3.1\publish\"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}230-octo-pack.png"
 
     And I scroll the "Save" button into view
