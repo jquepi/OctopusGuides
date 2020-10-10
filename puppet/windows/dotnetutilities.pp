@@ -7,7 +7,7 @@ package { 'visualstudio2017buildtools':
 }
 
 package { 'dotnetcore-sdk':
-  ensure   => '2.2.402',
+  ensure   => '3.1.402',
   provider => chocolatey,
 }
 
@@ -32,6 +32,7 @@ download_file { 'dotnet-hosting-2.2.7-win.exe':
   provider  => powershell,
   logoutput => true
 }
+
 package { 'NuGet.CommandLine':
   ensure   => installed,
   provider => chocolatey
