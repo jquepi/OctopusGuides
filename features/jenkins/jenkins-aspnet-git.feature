@@ -327,6 +327,13 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}165-octo-plugin-pack.png"
 
+    And I remove the highlight from the "Package ID" text box
+    And I remove the highlight from the "Version number" text box
+    And I remove the highlight from the "Package base path" text box
+    And I remove the highlight from the "Package include paths" text box
+    And I remove the highlight from the "Package output folder" text box
+    And I remove the highlight from the "Nuget" text box
+
   @configure-project @repositoryspecific @artifactory @applicationspecific @aspnetcore
   Scenario: ASP.NET Core Artifactory - Add Artifactory Push Step
     Given I set the following aliases:
