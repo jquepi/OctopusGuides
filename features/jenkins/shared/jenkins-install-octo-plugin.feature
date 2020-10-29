@@ -54,6 +54,7 @@ Feature: Install the octopus plugin
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}010-configure-system.png"
     And I click the "Configure System" link
 
+    And I sleep for "1" second
     And I scroll the "Server Id" text box into view offset by "-200"
     And I highlight the "Server Id" text box
     And I populate the "Server Id" text box with "Local"
