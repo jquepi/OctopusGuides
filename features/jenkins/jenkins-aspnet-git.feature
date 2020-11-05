@@ -320,12 +320,19 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I populate the "Package ID" text box with "RandomQuotes"
     And I populate the "Version number" text box with "1.0.${BUILD_NUMBER}"
-    And I populate the "Package base path" text box with "${WORKSPACE}\RandomQuotes\bin\Release\netcoreapp2.2\publish"
+    And I populate the "Package base path" text box with "${WORKSPACE}\RandomQuotes\bin\Release\netcoreapp3.1\publish"
     And I populate the "Package include paths" text box with "**"
     And I populate the "Package output folder" text box with "${WORKSPACE}"
     And I click the "Nuget" check box
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}165-octo-plugin-pack.png"
+
+    And I remove the highlight from the "Package ID" text box
+    And I remove the highlight from the "Version number" text box
+    And I remove the highlight from the "Package base path" text box
+    And I remove the highlight from the "Package include paths" text box
+    And I remove the highlight from the "Package output folder" text box
+    And I remove the highlight from the "Nuget" text box
 
   @configure-project @repositoryspecific @artifactory @applicationspecific @aspnetcore
   Scenario: ASP.NET Core Artifactory - Add Artifactory Push Step

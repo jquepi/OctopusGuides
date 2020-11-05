@@ -160,7 +160,7 @@ Feature: Configure an Octopus payara project
     And I highlight outside the "Target files" text box
     And I populate the "Target files" text box with "**/application.yml"
 
-    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-payara-filereplacement.png"
+    And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-payara-varinjection.png"
 
     And I click the "Save" button
 
