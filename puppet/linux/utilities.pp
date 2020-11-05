@@ -4,6 +4,11 @@ package { 'apt-transport-https':
   ensure => installed,
 }
 
+# Bamboo dies not support Java 11
+package { 'openjdk-11-jdk':
+  ensure => 'absent',
+}
+
 apt::ppa { 'ppa:openjdk-r/ppa': }
 -> package { 'openjdk-8-jdk':
   ensure => installed,
