@@ -10,7 +10,7 @@ Feature: Jenkins login
 
     When I open the URL "http://localhost:8080/login"
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box
-    And I refresh the page for "900" seconds if the "Username" text box does not exist
+    And I refresh the page for "1500" seconds if the "Username" text box does not exist
     And I populate the "Username" text box with the text "admin"
     And I populate the "Password" text box with the text "Password01!"
     And I click the "Sign In" button
