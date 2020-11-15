@@ -33,7 +33,7 @@ Feature: Jenkins initial project setup
     And I scroll the "Git" option into view offset by "-200"
     And I sleep for "1" second
     And I highlight outside the "Git" option
-    And I click the "Git" option
+    And I force click the "Git" option
     And I highlight outside the "Repository URL" text box
     And I populate the "Repository URL" text box with "GitUrl"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}190-git-settings.png"
