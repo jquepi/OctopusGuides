@@ -3,14 +3,14 @@ Feature: Jenkins initial project setup
   @configure-project
   Scenario: Prepare the project
     Given I set the following aliases:
-      | New Item          | //a[contains(.,'New Item')]                                                       |
-      | Project name      | //input[@name='name']                                                             |
-      | Freestyle project | .hudson_model_FreeStyleProject                                                    |
-      | OK                | //button[@type='submit'][contains(.,'OK')]                                        |
-      | Git               | //label[normalize-space(text()) = 'Git']                                          |
-      | Repository URL    | //input[contains(@name,'_.url')]                                                  |
-      | Poll SCM          | //input[@name='hudson-triggers-SCMTrigger']                                       |
-      | Schedule          | //textarea[contains(@checkurl,'checkScmpoll_spec')]                               |
+      | New Item          | //a[contains(.,'New Item')]                         |
+      | Project name      | //input[@name='name']                               |
+      | Freestyle project | .hudson_model_FreeStyleProject                      |
+      | OK                | //button[@type='submit'][contains(.,'OK')]          |
+      | Git               | //label[normalize-space(text()) = 'Git']/input      |
+      | Repository URL    | //input[contains(@name,'_.url')]                    |
+      | Poll SCM          | //input[@name='hudson-triggers-SCMTrigger']         |
+      | Schedule          | //textarea[contains(@checkurl,'checkScmpoll_spec')] |
 
     And I open the URL "http://localhost:8080/"
     And I clear the transition
