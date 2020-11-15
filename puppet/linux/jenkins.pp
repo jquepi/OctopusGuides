@@ -126,12 +126,12 @@ file { '/var/lib/jenkins':
 }
 -> apt::key { 'jenkins-repository':
   id     => '62A9756BFD780C377CF24BA8FCEF32E745F2C3D5',
-  source => 'https://pkg.jenkins.io/debian-stable/jenkins.io.key',
+  source => 'https://pkg.jenkins.io/debian/jenkins.io.key',
   server  => 'pgp.mit.edu'
 }
 -> apt::source { 'jenkins':
   comment  => 'This is the jenkins repository',
-  location => 'http://pkg.jenkins.io/debian',
+  location => 'https://pkg.jenkins.io/debian',
   release  => '',
   repos    => 'binary/',
   key      => {
