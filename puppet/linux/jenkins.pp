@@ -131,7 +131,7 @@ file { '/var/lib/jenkins':
 }
 -> apt::source { 'jenkins':
   comment  => 'This is the jenkins repository',
-  location => 'http://pkg.jenkins.io/debian-stable',
+  location => 'http://pkg.jenkins.io/debian',
   release  => '',
   repos    => 'binary/',
   key      => {
