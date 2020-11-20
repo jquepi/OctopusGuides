@@ -45,8 +45,8 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
       SCREENSHOT_PATH: /java-app/k8s/dockerhub/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjava
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
+      DOCKER_IMAGE: octopussamples/randomquotesjava
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesjava
       CONFIG_FILE: "spring:\\n  profiles:\\n    active: \\\"#{Octopus.Environment.Name}\\\"\\n  h2:\\n    console:\\n      enabled: true\\n  jpa:\\n    database-platform: org.hibernate.dialect.H2Dialect\\n  datasource:\\n    url: jdbc:h2:mem:testdb\\n    dbcp2:\\n      driver-class-name: org.h2.Driver\\n  flyway:\\n    locations: classpath:db/migration/{vendor}\\nserver:\\n  port : \\\"80\\\""
       CONFIG_FILE_MOUNT_PATH: "/app/docker-application.yml"
       CONFIG_FILE_NAME: "docker-application.yml"

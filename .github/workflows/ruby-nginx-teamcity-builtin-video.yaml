@@ -48,8 +48,8 @@ jobs:
       WISTIA_MEDIA_ID: 73o6v3knc6
       VIDEO_FILE_NAME: teamcity-ruby-nginx-builtin.mp4
       SCREENSHOT_PATH: /node-app/nginx/builtin/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesruby
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesruby
+      DOCKER_IMAGE: octopussamples/randomquotesruby
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesruby
     steps:
       - uses: actions/checkout@v1
 

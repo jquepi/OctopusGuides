@@ -103,7 +103,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Repository" text box
     And I scroll the "Repository" text box into view offset by "-300"
-    And I populate the "Repository" text box with "index.docker.io/octopusdeploy/randomquotes:1.0.${bamboo.buildNumber}"
+    And I populate the "Repository" text box with "index.docker.io/octopussamples/randomquotes:1.0.${bamboo.buildNumber}"
 
     And I highlight outside the "Use an existing Dockerfile in the tasks working directory" radio button
     And I scroll the "Use an existing Dockerfile in the tasks working directory" radio button into view offset by "-300"
@@ -143,7 +143,7 @@ Feature: Configure Bamboo
 
     And I highlight outside the "Push repository" text box
     And I scroll the "Push repository" text box into view offset by "-300"
-    And I populate the "Push repository" text box with "octopusdeploy/randomquotes:1.0.${bamboo.buildNumber}"
+    And I populate the "Push repository" text box with "octopussamples/randomquotes:1.0.${bamboo.buildNumber}"
 
     And I highlight outside the "Provide username and password" radio button
     And I scroll the "Provide username and password" radio button into view offset by "-300"

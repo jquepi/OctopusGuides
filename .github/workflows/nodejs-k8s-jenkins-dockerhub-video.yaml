@@ -49,8 +49,8 @@ jobs:
       WISTIA_MEDIA_ID: od7nrxxv9c
       VIDEO_FILE_NAME: jenkins-nodejs-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /node-app/k8s/dockerhub/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjs
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjs
+      DOCKER_IMAGE: octopussamples/randomquotesjs
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesjs
       CONFIG_FILE: "const config = {\\n    port: 80,\\n    appVersion: \\\"0.0.0\\\",\\n    environmentName: \\\"#{Octopus.Environment.Name}\\\"\\n};\\n\\nmodule.exports = config;"
       CONFIG_FILE_MOUNT_PATH: "/usr/src/app/source/config/config.js"
       CONFIG_FILE_NAME: "config.js"

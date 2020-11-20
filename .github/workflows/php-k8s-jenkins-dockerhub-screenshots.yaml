@@ -47,8 +47,8 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-PHP.git
       WISTIA_MEDIA_ID:
       SCREENSHOT_PATH: /php-app/k8s/dockerhub/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesphp
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesphp
+      DOCKER_IMAGE: octopussamples/randomquotesphp
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesphp
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
       DOCKER_PORT: 8080
       K8S_DEV_NODEPORT: 30000

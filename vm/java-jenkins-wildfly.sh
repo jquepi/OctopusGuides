@@ -23,7 +23,7 @@ export CUCUMBER_TAGS="(not @browserspecific or @chrome) and (not @destinationspe
 export CUCUMBER_PLUGIN=pretty
 
 export GIT_URL=https://github.com/OctopusSamples/RandomQuotes-Java.git
-export DOCKER_IMAGE=octopusdeploy/randomquotesjava
+export DOCKER_IMAGE=octopussamples/randomquotesjava
 export CREATE_RELEASE_SHELL_LOCATOR="(//div[@class='CodeMirror'])[2]"
 
 cd ..

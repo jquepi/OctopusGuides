@@ -48,8 +48,8 @@ jobs:
       WISTIA_MEDIA_ID: b9w2w6mp20
       VIDEO_FILE_NAME: teamcity-nodejs-nginx-builtin.mp4
       SCREENSHOT_PATH: /node-app/nginx/builtin/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjs
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjs
+      DOCKER_IMAGE: octopussamples/randomquotesjs
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesjs
     steps:
       - uses: actions/checkout@v1
 

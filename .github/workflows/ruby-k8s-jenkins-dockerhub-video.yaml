@@ -49,8 +49,8 @@ jobs:
       WISTIA_MEDIA_ID: trr9ggci6v
       VIDEO_FILE_NAME: jenkins-ruby-k8s-dockerhub.mp4
       SCREENSHOT_PATH: /ruby-app/k8s/dockerhub/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesruby
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesruby
+      DOCKER_IMAGE: octopussamples/randomquotesruby
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesruby
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
       DOCKER_PORT: 8080
       K8S_DEV_NODEPORT: 30000

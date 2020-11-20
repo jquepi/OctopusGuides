@@ -46,8 +46,8 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
       SCREENSHOT_PATH: /java-app/tomcat/builtin/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjava
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
+      DOCKER_IMAGE: octopussamples/randomquotesjava
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesjava
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
     steps:
       - uses: actions/checkout@v1

@@ -47,8 +47,8 @@ jobs:
       WISTIA_MEDIA_ID:
       VIDEO_FILE_NAME:
       SCREENSHOT_PATH: /ruby-app/k8s/dockerhub/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesruby
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesruby
+      DOCKER_IMAGE: octopussamples/randomquotesruby
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesruby
       DOCKER_PORT: 8080
       K8S_DEV_NODEPORT: 30000
       K8S_TEST_NODEPORT: 30001

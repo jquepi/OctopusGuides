@@ -119,7 +119,7 @@ Feature: Create Docker project
     And I scroll the "Image name:tag" text box into view offset by "-300"
     And I highlight outside the "Image name:tag" text box
     And I highlight outside the "Save" button
-    And I populate the "Image name:tag" text box with "octopusdeploy/randomquotesruby:1.0.%build.counter%"
+    And I populate the "Image name:tag" text box with "octopussamples/randomquotesruby:1.0.%build.counter%"
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}070-docker-build.png"
     And I click the "Save" button
 
@@ -141,7 +141,7 @@ Feature: Create Docker project
     And I scroll the "Image name:tag" text box into view offset by "-300"
     And I highlight outside the "Image name:tag" text box
     And I highlight outside the "Save" button
-    And I populate the "Image name:tag" text box with "octopusdeploy/randomquotesruby:1.0.%build.counter%"
+    And I populate the "Image name:tag" text box with "octopussamples/randomquotesruby:1.0.%build.counter%"
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}090-docker-push.png"
     And I click the "Save" button
 

@@ -49,8 +49,8 @@ jobs:
       WISTIA_MEDIA_ID: w89ahdzf06
       VIDEO_FILE_NAME: jenkins-javawar-websphere-builtin.mp4
       SCREENSHOT_PATH: /java-app/websphere/builtin/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjava
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
+      DOCKER_IMAGE: octopussamples/randomquotesjava
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesjava
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[2]"
     steps:
       - uses: actions/checkout@v1

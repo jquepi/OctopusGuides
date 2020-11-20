@@ -47,8 +47,8 @@ jobs:
       STHREE_SCREENSHOT_ENABLED: true
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
       SCREENSHOT_PATH: /java-app/wildfly/artifactory/git/
-      DOCKER_IMAGE: octopusdeploy/randomquotesjava
-      OCTOPUS_DOCKER_IMAGE: octopusdeploy/randomquotesjava
+      DOCKER_IMAGE: octopussamples/randomquotesjava
+      OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesjava
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[1]"
     steps:
       - uses: actions/checkout@v1
