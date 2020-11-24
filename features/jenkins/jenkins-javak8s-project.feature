@@ -13,17 +13,17 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
   @configure-project
   Scenario: Create the project
     Given I set the following aliases:
-      | Add build step                               | //button[@type='button'][contains(.,'Add build step')] |
-      | Command                                      | //div[@class='CodeMirror']                             |
-      | Execute Docker command                       | //a[contains(.,'Execute Docker command')]              |
-      | Docker command one                           | (//select[../../td[text()='Docker command']])[1]       |
-      | Docker command two                           | (//select[../../td[text()='Docker command']])[2]       |
-      | Create/build image                           | 4                                                      |
-      | Build context folder                         | //input[@name='_.dockerFolder']                        |
-      | Tag of the resulting docker image            | //input[@name='_.imageTag']                            |
-      | Push image                                   | 7                                                      |
-      | Name of the image to push (repository/image) | //input[@name='_.image']                               |
-      | Tag                                          | (//input[@name='_.tag'])[3]                            |
+      | Add build step                               | //button[@type='button'][contains(.,'Add build step')]             |
+      | Command                                      | //div[@class='CodeMirror']                                         |
+      | Execute Docker command                       | //a[contains(.,'Execute Docker command')]                          |
+      | Docker command one                           | (//select[../../div[normalize-space(text())='Docker command']])[1] |
+      | Docker command two                           | (//select[../../div[normalize-space(text())='Docker command']])[2] |
+      | Create/build image                           | 4                                                                  |
+      | Build context folder                         | //input[@name='_.dockerFolder']                                    |
+      | Tag of the resulting docker image            | //input[@name='_.imageTag']                                        |
+      | Push image                                   | 7                                                                  |
+      | Name of the image to push (repository/image) | //input[@name='_.image']                                           |
+      | Tag                                          | (//input[@name='_.tag'])[3]                                        |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
