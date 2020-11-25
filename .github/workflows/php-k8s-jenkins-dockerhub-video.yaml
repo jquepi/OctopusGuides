@@ -1,7 +1,7 @@
 name: PHP Jenkins Kubernetes DockerHub Video
 on:
 #  push:
-  reposi202tory_dispatch:
+  repository_dispatch:
   workflow_dispatch:
   schedule:
     - cron:  '0 0 9,24 * *'
