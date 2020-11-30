@@ -19,7 +19,7 @@ cd ..
   networkwait.pp
 
 # Wait for Octopus
-./scripts/linux/wait-octopus-with-db-reset.sh
+./scripts/linux/wait-octopus-with-db-restart.sh
 
 # Disable lock screens and sleeping
 sudo -Hu vagrant dbus-launch dconf write /org/gnome/desktop/screensaver/lock-enabled false
