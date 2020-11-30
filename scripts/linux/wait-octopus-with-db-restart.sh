@@ -1,5 +1,5 @@
 attempt_counter=0
-max_attempts=10
+max_attempts=5
 
 echo "Waiting for the Octopus server"
 
@@ -13,21 +13,19 @@ until $(curl --max-time 5 --output /dev/null --silent --head --fail http://local
       exit 1
     fi
 
-    printf 'Sleeping...'
+    printf 'Resetting the Octopus Server and Database...'
     attempt_counter=$(($attempt_counter+1))
-    sleep 60
 
     # The database sometimes fails us, so do a hard reset of the database container
-    if [[ ! $(curl --max-time 5 --output /dev/null --silent --head --fail http://localhost) ]]; then
-      systemctl stop docker-octopusdeploy
-      systemctl stop docker-mssql
-      docker stop mssql
-      docker rm mssql
-      docker stop octopusdeploy
-      docker rm octopusdeploy
-      systemctl start docker-mssql
-      systemctl start docker-octopusdeploy
-    fi
+    systemctl stop docker-octopusdeploy
+    systemctl stop docker-mssql
+    docker stop mssql
+    docker rm mssql
+    docker stop octopusdeploy
+    docker rm octopusdeploy
+    systemctl start docker-mssql
+    systemctl start docker-octopusdeploy
+    sleep 120
 done
 
 exit 0
