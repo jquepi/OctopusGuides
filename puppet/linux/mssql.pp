@@ -21,10 +21,6 @@ docker_network { 'octopus':
   remove_volume_on_stop     => false,
   privileged                => false
 }
--> exec { 'enable service docker-mssql':
-  command   => '/bin/systemctl enable docker-mssql',
-  logoutput => true
-}
 -> file_line { 'MSSQL always restart':
   path                  => '/etc/systemd/system/docker-mssql.service',
   line                  => 'Restart=always',
