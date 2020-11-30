@@ -18,13 +18,13 @@ docker::image { 'octopusdeploy/octopusdeploy':
   remove_volume_on_stop     => false,
   privileged                => false
 }
--> exec { 'enable service octopus':
-  command   => '/bin/systemctl enable docker-octopusdeploy',
-  logoutput => true
-}
 -> file_line { 'Octopus always restart':
   path    => '/etc/systemd/system/docker-octopusdeploy.service',
   line    => 'Restart=always',
   match   => 'Restart=on-failure',
   replace => true,
+}
+-> exec { 'enable service octopus':
+  command   => '/bin/systemctl enable docker-octopusdeploy',
+  logoutput => true
 }
