@@ -1,4 +1,7 @@
-docker::run { 'octopusdeploy':
+docker::image { 'octopusdeploy/octopusdeploy':
+  image_tag => '2020.5.0'
+}
+-> docker::run { 'octopusdeploy':
   image                     => 'octopusdeploy/octopusdeploy:2020.5.0',
   depends                   => 'mssql',
   env                       => ['ADMIN_USERNAME=admin', 'ADMIN_EMAIL=octopusguides@gmail.com',
