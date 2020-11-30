@@ -19,9 +19,12 @@ until $(curl --max-time 5 --output /dev/null --silent --head --fail http://local
 
     # The database sometimes fails us, so do a hard reset of the database container
     systemctl stop docker-octopusdeploy
+    systemctl stop docker-mssql
     docker stop mssql
     docker rm mssql
-    systemctl restart docker-mssql
+    docker stop octopusdeploy
+    docker rm octopusdeploy
+    systemctl start docker-mssql
     systemctl start docker-octopusdeploy
 done
 
