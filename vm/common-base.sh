@@ -7,8 +7,10 @@ cd ..
   docker.pp \
   dotnetutilities.pp \
   utilities.pp \
+  dockerhub.pp \
   mssql.pp \
   octopus.pp \
+  dockerhublogout.pp \
   octopuscli.pp \
   octopusicon.pp \
   bookicon.pp \

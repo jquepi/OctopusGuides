@@ -37,5 +37,6 @@ Vagrant.configure("2") do |config|
       "SLACK_HOOK_URL" => ENV["SLACK_HOOK_URL"],
       "AWS_ACCESS_KEY_ID" => ENV["AWS_ACCESS_KEY_ID"],
       "AWS_SECRET_ACCESS_KEY" => ENV["AWS_SECRET_ACCESS_KEY"],
+      "FACTER_dockerhubpass" => ENV["DOCKER_HUB_PASSWORD"],
       "AWS_DEFAULT_REGION" => "us-east-1"}
 end
