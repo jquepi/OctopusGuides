@@ -119,11 +119,11 @@ archive { '/opt/setup_14.x':
   ensure => installed,
 }
 
-archive { '/opt/geckodriver-v0.27.0-linux64.tar.gz':
+archive { '/opt/geckodriver-v0.28.0-linux64.tar.gz':
   ensure       => present,
   extract      => true,
   extract_path => '/usr/bin',
-  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-linux64.tar.gz',
+  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.28.0/geckodriver-v0.28.0-linux64.tar.gz',
   creates      => '/usr/bin/geckodriver',
   cleanup      => true,
 }
@@ -132,7 +132,7 @@ archive { '/opt/chromedriver_linux64.zip':
   ensure       => present,
   extract      => true,
   extract_path => '/usr/bin',
-  source       => 'https://chromedriver.storage.googleapis.com/85.0.4183.87/chromedriver_linux64.zip',
+  source       => 'https://chromedriver.storage.googleapis.com/87.0.4280.20/chromedriver_linux64.zip',
   creates      => '/usr/bin/chromedriver',
   cleanup      => true,
 }
