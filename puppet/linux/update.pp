@@ -14,3 +14,10 @@ exec { "add dkms":
   command => "/bin/systemctl disable vboxadd-service; /bin/systemctl disable vboxadd;",
   onlyif => "/usr/bin/test -f /lib/systemd/system/vboxadd-service.service"
 }
+
+file_line { 'Disable crash reporting':
+  path    => '/etc/default/apport',
+  line    => 'enable=0',
+  match   => 'enable=1',
+  replace => true
+}
