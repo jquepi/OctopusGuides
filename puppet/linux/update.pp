@@ -17,7 +17,7 @@ exec { "add dkms":
 
 file_line { 'Disable crash reporting':
   path    => '/etc/default/apport',
-  line    => 'enable=0',
-  match   => 'enable=1',
+  line    => 'enabled=0',
+  match   => 'enabled=1',
   replace => true
 }
