@@ -27,7 +27,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
       | Tag                                          | (//input[@name='_.tag'])[3]                                        |
       | Registry                                     | //input[@name='_.registry']                                        |
       | Docker registry URL                          | (//input[@name='_.url'])[2]                                        |
-      | Registry credentials                         | (//select[@name='_.credentialsId'])[3]                             |
+      | Registry credentials                         | (//select[@name='_.credentialsId'])[4]                             |
       | Save                                         | //button[@type='button'][contains(.,'Save')]                       |
 
     And I scroll the "Add build step" button into view offset by "-200"
