@@ -13,6 +13,9 @@ file { '/run/php':
 -> package { 'phpunit':
   ensure => installed,
 }
+-> package { 'php-simplexml':
+  ensure => installed,
+}
 -> file { '/opt/install_composer.sh':
   ensure  => 'file',
   owner   => 'root',
