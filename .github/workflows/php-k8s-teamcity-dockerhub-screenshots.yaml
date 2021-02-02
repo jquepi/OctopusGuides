@@ -114,3 +114,7 @@ jobs:
 
       - name: Upload screenshots
         run: ./scripts/linux/upload-screenshots.sh
+
+      - name: Print TeamCity Logs
+        if: failure()
+        run: ./scripts/linux/print-teamcity-logs.sh

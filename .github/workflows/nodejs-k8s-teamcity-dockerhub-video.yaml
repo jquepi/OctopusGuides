@@ -143,3 +143,7 @@ jobs:
       - name: Upload failure video
         if: failure()
         run: ./scripts/linux/process-failed-video.sh
+
+      - name: Print TeamCity Logs
+        if: failure()
+        run: ./scripts/linux/print-teamcity-logs.sh

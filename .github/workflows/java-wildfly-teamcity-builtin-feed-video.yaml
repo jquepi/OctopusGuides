@@ -123,3 +123,7 @@ jobs:
 
       - name: Build badge
         run: ./scripts/linux/create-badge.sh
+
+      - name: Print TeamCity Logs
+        if: failure()
+        run: ./scripts/linux/print-teamcity-logs.sh
