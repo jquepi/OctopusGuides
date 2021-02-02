@@ -1,7 +1,7 @@
 name: Java Teamcity WildFly BuiltIn Feed Screenshots
 on:
-#  push:
-  repository_dispatch:
+  push:
+  rpuepository_dispatch:
   workflow_dispatch:
   schedule:
     - cron:  '0 0 4,19 * *'

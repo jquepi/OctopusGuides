@@ -10,11 +10,11 @@ file { '/root/.BuildServer':
   source         => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
   allow_insecure => true
 }
--> archive { '/opt/TeamCity-2019.1.5.tar.gz':
+-> archive { '/opt/TeamCity-2020.2.2.tar.gz':
   ensure          => present,
   extract         => true,
   extract_path    => '/opt',
-  source          => 'https://octopus-guides.s3.amazonaws.com/teamcity/TeamCity-2019.1.5.tar.gz',
+  source          => 'https://octopus-guides.s3.amazonaws.com/teamcity/TeamCity-2020.2.2.tar.gz',
   creates         => '/opt/TeamCity/TeamCity-readme.txt',
   cleanup         => true,
   extract_command => 'tar xfz %s'
