@@ -72,28 +72,28 @@ Feature: Create Ruby project
     And I scroll the "Script content" text area into view offset by "-200"
 
     # TeamCity 2019.1 uses a plain text box for scripts
-    And I populate the "Script content" text area with:
-    """
-    # Set the default gem installation path
-    export GEM_HOME="%system.teamcity.build.workingDir%/vendor"
-    export GEM_PATH="%system.teamcity.build.workingDir%/vendor"
-    export PATH="$PATH:%system.teamcity.build.workingDir%/vendor/bin"
-    # Install the specific version of Bundler defined in the Gemfile.lock file
-    gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
-    # Use bundler to install the other dependencies
-    bundle install
-    # Run the tests
-    rspec spec/index_spec.rb
-    """
+#    And I populate the "Script content" text area with:
+#    """
+#    # Set the default gem installation path
+#    export GEM_HOME="%system.teamcity.build.workingDir%/vendor"
+#    export GEM_PATH="%system.teamcity.build.workingDir%/vendor"
+#    export PATH="$PATH:%system.teamcity.build.workingDir%/vendor/bin"
+#    # Install the specific version of Bundler defined in the Gemfile.lock file
+#    gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)"
+#    # Use bundler to install the other dependencies
+#    bundle install
+#    # Run the tests
+#    rspec spec/index_spec.rb
+#    """
 
     # TeamCity 2019.2 introduced rich script editors that have to be populated with javascript
-#    And I run the following JavaScript:
-#      """
-#      var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-#      var editor = textarea.CodeMirror
-#      editor.setValue("# Set the default gem installation path\nexport GEM_HOME=\"%system.teamcity.build.workingDir%\/vendor\"\nexport GEM_PATH=\"%system.teamcity.build.workingDir%\/vendor\"\nexport PATH=\"$PATH:%system.teamcity.build.workingDir%\/vendor\/bin\"\n# Install the specific version of Bundler defined in the Gemfile.lock file\ngem install bundler -v \"$(grep -A 1 \"BUNDLED WITH\" Gemfile.lock | tail -n 1)\"\n# Use bundler to install the other dependencies\nbundle install\n# Run the tests\nrspec spec\/index_spec.rb");
-#      editor.save();
-#      """
+    And I run the following JavaScript:
+      """
+      var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var editor = textarea.CodeMirror
+      editor.setValue("# Set the default gem installation path\nexport GEM_HOME=\"%system.teamcity.build.workingDir%\/vendor\"\nexport GEM_PATH=\"%system.teamcity.build.workingDir%\/vendor\"\nexport PATH=\"$PATH:%system.teamcity.build.workingDir%\/vendor\/bin\"\n# Install the specific version of Bundler defined in the Gemfile.lock file\ngem install bundler -v \"$(grep -A 1 \"BUNDLED WITH\" Gemfile.lock | tail -n 1)\"\n# Use bundler to install the other dependencies\nbundle install\n# Run the tests\nrspec spec\/index_spec.rb");
+      editor.save();
+      """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-composer-install.png"
 
     And I highlight outside the "Save" button

@@ -72,20 +72,20 @@ Feature: Create PHP project
     And I scroll the "Script content" text area into view offset by "-200"
 
     # TeamCity 2019.1 uses a plain text box for scripts
-    And I populate the "Script content" text area with:
-    """
-    composer install
-    ./vendor/bin/phpunit ./tests/quotetest.php
-    """
+#    And I populate the "Script content" text area with:
+#    """
+#    composer install
+#    ./vendor/bin/phpunit ./tests/quotetest.php
+#    """
 
     # TeamCity 2019.2 introduced rich script editors that have to be populated with javascript
-#    And I run the following JavaScript:
-#      """
-#      var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-#      var editor = textarea.CodeMirror
-#      editor.setValue("composer install\n./vendor/bin/phpunit ./tests/quotetest.php");
-#      editor.save();
-#      """
+    And I run the following JavaScript:
+      """
+      var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      var editor = textarea.CodeMirror
+      editor.setValue("composer install\n./vendor/bin/phpunit ./tests/quotetest.php");
+      editor.save();
+      """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-composer-install.png"
 
     And I highlight outside the "Save" button
