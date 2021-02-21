@@ -109,7 +109,7 @@ Feature: Configure Bamboo
     And I highlight outside the "Arguments" text box
     And I scroll the "Arguments" text box into view offset by "-300"
     And I force clear the "Arguments" text box
-    And I populate the "Arguments" text box with "--bootstrap ./vendor/autoload.php ./tests/quotetest.php"
+    And I populate the "Arguments" text box with "--bootstrap ./vendor/autoload.php ./tests/QuoteTest.php"
 
     And I highlight outside the "Save" button
     And I scroll the "Save" button into view

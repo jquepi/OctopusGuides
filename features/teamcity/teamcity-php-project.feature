@@ -75,7 +75,7 @@ Feature: Create PHP project
 #    And I populate the "Script content" text area with:
 #    """
 #    composer install
-#    ./vendor/bin/phpunit ./tests/quotetest.php
+#    ./vendor/bin/phpunit ./tests/QuoteTest.php
 #    """
 
     # TeamCity 2019.2 introduced rich script editors that have to be populated with javascript
@@ -83,7 +83,7 @@ Feature: Create PHP project
       """
       var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror
-      editor.setValue("composer install\n./vendor/bin/phpunit ./tests/quotetest.php");
+      editor.setValue("composer install\n./vendor/bin/phpunit ./tests/QuoteTest.php");
       editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}050-composer-install.png"
