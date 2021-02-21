@@ -1,6 +1,6 @@
 name: PHP TeamCity Kubernetes DockerHub Screenshots
 on:
-  push:
+#  push:
   repository_dispatch:
   workflow_dispatch:
   schedule:
