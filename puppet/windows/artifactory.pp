@@ -2,10 +2,6 @@ package { 'NuGet.CommandLine':
   ensure   => installed,
   provider => chocolatey
 }
--> package { 'sysinternals':
-  ensure   => installed,
-  provider => chocolatey
-}
 -> archive { 'C:/install/jfrog-artifactory-pro-6.17.0.zip':
   ensure       => present,
   extract      => true,
