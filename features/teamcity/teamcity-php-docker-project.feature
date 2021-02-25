@@ -17,7 +17,7 @@ Feature: Create Docker project
       | Command Line          | //li[@data-title='Command Line']                         |
       | Docker                | //li[@data-title='Docker']                               |
       | Step name             | //input[@id='buildStepName']                             |
-      | Script content        | //textarea[@id='script.content']                            |
+      | Script content        | //textarea[@id='script.content']                         |
       | Test option           | //li[@data-title='test']                                 |
       | Path to file          | //input[@id='path']                                      |
       | Image name:tag        | //textarea[@id='docker.image.namesAndTags']              |
@@ -68,20 +68,20 @@ Feature: Create Docker project
     And I scroll the "Script content" text area into view offset by "-200"
 
     # TeamCity 2019.1 uses a plain text box for scripts
-    And I populate the "Script content" text area with:
-    """
-    composer install
-    ./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/quotetest.php
-    """
+#    And I populate the "Script content" text area with:
+#    """
+#    composer install
+#    ./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/QuoteTest.php
+#    """
 
     # TeamCity 2019.2 introduced rich script editors that have to be populated with javascript
-#    And I run the following JavaScript:
-#    """
-#    var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-#    var editor = textarea.CodeMirror
-#    editor.setValue("composer install\n./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/quotetest.php");
-#    editor.save();
-#    """
+    And I run the following JavaScript:
+    """
+    var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    var editor = textarea.CodeMirror
+    editor.setValue("composer install\n./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/QuoteTest.php");
+    editor.save();
+    """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}045-npm-install.png"
 
     And I highlight outside the "Save" button

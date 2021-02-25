@@ -11,7 +11,10 @@ Feature: Add Docker build feature
       | Add build feature                              | //a[contains(.,'Add build feature')]                                              |
       | Features                                       | //input[@ID='-ufd-teamcity-ui-featureTypeSelector']                               |
       | Docker Support                                 | //li[@data-title='Docker Support']                                                |
+      | Add registry connection                        | //a[contains(.,'Add registry connection')]                                        |
       | Log in to the Docker registry before the build | //input[@id='loginCheckbox']                                                      |
+      | Repository                                     | //select[@id='repo']                                                              |
+      | Add                                            | //input[@id='addRegistryButton']                                                  |
       | Docker registries                              | //select[@id='login2registry']                                                    |
       | Save                                           | //input[@id='submitBuildFeatureId']                                               |
 
@@ -52,12 +55,21 @@ Feature: Add Docker build feature
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}160-docker-feature.png"
     And I click the "Docker Support" option
 
-    And I highlight the "Log in to the Docker registry before the build" option
-    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-docker-feature.png"
-    And I click the "Log in to the Docker registry before the build" option
+    And I highlight the "Add registry connection" option
+    And I click the "Add registry connection" option
 
-    And I highlight the "Docker registries" drop down list
-    And I select the option "Docker Registry" from the "Docker registries" drop down list
+    And I highlight the "Repository" drop down list
+    And I highlight the "Add" button
+    And I select the option "Docker Registry" from the "Repository" drop down list
+    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}165-registry-connection.png"
+    And I click the "Add" button
+
+#    And I highlight the "Log in to the Docker registry before the build" option
+#    And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}170-docker-feature.png"
+#    And I click the "Log in to the Docker registry before the build" option
+#
+#    And I highlight the "Docker registries" drop down list
+#    And I select the option "Docker Registry" from the "Docker registries" drop down list
 
     And I highlight the "Save" button
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}180-docker-feature.png"

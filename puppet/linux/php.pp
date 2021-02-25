@@ -16,6 +16,9 @@ file { '/run/php':
 -> package { 'php-simplexml':
   ensure => installed,
 }
+-> package { 'php-xml':
+  ensure => installed,
+}
 -> file { '/opt/install_composer.sh':
   ensure  => 'file',
   owner   => 'root',

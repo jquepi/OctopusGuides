@@ -18,7 +18,6 @@ Feature: Create Docker project
       | Goals                 | //input[@id='goals']                                     |
       | Docker                | //li[@data-title='Docker']                               |
       | Step name             | //input[@id='buildStepName']                             |
-      | Script content        | //textarea[@id='script.content']                         |
       | Test option           | //li[@data-title='test']                                 |
       | Path to file          | //input[@id='path']                                      |
       | Image name:tag        | //textarea[@id='docker.image.namesAndTags']              |

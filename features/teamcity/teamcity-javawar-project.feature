@@ -21,6 +21,7 @@ Feature: Create Docker project
       | Save                  | (//input[@value='Save'])[1]                            |
       | Got it                | //button[contains(.,'Got it')]                         |
 
+    And I sleep for "5" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
 

@@ -39,6 +39,7 @@ Feature: Run a build
     And I stop recording the screen
 
     And I sleep for "150" seconds
+    And I scroll down "10000" px
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I sleep for "5" seconds
 
