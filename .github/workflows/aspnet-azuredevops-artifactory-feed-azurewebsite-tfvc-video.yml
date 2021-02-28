@@ -99,16 +99,16 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Execute puppet
-      shell: powershell
-      run: ./install.ps1 -Scripts azurecli.pp
-
     - name: Create Web App
       shell: powershell
       run: |
         ./create-azure-web-app "$env:DEV_RES_GROUP"
         ./create-azure-web-app "$env:TEST_RES_GROUP"
         ./create-azure-web-app "$env:PROD_RES_GROUP"
+
+    - name: Execute puppet
+      shell: powershell
+      run: ./install.ps1 -Scripts azurecli.pp
 
     - name: Free some space
       shell: powershell
