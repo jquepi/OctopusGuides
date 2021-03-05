@@ -1,8 +1,7 @@
 archive { '/opt/packages-microsoft-prod.deb':
   ensure         => present,
   extract        => false,
-  source         => 'https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb',
-  allow_insecure => true
+  source         => 'https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb'
 }
 -> package { 'packages-microsoft-prod':
   ensure   => installed,
