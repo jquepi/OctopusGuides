@@ -22,7 +22,7 @@ archive { '/opt/openjdk.tar.gz':
   ensure          => present,
   extract         => true,
   extract_path    => '/opt',
-  source          => 'https://download.java.net/java/GA/jdk15/779bf45e88a44cbd9ea6621d33e33db1/36/GPL/openjdk-15_linux-x64_bin.tar.gz',
+  source          => 'https://octopus-guides.s3.amazonaws.com/java/openjdk-15_linux-x64_bin.tar.gz',
   creates         => '/opt/jdk-15/release',
   cleanup         => true,
   extract_command => 'tar xfz %s'
