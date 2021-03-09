@@ -7,8 +7,7 @@ file { '/root/.BuildServer':
 -> archive { '/root/.BuildServer/plugins/Octopus.TeamCity.zip':
   ensure         => present,
   extract        => false,
-  source         => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip',
-  allow_insecure => true
+  source         => 'https://octopus-guides.s3.amazonaws.com/teamcity/Octopus.TeamCity.zip'
 }
 -> archive { '/opt/TeamCity-2020.2.2.tar.gz':
   ensure          => present,

@@ -1,8 +1,7 @@
 archive { '/opt/bamboo.jar':
   ensure         => present,
   extract        => false,
-  source         => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar',
-  allow_insecure => true
+  source         => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar'
 }
 
 # Using the repo dorectly started to result in Unknown date format Bad header data:
@@ -32,8 +31,7 @@ archive { '/opt/bamboo.jar':
 archive { '/opt/atlassian-plugin-sdk_8.0.16_all.deb':
   ensure         => present,
   extract        => false,
-  source         => 'https://packages.atlassian.com/atlassian-sdk-deb/debian/pool/contrib/a/atlassian-plugin-sdk/atlassian-plugin-sdk_8.0.16_all.deb',
-  allow_insecure => true
+  source         => 'https://packages.atlassian.com/atlassian-sdk-deb/debian/pool/contrib/a/atlassian-plugin-sdk/atlassian-plugin-sdk_8.0.16_all.deb'
 }
 -> package { 'atlassian-plugin-sdk':
   provider => dpkg,

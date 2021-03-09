@@ -27,8 +27,7 @@ apt::key { 'kubernetes-repository':
 -> archive { '/usr/local/bin/minikube':
   ensure         => present,
   extract        => false,
-  source         => 'https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64',
-  allow_insecure => true
+  source         => 'https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64'
 }
 -> file { '/usr/local/bin/minikube':
   mode   => '0755'
