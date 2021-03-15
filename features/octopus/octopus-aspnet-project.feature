@@ -21,7 +21,7 @@ Feature: Configure an Octopus ASP.NET project
       | Projects         | //span[contains(.,'Projects')]               |
       | Add project      | //div[./div/span[contains(.,'Add Project')]] |
       | New project name | //input[@name='New project name']            |
-      | Save             | (//div[contains(.,'Save')])[9]               |
+      | Save             | (//div[contains(.,'Save')])[8]               |
 
     And I highlight outside the "Projects" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}005-octopus-projects.png"
