@@ -27,7 +27,28 @@ Feature: Build Jenkins project
     And I sleep for "10" seconds
 
     And I stop recording the screen
-    And I sleep for "450" seconds
+    # These sleeps allow debugging to keep capturing the logs
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "5" seconds
+    And I sleep for "350" seconds
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I scroll down "10000" px
