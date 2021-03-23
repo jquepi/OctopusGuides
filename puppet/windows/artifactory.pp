@@ -28,33 +28,33 @@ package { 'NuGet.CommandLine':
   match   => 'set JAVA_OPTIONS=-server -Xms512m -Xmx4g -Xss256k -XX:\+UseG1GC',
   replace => true,
 }
--> file { 'C:/install_artifactory.ps1':
-  ensure  => 'file',
-  owner   => 'Administrators',
-  group   => 'Administrators',
-  mode    => '0644',
-  content => @(EOT)
-    start "C:\install\artifactory-pro-6.17.0\bin\artifactory.bat" -PassThru
-    # Add the NuGet source for the current user
-    C:\ProgramData\chocolatey\bin\nuget.exe sources add `
-      -Name Artifactory `
-      -Source http://localhost:8041/artifactory/api/nuget/NuGet `
-      -Username admin `
-      -Password Password01!
-    # Add the NuGet source for the LOCAL SYSTEM user
-    C:\tools\pstools\PsExec.exe `
-      -s C:\ProgramData\chocolatey\bin\nuget.exe sources add `
-      -Name Artifactory `
-      -Source http://localhost:8041/artifactory/api/nuget/NuGet `
-      -Username admin `
-      -Password Password01!
-    New-Item -ItemType file c:\ArtifactoryStarted.txt
-    | EOT
-}
--> exec { 'Install Artifactory':
-  command   => '& C:/install_artifactory.ps1',
-  creates   => 'c:/ArtifactoryStarted.txt',
-  timeout   => 3600,
-  provider  => powershell,
-  logoutput => true
-}
+# -> file { 'C:/install_artifactory.ps1':
+#   ensure  => 'file',
+#   owner   => 'Administrators',
+#   group   => 'Administrators',
+#   mode    => '0644',
+#   content => @(EOT)
+#     start "C:\install\artifactory-pro-6.17.0\bin\artifactory.bat" -PassThru
+#     # Add the NuGet source for the current user
+#     C:\ProgramData\chocolatey\bin\nuget.exe sources add `
+#       -Name Artifactory `
+#       -Source http://localhost:8041/artifactory/api/nuget/NuGet `
+#       -Username admin `
+#       -Password Password01!
+#     # Add the NuGet source for the LOCAL SYSTEM user
+#     C:\tools\pstools\PsExec.exe `
+#       -s C:\ProgramData\chocolatey\bin\nuget.exe sources add `
+#       -Name Artifactory `
+#       -Source http://localhost:8041/artifactory/api/nuget/NuGet `
+#       -Username admin `
+#       -Password Password01!
+#     New-Item -ItemType file c:\ArtifactoryStarted.txt
+#     | EOT
+# }
+# -> exec { 'Install Artifactory':
+#   command   => '& C:/install_artifactory.ps1',
+#   creates   => 'c:/ArtifactoryStarted.txt',
+#   timeout   => 3600,
+#   provider  => powershell,
+#   logoutput => true
+# }
