@@ -7,12 +7,12 @@ package { 'visualstudio2017buildtools':
 }
 
 package { 'dotnetcore-sdk':
-  ensure   => '3.1.402',
+  ensure   => '3.1.407',
   provider => chocolatey,
 }
 
 package { 'dotnetcore-windowshosting':
-  ensure   => '3.1.8',
+  ensure   => '3.1.13',
   provider => chocolatey,
 }
 
