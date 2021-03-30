@@ -17,6 +17,8 @@ C:\tools\pstools\PsExec.exe `
 
 New-Item -ItemType file c:\ArtifactoryStarted.txt
 
+for ($x = 0; $x -lt 15; ++$x) {if ((Test-NetConnection -ComputerName localhost -Port 8041).TcpTestSucceeded) {exit 0;}; Write-Host "Sleeping..."; Start-Sleep 30;} exit 1;
+
 & "C:\Program Files\OpenJDK\$((Get-ChildItem "C:\Program Files\OpenJDK\")[0])\bin\java" `
     "-Xmx2g" `
     "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `

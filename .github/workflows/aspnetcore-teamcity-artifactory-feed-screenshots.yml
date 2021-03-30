@@ -59,7 +59,7 @@ jobs:
 
       - name: Execute puppet
         shell: powershell
-        run: ./install.ps1 -Scripts sqlserverexpress.pp,utilities.pp,dotnetutilities.pp,artifactory.pp,teamcity.pp,octopus.pp,iis.pp,teamcitywait.pp,artifactorywait.pp
+        run: ./install.ps1 -Scripts sqlserverexpress.pp,utilities.pp,dotnetutilities.pp,artifactory.pp,teamcity.pp,octopus.pp,iis.pp,teamcitywait.pp
 
       - name: Configure Artifactory
         shell: powershell
