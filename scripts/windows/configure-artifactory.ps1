@@ -9,6 +9,7 @@ C:\ProgramData\chocolatey\bin\nuget.exe sources add `
 
 # Add the NuGet source for the LOCAL SYSTEM user
 C:\tools\pstools\PsExec.exe `
+      -accepteula `
       -s C:\ProgramData\chocolatey\bin\nuget.exe sources add `
       -Name Artifactory `
       -Source http://localhost:8041/artifactory/api/nuget/NuGet `
