@@ -1,5 +1,7 @@
+# to find the ID, run
+# gpg --show-keys .\apt-key.gpg
 apt::key { 'kubernetes-repository':
-  id     => '54A647F9048D5688D7DA2ABE6A030B21BA07F4FB',
+  id     => '7F92E05B31093BEF5A3C2D38FEEA9169307EA071',
   source => 'https://packages.cloud.google.com/apt/doc/apt-key.gpg',
   server  => 'pgp.mit.edu'
 }
@@ -9,7 +11,7 @@ apt::key { 'kubernetes-repository':
   release  => '',
   repos    => 'kubernetes-xenial main',
   key      => {
-    'id' => '54A647F9048D5688D7DA2ABE6A030B21BA07F4FB',
+    'id' => '7F92E05B31093BEF5A3C2D38FEEA9169307EA071',
   },
   include  => {
     'deb' => true,
