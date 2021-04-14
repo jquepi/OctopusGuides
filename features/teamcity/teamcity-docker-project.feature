@@ -14,7 +14,7 @@ Feature: Create Docker project
       | Configure manually    | //a[text()='configure build steps manually']             |
       | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']           |
       | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']]   |
-      | DotNet CLI            | //li[@data-title='.NET CLI (dotnet)']                    |
+      | DotNet                | //li[@data-title='.NET']                                 |
       | Docker                | //li[@data-title='Docker']                               |
       | Step name             | //input[@id='buildStepName']                             |
       | Command               | //input[@id='-ufd-teamcity-ui-command']                  |
@@ -56,8 +56,8 @@ Feature: Create Docker project
     And I click the "Configure manually" link
 
     And I click the "Runner type" drop down list
-    And I scroll the "DotNet CLI" option into view offset by "-200"
-    And I click the "DotNet CLI" option
+    And I scroll the "DotNet" option into view offset by "-200"
+    And I click the "DotNet" option
     And I sleep for "1" second
     And I highlight outside the "Runner type container" drop down list
 
