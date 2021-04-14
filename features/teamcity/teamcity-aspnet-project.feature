@@ -14,7 +14,7 @@ Feature: Create ASP.NET project
       | Configure manually    | //a[text()='configure build steps manually']           |
       | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']         |
       | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']] |
-      | DotNet            | //li[@data-title='.NET']                  |
+      | DotNet                | //li[@data-title='.NET']                               |
       | Step name             | //input[@id='buildStepName']                           |
       | Command               | //input[@id='-ufd-teamcity-ui-command']                |
       | Test option           | //li[@data-title='test']                               |
