@@ -11,6 +11,9 @@ file { '/opt/wait_for_bamboo.sh':
       [ $max -lt 0 ] && break;
       sleep 10;
     done;
+
+    journalctl -u bamboo.service
+
     exit 0
     | EOT
 }
