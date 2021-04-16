@@ -6,28 +6,28 @@ Feature: Create ASP.NET project
   @create-project @applicationspecific @aspnetcore
   Scenario: Create Project
     Given I set the following aliases:
-      | Create project        | //a[contains(.,'Create project')]                            |
-      | Repository URL        | //input[@id='url']                                           |
-      | Proceed               | //input[@name='createProjectFromUrl']                        |
-      | Project name          | //input[@id='projectName']                                   |
-      | Proceed Two           | //input[@name='createProject']                               |
-      | Configure manually    | //a[text()='configure build steps manually']                 |
-      | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']               |
-      | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']]       |
-      | DotNet                | //li[@data-title='.NET' \| @data-title='.NET CLI (dotnet)' ] |
-      | Step name             | //input[@id='buildStepName']                                 |
-      | Command               | //input[@id='-ufd-teamcity-ui-command']                      |
-      | Test option           | //li[@data-title='test']                                     |
-      | Publish option        | //li[@data-title='publish']                                  |
-      | Show advanced options | //a[text()='Show advanced options']                          |
-      | Configuration         | //input[@id='configuration']                                 |
-      | Save                  | //input[@value='Save']                                       |
-      | OctopusDeploy: Pack   | //li[@data-title='OctopusDeploy: Pack']                      |
-      | Package ID            | //input[@id='octopus_packageid']                             |
-      | Package Version       | //input[@id='octopus_packageversion']                        |
-      | Source path           | //input[@id='octopus_packagesourcepath']                     |
-      | Output path           | //input[@id='octopus_packageoutputpath']                     |
-      | Got it                | //button[contains(.,'Got it')]                               |
+      | Create project        | //a[contains(.,'Create project')]                                 |
+      | Repository URL        | //input[@id='url']                                                |
+      | Proceed               | //input[@name='createProjectFromUrl']                             |
+      | Project name          | //input[@id='projectName']                                        |
+      | Proceed Two           | //input[@name='createProject']                                    |
+      | Configure manually    | //a[text()='configure build steps manually']                      |
+      | Runner type           | //input[@id='-ufd-teamcity-ui-runTypeInfoKey']                    |
+      | Runner type container | //span[./input[@id='-ufd-teamcity-ui-runTypeInfoKey']]            |
+      | DotNet                | //li[@data-title='.NET'] \| //li[@data-title='.NET CLI (dotnet)'] |
+      | Step name             | //input[@id='buildStepName']                                      |
+      | Command               | //input[@id='-ufd-teamcity-ui-command']                           |
+      | Test option           | //li[@data-title='test']                                          |
+      | Publish option        | //li[@data-title='publish']                                       |
+      | Show advanced options | //a[text()='Show advanced options']                               |
+      | Configuration         | //input[@id='configuration']                                      |
+      | Save                  | //input[@value='Save']                                            |
+      | OctopusDeploy: Pack   | //li[@data-title='OctopusDeploy: Pack']                           |
+      | Package ID            | //input[@id='octopus_packageid']                                  |
+      | Package Version       | //input[@id='octopus_packageversion']                             |
+      | Source path           | //input[@id='octopus_packagesourcepath']                          |
+      | Output path           | //input[@id='octopus_packageoutputpath']                          |
+      | Got it                | //button[contains(.,'Got it')]                                    |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Create the TeamCity project" for "3" seconds
