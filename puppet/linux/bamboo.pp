@@ -54,8 +54,8 @@ archive { '/opt/atlassian-plugin-sdk_8.2.8_all.deb':
     TTYPath=/dev/tty2
     TTYReset=yes
     TTYVHangup=yes
-    StandardOutput=syslog+console
-    StandardError=syslog+console
+    StandardOutput=journal+console
+    StandardError=journal+console
     ExecStart=/usr/bin/atlas-run-standalone --product bamboo
     Environment=DOTNET_CLI_HOME=/root
     | EOT
