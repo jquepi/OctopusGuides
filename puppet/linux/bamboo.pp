@@ -27,6 +27,10 @@ archive { '/opt/bamboo.jar':
 #   ensure => installed,
 # }
 
+package { 'libtcnative-1':
+  ensure => installed,
+}
+
 # Download the deb file manually
 archive { '/opt/atlassian-plugin-sdk_8.2.8_all.deb':
   ensure         => present,
