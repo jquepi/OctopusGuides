@@ -21,7 +21,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
   "-DCucumberAlias-ExternalOctopusAPIKey=$API_KEY" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
-  "-DCucumberAlias-Hostname=$(hostname)" \
+  "-DCucumberAlias-Hostname=localhost" \
   "-DCucumberAlias-ExternalBambooPlugin=/opt/bamboo.jar" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \

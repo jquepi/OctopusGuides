@@ -13,6 +13,8 @@ file { '/opt/wait_for_bamboo.sh':
       sleep 10;
     done;
 
+    echo "$max sleeps ignored"
+
     journalctl -u bamboo.service
 
     exit 0

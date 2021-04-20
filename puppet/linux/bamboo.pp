@@ -27,16 +27,20 @@ archive { '/opt/bamboo.jar':
 #   ensure => installed,
 # }
 
+package { 'libtcnative-1':
+  ensure => installed,
+}
+
 # Download the deb file manually
-archive { '/opt/atlassian-plugin-sdk_8.0.16_all.deb':
+archive { '/opt/atlassian-plugin-sdk_8.2.8_all.deb':
   ensure         => present,
   extract        => false,
-  source         => 'https://packages.atlassian.com/atlassian-sdk-deb/debian/pool/contrib/a/atlassian-plugin-sdk/atlassian-plugin-sdk_8.0.16_all.deb'
+  source         => 'https://packages.atlassian.com/atlassian-sdk-deb/debian/pool/contrib/a/atlassian-plugin-sdk/atlassian-plugin-sdk_8.2.8_all.deb'
 }
 -> package { 'atlassian-plugin-sdk':
   provider => dpkg,
   ensure   => installed,
-  source   => "/opt/atlassian-plugin-sdk_8.0.16_all.deb"
+  source   => "/opt/atlassian-plugin-sdk_8.2.8_all.deb"
 }
 -> file { '/lib/systemd/system/bamboo.service':
   ensure  => 'file',
@@ -54,6 +58,8 @@ archive { '/opt/atlassian-plugin-sdk_8.0.16_all.deb':
     TTYPath=/dev/tty2
     TTYReset=yes
     TTYVHangup=yes
+    StandardOutput=journal+console
+    StandardError=journal+console
     ExecStart=/usr/bin/atlas-run-standalone --product bamboo
     Environment=DOTNET_CLI_HOME=/root
     | EOT

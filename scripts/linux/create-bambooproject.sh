@@ -24,7 +24,7 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
   "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
-  "-DCucumberAlias-Hostname=$(hostname)" \
+  "-DCucumberAlias-Hostname=localhost" \
   "-DCucumberAlias-ExternalBambooPlugin=/opt/bamboo.jar" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
