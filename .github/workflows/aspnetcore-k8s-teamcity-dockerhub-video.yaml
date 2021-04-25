@@ -74,7 +74,7 @@ jobs:
           done
 
       - name: Print Workflow ID
-        run: echo "Workflow ID is ${{ steps.workflow-id.outputs.WORKFLOW-ID }}"
+        run: echo "Workflow ID is ${{ steps.workflow-id.outputs.WORKFLOW_ID }}"
 
       - uses: actions/checkout@v1
 
@@ -166,6 +166,6 @@ jobs:
           -X POST
           -H "Accept: application/vnd.github.v3+json"
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}"
-          https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/workflows/${{ steps.workflow-id.outputs.WORKFLOW-ID }}/dispatches
+          https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/workflows/${{ steps.workflow-id.outputs.WORKFLOW_ID }}/dispatches
           -d '{"ref": "${{ github.ref }}" }';
           fi
