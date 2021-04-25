@@ -58,6 +58,13 @@ jobs:
       K8S_TEST_NODEPORT: 30001
       K8S_PROD_NODEPORT: 30002
     steps:
+      - name: Get workflow ID
+        run: >-
+          echo "::set-env name=WORKFLOW_ID::$(
+          curl -s https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/workflows |
+          jq -c '.workflows[] | select(.name == "${{ github.workflow }}") | .id'
+          )"
+
       - uses: actions/checkout@v1
 
       - name: Disk usage
@@ -65,7 +72,6 @@ jobs:
 
       - name: Install Puppet
         run: ./install.sh utilities.pp headless.pp teamcity.pp minikube.pp mssql-cleanstart.pp octopus.pp dotnetutilities.pp octopuscli.pp
-
 
       - name: Wait for Octopus
         run: ./scripts/linux/wait-octopus.sh
@@ -140,3 +146,13 @@ jobs:
 
       - name: Build badge
         run: ./scripts/linux/create-badge.sh
+
+      - name: Restarts the scheduled run when it failed
+        if: github.event_name == 'schedule' && failure()
+        run: >-
+          curl -i
+          -X POST
+          -H "Accept: application/vnd.github.v3+json"
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}"
+          https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/workflows/${WORKFLOW_ID}/dispatches
+          -d '{"ref": "${{ github.ref }}" }'
