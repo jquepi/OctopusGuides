@@ -62,7 +62,7 @@ jobs:
 
       - name: Get workflow ID
         id: workflow-id
-        run: ./script/get-workflow-id.sh
+        run: ./scripts/get-workflow-id.sh
 
       - name: Print Workflow ID
         run: echo "Workflow ID is ${{ steps.workflow-id.outputs.WORKFLOW_ID }}"
