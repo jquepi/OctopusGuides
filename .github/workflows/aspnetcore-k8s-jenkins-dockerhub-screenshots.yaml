@@ -60,6 +60,13 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Get workflow ID
+        id: workflow-id
+        run: ./scripts/linux/get-workflow-id.sh
+
+      - name: Print Workflow ID
+        run: echo "Workflow ID is ${{ steps.workflow-id.outputs.WORKFLOW_ID }}"
+
       - name: Disk usage
         run: ./scripts/linux/disk-usage.sh
 

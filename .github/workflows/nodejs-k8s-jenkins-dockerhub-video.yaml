@@ -62,6 +62,13 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Get workflow ID
+        id: workflow-id
+        run: ./scripts/linux/get-workflow-id.sh
+
+      - name: Print Workflow ID
+        run: echo "Workflow ID is ${{ steps.workflow-id.outputs.WORKFLOW_ID }}"
+
       - name: Disk usage
         run: ./scripts/linux/disk-usage.sh
 
@@ -138,6 +145,18 @@ jobs:
 
       - name: Build badge
         run: ./scripts/linux/create-badge.sh
+
+      - name: Restarts the scheduled run when it failed
+        if: github.event_name == 'schedule' && failure()
+        run: >-
+          if [[ -n "${{ steps.workflow-id.outputs.WORKFLOW-ID }}" ]]; then
+          curl -i
+          -X POST
+          -H "Accept: application/vnd.github.v3+json"
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}"
+          https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/workflows/${{ steps.workflow-id.outputs.WORKFLOW_ID }}/dispatches
+          -d '{"ref": "${{ github.ref }}" }';
+          fi
 
       - name: Upload failure video
         if: failure()
