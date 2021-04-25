@@ -60,11 +60,18 @@ jobs:
     steps:
       - name: Get workflow ID
         id: workflow-id
-        run: >-
-          echo "::set-output name=WORKFLOW_ID::$(
-          curl -s https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/workflows |
-          jq -c '.workflows[] | select(.name == "${{ github.workflow }}") | .id'
-          )"
+        run: |-
+          for (( c=1; c<=10; c++ ))
+          do
+             WORKFLOW_ID=$(curl -s "https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/workflows?per_page=100&page=$c" | jq -c '.workflows[] | select(.name == "$GITHUB_WORKFLOW") | .id')
+             if [[ -n $WORKFLOW_ID ]]; then
+                  # There are cases were the workflow name has been registered more than once
+                  # by mistake. Assume the first one is correct.
+                  stringarray=($WORKFLOW_ID)
+                  echo "::set-output name=WORKFLOW_ID::${stringarray[0]}"
+             	 break
+             fi
+          done
 
       - name: Print Workflow ID
         run: echo "Workflow ID is ${{ steps.workflow-id.outputs.WORKFLOW-ID }}"
@@ -154,9 +161,11 @@ jobs:
       - name: Restarts the scheduled run when it failed
         if: github.event_name == 'schedule' && failure()
         run: >-
+          if [[ -n "${{ steps.workflow-id.outputs.WORKFLOW-ID }}" ]]; then
           curl -i
           -X POST
           -H "Accept: application/vnd.github.v3+json"
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}"
           https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/workflows/${{ steps.workflow-id.outputs.WORKFLOW-ID }}/dispatches
-          -d '{"ref": "${{ github.ref }}" }'
+          -d '{"ref": "${{ github.ref }}" }';
+          fi
