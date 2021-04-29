@@ -42,7 +42,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
       """
       var textarea = document.evaluate("//div[@class='CodeMirror']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       var editor = textarea.CodeMirror;
-      editor.setValue("composer install\n./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/QuoteTest.php");
+      editor.setValue("composer install\n./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/quotetest.php");
       editor.save();
       """
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}250-npm-test.png"

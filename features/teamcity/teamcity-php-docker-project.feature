@@ -71,7 +71,7 @@ Feature: Create Docker project
 #    And I populate the "Script content" text area with:
 #    """
 #    composer install
-#    ./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/QuoteTest.php
+#    ./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/quotetest.php
 #    """
 
     # TeamCity 2019.2 introduced rich script editors that have to be populated with javascript
@@ -79,7 +79,7 @@ Feature: Create Docker project
     """
     var textarea = document.evaluate("//div[contains(@class,'CodeMirror')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     var editor = textarea.CodeMirror
-    editor.setValue("composer install\n./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/QuoteTest.php");
+    editor.setValue("composer install\n./vendor/bin/phpunit --bootstrap ./vendor/autoload.php ./tests/quotetest.php");
     editor.save();
     """
     And I save a screenshot to "#{ExternalMediaPath}/teamcity/initialproject/#{GuideSpecificScreenshotDir}045-npm-install.png"
