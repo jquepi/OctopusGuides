@@ -1,3 +1,20 @@
+file { '/opt/install_phpunit.sh':
+  ensure  => 'file',
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0755',
+  content => @(EOT)
+    sudo wget -O /usr/bin/phpunit https://phar.phpunit.de/phpunit-9.phar
+    sudo chmod +x /usr/bin/phpunit
+    exit 0
+    | EOT
+}
+-> exec { 'Install PhpUnit':
+  command   => '/opt/install_phpunit.sh',
+  creates   => '/opt/PHPUnitInstalled.txt',
+  logoutput => true
+}
+
 file { '/run/php':
   ensure => 'directory'
 }
@@ -8,9 +25,6 @@ file { '/run/php':
   ensure => installed,
 }
 -> package { 'php-mbstring':
-  ensure => installed,
-}
--> package { 'phpunit':
   ensure => installed,
 }
 -> package { 'php-simplexml':
