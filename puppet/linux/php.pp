@@ -4,8 +4,8 @@ file { '/opt/install_phpunit.sh':
   group   => 'root',
   mode    => '0755',
   content => @(EOT)
-    sudo wget -O /usr/bin/phpunit https://phar.phpunit.de/phpunit-9.phar
-    sudo chmod +x /usr/bin/phpunit
+    sudo wget -O /opt/phpunit https://phar.phpunit.de/phpunit-9.phar
+    sudo chmod +x /opt/phpunit
     touch /opt/PHPUnitInstalled.txt
     exit 0
     | EOT

@@ -102,7 +102,7 @@ Feature: Configure Bamboo
     And I highlight outside the "Path" text box
     And I highlight outside the "Add" button with an offset of "5"
     And I populate the "Executable label" text box with "PHPUnit"
-    And I populate the "Path" text box with "/usr/bin/phpunit"
+    And I populate the "Path" text box with "/opt/phpunit"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}160-php-executable.png"
     And I click the "Add" button
 
