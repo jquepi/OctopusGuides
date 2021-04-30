@@ -49,7 +49,7 @@ file { '/run/php':
   logoutput => true
 }
 
-service {'php7.2-fpm':
+service {'php7.4-fpm':
   ensure => running
 }
 
