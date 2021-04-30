@@ -60,7 +60,7 @@ Feature: Configure Bamboo
     And I scroll the "Script body" text area into view offset by "-300"
     And I run the following JavaScript:
       """
-      ace.edit(scriptBody).setValue("composer install\n/opt/phpunit -version")
+      ace.edit(scriptBody).setValue("composer install")
       """
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}120-composer-install.png"
