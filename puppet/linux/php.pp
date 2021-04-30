@@ -64,6 +64,6 @@ exec { 'Show socket file':
 }
 
 exec { 'Show config':
-  command   => '/bin/cat /etc/php/7.2/fpm/pool.d/www.conf',
+  command   => '/bin/cat /etc/php/7.4/fpm/pool.d/www.conf',
   logoutput => true
 }
