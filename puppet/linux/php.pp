@@ -54,7 +54,7 @@ service {'php7.4-fpm':
 }
 
 exec { 'Show status':
-  command   => '/bin/systemctl status php7.2-fpm.service',
+  command   => '/bin/systemctl status php7.4-fpm.service',
   logoutput => true
 }
 
