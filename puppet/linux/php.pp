@@ -27,9 +27,6 @@ file { '/run/php':
 -> package { 'php-mbstring':
   ensure => installed,
 }
--> package { 'php-simplexml':
-  ensure => installed,
-}
 -> package { 'php-xml':
   ensure => installed,
 }
