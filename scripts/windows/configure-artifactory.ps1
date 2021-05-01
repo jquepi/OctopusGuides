@@ -27,6 +27,10 @@ for ($x = 0; $x -lt 15; ++$x) {
     Start-Sleep 30;
 }
 
+# Dump the log files
+Get-ChildItem "C:\install\artifactory-pro-6.17.0" -Filter *.log |
+        Foreach-Object {Get-Content $_.FullName}
+
 & "C:\Program Files\OpenJDK\$((Get-ChildItem "C:\Program Files\OpenJDK\")[0])\bin\java" `
     "-Xmx2g" `
     "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
