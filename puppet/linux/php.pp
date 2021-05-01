@@ -49,12 +49,12 @@ file { '/run/php':
   logoutput => true
 }
 
-service {'php7.2-fpm':
+service {'php7.4-fpm':
   ensure => running
 }
 
 exec { 'Show status':
-  command   => '/bin/systemctl status php7.2-fpm.service',
+  command   => '/bin/systemctl status php7.4-fpm.service',
   logoutput => true
 }
 
@@ -64,6 +64,6 @@ exec { 'Show socket file':
 }
 
 exec { 'Show config':
-  command   => '/bin/cat /etc/php/7.2/fpm/pool.d/www.conf',
+  command   => '/bin/cat /etc/php/7.4/fpm/pool.d/www.conf',
   logoutput => true
 }
