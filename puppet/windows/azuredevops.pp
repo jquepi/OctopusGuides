@@ -17,6 +17,8 @@ host { 'devops.example.org':
   mode    => '0644',
   content => @(EOT)
     Start-Process "C:\tools\azuredevopsserver2019.exe" -ArgumentList @("/silent") -NoNewWindow -Wait
+    ls "C:\Program Files\Azure DevOps Server 2019"
+    ls "C:\Program Files\Azure DevOps Server 2019\Tools"
     Start-Process "C:\Program Files\Azure DevOps Server 2019\Tools\TfsConfig.exe" -ArgumentList @("unattend", "/unattendfile:.\config\azuredevops.ini", "/continue") -NoNewWindow -Wait
     New-Item -ItemType file c:\AzureDevOpsStarted.txt
     | EOT
