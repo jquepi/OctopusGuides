@@ -1,3 +1,8 @@
+package { 'openjdk':
+    ensure   => installed,
+    provider => chocolatey
+}
+
 file { 'C:/tools':
     ensure => 'directory'
 }
