@@ -69,10 +69,7 @@ file { 'C:/screenshots':
 windows_env { 'PATH=C:\tools': }
 
 file { 'C:/tools':
-  ensure => 'directory'
-}
--> file { 'C:/tools/pstools':
-  ensure => 'directory'
+        ensure => 'directory'
 }
 
 archive { 'C:/tools/ungoogled-chromium-77.0.3865.75-1_windows.7z':

@@ -1,4 +1,9 @@
-archive { 'C:/tools/PSTools.zip':
+file { 'C:/tools':
+        ensure => 'directory'
+}
+-> file { 'C:/tools/pstools':
+        ensure => 'directory'
+}-> archive { 'C:/tools/PSTools.zip':
         ensure       => present,
         extract      => true,
         extract_path => 'C:/tools/pstools',
