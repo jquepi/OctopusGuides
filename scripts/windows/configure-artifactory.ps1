@@ -1,4 +1,6 @@
-start "C:\install\artifactory-pro-6.17.0\bin\artifactory.bat" -PassThru
+start "C:\install\artifactory-pro-6.17.0\bin\artifactory.bat" -PassThru `
+    -RedirectStandardOutput "c:\install\artifactory-pro-6.17.0\out.txt" `
+    -RedirectStandardError "c:\install\artifactory-pro-6.17.0\error.txt"
 
 # Add the NuGet source for the current user
 C:\ProgramData\chocolatey\bin\nuget.exe sources add `
@@ -26,6 +28,9 @@ for ($x = 0; $x -lt 15; ++$x) {
     Write-Host "Sleeping...";
     Start-Sleep 30;
 }
+
+Get-Content "c:\install\artifactory-pro-6.17.0\out.txt"
+Get-Content "c:\install\artifactory-pro-6.17.0\error.txt"
 
 # Dump the log files
 Get-ChildItem "C:\install\artifactory-pro-6.17.0\logs" -Filter *.log |
