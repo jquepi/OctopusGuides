@@ -22,11 +22,11 @@ New-Item -ItemType file c:\ArtifactoryStarted.txt
 
 # Wait for artifactory
 for ($x = 0; $x -lt 15; ++$x) {
+    Write-Host "Sleeping...";
+    Start-Sleep 30;
     if ((Test-NetConnection -ComputerName localhost -Port 8041).TcpTestSucceeded) {
         break
     }
-    Write-Host "Sleeping...";
-    Start-Sleep 30;
 }
 
 Get-Content "c:\install\artifactory-pro-6.17.0\out.txt"
