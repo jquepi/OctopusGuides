@@ -1,3 +1,7 @@
+# The latest JDKs have the following error:
+# java.security.KeyStoreException: Key protection  algorithm not found: java.security.UnrecoverableKeyException: Encrypt Private Key failed: unrecognized algorithm name: PBEWithSHA1AndDESede
+# So we use a specific version of Java for Artifactory
+$env:JAVA_HOME="C:/install/jdk8u282-b08"
 start "C:\install\artifactory-pro-6.17.0\bin\artifactory.bat" -PassThru
 
 # Add the NuGet source for the current user

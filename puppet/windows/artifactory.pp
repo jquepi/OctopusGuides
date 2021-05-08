@@ -2,6 +2,14 @@ package { 'NuGet.CommandLine':
   ensure   => installed,
   provider => chocolatey
 }
+-> archive { 'C:/install/OpenJDK8U-jdk_x64_windows_hotspot_8u282b08.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/install',
+  source       => 'https://octopus-guides.s3.amazonaws.com/java/OpenJDK8U-jdk_x64_windows_hotspot_8u282b08.zip',
+  creates      => 'C:/install/jdk8u282-b08/release',
+  cleanup      => true,
+}
 -> archive { 'C:/install/jfrog-artifactory-pro-6.17.0.zip':
   ensure       => present,
   extract      => true,
