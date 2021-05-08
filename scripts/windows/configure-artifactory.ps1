@@ -34,6 +34,7 @@ for ($x = 0; $x -lt 15; ++$x) {
 }
 
 Write-Host "Proxy details"
+reg query "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
 Write-Host "NO_PROXY : $($env:no_proxy)"
 Write-Host "HTTP_PROXY: $($env:http_proxy)"
 Write-Host "HTTPS_PROXY: $($env:https_proxy)"
