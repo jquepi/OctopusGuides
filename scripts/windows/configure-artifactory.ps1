@@ -33,6 +33,11 @@ for ($x = 0; $x -lt 15; ++$x) {
     }
 }
 
+Write-Host "Proxy details"
+Write-Host "NO_PROXY : $($env:no_proxy)"
+Write-Host "HTTP_PROXY: $($env:http_proxy)"
+Write-Host "HTTPS_PROXY: $($env:https_proxy)"
+
 Get-Content "c:\install\artifactory-pro-6.17.0\out.txt"
 Get-Content "c:\install\artifactory-pro-6.17.0\error.txt"
 
