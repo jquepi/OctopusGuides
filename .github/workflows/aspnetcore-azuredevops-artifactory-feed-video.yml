@@ -17,14 +17,14 @@ jobs:
       AZURE_URL: http://localhost:9090/
       STEP_PAUSE: 1000
       SLACK_STEP_HANDLER: true
-      SLACK_ON_ERROR_ONLY: true
+      SLACK_ON_ERROR_ONLY: false
       BUILD_NAME: "aspnetcore-app-git-azure-devops-artifactory-iis"
       SMTP_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
-      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       MEDIA_PATH: C:\screenshots
@@ -60,13 +60,17 @@ jobs:
         shell: powershell
         run: ./scripts/windows/free-space.ps1
 
-      - name: Execute puppet
+      - name: Execute puppet to install artifactory
         shell: powershell
-        run: ./install.ps1 -Scripts sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,artifactory.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp
+        run: ./install.ps1 -Scripts artifactory.pp
 
       - name: Configure Artifactory
         shell: powershell
         run: ./scripts/windows/configure-artifactory.ps1
+
+      - name: Execute puppet
+        shell: powershell
+        run: ./install.ps1 -Scripts utilities.pp,sqlserverexpress.pp,azuredevops.pp,azuredevopsagent.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,azurewait.pp
 
       - name: Create API key
         shell: powershell

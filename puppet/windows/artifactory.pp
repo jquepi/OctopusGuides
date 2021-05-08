@@ -1,3 +1,22 @@
+package { 'openjdk':
+    ensure   => installed,
+    provider => chocolatey
+}
+
+file { 'C:/tools':
+    ensure => 'directory'
+}
+-> file { 'C:/tools/pstools':
+    ensure => 'directory'
+}-> archive { 'C:/tools/PSTools.zip':
+    ensure       => present,
+    extract      => true,
+    extract_path => 'C:/tools/pstools',
+    source       => 'https://download.sysinternals.com/files/PSTools.zip',
+    creates      => 'C:/tools/pstools/PsExec.exe',
+    cleanup      => true,
+}
+
 package { 'NuGet.CommandLine':
   ensure   => installed,
   provider => chocolatey

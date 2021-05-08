@@ -69,19 +69,7 @@ file { 'C:/screenshots':
 windows_env { 'PATH=C:\tools': }
 
 file { 'C:/tools':
-  ensure => 'directory'
-}
--> file { 'C:/tools/pstools':
-  ensure => 'directory'
-}
-
-archive { 'C:/tools/PSTools.zip':
-  ensure       => present,
-  extract      => true,
-  extract_path => 'C:/tools/pstools',
-  source       => 'https://download.sysinternals.com/files/PSTools.zip',
-  creates      => 'C:/tools/pstools/PsExec.exe',
-  cleanup      => true,
+        ensure => 'directory'
 }
 
 archive { 'C:/tools/ungoogled-chromium-77.0.3865.75-1_windows.7z':

@@ -2,7 +2,9 @@
 # java.security.KeyStoreException: Key protection  algorithm not found: java.security.UnrecoverableKeyException: Encrypt Private Key failed: unrecognized algorithm name: PBEWithSHA1AndDESede
 # So we use a specific version of Java for Artifactory
 $env:JAVA_HOME="C:/install/jdk8u282-b08"
-start "C:\install\artifactory-pro-6.17.0\bin\artifactory.bat" -PassThru
+start "C:\install\artifactory-pro-6.17.0\bin\artifactory.bat" -PassThru `
+    -RedirectStandardOutput "c:\install\artifactory-pro-6.17.0\out.txt" `
+    -RedirectStandardError "c:\install\artifactory-pro-6.17.0\error.txt"
 
 # Add the NuGet source for the current user
 C:\ProgramData\chocolatey\bin\nuget.exe sources add `
@@ -24,12 +26,15 @@ New-Item -ItemType file c:\ArtifactoryStarted.txt
 
 # Wait for artifactory
 for ($x = 0; $x -lt 15; ++$x) {
+    Write-Host "Sleeping...";
+    Start-Sleep 30;
     if ((Test-NetConnection -ComputerName localhost -Port 8041).TcpTestSucceeded) {
         break
     }
-    Write-Host "Sleeping...";
-    Start-Sleep 30;
 }
+
+Get-Content "c:\install\artifactory-pro-6.17.0\out.txt"
+Get-Content "c:\install\artifactory-pro-6.17.0\error.txt"
 
 # Dump the log files
 Get-ChildItem "C:\install\artifactory-pro-6.17.0\logs" -Filter *.log |

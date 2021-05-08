@@ -28,9 +28,10 @@ Feature: Setup Artifactory
 
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8041"
-    And I verify the "Spinner" overlay is present waiting up to "60" seconds if it exists
+    And I verify the "Spinner" overlay is present waiting up to "300" seconds if it exists
     And I verify the "Spinner" overlay is not present waiting up to "60" seconds
-    And I populate the "Username" text box with "admin" waiting up to "300" seconds
+    And I refresh the page for "300" seconds if the "Username" text box does not exist
+    And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "password"
     And I click the "Login" button
     And I sleep for "30" seconds
