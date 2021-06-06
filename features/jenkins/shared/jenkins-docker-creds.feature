@@ -43,7 +43,7 @@ Feature: COnfigure docker creds
       | Description     | //input[@name='_.description']                             |
       | Kind            | //select[@class='setting-input dropdownList']              |
       | Secret          | //input[@name='_.secret']                                  |
-      | OK              | //button[@type='button'][contains(.,'OK')]                 |
+      | OK              | //button[@type='submit'][contains(.,'OK')]                 |
       | ID Two          | (//input[@name='_.id'])[2]                                 |
       | Description Two | (//input[contains(@name,'_.description')])[2]              |
 
