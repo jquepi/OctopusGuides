@@ -40,7 +40,7 @@ Feature: Install the octopus plugin
       | Server Id        | //input[@name='_.serverId']                  |
       | URL              | (//input[@name='_.url'])[3]                  |
       | API Key          | //input[@name='_.apiKey']                    |
-      | Save             | //button[@type='button'][contains(.,'Save')] |
+      | Save             | //button[@type='submit'][contains(.,'Save')] |
 
     And I display a note with the text "Configuring the Octopus server" for "3" seconds
 

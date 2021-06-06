@@ -16,7 +16,7 @@ Feature: Create and deploy a release from Jenkins
       | Environment              | //input[@name='_.environment']                                |
       | Deploy after create      | //input[@name='deployThisRelease']                            |
       | Show deployment progress | //input[@name='waitForDeployment']                            |
-      | Save                     | //button[@type='button'][contains(.,'Save')]                  |
+      | Save                     | //button[@type='submit'][contains(.,'Save')]                  |
 
     And I display a note with the text "Deploying an Octopus release from Jenkins" for "3" seconds
 

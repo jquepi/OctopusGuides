@@ -199,7 +199,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
       | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
       | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
-      | Save                          | //button[@type='button'][contains(.,'Save')]           |
+      | Save                          | //button[@type='submit'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -226,7 +226,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Add build step | //button[@type='button'][contains(.,'Add build step')] |
       | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]       |
       | Package paths  | //textarea[@name='_.packagePaths']                     |
-      | Save           | //button[@type='button'][contains(.,'Save')]           |
+      | Save           | //button[@type='submit'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -340,7 +340,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
       | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
       | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
-      | Save                          | //button[@type='button'][contains(.,'Save')]           |
+      | Save                          | //button[@type='submit'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -367,7 +367,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Add build step | //button[@type='button'][contains(.,'Add build step')] |
       | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]       |
       | Package paths  | //textarea[@name='_.packagePaths']                     |
-      | Save           | //button[@type='button'][contains(.,'Save')]           |
+      | Save           | //button[@type='submit'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button

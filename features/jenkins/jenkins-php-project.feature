@@ -20,7 +20,7 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
       | Version number        | //input[@name='_.packageVersion']                      |
       | Package output folder | //input[@name='_.outputPath']                          |
       | Package include paths | //textarea[@name='_.includePaths']                     |
-      | Save                  | //button[@type='button'][contains(.,'Save')]           |
+      | Save                  | //button[@type='submit'][contains(.,'Save')]           |
 
     And I scroll the "Add build step" button into view offset by "-200"
     # Need sleep to fix this:

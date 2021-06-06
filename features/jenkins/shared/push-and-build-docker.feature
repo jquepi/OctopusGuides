@@ -32,7 +32,7 @@ Feature: Push and build docker image
   Scenario: Set the credentials for a public repository
     Given I set the following aliases:
       | Registry credentials | //select[../../../../div[normalize-space(text())='Registry credentials']] |
-      | Save                 | //button[@type='button'][contains(.,'Save')]                              |
+      | Save                 | //button[@type='submit'][contains(.,'Save')]                              |
 
     And I scroll the "Registry credentials" drop down list into view offset by "-200"
     And I highlight outside the "Registry credentials" drop down list with an offset of "2"
@@ -43,7 +43,7 @@ Feature: Push and build docker image
   @configure-project
   Scenario: Set the credentials for a public repository
     Given I set the following aliases:
-      | Save | //button[@type='button'][contains(.,'Save')] |
+      | Save | //button[@type='submit'][contains(.,'Save')] |
 
     And I click the "Save" button
     And I stop recording the screen

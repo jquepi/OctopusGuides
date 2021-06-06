@@ -15,7 +15,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
       | Command               | //div[@class='CodeMirror']                             |
       | Command Two           | (//div[@class='CodeMirror'])[2]                        |
       | Command Three         | (//div[@class='CodeMirror'])[3]                        |
-      | Save                  | //button[@type='button'][contains(.,'Save')]           |
+      | Save                  | //button[@type='submit'][contains(.,'Save')]           |
       | Push packages         | //a[contains(.,'Octopus Deploy: Push packages')]       |
       | Package application   | //a[contains(.,'Octopus Deploy: Package application')] |
       | Package paths         | //textarea[@name='_.packagePaths']                     |

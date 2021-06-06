@@ -28,7 +28,7 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
       | Registry                                     | //input[@name='_.registry']                                               |
       | Docker registry URL                          | (//input[@name='_.url'])[2]                                               |
       | Registry credentials                         | //select[../../../../div[normalize-space(text())='Registry credentials']] |
-      | Save                                         | //button[@type='button'][contains(.,'Save')]                              |
+      | Save                                         | //button[@type='submit'][contains(.,'Save')]                              |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
