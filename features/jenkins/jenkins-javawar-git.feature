@@ -44,11 +44,11 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
   @repositoryspecific @artifactory
   Scenario: Java - Add Octopus Push Step
     Given I set the following aliases:
-      | Goals Two      | (//input[@id='textarea._.targets'])[2]                 |
-      | Add build step | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute shell  | //a[contains(.,'Execute shell')]                       |
-      | Command        | //div[@class='CodeMirror']                             |
-      | Save           | //button[@type='submit'][contains(.,'Save')]           |
+      | Goals Two      | (//input[@id='textarea._.targets'])[2]                         |
+      | Add build step | //button[@type='button'][contains(.,'Add build step')]         |
+      | Execute shell  | //a[contains(.,'Execute shell')]                               |
+      | Command        | //div[@class='CodeMirror']                                     |
+      | Save           | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I scroll the "Goals Two" text box into view offset by "-200"
     And I highlight outside the "Goals Two" text box
@@ -59,11 +59,11 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
   @repositoryspecific @octo-built-in-feed
   Scenario: Java - Add Octopus Plugin Push Step
     Given I set the following aliases:
-      | Goals Two      | (//input[@id='textarea._.targets'])[2]                 |
-      | Add build step | //button[@type='button'][contains(.,'Add build step')] |
-      | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]       |
-      | Package paths  | //textarea[@name='_.packagePaths']                     |
-      | Save           | //button[@type='submit'][contains(.,'Save')]           |
+      | Goals Two      | (//input[@id='textarea._.targets'])[2]                         |
+      | Add build step | //button[@type='button'][contains(.,'Add build step')]         |
+      | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]               |
+      | Package paths  | //textarea[@name='_.packagePaths']                             |
+      | Save           | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I scroll the "Goals Two" text box into view offset by "-200"
     And I highlight outside the "Goals Two" text box
@@ -90,7 +90,7 @@ Feature: Build and deploy a Java application hosted in Git on a local Octopus in
 
   Scenario: Save project
     Given I set the following aliases:
-      | Save | //button[@type='submit'][contains(.,'Save')] |
+      | Save | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I click the "Save" button
     And I stop recording the screen

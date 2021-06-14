@@ -8,15 +8,15 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Random Quotes Project    | //a[contains(.,'Random Quotes')]                              |
-      | Configure                | //a[contains(.,'Configure')]                                  |
-      | Add post-build action    | //button[@type='button'][contains(.,'Add post-build action')] |
-      | Create Release           | //a[contains(.,'Octopus Deploy: Create Release')]             |
-      | Project name             | //input[@name='_.project']                                    |
-      | Environment              | //input[@name='_.environment']                                |
-      | Deploy after create      | //input[@name='deployThisRelease']                            |
-      | Show deployment progress | //input[@name='waitForDeployment']                            |
-      | Save                     | //button[@type='submit'][contains(.,'Save')]                  |
+      | Random Quotes Project    | //a[contains(.,'Random Quotes')]                               |
+      | Configure                | //a[contains(.,'Configure')]                                   |
+      | Add post-build action    | //button[@type='button'][contains(.,'Add post-build action')]  |
+      | Create Release           | //a[contains(.,'Octopus Deploy: Create Release')]              |
+      | Project name             | //input[@name='_.project']                                     |
+      | Environment              | //input[@name='_.environment']                                 |
+      | Deploy after create      | //input[@name='deployThisRelease']                             |
+      | Show deployment progress | //input[@name='waitForDeployment']                             |
+      | Save                     | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I display a note with the text "Deploying an Octopus release from Jenkins" for "3" seconds
 

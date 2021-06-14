@@ -40,7 +40,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-tools @applicationspecific @aspnet
   Scenario: Configure tools
     Given I set the following aliases:
-      | Manage Jenkins            | //div[contains(@class, 'task')][.//a[@href="/manage"]]                                                                                    |
+      | Manage Jenkins            | //div[contains(@class, 'task')][.//a[@href="/manage"]]                                                |
       | Global Tool Configuration | //a[@href='configureTools']                                                                           |
       | MSBuild Tool              | //button[contains(.,'Add MSBuild')]                                                                   |
       | MSBuild Name              | //input[contains(@checkurl,'/descriptorByName/hudson.plugins.msbuild.MsBuildInstallation/checkName')] |
@@ -196,10 +196,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @repositoryspecific @artifactory @applicationspecific @aspnet
   Scenario: ASP.NET - Add Artifactory Push Step
     Given I set the following aliases:
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
-      | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
-      | Save                          | //button[@type='submit'][contains(.,'Save')]           |
+      | Add build step                | //button[@type='button'][contains(.,'Add build step')]         |
+      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]               |
+      | Command Three                 | (//textarea[contains(@name,'command')])[3]                     |
+      | Save                          | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -223,10 +223,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnet
   Scenario: ASP.NET - Add Octopus Push Step
     Given I set the following aliases:
-      | Add build step | //button[@type='button'][contains(.,'Add build step')] |
-      | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]       |
-      | Package paths  | //textarea[@name='_.packagePaths']                     |
-      | Save           | //button[@type='submit'][contains(.,'Save')]           |
+      | Add build step | //button[@type='button'][contains(.,'Add build step')]         |
+      | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]               |
+      | Package paths  | //textarea[@name='_.packagePaths']                             |
+      | Save           | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -337,10 +337,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @repositoryspecific @artifactory @applicationspecific @aspnetcore
   Scenario: ASP.NET Core Artifactory - Add Artifactory Push Step
     Given I set the following aliases:
-      | Add build step                | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]       |
-      | Command Three                 | (//textarea[contains(@name,'command')])[3]             |
-      | Save                          | //button[@type='submit'][contains(.,'Save')]           |
+      | Add build step                | //button[@type='button'][contains(.,'Add build step')]         |
+      | Execute Windows batch command | //a[contains(.,'Execute Windows batch command')]               |
+      | Command Three                 | (//textarea[contains(@name,'command')])[3]                     |
+      | Save                          | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -364,10 +364,10 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @configure-project @repositoryspecific @octo-built-in-feed @applicationspecific @aspnetcore
   Scenario: ASP.NET Core Built-in Feed - Add Octopus Push Step
     Given I set the following aliases:
-      | Add build step | //button[@type='button'][contains(.,'Add build step')] |
-      | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]       |
-      | Package paths  | //textarea[@name='_.packagePaths']                     |
-      | Save           | //button[@type='submit'][contains(.,'Save')]           |
+      | Add build step | //button[@type='button'][contains(.,'Add build step')]         |
+      | Push packages  | //a[contains(.,'Octopus Deploy: Push packages')]               |
+      | Package paths  | //textarea[@name='_.packagePaths']                             |
+      | Save           | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button

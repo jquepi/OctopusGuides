@@ -6,7 +6,7 @@ Feature: Install the octopus plugin
       | Manage Jenkins            | //div[contains(@class, 'task')][.//a[@href="/manage"]] |
       | Global Tool Configuration | //a[@href='configureTools']                            |
       | Path                      | (//input[@name='_.home'])[2]                           |
-      | Save                      | //button[@type='submit'][contains(.,'Save')]           |
+      | Save                      | //button[@type='submit' or @type='button'][contains(.,'Save')]           |
 
     And I display a note with the text "Configuring the Octopus server" for "3" seconds
 

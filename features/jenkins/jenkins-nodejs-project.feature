@@ -10,19 +10,19 @@ Feature: Build and deploy a Node js application hosted in Git on a local Octopus
   @configure-project
   Scenario: Node.js - Create the project
     Given I set the following aliases:
-      | Add build step        | //button[@type='button'][contains(.,'Add build step')] |
-      | Execute shell         | //a[contains(.,'Execute shell')]                       |
-      | Command               | //div[@class='CodeMirror']                             |
-      | Command Two           | (//div[@class='CodeMirror'])[2]                        |
-      | Command Three         | (//div[@class='CodeMirror'])[3]                        |
-      | Save                  | //button[@type='submit'][contains(.,'Save')]           |
-      | Push packages         | //a[contains(.,'Octopus Deploy: Push packages')]       |
-      | Package application   | //a[contains(.,'Octopus Deploy: Package application')] |
-      | Package paths         | //textarea[@name='_.packagePaths']                     |
-      | Package ID            | //input[@name='_.packageId']                           |
-      | Version number        | //input[@name='_.packageVersion']                      |
-      | Package output folder | //input[@name='_.outputPath']                          |
-      | Package include paths | //textarea[@name='_.includePaths']                     |
+      | Add build step        | //button[@type='button'][contains(.,'Add build step')]         |
+      | Execute shell         | //a[contains(.,'Execute shell')]                               |
+      | Command               | //div[@class='CodeMirror']                                     |
+      | Command Two           | (//div[@class='CodeMirror'])[2]                                |
+      | Command Three         | (//div[@class='CodeMirror'])[3]                                |
+      | Save                  | //button[@type='submit' or @type='button'][contains(.,'Save')] |
+      | Push packages         | //a[contains(.,'Octopus Deploy: Push packages')]               |
+      | Package application   | //a[contains(.,'Octopus Deploy: Package application')]         |
+      | Package paths         | //textarea[@name='_.packagePaths']                             |
+      | Package ID            | //input[@name='_.packageId']                                   |
+      | Version number        | //input[@name='_.packageVersion']                              |
+      | Package output folder | //input[@name='_.outputPath']                                  |
+      | Package include paths | //textarea[@name='_.includePaths']                             |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button

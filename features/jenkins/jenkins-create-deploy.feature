@@ -71,11 +71,11 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Project name             | //input[@name='_.project']                   |
-      | Environment              | //input[@name='_.environment']               |
-      | Deploy after create      | //input[@name='deployThisRelease']           |
-      | Show deployment progress | //input[@name='waitForDeployment']           |
-      | Save                     | //button[@type='submit'][contains(.,'Save')] |
+      | Project name             | //input[@name='_.project']                                     |
+      | Environment              | //input[@name='_.environment']                                 |
+      | Deploy after create      | //input[@name='deployThisRelease']                             |
+      | Show deployment progress | //input[@name='waitForDeployment']                             |
+      | Save                     | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I scroll the "Project name" text box into view offset by "-200"
     And I highlight the "Project name" text box
@@ -116,7 +116,7 @@ Feature: Create and deploy a release from Jenkins
 #  Scenario: Modify the existing project
 #    Given I set the following aliases:
 #      | Command Five           | (//textarea[contains(@name,'command')])[5]                                                                                     |
-#      | Save                   | //button[@type='submit'][contains(.,'Save')]                                                                                   |
+#      | Save                   | //button[@type='submit' or @type='button'][contains(.,'Save')]                                                                                   |
 #      | Create Release Command | Octo.exe create-release --server http://localhost --apiKey %OctopusAPIKey% --project "Random Quotes" --progress --deployto Dev |
 #
 #    And I scroll the "Command Five" text box into view offset by "-200"
