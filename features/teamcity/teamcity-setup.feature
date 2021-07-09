@@ -10,7 +10,7 @@ Feature: Set up Team City
       | Password Two   | //input[@id='retypedPassword']        |
       | Create Account | //input[@value='Create Account']      |
 
-    And I open the browser "FirefoxNoImplicitWait"
+    And I open the browser "FirefoxNoImplicitWaitNoProxy"
     And I fullscreen the window
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8111"
@@ -39,7 +39,7 @@ Feature: Set up Team City
       | Log in   | //input[@name='submitLogin']     |
       | Title    | //span[contains(@class,'contentWrapper')] |
 
-    And I open the browser "FirefoxNoImplicitWait"
+    And I open the browser "FirefoxNoImplicitWaitNoProxy"
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://localhost:8111"
     And I populate the "Username" text box with "admin"

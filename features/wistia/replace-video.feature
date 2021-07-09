@@ -1,6 +1,6 @@
 Feature: Replace Video
   Scenario: Log in
-    Given I open the shared browser "FirefoxNoImplicitWait"
+    Given I open the shared browser "FirefoxNoImplicitWaitNoProxy"
     And I set the default explicit wait time to "30" seconds
     And I fullscreen the window
     And I open the URL "https://auth.wistia.com/session/new?app=wistia"
