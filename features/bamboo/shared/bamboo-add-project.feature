@@ -15,7 +15,6 @@ Feature: Add project
       | Test connection              | //button[@id='test-connection-com-atlassian-bamboo-plugins-atlassian-bamboo-plugin-git-gitv2'] |
       | Connection successful        | //p[text()='Connection successful']                                                            |
       | Save and continue            | //input[@id='addRepositoryToPlan_save']                                                        |
-      | Configure plan               | //input[@id='createPlan_save']                                                                 |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the build project" for "3" seconds
@@ -82,8 +81,3 @@ Feature: Add project
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}081-save-and-continue.png"
     And I remove the highlight from the "Save and continue" text box
     And I click the "Save and continue" radio button
-
-#    And I highlight outside the "Configure plan" button
-#    And I scroll the "Configure plan" button into view
-#    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}090-configure-plan.png"
-#    And I click the "Configure plan" button
