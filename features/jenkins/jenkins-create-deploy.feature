@@ -83,6 +83,7 @@ Feature: Create and deploy a release from Jenkins
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-octo-plugin-create-release-command.png"
 
+    And I scroll the "Deploy after create" text box into view offset by "-200"
     And I highlight the "Deploy after create" check box
     And I click the "Deploy after create" check box
 
