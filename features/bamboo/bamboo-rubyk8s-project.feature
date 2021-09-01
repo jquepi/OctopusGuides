@@ -12,7 +12,7 @@ Feature: Configure Bamboo
     Given I set the following aliases:
       | Add task                          | //a[@id='addTask']                                                                                          |
       | Search                            | //h2[contains(.,'Task types')]//input                                                                       |
-      | Script Tile                       | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']]                       |
+      | Script Tile                       | //li[.//div[@class='task-type-description']][.//h4[normalize-space(text())='Script']]                       |
       | Task description                  | //input[@id='createTask_userDescription']                                                                   |
       | Solution                          | //input[@id='solution']                                                                                     |
       | Options                           | //input[@id='options']                                                                                      |
@@ -20,7 +20,7 @@ Feature: Configure Bamboo
       | Interpreter                       | //select[@id='interpreter']                                                                                 |
       | Script body                       | //div[@id='scriptBody']                                                                                     |
       | Environment Variables             | //input[@id='environmentVariables']                                                                         |
-      | Octopus Deploy: Pack Package Tile | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Octopus Deploy: Pack Package']] |
+      | Octopus Deploy: Pack Package Tile | //li[.//div[@class='task-type-description']][.//h4[normalize-space(text())='Octopus Deploy: Pack Package']] |
       | Package ID                        | //input[@id='packId']                                                                                       |
       | Version number                    | //input[@id='packVersion']                                                                                  |
       | NuGet Package format              | //input[@id='packFormatnuget']                                                                              |
@@ -74,7 +74,7 @@ Feature: Configure Bamboo
     Given I set the following aliases:
       | Add task                                                  | //a[@id='addTask']                                                                         |
       | Search                                                    | //h2[contains(.,'Task types')]//input                                                      |
-      | Docker Tile                                               | (//li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Docker']])[1] |
+      | Docker Tile                                               | (//li[.//div[@class='task-type-description']][.//h4[normalize-space(text())='Docker']])[1] |
       | Task description                                          | //input[@id='createTask_userDescription']                                                  |
       | Command                                                   | //select[@id='commandOption']                                                              |
       | Repository                                                | //input[@id='repository']                                                                  |

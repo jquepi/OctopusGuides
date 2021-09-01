@@ -3,7 +3,7 @@ Feature: Push to Artifactory
   Scenario: Add Octopus Push
     Given I set the following aliases:
       | Add task         | //a[@id='addTask']                                                                    |
-      | Script Tile      | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Script']] |
+      | Script Tile      | //li[.//div[@class='task-type-description']][.//h4[normalize-space(text())='Script']] |
       | Search           | //h2[contains(.,'Task types')]//input                                                 |
       | Task description | //input[@id='createTask_userDescription']                                             |
       | Interpreter      | //select[@id='interpreter']                                                           |

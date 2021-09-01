@@ -14,7 +14,7 @@ Feature: Configure Bamboo
     Given I set the following aliases:
       | Add task         | //a[@id='addTask']                                                                       |
       | Search           | //h2[contains(.,'Task types')]//input                                                    |
-      | Maven Tile       | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Maven 3.x']] |
+      | Maven Tile       | //li[.//div[@class='task-type-description']][.//h4[normalize-space(text())='Maven 3.x']] |
       | Task description | //input[@id='createTask_userDescription']                                                |
       | Build JDK        | //select[@id='buildJdk']                                                                  |
       | Save             | //input[@id='createTask_save']                                                           |
@@ -51,7 +51,7 @@ Feature: Configure Bamboo
     Given I set the following aliases:
       | Add task                                                  | //a[@id='addTask']                                                                         |
       | Search                                                    | //h2[contains(.,'Task types')]//input                                                      |
-      | Docker Tile                                               | (//li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='Docker']])[1] |
+      | Docker Tile                                               | (//li[.//div[@class='task-type-description']][.//h4[normalize-space(text())='Docker']])[1] |
       | Task description                                          | //input[@id='createTask_userDescription']                                                  |
       | Command                                                   | //select[@id='commandOption']                                                              |
       | Repository                                                | //input[@id='repository']                                                                  |
