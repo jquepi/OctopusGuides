@@ -12,7 +12,7 @@ Feature: Configure Bamboo
     Given I set the following aliases:
       | Add task           | //a[@id='addTask']                                                                 |
       | Search             | //h2[contains(.,'Task types')]//input                                              |
-      | NPM Tile           | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='npm']] |
+      | NPM Tile           | //li[.//div[@class='task-type-description']][.//h4[normalize-space(text())='npm']] |
       | Task description   | //input[@id='createTask_userDescription']                                          |
       | Command            | //input[@id='command']                                                             |
       | Add new executable | //a[@class='addSharedBuilderCapability']                                           |

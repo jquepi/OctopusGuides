@@ -11,8 +11,8 @@ Feature: Configure Bamboo
     Given I set the following aliases:
       | Add task                     | //a[@id='addTask']                                                                 |
       | Search                       | //h2[contains(.,'Task types')]//input                                              |
-      | NPM Tile                     | //li[.//div[@class='task-type-description']][.//h3[normalize-space(text())='npm']] |
-      | Octopus Deploy: Pack Package | //li[.//h3[normalize-space(text())='Octopus Deploy: Pack Package']]                |
+      | NPM Tile                     | //li[.//div[@class='task-type-description']][.//h4[normalize-space(text())='npm']] |
+      | Octopus Deploy: Pack Package | //li[.//h4[normalize-space(text())='Octopus Deploy: Pack Package']]                |
       | Task description             | //input[@id='createTask_userDescription']                                          |
       | Command                      | //input[@id='command']                                                             |
       | Add new executable           | //a[@class='addSharedBuilderCapability']                                           |
