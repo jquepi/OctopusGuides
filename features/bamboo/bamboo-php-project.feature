@@ -16,7 +16,7 @@ Feature: Configure Bamboo
       | Script body                  | //div[@id='scriptBody']                                                                     |
       | Environment Variables        | //input[@id='environmentVariables']                                                         |
       | PHP Tile                     | (//li[.//div[@class='task-type-description']][.//h4[normalize-space(text())='PHPUnit']])[1] |
-      | Octopus Deploy: Pack Package | //li[.//h3[normalize-space(text())='Octopus Deploy: Pack Package']]                         |
+      | Octopus Deploy: Pack Package | //li[.//h4[normalize-space(text())='Octopus Deploy: Pack Package']]                         |
       | Task description             | //input[@id='createTask_userDescription']                                                   |
       | Command                      | //input[@id='command']                                                                      |
       | Add new executable           | //a[@class='addSharedBuilderCapability']                                                    |

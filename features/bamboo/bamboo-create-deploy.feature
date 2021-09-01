@@ -8,7 +8,7 @@ Feature: Create deployment
       | Configure plan                      | //a[@id='editBuild:RQ-WEB']                                           |
       | Default job                         | //a[@id='viewJob_RQ-WEB-JOB1']                                        |
       | Add task                            | //a[@id='addTask']                                                    |
-      | Octopus Deploy: Create Release Tile | //li[.//h3[normalize-space(text())='Octopus Deploy: Create Release']] |
+      | Octopus Deploy: Create Release Tile | //li[.//h4[normalize-space(text())='Octopus Deploy: Create Release']] |
       | Task description                    | //input[@id='createTask_userDescription']                             |
       | Server URL                          | //input[@id='serverUrl']                                              |
       | API key                             | //input[@id='apiKey']                                                 |
