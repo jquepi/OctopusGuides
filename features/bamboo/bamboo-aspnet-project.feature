@@ -112,8 +112,8 @@ Feature: Configure Bamboo
       | Plan name                    | //input[@id='chainName']                                                                       |
       | Repository host              | //a[@id='repository-other']                                                                    |
       | Git                          | //a[@href='#com.atlassian.bamboo.plugins.atlassian-bamboo-plugin-git:gitv2']                   |
-      | Display name                 | //input[@id='createPlan_repositoryName']                                                       |
-      | Repository URL               | //input[@id='createPlan_repository_git_repositoryUrl']                                         |
+      | Display name                 | //input[@id='addRepositoryToPlan_repositoryName']                                              |
+      | Repository URL               | //input[@id='addRepositoryToPlan_repository_git_repositoryUrl']                                |
       | Test connection              | //button[@id='test-connection-com-atlassian-bamboo-plugins-atlassian-bamboo-plugin-git-gitv2'] |
       | Connection successful        | //p[text()='Connection successful']                                                            |
       | Configure plan               | //input[@id='createPlan_save']                                                                 |
