@@ -14,6 +14,8 @@ download_file { 'sdk-installer-8.2.7.exe':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
+    ls C:\tools
+
     c:\tools\sdk-installer-8.2.7.exe -q -overwrite -c
     Sleep 60
 
