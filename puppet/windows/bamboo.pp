@@ -17,7 +17,7 @@ download_file { 'sdk-installer-8.2.7.exe':
     ls C:\tools
 
     c:\tools\sdk-installer-8.2.7.exe -q -overwrite -c
-    Sleep 60
+    Sleep 120
 
     ls C:\Applications
     ls C:\Applications\Atlassian
