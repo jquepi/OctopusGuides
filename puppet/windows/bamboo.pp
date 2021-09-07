@@ -16,6 +16,10 @@ download_file { 'sdk-installer-8.2.7.exe':
   content => @(EOT)
     c:\tools\sdk-installer-8.2.7.exe -q -overwrite -c
     Sleep 60
+
+    ls C:\Applications
+    ls C:\Applications\Atlassian
+
     # Bamboo only supports java 8
     $path = Get-ChildItem "C:\Program Files\Java\" | ?{$_.Name -like "jdk1.8.0_*"} | Sort -Descending | Select -First 1 | Select -ExpandProperty FullName
     $env:JAVA_HOME=$path
