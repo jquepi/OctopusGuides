@@ -6,11 +6,11 @@ download_file {'bamboo.jar':
 file { 'C:/atlas':
   ensure => 'directory'
 }
--> archive { 'C:/tools/chromedriver_win32.zip':
+-> archive { 'C:/tools/atlassian-plugin-sdk-8.2.7.zip':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/atlas',
-  source       => 'https://octopus-guides.s3.amazonaws.com/bamboo/sdk-installer-8.2.7.zip',
+  source       => 'https://octopus-guides.s3.amazonaws.com/bamboo/atlassian-plugin-sdk-8.2.7.zip',
   creates      => 'C:/atlas/installtype.txt',
   cleanup      => true,
 }
