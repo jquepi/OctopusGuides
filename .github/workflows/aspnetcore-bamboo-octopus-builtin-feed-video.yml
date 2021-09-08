@@ -56,7 +56,7 @@ jobs:
 
       - name: Execute puppet
         shell: powershell
-        run: ./install.ps1 -Scripts sqlserverexpress.pp,utilities.pp,dotnetutilities.pp,bamboo.pp,octopus.pp,iis.pp,sleep.pp,bamboowait.pp
+        run: ./install.ps1 -Scripts utilities.pp,bamboo.pp,sqlserverexpress.pp,dotnetutilities.pp,octopus.pp,iis.pp,sleep.pp,bamboowait.pp
 
       - name: Create API key
         shell: powershell
