@@ -3,10 +3,16 @@ download_file {'bamboo.jar':
   url => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar'
 }
 
-download_file { 'sdk-installer-8.2.7.exe':
-  destination_directory => 'C:/tools',
-  url                   =>
-    'https://octopus-guides.s3.amazonaws.com/bamboo/sdk-installer-8.2.7.exe',
+file { 'C:/atlas':
+  ensure => 'directory'
+}
+-> archive { 'C:/tools/chromedriver_win32.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/atlas',
+  source       => 'https://octopus-guides.s3.amazonaws.com/bamboo/sdk-installer-8.2.7.zip',
+  creates      => 'C:/atlas/installtype.txt',
+  cleanup      => true,
 }
 -> file { 'C:/start_bamboo.ps1':
   ensure  => 'file',
@@ -14,13 +20,7 @@ download_file { 'sdk-installer-8.2.7.exe':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    ls C:\tools
-
-    c:\tools\sdk-installer-8.2.7.exe -q -overwrite -c -dir c:\atlas
-    Sleep 120
-
-    ls C:\
-    ls C:\atlas
+    ls c:\atlas
 
     # Bamboo only supports java 8
     $path = Get-ChildItem "C:\Program Files\Java\" | ?{$_.Name -like "jdk1.8.0_*"} | Sort -Descending | Select -First 1 | Select -ExpandProperty FullName
