@@ -41,6 +41,7 @@ cd ..
 # Install Puppet
 ./install.sh \
   jenkins.pp \
+  update.pp \
   microk8s.pp \
   vagrantmicrok8s.pp \
   jenkinsdocker.pp \
@@ -103,8 +104,5 @@ sudo -Hu vagrant DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus dconf wri
 # Configure autoheal to allow the Octopus docker container to restart in the client VM.
 # Do this last because it looked like this feature was restarting the container during configuration steps above.
 ./install.sh autoheal.pp
-
-# Update any packages last
-./install.sh update.pp
 
 exit 0
