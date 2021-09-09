@@ -1,5 +1,6 @@
 exec { 'Get logs':
-  command   => 'cat amps-standalone-bamboo-LATEST\target\bamboo-LATEST.log',
+  command   => 'Get-Content amps-standalone-bamboo-LATEST\target\bamboo-LATEST.log',
+  provider  => powershell,
   logoutput => true
 }
 -> exec { 'Wait For Bamboo':
