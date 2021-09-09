@@ -37,7 +37,7 @@ file { 'C:/atlas':
 
     #$path = Get-ChildItem "C:\Program Files\Java\" | ?{$_.Name -like "jdk1.8.0_*"} | Sort -Descending | Select -First 1 | Select -ExpandProperty FullName
 
-    $env:JAVA_HOME="C:/zulu8.46.0.19-ca-jdk8.0.252-win_x64"
+    $env:JAVA_HOME="C:\zulu8.46.0.19-ca-jdk8.0.252-win_x64"
     # Launch Bamboo in a background process
     start "c:\atlas\bin\atlas-run-standalone.bat" -ArgumentList @("--product", "bamboo") -PassThru
     New-Item -ItemType file c:\BambooStarted.txt
