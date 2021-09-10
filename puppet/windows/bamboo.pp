@@ -39,7 +39,7 @@ file { 'C:/atlas':
 
     $env:JAVA_HOME="C:\zulu8.46.0.19-ca-jdk8.0.252-win_x64"
     # Launch Bamboo in a background process
-    start "c:\atlas\bin\atlas-run-standalone.bat" -ArgumentList @("--product", "bamboo") -PassThru
+    start "cmd" -ArgumentList @("/c", "c:\atlas\bin\atlas-run-standalone.bat --product bamboo") -PassThru
     New-Item -ItemType file c:\BambooStarted.txt
     exit 0
     | EOT
