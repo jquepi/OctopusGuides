@@ -1,4 +1,9 @@
-exec { 'Get logs':
+exec { 'Get files':
+  command   => 'Get-ChildItem .',
+  provider  => powershell,
+  logoutput => true
+}
+-> exec { 'Get logs':
   command   => 'Get-Content amps-standalone-bamboo-LATEST\target\bamboo-LATEST.log',
   provider  => powershell,
   logoutput => true
