@@ -8,6 +8,11 @@ exec { 'Get files':
   provider  => powershell,
   logoutput => true
 }
+-> -> exec { 'Get files 3':
+  command   => 'Get-ChildItem amps-standalone-bamboo-LATEST\target',
+  provider  => powershell,
+  logoutput => true
+}
 -> exec { 'Get logs':
   command   => 'Get-Content amps-standalone-bamboo-LATEST\target\bamboo-LATEST.log',
   provider  => powershell,
