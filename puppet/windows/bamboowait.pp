@@ -8,7 +8,7 @@ exec { 'Get files':
   provider  => powershell,
   logoutput => true
 }
--> -> exec { 'Get files 3':
+-> exec { 'Get files 3':
   command   => 'Get-ChildItem amps-standalone-bamboo-LATEST\target',
   provider  => powershell,
   logoutput => true
