@@ -9,9 +9,9 @@ file { 'C:/atlas':
 -> archive { 'C:/tools/atlassian-plugin-sdk-8.2.7.zip':
   ensure       => present,
   extract      => true,
-  extract_path => 'C:/atlas',
+  extract_path => 'C:/tools/atlas',
   source       => 'https://octopus-guides.s3.amazonaws.com/bamboo/atlassian-plugin-sdk-8.2.7.zip',
-  creates      => 'C:/atlas/installtype.txt',
+  creates      => 'C:/tools/atlas/installtype.txt',
   cleanup      => true,
 }
 -> archive { 'C:/tools/nssm-2.24.zip':
@@ -25,9 +25,9 @@ file { 'C:/atlas':
 -> archive { 'C:/tools/zulu8.46.0.19-ca-jdk8.0.252-win_x64.zip':
   ensure       => present,
   extract      => true,
-  extract_path => 'C:/',
+  extract_path => 'C:/tools',
   source       => 'https://octopus-guides.s3.amazonaws.com/java/zulu8.46.0.19-ca-jdk8.0.252-win_x64.zip',
-  creates      => 'C:/zulu8.46.0.19-ca-jdk8.0.252-win_x64/release',
+  creates      => 'C:/tools/zulu8.46.0.19-ca-jdk8.0.252-win_x64/release',
   cleanup      => true,
 }
 -> file { 'C:/start_bamboo.ps1':
@@ -42,10 +42,10 @@ file { 'C:/atlas':
     # See https://stackoverflow.com/questions/64040255/invalid-version-number-version-number-may-be-negative-or-greater-than-255
 
     # Launch Bamboo in a service
-    c:\tools\nssm-2.24\win64\nssm.exe install Bamboo "C:\atlas\bin\atlas-run-standalone.bat"
+    c:\tools\nssm-2.24\win64\nssm.exe install Bamboo "C:\tools\atlas\bin\atlas-run-standalone.bat"
     c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppDirectory C:\
     c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppParameters --product bamboo
-    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppEnvironmentExtra JAVA_HOME=C:\zulu8.46.0.19-ca-jdk8.0.252-win_x64
+    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppEnvironmentExtra JAVA_HOME=C:\tools\zulu8.46.0.19-ca-jdk8.0.252-win_x64
     c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppStdout C:\bamboo.out
     c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppStderr C:\bamboo.out
     net start Bamboo
