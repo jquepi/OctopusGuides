@@ -1,20 +1,5 @@
-exec { 'Get files':
-  command   => 'Get-ChildItem .',
-  provider  => powershell,
-  logoutput => true
-}
--> exec { 'Get files 2':
-  command   => 'Get-ChildItem amps-standalone-bamboo-LATEST',
-  provider  => powershell,
-  logoutput => true
-}
--> exec { 'Get files 3':
-  command   => 'Get-ChildItem amps-standalone-bamboo-LATEST\target',
-  provider  => powershell,
-  logoutput => true
-}
--> exec { 'Get logs':
-  command   => 'Get-Content amps-standalone-bamboo-LATEST\target\bamboo-LATEST.log; exit 0',
+exec { 'Get logs':
+  command   => 'Get-Content C:\bamboo.out; exit 0',
   provider  => powershell,
   logoutput => true
 }
