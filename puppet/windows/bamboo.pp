@@ -14,6 +14,14 @@ file { 'C:/atlas':
   creates      => 'C:/atlas/installtype.txt',
   cleanup      => true,
 }
+-> archive { 'C:/tools/nssm-2.24.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/',
+  source       => 'https://octopus-guides.s3.amazonaws.com/bamboo/nssm-2.24.zip',
+  creates      => 'C:/nssm-2.24/win64/nssm.exe',
+  cleanup      => true,
+}
 -> archive { 'C:/tools/zulu8.46.0.19-ca-jdk8.0.252-win_x64.zip':
   ensure       => present,
   extract      => true,
@@ -28,18 +36,19 @@ file { 'C:/atlas':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    ls c:\atlas
-
     # Bamboo only supports java 8, and only versions lower than 255
     # Caused by: java.lang.IllegalArgumentException: Invalid version number: Version number may be negative or greater than 255
     #    at com.ibm.icu.util.VersionInfo.getInstance(VersionInfo.java:191)
     # See https://stackoverflow.com/questions/64040255/invalid-version-number-version-number-may-be-negative-or-greater-than-255
 
-    #$path = Get-ChildItem "C:\Program Files\Java\" | ?{$_.Name -like "jdk1.8.0_*"} | Sort -Descending | Select -First 1 | Select -ExpandProperty FullName
-
-    $env:JAVA_HOME="C:\zulu8.46.0.19-ca-jdk8.0.252-win_x64"
     # Launch Bamboo in a background process
-    start "cmd" -ArgumentList @("/c", "c:\atlas\bin\atlas-run-standalone.bat --product bamboo") -PassThru
+    c:\tools\nssm-2.24\win64\nssm.exe install Bamboo "C:\atlas\bin\atlas-run-standalone.bat"
+    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppDirectory C:\
+    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppParameters --product bamboo
+    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppEnvironmentExtra JAVA_HOME=C:\zulu8.46.0.19-ca-jdk8.0.252-win_x64
+    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppStdout C:\bamboo.out
+    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppStderr C:\bamboo.out
+    net start Bamboo
 
     sleep 120
 
