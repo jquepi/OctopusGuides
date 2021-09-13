@@ -77,7 +77,9 @@ Feature: Create deployment
 
     And I scroll the "Run" button into view
     And I highlight the "Run" button with an offset of "5"
-    And I click the "Run" button
+    # force click because:
+    # Element <button class="aui-button aui-dropdown2-trigger"> is not clickable at point (1737,102) because another element <p> obscures it
+    And I force click the "Run" button
     And I highlight the "Run plan" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}110-run.png"
     And I click the "Run plan" link
