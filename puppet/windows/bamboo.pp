@@ -41,7 +41,7 @@ file { 'C:/atlas':
     #    at com.ibm.icu.util.VersionInfo.getInstance(VersionInfo.java:191)
     # See https://stackoverflow.com/questions/64040255/invalid-version-number-version-number-may-be-negative-or-greater-than-255
 
-    # Launch Bamboo in a background process
+    # Launch Bamboo in a service
     c:\tools\nssm-2.24\win64\nssm.exe install Bamboo "C:\atlas\bin\atlas-run-standalone.bat"
     c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppDirectory C:\
     c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppParameters --product bamboo
@@ -52,6 +52,7 @@ file { 'C:/atlas':
 
     sleep 120
 
+    Get-Content C:\bamboo.out
     New-Item -ItemType file c:\BambooStarted.txt
     exit 0
     | EOT
