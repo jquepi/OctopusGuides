@@ -17,9 +17,9 @@ file { 'C:/atlas':
 -> archive { 'C:/tools/nssm-2.24.zip':
   ensure       => present,
   extract      => true,
-  extract_path => 'C:/',
+  extract_path => 'C:/tools',
   source       => 'https://octopus-guides.s3.amazonaws.com/bamboo/nssm-2.24.zip',
-  creates      => 'C:/nssm-2.24/win64/nssm.exe',
+  creates      => 'C:/tools/nssm-2.24/win64/nssm.exe',
   cleanup      => true,
 }
 -> archive { 'C:/tools/zulu8.46.0.19-ca-jdk8.0.252-win_x64.zip':
