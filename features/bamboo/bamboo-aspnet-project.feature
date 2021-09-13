@@ -110,13 +110,15 @@ Feature: Configure Bamboo
       | Create your first build plan | //a[@id='create-a-plan']                                                                       |
       | Project name                 | //input[@id='projectName']                                                                     |
       | Plan name                    | //input[@id='chainName']                                                                       |
+      | Create                       | //input[@id='newPlanDetails_save']                                                             |
+      | Link new repository          | //input[@id='repositoryTypeCreateOption']                                                      |
       | Repository host              | //a[@id='repository-other']                                                                    |
       | Git                          | //a[@href='#com.atlassian.bamboo.plugins.atlassian-bamboo-plugin-git:gitv2']                   |
       | Display name                 | //input[@id='addRepositoryToPlan_repositoryName']                                              |
       | Repository URL               | //input[@id='addRepositoryToPlan_repository_git_repositoryUrl']                                |
       | Test connection              | //button[@id='test-connection-com-atlassian-bamboo-plugins-atlassian-bamboo-plugin-git-gitv2'] |
       | Connection successful        | //p[text()='Connection successful']                                                            |
-      | Configure plan               | //input[@id='createPlan_save']                                                                 |
+      | Save and continue            | //input[@id='addRepositoryToPlan_save']                                                        |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating the build project" for "3" seconds
@@ -138,6 +140,17 @@ Feature: Configure Bamboo
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}040-plan-name.png"
     And I remove the highlight from the "Project name" text box
     And I remove the highlight from the "Plan name" text box
+
+    And I highlight outside the "Create" text box with an offset of "5"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}041-create.png"
+    And I remove the highlight from the "Create" text box
+    And I remove the highlight from the "Create" text box
+    And I click the "Create" button
+
+    And I highlight outside the "Link new repository" text box with an offset of "5"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}042-link-new-repository.png"
+    And I remove the highlight from the "Link new repository" text box
+    And I click the "Link new repository" radio button
 
     And I highlight outside the "Repository host" drop down list
     And I scroll the "Repository host" drop down list into view offset by "-300"
@@ -168,10 +181,10 @@ Feature: Configure Bamboo
     Then I verify the "Connection successful" message is present
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}080-test-connection.png"
 
-    And I highlight outside the "Configure plan" button
-    And I scroll the "Configure plan" button into view
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}090-configure-plan.png"
-    And I click the "Configure plan" button
+    And I highlight outside the "Save and continue" text box with an offset of "5"
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}081-save-and-continue.png"
+    And I remove the highlight from the "Save and continue" text box
+    And I click the "Save and continue" radio button
 
     And I stop recording the screen
 
