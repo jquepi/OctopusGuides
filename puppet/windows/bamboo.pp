@@ -3,7 +3,10 @@ download_file {'bamboo.jar':
   url => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar'
 }
 
-file { 'C:/atlas':
+file { 'C:/tools':
+  ensure => 'directory'
+}
+-> file { 'C:/tools/atlas':
   ensure => 'directory'
 }
 -> archive { 'C:/tools/atlassian-plugin-sdk-8.2.7.zip':
