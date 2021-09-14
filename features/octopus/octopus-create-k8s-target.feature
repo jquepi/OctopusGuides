@@ -75,15 +75,17 @@ Feature: Create Azure Web App Target
   @destinationspecific @k8s
   Scenario: Add target client certificate
     Given I set the following aliases:
-      | Client Certificate         | //input[@value='KubernetesCertificate']                          |
-      | Select account certificate | (//button[../../../../label[text()='Select certificate']])[1]    |
-      | Cluster account container  | (//div[./label[text()='Select certificate']])[1]                 |
-      | Minikube certificate       | (//span[./div/div/div[text()='Minikube Client Certificate']])[1] |
+      | Client Certificate            | //span[./div/div/div[text()='Client Certificate']]               |
+      | Select an authentication type | //div[./label[text()='Select an authentication type']]/div/div   |
+      | Select account certificate    | (//button[../../../../label[text()='Select certificate']])[1]    |
+      | Cluster account container     | (//div[./label[text()='Select certificate']])[1]                 |
+      | Minikube certificate          | (//span[./div/div/div[text()='Minikube Client Certificate']])[1] |
 
-    And I highlight outside the "Client Certificate" option
-    And I scroll the "Client Certificate" option into view offset by "-200"
-    And I force click the "Client Certificate" option
+    And I highlight outside the "Select an authentication type" option
+    And I scroll the "Select an authentication type" option into view offset by "-200"
+    And I force click the "Select an authentication type" drop down list
     And I sleep for "1" second
+    And I force click the "Client Certificate" option
 
     And I scroll the "Select account certificate" drop down list into view offset by "-200"
     And I click the "Select account certificate" drop down list
