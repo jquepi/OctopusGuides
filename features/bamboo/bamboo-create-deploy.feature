@@ -82,7 +82,7 @@ Feature: Create deployment
     And I force click the "Run" button
     And I highlight the "Run plan" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/createrelease/#{GuideSpecificScreenshotDir}110-run.png"
-    And I click the "Run plan" link
+    And I force click the "Run plan" link
 
     And I scroll down "10000" px
     And I sleep for "20" seconds
