@@ -1,4 +1,5 @@
 Feature: Bamboo login
+
   @login @browserspecific @firefox
   Scenario: Open Browser
     And I open the shared browser "ExternalBrowserType"
@@ -25,3 +26,13 @@ Feature: Bamboo login
     And I populate the "Password" text box with "admin"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/login/010-login.png"
     And I click the "Log in Two" button
+
+  Scenario: Close popups
+    Given I set the following aliases:
+      | Don't remind me again | (//a[@class="dismiss-notification"])[1] |
+
+    # Dismiss any popups that might hide the run button. I've seen up to two popups before.
+    And I sleep for "10" seconds
+    And I click the "Don't remind me again" link if it exists
+    And I sleep for "10" seconds
+    And I click the "Don't remind me again" link if it exists
