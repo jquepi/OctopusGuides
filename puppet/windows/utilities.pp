@@ -10,9 +10,19 @@ package { 'gnuwin32-coreutils.install':
   provider => chocolatey
 }
 
-package { 'vlc':
+# VLC started to fail to install via chocolatey
+/*package { 'vlc':
   ensure   => installed,
   provider => chocolatey
+}*/
+
+archive { 'C:/tools/vlc-3.0.16-win32.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools',
+  source       => 'https://octopus-guides.s3.amazonaws.com/vlc/vlc-3.0.16-win32.zip',
+  creates      => 'C:/tools/vlc-3.0.16/vlc.exe',
+  cleanup      => true,
 }
 
 package { 'ffmpeg':
