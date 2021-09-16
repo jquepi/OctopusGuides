@@ -1,9 +1,26 @@
 include chocolatey
 
-package { 'visualstudio2019teamexplorer':
+# Team explorer tools started to fail to install via chocolatey
+/*package { 'visualstudio2019teamexplorer':
   ensure   => installed,
   provider => chocolatey
+}*/
+
+archive { 'C:/tools/vs_TeamExplorer.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools',
+  source       => 'https://octopus-guides.s3.amazonaws.com/visualstudio/vs_TeamExplorer.zip',
+  creates      => 'C:/tools/vs_TeamExplorer/vs_setup.exe',
+  cleanup      => true,
 }
+# https://silentinstallhq.com/visual-studio-team-explorer-2019-silent-install-how-to-guide/
+-> exec { 'Install VS Team Explorer tools':
+  command   => 'C:/tools/vs_TeamExplorer/vs_setup.exe --nocache --wait --noUpdateInstaller --noWeb --allWorkloads --includeRecommended --includeOptional --quiet --norestart',
+  provider  => powershell,
+  logoutput => true,
+}
+
 
 package { 'gnuwin32-coreutils.install':
   ensure   => installed,
