@@ -21,7 +21,9 @@ Feature: Bamboo login
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://#{Hostname}:6990/bamboo/"
     And I refresh the page for "900" seconds if the "Log in" button does not exist
-    And I click the "Log in" button
+    # Force click because of org.openqa.selenium.ElementClickInterceptedException: Element <a id="login" href="/bamboo/userlogin!doDefault.action?os_destination=%2Fstart.action">
+    # is not clickable at point (1798,986) because another element <div id="license-message" class="aui-message warning"> obscures it
+    And I force click the "Log in" button
     And I populate the "Username" text box with "admin"
     And I populate the "Password" text box with "admin"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/login/010-login.png"
