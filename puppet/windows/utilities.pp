@@ -24,7 +24,9 @@ archive { 'C:/tools/vs_TeamExplorer.zip':
 
 package { 'gnuwin32-coreutils.install':
   ensure   => installed,
-  provider => chocolatey
+  provider => chocolatey,
+  # On 16 Sep 2021 the checksums were failing, so force the install anyway
+  install_options => ['--ignore-checksums']
 }
 
 # VLC started to fail to install via chocolatey
