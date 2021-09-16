@@ -1,11 +1,6 @@
 include chocolatey
 
-# Team explorer tools started to fail to install via chocolatey
-/*package { 'visualstudio2019teamexplorer':
-  ensure   => installed,
-  provider => chocolatey
-}*/
-
+# visualstudio2019teamexplorer in chocolatey
 archive { 'C:/tools/vs_TeamExplorer.zip':
   ensure       => present,
   extract      => true,
@@ -21,20 +16,19 @@ archive { 'C:/tools/vs_TeamExplorer.zip':
   logoutput => true,
 }
 
-
-package { 'gnuwin32-coreutils.install':
-  ensure   => installed,
-  provider => chocolatey,
-  # On 16 Sep 2021 the checksums were failing, so force the install anyway
-  install_options => ['--ignore-checksums']
+# gnuwin32-coreutils.install in chocoloaty
+download_file { 'coreutils-5.3.0.exe':
+  destination_directory => 'C:/tools',
+  url                   =>
+    'https://octopus-guides.s3.amazonaws.com/coreutils/coreutils-5.3.0.exe',
+}
+-> exec { 'install coreutils':
+  command   => 'C:/tools/coreutils-5.3.0.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART',
+  provider  => powershell,
+  logoutput => true,
 }
 
-# VLC started to fail to install via chocolatey
-/*package { 'vlc':
-  ensure   => installed,
-  provider => chocolatey
-}*/
-
+# vlc in chocoloaty
 archive { 'C:/tools/vlc-3.0.16-win32.zip':
   ensure       => present,
   extract      => true,
