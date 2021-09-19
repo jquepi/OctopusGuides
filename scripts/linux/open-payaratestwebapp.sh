@@ -23,3 +23,7 @@
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/open-randomquotes-generic.feature
+
+if [ -f /opt/payara5/glassfish/domains/domain1/logs/server.log ]; then
+  sudo cat /opt/payara5/glassfish/domains/domain1/logs/server.log
+fi
