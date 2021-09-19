@@ -1,7 +1,7 @@
-file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
+file { 'C:/Program Files/Jenkins/init.groovy.d':
   ensure => 'directory',
 }
--> file { 'C:/Program Files (x86)/Jenkins/init.groovy.d/b.plugins.groovy':
+-> file { 'C:/Program Files/Jenkins/init.groovy.d/b.plugins.groovy':
   ensure  => 'file',
   owner   => 'Administrators',
   group   => 'Administrators',
@@ -75,13 +75,13 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
     | EOT
 }
 -> file_line { 'installStateName':
-  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
+  path    => 'C:/Program Files/Jenkins/config.xml',
   line    => '  <installStateName>RUNNING</installStateName>',
   match   => '^\s*<installStateName>NEW</installStateName>',
   replace => true,
 }
 -> file_line { 'jenkins args':
-  path    => 'C:/Program Files (x86)/Jenkins/jenkins.xml',
+  path    => 'C:/Program Files/Jenkins/jenkins.xml',
   line    =>
     '  <arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=8080 --webroot="%BASE%\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>'
   ,
@@ -89,43 +89,43 @@ file { 'C:/program Files (x86)/Jenkins/init.groovy.d':
   replace => true
 }
 -> file_line { 'Use container security':
-  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
+  path    => 'C:/Program Files/Jenkins/config.xml',
   line    => '  <authorizationStrategy class="hudson.security.LegacyAuthorizationStrategy"/>',
   match   => '^\s*<authorizationStrategy.*?/?>',
   replace => true
 }
 -> file_line { 'Remove authorizationStrategy contents':
-  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  path   => 'C:/Program Files/Jenkins/config.xml',
   line   => '^\s*<denyAnonymousReadAccess>true</denyAnonymousReadAccess>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove authorizationStrategy end tag':
-  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  path   => 'C:/Program Files/Jenkins/config.xml',
   match  => '^\s*</authorizationStrategy>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Legacy realm':
-  path    => 'C:/Program Files (x86)/Jenkins/config.xml',
+  path    => 'C:/Program Files/Jenkins/config.xml',
   line    => '  <securityRealm class="hudson.security.LegacySecurityRealm"/>',
   match   => '^\s*<securityRealm.*?/?>',
   replace => true
 }
 -> file_line { 'Remove securityRealm contents 1':
-  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  path   => 'C:/Program Files/Jenkins/config.xml',
   match  => '^\s*<disableSignup>true</disableSignup>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove securityRealm contents 2':
-  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  path   => 'C:/Program Files/Jenkins/config.xml',
   match  => '^\s*<enableCaptcha>false</enableCaptcha>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove securityRealm end tag':
-  path   => 'C:/Program Files (x86)/Jenkins/config.xml',
+  path   => 'C:/Program Files/Jenkins/config.xml',
   match  => '^\s*</securityRealm>',
   ensure => absent,
   match_for_absence => true
