@@ -75,7 +75,7 @@ file { 'C:/Program Files/Jenkins/init.groovy.d':
     | EOT
 }
 -> file_line { 'installStateName':
-  path    => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config,xml',
+  path    => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
   line    => '  <installStateName>RUNNING</installStateName>',
   match   => '^\s*<installStateName>NEW</installStateName>',
   replace => true,
@@ -89,43 +89,43 @@ file { 'C:/Program Files/Jenkins/init.groovy.d':
   replace => true
 }
 -> file_line { 'Use container security':
-  path    => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config,xml',
+  path    => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
   line    => '  <authorizationStrategy class="hudson.security.LegacyAuthorizationStrategy"/>',
   match   => '^\s*<authorizationStrategy.*?/?>',
   replace => true
 }
 -> file_line { 'Remove authorizationStrategy contents':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config,xml',
+  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
   line   => '^\s*<denyAnonymousReadAccess>true</denyAnonymousReadAccess>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove authorizationStrategy end tag':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config,xml',
+  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
   match  => '^\s*</authorizationStrategy>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Legacy realm':
-  path    => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config,xml',
+  path    => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
   line    => '  <securityRealm class="hudson.security.LegacySecurityRealm"/>',
   match   => '^\s*<securityRealm.*?/?>',
   replace => true
 }
 -> file_line { 'Remove securityRealm contents 1':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config,xml',
+  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
   match  => '^\s*<disableSignup>true</disableSignup>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove securityRealm contents 2':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config,xml',
+  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
   match  => '^\s*<enableCaptcha>false</enableCaptcha>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove securityRealm end tag':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config,xml',
+  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
   match  => '^\s*</securityRealm>',
   ensure => absent,
   match_for_absence => true
