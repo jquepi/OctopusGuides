@@ -1,11 +1,11 @@
 user { 'payara':
   ensure => present,
 }
--> archive { '/opt/payara-5.2020.2.zip':
+-> archive { '/opt/payara-5.2021.7.zip':
   ensure          => present,
   extract         => true,
   extract_path    => '/opt',
-  source          => 'https://octopus-guides.s3.amazonaws.com/payara/payara-5.2020.2.zip',
+  source          => 'https://octopus-guides.s3.amazonaws.com/payara/payara-5.2021.7.zip',
   creates         => '/opt/payara5/README.txt',
   cleanup         => true
 }
