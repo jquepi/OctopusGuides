@@ -8,7 +8,7 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Random Quotes Project    | //a[contains(.,'Random Quotes')]                               |
+      | Random Quotes Project    | //a[contains(.,'RandomQuotes')]                               |
       | Configure                | //a[contains(.,'Configure')]                                   |
       | Add post-build action    | //button[@type='button'][contains(.,'Add post-build action')]  |
       | Create Release           | //a[contains(.,'Octopus Deploy: Create Release')]              |
@@ -43,7 +43,7 @@ Feature: Create and deploy a release from Jenkins
 
     And I scroll the "Project name" text box into view offset by "-200"
     And I highlight the "Project name" text box
-    And I populate the "Project name" text box with "Random Quotes"
+    And I populate the "Project name" text box with "RandomQuotes"
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}017-octo-plugin-create-release-command.png"
 

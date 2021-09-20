@@ -6,7 +6,7 @@ Feature: Build Jenkins project
       | Build One      | //a[contains(.,'#1')]             |
       | Console Output | //a[contains(.,'Console Output')] |
 
-    And I open the URL "http://localhost:8080/job/Random%20Quotes/"
+    And I open the URL "http://localhost:8080/job/RandomQuotes/"
     And I clear the transition
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
@@ -18,7 +18,7 @@ Feature: Build Jenkins project
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}310-build-one.png"
     # Fake a click here to fix stale element errors in WebDriver
     And I mouse over the "Build One" link
-    And I open the URL "http://localhost:8080/job/Random%20Quotes/1/"
+    And I open the URL "http://localhost:8080/job/RandomQuotes/1/"
 
     And I highlight inside the "Console Output" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}320-console.png"
