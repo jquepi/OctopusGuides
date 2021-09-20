@@ -76,16 +76,16 @@ file { 'C:/Program Files/Jenkins/init.groovy.d':
 }
 -> file_line { 'installStateName':
   path    => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
-  line    => '  <installStateName>RUNNING</installStateName>',
-  match   => '^\s*<installStateName>NEW</installStateName>',
+  line    => '  <installStateName>RUNNING</installStateName>\n</hudson>',
+  match   => '^\s*</hudson>',
   replace => true,
 }
 -> file_line { 'jenkins args':
   path    => 'C:/Program Files/Jenkins/jenkins.xml',
   line    =>
-    '  <arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=8080 --webroot="%BASE%\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>'
+    '  <arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=8080 --webroot="%BASE%\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>\n</hudson>'
   ,
-  match   => '^\s*<arguments>.+?</arguments>',
+  match   => '^\s*</hudson>',
   replace => true
 }
 -> file_line { 'Use container security':
