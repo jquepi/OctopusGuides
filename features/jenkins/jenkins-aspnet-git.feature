@@ -170,7 +170,6 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "MSBuild Build File" text box with an offset of "0"
     And I highlight outside the "Command Line Arguments" text box with an offset of "0"
     And I select the option "MSBuild" from the "MSBuild Version" drop down list
-    # Use the full path: https://issues.jenkins.io/browse/JENKINS-13863
     And I populate the "MSBuild Build File" text box with "RandomQuotes.sln"
     And I populate the "Command Line Arguments" text box with "/p:RunOctoPack=true /p:OctoPackEnforceAddingFiles=true /p:OctoPackPackageVersion=1.0.$BUILD_NUMBER"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}125-msbuild-step.png"
