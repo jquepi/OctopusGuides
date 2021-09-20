@@ -83,7 +83,7 @@ file { 'C:/Program Files/Jenkins/init.groovy.d':
 -> file_line { 'jenkins args':
   path    => 'C:/Program Files/Jenkins/jenkins.xml',
   line    =>
-    '  <arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=8080 --webroot="%BASE%\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>'
+    '  <arguments>-Xrs -Xmx256m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "C:\Program Files\Jenkins\jenkins.war" --httpPort=8080 --webroot="%LocalAppData%\Jenkins\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>'
   ,
   match   => '^\s*<arguments>.+?</arguments>',
   replace => true
