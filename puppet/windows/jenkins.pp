@@ -84,6 +84,7 @@ file { 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/
   replace => true
 }
 # Change the home directory, as MSBuild doesn't work well with paths like "C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins"
+# Otherwise you get errors like "MSBUILD : error MSB1009: Project file does not exist"
 -> file_line { 'jenkins home':
   path    => 'C:/Jenkins/jenkins.xml',
   line    =>
