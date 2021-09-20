@@ -6,7 +6,7 @@ Feature: Build two
       | Build Two      | //a[contains(.,'#2')]             |
       | Console Output | //a[contains(.,'Console Output')] |
 
-    And I open the URL "http://localhost:8080/job/RandomQuotes/"
+    And I open the URL "http://localhost:8080/job/Random%20Quotes/"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight inside the "Build Now" link
@@ -17,7 +17,7 @@ Feature: Build two
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}035-build-two.png"
     # Faking a click, because clicking this element fails a lot of the time
     And I mouse over the "Build Two" link
-    And I open the URL "http://localhost:8080/job/RandomQuotes/2/"
+    And I open the URL "http://localhost:8080/job/Random%20Quotes/2/"
 
     And I highlight inside the "Console Output" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}040-build-and-deploy-console.png"

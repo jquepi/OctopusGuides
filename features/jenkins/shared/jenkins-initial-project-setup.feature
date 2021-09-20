@@ -24,7 +24,7 @@ Feature: Jenkins initial project setup
     And I highlight outside the "Freestyle project" link
     And I highlight outside the "Project name" link
     And I highlight outside the "OK" button
-    And I populate the "Project name" text box with "RandomQuotes"
+    And I populate the "Project name" text box with "Random Quotes"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}180-freestyle-project.png"
     And I click the "Freestyle project" link
     And I scroll the "OK" button into view
