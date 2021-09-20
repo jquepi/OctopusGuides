@@ -74,12 +74,22 @@ file { 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/
 
     | EOT
 }
+# Skip the initial wizard, and set the admin credentials
 -> file_line { 'jenkins args':
   path    => 'C:/Jenkins/jenkins.xml',
   line    =>
     '  <arguments>-Xrs -Xmx256m -Djenkins.install.runSetupWizard=false -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "C:\Jenkins\jenkins.war" --httpPort=8080 --webroot="%LocalAppData%\Jenkins\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>'
   ,
   match   => '^\s*<arguments>.+?</arguments>',
+  replace => true
+}
+# Change the home directory, as MSBuild doesn't work well with paths like "C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins\.jenkins"
+-> file_line { 'jenkins home':
+  path    => 'C:/Jenkins/jenkins.xml',
+  line    =>
+    '  <env name="JENKINS_HOME" value="C:\JenkinsHome"/>'
+  ,
+  match   => '^\s*<env name="JENKINS_HOME".+?/>',
   replace => true
 }
 -> file_line { 'Use container security':
