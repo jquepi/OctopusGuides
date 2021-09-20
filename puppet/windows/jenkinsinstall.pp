@@ -24,11 +24,11 @@ download_file {'jenkins.msi':
   provider  => powershell,
   logoutput => true
 }
-# Skip the initial wizard, and set the admin credentials
+# Skip the initial wizard, and set the admin credentials. Also disable CSRF as it has caused issues in the past.
 -> file_line { 'jenkins args':
   path    => 'C:/Jenkins/jenkins.xml',
   line    =>
-    '  <arguments>-Xrs -Xmx256m -Djenkins.install.runSetupWizard=false -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "C:\Jenkins\jenkins.war" --httpPort=8080 --webroot="%LocalAppData%\Jenkins\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>'
+    '  <arguments>-Xrs -Xmx256m -Dhudson.security.csrf.GlobalCrumbIssuerConfiguration.DISABLE_CSRF_PROTECTION=true -Djenkins.install.runSetupWizard=false -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "C:\Jenkins\jenkins.war" --httpPort=8080 --webroot="%LocalAppData%\Jenkins\war" --argumentsRealm.passwd.admin=Password01! --argumentsRealm.roles.admin=admin</arguments>'
   ,
   match   => '^\s*<arguments>.+?</arguments>',
   replace => true
