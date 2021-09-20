@@ -1,7 +1,7 @@
-file { 'C:/Program Files/Jenkins/init.groovy.d':
+file { 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/init.groovy.d':
   ensure => 'directory',
 }
--> file { 'C:/Program Files/Jenkins/init.groovy.d/b.plugins.groovy':
+-> file { 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/init.groovy.d/b.plugins.groovy':
   ensure  => 'file',
   owner   => 'Administrators',
   group   => 'Administrators',
