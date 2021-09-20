@@ -105,6 +105,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Freestyle project" link
     And I highlight outside the "Project name" link
     And I highlight outside the "OK" button
+    # If this project name has a space, the MSBuild step fails when passing in the path for a sln file
     And I populate the "Project name" text box with "RandomQuotes"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}080-freestyle-project.png"
     And I click the "Freestyle project" link
