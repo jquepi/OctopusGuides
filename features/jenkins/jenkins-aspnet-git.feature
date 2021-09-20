@@ -138,7 +138,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | MSBuild Build File                                      | //input[@name='msBuildBuilder.msBuildFile']                                |
       | Command Line Arguments                                  | //textarea[@name='msBuildBuilder.cmdLineArgs']                             |
       | Command Two                                             | (//textarea[contains(@name,'command')])[2]                                 |
-      | Solution Path                                           | "%WORKSPACE%\RandomQuotes.sln"                                             |
+      | Solution Path                                           | %WORKSPACE%\RandomQuotes.sln                                               |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button

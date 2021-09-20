@@ -11,7 +11,7 @@ download_file {'jenkins.msi':
   group   => 'Administrators',
   mode    => '0644',
   content => @(EOT)
-    start-process msiexec -Wait -ArgumentList @("/qn", "/norestart", "/l*v", "c:\jenkinsinstall.log", "/i", "c:\tools\jenkins.msi")
+    start-process msiexec -Wait -ArgumentList @("JENKINSDIR=C:\Jenkins", "/qn", "/norestart", "/l*v", "c:\jenkinsinstall.log", "/i", "c:\tools\jenkins.msi")
     Get-Content c:\jenkinsinstall.log
     net start jenkins
     New-Item -ItemType file c:\JenkinsStarted.txt
