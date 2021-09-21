@@ -13,7 +13,7 @@ download_file {'jenkins.msi':
   content => @(EOT)
     start-process msiexec -Wait -ArgumentList @("JENKINSDIR=C:\Jenkins", "/qn", "/norestart", "/l*v", "c:\jenkinsinstall.log", "/i", "c:\tools\jenkins.msi")
     Get-Content c:\jenkinsinstall.log
-    net stop jenkins
+    net start jenkins
     New-Item -ItemType file c:\JenkinsStarted.txt
     exit 0
     | EOT
@@ -43,10 +43,13 @@ download_file {'jenkins.msi':
   match   => '^\s*<env name="JENKINS_HOME".+?/>',
   replace => true
 }
--> file { 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/init.groovy.d':
+-> file { 'C:/JenkinsHome':
   ensure => 'directory',
 }
--> file { 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/init.groovy.d/b.plugins.groovy':
+-> file { 'C:/JenkinsHome/init.groovy.d':
+  ensure => 'directory',
+}
+-> file { 'C:/JenkinsHome/init.groovy.d/b.plugins.groovy':
   ensure  => 'file',
   owner   => 'Administrators',
   group   => 'Administrators',
@@ -120,43 +123,43 @@ download_file {'jenkins.msi':
     | EOT
 }
 -> file_line { 'Use container security':
-  path    => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
+  path    => 'C:/JenkinsHome/init.groovy.d/config.xml',
   line    => '  <authorizationStrategy class="hudson.security.LegacyAuthorizationStrategy"/>',
   match   => '^\s*<authorizationStrategy.*?/?>',
   replace => true
 }
 -> file_line { 'Remove authorizationStrategy contents':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
+  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
   line   => '^\s*<denyAnonymousReadAccess>true</denyAnonymousReadAccess>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove authorizationStrategy end tag':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
+  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
   match  => '^\s*</authorizationStrategy>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Legacy realm':
-  path    => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
+  path    => 'C:/JenkinsHome/init.groovy.d/config.xml',
   line    => '  <securityRealm class="hudson.security.LegacySecurityRealm"/>',
   match   => '^\s*<securityRealm.*?/?>',
   replace => true
 }
 -> file_line { 'Remove securityRealm contents 1':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
+  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
   match  => '^\s*<disableSignup>true</disableSignup>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove securityRealm contents 2':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
+  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
   match  => '^\s*<enableCaptcha>false</enableCaptcha>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove securityRealm end tag':
-  path   => 'C:/Windows/System32/config/systemprofile/AppData/Local/Jenkins/.jenkins/config.xml',
+  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
   match  => '^\s*</securityRealm>',
   ensure => absent,
   match_for_absence => true
