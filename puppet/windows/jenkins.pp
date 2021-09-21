@@ -75,43 +75,43 @@ file { 'C:/JenkinsHome/init.groovy.d':
     | EOT
 }
 -> file_line { 'Use container security':
-  path    => 'C:/JenkinsHome/init.groovy.d/config.xml',
+  path    => 'C:/JenkinsHome/config.xml',
   line    => '  <authorizationStrategy class="hudson.security.LegacyAuthorizationStrategy"/>',
   match   => '^\s*<authorizationStrategy.*?/?>',
   replace => true
 }
 -> file_line { 'Remove authorizationStrategy contents':
-  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
+  path   => 'C:/JenkinsHome/config.xml',
   line   => '^\s*<denyAnonymousReadAccess>true</denyAnonymousReadAccess>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove authorizationStrategy end tag':
-  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
+  path   => 'C:/JenkinsHome/config.xml',
   match  => '^\s*</authorizationStrategy>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Legacy realm':
-  path    => 'C:/JenkinsHome/init.groovy.d/config.xml',
+  path    => 'C:/JenkinsHome/config.xml',
   line    => '  <securityRealm class="hudson.security.LegacySecurityRealm"/>',
   match   => '^\s*<securityRealm.*?/?>',
   replace => true
 }
 -> file_line { 'Remove securityRealm contents 1':
-  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
+  path   => 'C:/JenkinsHome/config.xml',
   match  => '^\s*<disableSignup>true</disableSignup>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove securityRealm contents 2':
-  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
+  path   => 'C:/JenkinsHome/config.xml',
   match  => '^\s*<enableCaptcha>false</enableCaptcha>',
   ensure => absent,
   match_for_absence => true
 }
 -> file_line { 'Remove securityRealm end tag':
-  path   => 'C:/JenkinsHome/init.groovy.d/config.xml',
+  path   => 'C:/JenkinsHome/config.xml',
   match  => '^\s*</securityRealm>',
   ensure => absent,
   match_for_absence => true
