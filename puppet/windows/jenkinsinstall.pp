@@ -13,7 +13,6 @@ download_file {'jenkins.msi':
   content => @(EOT)
     start-process msiexec -Wait -ArgumentList @("JENKINSDIR=C:\Jenkins", "/qn", "/norestart", "/l*v", "c:\jenkinsinstall.log", "/i", "c:\tools\jenkins.msi")
     Get-Content c:\jenkinsinstall.log
-    net start jenkins
     New-Item -ItemType file c:\JenkinsStarted.txt
     exit 0
     | EOT
@@ -42,6 +41,10 @@ download_file {'jenkins.msi':
   ,
   match   => '^\s*<env name="JENKINS_HOME".+?/>',
   replace => true
+}
+-> exec { 'Restart Jenkins with new home dir':
+  command   => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
+  logoutput => true
 }
 -> file { 'C:/JenkinsHome':
   ensure => 'directory',
