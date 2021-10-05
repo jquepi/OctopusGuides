@@ -14,7 +14,8 @@ Feature: Build Jenkins project
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}300-build-now.png"
     And I click the "Build Now" link
 
-    And I highlight inside the "Build One" link waiting up to "120" seconds
+    And I refresh the page for "10" seconds if the "Build One" link does not exists
+    And I highlight inside the "Build One" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}310-build-one.png"
     # Fake a click here to fix stale element errors in WebDriver
     And I mouse over the "Build One" link waiting up to "120" seconds
