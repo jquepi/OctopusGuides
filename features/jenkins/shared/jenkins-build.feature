@@ -1,10 +1,11 @@
 Feature: Build Jenkins project
+
   @build-now
   Scenario: Run build
     Given I set the following aliases:
-      | Build Now      | //a[contains(.,'Build Now')]      |
-      | Build One      | //a[contains(.,'#1')]             |
-      | Console Output | //a[contains(.,'Console Output')] |
+      | Build Now      | //a[@title='Build Now']\|//a[contains(.,'Build Now')] |
+      | Build One      | //a[contains(.,'#1')]                                 |
+      | Console Output | //a[contains(.,'Console Output')]                     |
 
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
     And I clear the transition
@@ -13,6 +14,7 @@ Feature: Build Jenkins project
     And I highlight inside the "Build Now" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}300-build-now.png"
     And I click the "Build Now" link
+    And I sleep for "2" seconds
 
     And I refresh the page for "30" seconds if the "Build One" link does not exists
     And I highlight inside the "Build One" link
