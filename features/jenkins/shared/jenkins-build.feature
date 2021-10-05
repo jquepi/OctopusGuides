@@ -15,7 +15,11 @@ Feature: Build Jenkins project
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}300-build-now.png"
     And I click the "Build Now" link
     And I sleep for "2" seconds
+
+    And I stop recording the screen
+    And I open the URL "http://localhost:8080"
     And I open the URL "http://localhost:8080/job/Random%20Quotes/"
+    And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight inside the "Build One" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}310-build-one.png"
