@@ -15,8 +15,8 @@ Feature: Build Jenkins project
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}300-build-now.png"
     And I click the "Build Now" link
     And I sleep for "2" seconds
+    And I open the URL "http://localhost:8080/job/Random%20Quotes/"
 
-    And I refresh the page for "30" seconds if the "Build One" link does not exists
     And I highlight inside the "Build One" link
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}310-build-one.png"
     # Fake a click here to fix stale element errors in WebDriver
