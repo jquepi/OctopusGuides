@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -n "$WISTIA_MEDIA_ID" ]; then
-  /opt/jdk-15/bin/java \
+  /opt/jdk-17.0.1/bin/java \
     "-Xmx2g" \
     "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \

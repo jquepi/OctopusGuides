@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/opt/jdk-15/bin/java \
+/opt/jdk-17.0.1/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \
@@ -27,7 +27,7 @@
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-k8s-target.feature
 
-/opt/jdk-15/bin/java \
+/opt/jdk-17.0.1/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \
@@ -54,7 +54,7 @@
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-create-k8s-target.feature
 
-/opt/jdk-15/bin/java \
+/opt/jdk-17.0.1/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \

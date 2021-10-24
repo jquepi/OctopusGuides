@@ -2,7 +2,7 @@
 
 API_KEY=`cat /tmp/api_key.txt`
 
-/opt/jdk-15/bin/java \
+/opt/jdk-17.0.1/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \

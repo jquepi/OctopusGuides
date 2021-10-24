@@ -18,12 +18,12 @@ apt::ppa { 'ppa:openjdk-r/ppa': }
   logoutput => true
 }
 
-archive { '/opt/openjdk-15.tar.gz':
+archive { '/opt/openjdk-17.0.1_linux-x64_bin.tar.gz':
   ensure          => present,
   extract         => true,
   extract_path    => '/opt',
-  source          => 'https://octopus-guides.s3.amazonaws.com/java/openjdk-15_linux-x64_bin.tar.gz',
-  creates         => '/opt/jdk-15/release',
+  source          => 'https://octopus-guides.s3.amazonaws.com/java/openjdk-17.0.1_linux-x64_bin.tar.gz',
+  creates         => '/opt/jdk-17.0.1/release',
   cleanup         => true,
   extract_command => 'tar xfz %s'
 }

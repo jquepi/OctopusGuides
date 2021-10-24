@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/opt/jdk-15/bin/java \
+/opt/jdk-17.0.1/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-Dwebdriver.firefox.logfile=/tmp/firefox.log" \

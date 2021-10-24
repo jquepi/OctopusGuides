@@ -3,7 +3,7 @@
 MINIKUBE_IP=`cat /tmp/minikubeip.txt`
 echo "Minikube IP: $MINIKUBE_IP:8443"
 
-/opt/jdk-15/bin/java \
+/opt/jdk-17.0.1/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
   "-DstepPause=$STEP_PAUSE" \
