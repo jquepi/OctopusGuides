@@ -3,7 +3,7 @@
 /opt/jdk-17.0.1/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
-  "-Dwebdriver.firefox.marionette=true" \
+  "-Dwebdriver.firefox.marionette=false" \
   "-Dwebdriver.firefox.logfile=/tmp/firefox.log" \
   "-DstepPause=$STEP_PAUSE" \
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \

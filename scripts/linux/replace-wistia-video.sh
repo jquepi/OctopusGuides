@@ -4,7 +4,7 @@ if [ -n "$WISTIA_MEDIA_ID" ]; then
   /opt/jdk-17.0.1/bin/java \
     "-Xmx2g" \
     "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
-  "-Dwebdriver.firefox.marionette=true" \
+  "-Dwebdriver.firefox.marionette=false" \
   "-DstepPause=$STEP_PAUSE" \
     "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
     "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
