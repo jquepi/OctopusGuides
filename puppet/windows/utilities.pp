@@ -73,7 +73,7 @@ package { 'nodejs.install':
   provider => chocolatey
 }
 
-package { 'firefoxesr':
+package { 'firefox':
   ensure   => installed,
   provider => chocolatey
 }
