@@ -5,7 +5,6 @@ MICROK8S_TOKEN=$(microk8s.kubectl config view --raw -o json | jq -r '.users[0].u
 /opt/jdk-17.0.1/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
-  "-Dwebdriver.firefox.marionette=false" \
   "-DstepPause=$STEP_PAUSE" \
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \

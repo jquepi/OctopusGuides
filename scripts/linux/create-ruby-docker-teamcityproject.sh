@@ -5,7 +5,6 @@ API_KEY=`cat /tmp/api_key.txt`
 /opt/jdk-17.0.1/bin/java \
   "-Xmx2g" \
   "-Dwebdriver.gecko.driver=/usr/bin/geckodriver" \
-  "-Dwebdriver.firefox.marionette=false" \
   "-DstepPause=$STEP_PAUSE" \
   "-DCucumberAlias-GuideSpecificScreenshotDir=$SCREENSHOT_PATH" \
   "-DCucumberAlias-ExternalMediaPath=$MEDIA_PATH" \
