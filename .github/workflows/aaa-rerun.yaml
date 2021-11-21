@@ -12,7 +12,7 @@ jobs:
         shell: powershell
         run: |-
           $failed = ((Invoke-WebRequest -Uri https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/runs?per_page=30).Content | ConvertFrom-JSON).workflow_runs | ? {$_.status -eq "failure"}
-          Write-Host "Found $(failed.Count) failed runs."
+          Write-Host "Found $($failed.Count) failed runs."
           $failed  | %{
           	Write-Host "Found failed run: $($_.name)"
 
