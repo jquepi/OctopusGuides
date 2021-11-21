@@ -11,7 +11,7 @@ jobs:
       - name: Rerun failures in the last 30 runs
         shell: powershell
         run: |-
-          $failed = ((Invoke-WebRequest -Uri https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/runs?per_page=30).Content | ConvertFrom-JSON).workflow_runs | ? {$_.conclusion -eq "completed" -and $_.conclusion -eq "failure"}
+          $failed = ((Invoke-WebRequest -Uri https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/runs?per_page=30).Content | ConvertFrom-JSON).workflow_runs | ? {$_.status -eq "completed" -and $_.conclusion -eq "failure"}
           Write-Host "Found $($failed.Count) failed runs."
           $failed  | %{
           	Write-Host "Found failed run: $($_.name)"
