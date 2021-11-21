@@ -12,6 +12,8 @@ jobs:
         shell: powershell
         run: >-
           ((Invoke-WebRequest -Uri https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/runs?per_page=30).Content | ConvertFrom-JSON).workflow_runs | ? {$_.status -eq "failure"} | %{
+          	Write-Host "Found failed run: $($_.name)"
+
           	$pair = "${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}"
           	$encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
           	$basicAuthValue = "Basic $encodedCreds"
