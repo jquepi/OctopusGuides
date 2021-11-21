@@ -1,0 +1,22 @@
+name: Rerun failed builds
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron:  '3/6 0 * * *'
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+      - name: Rerun failures in the last 30 runs
+        shell: powershell
+        run: >-
+          ((Invoke-WebRequest -Uri https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/runs?per_page=30).Content | ConvertFrom-JSON).workflow_runs | ? {$_.status -eq "failure"} | %{
+          	$pair = "${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}"
+          	$encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
+          	$basicAuthValue = "Basic $encodedCreds"
+          	$Headers = @{
+              	Authorization = $basicAuthValue
+              }
+          	Invoke-WebRequest -Headers $Headers -Method POST -Uri "https://api.github.com/repos/OctopusDeploy/OctopusGuides/actions/runs/$($_.id)/rerun"
+          }
