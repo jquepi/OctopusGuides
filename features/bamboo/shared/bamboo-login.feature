@@ -20,7 +20,8 @@ Feature: Bamboo login
 
     And I set the default explicit wait time to "30" seconds
     And I open the URL "http://#{Hostname}:6990/bamboo/"
-    # It can take a long time to download the test instance of Bamboo
+    # It can take a long time to download the test instance of Bamboo, and while the download is
+    # in progress we keep refreshing the page looking for a log in button.
     And I refresh the page for "1800" seconds if the "Log in" button does not exist
     # Force click because of org.openqa.selenium.ElementClickInterceptedException: Element <a id="login" href="/bamboo/userlogin!doDefault.action?os_destination=%2Fstart.action">
     # is not clickable at point (1798,986) because another element <div id="license-message" class="aui-message warning"> obscures it
