@@ -30,3 +30,7 @@ API_KEY=`cat /tmp/api_key.txt`
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   features/bamboo/bamboo-javawar-project.feature
+
+RETVALUE=$?
+journalctl -u bamboo.service
+return $RETVALUE
