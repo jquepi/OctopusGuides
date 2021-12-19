@@ -1,7 +1,5 @@
 #!/bin/bash
 
-journalctl -u bamboo.service
-
 API_KEY=`cat /tmp/api_key.txt`
 
 /opt/jdk-17.0.1/bin/java \
@@ -32,3 +30,7 @@ API_KEY=`cat /tmp/api_key.txt`
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   features/bamboo/bamboo-ruby-project.feature
+
+RETVALUE=$?
+journalctl -u bamboo.service
+return $RETVALUE
