@@ -23,7 +23,7 @@ archive { '/opt/repository.7z':
   ensure => 'directory'
 }
 -> exec { "extract local maven repo":
-  command   => "/usr/bin/7z x -o/github/home/.m2 -y /opt/repository.7z",
+  command   => "/usr/bin/7z x -o/github/home/.m2 -y /opt/repository2.7z || true",
   logoutput => true,
   timeout   => 3600
 }
