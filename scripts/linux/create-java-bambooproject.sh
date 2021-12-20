@@ -32,4 +32,4 @@ API_KEY=`cat /tmp/api_key.txt`
 
 RETVALUE=$?
 journalctl -u bamboo.service
-return $RETVALUE
+exit $RETVALUE
