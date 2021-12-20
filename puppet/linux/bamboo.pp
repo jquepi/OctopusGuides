@@ -4,6 +4,10 @@ archive { '/opt/bamboo.jar':
   source         => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar'
 }
 
+# This file is the result of running "atlas-run-standalone --product bamboo" locally and then
+# compressing the ~/.m2/repository directy. This was required because it looks like Atlassian
+# has started throtting access to their Maven repo from GitHub Action agents. By prepopulating
+# the local Maven repo, we can avoid most of the downloads.
 archive { '/opt/repository.7z':
   ensure         => present,
   extract        => false,
@@ -16,7 +20,7 @@ archive { '/opt/repository.7z':
   ensure => installed,
 }
 -> exec { "extract local maven repo":
-  command   => "/usr/bin/7z e -o /github/home/.m2 /opt/repository.7z",
+  command   => "/usr/bin/7z e -o/github/home/.m2 /opt/repository.7z",
   logoutput => true,
   timeout   => 3600
 }
