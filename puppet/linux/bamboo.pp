@@ -19,11 +19,11 @@ archive { '/opt/repository.7z':
 -> package { 'p7zip-rar':
   ensure => installed,
 }
--> file { '/home/root/.m2':
+-> file { '/root/.m2':
   ensure => 'directory'
 }
 -> exec { "extract local maven repo":
-  command   => "/usr/bin/7z x -o/home/root/.m2 -y /opt/repository.7z || true",
+  command   => "/usr/bin/7z x -o/root/.m2 -y /opt/repository.7z || true",
   logoutput => true,
   timeout   => 3600
 }
