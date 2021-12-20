@@ -11,7 +11,7 @@ archive { '/opt/bamboo.jar':
 archive { '/opt/repository.7z':
   ensure         => present,
   extract        => false,
-  source         => 'https://octopus-guides.s3.amazonaws.com/maven/repository.7z'
+  source         => 'https://octopus-guides.s3.amazonaws.com/maven/repository2.7z'
 }
 -> package { 'p7zip-full':
   ensure => installed,
@@ -23,7 +23,7 @@ archive { '/opt/repository.7z':
   ensure => 'directory'
 }
 -> exec { "extract local maven repo":
-  command   => "/usr/bin/7z x -o/github/home/.m2 -y /opt/repository2.7z || true",
+  command   => "/usr/bin/7z x -o/github/home/.m2 -y /opt/repository.7z || true",
   logoutput => true,
   timeout   => 3600
 }
