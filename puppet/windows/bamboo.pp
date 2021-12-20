@@ -1,6 +1,19 @@
+include 'archive'
+
 download_file {'bamboo.jar':
   destination_directory => 'C:/tools',
   url => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar'
+}
+
+file { 'C:/Windows/System32/config/systemprofile/.m2':
+  ensure => 'directory'
+}
+-> archive { 'C:/tools/repository.7z':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/Windows/System32/config/systemprofile/.m2',
+  source       => 'https://octopus-guides.s3.amazonaws.com/maven/repository3.7z',
+  cleanup      => true,
 }
 
 file { 'C:/tools':
