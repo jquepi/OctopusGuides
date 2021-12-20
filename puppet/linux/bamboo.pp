@@ -19,6 +19,9 @@ archive { '/opt/repository.7z':
 -> package { 'p7zip-rar':
   ensure => installed,
 }
+-> file { '/github/home/.m2':
+  ensure => 'directory'
+}
 -> exec { "extract local maven repo":
   command   => "/usr/bin/7z x -o/github/home/.m2 -y /opt/repository.7z",
   logoutput => true,
