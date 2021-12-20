@@ -4,6 +4,23 @@ archive { '/opt/bamboo.jar':
   source         => 'https://octopus-guides.s3.amazonaws.com/bamboo/bamboo.jar'
 }
 
+archive { '/opt/repository.7z':
+  ensure         => present,
+  extract        => false,
+  source         => 'https://octopus-guides.s3.amazonaws.com/maven/repository.7z'
+}
+-> package { 'p7zip-full':
+  ensure => installed,
+}
+-> package { 'p7zip-rar':
+  ensure => installed,
+}
+-> exec { "extract local maven repo":
+  command   => "/usr/bin/7z e -o /github/home/.m2 /opt/repository.7z",
+  logoutput => true,
+  timeout   => 3600
+}
+
 # Using the repo dorectly started to result in Unknown date format Bad header data:
 # https://community.developer.atlassian.com/t/the-repository-https-packages-atlassian-com-atlassian-sdk-deb-stable-release-is-not-signed/36901/11
 # apt::key { 'atlassian-repository':
