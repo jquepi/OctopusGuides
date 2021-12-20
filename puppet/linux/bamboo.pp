@@ -20,7 +20,7 @@ archive { '/opt/repository.7z':
   ensure => installed,
 }
 -> exec { "extract local maven repo":
-  command   => "/usr/bin/7z e -o/github/home/.m2 -y /opt/repository.7z",
+  command   => "/usr/bin/7z x -o/github/home/.m2 -y /opt/repository.7z",
   logoutput => true,
   timeout   => 3600
 }
