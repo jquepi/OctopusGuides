@@ -11,7 +11,7 @@ archive { '/opt/bamboo.jar':
 archive { '/opt/repository.7z':
   ensure         => present,
   extract        => false,
-  source         => 'https://octopus-guides.s3.amazonaws.com/maven/repository2.7z'
+  source         => 'https://octopus-guides.s3.amazonaws.com/maven/repository3.7z'
 }
 -> package { 'p7zip-full':
   ensure => installed,
