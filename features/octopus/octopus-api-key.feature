@@ -7,7 +7,7 @@ Feature: Generate an API key
   Scenario: Generate an API Key
     Given I set the following aliases:
       | User         | //a[@href='#'][./span[text()='admin']]                                   |
-      | Profile      | //div[text()='Profile']                                                  |
+      | Profile      | //div[text()='Profile'] \| //a[text()='Profile']                         |
       | My API Keys  | //a[contains(.,'My API Keys')][not(*)] \| //a/span[text()='My API Keys'] |
       | New API Key  | (//button[contains(.,'New API Key')])[1]                                 |
       | Purpose      | //input[@name='Purpose']                                                 |
