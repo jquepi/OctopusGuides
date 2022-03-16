@@ -115,11 +115,11 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s @microk8s
   Scenario: Add K8S Containers Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                             |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                                   |
-      | Search                         | //input[@name='Filter by name, category or description...']                                                        |
-      | Deploy Kubernetes containers   | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Kubernetes containers')]                            |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Kubernetes containers')]//button[contains(.,'Add')] |
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                             |
+      | Add Step                       | //button[contains(.,'Add Step')]                                                   |
+      | Search                         | //input[@name='Filter by name, category or description...']                        |
+      | Deploy Kubernetes containers   | //div[./div/div[text()='Deploy Kubernetes containers']]                            |
+      | Add                            | //div[./div/div[text()='Deploy Kubernetes containers']]//button[contains(.,'Add')] |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
@@ -150,7 +150,7 @@ if (elements.length !== 0) {
   Scenario: K8S Define step
     Given I set the following aliases:
       | Step Name       | //input[@name='Step name']                                                                      |
-      | On behalf of    | //input[../../label[text()='On behalf of target roles (type to add new)']]                                   |
+      | On behalf of    | //input[../../label[text()='On behalf of target roles (type to add new)']]                      |
       | K8s role        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
       | Deployment name | //input[@name='Deployment name']                                                                |
 
@@ -182,7 +182,7 @@ if (elements.length !== 0) {
       | Add Volume                 | (//button[@title='Add Volume'])[1]      |
       | Linked ConfigMap           | //input[@value='LinkedResource']        |
       | Linked ConfigMap Container | //div[./input[@value='LinkedResource']] |
-      | Volume Name                | //input[@name='Name']              |
+      | Volume Name                | //input[@name='Name']                   |
       | OK                         | (//button[@title='Ok'])[1]              |
 
     And I highlight outside the "Add Volume" button
@@ -269,7 +269,7 @@ if (elements.length !== 0) {
   Scenario: Add the config map volume mounting. This is only valid for some docker images.
     Given I set the following aliases:
       | Add Volume Mount      | (//button[@title='Add Volume Mount'])[1]           |
-      | Container Volume name | (//input[@name='Name'])[3]                |
+      | Container Volume name | (//input[@name='Name'])[3]                         |
       | Mount path            | (//input[@name='Mount path'])[1]                   |
       | Sub path              | (//input[@name='Sub path'])[1]                     |
       | appsettings volume    | //span[./div/div/div[text()='appsettings-volume']] |

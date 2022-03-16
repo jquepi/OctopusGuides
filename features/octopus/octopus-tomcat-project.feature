@@ -11,11 +11,11 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat
   Scenario: Add K8S Containers Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                             |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                                   |
-      | Search                         | //input[@name='Filter by name, category or description...']                                                        |
-      | Deploy to Tomcat via Manager   | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to Tomcat via Manager')]                            |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to Tomcat via Manager')]//button[contains(.,'Add')] |
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                             |
+      | Add Step                       | //button[contains(.,'Add Step')]                                                   |
+      | Search                         | //input[@name='Filter by name, category or description...']                        |
+      | Deploy to Tomcat via Manager   | //div[./div/div[text()='Deploy to Tomcat via Manager']]                            |
+      | Add                            | //div[./div/div[text()='Deploy to Tomcat via Manager']]//button[contains(.,'Add')] |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second

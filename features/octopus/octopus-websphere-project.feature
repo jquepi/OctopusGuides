@@ -11,11 +11,11 @@ Feature: Configure an Octopus Websphere project
   @define-project @destinationspecific @websphere
   Scenario: Add Java Archive Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                    |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                          |
-      | Search                         | //input[@name='Filter by name, category or description...']                                               |
-      | Deploy Java Archive            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Java Archive')]                            |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy Java Archive')]//button[contains(.,'Add')] |
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                    |
+      | Add Step                       | //button[contains(.,'Add Step')]                                          |
+      | Search                         | //input[@name='Filter by name, category or description...']               |
+      | Deploy Java Archive            | //div[./div/div[text()='Deploy Java Archive']]                            |
+      | Add                            | //div[./div/div[text()='Deploy Java Archive']]//button[contains(.,'Add')] |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
