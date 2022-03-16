@@ -9,7 +9,7 @@ Feature: Jenkins initial project setup
       | OK                | //button[@type='submit'][contains(.,'OK')]          |
       | Git               | //input[../label[normalize-space(text()) = 'Git']]  |
       | Repository URL    | //input[contains(@name,'_.url')]                    |
-      | Poll SCM          | //input[@name='hudson-triggers-SCMTrigger']         |
+      | Poll SCM          | //input[../label[text()='Poll SCM']]                |
       | Schedule          | //textarea[contains(@checkurl,'checkScmpoll_spec')] |
 
     And I open the URL "http://localhost:8080/"
