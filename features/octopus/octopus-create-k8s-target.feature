@@ -20,7 +20,7 @@ Feature: Create Azure Web App Target
       | Target Roles               | //input[../../label[text()='Roles (type to add new)']]                                                       |
       | Target Roles Container     | //div[./div/div/label[text()='Roles (type to add new)']]                                                     |
       | K8S web app role           | //span[./div/div/div[contains(.,'k8s')]]                                                                     |
-      | Client Certificate         | //input[@value='KubernetesCertificate']                                                                      |
+      | Client Certificate         | //button[./div/div[text()='Client Certificate']]                                                             |
       | Select account certificate | (//button[../../../../label[text()='Select certificate']])[1]                                                |
       | Cluster account container  | (//div[./label[text()='Select certificate']])[1]                                                             |
       | Minikube certificate       | (//span[./div/div/div[text()='Minikube Client Certificate']])[1]                                             |
@@ -75,8 +75,8 @@ Feature: Create Azure Web App Target
   @destinationspecific @k8s
   Scenario: Add target client certificate
     Given I set the following aliases:
-      | Old Client Certificate         | //input[@value='KubernetesCertificate']                          |
-      | Client Certificate            | //span[./div/div/div[text()='Client Certificate']]               |
+      | Old Client Certificate        | //input[@value='KubernetesCertificate']                          |
+      | Client Certificate            | //button[./div/div[text()='Client Certificate']]                 |
       | Select an authentication type | //div[./label[text()='Select an authentication type']]/div/div   |
       | Select account certificate    | (//button[../../../../label[text()='Select certificate']])[1]    |
       | Cluster account container     | (//div[./label[text()='Select certificate']])[1]                 |
