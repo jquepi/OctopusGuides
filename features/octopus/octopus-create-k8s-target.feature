@@ -23,7 +23,7 @@ Feature: Create Azure Web App Target
       | Client Certificate         | //button[./div/div[text()='Client Certificate']]                                                             |
       | Select account certificate | (//button[../../../../label[text()='Select certificate']])[1]                                                |
       | Cluster account container  | (//div[./label[text()='Select certificate']])[1]                                                             |
-      | Minikube certificate       | (//span[./div/div/div[text()='Minikube Client Certificate']])[1]                                             |
+      | Minikube certificate       | (//button[./div/div[text()='Minikube Client Certificate']])[1]                                               |
       | Expand All                 | //a[text()='EXPAND ALL']                                                                                     |
 
     And I start recording the screen to the directory "ExternalMediaPath"
@@ -75,12 +75,12 @@ Feature: Create Azure Web App Target
   @destinationspecific @k8s
   Scenario: Add target client certificate
     Given I set the following aliases:
-      | Old Client Certificate        | //input[@value='KubernetesCertificate']                          |
-      | Client Certificate            | //button[./div/div[text()='Client Certificate']]                 |
-      | Select an authentication type | //div[./label[text()='Select an authentication type']]/div/div   |
-      | Select account certificate    | (//button[../../../../label[text()='Select certificate']])[1]    |
-      | Cluster account container     | (//div[./label[text()='Select certificate']])[1]                 |
-      | Minikube certificate          | (//span[./div/div/div[text()='Minikube Client Certificate']])[1] |
+      | Old Client Certificate        | //input[@value='KubernetesCertificate']                        |
+      | Client Certificate            | //button[./div/div[text()='Client Certificate']]               |
+      | Select an authentication type | //div[./label[text()='Select an authentication type']]/div/div |
+      | Select account certificate    | (//button[../../../../label[text()='Select certificate']])[1]  |
+      | Cluster account container     | (//div[./label[text()='Select certificate']])[1]               |
+      | Minikube certificate          | (//button[./div/div[text()='Minikube Client Certificate']])[1] |
 
     And I highlight outside the "Select an authentication type" option if it exists
     And I scroll the "Select an authentication type" option into view offset by "-200" if it exists
