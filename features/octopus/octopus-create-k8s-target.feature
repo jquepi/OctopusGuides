@@ -131,7 +131,7 @@ Feature: Create Azure Web App Target
   Scenario: Add certificate
     Given I set the following aliases:
       | Select cluster certificate    | (//button[../../../../label[text()='Select certificate']])[3] |
-      | Minikube CA                   | (//span[./div/div/div[text()='Minikube CA']])[1]              |
+      | Minikube CA                   | (//button[./div/div[text()='Minikube CA']])[1]                |
       | Cluster certificate container | (//div[./label[text()='Select certificate']])[2]              |
 
     And I click the "Select cluster certificate" drop down list
@@ -143,7 +143,7 @@ Feature: Create Azure Web App Target
   Scenario: Add certificate
     Given I set the following aliases:
       | Select cluster certificate    | //button[../../../../label[text()='Select certificate']] |
-      | Minikube CA                   | (//span[./div/div/div[text()='Minikube CA']])[1]         |
+      | Minikube CA                   | (//button[./div/div[text()='Minikube CA']])[1]           |
       | Cluster certificate container | //div[./label[text()='Select certificate']]              |
 
     And I click the "Select cluster certificate" drop down list
