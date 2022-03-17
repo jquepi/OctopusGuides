@@ -23,9 +23,9 @@ Feature: Create a Lifecycle in Octopus
       | Phase name 3                    | (//input[../../label[contains(.,'Phase name')]])[3]                    |
       | Add Environment 3               | (//button[@title='Add Environment'])[3]                                |
       | Environment list                | //div[./label[text() = 'Environment']]//button                         |
-      | Dev environment                 | //button[./div/div[text()='Dev']]                                      |
-      | Test environment                | //button[./div/div[text()='Test']]                                     |
-      | Prod environment                | //button[./div/div[text()='Prod']]                                     |
+      | Dev environment                 | //span[./div/div/div[text()='Dev']]                                    |
+      | Test environment                | //span[./div/div/div[text()='Test']]                                   |
+      | Prod environment                | //span[./div/div/div[text()='Prod']]                                   |
       | OK                              | //button[@title='Ok']                                                  |
       | Save                            | //button[@title='Save']                                                |
       | Optional phase                  | //input[..//label[text()='Optional phase']]                            |
