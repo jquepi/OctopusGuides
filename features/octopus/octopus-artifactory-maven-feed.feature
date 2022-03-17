@@ -11,7 +11,7 @@ Feature: Add Artifactory Maven feed
       | External Feeds text | //a[contains(.,'External Feeds')][not(*)] \| //a/span[text()='External Feeds'] |
       | Add Feed            | //button[contains(.,'Add feed')]                                               |
       | Feed Type           | //div[../../label[text()='Feed type']]                                         |
-      | Maven Feed          | //span[./div/div/div[text()='Maven Feed']]                                     |
+      | Maven Feed          | //button[./div/div[text()='Maven Feed']]                                       |
       | Feed name           | //input[@name='Feed name']                                                     |
       | Feed url            | //input[@name='Feed url']                                                      |
       | Feed username       | //input[@name='Feed username']                                                 |
