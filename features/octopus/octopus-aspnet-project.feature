@@ -99,9 +99,9 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Define scope            | //div[@title='Define scope']                       |
       | Select environments     | //input[../../label[text()='Select environments']] |
-      | Dev environment         | //div[./div/div[text() = 'Dev']]                   |
-      | Test environment        | //div[./div/div[text() = 'Test']]                  |
-      | Prod environment        | //div[./div/div[text() = 'Prod']]                  |
+      | Dev environment         | //button[./div/div[text()='Dev']]                  |
+      | Test environment        | //button[./div/div[text()='Test']]                 |
+      | Prod environment        | //button[./div/div[text()='Prod']]                 |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']]    |
       | Project Variables Title | //h2[contains(.,'Project Variables')]              |
       | New variable name       | //input[@name='Enter new variable']                |
@@ -470,9 +470,9 @@ Feature: Configure an Octopus ASP.NET project
       | New variable value                        | //input[@name='Enter value']                                                                                                                                 |
       | Define scope                              | //div[@title='Define scope']                                                                                                                                 |
       | Select environments                       | //input[../../label[text()='Select environments']]                                                                                                           |
-      | Dev environment                           | //div[./div/div[text() = 'Dev']]                                                                                                                             |
-      | Test environment                          | //div[./div/div[text() = 'Test']]                                                                                                                            |
-      | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                                                                            |
+      | Dev environment                           | //button[./div/div[text()='Dev']]                                                                                                                            |
+      | Test environment                          | //button[./div/div[text()='Test']]                                                                                                                           |
+      | Prod environment                          | //button[./div/div[text()='Prod']]                                                                                                                           |
       | Add Another Value                         | //button[.//span[text() = 'Add Another Value']]                                                                                                              |
       | New variable value 2                      | (//input[@name='Enter value'])[2]                                                                                                                            |
       | New variable value 3                      | (//input[@name='Entervalue'])[3]                                                                                                                             |

@@ -18,9 +18,9 @@ Feature: Configure an Octopus Node.js project
     Given I set the following aliases:
       | Define scope            | //div[@title='Define scope']                       |
       | Select environments     | //input[../../label[text()='Select environments']] |
-      | Dev environment         | //div[./div/div[text() = 'Dev']]                   |
-      | Test environment        | //div[./div/div[text() = 'Test']]                  |
-      | Prod environment        | //div[./div/div[text() = 'Prod']]                  |
+      | Dev environment         | //button[./div/div[text()='Dev']]                  |
+      | Test environment        | //button[./div/div[text()='Test']]                 |
+      | Prod environment        | //button[./div/div[text()='Prod']]                 |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']]    |
       | Project Variables Title | //h2[contains(.,'Project Variables')]              |
       | New variable name       | //input[@name='Enter new variable']                |
