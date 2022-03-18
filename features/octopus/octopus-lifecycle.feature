@@ -172,7 +172,7 @@ Feature: Create a Lifecycle in Octopus
       | Change             | //button[contains(.,'CHANGE')]                                   |
       | Lifecycle list     | //button[../../../../label[text()='Lifecycle']]                  |
       | Save               | //button[contains(.,'Save')]                                     |
-      | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]]          |
+      | Dev, Test and Prod | //button[./div/div[text()='Dev, Test and Prod']]                 |
 
     And I open the URL "http://localhost/app#/Spaces-1/library/lifecycles"
     And I sleep for "10" seconds
