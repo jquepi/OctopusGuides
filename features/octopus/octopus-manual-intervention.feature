@@ -13,8 +13,8 @@ Feature: Add a manual intervention step
       | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                |
       | Add Step                      | //button[contains(.,'Add Step')]                                                                |
       | Search                        | //input[@name='Filter by name, category or description...']                                     |
-      | Manual Intervention           | //div[./div/div[text()='Manual Intervention Required']]                                          |
-      | Add                           | //div[./div/div[text()='Manual Intervention Required']]//button[contains(.,'Add')]               |
+      | Manual Intervention           | //div[./div/div[text()='Manual Intervention Required']]                                         |
+      | Add                           | //div[./div/div[text()='Manual Intervention Required']]//button[contains(.,'Add')]              |
       | Step Name                     | //input[@name='Step name']                                                                      |
       | Instructions                  | //textarea[@name='Instructions']                                                                |
       | Instructions container        | //div[./textarea[@name='Instructions']]                                                         |
@@ -104,7 +104,7 @@ Feature: Add a manual intervention step
     Given I set the following aliases:
       | Create Release | //button[contains(.,'Create release')] |
       | Deploy To      | //button[contains(.,'Deploy to...')]   |
-      | Test           | //li[text()='Test']                    |
+      | Test           | //a[./div/div[text()='Test']]          |
       | Deploy         | //button[contains(.,'Deploy')]         |
       | Save           | //button[contains(.,'Save')]           |
 

@@ -235,7 +235,7 @@ Feature: Add a manual intervention step
     Given I set the following aliases:
       | Create Release | //button[contains(.,'Create release')] |
       | Deploy To      | //button[contains(.,'Deploy to...')]   |
-      | Test           | //li[text()='Test']                    |
+      | Test           | //a[./div/div[text()='Test']]          |
       | Deploy         | //button[contains(.,'Deploy')]         |
       | Save           | //button[contains(.,'Save')]           |
 
