@@ -217,12 +217,12 @@ Feature: Create a Lifecycle in Octopus
   @deploy-to-test
   Scenario: Deploy to the test environment
     Given I set the following aliases:
-      | Create Release | //button[contains(.,'Create release')] |
-      | Deploy To      | //button[contains(.,'Deploy to...')]   |
-      | Test           | //a[./div/div[text()='Test']]          |
-      | Deploy         | //button[contains(.,'Deploy')]         |
-      | Save           | //button[contains(.,'Save')]           |
-      | Task Log       | //button[contains(.,'Task Log')]       |
+      | Create Release | //button[contains(.,'Create release')]              |
+      | Deploy To      | //button[contains(.,'Deploy to...')]                |
+      | Test           | //a[./div/div[text()='Test']] \| //a[text()='Test'] |
+      | Deploy         | //button[contains(.,'Deploy')]                      |
+      | Save           | //button[contains(.,'Save')]                        |
+      | Task Log       | //button[contains(.,'Task Log')]                    |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/deployments/process"
     And I sleep for "10" seconds

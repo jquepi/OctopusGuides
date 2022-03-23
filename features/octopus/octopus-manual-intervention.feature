@@ -102,11 +102,11 @@ Feature: Add a manual intervention step
   @deploy-to-test
   Scenario: Deploy to the test environment
     Given I set the following aliases:
-      | Create Release | //button[contains(.,'Create release')] |
-      | Deploy To      | //button[contains(.,'Deploy to...')]   |
-      | Test           | //a[./div/div[text()='Test']]          |
-      | Deploy         | //button[contains(.,'Deploy')]         |
-      | Save           | //button[contains(.,'Save')]           |
+      | Create Release | //button[contains(.,'Create release')]              |
+      | Deploy To      | //button[contains(.,'Deploy to...')]                |
+      | Test           | //a[./div/div[text()='Test']] \| //a[text()='Test'] |
+      | Deploy         | //button[contains(.,'Deploy')]                      |
+      | Save           | //button[contains(.,'Save')]                        |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/deployments/process"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
