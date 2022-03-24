@@ -182,7 +182,7 @@ Feature: Create Octopus Users and Teams
       | Include User Role              | //button[contains(.,'Include User Role')]                       |
       | Select user role               | //div[../../label[text()='Select a user role']]                 |
       | Select user role container     | //div[./div/div[../label[text()='Select a user role']]]         |
-      | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]                 |
+      | Deployment creator             | //button[./div/div[contains(.,'Deployment creator')]]           |
       | Project viewer                 | //span[./div[contains(.,'Project viewer')]]                     |
       | Apply                          | //button[contains(.,'Apply')]                                   |
       | Define Scope                   | //button[contains(.,'Define Scope')]                            |
@@ -319,7 +319,7 @@ Feature: Create Octopus Users and Teams
       | Include User Role              | //button[contains(.,'Include User Role')]                       |
       | Select user role               | //div[../../label[text()='Select a user role']]                 |
       | Select user role container     | //div[./div/div[../label[text()='Select a user role']]]         |
-      | Deployment creator             | //span[./div[contains(.,'Deployment creator')]]                 |
+      | Deployment creator             | //button[./div/div[contains(.,'Deployment creator')]]           |
       | Project viewer                 | //span[./div[contains(.,'Project viewer')]]                     |
       | Apply                          | //button[contains(.,'Apply')]                                   |
       | Define Scope                   | //button[contains(.,'Define Scope')]                            |
