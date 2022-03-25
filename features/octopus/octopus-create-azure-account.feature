@@ -7,18 +7,18 @@ Feature: Create Azure Account
 
   Scenario: Add account
     Given I set the following aliases:
-      | Infrastructure       | //span[contains(.,'Infrastructure')]                          |
-      | More                 | (//span[contains(.,'More')])[2]                               |
-      | Accounts             | //span[contains(.,'Accounts')] \| //a[contains(.,'Accounts')] |
-      | Add Account          | //button[contains(.,'Add Account')]                           |
-      | Azure Subscription   | //a[.//div[normalize-space(text())='Azure Subscription']]     |
-      | Account name         | //input[@name='Account name']                                 |
-      | Subscription ID      | //input[@name='Subscription']                                 |
-      | Tenant ID            | //input[@name='Active Directory Tenant ID']                   |
-      | Application ID       | //input[@name='Active Directory Appication ID']               |
-      | Application Password | //input[@name='Active Directory Password/Key']                |
-      | Save                 | (//button[contains(.,'Save')])[2]                             |
-      | Expand All           | //a[text()='EXPAND ALL']                                      |
+      | Infrastructure       | //span[contains(.,'Infrastructure')]                                                                           |
+      | More                 | (//span[contains(.,'More')])[2]                                                                                |
+      | Accounts             | //span[contains(.,'Accounts')] \| //a[contains(.,'Accounts')]                                                  |
+      | Add Account          | //button[contains(.,'Add Account')]                                                                            |
+      | Azure Subscription   | //a[.//div[normalize-space(text())='Azure Subscription']] \| //a[normalize-space(text())='Azure Subscription'] |
+      | Account name         | //input[@name='Account name']                                                                                  |
+      | Subscription ID      | //input[@name='Subscription']                                                                                  |
+      | Tenant ID            | //input[@name='Active Directory Tenant ID']                                                                    |
+      | Application ID       | //input[@name='Active Directory Appication ID']                                                                |
+      | Application Password | //input[@name='Active Directory Password/Key']                                                                 |
+      | Save                 | (//button[contains(.,'Save')])[2]                                                                              |
+      | Expand All           | //a[text()='EXPAND ALL']                                                                                       |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Creating Azure account" for "3" seconds
