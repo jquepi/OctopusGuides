@@ -334,7 +334,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Select artifactory feed for the iis deployment
     Given I set the following aliases:
       | Package feed             | //div[./label[text()='Package feed']]/div/div                                                            |
-      | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
+      | Artifactory              | //button[./div/div[text()='Artifactory']]                                                                |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
@@ -389,7 +389,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Select artifactory feed for the azure web app deployment
     Given I set the following aliases:
       | Package feed             | //div[./label[text()='Package feed']]/div/div                                                            |
-      | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
+      | Artifactory              | //button[./div/div[text()='Artifactory']]                                                                |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |

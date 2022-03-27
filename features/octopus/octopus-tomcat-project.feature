@@ -88,7 +88,7 @@ Feature: Configure an Octopus Tomcat project
   Scenario: Select artifactory feed for the tomcat deployment
     Given I set the following aliases:
       | Package feed | //div[./label[text()='Package feed']]/div/div |
-      | Artifactory  | //div[./div/div[text()='Artifactory']]        |
+      | Artifactory  | //button[./div/div[text()='Artifactory']]     |
       | HTML Body    | //body                                        |
       | Package ID   | //input[@name='PackageID']                    |
 
