@@ -6,7 +6,7 @@ Feature: Create and deploy a release from Jenkins
       | Username     | #j_username                                          |
       | Password     | body > div > div > form > div:nth-child(2) > input   |
       | Sign In      | body > div > div > form > div.submit.formRow > input |
-      | Profile Name | /html/body/div[2]/header/div[3]/a[1]/span            |
+      | Profile Name | //a[./span[text()='admin']]                          |
 
     And I open the shared browser "ExternalBrowserType"
     And I set the default explicit wait time to "30" seconds
