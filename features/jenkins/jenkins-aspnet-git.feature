@@ -82,7 +82,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | New Item          | //a[contains(.,'New Item')]                                                       |
       | Project name      | //input[@name='name']                                                             |
       | Freestyle project | .hudson_model_FreeStyleProject                                                    |
-      | OK                | //button[@type='submit'][contains(.,'Create')]                                    |
+      | OK                | //button[@type='submit'][contains(.,'OK')]                                        |
       | Git               | (//label[contains(.,'Git')])[2]                                                   |
       | Repository URL    | //input[contains(@name,'_.url')]                                                  |
       | Poll SCM          | //input[@name='hudson-triggers-SCMTrigger']                                       |

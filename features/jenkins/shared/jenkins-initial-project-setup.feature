@@ -6,7 +6,7 @@ Feature: Jenkins initial project setup
       | New Item          | //a[contains(.,'New Item')]                         |
       | Project name      | //input[@name='name']                               |
       | Freestyle project | .hudson_model_FreeStyleProject                      |
-      | OK                | //button[@type='submit'][contains(.,'Create')]      |
+      | OK                | //button[@type='submit'][contains(.,'OK')]          |
       | Git               | //input[../label[normalize-space(text()) = 'Git']]  |
       | Repository URL    | //input[contains(@name,'_.url')]                    |
       | Poll SCM          | //input[../label[text()='Poll SCM']]                |
