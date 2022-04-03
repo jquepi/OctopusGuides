@@ -13,22 +13,22 @@ Feature: Build and deploy a PHP application hosted in Git on a local Octopus ins
   @configure-project
   Scenario: ASP.NET Core - Create the project
     Given I set the following aliases:
-      | Add build step                               | //button[@type='button'][contains(.,'Add build step')]                    |
-      | Execute shell                                | //a[contains(.,'Execute shell')]                                          |
-      | Command                                      | //div[@class='CodeMirror']                                                |
-      | Execute Docker command                       | //a[contains(.,'Execute Docker command')]                                 |
-      | Docker command one                           | (//select[../../div[normalize-space(text())='Docker command']])[1]        |
-      | Docker command two                           | (//select[../../div[normalize-space(text())='Docker command']])[2]        |
-      | Create/build image                           | 4                                                                         |
-      | Build context folder                         | //input[@name='_.dockerFolder']                                           |
-      | Tag of the resulting docker image            | //input[@name='_.imageTag']                                               |
-      | Push image                                   | 7                                                                         |
-      | Name of the image to push (repository/image) | //input[@name='_.image']                                                  |
-      | Tag                                          | (//input[@name='_.tag'])[3]                                               |
-      | Registry                                     | //input[@name='_.registry']                                               |
-      | Docker registry URL                          | (//input[@name='_.url'])[2]                                               |
-      | Registry credentials                         | //select[../../../../div[normalize-space(text())='Registry credentials']] |
-      | Save                                         | //button[@type='submit' or @type='button'][contains(.,'Save')]            |
+      | Add build step                               | //button[@type='button'][contains(.,'Add build step')]             |
+      | Execute shell                                | //a[contains(.,'Execute shell')]                                   |
+      | Command                                      | //div[@class='CodeMirror']                                         |
+      | Execute Docker command                       | //a[contains(.,'Execute Docker command')]                          |
+      | Docker command one                           | (//select[../../div[normalize-space(text())='Docker command']])[1] |
+      | Docker command two                           | (//select[../../div[normalize-space(text())='Docker command']])[2] |
+      | Create/build image                           | 4                                                                  |
+      | Build context folder                         | //input[@name='_.dockerFolder']                                    |
+      | Tag of the resulting docker image            | //input[@name='_.imageTag']                                        |
+      | Push image                                   | 7                                                                  |
+      | Name of the image to push (repository/image) | //input[@name='_.image']                                           |
+      | Tag                                          | (//input[@name='_.tag'])[3]                                        |
+      | Registry                                     | //input[@name='_.registry']                                        |
+      | Docker registry URL                          | (//input[@name='_.url'])[2]                                        |
+      | Registry credentials                         | //select[@name='_.pushCredentialsId']                              |
+      | Save                                         | //button[@type='submit' or @type='button'][contains(.,'Save')]     |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
