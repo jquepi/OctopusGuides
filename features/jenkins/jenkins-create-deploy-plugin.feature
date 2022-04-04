@@ -51,7 +51,6 @@ Feature: Create and deploy a release from Jenkins
     And I scroll down "10000" px
     And I click the "Deploy after create" check box
 
-    And I scroll the "Environment" text box into view offset by "-200"
     And I highlight the "Environment" text box
     And I populate the "Environment" text box with "Dev"
 
