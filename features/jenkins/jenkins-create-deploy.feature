@@ -71,11 +71,12 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Project name             | //input[@name='_.project']                                     |
-      | Environment              | //input[@name='_.environment']                                 |
-      | Deploy after create      | //input[@name='deployThisRelease']                             |
-      | Show deployment progress | //input[@name='waitForDeployment']                             |
-      | Save                     | //button[@type='submit' or @type='button'][contains(.,'Save')] |
+      | Project name              | //input[@name='_.project']                                     |
+      | Environment               | //input[@name='_.environment']                                 |
+      | Deploy after create label | //label[../input[@name='deployThisRelease']]                   |
+      | Deploy after create       | //input[@name='deployThisRelease']                             |
+      | Show deployment progress  | //input[@name='waitForDeployment']                             |
+      | Save                      | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I scroll the "Project name" text box into view offset by "-200"
     And I highlight the "Project name" text box
@@ -83,8 +84,8 @@ Feature: Create and deploy a release from Jenkins
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}020-octo-plugin-create-release-command.png"
 
-    And I scroll the "Deploy after create" text box into view offset by "-200"
-    And I highlight the "Deploy after create" check box
+    And I scroll the "Deploy after create label" element into view offset by "-200"
+    And I highlight the "Deploy after create label" element
     And I click the "Deploy after create" check box
 
     And I highlight the "Show deployment progress" check box
