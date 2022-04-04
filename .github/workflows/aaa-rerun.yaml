@@ -2,7 +2,7 @@ name: AAA Rerun failed builds
 on:
   repository_dispatch:
   workflow_dispatch:
- schedule:
+  schedule:
    - cron: '0 3,6 * * *'
 jobs:
   build:
