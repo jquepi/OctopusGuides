@@ -78,6 +78,7 @@ Feature: Create and deploy a release from Jenkins
 
     And I scroll the "Deploy after create label" element into view offset by "-200"
     And I highlight the "Deploy after create label" element
+    And I sleep for "1" second
     And I click the "Deploy after create" check box
 
     And I highlight the "Environment" text box
