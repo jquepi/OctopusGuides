@@ -48,7 +48,8 @@ Feature: Create and deploy a release from Jenkins
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}017-octo-plugin-create-release-command.png"
 
-    And I scroll down "10000" px
+    And I scroll the "Deploy after create label" element into view offset by "-200"
+    And I highlight the "Deploy after create label" element
     And I click the "Deploy after create" check box
 
     And I highlight the "Environment" text box
