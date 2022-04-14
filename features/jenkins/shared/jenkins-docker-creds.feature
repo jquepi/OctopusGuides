@@ -3,11 +3,11 @@ Feature: COnfigure docker creds
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
-      | Manage Jenkins          | //div[contains(@class, 'task')][.//a[@href="/manage"]]                                                     |
+      | Manage Jenkins          | //div[contains(@class, 'task')][.//a[@href="/manage"]]                 |
       | Manage Credentials      | //a[@href='credentials']                                               |
       | System                  | //a[@href='/credentials/store/system']                                 |
       | Global credentials      | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
-      | Global credentials cell | .sortable > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2)     |
+      | Global credentials cell | //td[./a[text()='Global credentials (unrestricted)']]                  |
 
     And I open the URL "http://localhost:8080/"
     And I clear the transition
@@ -43,7 +43,7 @@ Feature: COnfigure docker creds
       | Description     | //input[@name='_.description']                             |
       | Kind            | //select[@class='setting-input dropdownList']              |
       | Secret          | //input[@name='_.secret']                                  |
-      | OK              | //button[@type='submit'][contains(.,'OK')]                 |
+      | OK              | //button[@type='submit'][contains(.,'Create')]             |
       | ID Two          | (//input[@name='_.id'])[2]                                 |
       | Description Two | (//input[contains(@name,'_.description')])[2]              |
 

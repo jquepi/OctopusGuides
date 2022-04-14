@@ -7,23 +7,23 @@ Feature: Add a manual intervention step
   @add-manual-intervention
   Scenario: Add the intervention step
     Given I set the following aliases:
-      | Projects                      | //span[contains(.,'Projects')]                                                                                     |
-      | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                                                     |
-      | Deployments                   | //a[contains(.,'Deployments')]                                                                                     |
-      | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                                   |
-      | Add Step                      | //button[contains(.,'Add Step')]                                                                                   |
-      | Search                        | //input[@name='Filter by name, category or description...']                                                        |
-      | Manual Intervention           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]                            |
-      | Add                           | //div[contains(@class, 'add-step-card') and contains(.,'Manual Intervention Required')]//button[contains(.,'Add')] |
-      | Step Name                     | //input[@name='Step name']                                                                                         |
-      | Instructions                  | //textarea[@name='Instructions']                                                                                   |
-      | Instructions container        | //div[./textarea[@name='Instructions']]                                                                            |
-      | Environments                  | //span[contains(.,'Environments')]                                                                                 |
-      | Save                          | //button[contains(.,'Save')]                                                                                       |
-      | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                                          |
-      | Select environments           | //input[../../label[text()='Select environments']]                                                                 |
-      | Select environments container | //div[./div/div/div/label[text()='Select environments']]                                                           |
-      | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'Dev')]//span                    |
+      | Projects                      | //span[contains(.,'Projects')]                                                                  |
+      | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                                  |
+      | Deployments                   | //a[contains(.,'Deployments')]                                                                  |
+      | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                |
+      | Add Step                      | //button[contains(.,'Add Step')]                                                                |
+      | Search                        | //input[@name='Filter by name, category or description...']                                     |
+      | Manual Intervention           | //div[./div/div[text()='Manual Intervention Required']]                                         |
+      | Add                           | //div[./div/div[text()='Manual Intervention Required']]//button[contains(.,'Add')]              |
+      | Step Name                     | //input[@name='Step name']                                                                      |
+      | Instructions                  | //textarea[@name='Instructions']                                                                |
+      | Instructions container        | //div[./textarea[@name='Instructions']]                                                         |
+      | Environments                  | //span[contains(.,'Environments')]                                                              |
+      | Save                          | //button[contains(.,'Save')]                                                                    |
+      | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                       |
+      | Select environments           | //input[../../label[text()='Select environments']]                                              |
+      | Select environments container | //div[./div/div/div/label[text()='Select environments']]                                        |
+      | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'Dev')]//span |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Add a manual sign off step to the deployment" for "3" seconds
@@ -102,11 +102,11 @@ Feature: Add a manual intervention step
   @deploy-to-test
   Scenario: Deploy to the test environment
     Given I set the following aliases:
-      | Create Release | //button[contains(.,'Create release')] |
-      | Deploy To      | //button[contains(.,'Deploy to...')]   |
-      | Test           | //li[text()='Test']                    |
-      | Deploy         | //button[contains(.,'Deploy')]         |
-      | Save           | //button[contains(.,'Save')]           |
+      | Create Release | //button[contains(.,'Create release')]              |
+      | Deploy To      | //button[contains(.,'Deploy to...')]                |
+      | Test           | //a[./div/div[text()='Test']] \| //a[text()='Test'] |
+      | Deploy         | //button[contains(.,'Deploy')]                      |
+      | Save           | //button[contains(.,'Save')]                        |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/deployments/process"
     And I start recording the screen to the directory "#{ExternalMediaPath}"
@@ -145,7 +145,7 @@ Feature: Add a manual intervention step
       | Proceed         | //button[contains(.,'Proceed')]      |
       | Notes           | //textarea[@name='Notes']            |
       | Notes container | //div[./textarea[@name='Notes']]     |
-      | Task Log       | //button[contains(.,'Task Log')]      |
+      | Task Log        | //button[contains(.,'Task Log')]     |
 
     And I verify the "Assign to me" button is present waiting up to "1200" seconds if it exists
 

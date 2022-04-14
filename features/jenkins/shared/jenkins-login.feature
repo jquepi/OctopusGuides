@@ -6,7 +6,7 @@ Feature: Jenkins login
       | Username     | #j_username                                          |
       | Password     | body > div > div > form > div:nth-child(2) > input   |
       | Sign In      | body > div > div > form > div.submit.formRow > input |
-      | Profile Name | /html/body/div[2]/header/div[3]/a[1]/span            |
+      | Profile Name | //a[./span[text()='admin']]                          |
 
     When I open the URL "http://localhost:8080/login"
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box

@@ -20,10 +20,10 @@ Feature: Create Azure Web App Target
       | Target Roles               | //input[../../label[text()='Roles (type to add new)']]                                                       |
       | Target Roles Container     | //div[./div/div/label[text()='Roles (type to add new)']]                                                     |
       | K8S web app role           | //span[./div/div/div[contains(.,'k8s')]]                                                                     |
-      | Client Certificate         | //input[@value='KubernetesCertificate']                                                                      |
+      | Client Certificate         | //button[./div/div[text()='Client Certificate']]                                                             |
       | Select account certificate | (//button[../../../../label[text()='Select certificate']])[1]                                                |
       | Cluster account container  | (//div[./label[text()='Select certificate']])[1]                                                             |
-      | Minikube certificate       | (//span[./div/div/div[text()='Minikube Client Certificate']])[1]                                             |
+      | Minikube certificate       | (//button[./div/div[text()='Minikube Client Certificate']])[1]                                               |
       | Expand All                 | //a[text()='EXPAND ALL']                                                                                     |
 
     And I start recording the screen to the directory "ExternalMediaPath"
@@ -75,12 +75,12 @@ Feature: Create Azure Web App Target
   @destinationspecific @k8s
   Scenario: Add target client certificate
     Given I set the following aliases:
-      | Old Client Certificate         | //input[@value='KubernetesCertificate']                          |
-      | Client Certificate            | //span[./div/div/div[text()='Client Certificate']]               |
-      | Select an authentication type | //div[./label[text()='Select an authentication type']]/div/div   |
-      | Select account certificate    | (//button[../../../../label[text()='Select certificate']])[1]    |
-      | Cluster account container     | (//div[./label[text()='Select certificate']])[1]                 |
-      | Minikube certificate          | (//span[./div/div/div[text()='Minikube Client Certificate']])[1] |
+      | Old Client Certificate        | //input[@value='KubernetesCertificate']                        |
+      | Client Certificate            | //button[./div/div[text()='Client Certificate']]               |
+      | Select an authentication type | //div[./label[text()='Select an authentication type']]/div/div |
+      | Select account certificate    | (//button[../../../../label[text()='Select certificate']])[1]  |
+      | Cluster account container     | (//div[./label[text()='Select certificate']])[1]               |
+      | Minikube certificate          | (//button[./div/div[text()='Minikube Client Certificate']])[1] |
 
     And I highlight outside the "Select an authentication type" option if it exists
     And I scroll the "Select an authentication type" option into view offset by "-200" if it exists
@@ -131,7 +131,7 @@ Feature: Create Azure Web App Target
   Scenario: Add certificate
     Given I set the following aliases:
       | Select cluster certificate    | (//button[../../../../label[text()='Select certificate']])[3] |
-      | Minikube CA                   | (//span[./div/div/div[text()='Minikube CA']])[1]              |
+      | Minikube CA                   | (//button[./div/div[text()='Minikube CA']])[1]                |
       | Cluster certificate container | (//div[./label[text()='Select certificate']])[2]              |
 
     And I click the "Select cluster certificate" drop down list
@@ -143,7 +143,7 @@ Feature: Create Azure Web App Target
   Scenario: Add certificate
     Given I set the following aliases:
       | Select cluster certificate    | //button[../../../../label[text()='Select certificate']] |
-      | Minikube CA                   | (//span[./div/div/div[text()='Minikube CA']])[1]         |
+      | Minikube CA                   | (//button[./div/div[text()='Minikube CA']])[1]           |
       | Cluster certificate container | //div[./label[text()='Select certificate']]              |
 
     And I click the "Select cluster certificate" drop down list

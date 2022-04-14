@@ -23,9 +23,9 @@ Feature: Create a Lifecycle in Octopus
       | Phase name 3                    | (//input[../../label[contains(.,'Phase name')]])[3]                    |
       | Add Environment 3               | (//button[@title='Add Environment'])[3]                                |
       | Environment list                | //div[./label[text() = 'Environment']]//button                         |
-      | Dev environment                 | //div[./div/div[text() = 'Dev']]                                       |
-      | Test environment                | //div[./div/div[text() = 'Test']]                                      |
-      | Prod environment                | //div[./div/div[text() = 'Prod']]                                      |
+      | Dev environment                 | //button[./div/div[text()='Dev']]                                      |
+      | Test environment                | //button[./div/div[text()='Test']]                                     |
+      | Prod environment                | //button[./div/div[text()='Prod']]                                     |
       | OK                              | //button[@title='Ok']                                                  |
       | Save                            | //button[@title='Save']                                                |
       | Optional phase                  | //input[..//label[text()='Optional phase']]                            |
@@ -172,7 +172,7 @@ Feature: Create a Lifecycle in Octopus
       | Change             | //button[contains(.,'CHANGE')]                                   |
       | Lifecycle list     | //button[../../../../label[text()='Lifecycle']]                  |
       | Save               | //button[contains(.,'Save')]                                     |
-      | Dev, Test and Prod | //span[./div/div/div[contains(.,'Dev, Test and Prod')]]          |
+      | Dev, Test and Prod | //button[./div/div[text()='Dev, Test and Prod']]                 |
 
     And I open the URL "http://localhost/app#/Spaces-1/library/lifecycles"
     And I sleep for "10" seconds
@@ -217,12 +217,12 @@ Feature: Create a Lifecycle in Octopus
   @deploy-to-test
   Scenario: Deploy to the test environment
     Given I set the following aliases:
-      | Create Release | //button[contains(.,'Create release')] |
-      | Deploy To      | //button[contains(.,'Deploy to...')]   |
-      | Test           | //li[text()='Test']                    |
-      | Deploy         | //button[contains(.,'Deploy')]         |
-      | Save           | //button[contains(.,'Save')]           |
-      | Task Log       | //button[contains(.,'Task Log')]       |
+      | Create Release | //button[contains(.,'Create release')]              |
+      | Deploy To      | //button[contains(.,'Deploy to...')]                |
+      | Test           | //a[./div/div[text()='Test']] \| //a[text()='Test'] |
+      | Deploy         | //button[contains(.,'Deploy')]                      |
+      | Save           | //button[contains(.,'Save')]                        |
+      | Task Log       | //button[contains(.,'Task Log')]                    |
 
     And I open the URL "http://localhost/app#/Spaces-1/projects/random-quotes/deployments/process"
     And I sleep for "10" seconds

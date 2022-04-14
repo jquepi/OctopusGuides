@@ -11,11 +11,11 @@ Feature: Configure an Octopus Wildfly project
   @define-project @destinationspecific @wildfly
   Scenario: Add Wildfly Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                         |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                               |
-      | Search                         | //input[@name='Filter by name, category or description...']                                                    |
-      | Deploy to WildFly or EAP       | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to WildFly or EAP')]                            |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to WildFly or EAP')]//button[contains(.,'Add')] |
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                         |
+      | Add Step                       | //button[contains(.,'Add Step')]                                               |
+      | Search                         | //input[@name='Filter by name, category or description...']                    |
+      | Deploy to WildFly or EAP       | //div[./div/div[text()='Deploy to WildFly or EAP']]                            |
+      | Add                            | //div[./div/div[text()='Deploy to WildFly or EAP']]//button[contains(.,'Add')] |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
@@ -88,7 +88,7 @@ Feature: Configure an Octopus Wildfly project
   Scenario: Select artifactory feed for the Wildfly deployment
     Given I set the following aliases:
       | Package feed | //div[./label[text()='Package feed']]/div/div |
-      | Artifactory  | //div[./div/div[text()='Artifactory']]        |
+      | Artifactory  | //button[./div/div[text()='Artifactory']]     |
       | HTML Body    | //body                                        |
       | Package ID   | //input[@name='PackageID']                    |
 

@@ -17,7 +17,7 @@
     "-DCucumberAlias-ExternalEnvironmentName=Prod" `
     "-DCucumberAlias-ExternalTargetName=Azure web app - Prod" `
     "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Prod']]" `
-    "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:PROD_RES_GROUP)')]]" `
+    "-DCucumberAlias-ExternalAzureWebAppOption=//button[./div/div[contains(.,'$($env:PROD_RES_GROUP)')]]" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `

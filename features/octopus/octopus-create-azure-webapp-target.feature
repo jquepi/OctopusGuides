@@ -22,7 +22,7 @@ Feature: Create Azure Web App Target
       | Target Roles Container  | //div[./div/div/label[text()='Roles (type to add new)']]                                                |
       | Azure web app role      | //span[./div/div/div[contains(.,'azurewebapp')]]                                                        |
       | Account                 | //div[../../label[text()='Select account']]                                                             |
-      | Azure account           | //span[./div/div/div[text()='Azure']]                                                                   |
+      | Azure account           | //button[./div/div[text()='Azure']]                                                                     |
       | Azure Web App List      | //div[../../label[text()='Web app']]                                                                    |
       | Expand All              | //a[text()='EXPAND ALL']                                                                                |
 

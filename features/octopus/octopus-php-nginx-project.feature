@@ -18,9 +18,9 @@ Feature: Configure an Octopus PHP project
     Given I set the following aliases:
       | Define scope            | //div[@title='Define scope']                       |
       | Select environments     | //input[../../label[text()='Select environments']] |
-      | Dev environment         | //div[./div/div[text() = 'Dev']]                   |
-      | Test environment        | //div[./div/div[text() = 'Test']]                  |
-      | Prod environment        | //div[./div/div[text() = 'Prod']]                  |
+      | Dev environment         | //span[./div/div/div[text()='Dev']]                |
+      | Test environment        | //span[./div/div/div[text()='Test']]               |
+      | Prod environment        | //span[./div/div/div[text()='Prod']]               |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']]    |
       | Project Variables Title | //h2[contains(.,'Project Variables')]              |
       | New variable name       | //input[@name='Enter new variable']                |
@@ -79,11 +79,11 @@ Feature: Configure an Octopus PHP project
   @define-project @destinationspecific @nginx
   Scenario: Add K8S Containers Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                      |
-      | Search                         | //input[@name='Filter by name, category or description...']                                           |
-      | Deploy to Nginx                | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]                            |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to NGINX')]//button[contains(.,'Add')] |
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                |
+      | Add Step                       | //button[contains(.,'Add Step')]                                      |
+      | Search                         | //input[@name='Filter by name, category or description...']           |
+      | Deploy to Nginx                | //div[./div/div[text()='Deploy to NGINX']]                            |
+      | Add                            | //div[./div/div[text()='Deploy to NGINX']]//button[contains(.,'Add')] |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
@@ -137,10 +137,10 @@ Feature: Configure an Octopus PHP project
   @define-project @destinationspecific @nginx
   Scenario: Define IIS project
     Given I set the following aliases:
-      | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
-      | Step Name                | //input[@name='Step name']                                                                          |
-      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]                |
-      | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
+      | Add                      | //div[./div/div[text()='Deploy to IIS']]//button[contains(.,'Add')]                             |
+      | Step Name                | //input[@name='Step name']                                                                      |
+      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
+      | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box

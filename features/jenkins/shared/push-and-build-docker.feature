@@ -31,8 +31,8 @@ Feature: Push and build docker image
   @configure-project @repositoryspecific @dockerhub
   Scenario: Set the credentials for a public repository
     Given I set the following aliases:
-      | Registry credentials | //select[../../../../div[normalize-space(text())='Registry credentials']] |
-      | Save                 | //button[@type='submit' or @type='button'][contains(.,'Save')]                              |
+      | Registry credentials | //select[@name='_.credentialsId'][1]                           |
+      | Save                 | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I scroll the "Registry credentials" drop down list into view offset by "-200"
     And I highlight outside the "Registry credentials" drop down list with an offset of "2"

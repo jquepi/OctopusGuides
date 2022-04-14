@@ -17,7 +17,7 @@
     "-DCucumberAlias-ExternalEnvironmentName=Dev" `
     "-DCucumberAlias-ExternalTargetName=Azure web app - Dev" `
     "-DCucumberAlias-ExternalEnvironment=//span[./div/div/div[text()='Dev']]" `
-    "-DCucumberAlias-ExternalAzureWebAppOption=//span[./div/div/div[contains(.,'$($env:DEV_RES_GROUP)')]]" `
+    "-DCucumberAlias-ExternalAzureWebAppOption=//button[./div/div[contains(.,'$($env:DEV_RES_GROUP)')]]" `
     "-DCucumberAlias-ExternalMediaPath=$env:MEDIA_PATH" `
     "-DCucumberAlias-GuideSpecificScreenshotDir=$env:SCREENSHOT_PATH" `
     "-DCucumberAlias-ExternalBrowserType=FirefoxNoImplicitWait" `

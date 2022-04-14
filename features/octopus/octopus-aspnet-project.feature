@@ -99,9 +99,9 @@ Feature: Configure an Octopus ASP.NET project
     Given I set the following aliases:
       | Define scope            | //div[@title='Define scope']                       |
       | Select environments     | //input[../../label[text()='Select environments']] |
-      | Dev environment         | //div[./div/div[text() = 'Dev']]                   |
-      | Test environment        | //div[./div/div[text() = 'Test']]                  |
-      | Prod environment        | //div[./div/div[text() = 'Prod']]                  |
+      | Dev environment         | //span[./div/div/div[text()='Dev']]                |
+      | Test environment        | //span[./div/div/div[text()='Test']]               |
+      | Prod environment        | //span[./div/div/div[text()='Prod']]               |
       | Add Another Value       | //button[.//span[text() = 'Add Another Value']]    |
       | Project Variables Title | //h2[contains(.,'Project Variables')]              |
       | New variable name       | //input[@name='Enter new variable']                |
@@ -169,11 +169,11 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app
   Scenario: Add Azure Web App Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                                        |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                              |
-      | Search                         | //input[@name='Filter by name, category or description...']                                                   |
-      | Deploy an Azure Web App        | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]                            |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy an Azure Web App')]//button[contains(.,'Add')] |
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                     |
+      | Add Step                       | //button[contains(.,'Add Step')]                                                           |
+      | Search                         | //input[@name='Filter by name, category or description...']                                |
+      | Deploy an Azure Web App        | //div[./div/div[text()='Deploy an Azure Web App (Web Deploy)']]                            |
+      | Add                            | //div[./div/div[text()='Deploy an Azure Web App (Web Deploy)']]//button[contains(.,'Add')] |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
@@ -203,11 +203,11 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis
   Scenario: Add IIS Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                              |
-      | Add Step                       | //button[contains(.,'Add Step')]                                                                    |
-      | Search                         | //input[@name='Filter by name, category or description...']                                         |
-      | Deploy to IIS                  | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]                            |
-      | Add                            | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
+      | Define your deployment process | //button[contains(.,'Define your deployment process')]              |
+      | Add Step                       | //button[contains(.,'Add Step')]                                    |
+      | Search                         | //input[@name='Filter by name, category or description...']         |
+      | Deploy to IIS                  | //div[./div/div[text()='Deploy to IIS']]                            |
+      | Add                            | //div[./div/div[text()='Deploy to IIS']]//button[contains(.,'Add')] |
 
     And I highlight outside the "Define your deployment process" button with an offset of "2"
     And I sleep for "1" second
@@ -308,10 +308,10 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis
   Scenario: Define IIS project
     Given I set the following aliases:
-      | Add                      | //div[contains(@class, 'add-step-card') and contains(.,'Deploy to IIS')]//button[contains(.,'Add')] |
-      | Step Name                | //input[@name='Step name']                                                                          |
-      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]                |
-      | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span     |
+      | Add                      | //div[./div/div[text()='Deploy to IIS']]//button[contains(.,'Add')]                             |
+      | Step Name                | //input[@name='Step name']                                                                      |
+      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
+      | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -334,7 +334,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Select artifactory feed for the iis deployment
     Given I set the following aliases:
       | Package feed             | //div[./label[text()='Package feed']]/div/div                                                            |
-      | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
+      | Artifactory              | //button[./div/div[text()='Artifactory']]                                                                |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
@@ -389,7 +389,7 @@ Feature: Configure an Octopus ASP.NET project
   Scenario: Select artifactory feed for the azure web app deployment
     Given I set the following aliases:
       | Package feed             | //div[./label[text()='Package feed']]/div/div                                                            |
-      | Artifactory              | //div[./div/div[text()='Artifactory']]                                                                   |
+      | Artifactory              | //button[./div/div[text()='Artifactory']]                                                                |
       | HTML Body                | //body                                                                                                   |
       | Package ID               | //input[@name='PackageID']                                                                               |
       | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
@@ -470,9 +470,9 @@ Feature: Configure an Octopus ASP.NET project
       | New variable value                        | //input[@name='Enter value']                                                                                                                                 |
       | Define scope                              | //div[@title='Define scope']                                                                                                                                 |
       | Select environments                       | //input[../../label[text()='Select environments']]                                                                                                           |
-      | Dev environment                           | //div[./div/div[text() = 'Dev']]                                                                                                                             |
-      | Test environment                          | //div[./div/div[text() = 'Test']]                                                                                                                            |
-      | Prod environment                          | //div[./div/div[text() = 'Prod']]                                                                                                                            |
+      | Dev environment                           | //span[./div/div/div[text()='Dev']]                                                                                                                          |
+      | Test environment                          | //span[./div/div/div[text()='Test']]                                                                                                                         |
+      | Prod environment                          | //span[./div/div/div[text()='Prod']]                                                                                                                         |
       | Add Another Value                         | //button[.//span[text() = 'Add Another Value']]                                                                                                              |
       | New variable value 2                      | (//input[@name='Enter value'])[2]                                                                                                                            |
       | New variable value 3                      | (//input[@name='Entervalue'])[3]                                                                                                                             |

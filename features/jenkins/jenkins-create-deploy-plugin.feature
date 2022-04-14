@@ -8,15 +8,16 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Modify the existing project
     Given I set the following aliases:
-      | Random Quotes Project    | //a[contains(.,'Random Quotes')]                               |
-      | Configure                | //a[contains(.,'Configure')]                                   |
-      | Add post-build action    | //button[@type='button'][contains(.,'Add post-build action')]  |
-      | Create Release           | //a[contains(.,'Octopus Deploy: Create Release')]              |
-      | Project name             | //input[@name='_.project']                                     |
-      | Environment              | //input[@name='_.environment']                                 |
-      | Deploy after create      | //input[@name='deployThisRelease']                             |
-      | Show deployment progress | //input[@name='waitForDeployment']                             |
-      | Save                     | //button[@type='submit' or @type='button'][contains(.,'Save')] |
+      | Random Quotes Project     | //a[contains(.,'Random Quotes')]                               |
+      | Configure                 | //a[contains(.,'Configure')]                                   |
+      | Add post-build action     | //button[@type='button'][contains(.,'Add post-build action')]  |
+      | Create Release            | //a[contains(.,'Octopus Deploy: Create Release')]              |
+      | Project name              | //input[@name='_.project']                                     |
+      | Environment               | //input[@name='_.environment']                                 |
+      | Deploy after create label | //label[../input[@name='deployThisRelease']]                   |
+      | Deploy after create       | //input[@name='deployThisRelease']                             |
+      | Show deployment progress  | //input[@name='waitForDeployment']                             |
+      | Save                      | //button[@type='submit' or @type='button'][contains(.,'Save')] |
 
     And I display a note with the text "Deploying an Octopus release from Jenkins" for "3" seconds
 
@@ -47,13 +48,12 @@ Feature: Create and deploy a release from Jenkins
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/createrelease/#{GuideSpecificScreenshotDir}017-octo-plugin-create-release-command.png"
 
-    And I scroll the "Deploy after create" text box into view offset by "-200"
-    And I highlight the "Deploy after create" check box
-    And I click the "Deploy after create" check box
+    And I scroll the "Deploy after create label" element into view offset by "-200"
+    And I highlight the "Deploy after create label" element
+    # The scrolling isn't working, so for now we force click
+    And I force click the "Deploy after create" check box
 
-    And I highlight the "Show deployment progress" check box
-    And I click the "Show deployment progress" check box
-
+    And I scroll the "Environment" text box into view offset by "-200"
     And I highlight the "Environment" text box
     And I populate the "Environment" text box with "Dev"
 
