@@ -5,6 +5,7 @@ Feature: Create plan
       | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
+    And I refresh the page for "60" seconds if the "Build one" link does not exists
     And I highlight outside the "Build one" link with an offset of "5"
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}230-build-one.png"
     And I force click the "Build one" link
