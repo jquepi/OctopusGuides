@@ -3,6 +3,9 @@ Feature: Create plan
     Given I set the following aliases:
       | Build one | //a[@href='/bamboo/browse/RQ-WEB-1']     |
       | Logs      | //a[@href='/bamboo/browse/RQ-WEB-1/log'] |
+
+    And I refresh the page for "60" seconds if the "Build one" link does not exists
+
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Build one" link with an offset of "5"

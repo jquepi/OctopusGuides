@@ -2,8 +2,8 @@ name: AAA Rerun failed builds
 on:
   repository_dispatch:
   workflow_dispatch:
-#  schedule:
-#    - cron: '0 3,6 * * *'
+  schedule:
+   - cron: '0 3,6 * * *'
 jobs:
   build:
     runs-on: windows-2019
