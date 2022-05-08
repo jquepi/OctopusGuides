@@ -5,7 +5,7 @@ Feature: Create and deploy a release from Jenkins
     Given I set the following aliases:
       | Username     | //input[@id="j_username"]       |
       | Password     | //input[@name="j_password"]     |
-      | Sign In      | //button[contains(.,'Sign in')] |
+      | Sign In      | //button[contains(.,'Sign in')]\|//input[contains(.,'Sign in')] |
       | Profile Name | //a[./span[text()='admin']]     |
 
     And I open the shared browser "ExternalBrowserType"
