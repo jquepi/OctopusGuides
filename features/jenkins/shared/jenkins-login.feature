@@ -3,10 +3,10 @@ Feature: Jenkins login
   @login
   Scenario: Log into Jenkins
     Given I set the following aliases:
-      | Username     | #j_username                                                     |
-      | Password     | #j_password                                                     |
-      | Sign In      | //button[contains(.,'Sign in')]\|//input[contains(.,'Sign in')] |
-      | Profile Name | //a[./span[text()='admin']]                                     |
+      | Username     | //input[@id="j_username"]       |
+      | Password     | //input[@name="j_password"]     |
+      | Sign In      | //button[contains(.,'Sign in')] |
+      | Profile Name | //a[./span[text()='admin']]     |
 
     When I open the URL "http://localhost:8080/login"
     # It can take some time for Jenkins to start up, so we need to be able to wait here for the login box
