@@ -120,11 +120,14 @@ Feature: Configure Bamboo
 
   Scenario: Create plan
     Given I set the following aliases:
-      | Create | //button[@id='createPlan'] |
+      | Create      | //button[@id='createPlanLink'] |
+      | Create Plan | //a[@id='createNewPlan']       |
 
-    And I highlight outside the "Create" button
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-create-project.png"
     And I click the "Create" button
+
+    And I highlight outside the "Create Plan" button
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-create-project.png"
+    And I click the "Create Plan" button
     And I sleep for "5" seconds
 
     And I run the feature "shared/bamboo-create-plan.feature"

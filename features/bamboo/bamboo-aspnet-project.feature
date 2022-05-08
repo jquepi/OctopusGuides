@@ -447,18 +447,22 @@ Feature: Configure Bamboo
   @repositoryspecific @artifactory
   Scenario: Create plan
     Given I set the following aliases:
-      | Create    | //button[@id='createPlan']               |
+      | Create      | //button[@id='createPlanLink'] |
+      | Create Plan | //a[@id='createNewPlan']       |
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
-    And I highlight outside the "Create" button
-    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}190-create-artifactory.png"
     And I click the "Create" button
+
+    And I highlight outside the "Create Plan" button
+    And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}190-create-artifactory.png"
+    And I click the "Create Plan" button
     And I sleep for "5" seconds
 
   @repositoryspecific @octo-built-in-feed
   Scenario: Create plan
     Given I set the following aliases:
-      | Create    | //button[@id='createPlan']               |
+      | Create      | //button[@id='createPlanLink'] |
+      | Create Plan | //a[@id='createNewPlan']       |
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
     And I highlight outside the "Create" button
