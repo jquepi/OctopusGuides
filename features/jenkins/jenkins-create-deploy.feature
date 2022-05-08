@@ -3,10 +3,10 @@ Feature: Create and deploy a release from Jenkins
 
   Scenario: Log into Jenkins
     Given I set the following aliases:
-      | Username     | #j_username                     |
-      | Password     | #j_password                     |
-      | Sign In      | //button[contains(.,'Sign in')] |
-      | Profile Name | //a[./span[text()='admin']]     |
+      | Username     | #j_username                                                     |
+      | Password     | #j_password                                                     |
+      | Sign In      | //button[contains(.,'Sign in')]\|//input[contains(.,'Sign in')] |
+      | Profile Name | //a[./span[text()='admin']]                                     |
 
     And I open the shared browser "ExternalBrowserType"
     And I set the default explicit wait time to "30" seconds
