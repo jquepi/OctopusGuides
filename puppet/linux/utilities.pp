@@ -116,11 +116,11 @@ archive { '/opt/setup_14.x':
   ensure => installed,
 }
 
-archive { '/opt/geckodriver-v0.31.0-linux32.tar.gz':
+archive { '/opt/geckodriver-v0.31.1-linux32.tar.gz':
   ensure       => present,
   extract      => true,
   extract_path => '/usr/bin',
-  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux32.tar.gz',
+  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux64.tar.gz',
   creates      => '/usr/bin/geckodriver',
   cleanup      => true,
 }
