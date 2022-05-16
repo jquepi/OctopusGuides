@@ -32,9 +32,9 @@ apt::ppa {
   'ppa:mozillateam/ppa':
 
 }
-//-> package { 'firefox':
-//  ensure => installed,
-//}
+#-> package { 'firefox':
+#  ensure => installed,
+#}
 -> package { 'firefox-esr':
   ensure => installed,
 }
