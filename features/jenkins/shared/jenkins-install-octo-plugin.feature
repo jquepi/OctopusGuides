@@ -14,7 +14,9 @@ Feature: Install the octopus plugin
 
     And I click the "Available" tab
     And I populate the "Filter" text box with the text "Octopus"
-    And I click the "Octopus Plugin" checkbox
+    # Force click to fix:
+    # org.openqa.selenium.ElementNotInteractableException: Element <input id="plugin.octopusdeploy.default" name="plugin.octopusdeploy.default" type="checkbox"> could not be scrolled into view
+    And I force click the "Octopus Plugin" checkbox
     And I highlight inside the "Available" tab
     And I highlight outside the "Filter" tab
     And I highlight inside the "Octopus Plugin Container" element
