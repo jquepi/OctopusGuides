@@ -52,7 +52,8 @@ jobs:
       SCREENSHOT_PATH: /java-app/websphere/artifactory/git/
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[1]"
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Get workflow ID
         id: workflow-id

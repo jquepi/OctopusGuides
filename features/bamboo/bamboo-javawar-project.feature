@@ -75,9 +75,9 @@ Feature: Configure Bamboo
   @repositoryspecific @octo-built-in-feed
   Scenario: Build locally
     Given I set the following aliases:
-      | Goal             | //textarea[@id='goal']                                                                   |
-      | Build JDK        | //select[@id='buildJdk']                                                                 |
-      | Save             | //input[@id='createTask_save']                                                           |
+      | Goal      | //textarea[@id='goal']         |
+      | Build JDK | //select[@id='buildJdk']       |
+      | Save      | //input[@id='createTask_save'] |
 
     And I highlight outside the "Goal" text box
     And I scroll the "Goal" text box into view offset by "-300"
@@ -100,9 +100,9 @@ Feature: Configure Bamboo
   @repositoryspecific @artifactory
   Scenario: Build and push to Artifactory
     Given I set the following aliases:
-      | Goal             | //textarea[@id='goal']                                                                   |
-      | Build JDK        | //select[@id='buildJdk']                                                                 |
-      | Save             | //input[@id='createTask_save']                                                           |
+      | Goal      | //textarea[@id='goal']         |
+      | Build JDK | //select[@id='buildJdk']       |
+      | Save      | //input[@id='createTask_save'] |
 
     And I highlight outside the "Goal" text box
     And I scroll the "Goal" text box into view offset by "-300"
@@ -120,15 +120,11 @@ Feature: Configure Bamboo
 
   Scenario: Create plan
     Given I set the following aliases:
-      | Create      | //button[@id='createPlanLink'] |
-      | Create Plan | //a[@id='createNewPlan']       |
+      | Create   | //button[@id='createPlan']  |
 
-    And I click the "Create" button
-
-    And I highlight outside the "Create Plan" button
+    And I highlight outside the "Create" button
     And I save a screenshot to "#{ExternalMediaPath}/bamboo/initialproject/#{GuideSpecificScreenshotDir}220-create-project.png"
-    And I click the "Create Plan" button
-    And I sleep for "5" seconds
+    And I click the "Create" button
 
     And I run the feature "shared/bamboo-create-plan.feature"
 

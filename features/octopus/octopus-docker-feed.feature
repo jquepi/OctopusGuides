@@ -52,6 +52,19 @@ Feature: Create Azure Web App Target
     And I scroll the "Feed name" text box into view offset by "-300"
     And I populate the "Feed name" text box with "Docker"
 
+  # Dockerhub only exposes image searches when authenticated, so add the credentials
+  @define-feed @repositoryspecific @dockerhub
+  Scenario: Add DockerHub credentials
+    Given I set the following aliases:
+      | Username and Password | //input[@value='Username and Password'] |
+      | Feed Username         | //input[@name='Feed Username']          |
+      | Feed Password         | //input[@name='Feed Password']          |
+
+    And I force click the "Username and Password" checkbox
+    And I scroll the "Feed Username" text box into view offset by "-300"
+    And I populate the "Feed Username" text box with "ExternalDockerUsername"
+    And I populate the "Feed Password" text box with "ExternalDockerPassword"
+
   @define-feed @repositoryspecific @localdockerrepo
   Scenario: Define the local feed url, clearing the defaults for Docker Hub
     Given I set the following aliases:

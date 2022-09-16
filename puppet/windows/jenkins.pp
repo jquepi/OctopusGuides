@@ -1,80 +1,8 @@
-file { 'C:/JenkinsHome/init.groovy.d':
-  ensure => 'directory',
-}
--> file { 'C:/JenkinsHome/init.groovy.d/b.plugins.groovy':
-  ensure  => 'file',
-  owner   => 'Administrators',
-  group   => 'Administrators',
-  mode    => '0644',
-  content => @(EOT)
-    #!groovy
-    import hudson.model.UpdateSite
-    import hudson.PluginWrapper
-    import jenkins.model.*
-    import hudson.util.*
-    import jenkins.install.*
+# In jenkinsinstall.pp we install Jenkins and change initial settings like the JENKINS_HOME
+# variable. It takes a bit of time for Jenkins to restart and populate the new C:\JenkinsHome
+# dir, so this script is run later in the process to modify the config.xml file.
 
-    // The list of plugins to install
-    Set<String> plugins_to_install = [
-        "git", "github", "credentials", "credentials-binding", "plain-credentials"
-    ]
-
-    /*
-      Install Jenkins plugins
-    */
-    def install(Collection c, Boolean dynamicLoad, UpdateSite updateSite) {
-        c.each {
-            println "Installing ${it} plugin."
-            UpdateSite.Plugin plugin = updateSite.getPlugin(it)
-
-            // Wait for the future to be resolved, and check for any errors
-            if (plugin != null) {
-              Throwable error = plugin.deploy(dynamicLoad).get().getError()
-              if(error != null) {
-                  println "ERROR installing ${it}, ${error}"
-              }
-            } else {
-              println "Could not find plugin ${it}"
-            }
-        }
-        null
-    }
-
-    // Some useful vars to set
-    Boolean hasConfigBeenUpdated = false
-
-    // The default update site
-    UpdateSite updateSite = Jenkins.getInstance().getUpdateCenter().getById('default')
-    // Update the site
-    updateSite.updateDirectlyNow(false)
-
-    List<PluginWrapper> plugins = Jenkins.instance.pluginManager.getPlugins()
-
-    //get a list of installed plugins
-    Set<String> installed_plugins = []
-    plugins.each {
-      installed_plugins << it.getShortName()
-    }
-
-    //check to see if there are missing plugins to install
-    Set<String> missing_plugins = plugins_to_install - installed_plugins
-    if(missing_plugins.size() > 0) {
-        println "Install missing plugins..."
-        install(missing_plugins, true, updateSite)
-        println "Done installing missing plugins."
-        hasConfigBeenUpdated = true
-    }
-
-    if(hasConfigBeenUpdated) {
-        println "Saving Jenkins configuration to disk."
-        Jenkins.instance.save()
-    } else {
-        println "Jenkins up-to-date.  Nothing to do."
-    }
-
-    | EOT
-}
--> file_line { 'Use container security':
+file_line { 'Use container security':
   path    => 'C:/JenkinsHome/config.xml',
   line    => '  <authorizationStrategy class="hudson.security.LegacyAuthorizationStrategy"/>',
   match   => '^\s*<authorizationStrategy.*?/?>',
@@ -116,14 +44,17 @@ file { 'C:/JenkinsHome/init.groovy.d':
   ensure => absent,
   match_for_absence => true
 }
--> exec { 'Restart Jenkins':
+-> exec { 'Restart Jenkins after config updates':
   command   => 'C:\\Windows\\system32\\cmd.exe /c net stop Jenkins & net start Jenkins',
   logoutput => true
 }
--> exec { 'Create Jenkins Shortcut':
-  provider  => 'powershell',
-  command   =>
-    '$sh = New-Object -comObject WScript.Shell; $short = $sh.CreateShortcut($sh.SpecialFolders("Desktop") + "\\Jenkins.lnk"); $short.TargetPath = "http://localhost:8080"; $short.Save();'
-  ,
+-> exec { 'Get Jenkins log':
+  provider => 'powershell',
+  command  => 'Get-Content C:\Jenkins\jenkins.out.log',
+  logoutput => true
+}
+-> exec { 'Get Jenkins error log':
+  provider => 'powershell',
+  command  => 'Get-Content C:\Jenkins\jenkins.err.log',
   logoutput => true
 }

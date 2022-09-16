@@ -39,39 +39,37 @@ apt::key { 'kubernetes-repository':
     #!/bin/bash
     # The GitHub Actions VM has a custom Docker version like 3.0.8, and minikube doesn't understand this version,
     # so we ignore the system verification errors
-    sudo minikube start --vm-driver=none --extra-config=kubeadm.ignore-preflight-errors=SystemVerification
-    sudo cat ~/.kube/config
-    sudo kubectl get nodes
+    # Also see https://stackoverflow.com/questions/65397050/minikube-does-not-start-on-ubuntu-20-04-lts-exiting-due-to-guest-provision
+    # for how to fix the error "Exiting due to NOT_FOUND_CRI_DOCKERD:"
+
+    su runner -c "minikube start --driver=docker --extra-config=kubeadm.ignore-preflight-errors=SystemVerification"
+    cat /home/runner/.kube/config
+    su runner -c "kubectl get nodes"
 
     # Create a pfx file with the client certificate and key
-    sudo openssl pkcs12 -passout pass: -export -out /tmp/client.pfx -in /root/.minikube/profiles/minikube/client.crt -inkey /root/.minikube/profiles/minikube/client.key
-    sudo cp /root/.minikube/ca.crt /tmp/ca.crt
-    sudo chmod 644 /tmp/ca.crt
-    sudo chmod 644 /tmp/client.pfx
-    sudo chmod 644 /root/.minikube/profiles/minikube/client.crt
-    sudo chmod 644 /root/.minikube/profiles/minikube/client.key
-    sudo chmod 644 /root/.minikube/ca.crt
-    echo "Listing /tmp"k
-    sudo ls -la /tmp
-    echo "Listing /root/.minikube"
-    sudo ls -la /root/.minikube
+    openssl pkcs12 -passout pass: -export -out /tmp/client.pfx -in /home/runner/.minikube/profiles/minikube/client.crt -inkey /home/runner/.minikube/profiles/minikube/client.key
+    cp /home/runner/.minikube/ca.crt /tmp/ca.crt
+    chmod 644 /tmp/ca.crt
+    chmod 644 /tmp/client.pfx
+    chmod 644 /home/runner/.minikube/profiles/minikube/client.crt
+    chmod 644 /home/runner/.minikube/profiles/minikube/client.key
+    chmod 644 /home/runner/.minikube/ca.crt
+    echo "Listing /tmp"
+    ls -la /tmp
+    echo "Listing /home/runner/.minikube"
+    ls -la /home/runner/.minikube
 
     # Show some details
     echo "Minikube IP"
-    sudo minikube ip > /tmp/minikubeip.txt
+    su runner -c "minikube ip > /tmp/minikubeip.txt"
     cat /tmp/minikubeip.txt
 
-    # Copy config file to user
-    sudo mkdir /home/runner/.kube
-    sudo cp ~/.kube/config /home/runner/.kube
-    sudo chown -R runner:runner /home/runner/.kube
-
     # Describe the nodes
-    sudo kubectl describe nodes
+    su runner -c "kubectl describe nodes"
 
     # fix the coredns pods crashing
     # https://github.com/kubernetes/kubeadm/issues/998#issuecomment-412099190
-    sudo kubectl -n kube-system get deployment coredns -o yaml | sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | sudo kubectl apply -f -
+    su runner -c "kubectl -n kube-system get deployment coredns -o yaml | sed 's/allowPrivilegeEscalation: false/allowPrivilegeEscalation: true/g' | kubectl apply -f -"
 
     touch /opt/minikube-started
     | EOT
@@ -82,7 +80,3 @@ apt::key { 'kubernetes-repository':
   timeout   => 3600,
   logoutput => true
 }
--> service { 'kubelet':
-  enable => true,
-}
-

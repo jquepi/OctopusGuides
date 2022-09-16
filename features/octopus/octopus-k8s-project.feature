@@ -115,7 +115,7 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s @microk8s
   Scenario: Add K8S Containers Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                             |
+      | Define your deployment process | //button[contains(.,'Create Process')]                                             |
       | Add Step                       | //button[contains(.,'Add Step')]                                                   |
       | Search                         | //input[@name='Filter by name, category or description...']                        |
       | Deploy Kubernetes containers   | //div[./div/div[text()='Deploy Kubernetes containers']]                            |
@@ -128,6 +128,7 @@ if (elements.length !== 0) {
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
+    And I scroll the "Add Step" button into view offset by "-500"
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}035-octopus-k8s-add-step.png"
@@ -149,10 +150,10 @@ if (elements.length !== 0) {
   @define-project @destinationspecific @k8s @microk8s
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Step Name       | //input[@name='Step name']                                                                      |
-      | On behalf of    | //input[../../label[text()='On behalf of target roles (type to add new)']]                      |
-      | K8s role        | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'k8s')]//span |
-      | Deployment name | //input[@name='Deployment name']                                                                |
+      | Step Name       | //input[@name='Step name']                                                        |
+      | On behalf of    | //input[../../label[text()='On behalf of target roles (type to add new)']]        |
+      | K8s role        | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'k8s')]//span |
+      | Deployment name | //input[@name='Deployment name']                                                  |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box

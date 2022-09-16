@@ -53,7 +53,8 @@ jobs:
       VIDEO_FILE_NAME: aspnet-jenkins-artifactory-feed-azure.mp4
       SCREENSHOT_PATH: aspnet-app\azurewebapp\artifactory\git\
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
 
     - name: Set screen resolution
       shell: powershell
@@ -84,7 +85,7 @@ jobs:
 
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts sqlserverexpress.pp,jenkinsinstall.pp,utilities.pp,dotnetutilities.pp,artifactory.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
+      run: ./install.ps1 -Scripts utilities.pp,sqlserverexpress.pp,jenkinsinstall.pp,dotnetutilities.pp,artifactory.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
 
     - name: Configure Artifactory
       shell: powershell

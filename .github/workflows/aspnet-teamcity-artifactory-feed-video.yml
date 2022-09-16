@@ -44,7 +44,8 @@ jobs:
       VIDEO_FILE_NAME: aspnet-teamcity-artifactory-feed.mp4
       SCREENSHOT_PATH:
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
 
     - name: Clean up old files
       shell: powershell

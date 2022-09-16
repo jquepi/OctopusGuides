@@ -114,7 +114,7 @@ Feature: Add a manual intervention step
       | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                       |
       | Select environments           | //input[../../label[text()='Select environments']]                                              |
       | Select environments container | //div[./div/div/div/label[text()='Select environments']]                                        |
-      | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'Dev')]//span |
+      | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'Dev')]//span |
 
     And I open the URL "http://localhost/app#"
     And I clear the transition
@@ -135,6 +135,7 @@ Feature: Add a manual intervention step
     And I click the "Deployments" link
     And I highlight inside the "Process" link
     And I click the "Process" link
+    And I scroll the "Add Step" button into view offset by "-500"
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/email/#{GuideSpecificScreenshotDir}025-add-step.png"
@@ -286,6 +287,7 @@ Feature: Add a manual intervention step
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
 
+    And I scroll the "Assign to me" button into view offset by "-500" if it exists
     And I highlight outside the "Assign to me" button
     And I sleep for "1" second
     And I click the "Assign to me" button

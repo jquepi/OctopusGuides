@@ -52,7 +52,8 @@ jobs:
       SCREENSHOT_PATH: /java-app/payara/artifactory/git/
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[1]"
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Get workflow ID
         id: workflow-id
@@ -66,7 +67,7 @@ jobs:
 
       - name: Install Puppet
         run: >-
-          ./install.sh utilities.pp headless.pp jenkins.pp payara.pp mssql-cleanstart.pp octopus.pp artifactory.pp
+          ./install.sh utilities.pp headless.pp jenkins.pp jenkinslogs.pp payara.pp mssql-cleanstart.pp octopus.pp artifactory.pp
           octopuscli.pp jenkinsfinalize.pp
 
       - name: Wait for Octopus

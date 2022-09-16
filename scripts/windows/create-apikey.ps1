@@ -1,4 +1,4 @@
-& "C:\Program Files\OpenJDK\$((Get-ChildItem "C:\Program Files\OpenJDK\")[0])\bin\java" `
+& "C:\tools\zulu17.36.17-ca-jdk17.0.4.1-win_x64\bin\java" `
     "-Xmx2g" `
     "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
     "-DstepPause=$STEP_PAUSE" `

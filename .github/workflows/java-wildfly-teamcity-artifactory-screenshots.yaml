@@ -49,7 +49,8 @@ jobs:
       GIT_URL: https://github.com/OctopusSamples/RandomQuotes-Java.git
       SCREENSHOT_PATH: /java-app/wildfly/artifactory/git/
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Get workflow ID
         id: workflow-id

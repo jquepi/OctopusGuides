@@ -11,6 +11,7 @@ Feature: Deploy project
     And I open the URL "#{OctopusURL:-http://localhost}/app#/Spaces-1/projects/random-quotes/overview"
     And I sleep for "1" second
 
+    And I scroll the "Create Release" button into view offset by "-500"
     And I highlight inside the "Create Release" button
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}170-octopus-create-release.png"

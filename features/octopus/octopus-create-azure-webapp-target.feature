@@ -11,8 +11,8 @@ Feature: Create Azure Web App Target
       | Deployment Targets text | (//a/span[contains(.,'Deployment Targets')] \| //a[contains(.,'Deployment Targets')])[1]                |
       | Add Deployment Target   | //button[contains(.,'Add deployment target')]                                                           |
       | Azure                   | //button[contains(.,'Azure')]                                                                           |
-      | Azure Web App           | //div[contains(@class, 'EndpointCard_card') and contains(.,'Azure Web App')]                            |
-      | Add                     | //div[contains(@class, 'EndpointCard_card') and contains(.,'Azure Web App')]//button[contains(.,'Add')] |
+      | Azure Web App           | //div[contains(@class, 'EndpointCard-module_card') and contains(.,'Azure Web App')]                            |
+      | Add                     | //div[contains(@class, 'EndpointCard-module_card') and contains(.,'Azure Web App')]//button[contains(.,'Add')] |
       | Save                    | //button[contains(.,'Save')]                                                                            |
       | Display Name            | //input[@name='Display name']                                                                           |
       | Environments            | //input[../../label[text()='Select environments']]                                                      |

@@ -11,7 +11,7 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat
   Scenario: Add K8S Containers Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                             |
+      | Define your deployment process | //button[contains(.,'Create Process')]                                             |
       | Add Step                       | //button[contains(.,'Add Step')]                                                   |
       | Search                         | //input[@name='Filter by name, category or description...']                        |
       | Deploy to Tomcat via Manager   | //div[./div/div[text()='Deploy to Tomcat via Manager']]                            |
@@ -21,9 +21,11 @@ Feature: Configure an Octopus Tomcat project
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}030-octopus-define-process.png"
 
+    And I scroll the "Define your deployment process" button into view offset by "-200"
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
+    And I scroll the "Add Step" button into view offset by "-500"
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}035-octopus-tomcat-add-step.png"
@@ -45,13 +47,13 @@ Feature: Configure an Octopus Tomcat project
   @define-project @destinationspecific @tomcat
   Scenario: K8S Define step
     Given I set the following aliases:
-      | Configure features                           | (//button[contains(.,'Configure features')])[1]                                                 |
-      | Structured Configuration Variables           | //input[..//label[text()='Structured Configuration Variables']]                                 |
-      | Structured Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]]                          |
-      | OK                                           | //button[contains(.,'Ok')]                                                                      |
-      | Step Name                                    | //input[@name='Step name']                                                                      |
-      | On target roles                              | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
-      | Web role                                     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Configure features                           | (//button[contains(.,'Configure features')])[1]                                      |
+      | Structured Configuration Variables           | //input[..//label[text()='Structured Configuration Variables']]                      |
+      | Structured Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]]               |
+      | OK                                           | //button[contains(.,'Ok')]                                                           |
+      | Step Name                                    | //input[@name='Step name']                                                           |
+      | On target roles                              | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]] |
+      | Web role                                     | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'web')]//span    |
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second

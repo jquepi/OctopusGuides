@@ -55,7 +55,8 @@ jobs:
       K8S_TEST_NODEPORT: 30001
       K8S_PROD_NODEPORT: 30002
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Get workflow ID
         id: workflow-id

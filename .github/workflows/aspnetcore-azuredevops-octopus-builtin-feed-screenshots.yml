@@ -44,7 +44,8 @@ jobs:
       NUGET_PATH: 
       SCREENSHOT_PATH: aspnetcore-app\iis\builtin\git\
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Set screen resolution
         shell: powershell

@@ -52,7 +52,8 @@ jobs:
       VIDEO_FILE_NAME: bamboo-java-tomcat-artifactory.mp4
       SCREENSHOT_PATH: /java-app/tomcat/artifactory/git/
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Get workflow ID
         id: workflow-id

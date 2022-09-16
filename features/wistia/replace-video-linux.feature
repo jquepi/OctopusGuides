@@ -5,7 +5,7 @@ Feature: Replace Video
     And I fullscreen the window
     And I open the URL "https://auth.wistia.com/session/new?app=wistia"
     And I populate the "user_email" text box with "ExternalWistiaUsername"
-    And I populate the "user_password" text box with "ExternalWistiaPassword"
+    And I populate the "email_login_form_password" text box with "ExternalWistiaPassword"
     And I click the "//button[text()='Sign in']" button
 
   Scenario: Replace video

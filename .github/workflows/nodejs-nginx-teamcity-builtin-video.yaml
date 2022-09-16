@@ -51,7 +51,8 @@ jobs:
       DOCKER_IMAGE: octopussamples/randomquotesjs
       OCTOPUS_DOCKER_IMAGE: octopussamples/randomquotesjs
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Get workflow ID
         id: workflow-id

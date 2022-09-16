@@ -51,7 +51,8 @@ jobs:
       VIDEO_FILE_NAME: bamboo-java-websphere-builtin.mp4
       SCREENSHOT_PATH: /java-app/websphere/builtin/git/
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Get workflow ID
         id: workflow-id

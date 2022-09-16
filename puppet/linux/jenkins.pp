@@ -1,4 +1,12 @@
-file { '/var/lib/jenkins':
+# Jenkins requires Java 11
+package { 'openjdk-11-jdk':
+  ensure => 'latest',
+}
+-> exec { 'Set default jdk':
+  command   => '/usr/sbin/update-java-alternatives --set java-1.11.0-openjdk-amd64',
+  logoutput => true
+}
+-> file { '/var/lib/jenkins':
   ensure => 'directory',
 }
 -> file { '/var/lib/jenkins/init.groovy.d':

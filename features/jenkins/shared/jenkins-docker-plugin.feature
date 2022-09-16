@@ -1,19 +1,22 @@
 Feature: Install Docker Plugin
+
   @plugin-install @destinationspecific @k8s @microk8s
   Scenario: Install plugins
     Given I set the following aliases:
       | Available               | //a[contains(@href,'available')]                         |
       | Filter                  | #filter-box                                              |
       | Docker Plugin           | //input[@name='plugin.docker-build-step.default']        |
-      | Docker Plugin Container | //td[./input[@name='plugin.docker-build-step.default']]  |
+      | Docker Plugin Container | //td[.//input[@name='plugin.docker-build-step.default']] |
       | Install without restart | //button[text()='Install without restart']               |
       | Back to top             | //a[contains(.,'Go back to the top page')]               |
 
     Given I run the feature "shared/jenkins-open-plugins.feature" passing the original arguments
-   
+
     And I click the "Available" tab
     And I populate the "Filter" text box with the text "Docker"
-    And I click the "Docker Plugin" checkbox
+    And I wait for "1" seconds
+    And I scroll the "Docker Plugin" checkbox into view offset by "-200"
+    And I force click the "Docker Plugin" checkbox
     And I highlight inside the "Available" tab
     And I highlight outside the "Filter" tab
     And I highlight inside the "Docker Plugin Container" element

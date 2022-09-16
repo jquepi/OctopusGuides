@@ -52,7 +52,8 @@ jobs:
       NUGET_PATH: 'RandomQuotes\obj\octopacked\'
       SCREENSHOT_PATH: aspnet-app\azurewebapp\builtin\git\
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
 
     - name: Set screen resolution
       shell: powershell
@@ -83,7 +84,7 @@ jobs:
 
     - name: Execute puppet
       shell: powershell
-      run: ./install.ps1 -Scripts sqlserverexpress.pp,jenkinsinstall.pp,utilities.pp,dotnetutilities.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
+      run: ./install.ps1 -Scripts utilities.pp,sqlserverexpress.pp,jenkinsinstall.pp,dotnetutilities.pp,octopus.pp,iis.pp,jenkins.pp,sleep.pp,jenkinswait.pp
 
     - name: Create API key
       shell: powershell

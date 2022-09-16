@@ -46,7 +46,8 @@ jobs:
       VIDEO_FILE_NAME: aspnet-azuredevops-artifactory-feed-tfvc.mp4
       SCREENSHOT_PATH:
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
 
     - name: Set screen resolution
       shell: powershell

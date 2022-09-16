@@ -38,14 +38,6 @@ file { 'C:/tools':
   creates      => 'C:/tools/nssm-2.24/win64/nssm.exe',
   cleanup      => true,
 }
--> archive { 'C:/tools/zulu8.46.0.19-ca-jdk8.0.252-win_x64.zip':
-  ensure       => present,
-  extract      => true,
-  extract_path => 'C:/tools',
-  source       => 'https://octopus-guides.s3.amazonaws.com/java/zulu8.46.0.19-ca-jdk8.0.252-win_x64.zip',
-  creates      => 'C:/tools/zulu8.46.0.19-ca-jdk8.0.252-win_x64/release',
-  cleanup      => true,
-}
 -> file { 'C:/start_bamboo.ps1':
   ensure  => 'file',
   owner   => 'Administrators',
@@ -60,8 +52,8 @@ file { 'C:/tools':
     # Launch Bamboo in a service
     c:\tools\nssm-2.24\win64\nssm.exe install Bamboo "C:\tools\atlas\bin\atlas-run-standalone.bat"
     c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppDirectory C:\
-    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppParameters --product bamboo
-    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppEnvironmentExtra JAVA_HOME=C:\tools\zulu8.46.0.19-ca-jdk8.0.252-win_x64
+    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppParameters --product bamboo -v 8.2.5
+    c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppEnvironmentExtra JAVA_HOME=C:\tools\zulu11.58.23-ca-jdk11.0.16.1-win_x64
     c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppStdout C:\bamboo.out
     c:\tools\nssm-2.24\win64\nssm.exe set Bamboo AppStderr C:\bamboo.out
     net start Bamboo

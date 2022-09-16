@@ -42,7 +42,7 @@ Write-Host "HTTPS_PROXY: $($env:https_proxy)"
 Get-ChildItem "C:\install\artifactory-pro-6.17.0\logs" -Filter *.log |
         Foreach-Object {Get-Content $_.FullName}
 
-& "C:\Program Files\OpenJDK\$((Get-ChildItem "C:\Program Files\OpenJDK\")[0])\bin\java" `
+& "C:\tools\zulu17.36.17-ca-jdk17.0.4.1-win_x64\bin\java" `
     "-Xmx2g" `
     "-Dwebdriver.gecko.driver=C:\tools\geckodriver.exe" `
     "-DstepPause=$STEP_PAUSE" `

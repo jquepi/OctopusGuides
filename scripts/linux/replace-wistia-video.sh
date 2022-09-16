@@ -15,7 +15,8 @@ if [ -n "$WISTIA_MEDIA_ID" ]; then
     "-DscreenshotS3Enabled=$STHREE_SCREENSHOT_ENABLED" \
     "-DscreenshotS3Bucket=$SCREENSHOT_BUCKET" \
     "-DstepHandlerMessage=$GITHUB_SHA" \
-    "-DslackStepHandlerEnabled=false" \
+    "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
+    "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
     "-DCucumberAlias-ExternalWistiaUsername=$WISTIA_USERNAME" \
     "-DCucumberAlias-ExternalWistiaPassword=$WISTIA_PASSWORD" \
     "-DCucumberAlias-ExternalMediaID=$WISTIA_MEDIA_ID" \

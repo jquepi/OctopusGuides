@@ -18,6 +18,8 @@
   "-DslackStepHandlerEnabled=$SLACK_STEP_HANDLER" \
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
   "-DCucumberAlias-ExternalBrowserType=$BROWSER_TYPE" \
+  "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
+  "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
   -jar /opt/webdrivertraining.1.0-SNAPSHOT.jar \
   --tags "$CUCUMBER_TAGS" \
   features/octopus/octopus-docker-feed.feature

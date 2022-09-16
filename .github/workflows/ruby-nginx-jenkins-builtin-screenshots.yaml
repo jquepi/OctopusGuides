@@ -48,7 +48,8 @@ jobs:
       SCREENSHOT_PATH: /ruby-app/nginx/builtin/git/
       CREATE_RELEASE_SHELL_LOCATOR: "(//div[@class='CodeMirror'])[4]"
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Get workflow ID
         id: workflow-id
@@ -62,7 +63,7 @@ jobs:
 
       - name: Install Puppet
         run: >-
-          ./install.sh jenkins.pp ruby.pp utilities.pp headless.pp nginx.pp
+          ./install.sh utilities.pp jenkins.pp ruby.pp headless.pp nginx.pp
           mssql-cleanstart.pp octopus.pp dotnetutilities.pp octopuscli.pp
           jenkinsfinalize.pp
 

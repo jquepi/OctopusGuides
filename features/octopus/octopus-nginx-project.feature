@@ -101,7 +101,7 @@ Feature: Configure an Octopus Node.js project
   @define-project @destinationspecific @nginx
   Scenario: Add K8S Containers Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                |
+      | Define your deployment process | //button[contains(.,'Create Process')]                                |
       | Add Step                       | //button[contains(.,'Add Step')]                                      |
       | Search                         | //input[@name='Filter by name, category or description...']           |
       | Deploy to Nginx                | //div[./div/div[text()='Deploy to NGINX']]                            |
@@ -116,6 +116,7 @@ Feature: Configure an Octopus Node.js project
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
+    And I scroll the "Add Step" button into view offset by "-500"
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}050-octopus-add-step.png"
@@ -161,10 +162,10 @@ Feature: Configure an Octopus Node.js project
   @define-project @destinationspecific @nginx
   Scenario: Define IIS project
     Given I set the following aliases:
-      | Add                      | //div[./div/div[text()='Deploy to IIS']]//button[contains(.,'Add')]                             |
-      | Step Name                | //input[@name='Step name']                                                                      |
-      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
-      | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Add                      | //div[./div/div[text()='Deploy to IIS']]//button[contains(.,'Add')]                  |
+      | Step Name                | //input[@name='Step name']                                                           |
+      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]] |
+      | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'web')]//span    |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box

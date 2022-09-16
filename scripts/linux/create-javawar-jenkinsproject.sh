@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Dump the jenkins logs
+cat /var/log/jenkins/jenkins.log
+
 API_KEY=`cat /tmp/api_key.txt`
 
 /opt/jdk-17.0.1/bin/java \
@@ -21,6 +24,8 @@ API_KEY=`cat /tmp/api_key.txt`
   "-DslackStepHandlerErrorOnly=$SLACK_ON_ERROR_ONLY" \
   "-DCucumberAlias-ExternalOctopusAPIKey=$API_KEY" \
   "-DCucumberAlias-GitUrl=$GIT_URL" \
+  "-DCucumberAlias-ExternalDockerImage=$DOCKER_IMAGE" \
+  "-DCucumberAlias-ExternalOctopusDockerImage=$OCTOPUS_DOCKER_IMAGE" \
   "-DCucumberAlias-ExternalDockerUsername=$DOCKER_USERNAME" \
   "-DCucumberAlias-ExternalDockerPassword=$DOCKER_PASSWORD" \
   "-DCucumberAlias-ArtifactPath=\${WORKSPACE}/target/randomquotes.1.0.\${BUILD_NUMBER}.war" \

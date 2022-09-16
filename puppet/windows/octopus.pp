@@ -39,7 +39,7 @@ file { 'C:/install/system.componentmodel.annotations.4.1.0':
 # CONFIGURE OCTOPUS
 
 -> package { 'octopusdeploy':
-  ensure   => installed,
+  ensure   => "2022.3.10440",
   provider => chocolatey
 }
 -> file { 'C:/install_octopus.bat':

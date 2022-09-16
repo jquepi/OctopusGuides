@@ -118,8 +118,8 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I populate the "Repository URL" text box with "GitUrl"
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}085-git-settings.png"
 
-    And I scroll the "Poll SCM" option into view offset by "-200"
-    And I click the "Poll SCM" option
+    And I force click the "Poll SCM" option
+    And I scroll the "Schedule" textarea into view offset by "-200"
     And I populate the "Schedule" textarea with "H/5 * * * *"
     And I highlight outside the "Poll SCM" option
     And I highlight outside the "Schedule" textarea
@@ -266,6 +266,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
       | Package include paths                                   | //textarea[@name='_.includePaths']                                         |
       | Package base path                                       | //input[@name='_.sourcePath']                                              |
       | Nuget                                                   | //input[@value='nuget']                                                    |
+      | Nuget container                                         | //div[./input[@value='nuget']]                                             |
 
     And I scroll the "Add build step" button into view offset by "-200"
     And I highlight outside the "Add build step" button
@@ -316,14 +317,14 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I highlight outside the "Package base path" text box
     And I highlight outside the "Package include paths" text box
     And I highlight outside the "Package output folder" text box
-    And I highlight outside the "Nuget" text box
+    And I highlight outside the "Nuget container" element
 
     And I populate the "Package ID" text box with "RandomQuotes"
     And I populate the "Version number" text box with "1.0.${BUILD_NUMBER}"
     And I populate the "Package base path" text box with "${WORKSPACE}\RandomQuotes\bin\Release\netcoreapp3.1\publish"
     And I populate the "Package include paths" text box with "**"
     And I populate the "Package output folder" text box with "${WORKSPACE}"
-    And I click the "Nuget" check box
+    And I force click the "Nuget" check box
 
     And I save a screenshot to "#{ExternalMediaPath}/jenkins/initialproject/#{GuideSpecificScreenshotDir}165-octo-plugin-pack.png"
 

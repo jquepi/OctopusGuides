@@ -58,12 +58,12 @@ package { 'notepadplusplus':
   provider => chocolatey
 }
 
-package { 'jdk8':
+package { 'openjdk11':
   ensure   => installed,
   provider => chocolatey
 }
 
-package { 'openjdk':
+package { 'openjdk17':
   ensure   => installed,
   provider => chocolatey
 }
@@ -115,11 +115,11 @@ archive { 'C:/tools/chromedriver_win32.zip':
   cleanup      => true,
 }
 
-archive { 'C:/tools/geckodriver-v0.30.0-win64.zip':
+archive { 'C:/tools/geckodriver-v0.31.0-win64.zip':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/tools',
-  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip',
+  source       => 'https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-win64.zip',
   creates      => 'C:/tools/geckodriver.exe',
   cleanup      => true,
 }
@@ -131,4 +131,31 @@ download_file { 'webdrivertraining.1.0-SNAPSHOT.jar':
 
 file { 'C:/install':
   ensure => 'directory'
+}
+
+-> archive { 'C:/tools/zulu8.46.0.19-ca-jdk8.0.252-win_x64.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools',
+  source       => 'https://octopus-guides.s3.amazonaws.com/java/zulu8.46.0.19-ca-jdk8.0.252-win_x64.zip',
+  creates      => 'C:/tools/zulu8.46.0.19-ca-jdk8.0.252-win_x64/release',
+  cleanup      => true,
+}
+
+archive { 'C:/tools/zulu11.58.23-ca-jdk11.0.16.1-win_x64.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools',
+  source       => 'https://octopus-guides.s3.amazonaws.com/java/zulu11.58.23-ca-jdk11.0.16.1-win_x64.zip',
+  creates      => 'C:/tools/zulu11.58.23-ca-jdk11.0.16.1-win_x64/release',
+  cleanup      => true,
+}
+
+archive { 'C:/tools/zulu17.36.17-ca-jdk17.0.4.1-win_x64.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools',
+  source       => 'https://octopus-guides.s3.amazonaws.com/java/zulu17.36.17-ca-jdk17.0.4.1-win_x64.zip',
+  creates      => 'C:/tools/zulu17.36.17-ca-jdk17.0.4.1-win_x64/release',
+  cleanup      => true,
 }

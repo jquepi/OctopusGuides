@@ -169,7 +169,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app
   Scenario: Add Azure Web App Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                                     |
+      | Define your deployment process | //button[contains(.,'Create Process')]                                                     |
       | Add Step                       | //button[contains(.,'Add Step')]                                                           |
       | Search                         | //input[@name='Filter by name, category or description...']                                |
       | Deploy an Azure Web App        | //div[./div/div[text()='Deploy an Azure Web App (Web Deploy)']]                            |
@@ -203,7 +203,7 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis
   Scenario: Add IIS Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]              |
+      | Define your deployment process | //button[contains(.,'Create Process')]                              |
       | Add Step                       | //button[contains(.,'Add Step')]                                    |
       | Search                         | //input[@name='Filter by name, category or description...']         |
       | Deploy to IIS                  | //div[./div/div[text()='Deploy to IIS']]                            |
@@ -216,6 +216,7 @@ Feature: Configure an Octopus ASP.NET project
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
+    And I scroll the "Add Step" button into view offset by "-500"
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}035-octopus-add-step.png"
@@ -284,9 +285,9 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app
   Scenario: Azure Define step
     Given I set the following aliases:
-      | Step Name    | //input[@name='Step name']                                                                              |
-      | On behalf of | //input[../../label[text()='On behalf of target roles (type to add new)']]                              |
-      | Azure role   | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'azurewebapp')]//span |
+      | Step Name    | //input[@name='Step name']                                                                |
+      | On behalf of | //input[../../label[text()='On behalf of target roles (type to add new)']]                |
+      | Azure role   | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'azurewebapp')]//span |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -308,10 +309,10 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis
   Scenario: Define IIS project
     Given I set the following aliases:
-      | Add                      | //div[./div/div[text()='Deploy to IIS']]//button[contains(.,'Add')]                             |
-      | Step Name                | //input[@name='Step name']                                                                      |
-      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
-      | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
+      | Add                      | //div[./div/div[text()='Deploy to IIS']]//button[contains(.,'Add')]                  |
+      | Step Name                | //input[@name='Step name']                                                           |
+      | Runs on targets in roles | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]] |
+      | Web role                 | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'web')]//span    |
 
     And I scroll the "Step Name" text box into view offset by "-300"
     And I highlight outside the "Step Name" text box
@@ -333,11 +334,11 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the iis deployment
     Given I set the following aliases:
-      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                            |
-      | Artifactory              | //button[./div/div[text()='Artifactory']]                                                                |
-      | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[@name='PackageID']                                                                               |
-      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
+      | Package feed             | //div[./label[text()='Package feed']]/div/div                                              |
+      | Artifactory              | //button[./div/div[text()='Artifactory']]                                                  |
+      | HTML Body                | //body                                                                                     |
+      | Package ID               | //input[@name='PackageID']                                                                 |
+      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
     And I click the "Package feed" drop down list
@@ -365,9 +366,9 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @iis @repositoryspecific @octo-built-in-feed
   Scenario: Select built in feed for the iis deployment
     Given I set the following aliases:
-      | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[@name='PackageID']                                                                               |
-      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
+      | HTML Body                | //body                                                                                     |
+      | Package ID               | //input[@name='PackageID']                                                                 |
+      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box
@@ -388,11 +389,11 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app @repositoryspecific @artifactory
   Scenario: Select artifactory feed for the azure web app deployment
     Given I set the following aliases:
-      | Package feed             | //div[./label[text()='Package feed']]/div/div                                                            |
-      | Artifactory              | //button[./div/div[text()='Artifactory']]                                                                |
-      | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[@name='PackageID']                                                                               |
-      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
+      | Package feed             | //div[./label[text()='Package feed']]/div/div                                              |
+      | Artifactory              | //button[./div/div[text()='Artifactory']]                                                  |
+      | HTML Body                | //body                                                                                     |
+      | Package ID               | //input[@name='PackageID']                                                                 |
+      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package feed" drop down list into view offset by "-300"
     And I click the "Package feed" drop down list
@@ -420,9 +421,9 @@ Feature: Configure an Octopus ASP.NET project
   @define-project @destinationspecific @azure-web-app @repositoryspecific @octo-built-in-feed
   Scenario: Select built in feed for the azure web app deployment
     Given I set the following aliases:
-      | HTML Body                | //body                                                                                                   |
-      | Package ID               | //input[@name='PackageID']                                                                               |
-      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'RandomQuotes')]//span |
+      | HTML Body                | //body                                                                                     |
+      | Package ID               | //input[@name='PackageID']                                                                 |
+      | Random Quotes Suggestion | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'RandomQuotes')]//span |
 
     And I scroll the "Package ID" text box into view offset by "-300"
     And I highlight outside the "Package ID" text box

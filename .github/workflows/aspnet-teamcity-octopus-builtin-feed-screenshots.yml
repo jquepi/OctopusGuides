@@ -42,7 +42,8 @@ jobs:
       NUGET_PATH: 'RandomQuotes\obj\octopacked\'
       SCREENSHOT_PATH: aspnet-app\iis\builtin\git\
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
 
     - name: Set screen resolution
       shell: powershell

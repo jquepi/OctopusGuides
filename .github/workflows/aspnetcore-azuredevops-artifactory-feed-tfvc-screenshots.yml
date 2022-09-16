@@ -46,7 +46,8 @@ jobs:
       VIDEO_FILE_NAME:
       SCREENSHOT_PATH: aspnetcore-app\iis\artifactory\tfvc\
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Set screen resolution
         shell: powershell

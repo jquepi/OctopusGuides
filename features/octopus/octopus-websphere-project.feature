@@ -11,7 +11,7 @@ Feature: Configure an Octopus Websphere project
   @define-project @destinationspecific @websphere
   Scenario: Add Java Archive Step
     Given I set the following aliases:
-      | Define your deployment process | //button[contains(.,'Define your deployment process')]                    |
+      | Define your deployment process | //button[contains(.,'Create Process')]                                    |
       | Add Step                       | //button[contains(.,'Add Step')]                                          |
       | Search                         | //input[@name='Filter by name, category or description...']               |
       | Deploy Java Archive            | //div[./div/div[text()='Deploy Java Archive']]                            |
@@ -24,6 +24,7 @@ Feature: Configure an Octopus Websphere project
     And I click the "Define your deployment process" button
     And I sleep for "1" second
 
+    And I scroll the "Add Step" button into view offset by "-500"
     And I highlight outside the "Add Step" button with an offset of "2"
     And I sleep for "1" second
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}040-octopus-websphere-add-step.png"
@@ -45,15 +46,15 @@ Feature: Configure an Octopus Websphere project
   @define-project @destinationspecific @websphere
   Scenario: Java Define step
     Given I set the following aliases:
-      | Configure features                           | (//button[contains(.,'Configure features')])[1]                                                 |
-      | OK                                           | //button[contains(.,'Ok')]                                                                      |
-      | Step Name                                    | //input[@name='Step name']                                                                      |
-      | On target roles                              | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]]            |
-      | Web role                                     | //div[contains(@class, 'VirtualListWithKeyboard_menuContainer')]//span[contains(.,'web')]//span |
-      | Structured Configuration Variables           | //input[..//label[text()='Structured Configuration Variables']]                                 |
-      | Structured Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]]                          |
-      | Substitute Variables in Templates            | //input[..//label[text()='Substitute Variables in Templates']]                                  |
-      | Substitute Variables in Templates Container  | //div[./input[..//label[text()='Substitute Variables in Templates']]]                           |
+      | Configure features                           | (//button[contains(.,'Configure features')])[1]                                      |
+      | OK                                           | //button[contains(.,'Ok')]                                                           |
+      | Step Name                                    | //input[@name='Step name']                                                           |
+      | On target roles                              | //input[../../label[contains(text(), 'Runs on targets in roles (type to add new)')]] |
+      | Web role                                     | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'web')]//span    |
+      | Structured Configuration Variables           | //input[..//label[text()='Structured Configuration Variables']]                      |
+      | Structured Configuration Variables Container | //div[./input[..//label[text()='Structured Configuration Variables']]]               |
+      | Substitute Variables in Templates            | //input[..//label[text()='Substitute Variables in Templates']]                       |
+      | Substitute Variables in Templates Container  | //div[./input[..//label[text()='Substitute Variables in Templates']]]                |
 
     And I highlight outside the "Configure features" button
     And I sleep for "1" second

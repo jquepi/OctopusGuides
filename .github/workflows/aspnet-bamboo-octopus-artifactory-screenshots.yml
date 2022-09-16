@@ -41,7 +41,8 @@ jobs:
       SCREENSHOT_PATH: aspnet-app\iis\artifactory\git\
     runs-on: windows-2019
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+
 
     - name: Set screen resolution
       shell: powershell

@@ -6,25 +6,25 @@ Feature: Create Azure Web App Target
 
   Scenario: Add target
     Given I set the following aliases:
-      | Infrastructure             | //span[contains(.,'Infrastructure')]                                                                         |
-      | Deployment Targets         | (//a[contains(.,'Deployment Targets')])[1]                                                                   |
-      | Deployment Targets text    | (//a/span[contains(.,'Deployment Targets')] \| //a[contains(.,'Deployment Targets')])[1]                     |
-      | Add Deployment Target      | //button[contains(.,'Add deployment target')]                                                                |
-      | Kubernetes Cluster         | //button[contains(.,'Kubernetes Cluster')]                                                                   |
-      | Kubernetes Cluster Target  | //div[contains(@class, 'EndpointCard_card') and contains(.,'Kubernetes Cluster')]                            |
-      | Add                        | //div[contains(@class, 'EndpointCard_card') and contains(.,'Kubernetes Cluster')]//button[contains(.,'Add')] |
-      | Display Name               | //input[@name='Display name']                                                                                |
-      | Environments               | //input[../../label[text()='Select environments']]                                                           |
-      | Environments Container     | //div[./div/div/div/label[text()='Select environments']]                                                     |
-      | Dev environment            | //span[./div/div/div[text()='Dev']]                                                                          |
-      | Target Roles               | //input[../../label[text()='Roles (type to add new)']]                                                       |
-      | Target Roles Container     | //div[./div/div/label[text()='Roles (type to add new)']]                                                     |
-      | K8S web app role           | //span[./div/div/div[contains(.,'k8s')]]                                                                     |
-      | Client Certificate         | //button[./div/div[text()='Client Certificate']]                                                             |
-      | Select account certificate | (//button[../../../../label[text()='Select certificate']])[1]                                                |
-      | Cluster account container  | (//div[./label[text()='Select certificate']])[1]                                                             |
-      | Minikube certificate       | (//button[./div/div[text()='Minikube Client Certificate']])[1]                                               |
-      | Expand All                 | //a[text()='EXPAND ALL']                                                                                     |
+      | Infrastructure             | //span[contains(.,'Infrastructure')]                                                                                |
+      | Deployment Targets         | (//a[contains(.,'Deployment Targets')])[1]                                                                          |
+      | Deployment Targets text    | (//a/span[contains(.,'Deployment Targets')] \| //a[contains(.,'Deployment Targets')])[1]                            |
+      | Add Deployment Target      | //button[contains(.,'Add deployment target')]                                                                       |
+      | Kubernetes Cluster         | //button[contains(.,'Kubernetes Cluster')]                                                                          |
+      | Kubernetes Cluster Target  | //div[contains(@class, 'EndpointCard-module_card') and contains(.,'Kubernetes Cluster')]                            |
+      | Add                        | //div[contains(@class, 'EndpointCard-module_card') and contains(.,'Kubernetes Cluster')]//button[contains(.,'Add')] |
+      | Display Name               | //input[@name='Display name']                                                                                       |
+      | Environments               | //input[../../label[text()='Select environments']]                                                                  |
+      | Environments Container     | //div[./div/div/div/label[text()='Select environments']]                                                            |
+      | Dev environment            | //span[./div/div/div[text()='Dev']]                                                                                 |
+      | Target Roles               | //input[../../label[text()='Roles (type to add new)']]                                                              |
+      | Target Roles Container     | //div[./div/div/label[text()='Roles (type to add new)']]                                                            |
+      | K8S web app role           | //span[./div/div/div[contains(.,'k8s')]]                                                                            |
+      | Client Certificate         | //button[./div/div[text()='Client Certificate']]                                                                    |
+      | Select account certificate | (//button[../../../../label[text()='Select certificate']])[1]                                                       |
+      | Cluster account container  | (//div[./label[text()='Select certificate']])[1]                                                                    |
+      | Minikube certificate       | (//button[./div/div[text()='Minikube Client Certificate']])[1]                                                      |
+      | Expand All                 | //a[text()='EXPAND ALL']                                                                                            |
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I display a note with the text "Creating Kubernetes deployment targets" for "3" seconds

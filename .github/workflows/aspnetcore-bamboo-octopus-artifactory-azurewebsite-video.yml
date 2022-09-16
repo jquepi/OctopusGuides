@@ -48,7 +48,8 @@ jobs:
       SCREENSHOT_PATH:
     runs-on: windows-2019
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+
 
       - name: Set screen resolution
         shell: powershell
