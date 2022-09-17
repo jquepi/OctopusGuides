@@ -5,8 +5,10 @@ $script = <<-'SCRIPT'
 apt-get install -y unzip wget git
 cd /tmp
 git clone https://github.com/OctopusDeploy/OctopusGuides.git
-chmod 777 -R OctopusGuides
-cd OctopusGuides/vm
+cd OctopusDeploy
+git checkout working2
+chmod 777 -R /tmp/OctopusGuides
+cd /tmp/OctopusGuides/vm
 ./java-jenkins-websphere.sh > /tmp/cucumber.logs
 SCRIPT
 
