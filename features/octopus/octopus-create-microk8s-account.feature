@@ -11,8 +11,8 @@ Feature: Create MicroK8s Account
       | More              | (//span[contains(.,'More')])[2]                               |
       | Accounts          | //span[contains(.,'Accounts')] \| //a[contains(.,'Accounts')] |
       | Add Account       | //button[contains(.,'Add Account')]                           |
-      | Username/Password | //li[normalize-space(text())='Username/Password']             |
-      | Token             | //li[normalize-space(text())='Token']                         |
+      | Username/Password | //a[.//div[normalize-space(text())='Username/Password']]      |
+      | Token             | //a[.//div[normalize-space(text())='Token']]                  |
       | Account name      | //input[@name='Account name']                                 |
       | Token value       | //input[@name='Token']                                        |
       | Username          | //input[@name='Username']                                     |
