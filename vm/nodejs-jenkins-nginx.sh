@@ -27,6 +27,7 @@ cd ..
 
 # Install Puppet
 ./install.sh \
+  systemtimeout.pp \
   jenkins.pp \
   update.pp \
   nginx.pp \
