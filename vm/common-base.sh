@@ -16,7 +16,8 @@ cd ..
   bookicon.pp \
   desktop.pp \
   vagrantuser.pp \
-  networkwait.pp
+  networkwait.pp \
+  restartgdm.pp
 
 # Wait for Octopus
 ./scripts/linux/wait-octopus-with-db-restart.sh
