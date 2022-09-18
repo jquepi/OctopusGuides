@@ -55,7 +55,7 @@ Feature: Deploy project
 
     And I start recording the screen to the directory "ExternalMediaPath"
     And I sleep for "2" seconds
-    And I click the "Task Log" button
+    And I force click the "Task Log" button
     And I sleep for "2" seconds
 
     And I save a screenshot to "#{ExternalMediaPath}/octopus/project/#{GuideSpecificScreenshotDir}210-octopus-deployment.png"
