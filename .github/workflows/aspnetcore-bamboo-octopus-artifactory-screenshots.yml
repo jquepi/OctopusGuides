@@ -20,7 +20,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       ARTIFACTORY_KEY: ${{ secrets.ARTIFACTORY_KEY }}
-      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_1 }}
+      SLACK_HOOK_URL: ${{ secrets.SLACK_PRIVATE_HOOK_URL_3 }}
       WISTIA_USERNAME: ${{ secrets.WISTIA_USERNAME }}
       WISTIA_PASSWORD: ${{ secrets.WISTIA_PASSWORD }}
       MEDIA_PATH: C:\screenshots
