@@ -106,7 +106,7 @@ Feature: Create Azure Web App Target
       | Token                         | //button[./div/div[text()='Token']]                            |
       | Select account                | (//button[../../../../label[text()='Select account']])[1]      |
       | Cluster account container     | (//div[./label[text()='Select account']])[1]                   |
-      | MicroK8S account              | (//span[./div/div/div[text()='MicroK8S Account']])[1]          |
+      | MicroK8S account              | (//button[./div/div[text()='MicroK8S Account']])[1]            |
 
     And I highlight outside the "Select an authentication type" option
     And I scroll the "Select an authentication type" option into view offset by "-200"
