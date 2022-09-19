@@ -5,8 +5,10 @@ $script = <<-'SCRIPT'
 apt-get install -y unzip wget git
 cd /tmp
 git clone https://github.com/OctopusDeploy/OctopusGuides.git
-chmod 777 -R OctopusGuides
-cd OctopusGuides/vm
+cd OctopusGuides
+git checkout working2
+chmod 777 -R /tmp/OctopusGuides
+cd /tmp/OctopusGuides/vm
 ./aspnetcore-jenkins-k8s.sh > /tmp/cucumber.logs
 SCRIPT
 

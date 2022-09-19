@@ -5,8 +5,10 @@ $script = <<-'SCRIPT'
 apt-get install -y unzip wget git
 cd /tmp
 git clone https://github.com/OctopusDeploy/OctopusGuides.git
-chmod 777 -R OctopusGuides
-cd OctopusGuides/vm
+cd OctopusGuides
+git checkout working2
+chmod 777 -R /tmp/OctopusGuides
+cd /tmp/OctopusGuides/vm
 ./nodejs-jenkins-nginx.sh > /tmp/cucumber.logs
 SCRIPT
 
@@ -16,13 +18,13 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.provider "hyperv" do |v|
         v.vmname = "Node.JS, NGINX and Octopus"
-        v.memory = 4096
+        v.memory = 6144
         v.cpus = 4
 
     end
     config.vm.provider "virtualbox" do |v|
         v.name = "Node.JS, NGINX and Octopus"
-        v.memory = 4096
+        v.memory = 6144
         v.cpus = 4
         v.customize ["modifyvm", :id, "--vram", "128"]
         v.customize ["modifyvm", :id, "--graphicscontroller", "vmsvga"]

@@ -30,6 +30,7 @@ cd ..
 
 # Install Puppet
 ./install.sh \
+  systemtimeout.pp \
   jenkins.pp \
   update.pp \
   websphere.pp \

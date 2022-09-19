@@ -102,15 +102,17 @@ Feature: Create Azure Web App Target
   @destinationspecific @microk8s
   Scenario: Add target password
     Given I set the following aliases:
-      | Token                     | //input[@value='Token']                                   |
-      | Select account            | (//button[../../../../label[text()='Select account']])[1] |
-      | Cluster account container | (//div[./label[text()='Select account']])[1]              |
-      | MicroK8S account          | (//span[./div/div/div[text()='MicroK8S Account']])[1]     |
+      | Select an authentication type | //div[./label[text()='Select an authentication type']]/div/div |
+      | Token                         | //button[./div/div[text()='Token']]                            |
+      | Select account                | (//button[../../../../label[text()='Select account']])[1]      |
+      | Cluster account container     | (//div[./label[text()='Select account']])[1]                   |
+      | MicroK8S account              | (//button[./div/div[text()='MicroK8S Account']])[1]            |
 
-    And I highlight outside the "Token" option
-    And I scroll the "Token" option into view offset by "-200"
-    And I force click the "Token" option
+    And I highlight outside the "Select an authentication type" option
+    And I scroll the "Select an authentication type" option into view offset by "-200"
+    And I force click the "Select an authentication type" drop down list
     And I sleep for "1" second
+    And I force click the "Token" option
 
     And I scroll the "Select account" drop down list into view offset by "-200"
     And I click the "Select account" drop down list

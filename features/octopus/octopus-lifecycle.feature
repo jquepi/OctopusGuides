@@ -259,7 +259,7 @@ Feature: Create a Lifecycle in Octopus
     And I sleep for "10" seconds
     And I save a screenshot to "#{ExternalMediaPath}/octopus/lifecycle/#{GuideSpecificScreenshotDir}125-random-quotes-deployed-test.png"
 
-    And I click the "Task Log" button
+    And I force click the "Task Log" button
     And I sleep for "10" seconds
 
     And I stop recording the screen
