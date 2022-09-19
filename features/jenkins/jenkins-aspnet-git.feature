@@ -19,7 +19,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
 
     And I click the "Available" tab
     And I populate the "Filter" text box with the text "MSBuild"
-    And I click the "MSBuild Plugin" checkbox
+    And I force click the "MSBuild Plugin" checkbox
     And I highlight inside the "Available" tab
     And I highlight outside the "Filter" tab
     And I highlight inside the "MSBuild Plugin Container" element
