@@ -1,5 +1,5 @@
 # Due to a bug with the video drivers in Virtualbox, a black screen is displayed on startup.
-# See See https://www.virtualbox.org/ticket/19496 for details.
+# See https://www.virtualbox.org/ticket/19496 for details.
 # Resizing the window fixes the issue. So we create a startup application that runs xrandr
 # to trigger a resize.
 file { '/home/vagrant/.config/autostart':
