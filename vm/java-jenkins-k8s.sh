@@ -94,6 +94,9 @@ cd ..
 # Create Lifecycle
 ./scripts/linux/create-lifecycle.sh
 
+# Restart microk8s
+./install.sh restartmicrok8s.pp
+
 # Add Manual Intervention
 ./scripts/linux/add-manualintervention.sh
 
