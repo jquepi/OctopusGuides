@@ -1,5 +1,6 @@
+# See https://www.virtualbox.org/ticket/19496 for details on why linux-image-generic is required
 exec { "add dkms":
-  command => "/usr/bin/apt-get update; /usr/bin/apt-get install build-essential module-assistant virtualbox-guest-utils virtualbox-guest-dkms dkms linux-headers-$(uname -r) -y",
+  command => "/usr/bin/apt-get update; /usr/bin/apt-get install build-essential module-assistant virtualbox-guest-utils virtualbox-guest-dkms dkms linux-image-generic linux-headers-$(uname -r) -y",
   timeout => 3600
 }
 -> exec { "add virtualbox x11 driver":
