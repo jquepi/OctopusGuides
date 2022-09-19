@@ -82,8 +82,14 @@ cd ..
 # Create project
 ./scripts/linux/create-k8sproject.sh
 
+# Restart microk8s
+./install.sh restartmicrok8s.pp
+
 # Create release
 ./scripts/linux/create-jenkinscreatereleaseplugin.sh
+
+# Restart microk8s
+./install.sh restartmicrok8s.pp
 
 # Create Lifecycle
 ./scripts/linux/create-lifecycle.sh
