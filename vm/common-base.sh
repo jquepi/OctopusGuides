@@ -17,7 +17,7 @@ cd ..
   desktop.pp \
   vagrantuser.pp \
   networkwait.pp \
-  restartgdm.pp
+  resizedesktop.pp
 
 # Wait for Octopus
 ./scripts/linux/wait-octopus-with-db-restart.sh
