@@ -5,7 +5,7 @@
 file { '/home/vagrant/.config/autostart':
   ensure => 'directory'
 }
-file { '/home/vagrant/.config/autostart/resize.desktop':
+-> file { '/home/vagrant/.config/autostart/resize.desktop':
   content => @("EOL"/L)
     [Desktop Entry]
     Type=Application
