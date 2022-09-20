@@ -8,12 +8,12 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
   @plugin-install @applicationspecific @aspnet
   Scenario: Install plugins
     Given I set the following aliases:
-      | Available                | //a[contains(@href,'available')]              |
-      | Filter                   | #filter-box                                   |
-      | MSBuild Plugin           | //input[@name='plugin.msbuild.default']       |
-      | MSBuild Plugin Container | //td[./input[@name='plugin.msbuild.default']] |
-      | Install without restart  | //button[text()='Install without restart']    |
-      | Back to top              | //a[contains(.,'Go back to the top page')]    |
+      | Available                | //a[contains(@href,'available')]               |
+      | Filter                   | #filter-box                                    |
+      | MSBuild Plugin           | //input[@name='plugin.msbuild.default']        |
+      | MSBuild Plugin Container | //td[.//input[@name='plugin.msbuild.default']] |
+      | Install without restart  | //button[text()='Install without restart']     |
+      | Back to top              | //a[contains(.,'Go back to the top page')]     |
 
     Given I run the feature "shared/jenkins-open-plugins.feature"
 
