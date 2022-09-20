@@ -18,7 +18,7 @@ file { '/home/vagrant/.config':
   content => @("EOL"/L)
     [Desktop Entry]
     Type=Application
-    Name=Resize Desktip
+    Name=Resize Desktop
     Exec=xrandr --size 1360x768
     Terminal=false
     X-GNOME-Autostart-enabled=true
