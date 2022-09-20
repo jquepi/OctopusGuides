@@ -3,12 +3,18 @@
 # Resizing the window fixes the issue. So we create a startup application that runs xrandr
 # to trigger a resize.
 file { '/home/vagrant/.config':
-  ensure => 'directory'
+  ensure => 'directory',
+  owner  => 'vagrant',
+  group  => 'vagrant'
 }
 -> file { '/home/vagrant/.config/autostart':
-  ensure => 'directory'
+  ensure => 'directory',
+  owner  => 'vagrant',
+  group  => 'vagrant'
 }
 -> file { '/home/vagrant/.config/autostart/resize.desktop':
+  owner   => 'vagrant',
+  group   => 'vagrant',
   content => @("EOL"/L)
     [Desktop Entry]
     Type=Application
