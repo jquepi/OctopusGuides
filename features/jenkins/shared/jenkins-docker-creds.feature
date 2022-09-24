@@ -3,11 +3,11 @@ Feature: COnfigure docker creds
   @configure-credentials
   Scenario: Configure credentials
     Given I set the following aliases:
-      | Manage Jenkins          | //div[contains(@class, 'task')][.//a[@href="/manage"]]                 |
-      | Manage Credentials      | //a[@href='credentials']                                               |
-      | System                  | //a[@href='/credentials/store/system']                                 |
-      | Global credentials      | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')] |
-      | Global credentials cell | //td[./a[text()='Global credentials (unrestricted)']]                  |
+      | Manage Jenkins          | //div[contains(@class, 'task')][.//a[@href="/manage"]]                                  |
+      | Manage Credentials      | //a[@href='credentials']                                                                |
+      | System                  | //a[@href='/credentials/store/system'] \| //a[@href='/manage/credentials/store/system'] |
+      | Global credentials      | //a[@href='domain/_'][contains(.,'Global credentials (unrestricted)')]                  |
+      | Global credentials cell | //td[./a[text()='Global credentials (unrestricted)']]                                   |
 
     And I open the URL "http://localhost:8080/"
     And I clear the transition
