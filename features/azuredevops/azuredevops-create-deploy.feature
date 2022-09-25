@@ -222,7 +222,7 @@ Feature: Create and deploy a release
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I sleep for "5" seconds
 
-    And I scroll the "Post job Checkout" item into view
+    And I scroll the "Post job Checkout" item into view waiting up to "120" seconds
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/createrelease/#{GuideSpecificScreenshotDir}080-build-results.png"
 
     And I stop recording the screen

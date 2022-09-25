@@ -599,7 +599,7 @@ Feature: Build and deploy a ASP.NET application hosted in Git on a local Octopus
     And I sleep for "300" seconds
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
-    And I scroll the "Post job Checkout" item into view
+    And I scroll the "Post job Checkout" item into view waiting up to "120" seconds
     And I save a screenshot to "#{ExternalMediaPath}/azuredevops/initialproject/#{GuideSpecificScreenshotDir}170-build-results.png"
     Then I fade the screen to "1" "1" "1" over "3000" milliseconds
     And I stop recording the screen
