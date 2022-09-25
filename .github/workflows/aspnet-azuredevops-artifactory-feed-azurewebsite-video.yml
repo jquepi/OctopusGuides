@@ -190,6 +190,11 @@ jobs:
       shell: powershell
       run: ./scripts/windows/create-badge.ps1
 
+    - name: Get agent logs
+      if: always()
+      shell: powershell
+      run: ./install.ps1 -Scripts azuredevopsagentlogs.pp
+
     - name: Delete resource groups
       if: always()
       shell: powershell

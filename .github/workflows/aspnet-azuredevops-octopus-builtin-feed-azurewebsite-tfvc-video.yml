@@ -199,3 +199,8 @@ jobs:
         ./delete-resource-group.ps1 $env:DEV_RES_GROUP
         ./delete-resource-group.ps1 $env:TEST_RES_GROUP
         ./delete-resource-group.ps1 $env:PROD_RES_GROUP
+
+    - name: Get agent logs
+      if: always()
+      shell: powershell
+      run: ./install.ps1 -Scripts azuredevopsagentlogs.pp
