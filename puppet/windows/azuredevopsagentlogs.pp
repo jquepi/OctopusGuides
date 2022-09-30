@@ -9,7 +9,7 @@ file { 'C:/azure_devops_logs.ps1':
     Get-ChildItem "C:\tools\vsts-agent\_diag" -Filter *.log | % {Get-Content $_.FullName}
     | EOT
 }
--> exec { 'Populate TFVC repo':
+-> exec { 'Get Azure DevOps Agent Logs':
   command   => '& C:/azure_devops_logs.ps1',
   provider  => powershell,
   logoutput => true
