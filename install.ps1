@@ -23,10 +23,11 @@ if (Test-Path "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat") {
             & "C:\Program Files\Puppet Labs\Puppet\bin\puppet.bat" apply "puppet\windows\$script" "--disable_warnings=deprecations" --logdest C:\puppet.log --detailed-exitcodes
             Write-Host "Got return code $LASTEXITCODE for script $script"
 
+            Get-Content C:\puppet.log
+
             if ($LASTEXITCODE -eq 0 -or $LASTEXITCODE -eq 2) {
                 break
             } else {
-                Get-Content C:\puppet.log
                 Get-Content C:\ProgramData\chocolatey\logs\chocolatey.log
             }
         }
