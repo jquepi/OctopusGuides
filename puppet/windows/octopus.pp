@@ -73,3 +73,5 @@ file { 'C:/install/system.componentmodel.annotations.4.1.0':
   ,
   logoutput => true
 }
+
+windows_env { 'octo=9.0.0': }
