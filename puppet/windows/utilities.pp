@@ -159,3 +159,12 @@ archive { 'C:/tools/zulu17.36.17-ca-jdk17.0.4.1-win_x64.zip':
   creates      => 'C:/tools/zulu17.36.17-ca-jdk17.0.4.1-win_x64/release',
   cleanup      => true,
 }
+
+archive { 'C:/tools/nssm-2.24.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools',
+  source       => 'https://octopus-guides.s3.amazonaws.com/bamboo/nssm-2.24.zip',
+  creates      => 'C:/tools/nssm-2.24/win64/nssm.exe',
+  cleanup      => true,
+}

@@ -30,14 +30,6 @@ file { 'C:/tools':
   creates      => 'C:/tools/atlas/installtype.txt',
   cleanup      => true,
 }
--> archive { 'C:/tools/nssm-2.24.zip':
-  ensure       => present,
-  extract      => true,
-  extract_path => 'C:/tools',
-  source       => 'https://octopus-guides.s3.amazonaws.com/bamboo/nssm-2.24.zip',
-  creates      => 'C:/tools/nssm-2.24/win64/nssm.exe',
-  cleanup      => true,
-}
 -> file { 'C:/start_bamboo.ps1':
   ensure  => 'file',
   owner   => 'Administrators',
