@@ -7,22 +7,22 @@ Feature: Add a manual intervention step
   @configure-smtp
   Scenario: Configure SMTP
     Given I set the following aliases:
-      | More                 | //span[contains(.,'More')]                                    |
-      | More Two             | (//span[contains(.,'More')])[2]                               |
-      | Configuration        | //span[contains(.,'Configuration')]                           |
-      | SMTP                 | //span[contains(.,'SMTP')] \| //a[contains(.,'SMTP')][not(*)] |
-      | SMTP Host Section    | //span[contains(.,'SMTP Host')]                               |
-      | SMTP Port Section    | //span[contains(.,'SMTP Port')]                               |
-      | SMTP SSL Section     | //span[contains(.,'Use SSL/TLS')]                             |
-      | From Address Section | //span[contains(.,'From Address')]                            |
-      | Credentials Section  | //span[contains(.,'Credentials')]                             |
-      | SMTP Host            | //input[@name='SMTP host']                                    |
-      | SMTP Port            | //input[@name='SMTP port']                                    |
-      | From Address         | //input[@name='From address']                                 |
-      | SMTP login           | //input[@name='SMTP login']                                   |
-      | SMTP password        | //input[@name='SMTP password']                                |
-      | Use SSL              | //input[../div[contains(.,'Use SSL/TLS')]]                    |
-      | Save                 | //button[@title='Save']                                       |
+      | More                 | //span[contains(.,'More')]                                                            |
+      | More Two             | (//span[contains(.,'More')])[2]                                                       |
+      | Configuration        | //span[contains(.,'Configuration')] \| //div[normalize-space(text())='Configuration'] |
+      | SMTP                 | //span[contains(.,'SMTP')] \| //a[contains(.,'SMTP')][not(*)]                         |
+      | SMTP Host Section    | //span[contains(.,'SMTP Host')]                                                       |
+      | SMTP Port Section    | //span[contains(.,'SMTP Port')]                                                       |
+      | SMTP SSL Section     | //span[contains(.,'Use SSL/TLS')]                                                     |
+      | From Address Section | //span[contains(.,'From Address')]                                                    |
+      | Credentials Section  | //span[contains(.,'Credentials')]                                                     |
+      | SMTP Host            | //input[@name='SMTP host']                                                            |
+      | SMTP Port            | //input[@name='SMTP port']                                                            |
+      | From Address         | //input[@name='From address']                                                         |
+      | SMTP login           | //input[@name='SMTP login']                                                           |
+      | SMTP password        | //input[@name='SMTP password']                                                        |
+      | Use SSL              | //input[../div[contains(.,'Use SSL/TLS')]]                                            |
+      | Save                 | //button[@title='Save']                                                               |
 
     And I start recording the screen to the directory "#{ExternalMediaPath}"
     And I display a note with the text "Configure SMTP settings" for "3" seconds
@@ -92,28 +92,28 @@ Feature: Add a manual intervention step
   @add-email-notification
   Scenario: Add the notification step
     Given I set the following aliases:
-      | Projects                      | //span[contains(.,'Projects')]                                                                  |
-      | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                                  |
-      | Deployments                   | //a[contains(.,'Deployments')]                                                                  |
-      | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                                |
-      | Add Step                      | //button[contains(.,'Add Step')]                                                                |
-      | Search                        | //input[@name='Filter by name, category or description...']                                     |
-      | Send an Email                 | //div[./div/div[text()='Send an Email']]                                                        |
-      | Add                           | //div[./div/div[text()='Send an Email']]//button[contains(.,'Add')]                             |
-      | Step Name                     | //input[@name='Step name']                                                                      |
-      | To                            | //input[@name='To']                                                                             |
-      | To container                  | //div[./input[@name='To']]                                                                      |
-      | Subject                       | //input[@name='Subject']                                                                        |
-      | Subject container             | //div[./input[@name='Subject']]                                                                 |
-      | Body                          | //textarea[@name='Body']                                                                        |
-      | Body container                | //div[./textarea[@name='Body']]                                                                 |
-      | Run Condition                 | //span[contains(.,'Run Condition')]                                                             |
-      | Always run                    | //input[@value='Always']                                                                        |
-      | Save                          | //button[contains(.,'Save')]                                                                    |
-      | Environments                  | //span[contains(.,'Environments')]                                                              |
-      | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                                       |
-      | Select environments           | //input[../../label[text()='Select environments']]                                              |
-      | Select environments container | //div[./div/div/div/label[text()='Select environments']]                                        |
+      | Projects                      | //span[contains(.,'Projects')]                                                    |
+      | Random Quotes                 | //a[@href='#/Spaces-1/projects/random-quotes']                                    |
+      | Deployments                   | //a[contains(.,'Deployments')]                                                    |
+      | Process                       | //a[contains(.,'Process')][not(*)] \| //a//div[text()='Process']                  |
+      | Add Step                      | //button[contains(.,'Add Step')]                                                  |
+      | Search                        | //input[@name='Filter by name, category or description...']                       |
+      | Send an Email                 | //div[./div/div[text()='Send an Email']]                                          |
+      | Add                           | //div[./div/div[text()='Send an Email']]//button[contains(.,'Add')]               |
+      | Step Name                     | //input[@name='Step name']                                                        |
+      | To                            | //input[@name='To']                                                               |
+      | To container                  | //div[./input[@name='To']]                                                        |
+      | Subject                       | //input[@name='Subject']                                                          |
+      | Subject container             | //div[./input[@name='Subject']]                                                   |
+      | Body                          | //textarea[@name='Body']                                                          |
+      | Body container                | //div[./textarea[@name='Body']]                                                   |
+      | Run Condition                 | //span[contains(.,'Run Condition')]                                               |
+      | Always run                    | //input[@value='Always']                                                          |
+      | Save                          | //button[contains(.,'Save')]                                                      |
+      | Environments                  | //span[contains(.,'Environments')]                                                |
+      | Skip specific environment     | //input[../div[contains(.,'Skip specific environments')]]                         |
+      | Select environments           | //input[../../label[text()='Select environments']]                                |
+      | Select environments container | //div[./div/div/div/label[text()='Select environments']]                          |
       | Dev Environment               | //div[contains(@class, 'VirtualListWithKeyboard')]//span[contains(.,'Dev')]//span |
 
     And I open the URL "http://localhost/app#"
