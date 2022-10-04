@@ -17,8 +17,14 @@ file { 'C:/tools/vsts-agent':
   content => @(EOT)
     Write-Host "Configuring Azure DevOps agent"
     C:\tools\vsts-agent\config.cmd --unattended --url http://localhost:9090 --auth integrated --pool default --agent myAgent
+
     Write-Host "Starting Azure DevOps agent"
-    start "C:\tools\vsts-agent\run.cmd" -PassThru
+    c:\tools\nssm-2.24\win64\nssm.exe install AzureDevopsAgent "C:\tools\vsts-agent\run.cmd"
+    c:\tools\nssm-2.24\win64\nssm.exe set AzureDevopsAgent AppDirectory C:\tools\vsts-agent
+    c:\tools\nssm-2.24\win64\nssm.exe set AzureDevopsAgent AppStdout C:\azuredevopsagent.out
+    c:\tools\nssm-2.24\win64\nssm.exe set AzureDevopsAgent AppStderr C:\azuredevopsagent.out
+    net start AzureDevopsAgent
+
     New-Item -ItemType file c:\AzureAgentStarted.txt
     exit 0
     | EOT
