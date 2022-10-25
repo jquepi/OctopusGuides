@@ -5,6 +5,15 @@ package { 'imagemagick.app':
   provider => chocolatey
 }
 
+archive { 'C:/tools/libwebp-1.2.4-windows-x64.zip':
+  ensure       => present,
+  extract      => true,
+  extract_path => 'C:/tools',
+  source       => 'https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.2.4-windows-x64.zip',
+  creates      => 'C:/tools/libwebp-1.2.4-windows-x64/README.md',
+  cleanup      => true,
+}
+
 # visualstudio2019teamexplorer in chocolatey
 archive { 'C:/tools/vs_TeamExplorer.zip':
   ensure       => present,
