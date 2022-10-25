@@ -1,6 +1,6 @@
 include apt
 
-package { 'imagemagick':
+package { 'webp':
   ensure => installed,
 }
 
