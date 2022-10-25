@@ -1,5 +1,9 @@
 include apt
 
+package { 'imagemagick':
+  ensure => installed,
+}
+
 package { 'apt-transport-https':
   ensure => installed,
 }

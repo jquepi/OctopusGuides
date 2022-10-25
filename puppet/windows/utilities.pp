@@ -1,5 +1,10 @@
 include chocolatey
 
+package { 'imagemagick.app':
+  ensure   => installed,
+  provider => chocolatey
+}
+
 # visualstudio2019teamexplorer in chocolatey
 archive { 'C:/tools/vs_TeamExplorer.zip':
   ensure       => present,
