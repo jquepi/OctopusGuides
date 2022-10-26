@@ -1,4 +1,4 @@
-Get-ChildItem -Path c:\screenshots -Recurse -Include *.png | % {C:/tools/libwebp-1.2.4-windows-x64/bin/cwebp.exe -q 80 $_.FullName -o "$([System.IO.Path]::GetFileNameWithoutExtension($_.FullName)).webp"}
+Get-ChildItem -Path c:\screenshots -Recurse -Include *.png | % {C:/tools/libwebp-1.2.4-windows-x64/bin/cwebp.exe -q 80 $_.FullName -o "$([System.IO.Path]::GetDirectoryName($_.FullName) + "\" + [System.IO.Path]::GetFileNameWithoutExtension($_.FullName)).webp"}
 
 # Copy all images to a new dir called resized
 mkdir c:\screenshots\resized
