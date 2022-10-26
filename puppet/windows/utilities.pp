@@ -2,8 +2,7 @@ include chocolatey
 
 package { 'imagemagick.app':
   ensure           => installed,
-  provider         => chocolatey,
-  package_settings => { 'LegacySupport' => 'true' }
+  provider         => chocolatey
 }
 
 archive { 'C:/tools/libwebp-1.2.4-windows-x64.zip':

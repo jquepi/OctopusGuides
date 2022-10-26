@@ -5,6 +5,6 @@ mkdir c:\screenshots\resized
 robocopy c:\screenshots c:\screenshots\resized /s
 
 # Resize all the image in the new dir with a width of 800 pixels
-Get-ChildItem -Path c:\screenshots\resized -Recurse -Include "*.*" | % {mogrify -resize "800x" $_.FullName}
+Get-ChildItem -Path c:\screenshots\resized -Recurse -Include "*.*" | % {magick convert -resize "800x" $_.FullName $_.FullName}
 
 & "C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 sync c:\screenshots s3://i.octopus.com/guides --acl public-read
