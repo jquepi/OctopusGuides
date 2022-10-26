@@ -2,7 +2,7 @@ Get-ChildItem -Path c:\screenshots -Recurse -Include *.png | % {C:/tools/libwebp
 
 # Copy all images to a new dir called resized
 mkdir c:\screenshots\resized
-Get-ChildItem c:\screenshots -Recurse -Include "*.*" | Copy-Item -Destination c:\screenshots\resized
+robocopy c:\screenshots c:\screenshots\resized /s
 
 # Resize all the image in the new dir with a width of 800 pixels
 Get-ChildItem -Path c:\screenshots\resized -Recurse -Include "*.*" | % {mogrify -resize "800x" $_.FullName}
