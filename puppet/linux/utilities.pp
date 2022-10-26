@@ -4,6 +4,10 @@ package { 'webp':
   ensure => installed,
 }
 
+package { 'imagemagick':
+  ensure => installed,
+}
+
 package { 'apt-transport-https':
   ensure => installed,
 }

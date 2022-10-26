@@ -1,8 +1,9 @@
 include chocolatey
 
 package { 'imagemagick.app':
-  ensure   => installed,
-  provider => chocolatey
+  ensure           => installed,
+  provider         => chocolatey,
+  package_settings => { 'LegacySupport' => 'true' }
 }
 
 archive { 'C:/tools/libwebp-1.2.4-windows-x64.zip':
@@ -33,8 +34,7 @@ archive { 'C:/tools/vs_TeamExplorer.zip':
 # gnuwin32-coreutils.install in chocoloaty
 download_file { 'coreutils-5.3.0.exe':
   destination_directory => 'C:/tools',
-  url                   =>
-    'https://octopus-guides.s3.amazonaws.com/coreutils/coreutils-5.3.0.exe',
+  url                   => 'https://octopus-guides.s3.amazonaws.com/coreutils/coreutils-5.3.0.exe',
 }
 -> exec { 'install coreutils':
   command   => 'C:/tools/coreutils-5.3.0.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART',
@@ -93,8 +93,8 @@ package { 'firefox':
 }
 
 package { 'awscli':
-  ensure   => installed,
-  provider => chocolatey,
+  ensure          => installed,
+  provider        => chocolatey,
   # On 03 March 2020 the checksums were failing, so force the install anyway
   install_options => ['--ignore-checksums']
 }
@@ -106,16 +106,14 @@ file { 'C:/screenshots':
 windows_env { 'PATH=C:\tools': }
 
 file { 'C:/tools':
-        ensure => 'directory'
+  ensure => 'directory'
 }
 
 archive { 'C:/tools/ungoogled-chromium-77.0.3865.75-1_windows.7z':
   ensure       => present,
   extract      => true,
   extract_path => 'C:/tools',
-  source       =>
-    'https://github.com/macchrome/winchrome/releases/download/v77.0.3865.75-r681094-Win64/ungoogled-chromium-77.0.3865.75-1_windows.7z'
-  ,
+  source       => 'https://github.com/macchrome/winchrome/releases/download/v77.0.3865.75-r681094-Win64/ungoogled-chromium-77.0.3865.75-1_windows.7z',
   creates      => 'C:/tools/ungoogled-chromium-77.0.3865.75-1_windows/chrome.exe',
   cleanup      => true,
 }
